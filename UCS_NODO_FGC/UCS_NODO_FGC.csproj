@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25251A6B-6F6D-4F95-93D4-EA15FEBDFD11}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UCS_NODO_FGC</RootNamespace>
+    <AssemblyName>UCS_NODO_FGC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySqlBackup, Version=2.0.9.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.NET.2.0.9.5\lib\net45\MySqlBackup.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="aaa.Designer.cs">
+      <DependentUpon>aaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="backup_restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="backup_restore.Designer.cs">
+      <DependentUpon>backup_restore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar_cliente.Designer.cs">
+      <DependentUpon>Buscar_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar_facilitadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar_facilitadores.Designer.cs">
+      <DependentUpon>Buscar_facilitadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar_usuarios.Designer.cs">
+      <DependentUpon>Buscar_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cambio_contraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cambio_contraseña.Designer.cs">
+      <DependentUpon>Cambio_contraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Clientes.cs" />
+    <Compile Include="Clases\Cliente_seleccionado.cs" />
+    <Compile Include="Clases\conexion_bd.cs" />
+    <Compile Include="Clases\Difusion.cs" />
+    <Compile Include="Clases\Empresa.cs" />
+    <Compile Include="Clases\Facilitadores.cs" />
+    <Compile Include="Clases\Facilitador_Seleccionado.cs" />
+    <Compile Include="Clases\Formaciones.cs" />
+    <Compile Include="Clases\ImageHelper.cs" />
+    <Compile Include="Clases\Paneles.cs" />
+    <Compile Include="Clases\Paquete_instruccional.cs" />
+    <Compile Include="Clases\Preguntas.cs" />
+    <Compile Include="Clases\Recuperacion_contraseña.cs" />
+    <Compile Include="Clases\Refrigerios.cs" />
+    <Compile Include="Clases\Usuarios.cs" />
+    <Compile Include="Clases\Usuario_logeado.cs" />
+    <Compile Include="frmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAyuda.Designer.cs">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio_Sesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio_Sesion.Designer.cs">
+      <DependentUpon>Inicio_Sesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_contacto_area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_contacto_area.Designer.cs">
+      <DependentUpon>Modificar_contacto_area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_difusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_difusion.Designer.cs">
+      <DependentUpon>Modificar_difusion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_empresa.Designer.cs">
+      <DependentUpon>Modificar_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_facilitadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_facilitadores.Designer.cs">
+      <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_Refrigerio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_Refrigerio.Designer.cs">
+      <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nueva_formacion_Abierto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nueva_formacion_Abierto.Designer.cs">
+      <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nueva_formacion_FEE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nueva_formacion_FEE.Designer.cs">
+      <DependentUpon>Nueva_formacion_FEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nueva_formacion_INCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nueva_formacion_INCES.Designer.cs">
+      <DependentUpon>Nueva_formacion_INCES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Opciones_recuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Opciones_recuperacion.Designer.cs">
+      <DependentUpon>Opciones_recuperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina_principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagina_principal.Designer.cs">
+      <DependentUpon>Pagina_principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina_principal_Asistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagina_principal_Asistente.Designer.cs">
+      <DependentUpon>Pagina_principal_Asistente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagina_principal_Colaborador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagina_principal_Colaborador.Designer.cs">
+      <DependentUpon>Pagina_principal_Colaborador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_personal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perfil_personal.Designer.cs">
+      <DependentUpon>Perfil_personal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil_profesional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perfil_profesional.Designer.cs">
+      <DependentUpon>Perfil_profesional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Preguntas_de_seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preguntas_de_seguridad.Designer.cs">
+      <DependentUpon>Preguntas_de_seguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recuperacion_preguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recuperacion_preguntas.Designer.cs">
+      <DependentUpon>Recuperacion_preguntas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_area.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_area.Designer.cs">
+      <DependentUpon>Registrar_area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_clientes.Designer.cs">
+      <DependentUpon>Registrar_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_facilitadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_facilitadores.Designer.cs">
+      <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_publicidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_publicidad.Designer.cs">
+      <DependentUpon>Registrar_publicidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_refrigerio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_refrigerio.Designer.cs">
+      <DependentUpon>Registrar_refrigerio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_usuarios.Designer.cs">
+      <DependentUpon>Registrar_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Verificacion_recuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verificacion_recuperacion.Designer.cs">
+      <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_paqueteInstruccional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_paqueteInstruccional.Designer.cs">
+      <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_publicidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_publicidad.Designer.cs">
+      <DependentUpon>Ver_publicidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_refrigerios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_refrigerios.Designer.cs">
+      <DependentUpon>Ver_refrigerios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="aaa.resx">
+      <DependentUpon>aaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="backup_restore.resx">
+      <DependentUpon>backup_restore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar_cliente.resx">
+      <DependentUpon>Buscar_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar_facilitadores.resx">
+      <DependentUpon>Buscar_facilitadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar_usuarios.resx">
+      <DependentUpon>Buscar_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cambio_contraseña.resx">
+      <DependentUpon>Cambio_contraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAyuda.resx">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio_Sesion.resx">
+      <DependentUpon>Inicio_Sesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_contacto_area.resx">
+      <DependentUpon>Modificar_contacto_area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_difusion.resx">
+      <DependentUpon>Modificar_difusion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_empresa.resx">
+      <DependentUpon>Modificar_empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_facilitadores.resx">
+      <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_Refrigerio.resx">
+      <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nueva_formacion_Abierto.resx">
+      <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nueva_formacion_INCES.resx">
+      <DependentUpon>Nueva_formacion_INCES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Opciones_recuperacion.resx">
+      <DependentUpon>Opciones_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagina_principal.resx">
+      <DependentUpon>Pagina_principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagina_principal_Asistente.resx">
+      <DependentUpon>Pagina_principal_Asistente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagina_principal_Colaborador.resx">
+      <DependentUpon>Pagina_principal_Colaborador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil_personal.resx">
+      <DependentUpon>Perfil_personal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil_profesional.resx">
+      <DependentUpon>Perfil_profesional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preguntas_de_seguridad.resx">
+      <DependentUpon>Preguntas_de_seguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recuperacion_preguntas.resx">
+      <DependentUpon>Recuperacion_preguntas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_area.resx">
+      <DependentUpon>Registrar_area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_clientes.resx">
+      <DependentUpon>Registrar_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_facilitadores.resx">
+      <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_publicidad.resx">
+      <DependentUpon>Registrar_publicidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_refrigerio.resx">
+      <DependentUpon>Registrar_refrigerio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_usuarios.resx">
+      <DependentUpon>Registrar_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verificacion_recuperacion.resx">
+      <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_paqueteInstruccional.resx">
+      <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_publicidad.resx">
+      <DependentUpon>Ver_publicidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_refrigerios.resx">
+      <DependentUpon>Ver_refrigerios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background_perfilU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_formaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_participantes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_reportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_ayuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add_usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_facilitadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bloqueado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panel_cabecera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_camara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_docx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_ppt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_ver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pdfFormato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_editar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_flecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_refrigerio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_publicidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_logistica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_horarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_add4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_backup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_manual.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
