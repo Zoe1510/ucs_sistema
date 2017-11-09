@@ -47,3 +47,6 @@ C:\Users\ZM\Documents\SISTEMA UCS\UCS_NODO_FGC\UCS_NODO_FGC\obj\Debug\UCS_NODO_F
 C:\Users\ZM\Documents\SISTEMA UCS\UCS_NODO_FGC\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Ver_publicidad.resources
 C:\Users\ZM\Documents\SISTEMA UCS\UCS_NODO_FGC\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Ayuda.resources
 C:\Users\ZM\Documents\SISTEMA UCS\UCS_NODO_FGC\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.frmAyuda.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\bin\Debug\UCS_NODO_FGC.exe.config
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.exe
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.pdb
