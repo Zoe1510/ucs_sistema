@@ -25,18 +25,18 @@ namespace UCS_NODO_FGC
         {
             f1.Visible = false;
             f2.Visible = false;
-            f3.Visible = false;
+            
             f4.Visible = false;
             f5.Visible = false;
             btnGuardarCambios.Enabled = false;
             btnModificarBitacora.Enabled = false;
             btnModificarContenido.Enabled = false;
-            btnModificarFicha.Enabled = false;
+           
             btnModificarManual.Enabled = false;
             btnModificarPresentacion.Enabled = false;
             btnVerBitacora.Enabled = false;
             btnVerContenido.Enabled = false;
-            btnVerFicha.Enabled = false;
+            
             btnVerManual.Enabled = false;
             btnVerPresentacion.Enabled = false;
         }
@@ -64,17 +64,7 @@ namespace UCS_NODO_FGC
                 btnVerContenido.Enabled = true;
             }
 
-            //ficha
-            if (Clases.Paquete_instruccional._ficha == null || Clases.Paquete_instruccional._ficha == "")
-            {
-                txtRutaFicha.Text = "No existe archivo.";
-            }
-            else
-            {
-                txtRutaFicha.Text = Clases.Paquete_instruccional._ficha;
-                btnVerFicha.Enabled = true;
-            }
-
+           
             //Manual
             if (Clases.Paquete_instruccional._manual == null || Clases.Paquete_instruccional._manual == "")
             {
@@ -121,11 +111,7 @@ namespace UCS_NODO_FGC
             Process.Start(txtRutaContenido.Text);
         }
 
-        private void btnVerFicha_Click(object sender, EventArgs e)
-        {
-            Process.Start(txtRutaFicha.Text);
-        }
-
+       
         private void btnVerManual_Click(object sender, EventArgs e)
         {
             Process.Start(txtRutaManual.Text);
@@ -148,16 +134,16 @@ namespace UCS_NODO_FGC
             }else if (Clases.Paquete_instruccional.tipo_curso == "FEE")
             {
                 btnModificarPresentacion.Enabled = true;
-                btnModificarFicha.Enabled = true;
+                btnModificarContenido.Enabled = true;
                 btnModificarBitacora.Enabled = true;
                 f1.Visible = true;
-                f3.Visible = true;
+                f2.Visible = true;
                 f5.Visible = true;
             }
             else if (Clases.Paquete_instruccional.tipo_curso == "InCompany" || Clases.Paquete_instruccional.tipo_curso == "INCES")
             {
                 btnModificarPresentacion.Enabled = true;
-                btnModificarFicha.Enabled = true;
+                btnModificarContenido.Enabled = true;
                 btnModificarBitacora.Enabled = true;
                 btnModificarManual.Enabled = true;
             }
@@ -206,26 +192,7 @@ namespace UCS_NODO_FGC
             }
         }
 
-        private void btnModificarFicha_Click(object sender, EventArgs e)
-        {
-
-            OpenFileDialog od = new OpenFileDialog();
-            od.Filter = "PDF files |*.pdf";
-            if (od.ShowDialog() == DialogResult.OK)
-            {
-               
-                txtRutaFicha.Text = od.FileName;
-                btnVerFicha.Enabled = true;
-                btnGuardarCambios.Enabled = true;
-            }else
-            {
-                if (txtRutaFicha.Text == "")
-                {
-                    txtRutaFicha.Text = "No existe archivo.";
-                }
-                    
-            }
-        }
+       
 
         private void btnModificarManual_Click(object sender, EventArgs e)
         {
@@ -234,7 +201,7 @@ namespace UCS_NODO_FGC
             if (od.ShowDialog() == DialogResult.OK)
             {
                
-                txtRutaFicha.Text = od.FileName;
+                txtRutaManual.Text = od.FileName;
                 btnVerManual.Enabled = true;
                 btnGuardarCambios.Enabled = true;
             }

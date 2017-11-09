@@ -39,18 +39,34 @@ namespace UCS_NODO_FGC
             btnVerContenido.Enabled = false;
             btnRutaContenido.Enabled = false;
             btnRutaPresentacion.Enabled = false;
-
+            Load_Sig_Re();
+            
         }
 
-        private void btnGuardar_Pausar_Click(object sender, EventArgs e)
+        private void Load_Sig_Re()
+        {
+            btnRetomar.Enabled = false;
+            btnSiguienteEtapa.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = true;
+            btnPausar.Enabled = true;
+            btnLimpiar.Enabled = true;
+        }
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             fecha_modifinal = DateTime.Now;
             GuardarBasico();
             if(guardar == true)
             {
-                btnSeguir.Enabled = true;
-                btnGuardarSeguir.Enabled = false;
-                btnGuardarPausar.Enabled = false;
+                
+                btnSiguienteEtapa.Enabled = true;
+                btnPausar.Enabled = true;
+                btnLimpiar.Enabled = true;
+
+                btnModificar.Enabled = false;
+                btnRetomar.Enabled = false;
+                btnGuardar.Enabled = false;
+
             }
            
 
@@ -69,27 +85,7 @@ namespace UCS_NODO_FGC
             }
         }
 
-        //private void btnRutaFichaTecnica_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        OpenFileDialog od = new OpenFileDialog();
-        //        od.Filter = "PDF files |*.pdf";
-        //        if (od.ShowDialog() == DialogResult.OK)
-        //        {
-        //            ficha = od.FileName;
-        //            Clases.Paquete_instruccional.ficha = Clases.Helper.DocToByteArray(ficha);
-
-        //        }
-
-        //    }
-        //    catch (MySqlException ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        conexion.cerrarconexion();
-
-        //    }
-        //}
+        
         private void btnRutaContenido_Click(object sender, EventArgs e)
         {
             try
@@ -368,7 +364,7 @@ namespace UCS_NODO_FGC
                         conexion.cerrarconexion();
                         Clases.Paquete_instruccional._bitacora = pq.bitacora;
                         Clases.Paquete_instruccional._contenido = pq.contenido;
-                        Clases.Paquete_instruccional._ficha = pq.ficha;
+                        
                         Clases.Paquete_instruccional._manual = pq.manual;
                         Clases.Paquete_instruccional._presentacion = pq.presentacion;
                         Clases.Paquete_instruccional.id_pin = id_pq;
@@ -412,6 +408,16 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private void deshabiltarControles()
+        {
+            txtNombreFormacion.Enabled = false;
+            txtSolicitadoPor.Enabled = false;
+            cmbxDuracionFormacion.Enabled = false;
+            cmbxBloques.Enabled = false;
+            btnRutaContenido.Enabled = false;
+            btnRutaPresentacion.Enabled = false;
+        }
+       
         private void cmbxBloques_Validating(object sender, CancelEventArgs e)
         {
             if(cmbxBloques.SelectedIndex == -1)
@@ -478,9 +484,41 @@ namespace UCS_NODO_FGC
             vaciarFormacion();
         }
 
-        private void btnSeguir_Click(object sender, EventArgs e)
+        private void btnPausar_Click(object sender, EventArgs e)
         {
+            //si pausa, deshabilita los controles:
+            deshabiltarControles();
+            //además se deshabilita guardar, pausar, siguiente etapa, modificar, limpiar
+            //se habilita retomar
 
+            btnRetomar.Enabled = true; //habilitado
+
+            btnSiguienteEtapa.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnPausar.Enabled = false;
+            btnLimpiar.Enabled = false;
+        }
+
+        private void btnRetomar_Click(object sender, EventArgs e)
+        {
+            //cuando retomar habilitar los controles
+            txtNombreFormacion.Enabled = true;
+            txtSolicitadoPor.Enabled = true;
+            cmbxDuracionFormacion.Enabled = true;
+            cmbxBloques.Enabled = true;
+            btnRutaContenido.Enabled = true;
+            btnRutaPresentacion.Enabled = true;
+            //Y lo deja igual que el load
+            Load_Sig_Re();
+        }
+
+        private void btnSiguienteEtapa_Click(object sender, EventArgs e)
+        {
+            //cuando Siguiente etapa, quita el panel actual
+
+            // Y lo deja igual que cuando el load
+            Load_Sig_Re();
         }
 
         private void GuardarBasico()
@@ -525,9 +563,7 @@ namespace UCS_NODO_FGC
                                     errorProviderSolicitado.SetError(txtSolicitadoPor, "");
                                     if (conexion.abrirconexion() == true)
                                     {
-                                        //formacion.estatus = "En curso"; //predeterminado en esta etapa
-                                        //formacion.tipo_formacion = "Abierto"; //predeterminado para este form
-                                        //formacion.nombre_formacion = txtNombreFormacion.Text;
+                                        
                                         if (btnVerPresentacion.Enabled == false)
                                         {
                                             p_inst.presentacion = "";

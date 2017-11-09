@@ -383,9 +383,29 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_pdf {
+            get {
+                object obj = ResourceManager.GetObject("icon_pdf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_pdfFormato {
             get {
                 object obj = ResourceManager.GetObject("icon_pdfFormato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_pdfFormato1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_pdfFormato1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

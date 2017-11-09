@@ -227,11 +227,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnFormaciones.Height == 48)
             {
                 pnlBtnFormaciones.Height = 317;
+                btnFormaciones.BackColor = Color.FromArgb(128, 128, 255);
+                btnFacilitadores.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFormaciones.Height = 48;
+                btnFormaciones.BackColor = Color.Transparent;
+                btnFacilitadores.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -243,11 +247,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnFacilitadores.Height == 48)
             {
                 pnlBtnFacilitadores.Height = 162;
+                btnFacilitadores.BackColor = Color.FromArgb(128, 128, 255);
+                btnClientes.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFacilitadores.Height = 48;
+                btnFacilitadores.BackColor = Color.Transparent;
+                btnClientes.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -258,11 +266,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnClientes.Height == 48)
             {
                 pnlBtnClientes.Height = 200;
+                btnClientes.BackColor = Color.FromArgb(128, 128, 255);
+                btnParticipante.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnClientes.Height = 48;
+                btnClientes.BackColor = Color.Transparent;
+                btnParticipante.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -274,11 +286,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnParticipantes.Height == 48)
             {
                 pnlBtnParticipantes.Height = 156;
+                btnParticipante.BackColor = Color.FromArgb(128, 128, 255);
+                btnUsuario.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnParticipantes.Height = 48;
+                btnParticipante.BackColor = Color.Transparent;
+                btnUsuario.BackColor = Color.Transparent;
                 menudown();
             }
 
@@ -289,52 +305,69 @@ namespace UCS_NODO_FGC
             if (pnlBtnUsuario.Height == 48)
             {
                 pnlBtnUsuario.Height = 162;
+                btnUsuario.BackColor = Color.FromArgb(128, 128, 255);
+                btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnUsuario.Height = 48;
+                btnUsuario.BackColor = Color.Transparent;
+                btnLogistica.BackColor = Color.Transparent;
                 menudown();
             }
         }
-
+        private void btnLogistica_Click(object sender, EventArgs e)
+        {
+            if (pnlBtnLogistica.Height == 48)
+            {
+                pnlBtnLogistica.Height = 213;
+                btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
+                btnReportes.BackColor = Color.FromArgb(128, 128, 255);
+                menudown();
+            }
+            else
+            {
+                pnlBtnLogistica.Height = 48;
+                btnReportes.BackColor = Color.Transparent;
+                btnLogistica.BackColor = Color.Transparent;
+                menudown();
+            }
+        }
         private void btnReportes_Click(object sender, EventArgs e)
         {
             if (pnlBtnReportes.Height == 48)
             {
                 pnlBtnReportes.Height = 162;
+                btnReportes.BackColor = Color.FromArgb(128, 128, 255);
+                btnFormatos.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnReportes.Height = 48;
+                btnReportes.BackColor = Color.Transparent;
+                btnFormatos.BackColor = Color.Transparent;
                 menudown();
             }
 
         }
 
-        private void btnLogistica_Click(object sender, EventArgs e)
-        {
-            if(pnlBtnLogistica.Height == 48)
-            {
-                pnlBtnLogistica.Height = 213;
-                menudown();
-            }else
-            {
-                pnlBtnLogistica.Height = 48;
-                menudown();
-            }
-        }
+       
         private void btnFormatos_Click(object sender, EventArgs e)
         {
             if (pnlBtnFormatos.Height == 48)
             {
                 pnlBtnFormatos.Height = 104;
+                btnFormatos.BackColor = Color.FromArgb(128, 128, 255);
+                btnFrmAyuda.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFormatos.Height = 48;
+                btnFormatos.BackColor = Color.Transparent;
+                btnFrmAyuda.BackColor = Color.Transparent;
                 menudown();
             }
         }
@@ -411,6 +444,11 @@ namespace UCS_NODO_FGC
         private void btnFrmAyuda_Click(object sender, EventArgs e)
         {
             AddFormInPanel(new frmAyuda());
+        }
+
+        private void btnFormaciones_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

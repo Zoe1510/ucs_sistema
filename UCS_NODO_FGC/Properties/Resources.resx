@@ -133,6 +133,9 @@
   <data name="icon_ver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_ver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_publicidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_publicidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,8 +220,8 @@
   <data name="icon_usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_publicidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_publicidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_archivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,13 +238,16 @@
   <data name="icon_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_pdfFormato1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_pdfFormato1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_pdfFormato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_pdfFormato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_ayuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_ayuda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_pdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
