@@ -27,7 +27,7 @@ namespace UCS_NODO_FGC
             string tlfn = "00000000000";
             string pass = "12345678";
             string nacionalidad;
-            int id_usuario;
+            int ci_usuario;
             conexion.cerrarconexion();
             try
             {
@@ -64,8 +64,8 @@ namespace UCS_NODO_FGC
                         {
                             errorProviderCMBCargo.SetError(cmbxCargoUsuario, "");
 
-                            usuario.id_usuario = Convert.ToInt32(txtCedulaUsuario.Text);
-                            id_usuario = usuario.id_usuario;
+                            usuario.cedula_user = Convert.ToInt32(txtCedulaUsuario.Text);
+                            ci_usuario = usuario.cedula_user;
                             usuario.nombre_usuario = txtNombreUsuario.Text;
                             usuario.apellido_usuario = txtApellidoUsuario.Text;
                             cargo = Convert.ToString(cmbxCargoUsuario.SelectedIndex);
@@ -99,7 +99,7 @@ namespace UCS_NODO_FGC
                             usuario.imagen_usuario = Clases.Helper.ImageToByteArray(Properties.Resources.img_perfil);
                             int resultado;
                             int resultado2;
-                            resultado = Clases.Usuarios.UsuarioExiste(conexion.conexion, id_usuario);
+                            resultado = Clases.Usuarios.UsuarioExiste(conexion.conexion, ci_usuario);
                             conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
@@ -136,6 +136,7 @@ namespace UCS_NODO_FGC
                                     }
                                     else
                                     {
+                                        MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         txtCedulaUsuario.Text = "Cédula";
                                         txtNombreUsuario.Text = "Nombre";
                                         txtApellidoUsuario.Text = "Apellido";
@@ -201,6 +202,7 @@ namespace UCS_NODO_FGC
             }
             else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
             {
+                cmbxCargoUsuario.Items.Clear();
                 cmbxCargoUsuario.Items.Add("Asistente");
             }
         }

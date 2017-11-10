@@ -9,6 +9,7 @@ namespace UCS_NODO_FGC.Clases
     public class Usuario_logeado
     {
         public static int id_usuario { get; set; }
+        public static int cedula_user { get; set; }
         public static string cargo_usuario { get; set; }
         public static string nombre_usuario { get; set; }
         public static string apellido_usuario { get; set; }

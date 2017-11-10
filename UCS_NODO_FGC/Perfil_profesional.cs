@@ -35,7 +35,7 @@ namespace UCS_NODO_FGC
             txtCorreoUser.Text = Clases.Usuario_logeado.correo_usuario;
             txtTlfnUser.Text = Clases.Usuario_logeado.tlfn_usuario;
             lblCargo.Text = Clases.Usuario_logeado.cargo_usuario;
-            lblCedula.Text = Convert.ToString(Clases.Usuario_logeado.id_usuario);
+            lblCedula.Text = Convert.ToString(Clases.Usuario_logeado.cedula_user);
             txtNuevoPass.Text = "";
             txtConfirPass.Text = "";
 
@@ -126,7 +126,8 @@ namespace UCS_NODO_FGC
                             usuario.nombre_usuario = txtNombreUser.Text;
                             usuario.apellido_usuario = txtApellidoUser.Text;
                             usuario.cargo_usuario = lblCargo.Text;
-                            usuario.id_usuario = Convert.ToInt32(lblCedula.Text);
+                            usuario.cedula_user = Convert.ToInt32(lblCedula.Text);
+                            usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
                             usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
                             int resultado;
 

@@ -94,12 +94,12 @@ namespace UCS_NODO_FGC
                         {
                             
 
-                            usuario.id_usuario = Convert.ToInt32(Txt_id_user.Text);
+                            usuario.cedula_user = Convert.ToInt32(Txt_id_user.Text);
                             usuario.password = Txt_pass_user.Text;
-                            int id_existe = Clases.Usuarios.UsuarioExiste(conexion.conexion, usuario.id_usuario);
+                            int ci_existe = Clases.Usuarios.UsuarioExiste(conexion.conexion, usuario.cedula_user);
                             conexion.cerrarconexion();
 
-                            if(id_existe > 0 )//si la cedula introducida existe en el registro de usuarios
+                            if(ci_existe > 0 )//si la cedula introducida existe en el registro de usuarios
                             {
                                 if (conexion.abrirconexion() == true)
                                 {
@@ -108,7 +108,7 @@ namespace UCS_NODO_FGC
 
                                     if (usuarioIngresado.id_usuario != 0)//si la contraseña corresponde al id:
                                     {
-                                        
+                                        Clases.Usuario_logeado.cedula_user = usuario.cedula_user;
                                         Clases.Usuario_logeado.nombre_usuario = usuarioIngresado.nombre_usuario;
                                         Clases.Usuario_logeado.apellido_usuario = usuarioIngresado.apellido_usuario;
                                         Clases.Usuario_logeado.id_usuario = usuarioIngresado.id_usuario;

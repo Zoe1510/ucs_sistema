@@ -78,12 +78,12 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 267);
+            this.panel8.Location = new System.Drawing.Point(0, 272);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(500, 25);
+            this.panel8.Size = new System.Drawing.Size(500, 20);
             this.panel8.TabIndex = 60;
             // 
             // label9
@@ -91,7 +91,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 6.75F);
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(493, 15);
             this.label9.TabIndex = 0;

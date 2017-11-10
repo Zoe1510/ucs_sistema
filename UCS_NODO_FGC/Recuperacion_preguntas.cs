@@ -29,7 +29,7 @@ namespace UCS_NODO_FGC
            
             if (Clases.Recuperacion_contraseña.cedula != 0)
             {
-                CargarPreguntas(Clases.Recuperacion_contraseña.cedula);
+                CargarPreguntas(Clases.Recuperacion_contraseña.id_usuario);
             }
         }
 

@@ -71,7 +71,7 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
-                    MessageBox.Show("Entro a try");
+                   
                     if(txtNombreRef.Text == "")
                     {
                         errorProviderNombre.SetError(txtNombreRef, "Debe proporcionar un nombre válido.");
@@ -84,24 +84,26 @@ namespace UCS_NODO_FGC
                         txtContenidoRef.Focus();
                     }else
                     {
+                        refri.id_ref = Clases.Refrigerios.idR;
                         errorProviderContenido.SetError(txtContenidoRef, "");
                         refri.nombre = txtNombreRef.Text;
                         refri.contenido_ref = txtContenidoRef.Text;
                         int existe = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
                         conexion.cerrarconexion();
-                        MessageBox.Show("Entro a else");
+                        
+
                         if (existe==Clases.Refrigerios.idR)
                         {
                             MessageBox.Show("No se han encontrado cambios.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else if (existe != 0)
                         {
-                            MessageBox.Show("Entro a else1");
+                           
                             errorProviderNombre.SetError(txtNombreRef, "Ya existe este nombre registrado.");
                             txtNombreRef.Clear();
                             txtNombreRef.Focus();
                         }
-                        else if (existe == 0)
+                        else
                         {
                             errorProviderNombre.SetError(txtNombreRef, "");
                             if (conexion.abrirconexion() == true)

@@ -129,7 +129,7 @@
             this.grpbOpciones.Controls.Add(this.btnModificar);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbOpciones.Location = new System.Drawing.Point(870, 325);
+            this.grpbOpciones.Location = new System.Drawing.Point(870, 340);
             this.grpbOpciones.Name = "grpbOpciones";
             this.grpbOpciones.Size = new System.Drawing.Size(222, 363);
             this.grpbOpciones.TabIndex = 54;
@@ -248,7 +248,7 @@
             this.grpbData.Controls.Add(this.dgvDif);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbData.Location = new System.Drawing.Point(21, 118);
+            this.grpbData.Location = new System.Drawing.Point(12, 133);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(832, 570);
             this.grpbData.TabIndex = 52;

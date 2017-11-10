@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pnlPanelOpciones = new System.Windows.Forms.Panel();
+            this.btnSiguienteEtapa = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRetomar = new System.Windows.Forms.Button();
@@ -49,21 +50,29 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnSiguienteEtapa = new System.Windows.Forms.Button();
             this.pnlNivel_avanzado = new System.Windows.Forms.Panel();
             this.pnlNivel_basico = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cmbxBloques = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnRutaBitacora = new System.Windows.Forms.Button();
+            this.btnRutaManual = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRutaPresentacion = new System.Windows.Forms.Button();
             this.btnRutaContenido = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPDFB = new System.Windows.Forms.Button();
+            this.btnVerBitacora = new System.Windows.Forms.Button();
+            this.btnPDFM = new System.Windows.Forms.Button();
+            this.btnVerManual = new System.Windows.Forms.Button();
+            this.btnPPT = new System.Windows.Forms.Button();
+            this.btnDOC = new System.Windows.Forms.Button();
             this.btnVerPresentacion = new System.Windows.Forms.Button();
             this.btnVerContenido = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbxSolicitadoPor = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNombreFormacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,19 +93,10 @@
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
             this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cmbxSolicitadoPor = new System.Windows.Forms.ComboBox();
-            this.btnRutaManual = new System.Windows.Forms.Button();
-            this.btnRutaBitacora = new System.Windows.Forms.Button();
-            this.btnVerManual = new System.Windows.Forms.Button();
-            this.btnPDFM = new System.Windows.Forms.Button();
-            this.btnPPT = new System.Windows.Forms.Button();
-            this.btnDOC = new System.Windows.Forms.Button();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnPDFB = new System.Windows.Forms.Button();
-            this.btnVerBitacora = new System.Windows.Forms.Button();
             this.errorProviderNombreF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
@@ -166,6 +166,17 @@
             this.pnlPanelOpciones.Name = "pnlPanelOpciones";
             this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
             this.pnlPanelOpciones.TabIndex = 59;
+            // 
+            // btnSiguienteEtapa
+            // 
+            this.btnSiguienteEtapa.Enabled = false;
+            this.btnSiguienteEtapa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnSiguienteEtapa.Location = new System.Drawing.Point(21, 262);
+            this.btnSiguienteEtapa.Name = "btnSiguienteEtapa";
+            this.btnSiguienteEtapa.Size = new System.Drawing.Size(165, 47);
+            this.btnSiguienteEtapa.TabIndex = 42;
+            this.btnSiguienteEtapa.Text = "Siguiente etapa";
+            this.btnSiguienteEtapa.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 
@@ -319,17 +330,6 @@
             this.rectangleShape6.Name = "rectangleShape6";
             this.rectangleShape6.Size = new System.Drawing.Size(1, 734);
             // 
-            // btnSiguienteEtapa
-            // 
-            this.btnSiguienteEtapa.Enabled = false;
-            this.btnSiguienteEtapa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnSiguienteEtapa.Location = new System.Drawing.Point(21, 262);
-            this.btnSiguienteEtapa.Name = "btnSiguienteEtapa";
-            this.btnSiguienteEtapa.Size = new System.Drawing.Size(165, 47);
-            this.btnSiguienteEtapa.TabIndex = 42;
-            this.btnSiguienteEtapa.Text = "Siguiente etapa";
-            this.btnSiguienteEtapa.UseVisualStyleBackColor = true;
-            // 
             // pnlNivel_avanzado
             // 
             this.pnlNivel_avanzado.AutoScroll = true;
@@ -353,7 +353,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(831, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(56, 615);
             this.pnlNivel_basico.TabIndex = 0;
             // 
             // groupBox5
@@ -400,6 +400,34 @@
             this.groupBox4.Size = new System.Drawing.Size(479, 117);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
+            // 
+            // btnRutaBitacora
+            // 
+            this.btnRutaBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
+            this.btnRutaBitacora.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
+            this.btnRutaBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaBitacora.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRutaBitacora.ForeColor = System.Drawing.Color.White;
+            this.btnRutaBitacora.Location = new System.Drawing.Point(362, 64);
+            this.btnRutaBitacora.Name = "btnRutaBitacora";
+            this.btnRutaBitacora.Size = new System.Drawing.Size(95, 32);
+            this.btnRutaBitacora.TabIndex = 37;
+            this.btnRutaBitacora.Text = "Bitácora";
+            this.btnRutaBitacora.UseVisualStyleBackColor = false;
+            // 
+            // btnRutaManual
+            // 
+            this.btnRutaManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
+            this.btnRutaManual.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnRutaManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaManual.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRutaManual.ForeColor = System.Drawing.Color.White;
+            this.btnRutaManual.Location = new System.Drawing.Point(252, 64);
+            this.btnRutaManual.Name = "btnRutaManual";
+            this.btnRutaManual.Size = new System.Drawing.Size(97, 32);
+            this.btnRutaManual.TabIndex = 36;
+            this.btnRutaManual.Text = "Manual";
+            this.btnRutaManual.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
@@ -469,6 +497,84 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Archivos cargados";
             // 
+            // btnPDFB
+            // 
+            this.btnPDFB.BackColor = System.Drawing.Color.Transparent;
+            this.btnPDFB.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
+            this.btnPDFB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPDFB.Enabled = false;
+            this.btnPDFB.FlatAppearance.BorderSize = 0;
+            this.btnPDFB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDFB.Location = new System.Drawing.Point(443, 34);
+            this.btnPDFB.Name = "btnPDFB";
+            this.btnPDFB.Size = new System.Drawing.Size(73, 72);
+            this.btnPDFB.TabIndex = 8;
+            this.btnPDFB.UseVisualStyleBackColor = false;
+            // 
+            // btnVerBitacora
+            // 
+            this.btnVerBitacora.Enabled = false;
+            this.btnVerBitacora.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerBitacora.Location = new System.Drawing.Point(432, 118);
+            this.btnVerBitacora.Name = "btnVerBitacora";
+            this.btnVerBitacora.Size = new System.Drawing.Size(89, 27);
+            this.btnVerBitacora.TabIndex = 7;
+            this.btnVerBitacora.Text = "Ver bitácora";
+            this.btnVerBitacora.UseVisualStyleBackColor = true;
+            // 
+            // btnPDFM
+            // 
+            this.btnPDFM.BackColor = System.Drawing.Color.Transparent;
+            this.btnPDFM.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
+            this.btnPDFM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPDFM.Enabled = false;
+            this.btnPDFM.FlatAppearance.BorderSize = 0;
+            this.btnPDFM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDFM.Location = new System.Drawing.Point(321, 35);
+            this.btnPDFM.Name = "btnPDFM";
+            this.btnPDFM.Size = new System.Drawing.Size(73, 72);
+            this.btnPDFM.TabIndex = 6;
+            this.btnPDFM.UseVisualStyleBackColor = false;
+            // 
+            // btnVerManual
+            // 
+            this.btnVerManual.Enabled = false;
+            this.btnVerManual.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerManual.Location = new System.Drawing.Point(313, 119);
+            this.btnVerManual.Name = "btnVerManual";
+            this.btnVerManual.Size = new System.Drawing.Size(89, 27);
+            this.btnVerManual.TabIndex = 5;
+            this.btnVerManual.Text = "Ver manual";
+            this.btnVerManual.UseVisualStyleBackColor = true;
+            // 
+            // btnPPT
+            // 
+            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
+            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
+            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPPT.Enabled = false;
+            this.btnPPT.FlatAppearance.BorderSize = 0;
+            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPPT.Location = new System.Drawing.Point(197, 34);
+            this.btnPPT.Name = "btnPPT";
+            this.btnPPT.Size = new System.Drawing.Size(73, 72);
+            this.btnPPT.TabIndex = 4;
+            this.btnPPT.UseVisualStyleBackColor = false;
+            // 
+            // btnDOC
+            // 
+            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
+            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_docx;
+            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDOC.Enabled = false;
+            this.btnDOC.FlatAppearance.BorderSize = 0;
+            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDOC.Location = new System.Drawing.Point(61, 35);
+            this.btnDOC.Name = "btnDOC";
+            this.btnDOC.Size = new System.Drawing.Size(73, 71);
+            this.btnDOC.TabIndex = 3;
+            this.btnDOC.UseVisualStyleBackColor = false;
+            // 
             // btnVerPresentacion
             // 
             this.btnVerPresentacion.Enabled = false;
@@ -506,6 +612,21 @@
             this.groupBox2.Size = new System.Drawing.Size(479, 174);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
+            // 
+            // cmbxSolicitadoPor
+            // 
+            this.cmbxSolicitadoPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxSolicitadoPor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxSolicitadoPor.FormattingEnabled = true;
+            this.cmbxSolicitadoPor.Items.AddRange(new object[] {
+            "4 Horas",
+            "8 Horas",
+            "16 Horas"});
+            this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 78);
+            this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
+            this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
+            this.cmbxSolicitadoPor.TabIndex = 27;
             // 
             // label11
             // 
@@ -696,26 +817,26 @@
             this.dgvMediosDifusion.AllowUserToResizeRows = false;
             this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.opcion_difusion,
             this.seleccionar_opcion});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMediosDifusion.Location = new System.Drawing.Point(32, 39);
             this.dgvMediosDifusion.Name = "dgvMediosDifusion";
@@ -741,102 +862,6 @@
             this.seleccionar_opcion.Name = "seleccionar_opcion";
             this.seleccionar_opcion.ReadOnly = true;
             this.seleccionar_opcion.Width = 50;
-            // 
-            // cmbxSolicitadoPor
-            // 
-            this.cmbxSolicitadoPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxSolicitadoPor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxSolicitadoPor.FormattingEnabled = true;
-            this.cmbxSolicitadoPor.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
-            this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 78);
-            this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
-            this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
-            this.cmbxSolicitadoPor.TabIndex = 27;
-            // 
-            // btnRutaManual
-            // 
-            this.btnRutaManual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
-            this.btnRutaManual.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnRutaManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaManual.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRutaManual.ForeColor = System.Drawing.Color.White;
-            this.btnRutaManual.Location = new System.Drawing.Point(252, 64);
-            this.btnRutaManual.Name = "btnRutaManual";
-            this.btnRutaManual.Size = new System.Drawing.Size(97, 32);
-            this.btnRutaManual.TabIndex = 36;
-            this.btnRutaManual.Text = "Manual";
-            this.btnRutaManual.UseVisualStyleBackColor = false;
-            // 
-            // btnRutaBitacora
-            // 
-            this.btnRutaBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
-            this.btnRutaBitacora.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
-            this.btnRutaBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaBitacora.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRutaBitacora.ForeColor = System.Drawing.Color.White;
-            this.btnRutaBitacora.Location = new System.Drawing.Point(362, 64);
-            this.btnRutaBitacora.Name = "btnRutaBitacora";
-            this.btnRutaBitacora.Size = new System.Drawing.Size(95, 32);
-            this.btnRutaBitacora.TabIndex = 37;
-            this.btnRutaBitacora.Text = "Bitácora";
-            this.btnRutaBitacora.UseVisualStyleBackColor = false;
-            // 
-            // btnVerManual
-            // 
-            this.btnVerManual.Enabled = false;
-            this.btnVerManual.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerManual.Location = new System.Drawing.Point(313, 119);
-            this.btnVerManual.Name = "btnVerManual";
-            this.btnVerManual.Size = new System.Drawing.Size(89, 27);
-            this.btnVerManual.TabIndex = 5;
-            this.btnVerManual.Text = "Ver manual";
-            this.btnVerManual.UseVisualStyleBackColor = true;
-            // 
-            // btnPDFM
-            // 
-            this.btnPDFM.BackColor = System.Drawing.Color.Transparent;
-            this.btnPDFM.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
-            this.btnPDFM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPDFM.Enabled = false;
-            this.btnPDFM.FlatAppearance.BorderSize = 0;
-            this.btnPDFM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPDFM.Location = new System.Drawing.Point(321, 35);
-            this.btnPDFM.Name = "btnPDFM";
-            this.btnPDFM.Size = new System.Drawing.Size(73, 72);
-            this.btnPDFM.TabIndex = 6;
-            this.btnPDFM.UseVisualStyleBackColor = false;
-            // 
-            // btnPPT
-            // 
-            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
-            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
-            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPPT.Enabled = false;
-            this.btnPPT.FlatAppearance.BorderSize = 0;
-            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPPT.Location = new System.Drawing.Point(197, 34);
-            this.btnPPT.Name = "btnPPT";
-            this.btnPPT.Size = new System.Drawing.Size(73, 72);
-            this.btnPPT.TabIndex = 4;
-            this.btnPPT.UseVisualStyleBackColor = false;
-            // 
-            // btnDOC
-            // 
-            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
-            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_docx;
-            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDOC.Enabled = false;
-            this.btnDOC.FlatAppearance.BorderSize = 0;
-            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDOC.Location = new System.Drawing.Point(61, 35);
-            this.btnDOC.Name = "btnDOC";
-            this.btnDOC.Size = new System.Drawing.Size(73, 71);
-            this.btnDOC.TabIndex = 3;
-            this.btnDOC.UseVisualStyleBackColor = false;
             // 
             // Panel_cabecera
             // 
@@ -880,31 +905,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(-1, 97);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // btnPDFB
-            // 
-            this.btnPDFB.BackColor = System.Drawing.Color.Transparent;
-            this.btnPDFB.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
-            this.btnPDFB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPDFB.Enabled = false;
-            this.btnPDFB.FlatAppearance.BorderSize = 0;
-            this.btnPDFB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPDFB.Location = new System.Drawing.Point(443, 34);
-            this.btnPDFB.Name = "btnPDFB";
-            this.btnPDFB.Size = new System.Drawing.Size(73, 72);
-            this.btnPDFB.TabIndex = 8;
-            this.btnPDFB.UseVisualStyleBackColor = false;
-            // 
-            // btnVerBitacora
-            // 
-            this.btnVerBitacora.Enabled = false;
-            this.btnVerBitacora.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerBitacora.Location = new System.Drawing.Point(432, 118);
-            this.btnVerBitacora.Name = "btnVerBitacora";
-            this.btnVerBitacora.Size = new System.Drawing.Size(89, 27);
-            this.btnVerBitacora.TabIndex = 7;
-            this.btnVerBitacora.Text = "Ver bitácora";
-            this.btnVerBitacora.UseVisualStyleBackColor = true;
             // 
             // errorProviderNombreF
             // 

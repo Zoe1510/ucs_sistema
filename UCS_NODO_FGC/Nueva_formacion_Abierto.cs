@@ -33,16 +33,50 @@ namespace UCS_NODO_FGC
         
         private void Nueva_formacion_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(-5, 0);
-            fecha_creacion = DateTime.Now;
-            btnVerPresentacion.Enabled = false;
-            btnVerContenido.Enabled = false;
-            btnRutaContenido.Enabled = false;
-            btnRutaPresentacion.Enabled = false;
-            Load_Sig_Re();
+            if (Clases.Formaciones.creacion == true)
+            {
+                this.Location = new Point(-5, 0);
+                fecha_creacion = DateTime.Now;
+                btnVerPresentacion.Enabled = false;
+                btnVerContenido.Enabled = false;
+                btnRutaContenido.Enabled = false;
+                btnRutaPresentacion.Enabled = false;
+                Load_Sig_Re();
+                conexion.cerrarconexion();
+                if (conexion.abrirconexion() == true)
+                {
+                    string difu = "";
+                    CargarDatosPublicidad(conexion.conexion, difu);
+                    dgvMediosDifusion.ClearSelection();
+                    conexion.cerrarconexion();
+                }
+            }
+            
             
         }
 
+        private void CargarDatosPublicidad(MySqlConnection conexion, string di)
+        {
+            try
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%')", di), conexion);
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                dgvMediosDifusion.Rows.Clear();
+                while (reader.Read())
+                {
+                    Clases.Difusion dif = new Clases.Difusion();
+                    dif.contenido_dif = reader.GetString(0);
+                    dgvMediosDifusion.Rows.Add(dif.contenido_dif);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                
+
+            }
+        }
         private void Load_Sig_Re()
         {
             btnRetomar.Enabled = false;
@@ -54,21 +88,27 @@ namespace UCS_NODO_FGC
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            fecha_modifinal = DateTime.Now;
-            GuardarBasico();
-            if(guardar == true)
+            if(Clases.Formaciones.creacion == true)
             {
+                if (pnlNivel_basico.Visible == true)
+                {
+                    fecha_modifinal = DateTime.Now;
+                    GuardarBasico();
+                    if (guardar == true)
+                    {
+                        btnSiguienteEtapa.Enabled = true;
+                        btnPausar.Enabled = true;
+                        btnLimpiar.Enabled = true;
+
+                        btnModificar.Enabled = false;
+                        btnRetomar.Enabled = false;
+                        btnGuardar.Enabled = false;
+                        
+                    }
+
+                }
                 
-                btnSiguienteEtapa.Enabled = true;
-                btnPausar.Enabled = true;
-                btnLimpiar.Enabled = true;
-
-                btnModificar.Enabled = false;
-                btnRetomar.Enabled = false;
-                btnGuardar.Enabled = false;
-
-            }
-           
+            }                     
 
         }
 
@@ -516,9 +556,25 @@ namespace UCS_NODO_FGC
         private void btnSiguienteEtapa_Click(object sender, EventArgs e)
         {
             //cuando Siguiente etapa, quita el panel actual
-
+            pnlNivel_basico.Hide();
             // Y lo deja igual que cuando el load
             Load_Sig_Re();
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkbCoFacilitador_CheckedChanged(object sender, EventArgs e)
+        {
+            gpbCoFa.Enabled = true;
+
+        }
+
+        private void cmbxDuracionFormacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void GuardarBasico()

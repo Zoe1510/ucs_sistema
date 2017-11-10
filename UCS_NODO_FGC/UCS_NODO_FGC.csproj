@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agregar_insumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar_insumo.Designer.cs">
+      <DependentUpon>Agregar_insumo.cs</DependentUpon>
+    </Compile>
     <Compile Include="backup_restore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,7 @@
     <Compile Include="Clases\Facilitador_Seleccionado.cs" />
     <Compile Include="Clases\Formaciones.cs" />
     <Compile Include="Clases\ImageHelper.cs" />
+    <Compile Include="Clases\Insumos.cs" />
     <Compile Include="Clases\Paneles.cs" />
     <Compile Include="Clases\Paquete_instruccional.cs" />
     <Compile Include="Clases\Preguntas.cs" />
@@ -134,6 +141,12 @@
     </Compile>
     <Compile Include="Modificar_facilitadores.Designer.cs">
       <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_insumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_insumo.Designer.cs">
+      <DependentUpon>Modificar_insumo.cs</DependentUpon>
     </Compile>
     <Compile Include="Modificar_Refrigerio.cs">
       <SubType>Form</SubType>
@@ -233,6 +246,12 @@
     <Compile Include="Registrar_facilitadores.Designer.cs">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar_insumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_insumo.Designer.cs">
+      <DependentUpon>Registrar_insumo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar_publicidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +276,12 @@
     <Compile Include="Verificacion_recuperacion.Designer.cs">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_insumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_insumos.Designer.cs">
+      <DependentUpon>Ver_insumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_paqueteInstruccional.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +300,9 @@
     <Compile Include="Ver_refrigerios.Designer.cs">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Agregar_insumo.resx">
+      <DependentUpon>Agregar_insumo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="backup_restore.resx">
       <DependentUpon>backup_restore.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar_facilitadores.resx">
       <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_insumo.resx">
+      <DependentUpon>Modificar_insumo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar_Refrigerio.resx">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
@@ -358,6 +389,9 @@
     <EmbeddedResource Include="Registrar_facilitadores.resx">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_insumo.resx">
+      <DependentUpon>Registrar_insumo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar_publicidad.resx">
       <DependentUpon>Registrar_publicidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_insumos.resx">
+      <DependentUpon>Ver_insumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_paqueteInstruccional.resx">
       <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
@@ -523,6 +560,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_calendario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cafe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_megafono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bloques.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_libro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_libros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_participante.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sandwich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_inces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_insumos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lista.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

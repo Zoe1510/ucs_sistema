@@ -31,6 +31,7 @@ namespace UCS_NODO_FGC.Clases
         public int id_curso { get; set; }
         public int pq_inst { get; set; }
 
+        public static bool creacion { get; set; } //para saber si la formación se crea o se modifica
         public Formaciones()
         {
 
