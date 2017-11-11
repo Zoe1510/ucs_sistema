@@ -163,6 +163,16 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_aula {
+            get {
+                object obj = ResourceManager.GetObject("icon_aula", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_ayuda {
             get {
                 object obj = ResourceManager.GetObject("icon_ayuda", resourceCulture);

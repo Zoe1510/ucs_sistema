@@ -462,5 +462,10 @@ namespace UCS_NODO_FGC
         {
             AddFormInPanel(new Ver_insumos());
         }
+
+        private void btnFrmVerCursosInces_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Cursos_INCES());
+        }
     }
 }

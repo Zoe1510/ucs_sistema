@@ -57,7 +57,6 @@ C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\bin\Debug\MySql.Data.dll
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\bin\Debug\MySqlBackup.dll
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\bin\Debug\MySql.Data.xml
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\bin\Debug\es\Microsoft.VisualBasic.PowerPacks.resources.dll
-C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.csprojResolveAssemblyReference.cache
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Ayuda.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Buscar_cliente.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Buscar_facilitadores.resources
@@ -97,3 +96,6 @@ C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Agr
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Modificar_insumo.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Ver_insumos.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Registrar_insumo.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Cursos_INCES.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Registrar_INCES.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.csprojResolveAssemblyReference.cache

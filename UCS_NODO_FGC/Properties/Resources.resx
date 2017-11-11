@@ -133,8 +133,11 @@
   <data name="icon_ver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_ver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_archivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_docx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_docx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_publicidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_publicidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -144,9 +147,6 @@
   </data>
   <data name="icon_flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_pdfFormato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_pdfFormato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_perfilU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_perfilU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,14 +163,14 @@
   <data name="img_perfil" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img_perfil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_ayuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_ayuda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_add4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_add4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_minimizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_about" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,11 +190,14 @@
   <data name="icon_refrigerio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_refrigerio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_camara" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_camara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_bloques" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_bloques.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_inces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_inces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_formaciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_formaciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,9 +211,6 @@
   <data name="icon_bloqueado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_bloqueado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_participantes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_participantes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_logistica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_logistica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,17 +220,20 @@
   <data name="icon_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_lista" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_lista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="panel_cabecera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\panel_cabecera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_horarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_horarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_inces" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_inces.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_camara" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_camara.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_sandwich" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_sandwich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,8 +253,8 @@
   <data name="icon_usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_publicidad" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_publicidad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_manual" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_manual.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_insumos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_insumos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,14 +262,14 @@
   <data name="icon_megafono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_megafono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_docx" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_docx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_archivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_archivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_sandwich" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_sandwich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_participantes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_participantes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,19 +277,19 @@
   <data name="icon_participante" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_participante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_bloques" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_bloques.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_pdfFormato1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_pdfFormato1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_about" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_pdfFormato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_pdfFormato.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_ayuda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_ayuda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_lista" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_lista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_aula" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_aula.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

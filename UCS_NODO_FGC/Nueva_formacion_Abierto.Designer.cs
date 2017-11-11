@@ -68,22 +68,17 @@
             this.pnlNivel_intermedio = new System.Windows.Forms.Panel();
             this.pnlNivel_basico = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cmbxBloques = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnRutaPresentacion = new System.Windows.Forms.Button();
             this.btnRutaContenido = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnPPT = new System.Windows.Forms.Button();
-            this.btnDOC = new System.Windows.Forms.Button();
             this.btnVerPresentacion = new System.Windows.Forms.Button();
             this.btnVerContenido = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txtSolicitadoPor = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNombreFormacion = new System.Windows.Forms.TextBox();
@@ -95,7 +90,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.button1 = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -106,7 +100,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.gpbDatosFa = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -116,23 +109,18 @@
             this.label18 = new System.Windows.Forms.Label();
             this.cmbxFa = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
             this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
             this.rdbNoRef = new System.Windows.Forms.RadioButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rdbSiRef = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.gpbFechaHora = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.gpbHorarioCurso = new System.Windows.Forms.GroupBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.rdbNoIgual = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.rdbSiIgual = new System.Windows.Forms.RadioButton();
@@ -141,16 +129,9 @@
             this.cmbxHorarios = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gpbLogistica = new System.Windows.Forms.GroupBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.gpbInsumos = new System.Windows.Forms.GroupBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label25 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -162,6 +143,30 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label29 = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpbInsumos = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnPPT = new System.Windows.Forms.Button();
+            this.btnDOC = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -180,39 +185,39 @@
             this.pnlNivel_intermedio.SuspendLayout();
             this.pnlNivel_basico.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gpbDatosCoFa.SuspendLayout();
             this.gpbCoFa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.gpbDatosFa.SuspendLayout();
             this.gpbFacilitador.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).BeginInit();
             this.gpbRefrigerio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gpbFechaHora.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpbHorarioCurso.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.gpbLogistica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.gpbInsumos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gpbSeleccionRef.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gpbInsumos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -531,24 +536,24 @@
             this.pnlNivel_intermedio.Controls.Add(this.groupBox6);
             this.pnlNivel_intermedio.Controls.Add(this.gpbRefrigerio);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFechaHora);
-            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(922, 612);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(92, 612);
             this.pnlNivel_intermedio.TabIndex = 76;
             // 
             // pnlNivel_basico
             // 
-            this.pnlNivel_basico.BackColor = System.Drawing.Color.LightGray;
+            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
             this.pnlNivel_basico.Controls.Add(this.groupBox5);
             this.pnlNivel_basico.Controls.Add(this.groupBox4);
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(56, 612);
             this.pnlNivel_basico.TabIndex = 74;
             // 
             // groupBox5
@@ -561,15 +566,6 @@
             this.groupBox5.Size = new System.Drawing.Size(478, 82);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
-            this.pictureBox6.Location = new System.Drawing.Point(18, -1);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 68;
-            this.pictureBox6.TabStop = false;
             // 
             // cmbxBloques
             // 
@@ -604,15 +600,6 @@
             this.groupBox4.Size = new System.Drawing.Size(479, 117);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
-            this.pictureBox7.Location = new System.Drawing.Point(18, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox7.TabIndex = 69;
-            this.pictureBox7.TabStop = false;
             // 
             // label6
             // 
@@ -678,34 +665,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Archivos cargados";
             // 
-            // btnPPT
-            // 
-            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
-            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
-            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPPT.Enabled = false;
-            this.btnPPT.FlatAppearance.BorderSize = 0;
-            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPPT.Location = new System.Drawing.Point(217, 35);
-            this.btnPPT.Name = "btnPPT";
-            this.btnPPT.Size = new System.Drawing.Size(73, 72);
-            this.btnPPT.TabIndex = 4;
-            this.btnPPT.UseVisualStyleBackColor = false;
-            // 
-            // btnDOC
-            // 
-            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
-            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_docx;
-            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDOC.Enabled = false;
-            this.btnDOC.FlatAppearance.BorderSize = 0;
-            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDOC.Location = new System.Drawing.Point(69, 35);
-            this.btnDOC.Name = "btnDOC";
-            this.btnDOC.Size = new System.Drawing.Size(73, 72);
-            this.btnDOC.TabIndex = 3;
-            this.btnDOC.UseVisualStyleBackColor = false;
-            // 
             // btnVerPresentacion
             // 
             this.btnVerPresentacion.Enabled = false;
@@ -744,15 +703,6 @@
             this.groupBox2.Size = new System.Drawing.Size(479, 174);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
-            this.pictureBox5.Location = new System.Drawing.Point(18, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 67;
-            this.pictureBox5.TabStop = false;
             // 
             // txtSolicitadoPor
             // 
@@ -867,20 +817,6 @@
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(594, 544);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 37);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "   Enviar a administración";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            // 
             // chkbCoFacilitador
             // 
             this.chkbCoFacilitador.AutoSize = true;
@@ -988,15 +924,6 @@
             this.label22.TabIndex = 66;
             this.label22.Text = "Co-facilitador:";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::UCS_NODO_FGC.Properties.Resources.icon_facilitadores;
-            this.pictureBox8.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox8.TabIndex = 66;
-            this.pictureBox8.TabStop = false;
-            // 
             // gpbDatosFa
             // 
             this.gpbDatosFa.Controls.Add(this.textBox2);
@@ -1091,15 +1018,6 @@
             this.label17.TabIndex = 66;
             this.label17.Text = "Facilitador:";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::UCS_NODO_FGC.Properties.Resources.icon_facilitadores;
-            this.pictureBox4.Location = new System.Drawing.Point(17, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.TabIndex = 66;
-            this.pictureBox4.TabStop = false;
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox3);
@@ -1110,15 +1028,6 @@
             this.groupBox6.Size = new System.Drawing.Size(404, 420);
             this.groupBox6.TabIndex = 60;
             this.groupBox6.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::UCS_NODO_FGC.Properties.Resources.icon_megafono;
-            this.pictureBox3.Location = new System.Drawing.Point(13, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.TabIndex = 62;
-            this.pictureBox3.TabStop = false;
             // 
             // dgvMediosDifusion
             // 
@@ -1188,7 +1097,7 @@
             // 
             this.rdbNoRef.AutoSize = true;
             this.rdbNoRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbNoRef.Location = new System.Drawing.Point(252, 21);
+            this.rdbNoRef.Location = new System.Drawing.Point(252, 24);
             this.rdbNoRef.Name = "rdbNoRef";
             this.rdbNoRef.Size = new System.Drawing.Size(46, 21);
             this.rdbNoRef.TabIndex = 63;
@@ -1196,20 +1105,11 @@
             this.rdbNoRef.Text = "No";
             this.rdbNoRef.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_cafe;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 62;
-            this.pictureBox2.TabStop = false;
-            // 
             // rdbSiRef
             // 
             this.rdbSiRef.AutoSize = true;
             this.rdbSiRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbSiRef.Location = new System.Drawing.Point(326, 21);
+            this.rdbSiRef.Location = new System.Drawing.Point(307, 25);
             this.rdbSiRef.Name = "rdbSiRef";
             this.rdbSiRef.Size = new System.Drawing.Size(39, 21);
             this.rdbSiRef.TabIndex = 62;
@@ -1222,7 +1122,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(49, 21);
+            this.label8.Location = new System.Drawing.Point(49, 26);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(197, 17);
             this.label8.TabIndex = 54;
@@ -1238,15 +1138,6 @@
             this.gpbFechaHora.Size = new System.Drawing.Size(404, 69);
             this.gpbFechaHora.TabIndex = 54;
             this.gpbFechaHora.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.TabIndex = 61;
-            this.pictureBox1.TabStop = false;
             // 
             // dtpFechaCurso
             // 
@@ -1285,18 +1176,10 @@
             this.gpbHorarioCurso.TabIndex = 65;
             this.gpbHorarioCurso.TabStop = false;
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::UCS_NODO_FGC.Properties.Resources.icon_horarios;
-            this.pictureBox9.Location = new System.Drawing.Point(18, 0);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox9.TabIndex = 65;
-            this.pictureBox9.TabStop = false;
-            // 
             // rdbNoIgual
             // 
             this.rdbNoIgual.AutoSize = true;
+            this.rdbNoIgual.Enabled = false;
             this.rdbNoIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbNoIgual.Location = new System.Drawing.Point(274, 75);
             this.rdbNoIgual.Name = "rdbNoIgual";
@@ -1321,6 +1204,7 @@
             // rdbSiIgual
             // 
             this.rdbSiIgual.AutoSize = true;
+            this.rdbSiIgual.Enabled = false;
             this.rdbSiIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbSiIgual.Location = new System.Drawing.Point(196, 75);
             this.rdbSiIgual.Name = "rdbSiIgual";
@@ -1339,9 +1223,9 @@
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 122);
+            this.comboBox1.Location = new System.Drawing.Point(173, 119);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 25);
+            this.comboBox1.Size = new System.Drawing.Size(201, 25);
             this.comboBox1.TabIndex = 71;
             // 
             // label14
@@ -1349,7 +1233,7 @@
             this.label14.AutoSize = true;
             this.label14.Enabled = false;
             this.label14.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(33, 125);
+            this.label14.Location = new System.Drawing.Point(33, 122);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(130, 17);
             this.label14.TabIndex = 68;
@@ -1378,28 +1262,24 @@
             // 
             // gpbLogistica
             // 
+            this.gpbLogistica.Controls.Add(this.textBox6);
+            this.gpbLogistica.Controls.Add(this.label30);
+            this.gpbLogistica.Controls.Add(this.radioButton3);
+            this.gpbLogistica.Controls.Add(this.label29);
+            this.gpbLogistica.Controls.Add(this.radioButton4);
             this.gpbLogistica.Controls.Add(this.pictureBox12);
             this.gpbLogistica.Controls.Add(this.textBox5);
             this.gpbLogistica.Controls.Add(this.label28);
-            this.gpbLogistica.Location = new System.Drawing.Point(254, 229);
+            this.gpbLogistica.Location = new System.Drawing.Point(254, 215);
             this.gpbLogistica.Name = "gpbLogistica";
-            this.gpbLogistica.Size = new System.Drawing.Size(419, 80);
+            this.gpbLogistica.Size = new System.Drawing.Size(419, 155);
             this.gpbLogistica.TabIndex = 75;
             this.gpbLogistica.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
-            this.pictureBox12.Location = new System.Drawing.Point(16, -1);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox12.TabIndex = 74;
-            this.pictureBox12.TabStop = false;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(171, 31);
+            this.textBox5.Location = new System.Drawing.Point(172, 26);
             this.textBox5.MaxLength = 15;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(220, 26);
@@ -1409,30 +1289,187 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(23, 35);
+            this.label28.Location = new System.Drawing.Point(23, 30);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(142, 17);
             this.label28.TabIndex = 73;
             this.label28.Text = "Aula seleccionada:";
             // 
-            // gpbInsumos
+            // gpbSeleccionRef
             // 
-            this.gpbInsumos.Controls.Add(this.pictureBox11);
-            this.gpbInsumos.Controls.Add(this.dataGridView1);
-            this.gpbInsumos.Location = new System.Drawing.Point(254, 324);
-            this.gpbInsumos.Name = "gpbInsumos";
-            this.gpbInsumos.Size = new System.Drawing.Size(419, 282);
-            this.gpbInsumos.TabIndex = 74;
-            this.gpbInsumos.TabStop = false;
+            this.gpbSeleccionRef.Controls.Add(this.pictureBox10);
+            this.gpbSeleccionRef.Controls.Add(this.radioButton1);
+            this.gpbSeleccionRef.Controls.Add(this.label25);
+            this.gpbSeleccionRef.Controls.Add(this.radioButton2);
+            this.gpbSeleccionRef.Controls.Add(this.comboBox2);
+            this.gpbSeleccionRef.Controls.Add(this.label26);
+            this.gpbSeleccionRef.Controls.Add(this.cmbxTipoRefrigerio);
+            this.gpbSeleccionRef.Controls.Add(this.label27);
+            this.gpbSeleccionRef.Location = new System.Drawing.Point(254, 130);
+            this.gpbSeleccionRef.Name = "gpbSeleccionRef";
+            this.gpbSeleccionRef.Size = new System.Drawing.Size(419, 68);
+            this.gpbSeleccionRef.TabIndex = 73;
+            this.gpbSeleccionRef.TabStop = false;
             // 
-            // pictureBox11
+            // radioButton1
             // 
-            this.pictureBox11.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
-            this.pictureBox11.Location = new System.Drawing.Point(16, 0);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox11.TabIndex = 73;
-            this.pictureBox11.TabStop = false;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Enabled = false;
+            this.radioButton1.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.radioButton1.Location = new System.Drawing.Point(289, 74);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(46, 21);
+            this.radioButton1.TabIndex = 72;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "No";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Visible = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(17, 77);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(152, 17);
+            this.label25.TabIndex = 69;
+            this.label25.Text = "Mantener refrigerio:";
+            this.label25.Visible = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Enabled = false;
+            this.radioButton2.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.radioButton2.Location = new System.Drawing.Point(206, 74);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(39, 21);
+            this.radioButton2.TabIndex = 70;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Sí";
+            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Enabled = false;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(175, 119);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(199, 25);
+            this.comboBox2.TabIndex = 71;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Enabled = false;
+            this.label26.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(23, 122);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(146, 17);
+            this.label26.TabIndex = 68;
+            this.label26.Text = "Segundo refrigerio:";
+            // 
+            // cmbxTipoRefrigerio
+            // 
+            this.cmbxTipoRefrigerio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxTipoRefrigerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxTipoRefrigerio.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxTipoRefrigerio.FormattingEnabled = true;
+            this.cmbxTipoRefrigerio.Location = new System.Drawing.Point(175, 27);
+            this.cmbxTipoRefrigerio.Name = "cmbxTipoRefrigerio";
+            this.cmbxTipoRefrigerio.Size = new System.Drawing.Size(199, 25);
+            this.cmbxTipoRefrigerio.TabIndex = 67;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(31, 32);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(138, 17);
+            this.label27.TabIndex = 66;
+            this.label27.Text = "Tipo de refrigerio:";
+            // 
+            // errorProviderRefrigerio
+            // 
+            this.errorProviderRefrigerio.ContainerControl = this;
+            // 
+            // errorProviderFecha
+            // 
+            this.errorProviderFecha.ContainerControl = this;
+            // 
+            // errorProviderHora
+            // 
+            this.errorProviderHora.ContainerControl = this;
+            // 
+            // errorProviderHora2
+            // 
+            this.errorProviderHora2.ContainerControl = this;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Enabled = false;
+            this.radioButton3.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.radioButton3.Location = new System.Drawing.Point(302, 73);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(46, 21);
+            this.radioButton3.TabIndex = 77;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "No";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(49, 70);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(114, 17);
+            this.label29.TabIndex = 75;
+            this.label29.Text = "Mantener aula:";
+            this.label29.Visible = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Enabled = false;
+            this.radioButton4.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.radioButton4.Location = new System.Drawing.Point(202, 73);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(39, 21);
+            this.radioButton4.TabIndex = 76;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Sí";
+            this.radioButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.Visible = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Enabled = false;
+            this.textBox6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(172, 107);
+            this.textBox6.MaxLength = 15;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(220, 26);
+            this.textBox6.TabIndex = 79;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(56, 111);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(107, 17);
+            this.label30.TabIndex = 78;
+            this.label30.Text = "Segunda aula:";
             // 
             // dataGridView1
             // 
@@ -1461,21 +1498,12 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 31);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(377, 232);
+            this.dataGridView1.Size = new System.Drawing.Size(377, 178);
             this.dataGridView1.TabIndex = 49;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
-            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 310;
             // 
             // dataGridViewCheckBoxColumn1
             // 
@@ -1486,21 +1514,166 @@
             this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             this.dataGridViewCheckBoxColumn1.Width = 40;
             // 
-            // gpbSeleccionRef
+            // dataGridViewTextBoxColumn1
             // 
-            this.gpbSeleccionRef.Controls.Add(this.pictureBox10);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton1);
-            this.gpbSeleccionRef.Controls.Add(this.label25);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton2);
-            this.gpbSeleccionRef.Controls.Add(this.comboBox2);
-            this.gpbSeleccionRef.Controls.Add(this.label26);
-            this.gpbSeleccionRef.Controls.Add(this.cmbxTipoRefrigerio);
-            this.gpbSeleccionRef.Controls.Add(this.label27);
-            this.gpbSeleccionRef.Location = new System.Drawing.Point(254, 132);
-            this.gpbSeleccionRef.Name = "gpbSeleccionRef";
-            this.gpbSeleccionRef.Size = new System.Drawing.Size(419, 73);
-            this.gpbSeleccionRef.TabIndex = 73;
-            this.gpbSeleccionRef.TabStop = false;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
+            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 310;
+            // 
+            // gpbInsumos
+            // 
+            this.gpbInsumos.Controls.Add(this.pictureBox11);
+            this.gpbInsumos.Controls.Add(this.dataGridView1);
+            this.gpbInsumos.Location = new System.Drawing.Point(254, 377);
+            this.gpbInsumos.Name = "gpbInsumos";
+            this.gpbInsumos.Size = new System.Drawing.Size(419, 229);
+            this.gpbInsumos.TabIndex = 74;
+            this.gpbInsumos.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
+            this.pictureBox6.Location = new System.Drawing.Point(18, -1);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 68;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
+            this.pictureBox7.Location = new System.Drawing.Point(18, 3);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox7.TabIndex = 69;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnPPT
+            // 
+            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
+            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
+            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPPT.Enabled = false;
+            this.btnPPT.FlatAppearance.BorderSize = 0;
+            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPPT.Location = new System.Drawing.Point(217, 35);
+            this.btnPPT.Name = "btnPPT";
+            this.btnPPT.Size = new System.Drawing.Size(73, 72);
+            this.btnPPT.TabIndex = 4;
+            this.btnPPT.UseVisualStyleBackColor = false;
+            // 
+            // btnDOC
+            // 
+            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
+            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_docx;
+            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDOC.Enabled = false;
+            this.btnDOC.FlatAppearance.BorderSize = 0;
+            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDOC.Location = new System.Drawing.Point(69, 35);
+            this.btnDOC.Name = "btnDOC";
+            this.btnDOC.Size = new System.Drawing.Size(73, 72);
+            this.btnDOC.TabIndex = 3;
+            this.btnDOC.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
+            this.pictureBox5.Location = new System.Drawing.Point(18, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.TabIndex = 67;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(590, 549);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(220, 37);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "   Enviar a administración";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::UCS_NODO_FGC.Properties.Resources.icon_facilitadores;
+            this.pictureBox8.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox8.TabIndex = 66;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::UCS_NODO_FGC.Properties.Resources.icon_facilitadores;
+            this.pictureBox4.Location = new System.Drawing.Point(17, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.TabIndex = 66;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::UCS_NODO_FGC.Properties.Resources.icon_megafono;
+            this.pictureBox3.Location = new System.Drawing.Point(13, 1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.TabIndex = 62;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_cafe;
+            this.pictureBox2.Location = new System.Drawing.Point(10, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 62;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.TabIndex = 61;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::UCS_NODO_FGC.Properties.Resources.icon_horarios;
+            this.pictureBox9.Location = new System.Drawing.Point(18, 0);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox9.TabIndex = 65;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::UCS_NODO_FGC.Properties.Resources.icon_aula;
+            this.pictureBox12.Location = new System.Drawing.Point(16, 0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox12.TabIndex = 74;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
+            this.pictureBox11.Location = new System.Drawing.Point(16, 0);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox11.TabIndex = 73;
+            this.pictureBox11.TabStop = false;
             // 
             // pictureBox10
             // 
@@ -1510,104 +1683,6 @@
             this.pictureBox10.Size = new System.Drawing.Size(24, 24);
             this.pictureBox10.TabIndex = 65;
             this.pictureBox10.TabStop = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton1.Location = new System.Drawing.Point(289, 74);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(46, 21);
-            this.radioButton1.TabIndex = 72;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "No";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Visible = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(25, 77);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(152, 17);
-            this.label25.TabIndex = 69;
-            this.label25.Text = "Mantener refrigerio:";
-            this.label25.Visible = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton2.Location = new System.Drawing.Point(206, 74);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 21);
-            this.radioButton2.TabIndex = 70;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Sí";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 122);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 25);
-            this.comboBox2.TabIndex = 71;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Enabled = false;
-            this.label26.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(17, 124);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(146, 17);
-            this.label26.TabIndex = 68;
-            this.label26.Text = "Segundo refrigerio:";
-            // 
-            // cmbxTipoRefrigerio
-            // 
-            this.cmbxTipoRefrigerio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxTipoRefrigerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxTipoRefrigerio.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxTipoRefrigerio.FormattingEnabled = true;
-            this.cmbxTipoRefrigerio.Location = new System.Drawing.Point(175, 27);
-            this.cmbxTipoRefrigerio.Name = "cmbxTipoRefrigerio";
-            this.cmbxTipoRefrigerio.Size = new System.Drawing.Size(199, 25);
-            this.cmbxTipoRefrigerio.TabIndex = 67;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(25, 31);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(138, 17);
-            this.label27.TabIndex = 66;
-            this.label27.Text = "Tipo de refrigerio:";
-            // 
-            // errorProviderRefrigerio
-            // 
-            this.errorProviderRefrigerio.ContainerControl = this;
-            // 
-            // errorProviderFecha
-            // 
-            this.errorProviderFecha.ContainerControl = this;
-            // 
-            // errorProviderHora
-            // 
-            this.errorProviderHora.ContainerControl = this;
-            // 
-            // errorProviderHora2
-            // 
-            this.errorProviderHora2.ContainerControl = this;
             // 
             // Panel_cabecera
             // 
@@ -1689,51 +1764,51 @@
             this.pnlNivel_basico.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gpbDatosCoFa.ResumeLayout(false);
             this.gpbDatosCoFa.PerformLayout();
             this.gpbCoFa.ResumeLayout(false);
             this.gpbCoFa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.gpbDatosFa.ResumeLayout(false);
             this.gpbDatosFa.PerformLayout();
             this.gpbFacilitador.ResumeLayout(false);
             this.gpbFacilitador.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).EndInit();
             this.gpbRefrigerio.ResumeLayout(false);
             this.gpbRefrigerio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gpbFechaHora.ResumeLayout(false);
             this.gpbFechaHora.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gpbHorarioCurso.ResumeLayout(false);
             this.gpbHorarioCurso.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.gpbLogistica.ResumeLayout(false);
             this.gpbLogistica.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.gpbInsumos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gpbSeleccionRef.ResumeLayout(false);
             this.gpbSeleccionRef.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gpbInsumos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
             this.ResumeLayout(false);
@@ -1789,11 +1864,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.GroupBox gpbInsumos;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label lblEtapafinal;
         private System.Windows.Forms.Label lblEtapaSiguiente;
         private System.Windows.Forms.GroupBox gpbLogistica;
@@ -1875,5 +1945,15 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpFechaCurso;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.GroupBox gpbInsumos;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
     }
 }

@@ -47,35 +47,7 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-        public static void letrasynumeros(KeyPressEventArgs e)
-        {
-            if ((Char.IsPunctuation(e.KeyChar)) || (Char.IsDigit(e.KeyChar)))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = false;
-
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsWhiteSpace(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
+      
         public static void solonumeros(KeyPressEventArgs e)
         {
             //metodo usado para la validacion de solo numeros en el campo cedula del login
@@ -177,7 +149,7 @@ namespace UCS_NODO_FGC.Clases
             con.cerrarconexion();
             return lista;
 
-        }
+        }//funciona
         public static conexion_bd con1 = new conexion_bd();
         public static List<Preguntas> LlenarComboboxPreguntas(string pregunta)
         {
@@ -198,8 +170,64 @@ namespace UCS_NODO_FGC.Clases
             con1.cerrarconexion();
             return lista;
 
+        }//funciona
+
+        public static conexion_bd con2 = new conexion_bd();
+        public static List<INCES> LlenarComboboxCursos(string buscar)//no funciona, muestra la ruta de la clase cursos.inces
+        {
+            List<INCES> lista = new List<INCES>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM cursos_inces WHERE nombre_curso_ince LIKE ('%{0}%')", buscar), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(cur(leer));
+                }
+            }
+            con2.cerrarconexion();
+            return lista;
+        }
+        public static conexion_bd con3 = new conexion_bd();
+        public static List<Fa_ince> LlenarComboboxFacilitadoresINCEs()
+        {
+            List<Fa_ince> lista = new List<Fa_ince>();
+            if (con3.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nombre_fa, apellido_fa FROM facilitadores  WHERE requerimiento_inces = 1"), con3.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa(leer));
+                }
+
+            }
+
+
+            con3.cerrarconexion();
+            return lista;
+
         }
 
+        public static Fa_ince fa(MySqlDataReader reader)
+        {
+            Fa_ince faci = new Fa_ince();
+            faci.id_facilitador=Convert.ToInt32(reader["id_fa"]);
+            faci.ci_facilitador= Convert.ToString(reader["cedula_fa"]);
+            string nombre= Convert.ToString(reader["nombre_fa"]);
+            string apellido = Convert.ToString(reader["apellido_fa"]);
+            faci.nombreyapellido = nombre+" "+apellido;
+            return faci;
+        }
+        public static INCES cur(MySqlDataReader reader)
+        {
+            INCES curso = new INCES();
+            curso.id_cursoINCE= Convert.ToInt32(reader["id_curso_ince"]);
+            curso.nombre_cursoINCE= Convert.ToString(reader["nombre_curso_ince"]);
+            return curso;
+        }
         public static Preguntas pre(MySqlDataReader reader)
         {
             Preguntas pregunta = new Preguntas();

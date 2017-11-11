@@ -92,6 +92,8 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Cliente_seleccionado.cs" />
     <Compile Include="Clases\conexion_bd.cs" />
+    <Compile Include="Clases\Fa_ince.cs" />
+    <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
     <Compile Include="Clases\Empresa.cs" />
     <Compile Include="Clases\Facilitadores.cs" />
@@ -106,6 +108,12 @@
     <Compile Include="Clases\Refrigerios.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
+    <Compile Include="Cursos_INCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos_INCES.Designer.cs">
+      <DependentUpon>Cursos_INCES.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +254,12 @@
     <Compile Include="Registrar_facilitadores.Designer.cs">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar_INCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_INCES.Designer.cs">
+      <DependentUpon>Registrar_INCES.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar_insumo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +332,9 @@
     <EmbeddedResource Include="Cambio_contraseña.resx">
       <DependentUpon>Cambio_contraseña.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cursos_INCES.resx">
+      <DependentUpon>Cursos_INCES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar_facilitadores.resx">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_INCES.resx">
+      <DependentUpon>Registrar_INCES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar_insumo.resx">
       <DependentUpon>Registrar_insumo.cs</DependentUpon>
@@ -599,6 +619,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_aula.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

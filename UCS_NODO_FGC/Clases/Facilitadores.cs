@@ -21,7 +21,7 @@ namespace UCS_NODO_FGC.Clases
         public string tlfn_facilitador { get; set; }
         public string correo_facilitador { get; set; }
         public string nacionalidad_fa { get; set; }
-
+        public string nombreyapellido { get; set; }
         
         public int requerimiento_ince { get; set; }
         public Facilitadores()
@@ -29,7 +29,7 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
-        public Facilitadores(string ci, string nombre, string apellido, string especialidad, string ubicacion, string tlfn, string correo, int reque)
+        public Facilitadores(string ci, string nombre, string apellido,string nyA, string especialidad, string ubicacion, string tlfn, string correo, int reque, string nac)
         {
             this.ci_facilitador = ci;
             this.nombre_facilitador = nombre;
@@ -39,6 +39,8 @@ namespace UCS_NODO_FGC.Clases
             this.tlfn_facilitador = tlfn;
             this.correo_facilitador = correo;
             this.requerimiento_ince = reque;
+            this.nombreyapellido = nyA;
+            this.nacionalidad_fa = nac;
             
         }
 
@@ -50,10 +52,10 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
-        public static int FacilitadorExiste(MySqlConnection conexion, string ci_facilitador, string nacionalidad)
+        public static int FacilitadorExiste(MySqlConnection conexion, string ci_facilitador)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa FROM facilitadores WHERE cedula_fa LIKE ('%{0}%') AND nacionalidad_fa LIKE ('%{1}%')", ci_facilitador, nacionalidad), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa FROM facilitadores WHERE cedula_fa LIKE ('%{0}%') ", ci_facilitador), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())

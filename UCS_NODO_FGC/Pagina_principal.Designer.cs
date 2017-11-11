@@ -34,70 +34,70 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnlPanelBordeVentana = new System.Windows.Forms.Panel();
+            this.btn_minimizar = new System.Windows.Forms.Button();
+            this.btn_cerrar = new System.Windows.Forms.Button();
             this.pnlPanelDisplay = new System.Windows.Forms.Panel();
             this.pnlPanelContenedorMenu = new System.Windows.Forms.Panel();
             this.pnlPanelCuerpoMenu = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pnlBtnFacilitadores = new System.Windows.Forms.Panel();
-            this.pnlBtnClientes = new System.Windows.Forms.Panel();
-            this.pnlBtnParticipantes = new System.Windows.Forms.Panel();
-            this.pnlBtnUsuario = new System.Windows.Forms.Panel();
-            this.pnlBtnReportes = new System.Windows.Forms.Panel();
             this.pnlBtnLogistica = new System.Windows.Forms.Panel();
-            this.pnlBtnFormatos = new System.Windows.Forms.Panel();
-            this.pnlBtnFormaciones = new System.Windows.Forms.Panel();
-            this.pnlBtnFinal = new System.Windows.Forms.Panel();
-            this.pnlPanelCabeceraMenu = new System.Windows.Forms.Panel();
-            this.lblLabelNombre_usuario = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnFrmVerCursosInces = new System.Windows.Forms.Button();
             this.btnFrmVerInsumos = new System.Windows.Forms.Button();
             this.btnFrmVerHorarios = new System.Windows.Forms.Button();
             this.btnFrmVerPublicidad = new System.Windows.Forms.Button();
             this.btnFrmVerRefrigerios = new System.Windows.Forms.Button();
             this.btnLogistica = new System.Windows.Forms.Button();
+            this.pnlBtnFacilitadores = new System.Windows.Forms.Panel();
             this.btnFrmVerFacilitador = new System.Windows.Forms.Button();
             this.btnFrmAddFacilitador = new System.Windows.Forms.Button();
             this.btnFacilitadores = new System.Windows.Forms.Button();
+            this.pnlBtnParticipantes = new System.Windows.Forms.Panel();
+            this.btnFrmAddParticipantes = new System.Windows.Forms.Button();
+            this.btnFrmVerParticipante = new System.Windows.Forms.Button();
+            this.btnParticipante = new System.Windows.Forms.Button();
+            this.pnlBtnClientes = new System.Windows.Forms.Panel();
             this.btnFrmAddAreaEmpresa = new System.Windows.Forms.Button();
             this.btnFrmVerCliente = new System.Windows.Forms.Button();
             this.btnFrmAddCliente = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.btnFrmAddParticipantes = new System.Windows.Forms.Button();
-            this.btnFrmVerParticipante = new System.Windows.Forms.Button();
-            this.btnParticipante = new System.Windows.Forms.Button();
+            this.pnlBtnUsuario = new System.Windows.Forms.Panel();
             this.btnFrmVerUsuario = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.btnFrmAddUsuario = new System.Windows.Forms.Button();
+            this.pnlBtnReportes = new System.Windows.Forms.Panel();
             this.btnFrmVerReporte = new System.Windows.Forms.Button();
             this.btnFrmAddReporte = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.pnlBtnFormatos = new System.Windows.Forms.Panel();
             this.btnFrmVerFormatos = new System.Windows.Forms.Button();
             this.btnFormatos = new System.Windows.Forms.Button();
+            this.pnlBtnFormaciones = new System.Windows.Forms.Panel();
             this.btnFrmAddINCES = new System.Windows.Forms.Button();
             this.btnFrmAddIncom = new System.Windows.Forms.Button();
             this.btnFrmAddFEE = new System.Windows.Forms.Button();
             this.btnFrmVerFormacion = new System.Windows.Forms.Button();
             this.btnFrmAddAbierto = new System.Windows.Forms.Button();
             this.btnFormaciones = new System.Windows.Forms.Button();
+            this.pnlBtnFinal = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnFrmAyuda = new System.Windows.Forms.Button();
+            this.pnlPanelCabeceraMenu = new System.Windows.Forms.Panel();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
             this.btnDespliegueMenu = new System.Windows.Forms.Button();
+            this.lblLabelNombre_usuario = new System.Windows.Forms.Label();
             this.picFotoUser = new System.Windows.Forms.PictureBox();
-            this.btn_minimizar = new System.Windows.Forms.Button();
-            this.btn_cerrar = new System.Windows.Forms.Button();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelBordeVentana.SuspendLayout();
             this.pnlPanelContenedorMenu.SuspendLayout();
             this.pnlPanelCuerpoMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.pnlBtnLogistica.SuspendLayout();
             this.pnlBtnFacilitadores.SuspendLayout();
-            this.pnlBtnClientes.SuspendLayout();
             this.pnlBtnParticipantes.SuspendLayout();
+            this.pnlBtnClientes.SuspendLayout();
             this.pnlBtnUsuario.SuspendLayout();
             this.pnlBtnReportes.SuspendLayout();
-            this.pnlBtnLogistica.SuspendLayout();
             this.pnlBtnFormatos.SuspendLayout();
             this.pnlBtnFormaciones.SuspendLayout();
             this.pnlBtnFinal.SuspendLayout();
@@ -152,6 +152,38 @@
             this.pnlPanelBordeVentana.Size = new System.Drawing.Size(1376, 25);
             this.pnlPanelBordeVentana.TabIndex = 7;
             // 
+            // btn_minimizar
+            // 
+            this.btn_minimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_minimizar.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_minimizar;
+            this.btn_minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_minimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
+            this.btn_minimizar.FlatAppearance.BorderSize = 0;
+            this.btn_minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_minimizar.Location = new System.Drawing.Point(1282, 2);
+            this.btn_minimizar.Name = "btn_minimizar";
+            this.btn_minimizar.Size = new System.Drawing.Size(31, 21);
+            this.btn_minimizar.TabIndex = 9;
+            this.btn_minimizar.UseVisualStyleBackColor = false;
+            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            // 
+            // btn_cerrar
+            // 
+            this.btn_cerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_cerrar.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_close;
+            this.btn_cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_cerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
+            this.btn_cerrar.FlatAppearance.BorderSize = 0;
+            this.btn_cerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btn_cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cerrar.Location = new System.Drawing.Point(1319, 2);
+            this.btn_cerrar.Name = "btn_cerrar";
+            this.btn_cerrar.Size = new System.Drawing.Size(25, 21);
+            this.btn_cerrar.TabIndex = 6;
+            this.btn_cerrar.UseVisualStyleBackColor = false;
+            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            // 
             // pnlPanelDisplay
             // 
             this.pnlPanelDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -204,64 +236,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(244, 458);
             this.panelContenedor.TabIndex = 10;
             // 
-            // pnlBtnFacilitadores
-            // 
-            this.pnlBtnFacilitadores.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBtnFacilitadores.Controls.Add(this.btnFrmVerFacilitador);
-            this.pnlBtnFacilitadores.Controls.Add(this.btnFrmAddFacilitador);
-            this.pnlBtnFacilitadores.Controls.Add(this.btnFacilitadores);
-            this.pnlBtnFacilitadores.Location = new System.Drawing.Point(0, 52);
-            this.pnlBtnFacilitadores.Name = "pnlBtnFacilitadores";
-            this.pnlBtnFacilitadores.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnFacilitadores.TabIndex = 22;
-            this.pnlBtnFacilitadores.Tag = "";
-            // 
-            // pnlBtnClientes
-            // 
-            this.pnlBtnClientes.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBtnClientes.Controls.Add(this.btnFrmAddAreaEmpresa);
-            this.pnlBtnClientes.Controls.Add(this.btnFrmVerCliente);
-            this.pnlBtnClientes.Controls.Add(this.btnFrmAddCliente);
-            this.pnlBtnClientes.Controls.Add(this.btnClientes);
-            this.pnlBtnClientes.Location = new System.Drawing.Point(0, 102);
-            this.pnlBtnClientes.Name = "pnlBtnClientes";
-            this.pnlBtnClientes.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnClientes.TabIndex = 21;
-            this.pnlBtnClientes.Tag = "";
-            // 
-            // pnlBtnParticipantes
-            // 
-            this.pnlBtnParticipantes.Controls.Add(this.btnFrmAddParticipantes);
-            this.pnlBtnParticipantes.Controls.Add(this.btnFrmVerParticipante);
-            this.pnlBtnParticipantes.Controls.Add(this.btnParticipante);
-            this.pnlBtnParticipantes.Location = new System.Drawing.Point(0, 150);
-            this.pnlBtnParticipantes.Name = "pnlBtnParticipantes";
-            this.pnlBtnParticipantes.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnParticipantes.TabIndex = 18;
-            this.pnlBtnParticipantes.Tag = "";
-            // 
-            // pnlBtnUsuario
-            // 
-            this.pnlBtnUsuario.Controls.Add(this.btnFrmVerUsuario);
-            this.pnlBtnUsuario.Controls.Add(this.btnUsuario);
-            this.pnlBtnUsuario.Controls.Add(this.btnFrmAddUsuario);
-            this.pnlBtnUsuario.Location = new System.Drawing.Point(0, 198);
-            this.pnlBtnUsuario.Name = "pnlBtnUsuario";
-            this.pnlBtnUsuario.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnUsuario.TabIndex = 19;
-            this.pnlBtnUsuario.Tag = "";
-            // 
-            // pnlBtnReportes
-            // 
-            this.pnlBtnReportes.Controls.Add(this.btnFrmVerReporte);
-            this.pnlBtnReportes.Controls.Add(this.btnFrmAddReporte);
-            this.pnlBtnReportes.Controls.Add(this.btnReportes);
-            this.pnlBtnReportes.Location = new System.Drawing.Point(0, 294);
-            this.pnlBtnReportes.Name = "pnlBtnReportes";
-            this.pnlBtnReportes.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnReportes.TabIndex = 21;
-            this.pnlBtnReportes.Tag = "";
-            // 
             // pnlBtnLogistica
             // 
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosInces);
@@ -276,82 +250,6 @@
             this.pnlBtnLogistica.TabIndex = 18;
             this.pnlBtnLogistica.Tag = "";
             this.pnlBtnLogistica.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBtnLogistica_Paint);
-            // 
-            // pnlBtnFormatos
-            // 
-            this.pnlBtnFormatos.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBtnFormatos.Controls.Add(this.btnFrmVerFormatos);
-            this.pnlBtnFormatos.Controls.Add(this.btnFormatos);
-            this.pnlBtnFormatos.Location = new System.Drawing.Point(0, 342);
-            this.pnlBtnFormatos.Name = "pnlBtnFormatos";
-            this.pnlBtnFormatos.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnFormatos.TabIndex = 25;
-            this.pnlBtnFormatos.Tag = "";
-            // 
-            // pnlBtnFormaciones
-            // 
-            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddINCES);
-            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddIncom);
-            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddFEE);
-            this.pnlBtnFormaciones.Controls.Add(this.btnFrmVerFormacion);
-            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddAbierto);
-            this.pnlBtnFormaciones.Controls.Add(this.btnFormaciones);
-            this.pnlBtnFormaciones.Location = new System.Drawing.Point(0, 3);
-            this.pnlBtnFormaciones.Name = "pnlBtnFormaciones";
-            this.pnlBtnFormaciones.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnFormaciones.TabIndex = 17;
-            this.pnlBtnFormaciones.Tag = "";
-            // 
-            // pnlBtnFinal
-            // 
-            this.pnlBtnFinal.Controls.Add(this.btnCerrarSesion);
-            this.pnlBtnFinal.Controls.Add(this.btnFrmAyuda);
-            this.pnlBtnFinal.Location = new System.Drawing.Point(0, 390);
-            this.pnlBtnFinal.Name = "pnlBtnFinal";
-            this.pnlBtnFinal.Size = new System.Drawing.Size(219, 107);
-            this.pnlBtnFinal.TabIndex = 22;
-            this.pnlBtnFinal.Tag = "";
-            // 
-            // pnlPanelCabeceraMenu
-            // 
-            this.pnlPanelCabeceraMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPanelCabeceraMenu.Controls.Add(this.btnEditarPerfil);
-            this.pnlPanelCabeceraMenu.Controls.Add(this.btnDespliegueMenu);
-            this.pnlPanelCabeceraMenu.Controls.Add(this.lblLabelNombre_usuario);
-            this.pnlPanelCabeceraMenu.Controls.Add(this.picFotoUser);
-            this.pnlPanelCabeceraMenu.Controls.Add(this.shapeContainer2);
-            this.pnlPanelCabeceraMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlPanelCabeceraMenu.Name = "pnlPanelCabeceraMenu";
-            this.pnlPanelCabeceraMenu.Size = new System.Drawing.Size(244, 207);
-            this.pnlPanelCabeceraMenu.TabIndex = 10;
-            // 
-            // lblLabelNombre_usuario
-            // 
-            this.lblLabelNombre_usuario.AutoSize = true;
-            this.lblLabelNombre_usuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblLabelNombre_usuario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLabelNombre_usuario.Location = new System.Drawing.Point(76, 144);
-            this.lblLabelNombre_usuario.Name = "lblLabelNombre_usuario";
-            this.lblLabelNombre_usuario.Size = new System.Drawing.Size(82, 21);
-            this.lblLabelNombre_usuario.TabIndex = 1;
-            this.lblLabelNombre_usuario.Text = "Nombre";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rsLineaSeparadora});
-            this.shapeContainer2.Size = new System.Drawing.Size(244, 207);
-            this.shapeContainer2.TabIndex = 1;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // rsLineaSeparadora
-            // 
-            this.rsLineaSeparadora.Location = new System.Drawing.Point(18, 177);
-            this.rsLineaSeparadora.Name = "rsLineaSeparadora";
-            this.rsLineaSeparadora.Size = new System.Drawing.Size(198, 1);
             // 
             // btnFrmVerCursosInces
             // 
@@ -368,6 +266,7 @@
             this.btnFrmVerCursosInces.Text = "     Cursos INCES";
             this.btnFrmVerCursosInces.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerCursosInces.UseVisualStyleBackColor = true;
+            this.btnFrmVerCursosInces.Click += new System.EventHandler(this.btnFrmVerCursosInces_Click);
             // 
             // btnFrmVerInsumos
             // 
@@ -455,6 +354,18 @@
             this.btnLogistica.UseVisualStyleBackColor = true;
             this.btnLogistica.Click += new System.EventHandler(this.btnLogistica_Click);
             // 
+            // pnlBtnFacilitadores
+            // 
+            this.pnlBtnFacilitadores.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBtnFacilitadores.Controls.Add(this.btnFrmVerFacilitador);
+            this.pnlBtnFacilitadores.Controls.Add(this.btnFrmAddFacilitador);
+            this.pnlBtnFacilitadores.Controls.Add(this.btnFacilitadores);
+            this.pnlBtnFacilitadores.Location = new System.Drawing.Point(0, 52);
+            this.pnlBtnFacilitadores.Name = "pnlBtnFacilitadores";
+            this.pnlBtnFacilitadores.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnFacilitadores.TabIndex = 22;
+            this.pnlBtnFacilitadores.Tag = "";
+            // 
             // btnFrmVerFacilitador
             // 
             this.btnFrmVerFacilitador.FlatAppearance.BorderSize = 0;
@@ -506,6 +417,80 @@
             this.btnFacilitadores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFacilitadores.UseVisualStyleBackColor = true;
             this.btnFacilitadores.Click += new System.EventHandler(this.btnFacilitadores_Click);
+            // 
+            // pnlBtnParticipantes
+            // 
+            this.pnlBtnParticipantes.Controls.Add(this.btnFrmAddParticipantes);
+            this.pnlBtnParticipantes.Controls.Add(this.btnFrmVerParticipante);
+            this.pnlBtnParticipantes.Controls.Add(this.btnParticipante);
+            this.pnlBtnParticipantes.Location = new System.Drawing.Point(0, 150);
+            this.pnlBtnParticipantes.Name = "pnlBtnParticipantes";
+            this.pnlBtnParticipantes.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnParticipantes.TabIndex = 18;
+            this.pnlBtnParticipantes.Tag = "";
+            // 
+            // btnFrmAddParticipantes
+            // 
+            this.btnFrmAddParticipantes.FlatAppearance.BorderSize = 0;
+            this.btnFrmAddParticipantes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmAddParticipantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmAddParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmAddParticipantes.Image = global::UCS_NODO_FGC.Properties.Resources.icon_add_usuario;
+            this.btnFrmAddParticipantes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmAddParticipantes.Location = new System.Drawing.Point(0, 53);
+            this.btnFrmAddParticipantes.Name = "btnFrmAddParticipantes";
+            this.btnFrmAddParticipantes.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmAddParticipantes.TabIndex = 15;
+            this.btnFrmAddParticipantes.Text = "   Agregar participantes";
+            this.btnFrmAddParticipantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmAddParticipantes.UseVisualStyleBackColor = true;
+            // 
+            // btnFrmVerParticipante
+            // 
+            this.btnFrmVerParticipante.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerParticipante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerParticipante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerParticipante.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerParticipante.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
+            this.btnFrmVerParticipante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerParticipante.Location = new System.Drawing.Point(3, 106);
+            this.btnFrmVerParticipante.Name = "btnFrmVerParticipante";
+            this.btnFrmVerParticipante.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerParticipante.TabIndex = 13;
+            this.btnFrmVerParticipante.Text = "     Ver participantes";
+            this.btnFrmVerParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerParticipante.UseVisualStyleBackColor = true;
+            // 
+            // btnParticipante
+            // 
+            this.btnParticipante.FlatAppearance.BorderSize = 0;
+            this.btnParticipante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnParticipante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnParticipante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParticipante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParticipante.Image = global::UCS_NODO_FGC.Properties.Resources.icon_participante;
+            this.btnParticipante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnParticipante.Location = new System.Drawing.Point(3, 0);
+            this.btnParticipante.Name = "btnParticipante";
+            this.btnParticipante.Size = new System.Drawing.Size(219, 47);
+            this.btnParticipante.TabIndex = 12;
+            this.btnParticipante.Text = "       Participantes";
+            this.btnParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnParticipante.UseVisualStyleBackColor = true;
+            this.btnParticipante.Click += new System.EventHandler(this.btnParticipante_Click);
+            // 
+            // pnlBtnClientes
+            // 
+            this.pnlBtnClientes.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBtnClientes.Controls.Add(this.btnFrmAddAreaEmpresa);
+            this.pnlBtnClientes.Controls.Add(this.btnFrmVerCliente);
+            this.pnlBtnClientes.Controls.Add(this.btnFrmAddCliente);
+            this.pnlBtnClientes.Controls.Add(this.btnClientes);
+            this.pnlBtnClientes.Location = new System.Drawing.Point(0, 102);
+            this.pnlBtnClientes.Name = "pnlBtnClientes";
+            this.pnlBtnClientes.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnClientes.TabIndex = 21;
+            this.pnlBtnClientes.Tag = "";
             // 
             // btnFrmAddAreaEmpresa
             // 
@@ -576,55 +561,16 @@
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // btnFrmAddParticipantes
+            // pnlBtnUsuario
             // 
-            this.btnFrmAddParticipantes.FlatAppearance.BorderSize = 0;
-            this.btnFrmAddParticipantes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmAddParticipantes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmAddParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmAddParticipantes.Image = global::UCS_NODO_FGC.Properties.Resources.icon_add_usuario;
-            this.btnFrmAddParticipantes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmAddParticipantes.Location = new System.Drawing.Point(0, 53);
-            this.btnFrmAddParticipantes.Name = "btnFrmAddParticipantes";
-            this.btnFrmAddParticipantes.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmAddParticipantes.TabIndex = 15;
-            this.btnFrmAddParticipantes.Text = "   Agregar participantes";
-            this.btnFrmAddParticipantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmAddParticipantes.UseVisualStyleBackColor = true;
-            // 
-            // btnFrmVerParticipante
-            // 
-            this.btnFrmVerParticipante.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerParticipante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerParticipante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerParticipante.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerParticipante.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
-            this.btnFrmVerParticipante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerParticipante.Location = new System.Drawing.Point(3, 106);
-            this.btnFrmVerParticipante.Name = "btnFrmVerParticipante";
-            this.btnFrmVerParticipante.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerParticipante.TabIndex = 13;
-            this.btnFrmVerParticipante.Text = "     Ver participantes";
-            this.btnFrmVerParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerParticipante.UseVisualStyleBackColor = true;
-            // 
-            // btnParticipante
-            // 
-            this.btnParticipante.FlatAppearance.BorderSize = 0;
-            this.btnParticipante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnParticipante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnParticipante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnParticipante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParticipante.Image = global::UCS_NODO_FGC.Properties.Resources.icon_participante;
-            this.btnParticipante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnParticipante.Location = new System.Drawing.Point(3, 0);
-            this.btnParticipante.Name = "btnParticipante";
-            this.btnParticipante.Size = new System.Drawing.Size(219, 47);
-            this.btnParticipante.TabIndex = 12;
-            this.btnParticipante.Text = "       Participantes";
-            this.btnParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnParticipante.UseVisualStyleBackColor = true;
-            this.btnParticipante.Click += new System.EventHandler(this.btnParticipante_Click);
+            this.pnlBtnUsuario.Controls.Add(this.btnFrmVerUsuario);
+            this.pnlBtnUsuario.Controls.Add(this.btnUsuario);
+            this.pnlBtnUsuario.Controls.Add(this.btnFrmAddUsuario);
+            this.pnlBtnUsuario.Location = new System.Drawing.Point(0, 198);
+            this.pnlBtnUsuario.Name = "pnlBtnUsuario";
+            this.pnlBtnUsuario.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnUsuario.TabIndex = 19;
+            this.pnlBtnUsuario.Tag = "";
             // 
             // btnFrmVerUsuario
             // 
@@ -678,6 +624,17 @@
             this.btnFrmAddUsuario.UseVisualStyleBackColor = true;
             this.btnFrmAddUsuario.Click += new System.EventHandler(this.btnFrmAddUsuario_Click);
             // 
+            // pnlBtnReportes
+            // 
+            this.pnlBtnReportes.Controls.Add(this.btnFrmVerReporte);
+            this.pnlBtnReportes.Controls.Add(this.btnFrmAddReporte);
+            this.pnlBtnReportes.Controls.Add(this.btnReportes);
+            this.pnlBtnReportes.Location = new System.Drawing.Point(0, 294);
+            this.pnlBtnReportes.Name = "pnlBtnReportes";
+            this.pnlBtnReportes.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnReportes.TabIndex = 21;
+            this.pnlBtnReportes.Tag = "";
+            // 
             // btnFrmVerReporte
             // 
             this.btnFrmVerReporte.FlatAppearance.BorderSize = 0;
@@ -728,6 +685,17 @@
             this.btnReportes.UseVisualStyleBackColor = true;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
+            // pnlBtnFormatos
+            // 
+            this.pnlBtnFormatos.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBtnFormatos.Controls.Add(this.btnFrmVerFormatos);
+            this.pnlBtnFormatos.Controls.Add(this.btnFormatos);
+            this.pnlBtnFormatos.Location = new System.Drawing.Point(0, 342);
+            this.pnlBtnFormatos.Name = "pnlBtnFormatos";
+            this.pnlBtnFormatos.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnFormatos.TabIndex = 25;
+            this.pnlBtnFormatos.Tag = "";
+            // 
             // btnFrmVerFormatos
             // 
             this.btnFrmVerFormatos.FlatAppearance.BorderSize = 0;
@@ -761,6 +729,20 @@
             this.btnFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFormatos.UseVisualStyleBackColor = true;
             this.btnFormatos.Click += new System.EventHandler(this.btnFormatos_Click);
+            // 
+            // pnlBtnFormaciones
+            // 
+            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddINCES);
+            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddIncom);
+            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddFEE);
+            this.pnlBtnFormaciones.Controls.Add(this.btnFrmVerFormacion);
+            this.pnlBtnFormaciones.Controls.Add(this.btnFrmAddAbierto);
+            this.pnlBtnFormaciones.Controls.Add(this.btnFormaciones);
+            this.pnlBtnFormaciones.Location = new System.Drawing.Point(0, 3);
+            this.pnlBtnFormaciones.Name = "pnlBtnFormaciones";
+            this.pnlBtnFormaciones.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnFormaciones.TabIndex = 17;
+            this.pnlBtnFormaciones.Tag = "";
             // 
             // btnFrmAddINCES
             // 
@@ -863,6 +845,16 @@
             this.btnFormaciones.Click += new System.EventHandler(this.btnFormaciones_Click);
             this.btnFormaciones.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnFormaciones_MouseClick);
             // 
+            // pnlBtnFinal
+            // 
+            this.pnlBtnFinal.Controls.Add(this.btnCerrarSesion);
+            this.pnlBtnFinal.Controls.Add(this.btnFrmAyuda);
+            this.pnlBtnFinal.Location = new System.Drawing.Point(0, 390);
+            this.pnlBtnFinal.Name = "pnlBtnFinal";
+            this.pnlBtnFinal.Size = new System.Drawing.Size(219, 107);
+            this.pnlBtnFinal.TabIndex = 22;
+            this.pnlBtnFinal.Tag = "";
+            // 
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -901,6 +893,19 @@
             this.btnFrmAyuda.UseVisualStyleBackColor = true;
             this.btnFrmAyuda.Click += new System.EventHandler(this.btnFrmAyuda_Click);
             // 
+            // pnlPanelCabeceraMenu
+            // 
+            this.pnlPanelCabeceraMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPanelCabeceraMenu.Controls.Add(this.btnEditarPerfil);
+            this.pnlPanelCabeceraMenu.Controls.Add(this.btnDespliegueMenu);
+            this.pnlPanelCabeceraMenu.Controls.Add(this.lblLabelNombre_usuario);
+            this.pnlPanelCabeceraMenu.Controls.Add(this.picFotoUser);
+            this.pnlPanelCabeceraMenu.Controls.Add(this.shapeContainer2);
+            this.pnlPanelCabeceraMenu.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanelCabeceraMenu.Name = "pnlPanelCabeceraMenu";
+            this.pnlPanelCabeceraMenu.Size = new System.Drawing.Size(244, 207);
+            this.pnlPanelCabeceraMenu.TabIndex = 10;
+            // 
             // btnEditarPerfil
             // 
             this.btnEditarPerfil.BackColor = System.Drawing.Color.Transparent;
@@ -933,6 +938,17 @@
             this.btnDespliegueMenu.UseVisualStyleBackColor = false;
             this.btnDespliegueMenu.Click += new System.EventHandler(this.btnDespliegueMenu_Click);
             // 
+            // lblLabelNombre_usuario
+            // 
+            this.lblLabelNombre_usuario.AutoSize = true;
+            this.lblLabelNombre_usuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblLabelNombre_usuario.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLabelNombre_usuario.Location = new System.Drawing.Point(76, 144);
+            this.lblLabelNombre_usuario.Name = "lblLabelNombre_usuario";
+            this.lblLabelNombre_usuario.Size = new System.Drawing.Size(82, 21);
+            this.lblLabelNombre_usuario.TabIndex = 1;
+            this.lblLabelNombre_usuario.Text = "Nombre";
+            // 
             // picFotoUser
             // 
             this.picFotoUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -944,37 +960,22 @@
             this.picFotoUser.TabIndex = 0;
             this.picFotoUser.TabStop = false;
             // 
-            // btn_minimizar
+            // shapeContainer2
             // 
-            this.btn_minimizar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_minimizar.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_minimizar;
-            this.btn_minimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_minimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
-            this.btn_minimizar.FlatAppearance.BorderSize = 0;
-            this.btn_minimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_minimizar.Location = new System.Drawing.Point(1282, 2);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(31, 21);
-            this.btn_minimizar.TabIndex = 9;
-            this.btn_minimizar.UseVisualStyleBackColor = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rsLineaSeparadora});
+            this.shapeContainer2.Size = new System.Drawing.Size(244, 207);
+            this.shapeContainer2.TabIndex = 1;
+            this.shapeContainer2.TabStop = false;
             // 
-            // btn_cerrar
+            // rsLineaSeparadora
             // 
-            this.btn_cerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_cerrar.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_close;
-            this.btn_cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_cerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
-            this.btn_cerrar.FlatAppearance.BorderSize = 0;
-            this.btn_cerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
-            this.btn_cerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cerrar.Location = new System.Drawing.Point(1319, 2);
-            this.btn_cerrar.Name = "btn_cerrar";
-            this.btn_cerrar.Size = new System.Drawing.Size(25, 21);
-            this.btn_cerrar.TabIndex = 6;
-            this.btn_cerrar.UseVisualStyleBackColor = false;
-            this.btn_cerrar.Click += new System.EventHandler(this.btn_cerrar_Click);
+            this.rsLineaSeparadora.Location = new System.Drawing.Point(18, 177);
+            this.rsLineaSeparadora.Name = "rsLineaSeparadora";
+            this.rsLineaSeparadora.Size = new System.Drawing.Size(198, 1);
             // 
             // Pagina_principal
             // 
@@ -997,12 +998,12 @@
             this.pnlPanelContenedorMenu.ResumeLayout(false);
             this.pnlPanelCuerpoMenu.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.pnlBtnLogistica.ResumeLayout(false);
             this.pnlBtnFacilitadores.ResumeLayout(false);
-            this.pnlBtnClientes.ResumeLayout(false);
             this.pnlBtnParticipantes.ResumeLayout(false);
+            this.pnlBtnClientes.ResumeLayout(false);
             this.pnlBtnUsuario.ResumeLayout(false);
             this.pnlBtnReportes.ResumeLayout(false);
-            this.pnlBtnLogistica.ResumeLayout(false);
             this.pnlBtnFormatos.ResumeLayout(false);
             this.pnlBtnFormaciones.ResumeLayout(false);
             this.pnlBtnFinal.ResumeLayout(false);

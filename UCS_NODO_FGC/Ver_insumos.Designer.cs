@@ -61,7 +61,7 @@
             this.grpbData.Controls.Add(this.dgvInsumos);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbData.Location = new System.Drawing.Point(12, 133);
+            this.grpbData.Location = new System.Drawing.Point(27, 133);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(832, 570);
             this.grpbData.TabIndex = 53;

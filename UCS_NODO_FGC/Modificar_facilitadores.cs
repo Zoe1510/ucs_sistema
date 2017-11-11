@@ -603,7 +603,7 @@ namespace UCS_NODO_FGC
                         //ANTES DE ACTUALIZAR, VERIFICAR QUE NO EXISTAN DOS FACILITADORES CON LA MISMA CEDULA. FALTA VALIDACION!
                         if(txtCedulaFa.Text != Clases.Facilitador_Seleccionado.ci_facilitador)//si ha habido cambios entre lo que se cargó y lo que está en el txt
                         {
-                            int existefa = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador, facilitadores.nacionalidad_fa);
+                            int existefa = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador);
                             conexion.cerrarconexion();
                             if (existefa == 0)
                             {
