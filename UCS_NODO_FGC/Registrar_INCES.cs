@@ -42,7 +42,7 @@ namespace UCS_NODO_FGC
         private void cmbxFacilitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             fa.id_facilitador = Convert.ToInt32(cmbxFacilitador.SelectedValue);
-            MessageBox.Show(fa.id_facilitador.ToString());
+            
         }
 
         private void txtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
@@ -60,9 +60,7 @@ namespace UCS_NODO_FGC
             {
                 cmbxFacilitador.Focus();
             }
-        }
-
-        
+        }        
         private void txtNombreCurso_Validating(object sender, CancelEventArgs e)
         {
             if (txtNombreCurso.Text == "")
@@ -75,6 +73,7 @@ namespace UCS_NODO_FGC
                 cmbxFacilitador.Focus();
             }
         }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             guardar();
@@ -126,10 +125,10 @@ namespace UCS_NODO_FGC
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 //verificar que no exista asignacion existente
-                                                int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, id_curso);
+                                                int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, id_curso, fa.id_facilitador);
                                                 conexion.cerrarconexion();
                                                 //si el id que retorna no es el id_fa, se puede asignar
-                                                if (asignacion == 0)
+                                                if (asignacion == 0 || asignacion != id)
                                                 {
                                                     errorProviderFacilitador.SetError(cmbxFacilitador, "");
                                                     if (conexion.abrirconexion() == true)
@@ -148,8 +147,7 @@ namespace UCS_NODO_FGC
                                                 {
                                                     errorProviderFacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
                                                     cmbxFacilitador.SelectedIndex = -1;
-                                                    cmbxFacilitador.Focus();
-                                                    MessageBox.Show("El facilitador ya está asignado a este curso.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    cmbxFacilitador.Focus();                                                    
                                                 }
                                             }
                                         }

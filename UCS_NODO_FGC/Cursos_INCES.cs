@@ -43,20 +43,38 @@ namespace UCS_NODO_FGC
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
-
-
+                MessageBox.Show("Ha ocurrido una error: "+ex.Message);
             }
             
         }
 
         private void btnModificarCurso_Click(object sender, EventArgs e)
         {
-            if(cmbxCurso.SelectedIndex == 1)
+            if(cmbxCurso.SelectedIndex == -1)
             {
-                //aqui poner de referencia la ventana nueva para pasarle los parámetros (id y nombre curso)
-                refrescar();
+                errorProvidercmbx.SetError(cmbxCurso, "Debe seleccionar un curso antes.");
+                cmbxCurso.Focus();
+            }
+            else
+            {
+                errorProvidercmbx.SetError(cmbxCurso, "");
+                conexion.cerrarconexion();
+                if (conexion.abrirconexion() == true)
+                {
+                    buscar = Clases.INCES.SeleccionarNombreCurso(conexion.conexion, ince.id_cursoINCE);
+                    conexion.cerrarconexion();
+
+                }
                 
+                //aqui poner de referencia la ventana nueva para pasarle los parámetros (id y nombre curso)
+                Clases.INCES.id_curso = ince.id_cursoINCE;
+                Clases.INCES.nombre_curso = buscar;
+                Modificar_INCE modi = new Modificar_INCE();
+                modi.ShowDialog();
+                cmbxCurso.SelectedIndex = -1;
+                Clases.INCES.id_curso =0;
+                Clases.INCES.nombre_curso ="";
+                refrescar();
                 llenarcombo();
             }
             
@@ -207,7 +225,7 @@ namespace UCS_NODO_FGC
         {
 
             string buscar1 = "";
-            //llenar el combobox con las empresas registradas:
+            //llenar el combobox con los cursos inces registradas:
             cmbxCurso.ValueMember = "id_INCE";
             cmbxCurso.DisplayMember = "nombre_INCE";
             cmbxCurso.DataSource = Clases.Paneles.LlenarComboboxCursos(buscar1);
@@ -226,6 +244,121 @@ namespace UCS_NODO_FGC
             
             refrescar();
             llenarcombo();
+        }
+
+        private void btnAsignarCurso_Click(object sender, EventArgs e)
+        {
+            Asignar_INCE asignar = new Asignar_INCE();
+            asignar.ShowDialog();
+            refrescar();
+        }
+
+        private void btnEliminarCurso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbxCurso.SelectedIndex == -1)
+                {
+                    errorProvidercmbx.SetError(cmbxCurso, "Debe seleccionar un curso antes.");
+                    cmbxCurso.Focus();
+                }
+                else
+                {
+                    string nombreCurso;
+                    errorProvidercmbx.SetError(cmbxCurso, "");
+                    conexion.cerrarconexion();
+                    if (conexion.abrirconexion() == true)
+                    {
+                        nombreCurso = Clases.INCES.SeleccionarNombreCurso(conexion.conexion, ince.id_cursoINCE);
+                        conexion.cerrarconexion();
+
+                        if (MessageBox.Show("¿Está seguro de eliminar el curso: " + nombreCurso + "?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            if (conexion.abrirconexion() == true)
+                            {
+                                int EliminarAsignaciones = Clases.INCES.EliminarTodasAsignaciones(conexion.conexion, ince.id_cursoINCE);
+                                conexion.cerrarconexion();
+                                if (conexion.abrirconexion() == true)
+                                {
+                                    int Eliminarcur = Clases.INCES.EliminarCurso(conexion.conexion, ince.id_cursoINCE);
+                                    conexion.cerrarconexion();
+                                    if (Eliminarcur > 0)
+                                    {
+                                        refrescar();
+                                        llenarcombo();
+                                        ince.id_cursoINCE = 0;
+                                    }
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            refrescar();
+                            llenarcombo();
+                            ince.id_cursoINCE = 0;
+                        }
+
+
+                    }
+
+
+                }
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conexion.cerrarconexion();
+            }
+            
+        }
+
+        private void btnEliminarAsignacion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dgvInce.SelectedRows.Count == 1)
+                {
+                    if (MessageBox.Show("¿Está seguro de eliminar esta asignación? ", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        if (conexion.abrirconexion() == true)
+                        {
+                            fa.id_facilitador = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, Clases.Facilitador_Seleccionado.ci_facilitador);
+                            conexion.cerrarconexion();
+                            if (conexion.abrirconexion() == true)
+                            {
+                                int id_curs = Clases.INCES.CursoExiste(conexion.conexion, Clases.INCES.nombre_curso);
+                                conexion.cerrarconexion();
+                                if (conexion.abrirconexion() == true)
+                                {
+                                    int eliminarA = Clases.INCES.EliminarAsignacion(conexion.conexion, id_curs, fa.id_facilitador);
+                                    conexion.cerrarconexion();
+                                    if (eliminarA > 0)
+                                    {
+                                        refrescar();
+                                    }else
+                                    {
+                                        MessageBox.Show("Ha ocurrido un error al eliminar la asignación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }else
+                    {
+                        dgvInce.ClearSelection();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una asignación de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conexion.cerrarconexion();
+            }
         }
     }
 }

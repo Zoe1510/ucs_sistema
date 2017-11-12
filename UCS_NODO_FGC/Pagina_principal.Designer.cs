@@ -759,6 +759,7 @@
             this.btnFrmAddINCES.Text = "       Nuevo INCES";
             this.btnFrmAddINCES.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmAddINCES.UseVisualStyleBackColor = true;
+            this.btnFrmAddINCES.Click += new System.EventHandler(this.btnFrmAddINCES_Click);
             // 
             // btnFrmAddIncom
             // 
@@ -775,6 +776,7 @@
             this.btnFrmAddIncom.Text = "    Nuevo InCompany";
             this.btnFrmAddIncom.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmAddIncom.UseVisualStyleBackColor = true;
+            this.btnFrmAddIncom.Click += new System.EventHandler(this.btnFrmAddIncom_Click);
             // 
             // btnFrmAddFEE
             // 
@@ -791,6 +793,7 @@
             this.btnFrmAddFEE.Text = "         Nuevo FEE";
             this.btnFrmAddFEE.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmAddFEE.UseVisualStyleBackColor = true;
+            this.btnFrmAddFEE.Click += new System.EventHandler(this.btnFrmAddFEE_Click);
             // 
             // btnFrmVerFormacion
             // 

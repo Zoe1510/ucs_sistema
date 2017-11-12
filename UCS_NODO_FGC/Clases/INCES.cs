@@ -43,10 +43,10 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
-        public static int AsignacionExiste(MySqlConnection conexion, int id_curso)
+        public static int AsignacionExiste(MySqlConnection conexion, int id_curso, int fa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE='{0}'", id_curso), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE='{0}' AND id_fa_INCE='{1}'", id_curso, fa), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())
@@ -98,13 +98,23 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
-        public static int EliminarCurso(MySqlConnection conexion, INCES cur)
+        public static int EliminarCurso(MySqlConnection conexion, int id_cur)
         {
             int retorno = 0;
 
-            MySqlCommand comando = new MySqlCommand(String.Format("DELETE FROM cursos_inces WHERE nombre_curso_ince='{0}' ", cur.nombre_cursoINCE), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("DELETE FROM cursos_inces WHERE id_curso_ince='{0}' ", id_cur), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
+        }
+
+        public static int EliminarTodasAsignaciones(MySqlConnection conexion, int id_curs)
+        {
+            int retorno = 0;
+
+            MySqlCommand comando = new MySqlCommand(String.Format("DELETE FROM inces_tiene_facilitadores WHERE id_curso_INCE ='{0}' ", id_curs), conexion);
+            retorno = comando.ExecuteNonQuery();
+            return retorno;
+
         }
 
         public static int EliminarAsignacion(MySqlConnection conexion, int id_curso, int id_fa)

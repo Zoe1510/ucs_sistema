@@ -94,6 +94,7 @@ namespace UCS_NODO_FGC.Clases
 
         public static bool comprobarFormatoTlfn(CancelEventArgs e, string tlfn)
         {
+            //(0){1}[4,2][0-9]{2}-[0-9]{3}-[0-9]{4} //expresion regular que acepta 0426-000-0000 o 0274-000-0000
             Regex rex = new Regex("(04)[0-9]{9,9}$");//puede ser void en panel
             Regex rex2 = new Regex("(02)[0-9]{9,9}$");
             if (!rex.IsMatch(tlfn) && !rex2.IsMatch(tlfn))

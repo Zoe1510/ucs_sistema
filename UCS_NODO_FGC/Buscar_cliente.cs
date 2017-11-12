@@ -326,7 +326,7 @@ namespace UCS_NODO_FGC
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 conexion.cerrarconexion();

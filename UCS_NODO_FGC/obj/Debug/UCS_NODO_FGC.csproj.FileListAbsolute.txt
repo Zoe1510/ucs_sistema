@@ -100,3 +100,5 @@ C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Cur
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Registrar_INCES.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.csprojResolveAssemblyReference.cache
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Nueva_formacion_FEE.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Asignar_INCE.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Modificar_INCE.resources

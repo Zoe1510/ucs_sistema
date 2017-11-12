@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvInce = new System.Windows.Forms.DataGridView();
             this.Nombre_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,18 +50,18 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.errorProvidercmbx = new System.Windows.Forms.ErrorProvider(this.components);
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.errorProvidercmbx = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInce)).BeginInit();
             this.grpbOpciones.SuspendLayout();
             this.grpbDatos.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.Panel_cabecera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvidercmbx)).BeginInit();
+            this.Panel_cabecera.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbData
@@ -81,33 +81,33 @@
             this.dgvInce.AllowUserToAddRows = false;
             this.dgvInce.AllowUserToResizeColumns = false;
             this.dgvInce.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvInce.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.dgvInce.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInce.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvInce.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInce.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInce.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInce.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInce.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_curso,
             this.nombre_fa,
             this.apellido_fa,
             this.cedula_fa});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInce.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInce.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInce.Location = new System.Drawing.Point(20, 34);
             this.dgvInce.MultiSelect = false;
             this.dgvInce.Name = "dgvInce";
@@ -176,12 +176,13 @@
             this.btnEliminarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarCurso.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnEliminarCurso.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminarCurso.Location = new System.Drawing.Point(22, 289);
+            this.btnEliminarCurso.Location = new System.Drawing.Point(22, 286);
             this.btnEliminarCurso.Name = "btnEliminarCurso";
             this.btnEliminarCurso.Size = new System.Drawing.Size(176, 43);
             this.btnEliminarCurso.TabIndex = 9;
             this.btnEliminarCurso.Text = "Eliminar curso";
             this.btnEliminarCurso.UseVisualStyleBackColor = false;
+            this.btnEliminarCurso.Click += new System.EventHandler(this.btnEliminarCurso_Click);
             // 
             // btnAsignarCurso
             // 
@@ -191,12 +192,13 @@
             this.btnAsignarCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignarCurso.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignarCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAsignarCurso.Location = new System.Drawing.Point(22, 224);
+            this.btnAsignarCurso.Location = new System.Drawing.Point(22, 226);
             this.btnAsignarCurso.Name = "btnAsignarCurso";
             this.btnAsignarCurso.Size = new System.Drawing.Size(176, 43);
             this.btnAsignarCurso.TabIndex = 5;
             this.btnAsignarCurso.Text = "Asignar facilitador";
             this.btnAsignarCurso.UseVisualStyleBackColor = false;
+            this.btnAsignarCurso.Click += new System.EventHandler(this.btnAsignarCurso_Click);
             // 
             // btnModificarCurso
             // 
@@ -260,6 +262,7 @@
             this.btnEliminarAsignacion.TabIndex = 6;
             this.btnEliminarAsignacion.Text = "Eliminar asignación";
             this.btnEliminarAsignacion.UseVisualStyleBackColor = false;
+            this.btnEliminarAsignacion.Click += new System.EventHandler(this.btnEliminarAsignacion_Click);
             // 
             // grpbDatos
             // 
@@ -323,6 +326,10 @@
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
+            // errorProvidercmbx
+            // 
+            this.errorProvidercmbx.ContainerControl = this;
+            // 
             // Panel_cabecera
             // 
             this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
@@ -366,10 +373,6 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1135, 1);
             // 
-            // errorProvidercmbx
-            // 
-            this.errorProvidercmbx.ContainerControl = this;
-            // 
             // Cursos_INCES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,9 +393,9 @@
             this.grpbDatos.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvidercmbx)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvidercmbx)).EndInit();
             this.ResumeLayout(false);
 
         }
