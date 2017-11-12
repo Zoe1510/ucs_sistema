@@ -362,6 +362,9 @@
     <EmbeddedResource Include="Nueva_formacion_Abierto.resx">
       <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Nueva_formacion_FEE.resx">
+      <DependentUpon>Nueva_formacion_FEE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_INCES.resx">
       <DependentUpon>Nueva_formacion_INCES.cs</DependentUpon>
     </EmbeddedResource>

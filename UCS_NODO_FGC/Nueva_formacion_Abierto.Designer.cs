@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -111,8 +111,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
-            this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
             this.rdbNoRef = new System.Windows.Forms.RadioButton();
             this.rdbSiRef = new System.Windows.Forms.RadioButton();
@@ -152,6 +150,8 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
+            this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnPPT = new System.Windows.Forms.Button();
@@ -171,6 +171,7 @@
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
@@ -526,6 +527,7 @@
             // pnlNivel_intermedio
             // 
             this.pnlNivel_intermedio.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlNivel_intermedio.Controls.Add(this.button2);
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.button1);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
@@ -539,7 +541,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(92, 612);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(916, 612);
             this.pnlNivel_intermedio.TabIndex = 76;
             // 
             // pnlNivel_basico
@@ -553,7 +555,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(56, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(105, 612);
             this.pnlNivel_basico.TabIndex = 74;
             // 
             // groupBox5
@@ -577,6 +579,7 @@
             this.cmbxBloques.Name = "cmbxBloques";
             this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
             this.cmbxBloques.TabIndex = 30;
+            this.cmbxBloques.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxBloques_Validating);
             // 
             // label12
             // 
@@ -608,9 +611,9 @@
             this.label6.ForeColor = System.Drawing.Color.Maroon;
             this.label6.Location = new System.Drawing.Point(217, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(202, 14);
+            this.label6.Size = new System.Drawing.Size(197, 14);
             this.label6.TabIndex = 35;
-            this.label6.Text = "(Formatos permitidos: DOC y PPT)";
+            this.label6.Text = "(Formatos permitidos: PDF y PPT)";
             // 
             // label4
             // 
@@ -635,6 +638,7 @@
             this.btnRutaPresentacion.TabIndex = 34;
             this.btnRutaPresentacion.Text = "Presentación";
             this.btnRutaPresentacion.UseVisualStyleBackColor = false;
+            this.btnRutaPresentacion.Click += new System.EventHandler(this.btnRutaPresentacion_Click);
             // 
             // btnRutaContenido
             // 
@@ -649,6 +653,7 @@
             this.btnRutaContenido.TabIndex = 33;
             this.btnRutaContenido.Text = "Contenido";
             this.btnRutaContenido.UseVisualStyleBackColor = false;
+            this.btnRutaContenido.Click += new System.EventHandler(this.btnRutaContenido_Click);
             // 
             // groupBox3
             // 
@@ -675,6 +680,7 @@
             this.btnVerPresentacion.TabIndex = 2;
             this.btnVerPresentacion.Text = "Ver presentacion";
             this.btnVerPresentacion.UseVisualStyleBackColor = true;
+            this.btnVerPresentacion.Click += new System.EventHandler(this.btnVerPresentacion_Click);
             // 
             // btnVerContenido
             // 
@@ -686,6 +692,7 @@
             this.btnVerContenido.TabIndex = 1;
             this.btnVerContenido.Text = "Ver contenido";
             this.btnVerContenido.UseVisualStyleBackColor = true;
+            this.btnVerContenido.Click += new System.EventHandler(this.btnVerContenido_Click);
             // 
             // groupBox2
             // 
@@ -711,6 +718,8 @@
             this.txtSolicitadoPor.Name = "txtSolicitadoPor";
             this.txtSolicitadoPor.Size = new System.Drawing.Size(226, 25);
             this.txtSolicitadoPor.TabIndex = 26;
+            this.txtSolicitadoPor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSolicitadoPor_KeyPress);
+            this.txtSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.txtSolicitadoPor_Validating);
             // 
             // label11
             // 
@@ -729,6 +738,8 @@
             this.txtNombreFormacion.Name = "txtNombreFormacion";
             this.txtNombreFormacion.Size = new System.Drawing.Size(226, 25);
             this.txtNombreFormacion.TabIndex = 25;
+            this.txtNombreFormacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreFormacion_KeyPress);
+            this.txtNombreFormacion.Leave += new System.EventHandler(this.txtNombreFormacion_Leave);
             // 
             // label1
             // 
@@ -765,6 +776,7 @@
             this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
             this.cmbxDuracionFormacion.TabIndex = 29;
             this.cmbxDuracionFormacion.SelectedIndexChanged += new System.EventHandler(this.cmbxDuracionFormacion_SelectedIndexChanged);
+            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
             // 
             // groupBox1
             // 
@@ -887,9 +899,9 @@
             this.gpbCoFa.Controls.Add(this.label22);
             this.gpbCoFa.Controls.Add(this.pictureBox8);
             this.gpbCoFa.Enabled = false;
-            this.gpbCoFa.Location = new System.Drawing.Point(501, 305);
+            this.gpbCoFa.Location = new System.Drawing.Point(499, 305);
             this.gpbCoFa.Name = "gpbCoFa";
-            this.gpbCoFa.Size = new System.Drawing.Size(380, 71);
+            this.gpbCoFa.Size = new System.Drawing.Size(384, 71);
             this.gpbCoFa.TabIndex = 68;
             this.gpbCoFa.TabStop = false;
             // 
@@ -983,7 +995,7 @@
             this.gpbFacilitador.Controls.Add(this.pictureBox4);
             this.gpbFacilitador.Location = new System.Drawing.Point(501, 28);
             this.gpbFacilitador.Name = "gpbFacilitador";
-            this.gpbFacilitador.Size = new System.Drawing.Size(380, 71);
+            this.gpbFacilitador.Size = new System.Drawing.Size(382, 71);
             this.gpbFacilitador.TabIndex = 61;
             this.gpbFacilitador.TabStop = false;
             // 
@@ -1035,26 +1047,26 @@
             this.dgvMediosDifusion.AllowUserToResizeRows = false;
             this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.opcion_difusion,
             this.seleccionar_opcion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMediosDifusion.Location = new System.Drawing.Point(24, 31);
             this.dgvMediosDifusion.Name = "dgvMediosDifusion";
@@ -1062,24 +1074,6 @@
             this.dgvMediosDifusion.RowHeadersVisible = false;
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 362);
             this.dgvMediosDifusion.TabIndex = 48;
-            // 
-            // opcion_difusion
-            // 
-            this.opcion_difusion.HeaderText = "Medio de difusión";
-            this.opcion_difusion.MaxInputLength = 250;
-            this.opcion_difusion.MinimumWidth = 50;
-            this.opcion_difusion.Name = "opcion_difusion";
-            this.opcion_difusion.ReadOnly = true;
-            this.opcion_difusion.Width = 310;
-            // 
-            // seleccionar_opcion
-            // 
-            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccionar_opcion.HeaderText = "";
-            this.seleccionar_opcion.MinimumWidth = 30;
-            this.seleccionar_opcion.Name = "seleccionar_opcion";
-            this.seleccionar_opcion.ReadOnly = true;
-            this.seleccionar_opcion.Width = 40;
             // 
             // gpbRefrigerio
             // 
@@ -1477,26 +1471,26 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.Location = new System.Drawing.Point(21, 31);
             this.dataGridView1.Name = "dataGridView1";
@@ -1533,6 +1527,24 @@
             this.gpbInsumos.TabIndex = 74;
             this.gpbInsumos.TabStop = false;
             // 
+            // opcion_difusion
+            // 
+            this.opcion_difusion.HeaderText = "Medio de difusión";
+            this.opcion_difusion.MaxInputLength = 250;
+            this.opcion_difusion.MinimumWidth = 50;
+            this.opcion_difusion.Name = "opcion_difusion";
+            this.opcion_difusion.ReadOnly = true;
+            this.opcion_difusion.Width = 310;
+            // 
+            // seleccionar_opcion
+            // 
+            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccionar_opcion.HeaderText = "";
+            this.seleccionar_opcion.MinimumWidth = 30;
+            this.seleccionar_opcion.Name = "seleccionar_opcion";
+            this.seleccionar_opcion.ReadOnly = true;
+            this.seleccionar_opcion.Width = 40;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
@@ -1568,7 +1580,7 @@
             // btnDOC
             // 
             this.btnDOC.BackColor = System.Drawing.Color.Transparent;
-            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_docx;
+            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
             this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDOC.Enabled = false;
             this.btnDOC.FlatAppearance.BorderSize = 0;
@@ -1591,14 +1603,14 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
             this.button1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(590, 549);
+            this.button1.Location = new System.Drawing.Point(497, 550);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 37);
+            this.button1.Size = new System.Drawing.Size(202, 43);
             this.button1.TabIndex = 43;
-            this.button1.Text = "   Enviar a administración";
+            this.button1.Text = "Enviar a administración";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
@@ -1726,6 +1738,21 @@
             this.rectangleShape7.Location = new System.Drawing.Point(-1, 97);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(705, 550);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(193, 43);
+            this.button2.TabIndex = 75;
+            this.button2.Text = "Formatos a facilitador";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // Nueva_formacion_Abierto
             // 
@@ -1934,8 +1961,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.DataGridView dgvMediosDifusion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
         private System.Windows.Forms.GroupBox gpbRefrigerio;
         private System.Windows.Forms.RadioButton rdbNoRef;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1955,5 +1980,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
+        private System.Windows.Forms.Button button2;
     }
 }
