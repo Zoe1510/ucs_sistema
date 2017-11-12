@@ -28,8 +28,8 @@ namespace UCS_NODO_FGC
              
                 Opcion 1)Por el botón del panel principal (Nuevo Incompany) aquí, se mostrará como parte de la ventana principal
                         -Crear un nuevo curso de Incompany
-                        -se trabaja una fecha de creación, guardada en la tabla Cursos de la base de datos
-                        -Y se guarda una fecha de modificacion final al momento de guardar. (Pueden verlo en Nueva_formacion_Abierta)
+                            -se trabaja una fecha de creación, guardada en la tabla Cursos de la base de datos
+                            -Y se guarda una fecha de modificacion final al momento de guardar. (Pueden verlo en Nueva_formacion_Abierta)
 
                 Opcion 2)Por el boton (Seguir) en "Ver formaciones", aquí se desplegará como una ventana distinta:
                         -Modificar o continuar un curso que esté registrado.
@@ -55,7 +55,7 @@ namespace UCS_NODO_FGC
                         \Si es 8hrs: 1 o 2 bloques (si se hace en un día o dos)
                         \Si es 16hrs: 2 bloques siempre (2 dias de 8 horas)
                         
-                    Este punto ayudará para luego (En la Etapa 2. O sea, el panel Nivel_Intermedio) seleccionar los horarios de cada bloque (en el caso de 8 o 16 hrs)
+                    Este punto ayudará para luego (En la Etapa 2 y 3. O sea, el panel Nivel_Intermedio, y avanzado) seleccionar fechas y los horarios de cada bloque (en el caso de 8 o 16 hrs)
                     Y para seleccionar el refrigerio de esos dias (en caso de ser 8 o 16)
                     Nota: los cursos de 4 hrs, no tienen refrigerio.
 
