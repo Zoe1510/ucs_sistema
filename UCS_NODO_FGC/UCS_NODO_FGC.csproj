@@ -92,6 +92,7 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Cliente_seleccionado.cs" />
     <Compile Include="Clases\conexion_bd.cs" />
+    <Compile Include="Clases\Curso_IN.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
     <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />

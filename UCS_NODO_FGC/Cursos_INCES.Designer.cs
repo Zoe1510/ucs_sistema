@@ -46,6 +46,7 @@
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminarAsignacion = new System.Windows.Forms.Button();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.cmbxCurso = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.errorProvidercmbx = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbxCurso = new System.Windows.Forms.ComboBox();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInce)).BeginInit();
             this.grpbOpciones.SuspendLayout();
@@ -274,6 +274,17 @@
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Buscar por curso:";
             // 
+            // cmbxCurso
+            // 
+            this.cmbxCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxCurso.FormattingEnabled = true;
+            this.cmbxCurso.Location = new System.Drawing.Point(22, 36);
+            this.cmbxCurso.Name = "cmbxCurso";
+            this.cmbxCurso.Size = new System.Drawing.Size(176, 27);
+            this.cmbxCurso.TabIndex = 4;
+            this.cmbxCurso.SelectionChangeCommitted += new System.EventHandler(this.cmbxCurso_SelectionChangeCommitted);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
@@ -358,14 +369,6 @@
             // errorProvidercmbx
             // 
             this.errorProvidercmbx.ContainerControl = this;
-            // 
-            // cmbxCurso
-            // 
-            this.cmbxCurso.FormattingEnabled = true;
-            this.cmbxCurso.Location = new System.Drawing.Point(22, 36);
-            this.cmbxCurso.Name = "cmbxCurso";
-            this.cmbxCurso.Size = new System.Drawing.Size(176, 27);
-            this.cmbxCurso.TabIndex = 4;
             // 
             // Cursos_INCES
             // 

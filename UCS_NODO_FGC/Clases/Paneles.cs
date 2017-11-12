@@ -130,7 +130,7 @@ namespace UCS_NODO_FGC.Clases
         }
 
         public static conexion_bd con = new conexion_bd();
-        public static List<Empresa> LlenarCombobox(string nombre)
+        public static List<Empresa> LlenarCombobox(string nombre)//funciona
         {
             List<Empresa> lista = new List<Empresa>();
             if (con.abrirconexion() == true)
@@ -173,9 +173,9 @@ namespace UCS_NODO_FGC.Clases
         }//funciona
 
         public static conexion_bd con2 = new conexion_bd();
-        public static List<INCES> LlenarComboboxCursos(string buscar)//no funciona, muestra la ruta de la clase cursos.inces
+        public static List<Curso_IN> LlenarComboboxCursos(string buscar)//no funciona, muestra la ruta de la clase cursos.inces
         {
-            List<INCES> lista = new List<INCES>();
+            List<Curso_IN> lista = new List<Curso_IN>();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM cursos_inces WHERE nombre_curso_ince LIKE ('%{0}%')", buscar), con2.conexion);
@@ -221,11 +221,11 @@ namespace UCS_NODO_FGC.Clases
             faci.nombreyapellido = nombre+" "+apellido;
             return faci;
         }
-        public static INCES cur(MySqlDataReader reader)
+        public static Curso_IN cur(MySqlDataReader reader)
         {
-            INCES curso = new INCES();
-            curso.id_cursoINCE= Convert.ToInt32(reader["id_curso_ince"]);
-            curso.nombre_cursoINCE= Convert.ToString(reader["nombre_curso_ince"]);
+            Curso_IN curso = new Curso_IN();
+            curso.id_INCE= Convert.ToInt32(reader["id_curso_ince"]);
+            curso.nombre_INCE= Convert.ToString(reader["nombre_curso_ince"]);
             return curso;
         }
         public static Preguntas pre(MySqlDataReader reader)

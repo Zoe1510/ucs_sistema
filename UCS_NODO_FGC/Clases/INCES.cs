@@ -75,6 +75,21 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
+        public static string SeleccionarNombreCurso(MySqlConnection conexion, int id_ince)
+        {
+            string nombre = "";
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT nombre_curso_ince FROM cursos_inces WHERE id_curso_ince='{0}'", id_ince), conexion);
+            MySqlDataReader leer = comando.ExecuteReader();
+
+            while (leer.Read())
+            {
+                nombre = leer.GetString(0);
+
+
+            }
+            return nombre;
+        }
+
         public static int ActualizarCurso(MySqlConnection conexion, INCES cur)
         {
             int retorno = 0;

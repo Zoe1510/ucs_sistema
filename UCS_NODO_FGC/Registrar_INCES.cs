@@ -15,7 +15,7 @@ namespace UCS_NODO_FGC
     {
         Clases.conexion_bd conexion = new Clases.conexion_bd();
         Clases.INCES curso = new Clases.INCES();
-        Clases.Facilitadores fa = new Clases.Facilitadores();
+        Clases.Fa_ince fa = new Clases.Fa_ince();
         
 
         public Registrar_INCES()
@@ -26,7 +26,7 @@ namespace UCS_NODO_FGC
         private void llenarcombo()
         {
             //llenar el combobox con las empresas registradas:
-            cmbxFacilitador.ValueMember = "id_fa";            
+            cmbxFacilitador.ValueMember = "id_facilitador";            
             cmbxFacilitador.DisplayMember = "nombreyapellido";
             cmbxFacilitador.DataSource = Clases.Paneles.LlenarComboboxFacilitadoresINCEs();
             cmbxFacilitador.SelectedIndex = -1;
@@ -41,8 +41,8 @@ namespace UCS_NODO_FGC
         int id = 0;
         private void cmbxFacilitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            id =Convert.ToInt32(cmbxFacilitador.SelectedValue);
-            fa.id_facilitador = id;
+            fa.id_facilitador = Convert.ToInt32(cmbxFacilitador.SelectedValue);
+            MessageBox.Show(fa.id_facilitador.ToString());
         }
 
         private void txtNombreCurso_KeyPress(object sender, KeyPressEventArgs e)
@@ -77,6 +77,11 @@ namespace UCS_NODO_FGC
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            guardar();
+        }
+
+        private void guardar()
+        {
             try
             {
                 if (txtNombreCurso.Text == "")
@@ -96,7 +101,7 @@ namespace UCS_NODO_FGC
                     {
                         errorProviderFacilitador.SetError(cmbxFacilitador, "");
                         curso.nombre_cursoINCE = txtNombreCurso.Text;
-                        
+
                         //el id ya lo tengo del selection commited
                         if (conexion.abrirconexion() == true)
                         {
@@ -130,7 +135,7 @@ namespace UCS_NODO_FGC
                                                     if (conexion.abrirconexion() == true)
                                                     {
                                                         //asignando curso a facilitador
-                                                        int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion,fa.id_facilitador, id_curso);
+                                                        int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion, fa.id_facilitador, id_curso);
                                                         conexion.cerrarconexion();
                                                         if (asignado > 0)
                                                         {
@@ -155,7 +160,8 @@ namespace UCS_NODO_FGC
                                     }
                                 }
 
-                            }else
+                            }
+                            else
                             {
                                 MessageBox.Show("Este curso ya se encuentra registrado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 txtNombreCurso.Clear();
@@ -169,6 +175,16 @@ namespace UCS_NODO_FGC
             {
                 MessageBox.Show(ex.Message);
                 conexion.cerrarconexion();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cancelar la operación?", "",
+       MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+       == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }

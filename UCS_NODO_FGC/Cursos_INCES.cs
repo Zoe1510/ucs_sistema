@@ -75,14 +75,14 @@ namespace UCS_NODO_FGC
         {
             try
             {
-              
+                Clases.Insumos ins = new Clases.Insumos();
                 MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ince.nombre_curso_ince, fa.nombre_fa, fa.apellido_fa, fa.cedula_fa FROM cursos_inces ince inner join inces_tiene_facilitadores itf on ince.id_curso_ince = itf.id_curso_INCE inner join facilitadores fa on itf.id_fa_INCE = fa.id_fa WHERE ince.nombre_curso_ince LIKE ('%{0}%')", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvInce.Rows.Clear();
                 while (reader.Read())
                 {
-                    Clases.Insumos ins = new Clases.Insumos();
+                    
                     ins.contenido_insumo = reader.GetString(0);
                     fa.nombre_facilitador =reader.GetString(1);
                     fa.apellido_facilitador = reader.GetString(2);
@@ -122,23 +122,35 @@ namespace UCS_NODO_FGC
             }
         }
 
-        private void BuscarMatch(MySqlConnection conexion, string buscar)
+        private void BuscarMatch(string buscar)
         {
-            int resultado;
-            CargarDatosTabla(conexion, buscar);
-
-            resultado = retorno;
-            if (resultado == 1)
+            try
             {
+                int resultado;
+                if (conexion.abrirconexion() == true)
+                {
+                    CargarDatosTabla(conexion.conexion, buscar);
+                    conexion.cerrarconexion();
+                }
+                resultado = retorno;
+                if (resultado == 1)
+                {
 
-                //aqui, si se encuentra un resultado compatible, se debe seleccionar la fila que corresponda con el match
-                dgvInce.CurrentRow.Selected = true;
-                retorno = 0;
+                    //aqui, si se encuentra un resultado compatible, se debe seleccionar la fila que corresponda con el match
+                    dgvInce.CurrentRow.Selected = true;
+                    retorno = 0;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message);
+                conexion.cerrarconexion();
             }
+            
         }
         
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -151,11 +163,12 @@ namespace UCS_NODO_FGC
                     errorProvidercmbx.SetError(cmbxCurso, "");
                     if (conexion.abrirconexion() == true)
                     {
-                        buscar = cmbxCurso.DisplayMember;
-
-                        BuscarMatch(conexion.conexion, buscar);
-                        
+                        buscar = Clases.INCES.SeleccionarNombreCurso(conexion.conexion, ince.id_cursoINCE);
+                        MessageBox.Show(buscar);
                         conexion.cerrarconexion();
+                        BuscarMatch(buscar);
+                        
+                        
                         buscar = "";
                     }
 
@@ -195,8 +208,8 @@ namespace UCS_NODO_FGC
 
             string buscar1 = "";
             //llenar el combobox con las empresas registradas:
-            cmbxCurso.ValueMember = "id_curso_ince";
-            cmbxCurso.DisplayMember = "nombre_curso_ince";
+            cmbxCurso.ValueMember = "id_INCE";
+            cmbxCurso.DisplayMember = "nombre_INCE";
             cmbxCurso.DataSource = Clases.Paneles.LlenarComboboxCursos(buscar1);
             
             cmbxCurso.SelectedIndex = -1;
