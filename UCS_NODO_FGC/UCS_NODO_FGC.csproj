@@ -99,6 +99,7 @@
     <Compile Include="Clases\Cliente_seleccionado.cs" />
     <Compile Include="Clases\conexion_bd.cs" />
     <Compile Include="Clases\Curso_IN.cs" />
+    <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
     <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Clases\Preguntas.cs" />
     <Compile Include="Clases\Recuperacion_contraseña.cs" />
     <Compile Include="Clases\Refrigerios.cs" />
+    <Compile Include="Clases\Tiempos_curso.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
     <Compile Include="Cursos_INCES.cs">

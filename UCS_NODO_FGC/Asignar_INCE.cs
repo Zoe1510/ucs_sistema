@@ -68,7 +68,7 @@ namespace UCS_NODO_FGC
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
-                            //verificar que no exista asignacion existente
+                            //verificar que no exista asignacion 
                             int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, ince.id_cursoINCE, fa.id_facilitador);
                             conexion.cerrarconexion();
                             //si el id que retorna no es el id_fa, se puede asignar

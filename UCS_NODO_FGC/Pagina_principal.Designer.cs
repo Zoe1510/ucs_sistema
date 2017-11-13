@@ -43,7 +43,6 @@
             this.pnlBtnLogistica = new System.Windows.Forms.Panel();
             this.btnFrmVerCursosInces = new System.Windows.Forms.Button();
             this.btnFrmVerInsumos = new System.Windows.Forms.Button();
-            this.btnFrmVerHorarios = new System.Windows.Forms.Button();
             this.btnFrmVerPublicidad = new System.Windows.Forms.Button();
             this.btnFrmVerRefrigerios = new System.Windows.Forms.Button();
             this.btnLogistica = new System.Windows.Forms.Button();
@@ -240,7 +239,6 @@
             // 
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosInces);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerInsumos);
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerHorarios);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerPublicidad);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerRefrigerios);
             this.pnlBtnLogistica.Controls.Add(this.btnLogistica);
@@ -259,7 +257,7 @@
             this.btnFrmVerCursosInces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmVerCursosInces.Image = global::UCS_NODO_FGC.Properties.Resources.icon_inces;
             this.btnFrmVerCursosInces.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerCursosInces.Location = new System.Drawing.Point(3, 265);
+            this.btnFrmVerCursosInces.Location = new System.Drawing.Point(3, 212);
             this.btnFrmVerCursosInces.Name = "btnFrmVerCursosInces";
             this.btnFrmVerCursosInces.Size = new System.Drawing.Size(219, 47);
             this.btnFrmVerCursosInces.TabIndex = 14;
@@ -276,7 +274,7 @@
             this.btnFrmVerInsumos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFrmVerInsumos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_insumos;
             this.btnFrmVerInsumos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerInsumos.Location = new System.Drawing.Point(3, 212);
+            this.btnFrmVerInsumos.Location = new System.Drawing.Point(3, 159);
             this.btnFrmVerInsumos.Name = "btnFrmVerInsumos";
             this.btnFrmVerInsumos.Size = new System.Drawing.Size(219, 47);
             this.btnFrmVerInsumos.TabIndex = 13;
@@ -284,22 +282,6 @@
             this.btnFrmVerInsumos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerInsumos.UseVisualStyleBackColor = true;
             this.btnFrmVerInsumos.Click += new System.EventHandler(this.btnFrmVerInsumos_Click);
-            // 
-            // btnFrmVerHorarios
-            // 
-            this.btnFrmVerHorarios.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerHorarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerHorarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerHorarios.Image = global::UCS_NODO_FGC.Properties.Resources.icon_horarios;
-            this.btnFrmVerHorarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerHorarios.Location = new System.Drawing.Point(3, 159);
-            this.btnFrmVerHorarios.Name = "btnFrmVerHorarios";
-            this.btnFrmVerHorarios.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerHorarios.TabIndex = 12;
-            this.btnFrmVerHorarios.Text = "         Horarios";
-            this.btnFrmVerHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerHorarios.UseVisualStyleBackColor = true;
             // 
             // btnFrmVerPublicidad
             // 
@@ -1077,6 +1059,5 @@
         private System.Windows.Forms.Button btnFrmAddINCES;
         private System.Windows.Forms.Button btnFrmVerCursosInces;
         private System.Windows.Forms.Button btnFrmVerInsumos;
-        private System.Windows.Forms.Button btnFrmVerHorarios;
     }
 }

@@ -22,9 +22,7 @@ namespace UCS_NODO_FGC.Clases
 
         public string tipo_formacion { get; set; }
 
-        public DateTime fecha_curso { get; set; }
-
-        public DateTime hora_curso { get; set; }
+        
 
         public int id_user { get; set; }
 
@@ -37,7 +35,7 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
-        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo, DateTime fform, int pq, int idcurso, int id_user, DateTime hora)
+        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user)
         {
             this.fecha_inicial = fi;
             this.solicitado = sol;
@@ -45,11 +43,11 @@ namespace UCS_NODO_FGC.Clases
             this.estatus = sta;
             this.nombre_formacion = nomb;
             this.tipo_formacion = tipo;
-            this.fecha_curso = fform;
+            
             this.pq_inst = pq;
             this.id_curso = idcurso;
             this.id_user = id_user;
-            this.hora_curso = hora;
+            
 
         }
        

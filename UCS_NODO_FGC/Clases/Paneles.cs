@@ -130,9 +130,10 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-        public static conexion_bd con = new conexion_bd();
+        
         public static List<Empresa> LlenarCombobox(string nombre)//funciona
         {
+            conexion_bd con = new conexion_bd();
             List<Empresa> lista = new List<Empresa>();
             if (con.abrirconexion() == true)
             {
@@ -151,9 +152,10 @@ namespace UCS_NODO_FGC.Clases
             return lista;
 
         }//funciona
-        public static conexion_bd con1 = new conexion_bd();
+       
         public static List<Preguntas> LlenarComboboxPreguntas(string pregunta)
         {
+            conexion_bd con1 = new conexion_bd();
             List<Preguntas> lista = new List<Preguntas>();
             if (con1.abrirconexion() == true)
             {
@@ -173,9 +175,10 @@ namespace UCS_NODO_FGC.Clases
 
         }//funciona
 
-        public static conexion_bd con2 = new conexion_bd();
+        
         public static List<Curso_IN> LlenarComboboxCursos(string buscar)//no funciona, muestra la ruta de la clase cursos.inces
         {
+            conexion_bd con2 = new conexion_bd();
             List<Curso_IN> lista = new List<Curso_IN>();
             if (con2.abrirconexion() == true)
             {
@@ -190,9 +193,10 @@ namespace UCS_NODO_FGC.Clases
             con2.cerrarconexion();
             return lista;
         }
-        public static conexion_bd con3 = new conexion_bd();
+        
         public static List<Fa_ince> LlenarComboboxFacilitadoresINCEs()
         {
+            conexion_bd con3 = new conexion_bd();
             List<Fa_ince> lista = new List<Fa_ince>();
             if (con3.abrirconexion() == true)
             {
@@ -212,6 +216,34 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
+        
+        public static List<Facilitador_todos> LlenarCmbxFaTodos()
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores "), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa_todos(leer));
+                }
+            }
+            return lista;
+        }
+
+        public static Facilitador_todos fa_todos(MySqlDataReader reader)
+        {
+            Facilitador_todos fa1 = new Facilitador_todos();
+            fa1.id_faci = Convert.ToInt32(reader["id_fa"]);
+            fa1.ci_facilitador = Convert.ToString(reader["cedula_fa"]);
+            string nombre = Convert.ToString(reader["nombre_fa"]);
+            string apellido = Convert.ToString(reader["apellido_fa"]);
+            fa1.nombreyapellido1 = nombre + " " + apellido;
+            return fa1;
+        }
         public static Fa_ince fa(MySqlDataReader reader)
         {
             Fa_ince faci = new Fa_ince();

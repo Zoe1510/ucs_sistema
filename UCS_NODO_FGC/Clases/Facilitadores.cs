@@ -104,5 +104,27 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
+        public static int FacilitadorDisponibleDia1(MySqlConnection conexion, DateTime dia1)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT ctf.facilitadores_id_fa FROM cursos_tienen_fa ctf inner join cursos cur on ctf.cursos_id_cursos = cur.id_cursos inner join cursos_tienen_tiempos ctt on cur.id_cursos = ctt.id_curso_creado inner join tiempos t on ctt.id_tiempo1 = t.id_tiempo WHERE cur.estatus_curso = 'En curso' and t.fecha_diaUno ='{0}' ",dia1), conexion);
+            MySqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                retorno = reader.GetInt32(0);
+            }
+            return retorno;
+        }
+        public static int FacilitadorDisponibleDia2(MySqlConnection conexion, DateTime dia2)
+        {
+            int retorno = 0;
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT ctf.facilitadores_id_fa FROM cursos_tienen_fa ctf inner join cursos cur on ctf.cursos_id_cursos = cur.id_cursos inner join cursos_tienen_tiempos ctt on cur.id_cursos = ctt.id_curso_creado inner join tiempos t on ctt.id_tiempo1 = t.id_tiempo WHERE cur.estatus_curso = 'En curso' and t.fecha_diaDos ='{0}' ", dia2), conexion);
+            MySqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                retorno = reader.GetInt32(0);
+            }
+            return retorno;
+        }
     }
 }

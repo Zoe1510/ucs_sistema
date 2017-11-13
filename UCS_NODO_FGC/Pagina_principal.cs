@@ -423,7 +423,7 @@ namespace UCS_NODO_FGC
         {
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_Abierto());
-            Clases.Formaciones.creacion = false;
+            
         }
 
         
@@ -472,21 +472,21 @@ namespace UCS_NODO_FGC
         {
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_InCompany());
-            Clases.Formaciones.creacion = false;
+            
         }
 
         private void btnFrmAddINCES_Click(object sender, EventArgs e)
         {
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_INCES());
-            Clases.Formaciones.creacion = false;
+            
         }
 
         private void btnFrmAddFEE_Click(object sender, EventArgs e)
         {
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_FEE());
-            Clases.Formaciones.creacion = false;
+           
         }
     }
 }
