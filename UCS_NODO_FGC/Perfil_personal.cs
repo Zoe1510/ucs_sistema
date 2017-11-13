@@ -97,9 +97,7 @@ namespace UCS_NODO_FGC
                                     MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     conexion.cerrarconexion();
                                     this.Close();
-                                    Inicio_Sesion ini = new Inicio_Sesion();
-
-                                    ini.Show();
+                                    Inicio_Sesion.ActiveForm.Visible = true;
 
                                 }
                                 else

@@ -138,7 +138,7 @@ namespace UCS_NODO_FGC
             else
             {
 
-                pnlBtnReportes.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 319);
+                pnlBtnReportes.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 261);
             }
             //boton fromatos
             if (pnlBtnReportes.Height == 162)
@@ -321,7 +321,7 @@ namespace UCS_NODO_FGC
         {
             if (pnlBtnLogistica.Height == 48)
             {
-                pnlBtnLogistica.Height = 318;
+                pnlBtnLogistica.Height = 260;
                 btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
                 btnReportes.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
@@ -487,6 +487,11 @@ namespace UCS_NODO_FGC
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_FEE());
            
+        }
+
+        private void btnFrmVerParticipante_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_participantes());
         }
     }
 }

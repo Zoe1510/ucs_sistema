@@ -59,6 +59,12 @@
     <Compile Include="Agregar_insumo.Designer.cs">
       <DependentUpon>Agregar_insumo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Agregar_participante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agregar_participante.Designer.cs">
+      <DependentUpon>Agregar_participante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Asignar_INCE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,12 @@
     <Compile Include="Ver_paqueteInstruccional.Designer.cs">
       <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_participantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_participantes.Designer.cs">
+      <DependentUpon>Ver_participantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_publicidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +343,9 @@
     </Compile>
     <EmbeddedResource Include="Agregar_insumo.resx">
       <DependentUpon>Agregar_insumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agregar_participante.resx">
+      <DependentUpon>Agregar_participante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Asignar_INCE.resx">
       <DependentUpon>Asignar_INCE.cs</DependentUpon>
@@ -453,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_paqueteInstruccional.resx">
       <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_participantes.resx">
+      <DependentUpon>Ver_participantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_publicidad.resx">
       <DependentUpon>Ver_publicidad.cs</DependentUpon>
@@ -646,6 +664,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_aula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_edificio.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

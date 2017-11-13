@@ -102,3 +102,5 @@ C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.csp
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Nueva_formacion_FEE.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Asignar_INCE.resources
 C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Modificar_INCE.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Agregar_participante.resources
+C:\Users\ZM\Documents\GitHub\ucs_sistema\UCS_NODO_FGC\obj\Debug\UCS_NODO_FGC.Ver_participantes.resources

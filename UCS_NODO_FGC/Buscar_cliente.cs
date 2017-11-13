@@ -180,6 +180,7 @@ namespace UCS_NODO_FGC
         }
         private void btnModificarContacto_Click(object sender, EventArgs e)
         {
+            Clases.Empresa.ModificarArea = 0;
             abrirFormModificar();
         }
 
@@ -436,8 +437,9 @@ namespace UCS_NODO_FGC
 
         private void btnModificarArea_Click(object sender, EventArgs e)
         {
-            abrirFormModificar();
             Clases.Empresa.ModificarArea = 1;
+            abrirFormModificar();
+           
         }
     }
 }

@@ -120,8 +120,7 @@ namespace UCS_NODO_FGC
                                         Txt_id_user.Clear();
                                         Txt_pass_user.Clear();
 
-                                        this.Hide();
-
+                                        this.Visible = false; 
                                         //Si el usuario es lider: 
                                         if (Clases.Usuario_logeado.cargo_usuario == "Lider")
                                         {

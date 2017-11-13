@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,6 +66,39 @@
             this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlNivel_avanzado = new System.Windows.Forms.Panel();
             this.pnlNivel_intermedio = new System.Windows.Forms.Panel();
+            this.pnlNivel_basico = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.cmbxBloques = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnRutaPresentacion = new System.Windows.Forms.Button();
+            this.btnRutaContenido = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPPT = new System.Windows.Forms.Button();
+            this.btnDOC = new System.Windows.Forms.Button();
+            this.btnVerPresentacion = new System.Windows.Forms.Button();
+            this.btnVerContenido = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.txtSolicitadoPor = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtNombreFormacion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbxDuracionFormacion = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.gpbSegundaFecha = new System.Windows.Forms.GroupBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
+            this.label31 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
@@ -143,39 +176,6 @@
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.gpbSegundaFecha = new System.Windows.Forms.GroupBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
-            this.label31 = new System.Windows.Forms.Label();
-            this.pnlNivel_basico = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.cmbxBloques = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnRutaPresentacion = new System.Windows.Forms.Button();
-            this.btnRutaContenido = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnPPT = new System.Windows.Forms.Button();
-            this.btnDOC = new System.Windows.Forms.Button();
-            this.btnVerPresentacion = new System.Windows.Forms.Button();
-            this.btnVerContenido = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtSolicitadoPor = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtNombreFormacion = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbxDuracionFormacion = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
@@ -188,6 +188,17 @@
             this.panel6.SuspendLayout();
             this.pnlNivel_avanzado.SuspendLayout();
             this.pnlNivel_intermedio.SuspendLayout();
+            this.pnlNivel_basico.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.gpbSegundaFecha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.gpbDatosCoFa.SuspendLayout();
             this.gpbCoFa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -215,17 +226,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
-            this.gpbSegundaFecha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            this.pnlNivel_basico.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -299,7 +299,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(238, 6);
+            this.label9.Location = new System.Drawing.Point(221, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
@@ -532,7 +532,7 @@
             // 
             // pnlNivel_intermedio
             // 
-            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.gpbSegundaFecha);
             this.pnlNivel_intermedio.Controls.Add(this.button2);
@@ -545,11 +545,395 @@
             this.pnlNivel_intermedio.Controls.Add(this.gpbDifusion);
             this.pnlNivel_intermedio.Controls.Add(this.gpbRefrigerio);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFecha);
-            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(916, 612);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(922, 612);
             this.pnlNivel_intermedio.TabIndex = 76;
+            // 
+            // pnlNivel_basico
+            // 
+            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
+            this.pnlNivel_basico.Controls.Add(this.groupBox5);
+            this.pnlNivel_basico.Controls.Add(this.groupBox4);
+            this.pnlNivel_basico.Controls.Add(this.groupBox3);
+            this.pnlNivel_basico.Controls.Add(this.groupBox2);
+            this.pnlNivel_basico.Controls.Add(this.groupBox1);
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
+            this.pnlNivel_basico.Name = "pnlNivel_basico";
+            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
+            this.pnlNivel_basico.TabIndex = 76;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.pictureBox6);
+            this.groupBox5.Controls.Add(this.cmbxBloques);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Location = new System.Drawing.Point(206, 222);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(478, 82);
+            this.groupBox5.TabIndex = 39;
+            this.groupBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
+            this.pictureBox6.Location = new System.Drawing.Point(18, -1);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 68;
+            this.pictureBox6.TabStop = false;
+            // 
+            // cmbxBloques
+            // 
+            this.cmbxBloques.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxBloques.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxBloques.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxBloques.FormattingEnabled = true;
+            this.cmbxBloques.Location = new System.Drawing.Point(219, 34);
+            this.cmbxBloques.Name = "cmbxBloques";
+            this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
+            this.cmbxBloques.TabIndex = 30;
+            this.cmbxBloques.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxBloques_Validating);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(28, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(183, 17);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Bloques de la formación:";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pictureBox7);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.btnRutaPresentacion);
+            this.groupBox4.Controls.Add(this.btnRutaContenido);
+            this.groupBox4.Location = new System.Drawing.Point(206, 307);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(479, 117);
+            this.groupBox4.TabIndex = 38;
+            this.groupBox4.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
+            this.pictureBox7.Location = new System.Drawing.Point(18, 3);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox7.TabIndex = 69;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 9F);
+            this.label6.ForeColor = System.Drawing.Color.Maroon;
+            this.label6.Location = new System.Drawing.Point(217, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(197, 14);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "(Formatos permitidos: PDF y PPT)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(44, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(167, 17);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "Paquete instruccional:";
+            // 
+            // btnRutaPresentacion
+            // 
+            this.btnRutaPresentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnRutaPresentacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnRutaPresentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaPresentacion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRutaPresentacion.ForeColor = System.Drawing.Color.White;
+            this.btnRutaPresentacion.Location = new System.Drawing.Point(278, 70);
+            this.btnRutaPresentacion.Name = "btnRutaPresentacion";
+            this.btnRutaPresentacion.Size = new System.Drawing.Size(118, 32);
+            this.btnRutaPresentacion.TabIndex = 34;
+            this.btnRutaPresentacion.Text = "Presentación";
+            this.btnRutaPresentacion.UseVisualStyleBackColor = false;
+            this.btnRutaPresentacion.Click += new System.EventHandler(this.btnRutaPresentacion_Click);
+            // 
+            // btnRutaContenido
+            // 
+            this.btnRutaContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(226)))));
+            this.btnRutaContenido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(226)))));
+            this.btnRutaContenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaContenido.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRutaContenido.ForeColor = System.Drawing.Color.White;
+            this.btnRutaContenido.Location = new System.Drawing.Point(110, 70);
+            this.btnRutaContenido.Name = "btnRutaContenido";
+            this.btnRutaContenido.Size = new System.Drawing.Size(101, 32);
+            this.btnRutaContenido.TabIndex = 33;
+            this.btnRutaContenido.Text = "Contenido";
+            this.btnRutaContenido.UseVisualStyleBackColor = false;
+            this.btnRutaContenido.Click += new System.EventHandler(this.btnRutaContenido_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPPT);
+            this.groupBox3.Controls.Add(this.btnDOC);
+            this.groupBox3.Controls.Add(this.btnVerPresentacion);
+            this.groupBox3.Controls.Add(this.btnVerContenido);
+            this.groupBox3.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.groupBox3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.groupBox3.Location = new System.Drawing.Point(267, 430);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(349, 162);
+            this.groupBox3.TabIndex = 35;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Archivos cargados";
+            // 
+            // btnPPT
+            // 
+            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
+            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
+            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPPT.Enabled = false;
+            this.btnPPT.FlatAppearance.BorderSize = 0;
+            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPPT.Location = new System.Drawing.Point(217, 35);
+            this.btnPPT.Name = "btnPPT";
+            this.btnPPT.Size = new System.Drawing.Size(73, 72);
+            this.btnPPT.TabIndex = 4;
+            this.btnPPT.UseVisualStyleBackColor = false;
+            // 
+            // btnDOC
+            // 
+            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
+            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
+            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDOC.Enabled = false;
+            this.btnDOC.FlatAppearance.BorderSize = 0;
+            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDOC.Location = new System.Drawing.Point(69, 35);
+            this.btnDOC.Name = "btnDOC";
+            this.btnDOC.Size = new System.Drawing.Size(73, 72);
+            this.btnDOC.TabIndex = 3;
+            this.btnDOC.UseVisualStyleBackColor = false;
+            // 
+            // btnVerPresentacion
+            // 
+            this.btnVerPresentacion.Enabled = false;
+            this.btnVerPresentacion.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerPresentacion.Location = new System.Drawing.Point(201, 119);
+            this.btnVerPresentacion.Name = "btnVerPresentacion";
+            this.btnVerPresentacion.Size = new System.Drawing.Size(103, 27);
+            this.btnVerPresentacion.TabIndex = 2;
+            this.btnVerPresentacion.Text = "Ver presentacion";
+            this.btnVerPresentacion.UseVisualStyleBackColor = true;
+            this.btnVerPresentacion.Click += new System.EventHandler(this.btnVerPresentacion_Click);
+            // 
+            // btnVerContenido
+            // 
+            this.btnVerContenido.Enabled = false;
+            this.btnVerContenido.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerContenido.Location = new System.Drawing.Point(51, 119);
+            this.btnVerContenido.Name = "btnVerContenido";
+            this.btnVerContenido.Size = new System.Drawing.Size(103, 27);
+            this.btnVerContenido.TabIndex = 1;
+            this.btnVerContenido.Text = "Ver contenido";
+            this.btnVerContenido.UseVisualStyleBackColor = true;
+            this.btnVerContenido.Click += new System.EventHandler(this.btnVerContenido_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.pictureBox5);
+            this.groupBox2.Controls.Add(this.txtSolicitadoPor);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.txtNombreFormacion);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cmbxDuracionFormacion);
+            this.groupBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(206, 42);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(479, 174);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
+            this.pictureBox5.Location = new System.Drawing.Point(18, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.TabIndex = 67;
+            this.pictureBox5.TabStop = false;
+            // 
+            // txtSolicitadoPor
+            // 
+            this.txtSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolicitadoPor.Location = new System.Drawing.Point(219, 78);
+            this.txtSolicitadoPor.Name = "txtSolicitadoPor";
+            this.txtSolicitadoPor.Size = new System.Drawing.Size(226, 25);
+            this.txtSolicitadoPor.TabIndex = 26;
+            this.txtSolicitadoPor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSolicitadoPor_KeyPress);
+            this.txtSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.txtSolicitadoPor_Validating);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(100, 81);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 17);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Solicitado por:";
+            // 
+            // txtNombreFormacion
+            // 
+            this.txtNombreFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreFormacion.Location = new System.Drawing.Point(219, 32);
+            this.txtNombreFormacion.Name = "txtNombreFormacion";
+            this.txtNombreFormacion.Size = new System.Drawing.Size(226, 25);
+            this.txtNombreFormacion.TabIndex = 25;
+            this.txtNombreFormacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreFormacion_KeyPress);
+            this.txtNombreFormacion.Leave += new System.EventHandler(this.txtNombreFormacion_Leave);
+            this.txtNombreFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreFormacion_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 17);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Nombre de la formación:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(20, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 17);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Duración de la formación:";
+            // 
+            // cmbxDuracionFormacion
+            // 
+            this.cmbxDuracionFormacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxDuracionFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxDuracionFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxDuracionFormacion.FormattingEnabled = true;
+            this.cmbxDuracionFormacion.Items.AddRange(new object[] {
+            "4 Horas",
+            "8 Horas",
+            "16 Horas"});
+            this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 124);
+            this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
+            this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
+            this.cmbxDuracionFormacion.TabIndex = 29;
+            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.shapeContainer2);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(716, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(188, 87);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Enabled = false;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label5.Location = new System.Drawing.Point(68, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 17);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Abierto";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 11F);
+            this.label2.Location = new System.Drawing.Point(24, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 17);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Tipo de formación:";
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(3, 16);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape1});
+            this.shapeContainer2.Size = new System.Drawing.Size(182, 68);
+            this.shapeContainer2.TabIndex = 28;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.Enabled = false;
+            this.rectangleShape1.Location = new System.Drawing.Point(17, 32);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
+            // 
+            // gpbSegundaFecha
+            // 
+            this.gpbSegundaFecha.Controls.Add(this.pictureBox13);
+            this.gpbSegundaFecha.Controls.Add(this.dtpSegundaFecha);
+            this.gpbSegundaFecha.Controls.Add(this.label31);
+            this.gpbSegundaFecha.Enabled = false;
+            this.gpbSegundaFecha.Location = new System.Drawing.Point(71, 176);
+            this.gpbSegundaFecha.Name = "gpbSegundaFecha";
+            this.gpbSegundaFecha.Size = new System.Drawing.Size(404, 69);
+            this.gpbSegundaFecha.TabIndex = 62;
+            this.gpbSegundaFecha.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
+            this.pictureBox13.Location = new System.Drawing.Point(10, 2);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox13.TabIndex = 61;
+            this.pictureBox13.TabStop = false;
+            // 
+            // dtpSegundaFecha
+            // 
+            this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
+            this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpSegundaFecha.Location = new System.Drawing.Point(183, 29);
+            this.dtpSegundaFecha.Name = "dtpSegundaFecha";
+            this.dtpSegundaFecha.Size = new System.Drawing.Size(189, 25);
+            this.dtpSegundaFecha.TabIndex = 48;
+            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpSegundaFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpSegundaFecha_Validating);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(52, 32);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(115, 17);
+            this.label31.TabIndex = 49;
+            this.label31.Text = "Segunda fecha:";
             // 
             // button2
             // 
@@ -828,26 +1212,26 @@
             this.dgvMediosDifusion.AllowUserToResizeRows = false;
             this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.opcion_difusion,
             this.seleccionar_opcion});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMediosDifusion.Location = new System.Drawing.Point(26, 27);
             this.dgvMediosDifusion.Name = "dgvMediosDifusion";
@@ -1212,26 +1596,26 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1.Location = new System.Drawing.Point(21, 31);
             this.dataGridView1.Name = "dataGridView1";
@@ -1403,7 +1787,7 @@
             this.LabelCabecera.BackColor = System.Drawing.Color.Transparent;
             this.LabelCabecera.Font = new System.Drawing.Font("Lucida Fax", 24.25F, System.Drawing.FontStyle.Bold);
             this.LabelCabecera.ForeColor = System.Drawing.Color.Black;
-            this.LabelCabecera.Location = new System.Drawing.Point(182, 31);
+            this.LabelCabecera.Location = new System.Drawing.Point(158, 31);
             this.LabelCabecera.Name = "LabelCabecera";
             this.LabelCabecera.Size = new System.Drawing.Size(628, 38);
             this.LabelCabecera.TabIndex = 1;
@@ -1426,390 +1810,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(-1, 97);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // gpbSegundaFecha
-            // 
-            this.gpbSegundaFecha.Controls.Add(this.pictureBox13);
-            this.gpbSegundaFecha.Controls.Add(this.dtpSegundaFecha);
-            this.gpbSegundaFecha.Controls.Add(this.label31);
-            this.gpbSegundaFecha.Enabled = false;
-            this.gpbSegundaFecha.Location = new System.Drawing.Point(71, 176);
-            this.gpbSegundaFecha.Name = "gpbSegundaFecha";
-            this.gpbSegundaFecha.Size = new System.Drawing.Size(404, 69);
-            this.gpbSegundaFecha.TabIndex = 62;
-            this.gpbSegundaFecha.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
-            this.pictureBox13.Location = new System.Drawing.Point(10, 2);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox13.TabIndex = 61;
-            this.pictureBox13.TabStop = false;
-            // 
-            // dtpSegundaFecha
-            // 
-            this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
-            this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpSegundaFecha.Location = new System.Drawing.Point(183, 29);
-            this.dtpSegundaFecha.Name = "dtpSegundaFecha";
-            this.dtpSegundaFecha.Size = new System.Drawing.Size(189, 25);
-            this.dtpSegundaFecha.TabIndex = 48;
-            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
-            this.dtpSegundaFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpSegundaFecha_Validating);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(52, 32);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(115, 17);
-            this.label31.TabIndex = 49;
-            this.label31.Text = "Segunda fecha:";
-            // 
-            // pnlNivel_basico
-            // 
-            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
-            this.pnlNivel_basico.Controls.Add(this.groupBox5);
-            this.pnlNivel_basico.Controls.Add(this.groupBox4);
-            this.pnlNivel_basico.Controls.Add(this.groupBox3);
-            this.pnlNivel_basico.Controls.Add(this.groupBox2);
-            this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
-            this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(25, 612);
-            this.pnlNivel_basico.TabIndex = 76;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.pictureBox6);
-            this.groupBox5.Controls.Add(this.cmbxBloques);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(206, 222);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(478, 82);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
-            this.pictureBox6.Location = new System.Drawing.Point(18, -1);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 68;
-            this.pictureBox6.TabStop = false;
-            // 
-            // cmbxBloques
-            // 
-            this.cmbxBloques.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxBloques.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxBloques.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxBloques.FormattingEnabled = true;
-            this.cmbxBloques.Location = new System.Drawing.Point(219, 34);
-            this.cmbxBloques.Name = "cmbxBloques";
-            this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
-            this.cmbxBloques.TabIndex = 30;
-            this.cmbxBloques.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxBloques_Validating);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 34);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(183, 17);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Bloques de la formación:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.pictureBox7);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.btnRutaPresentacion);
-            this.groupBox4.Controls.Add(this.btnRutaContenido);
-            this.groupBox4.Location = new System.Drawing.Point(206, 307);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(479, 117);
-            this.groupBox4.TabIndex = 38;
-            this.groupBox4.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
-            this.pictureBox7.Location = new System.Drawing.Point(18, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox7.TabIndex = 69;
-            this.pictureBox7.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 9F);
-            this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(217, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 14);
-            this.label6.TabIndex = 35;
-            this.label6.Text = "(Formatos permitidos: PDF y PPT)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 17);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "Paquete instruccional:";
-            // 
-            // btnRutaPresentacion
-            // 
-            this.btnRutaPresentacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btnRutaPresentacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.btnRutaPresentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaPresentacion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRutaPresentacion.ForeColor = System.Drawing.Color.White;
-            this.btnRutaPresentacion.Location = new System.Drawing.Point(278, 70);
-            this.btnRutaPresentacion.Name = "btnRutaPresentacion";
-            this.btnRutaPresentacion.Size = new System.Drawing.Size(118, 32);
-            this.btnRutaPresentacion.TabIndex = 34;
-            this.btnRutaPresentacion.Text = "Presentación";
-            this.btnRutaPresentacion.UseVisualStyleBackColor = false;
-            this.btnRutaPresentacion.Click += new System.EventHandler(this.btnRutaPresentacion_Click);
-            // 
-            // btnRutaContenido
-            // 
-            this.btnRutaContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(226)))));
-            this.btnRutaContenido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(226)))));
-            this.btnRutaContenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRutaContenido.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRutaContenido.ForeColor = System.Drawing.Color.White;
-            this.btnRutaContenido.Location = new System.Drawing.Point(110, 70);
-            this.btnRutaContenido.Name = "btnRutaContenido";
-            this.btnRutaContenido.Size = new System.Drawing.Size(101, 32);
-            this.btnRutaContenido.TabIndex = 33;
-            this.btnRutaContenido.Text = "Contenido";
-            this.btnRutaContenido.UseVisualStyleBackColor = false;
-            this.btnRutaContenido.Click += new System.EventHandler(this.btnRutaContenido_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnPPT);
-            this.groupBox3.Controls.Add(this.btnDOC);
-            this.groupBox3.Controls.Add(this.btnVerPresentacion);
-            this.groupBox3.Controls.Add(this.btnVerContenido);
-            this.groupBox3.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.groupBox3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox3.Location = new System.Drawing.Point(267, 430);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(349, 162);
-            this.groupBox3.TabIndex = 35;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Archivos cargados";
-            // 
-            // btnPPT
-            // 
-            this.btnPPT.BackColor = System.Drawing.Color.Transparent;
-            this.btnPPT.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_ppt;
-            this.btnPPT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPPT.Enabled = false;
-            this.btnPPT.FlatAppearance.BorderSize = 0;
-            this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPPT.Location = new System.Drawing.Point(217, 35);
-            this.btnPPT.Name = "btnPPT";
-            this.btnPPT.Size = new System.Drawing.Size(73, 72);
-            this.btnPPT.TabIndex = 4;
-            this.btnPPT.UseVisualStyleBackColor = false;
-            // 
-            // btnDOC
-            // 
-            this.btnDOC.BackColor = System.Drawing.Color.Transparent;
-            this.btnDOC.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_pdf;
-            this.btnDOC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDOC.Enabled = false;
-            this.btnDOC.FlatAppearance.BorderSize = 0;
-            this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDOC.Location = new System.Drawing.Point(69, 35);
-            this.btnDOC.Name = "btnDOC";
-            this.btnDOC.Size = new System.Drawing.Size(73, 72);
-            this.btnDOC.TabIndex = 3;
-            this.btnDOC.UseVisualStyleBackColor = false;
-            // 
-            // btnVerPresentacion
-            // 
-            this.btnVerPresentacion.Enabled = false;
-            this.btnVerPresentacion.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerPresentacion.Location = new System.Drawing.Point(201, 119);
-            this.btnVerPresentacion.Name = "btnVerPresentacion";
-            this.btnVerPresentacion.Size = new System.Drawing.Size(103, 27);
-            this.btnVerPresentacion.TabIndex = 2;
-            this.btnVerPresentacion.Text = "Ver presentacion";
-            this.btnVerPresentacion.UseVisualStyleBackColor = true;
-            this.btnVerPresentacion.Click += new System.EventHandler(this.btnVerPresentacion_Click);
-            // 
-            // btnVerContenido
-            // 
-            this.btnVerContenido.Enabled = false;
-            this.btnVerContenido.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerContenido.Location = new System.Drawing.Point(51, 119);
-            this.btnVerContenido.Name = "btnVerContenido";
-            this.btnVerContenido.Size = new System.Drawing.Size(103, 27);
-            this.btnVerContenido.TabIndex = 1;
-            this.btnVerContenido.Text = "Ver contenido";
-            this.btnVerContenido.UseVisualStyleBackColor = true;
-            this.btnVerContenido.Click += new System.EventHandler(this.btnVerContenido_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.pictureBox5);
-            this.groupBox2.Controls.Add(this.txtSolicitadoPor);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.txtNombreFormacion);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cmbxDuracionFormacion);
-            this.groupBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(206, 42);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 174);
-            this.groupBox2.TabIndex = 34;
-            this.groupBox2.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
-            this.pictureBox5.Location = new System.Drawing.Point(18, 0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 67;
-            this.pictureBox5.TabStop = false;
-            // 
-            // txtSolicitadoPor
-            // 
-            this.txtSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSolicitadoPor.Location = new System.Drawing.Point(219, 78);
-            this.txtSolicitadoPor.Name = "txtSolicitadoPor";
-            this.txtSolicitadoPor.Size = new System.Drawing.Size(226, 25);
-            this.txtSolicitadoPor.TabIndex = 26;
-            this.txtSolicitadoPor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSolicitadoPor_KeyPress);
-            this.txtSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.txtSolicitadoPor_Validating);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(100, 81);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 17);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Solicitado por:";
-            // 
-            // txtNombreFormacion
-            // 
-            this.txtNombreFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreFormacion.Location = new System.Drawing.Point(219, 32);
-            this.txtNombreFormacion.Name = "txtNombreFormacion";
-            this.txtNombreFormacion.Size = new System.Drawing.Size(226, 25);
-            this.txtNombreFormacion.TabIndex = 25;
-            this.txtNombreFormacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreFormacion_KeyPress);
-            this.txtNombreFormacion.Leave += new System.EventHandler(this.txtNombreFormacion_Leave);
-            this.txtNombreFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreFormacion_Validating);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 17);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Nombre de la formación:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 17);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Duración de la formación:";
-            // 
-            // cmbxDuracionFormacion
-            // 
-            this.cmbxDuracionFormacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxDuracionFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxDuracionFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxDuracionFormacion.FormattingEnabled = true;
-            this.cmbxDuracionFormacion.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
-            this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 124);
-            this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
-            this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
-            this.cmbxDuracionFormacion.TabIndex = 29;
-            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.shapeContainer2);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(716, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 87);
-            this.groupBox1.TabIndex = 33;
-            this.groupBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Enabled = false;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label5.Location = new System.Drawing.Point(68, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Abierto";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 11F);
-            this.label2.Location = new System.Drawing.Point(24, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 17);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Tipo de formación:";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(3, 16);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(182, 68);
-            this.shapeContainer2.TabIndex = 28;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.Enabled = false;
-            this.rectangleShape1.Location = new System.Drawing.Point(17, 32);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
             // Nueva_formacion_Abierto
             // 
@@ -1845,6 +1845,22 @@
             this.pnlNivel_avanzado.ResumeLayout(false);
             this.pnlNivel_intermedio.ResumeLayout(false);
             this.pnlNivel_intermedio.PerformLayout();
+            this.pnlNivel_basico.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.gpbSegundaFecha.ResumeLayout(false);
+            this.gpbSegundaFecha.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             this.gpbDatosCoFa.ResumeLayout(false);
             this.gpbDatosCoFa.PerformLayout();
             this.gpbCoFa.ResumeLayout(false);
@@ -1882,22 +1898,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
-            this.gpbSegundaFecha.ResumeLayout(false);
-            this.gpbSegundaFecha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            this.pnlNivel_basico.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

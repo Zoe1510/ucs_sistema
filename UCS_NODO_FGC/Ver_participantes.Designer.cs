@@ -1,6 +1,6 @@
 ﻿namespace UCS_NODO_FGC
 {
-    partial class Ver_publicidad
+    partial class Ver_participantes
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,11 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvDif = new System.Windows.Forms.DataGridView();
-            this.contenido_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatus_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ci_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.grpbOpciones.SuspendLayout();
@@ -67,7 +71,7 @@
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
             this.Panel_cabecera.Size = new System.Drawing.Size(1121, 96);
-            this.Panel_cabecera.TabIndex = 48;
+            this.Panel_cabecera.TabIndex = 49;
             // 
             // label1
             // 
@@ -107,7 +111,7 @@
             this.panel8.Location = new System.Drawing.Point(0, 717);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1121, 22);
-            this.panel8.TabIndex = 55;
+            this.panel8.TabIndex = 56;
             // 
             // label9
             // 
@@ -129,10 +133,10 @@
             this.grpbOpciones.Controls.Add(this.btnModificar);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbOpciones.Location = new System.Drawing.Point(870, 340);
+            this.grpbOpciones.Location = new System.Drawing.Point(880, 335);
             this.grpbOpciones.Name = "grpbOpciones";
             this.grpbOpciones.Size = new System.Drawing.Size(222, 363);
-            this.grpbOpciones.TabIndex = 54;
+            this.grpbOpciones.TabIndex = 59;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
@@ -146,11 +150,10 @@
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAgregar.Location = new System.Drawing.Point(22, 132);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(176, 47);
+            this.btnAgregar.Size = new System.Drawing.Size(176, 54);
             this.btnAgregar.TabIndex = 5;
-            this.btnAgregar.Text = "Añadir";
+            this.btnAgregar.Text = "Agregar participante";
             this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnRefrescar
             // 
@@ -166,7 +169,6 @@
             this.btnRefrescar.TabIndex = 7;
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnEliminar
             // 
@@ -182,7 +184,6 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -196,9 +197,8 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(176, 47);
             this.btnModificar.TabIndex = 5;
-            this.btnModificar.Text = "Modificar";
+            this.btnModificar.Text = "Modificar datos";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // grpbDatos
             // 
@@ -206,10 +206,10 @@
             this.grpbDatos.Controls.Add(this.btnBuscar);
             this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbDatos.Location = new System.Drawing.Point(870, 133);
+            this.grpbDatos.Location = new System.Drawing.Point(880, 128);
             this.grpbDatos.Name = "grpbDatos";
             this.grpbDatos.Size = new System.Drawing.Size(222, 172);
-            this.grpbDatos.TabIndex = 53;
+            this.grpbDatos.TabIndex = 58;
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Datos";
             // 
@@ -222,10 +222,6 @@
             this.txtBuscarTodo.TabIndex = 4;
             this.txtBuscarTodo.Text = "Escriba aquí";
             this.txtBuscarTodo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBuscarTodo.Click += new System.EventHandler(this.txtBuscarTodo_Click);
-            this.txtBuscarTodo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarTodo_KeyDown);
-            this.txtBuscarTodo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarTodo_KeyPress);
-            this.txtBuscarTodo.Leave += new System.EventHandler(this.txtBuscarTodo_Leave);
             // 
             // btnBuscar
             // 
@@ -241,19 +237,18 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grpbData
             // 
             this.grpbData.Controls.Add(this.dgvDif);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbData.Location = new System.Drawing.Point(12, 133);
+            this.grpbData.Location = new System.Drawing.Point(22, 128);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(832, 570);
-            this.grpbData.TabIndex = 52;
+            this.grpbData.TabIndex = 57;
             this.grpbData.TabStop = false;
-            this.grpbData.Text = "Opciones actuales";
+            this.grpbData.Text = "Participantes registrados";
             // 
             // dgvDif
             // 
@@ -275,7 +270,11 @@
             this.dgvDif.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDif.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.contenido_difusion});
+            this.curso_,
+            this.estatus_curso,
+            this.nombre_participante,
+            this.apellido_participante,
+            this.ci_participante});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -292,31 +291,65 @@
             this.dgvDif.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvDif.Size = new System.Drawing.Size(790, 510);
             this.dgvDif.TabIndex = 0;
-            this.dgvDif.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvRef_MouseClick);
             // 
-            // contenido_difusion
+            // curso_
             // 
-            this.contenido_difusion.HeaderText = "Opción de difusión";
-            this.contenido_difusion.MaxInputLength = 250;
-            this.contenido_difusion.MinimumWidth = 300;
-            this.contenido_difusion.Name = "contenido_difusion";
-            this.contenido_difusion.ReadOnly = true;
-            this.contenido_difusion.Width = 787;
+            this.curso_.HeaderText = "Curso asociado";
+            this.curso_.MaxInputLength = 250;
+            this.curso_.MinimumWidth = 100;
+            this.curso_.Name = "curso_";
+            this.curso_.ReadOnly = true;
+            this.curso_.Width = 250;
             // 
-            // Ver_publicidad
+            // estatus_curso
+            // 
+            this.estatus_curso.HeaderText = "Estatus curso";
+            this.estatus_curso.MaxInputLength = 50;
+            this.estatus_curso.MinimumWidth = 70;
+            this.estatus_curso.Name = "estatus_curso";
+            this.estatus_curso.ReadOnly = true;
+            // 
+            // nombre_participante
+            // 
+            this.nombre_participante.HeaderText = "Nombre participante";
+            this.nombre_participante.MaxInputLength = 100;
+            this.nombre_participante.MinimumWidth = 100;
+            this.nombre_participante.Name = "nombre_participante";
+            this.nombre_participante.ReadOnly = true;
+            this.nombre_participante.Width = 180;
+            // 
+            // apellido_participante
+            // 
+            this.apellido_participante.HeaderText = "Apellido";
+            this.apellido_participante.MaxInputLength = 100;
+            this.apellido_participante.MinimumWidth = 100;
+            this.apellido_participante.Name = "apellido_participante";
+            this.apellido_participante.ReadOnly = true;
+            this.apellido_participante.Width = 150;
+            // 
+            // ci_participante
+            // 
+            this.ci_participante.HeaderText = "Cédula";
+            this.ci_participante.MaxInputLength = 10;
+            this.ci_participante.MinimumWidth = 100;
+            this.ci_participante.Name = "ci_participante";
+            this.ci_participante.ReadOnly = true;
+            this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ci_participante.Width = 120;
+            // 
+            // Ver_participantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1121, 739);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.grpbOpciones);
             this.Controls.Add(this.grpbDatos);
             this.Controls.Add(this.grpbData);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Ver_publicidad";
-            this.Load += new System.EventHandler(this.Ver_publicidad_Load);
+            this.Name = "Ver_participantes";
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -348,6 +381,10 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grpbData;
         public System.Windows.Forms.DataGridView dgvDif;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contenido_difusion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estatus_curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_participante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido_participante;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ci_participante;
     }
 }

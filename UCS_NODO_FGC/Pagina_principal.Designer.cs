@@ -442,6 +442,7 @@
             this.btnFrmVerParticipante.Text = "     Ver participantes";
             this.btnFrmVerParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerParticipante.UseVisualStyleBackColor = true;
+            this.btnFrmVerParticipante.Click += new System.EventHandler(this.btnFrmVerParticipante_Click);
             // 
             // btnParticipante
             // 
