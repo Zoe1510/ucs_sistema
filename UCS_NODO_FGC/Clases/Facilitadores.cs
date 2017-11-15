@@ -70,7 +70,7 @@ namespace UCS_NODO_FGC.Clases
         public static Facilitadores SeleccionarFa(MySqlConnection conexion, Facilitadores fa)
         {
             Facilitadores facilitador = new Facilitadores();
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE cedula_fa LIKE ('%{0}%') AND nacionalidad_fa LIKE ('%{1}%')", fa.ci_facilitador, fa.nacionalidad_fa), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE cedula_fa LIKE ('%{0}%')", fa.ci_facilitador), conexion);
             MySqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
             {
@@ -125,6 +125,48 @@ namespace UCS_NODO_FGC.Clases
                 retorno = reader.GetInt32(0);
             }
             return retorno;
+        }
+
+        public static Facilitadores SeleccionarFaPorID(MySqlConnection conexion, int faid)
+        {
+            Facilitadores facilitador = new Facilitadores();
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE id_fa LIKE ('%{0}%')", faid), conexion);
+            MySqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                facilitador.id_facilitador = reader.GetInt32(0);
+                facilitador.ci_facilitador = reader.GetString(1);
+                facilitador.nacionalidad_fa = reader.GetString(2);
+                facilitador.nombre_facilitador = reader.GetString(3);
+                facilitador.apellido_facilitador = reader.GetString(4);
+                facilitador.tlfn_facilitador = reader.GetString(5);
+                facilitador.correo_facilitador = reader.GetString(6);
+                facilitador.ubicacion_facilitador = reader.GetString(7);
+                facilitador.especialidad_facilitador = reader.GetString(8);
+                facilitador.requerimiento_ince = reader.GetInt32(9);
+            }
+            return facilitador;
+        }
+
+        public static Facilitadores SeleccionarCoFaPorID(MySqlConnection conexion, int faid)
+        {
+            Facilitadores facilitador = new Facilitadores();
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE id_fa != '{0}'", faid), conexion);
+            MySqlDataReader reader = comando.ExecuteReader();
+            while (reader.Read())
+            {
+                facilitador.id_facilitador = reader.GetInt32(0);
+                facilitador.ci_facilitador = reader.GetString(1);
+                facilitador.nacionalidad_fa = reader.GetString(2);
+                facilitador.nombre_facilitador = reader.GetString(3);
+                facilitador.apellido_facilitador = reader.GetString(4);
+                facilitador.tlfn_facilitador = reader.GetString(5);
+                facilitador.correo_facilitador = reader.GetString(6);
+                facilitador.ubicacion_facilitador = reader.GetString(7);
+                facilitador.especialidad_facilitador = reader.GetString(8);
+                facilitador.requerimiento_ince = reader.GetInt32(9);
+            }
+            return facilitador;
         }
     }
 }

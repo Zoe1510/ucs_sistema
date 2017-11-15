@@ -426,6 +426,7 @@
             this.btnFrmAddParticipantes.Text = "   Agregar participantes";
             this.btnFrmAddParticipantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmAddParticipantes.UseVisualStyleBackColor = true;
+            this.btnFrmAddParticipantes.Click += new System.EventHandler(this.btnFrmAddParticipantes_Click);
             // 
             // btnFrmVerParticipante
             // 

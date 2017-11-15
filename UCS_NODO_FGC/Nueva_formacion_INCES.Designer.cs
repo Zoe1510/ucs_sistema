@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
@@ -36,22 +37,23 @@
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelOpciones = new System.Windows.Forms.Panel();
+            this.lblEtapafinal = new System.Windows.Forms.Label();
+            this.lblEtapaSiguiente = new System.Windows.Forms.Label();
             this.btnSiguienteEtapa = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRetomar = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.shapeContainer5 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape8 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnPausar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.shapeContainer3 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlNivel_avanzado = new System.Windows.Forms.Panel();
             this.pnlNivel_intermedio = new System.Windows.Forms.Panel();
@@ -87,28 +89,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label28 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCorreoCoFa = new System.Windows.Forms.TextBox();
+            this.txtTlfnCoFa = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.gpbCoFa = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbxCoFa = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.gpbDatosFa = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCorreoFa = new System.Windows.Forms.TextBox();
+            this.txtTlfnFa = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gpbFacilitador = new System.Windows.Forms.GroupBox();
@@ -123,40 +121,52 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gpbFechaHora = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.gpbHorarioCurso = new System.Windows.Forms.GroupBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.rdbNoIgual = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.rdbSiIgual = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbxSegundoHorario = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cmbxHorarios = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtSegundaAula = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rdbNoMantenerAula = new System.Windows.Forms.RadioButton();
             this.label29 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdbMantenerAula = new System.Windows.Forms.RadioButton();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAula = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInsumos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rdbNoMantenerRef = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.rdbMantenerRef = new System.Windows.Forms.RadioButton();
+            this.cmbxSegundoRefrigerio = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.cmbxTipoRefrigerio = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.errorProviderNombreF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderSolicitado = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderBloque = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPresentacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -170,8 +180,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gpbDatosCoFa.SuspendLayout();
@@ -190,9 +198,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.gpbInsumos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).BeginInit();
             this.gpbSeleccionRef.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_cabecera
@@ -214,11 +232,11 @@
             this.LabelCabecera.BackColor = System.Drawing.Color.Transparent;
             this.LabelCabecera.Font = new System.Drawing.Font("Lucida Fax", 24.25F, System.Drawing.FontStyle.Bold);
             this.LabelCabecera.ForeColor = System.Drawing.Color.Black;
-            this.LabelCabecera.Location = new System.Drawing.Point(176, 31);
+            this.LabelCabecera.Location = new System.Drawing.Point(175, 31);
             this.LabelCabecera.Name = "LabelCabecera";
             this.LabelCabecera.Size = new System.Drawing.Size(598, 38);
             this.LabelCabecera.TabIndex = 1;
-            this.LabelCabecera.Text = "Nuevo INCES: información básica";
+            this.LabelCabecera.Text = "Nuevo INCES: Información básica";
             // 
             // shapeContainer1
             // 
@@ -242,6 +260,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(0, 714);
             this.panel8.Name = "panel8";
@@ -260,9 +279,29 @@
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(2, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
             // pnlPanelOpciones
             // 
-            this.pnlPanelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(144)))), ((int)(((byte)(189)))));
+            this.pnlPanelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(201)))), ((int)(((byte)(220)))));
+            this.pnlPanelOpciones.Controls.Add(this.lblEtapafinal);
+            this.pnlPanelOpciones.Controls.Add(this.lblEtapaSiguiente);
             this.pnlPanelOpciones.Controls.Add(this.btnSiguienteEtapa);
             this.pnlPanelOpciones.Controls.Add(this.btnLimpiar);
             this.pnlPanelOpciones.Controls.Add(this.btnModificar);
@@ -278,6 +317,30 @@
             this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
             this.pnlPanelOpciones.TabIndex = 60;
             // 
+            // lblEtapafinal
+            // 
+            this.lblEtapafinal.AutoSize = true;
+            this.lblEtapafinal.Font = new System.Drawing.Font("Rockwell", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEtapafinal.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblEtapafinal.Location = new System.Drawing.Point(29, 570);
+            this.lblEtapafinal.Name = "lblEtapafinal";
+            this.lblEtapafinal.Size = new System.Drawing.Size(148, 22);
+            this.lblEtapafinal.TabIndex = 48;
+            this.lblEtapafinal.Text = "Nivel Avanzado";
+            this.lblEtapafinal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEtapaSiguiente
+            // 
+            this.lblEtapaSiguiente.AutoSize = true;
+            this.lblEtapaSiguiente.Font = new System.Drawing.Font("Rockwell", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEtapaSiguiente.ForeColor = System.Drawing.Color.Chocolate;
+            this.lblEtapaSiguiente.Location = new System.Drawing.Point(24, 529);
+            this.lblEtapaSiguiente.Name = "lblEtapaSiguiente";
+            this.lblEtapaSiguiente.Size = new System.Drawing.Size(158, 22);
+            this.lblEtapaSiguiente.TabIndex = 47;
+            this.lblEtapaSiguiente.Text = "Nivel Intermedio";
+            this.lblEtapaSiguiente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btnSiguienteEtapa
             // 
             this.btnSiguienteEtapa.Enabled = false;
@@ -288,6 +351,7 @@
             this.btnSiguienteEtapa.TabIndex = 42;
             this.btnSiguienteEtapa.Text = "Siguiente etapa";
             this.btnSiguienteEtapa.UseVisualStyleBackColor = true;
+            this.btnSiguienteEtapa.Click += new System.EventHandler(this.btnSiguienteEtapa_Click);
             // 
             // btnLimpiar
             // 
@@ -324,21 +388,11 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.label10);
-            this.panel9.Location = new System.Drawing.Point(1, 464);
+            this.panel9.Location = new System.Drawing.Point(0, 464);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(197, 39);
+            this.panel9.Size = new System.Drawing.Size(198, 39);
             this.panel9.TabIndex = 38;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1, 39);
-            this.panel10.TabIndex = 1;
             // 
             // label10
             // 
@@ -354,23 +408,12 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label7);
-            this.panel6.Controls.Add(this.shapeContainer5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(197, 39);
             this.panel6.TabIndex = 37;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(2, 39);
-            this.panel7.TabIndex = 1;
             // 
             // label7
             // 
@@ -382,24 +425,6 @@
             this.label7.Size = new System.Drawing.Size(88, 18);
             this.label7.TabIndex = 0;
             this.label7.Text = "Opciones";
-            // 
-            // shapeContainer5
-            // 
-            this.shapeContainer5.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer5.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer5.Name = "shapeContainer5";
-            this.shapeContainer5.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape8});
-            this.shapeContainer5.Size = new System.Drawing.Size(197, 39);
-            this.shapeContainer5.TabIndex = 2;
-            this.shapeContainer5.TabStop = false;
-            // 
-            // rectangleShape8
-            // 
-            this.rectangleShape8.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape8.Location = new System.Drawing.Point(2, -1);
-            this.rectangleShape8.Name = "rectangleShape8";
-            this.rectangleShape8.Size = new System.Drawing.Size(193, 1);
             // 
             // btnPausar
             // 
@@ -428,14 +453,22 @@
             this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer3.Name = "shapeContainer3";
             this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape3,
             this.rectangleShape6});
             this.shapeContainer3.Size = new System.Drawing.Size(197, 615);
             this.shapeContainer3.TabIndex = 38;
             this.shapeContainer3.TabStop = false;
             // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.rectangleShape3.Location = new System.Drawing.Point(16, 558);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(165, 1);
+            // 
             // rectangleShape6
             // 
-            this.rectangleShape6.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape6.BorderColor = System.Drawing.Color.DimGray;
             this.rectangleShape6.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape6.Name = "rectangleShape6";
             this.rectangleShape6.Size = new System.Drawing.Size(1, 734);
@@ -443,7 +476,7 @@
             // pnlNivel_avanzado
             // 
             this.pnlNivel_avanzado.AutoScroll = true;
-            this.pnlNivel_avanzado.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlNivel_avanzado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_avanzado.Controls.Add(this.pnlNivel_intermedio);
             this.pnlNivel_avanzado.Controls.Add(this.gpbHorarioCurso);
             this.pnlNivel_avanzado.Controls.Add(this.groupBox7);
@@ -457,9 +490,8 @@
             // 
             // pnlNivel_intermedio
             // 
-            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
-            this.pnlNivel_intermedio.Controls.Add(this.groupBox8);
             this.pnlNivel_intermedio.Controls.Add(this.groupBox6);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
@@ -471,12 +503,12 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(901, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
             // 
-            this.pnlNivel_basico.BackColor = System.Drawing.Color.LightGray;
+            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_basico.Controls.Add(this.groupBox5);
             this.pnlNivel_basico.Controls.Add(this.groupBox4);
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
@@ -485,7 +517,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(846, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
             this.pnlNivel_basico.TabIndex = 89;
             // 
             // groupBox5
@@ -548,6 +580,7 @@
             this.btnRutaBitacora.TabIndex = 37;
             this.btnRutaBitacora.Text = "Bitácora";
             this.btnRutaBitacora.UseVisualStyleBackColor = false;
+            this.btnRutaBitacora.Click += new System.EventHandler(this.btnRutaBitacora_Click);
             // 
             // btnRutaManual
             // 
@@ -562,6 +595,7 @@
             this.btnRutaManual.TabIndex = 36;
             this.btnRutaManual.Text = "Manual";
             this.btnRutaManual.UseVisualStyleBackColor = false;
+            this.btnRutaManual.Click += new System.EventHandler(this.btnRutaManual_Click);
             // 
             // label6
             // 
@@ -597,6 +631,7 @@
             this.btnRutaPresentacion.TabIndex = 34;
             this.btnRutaPresentacion.Text = "Presentación";
             this.btnRutaPresentacion.UseVisualStyleBackColor = false;
+            this.btnRutaPresentacion.Click += new System.EventHandler(this.btnRutaPresentacion_Click);
             // 
             // btnRutaContenido
             // 
@@ -611,6 +646,7 @@
             this.btnRutaContenido.TabIndex = 33;
             this.btnRutaContenido.Text = "Contenido";
             this.btnRutaContenido.UseVisualStyleBackColor = false;
+            this.btnRutaContenido.Click += new System.EventHandler(this.btnRutaContenido_Click);
             // 
             // groupBox3
             // 
@@ -624,7 +660,7 @@
             this.groupBox3.Controls.Add(this.btnVerContenido);
             this.groupBox3.Font = new System.Drawing.Font("Rockwell", 10F);
             this.groupBox3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox3.Location = new System.Drawing.Point(157, 430);
+            this.groupBox3.Location = new System.Drawing.Point(160, 430);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(571, 162);
             this.groupBox3.TabIndex = 35;
@@ -655,6 +691,7 @@
             this.btnVerBitacora.TabIndex = 7;
             this.btnVerBitacora.Text = "Ver bitácora";
             this.btnVerBitacora.UseVisualStyleBackColor = true;
+            this.btnVerBitacora.Click += new System.EventHandler(this.btnVerBitacora_Click);
             // 
             // btnPDFM
             // 
@@ -680,6 +717,7 @@
             this.btnVerManual.TabIndex = 5;
             this.btnVerManual.Text = "Ver manual";
             this.btnVerManual.UseVisualStyleBackColor = true;
+            this.btnVerManual.Click += new System.EventHandler(this.btnVerManual_Click);
             // 
             // btnPPT
             // 
@@ -719,6 +757,7 @@
             this.btnVerPresentacion.TabIndex = 2;
             this.btnVerPresentacion.Text = "Ver presentacion";
             this.btnVerPresentacion.UseVisualStyleBackColor = true;
+            this.btnVerPresentacion.Click += new System.EventHandler(this.btnVerPresentacion_Click);
             // 
             // btnVerContenido
             // 
@@ -730,6 +769,7 @@
             this.btnVerContenido.TabIndex = 1;
             this.btnVerContenido.Text = "Ver contenido";
             this.btnVerContenido.UseVisualStyleBackColor = true;
+            this.btnVerContenido.Click += new System.EventHandler(this.btnVerContenido_Click);
             // 
             // groupBox2
             // 
@@ -871,55 +911,14 @@
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.pictureBox6);
-            this.groupBox8.Controls.Add(this.dateTimePicker1);
-            this.groupBox8.Controls.Add(this.label28);
-            this.groupBox8.Location = new System.Drawing.Point(45, 151);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(404, 69);
-            this.groupBox8.TabIndex = 76;
-            this.groupBox8.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
-            this.pictureBox6.Location = new System.Drawing.Point(10, 2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 61;
-            this.pictureBox6.TabStop = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "dd/mm/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 31);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker1.TabIndex = 48;
-            this.dateTimePicker1.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(29, 31);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(170, 17);
-            this.label28.TabIndex = 49;
-            this.label28.Text = "Segundo día del curso:";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox3);
             this.groupBox6.Controls.Add(this.button2);
             this.groupBox6.Controls.Add(this.button1);
-            this.groupBox6.Location = new System.Drawing.Point(45, 371);
+            this.groupBox6.Location = new System.Drawing.Point(45, 335);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(404, 196);
+            this.groupBox6.Size = new System.Drawing.Size(404, 216);
             this.groupBox6.TabIndex = 88;
             this.groupBox6.TabStop = false;
             // 
@@ -934,74 +933,71 @@
             // 
             // button2
             // 
-            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(73, 42);
+            this.button2.Location = new System.Drawing.Point(73, 51);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(271, 38);
             this.button2.TabIndex = 86;
             this.button2.Text = " Enviar formatos a facilitador";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
             // 
             // button1
             // 
-            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(73, 123);
+            this.button1.Location = new System.Drawing.Point(73, 140);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(271, 38);
             this.button1.TabIndex = 85;
             this.button1.Text = " Enviar datos a Administración";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             // 
             // chkbCoFacilitador
             // 
             this.chkbCoFacilitador.AutoSize = true;
             this.chkbCoFacilitador.Font = new System.Drawing.Font("Rockwell", 12F);
             this.chkbCoFacilitador.ForeColor = System.Drawing.Color.Maroon;
-            this.chkbCoFacilitador.Location = new System.Drawing.Point(578, 307);
+            this.chkbCoFacilitador.Location = new System.Drawing.Point(578, 306);
             this.chkbCoFacilitador.Name = "chkbCoFacilitador";
             this.chkbCoFacilitador.Size = new System.Drawing.Size(196, 23);
             this.chkbCoFacilitador.TabIndex = 82;
             this.chkbCoFacilitador.Text = "Requiere co-facilitador";
             this.chkbCoFacilitador.UseVisualStyleBackColor = true;
+            this.chkbCoFacilitador.CheckedChanged += new System.EventHandler(this.chkbCoFacilitador_CheckedChanged);
             // 
             // gpbDatosCoFa
             // 
-            this.gpbDatosCoFa.Controls.Add(this.textBox3);
-            this.gpbDatosCoFa.Controls.Add(this.textBox4);
+            this.gpbDatosCoFa.Controls.Add(this.txtCorreoCoFa);
+            this.gpbDatosCoFa.Controls.Add(this.txtTlfnCoFa);
             this.gpbDatosCoFa.Controls.Add(this.label23);
             this.gpbDatosCoFa.Controls.Add(this.label24);
             this.gpbDatosCoFa.Enabled = false;
             this.gpbDatosCoFa.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbDatosCoFa.Location = new System.Drawing.Point(477, 430);
+            this.gpbDatosCoFa.Location = new System.Drawing.Point(477, 419);
             this.gpbDatosCoFa.Name = "gpbDatosCoFa";
-            this.gpbDatosCoFa.Size = new System.Drawing.Size(404, 141);
+            this.gpbDatosCoFa.Size = new System.Drawing.Size(404, 132);
             this.gpbDatosCoFa.TabIndex = 81;
             this.gpbDatosCoFa.TabStop = false;
             this.gpbDatosCoFa.Text = "Datos co-facilitador";
             // 
-            // textBox3
+            // txtCorreoCoFa
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(256, 23);
-            this.textBox3.TabIndex = 71;
+            this.txtCorreoCoFa.Location = new System.Drawing.Point(113, 91);
+            this.txtCorreoCoFa.Name = "txtCorreoCoFa";
+            this.txtCorreoCoFa.ReadOnly = true;
+            this.txtCorreoCoFa.Size = new System.Drawing.Size(256, 23);
+            this.txtCorreoCoFa.TabIndex = 71;
             // 
-            // textBox4
+            // txtTlfnCoFa
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(256, 23);
-            this.textBox4.TabIndex = 70;
+            this.txtTlfnCoFa.Location = new System.Drawing.Point(113, 43);
+            this.txtTlfnCoFa.Name = "txtTlfnCoFa";
+            this.txtTlfnCoFa.ReadOnly = true;
+            this.txtTlfnCoFa.Size = new System.Drawing.Size(256, 23);
+            this.txtTlfnCoFa.TabIndex = 70;
             // 
             // label23
             // 
@@ -1026,11 +1022,11 @@
             // gpbCoFa
             // 
             this.gpbCoFa.Controls.Add(this.label21);
-            this.gpbCoFa.Controls.Add(this.comboBox3);
+            this.gpbCoFa.Controls.Add(this.cmbxCoFa);
             this.gpbCoFa.Controls.Add(this.label22);
             this.gpbCoFa.Controls.Add(this.pictureBox8);
             this.gpbCoFa.Enabled = false;
-            this.gpbCoFa.Location = new System.Drawing.Point(477, 347);
+            this.gpbCoFa.Location = new System.Drawing.Point(477, 335);
             this.gpbCoFa.Name = "gpbCoFa";
             this.gpbCoFa.Size = new System.Drawing.Size(404, 71);
             this.gpbCoFa.TabIndex = 80;
@@ -1046,16 +1042,18 @@
             this.label21.TabIndex = 67;
             this.label21.Text = ":";
             // 
-            // comboBox3
+            // cmbxCoFa
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(129, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(240, 25);
-            this.comboBox3.TabIndex = 66;
+            this.cmbxCoFa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxCoFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxCoFa.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxCoFa.FormattingEnabled = true;
+            this.cmbxCoFa.Location = new System.Drawing.Point(129, 26);
+            this.cmbxCoFa.Name = "cmbxCoFa";
+            this.cmbxCoFa.Size = new System.Drawing.Size(240, 25);
+            this.cmbxCoFa.TabIndex = 66;
+            this.cmbxCoFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxCoFa_SelectionChangeCommitted);
+            this.cmbxCoFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCoFa_Validating);
             // 
             // label22
             // 
@@ -1078,8 +1076,8 @@
             // 
             // gpbDatosFa
             // 
-            this.gpbDatosFa.Controls.Add(this.textBox2);
-            this.gpbDatosFa.Controls.Add(this.textBox1);
+            this.gpbDatosFa.Controls.Add(this.txtCorreoFa);
+            this.gpbDatosFa.Controls.Add(this.txtTlfnFa);
             this.gpbDatosFa.Controls.Add(this.label20);
             this.gpbDatosFa.Controls.Add(this.label19);
             this.gpbDatosFa.Enabled = false;
@@ -1091,21 +1089,21 @@
             this.gpbDatosFa.TabStop = false;
             this.gpbDatosFa.Text = "Datos Facilitador";
             // 
-            // textBox2
+            // txtCorreoFa
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(256, 23);
-            this.textBox2.TabIndex = 71;
+            this.txtCorreoFa.Location = new System.Drawing.Point(113, 91);
+            this.txtCorreoFa.Name = "txtCorreoFa";
+            this.txtCorreoFa.ReadOnly = true;
+            this.txtCorreoFa.Size = new System.Drawing.Size(256, 23);
+            this.txtCorreoFa.TabIndex = 71;
             // 
-            // textBox1
+            // txtTlfnFa
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(256, 23);
-            this.textBox1.TabIndex = 70;
+            this.txtTlfnFa.Location = new System.Drawing.Point(113, 43);
+            this.txtTlfnFa.Name = "txtTlfnFa";
+            this.txtTlfnFa.ReadOnly = true;
+            this.txtTlfnFa.Size = new System.Drawing.Size(256, 23);
+            this.txtTlfnFa.TabIndex = 70;
             // 
             // label20
             // 
@@ -1159,6 +1157,8 @@
             this.cmbxFa.Name = "cmbxFa";
             this.cmbxFa.Size = new System.Drawing.Size(259, 25);
             this.cmbxFa.TabIndex = 66;
+            this.cmbxFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxFa_SelectionChangeCommitted);
+            this.cmbxFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxFa_Validating);
             // 
             // label17
             // 
@@ -1185,10 +1185,9 @@
             this.gpbRefrigerio.Controls.Add(this.pictureBox2);
             this.gpbRefrigerio.Controls.Add(this.rdbSiRef);
             this.gpbRefrigerio.Controls.Add(this.label8);
-            this.gpbRefrigerio.Enabled = false;
-            this.gpbRefrigerio.Location = new System.Drawing.Point(45, 261);
+            this.gpbRefrigerio.Location = new System.Drawing.Point(45, 62);
             this.gpbRefrigerio.Name = "gpbRefrigerio";
-            this.gpbRefrigerio.Size = new System.Drawing.Size(404, 65);
+            this.gpbRefrigerio.Size = new System.Drawing.Size(404, 71);
             this.gpbRefrigerio.TabIndex = 76;
             this.gpbRefrigerio.TabStop = false;
             // 
@@ -1196,7 +1195,7 @@
             // 
             this.rdbNoRef.AutoSize = true;
             this.rdbNoRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbNoRef.Location = new System.Drawing.Point(252, 24);
+            this.rdbNoRef.Location = new System.Drawing.Point(252, 30);
             this.rdbNoRef.Name = "rdbNoRef";
             this.rdbNoRef.Size = new System.Drawing.Size(46, 21);
             this.rdbNoRef.TabIndex = 63;
@@ -1217,7 +1216,7 @@
             // 
             this.rdbSiRef.AutoSize = true;
             this.rdbSiRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbSiRef.Location = new System.Drawing.Point(321, 24);
+            this.rdbSiRef.Location = new System.Drawing.Point(323, 30);
             this.rdbSiRef.Name = "rdbSiRef";
             this.rdbSiRef.Size = new System.Drawing.Size(39, 21);
             this.rdbSiRef.TabIndex = 62;
@@ -1230,7 +1229,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(49, 26);
+            this.label8.Location = new System.Drawing.Point(49, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(197, 17);
             this.label8.TabIndex = 54;
@@ -1239,11 +1238,13 @@
             // gpbFechaHora
             // 
             this.gpbFechaHora.Controls.Add(this.pictureBox1);
+            this.gpbFechaHora.Controls.Add(this.dtpSegundaFecha);
             this.gpbFechaHora.Controls.Add(this.dtpFechaCurso);
+            this.gpbFechaHora.Controls.Add(this.label28);
             this.gpbFechaHora.Controls.Add(this.label15);
-            this.gpbFechaHora.Location = new System.Drawing.Point(45, 62);
+            this.gpbFechaHora.Location = new System.Drawing.Point(45, 147);
             this.gpbFechaHora.Name = "gpbFechaHora";
-            this.gpbFechaHora.Size = new System.Drawing.Size(404, 69);
+            this.gpbFechaHora.Size = new System.Drawing.Size(404, 147);
             this.gpbFechaHora.TabIndex = 75;
             this.gpbFechaHora.TabStop = false;
             // 
@@ -1256,22 +1257,47 @@
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
             // 
+            // dtpSegundaFecha
+            // 
+            this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
+            this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSegundaFecha.Location = new System.Drawing.Point(204, 90);
+            this.dtpSegundaFecha.Name = "dtpSegundaFecha";
+            this.dtpSegundaFecha.Size = new System.Drawing.Size(167, 26);
+            this.dtpSegundaFecha.TabIndex = 48;
+            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpSegundaFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpSegundaFecha_Validating);
+            // 
             // dtpFechaCurso
             // 
             this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaCurso.CustomFormat = "dd/mm/yyyy";
+            this.dtpFechaCurso.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaCurso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaCurso.Location = new System.Drawing.Point(205, 31);
             this.dtpFechaCurso.Name = "dtpFechaCurso";
-            this.dtpFechaCurso.Size = new System.Drawing.Size(167, 20);
+            this.dtpFechaCurso.Size = new System.Drawing.Size(167, 26);
             this.dtpFechaCurso.TabIndex = 48;
             this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpFechaCurso.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaCurso_Validating);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(28, 94);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(170, 17);
+            this.label28.TabIndex = 49;
+            this.label28.Text = "Segundo día del curso:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(43, 32);
+            this.label15.Location = new System.Drawing.Point(43, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(156, 17);
             this.label15.TabIndex = 49;
@@ -1283,7 +1309,7 @@
             this.gpbHorarioCurso.Controls.Add(this.rdbNoIgual);
             this.gpbHorarioCurso.Controls.Add(this.label16);
             this.gpbHorarioCurso.Controls.Add(this.rdbSiIgual);
-            this.gpbHorarioCurso.Controls.Add(this.comboBox1);
+            this.gpbHorarioCurso.Controls.Add(this.cmbxSegundoHorario);
             this.gpbHorarioCurso.Controls.Add(this.label14);
             this.gpbHorarioCurso.Controls.Add(this.cmbxHorarios);
             this.gpbHorarioCurso.Controls.Add(this.label13);
@@ -1305,7 +1331,6 @@
             // rdbNoIgual
             // 
             this.rdbNoIgual.AutoSize = true;
-            this.rdbNoIgual.Enabled = false;
             this.rdbNoIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbNoIgual.Location = new System.Drawing.Point(274, 75);
             this.rdbNoIgual.Name = "rdbNoIgual";
@@ -1314,7 +1339,6 @@
             this.rdbNoIgual.TabStop = true;
             this.rdbNoIgual.Text = "No";
             this.rdbNoIgual.UseVisualStyleBackColor = true;
-            this.rdbNoIgual.Visible = false;
             // 
             // label16
             // 
@@ -1325,12 +1349,10 @@
             this.label16.Size = new System.Drawing.Size(136, 17);
             this.label16.TabIndex = 69;
             this.label16.Text = "Mantener horario:";
-            this.label16.Visible = false;
             // 
             // rdbSiIgual
             // 
             this.rdbSiIgual.AutoSize = true;
-            this.rdbSiIgual.Enabled = false;
             this.rdbSiIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbSiIgual.Location = new System.Drawing.Point(196, 75);
             this.rdbSiIgual.Name = "rdbSiIgual";
@@ -1340,19 +1362,18 @@
             this.rdbSiIgual.Text = "Sí";
             this.rdbSiIgual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rdbSiIgual.UseVisualStyleBackColor = true;
-            this.rdbSiIgual.Visible = false;
             // 
-            // comboBox1
+            // cmbxSegundoHorario
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(173, 119);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 25);
-            this.comboBox1.TabIndex = 71;
+            this.cmbxSegundoHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxSegundoHorario.Enabled = false;
+            this.cmbxSegundoHorario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxSegundoHorario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxSegundoHorario.FormattingEnabled = true;
+            this.cmbxSegundoHorario.Location = new System.Drawing.Point(173, 119);
+            this.cmbxSegundoHorario.Name = "cmbxSegundoHorario";
+            this.cmbxSegundoHorario.Size = new System.Drawing.Size(201, 25);
+            this.cmbxSegundoHorario.TabIndex = 71;
             // 
             // label14
             // 
@@ -1388,13 +1409,13 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.textBox6);
+            this.groupBox7.Controls.Add(this.txtSegundaAula);
             this.groupBox7.Controls.Add(this.label30);
-            this.groupBox7.Controls.Add(this.radioButton1);
+            this.groupBox7.Controls.Add(this.rdbNoMantenerAula);
             this.groupBox7.Controls.Add(this.label29);
-            this.groupBox7.Controls.Add(this.radioButton2);
+            this.groupBox7.Controls.Add(this.rdbMantenerAula);
             this.groupBox7.Controls.Add(this.pictureBox5);
-            this.groupBox7.Controls.Add(this.textBox5);
+            this.groupBox7.Controls.Add(this.txtAula);
             this.groupBox7.Controls.Add(this.label25);
             this.groupBox7.Location = new System.Drawing.Point(249, 218);
             this.groupBox7.Name = "groupBox7";
@@ -1402,15 +1423,15 @@
             this.groupBox7.TabIndex = 79;
             this.groupBox7.TabStop = false;
             // 
-            // textBox6
+            // txtSegundaAula
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(172, 107);
-            this.textBox6.MaxLength = 15;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(220, 26);
-            this.textBox6.TabIndex = 79;
+            this.txtSegundaAula.Enabled = false;
+            this.txtSegundaAula.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSegundaAula.Location = new System.Drawing.Point(172, 107);
+            this.txtSegundaAula.MaxLength = 15;
+            this.txtSegundaAula.Name = "txtSegundaAula";
+            this.txtSegundaAula.Size = new System.Drawing.Size(220, 26);
+            this.txtSegundaAula.TabIndex = 79;
             // 
             // label30
             // 
@@ -1422,45 +1443,43 @@
             this.label30.TabIndex = 78;
             this.label30.Text = "Segunda aula:";
             // 
-            // radioButton1
+            // rdbNoMantenerAula
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton1.Location = new System.Drawing.Point(302, 73);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(46, 21);
-            this.radioButton1.TabIndex = 77;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "No";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Visible = false;
+            this.rdbNoMantenerAula.AutoSize = true;
+            this.rdbNoMantenerAula.Enabled = false;
+            this.rdbNoMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.rdbNoMantenerAula.Location = new System.Drawing.Point(302, 73);
+            this.rdbNoMantenerAula.Name = "rdbNoMantenerAula";
+            this.rdbNoMantenerAula.Size = new System.Drawing.Size(46, 21);
+            this.rdbNoMantenerAula.TabIndex = 77;
+            this.rdbNoMantenerAula.TabStop = true;
+            this.rdbNoMantenerAula.Text = "No";
+            this.rdbNoMantenerAula.UseVisualStyleBackColor = true;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.Enabled = false;
             this.label29.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(49, 70);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(114, 17);
             this.label29.TabIndex = 75;
             this.label29.Text = "Mantener aula:";
-            this.label29.Visible = false;
             // 
-            // radioButton2
+            // rdbMantenerAula
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Enabled = false;
-            this.radioButton2.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton2.Location = new System.Drawing.Point(202, 73);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 21);
-            this.radioButton2.TabIndex = 76;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Sí";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
+            this.rdbMantenerAula.AutoSize = true;
+            this.rdbMantenerAula.Enabled = false;
+            this.rdbMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.rdbMantenerAula.Location = new System.Drawing.Point(202, 73);
+            this.rdbMantenerAula.Name = "rdbMantenerAula";
+            this.rdbMantenerAula.Size = new System.Drawing.Size(39, 21);
+            this.rdbMantenerAula.TabIndex = 76;
+            this.rdbMantenerAula.TabStop = true;
+            this.rdbMantenerAula.Text = "Sí";
+            this.rdbMantenerAula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rdbMantenerAula.UseVisualStyleBackColor = true;
             // 
             // pictureBox5
             // 
@@ -1471,14 +1490,14 @@
             this.pictureBox5.TabIndex = 74;
             this.pictureBox5.TabStop = false;
             // 
-            // textBox5
+            // txtAula
             // 
-            this.textBox5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(172, 26);
-            this.textBox5.MaxLength = 15;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(220, 26);
-            this.textBox5.TabIndex = 74;
+            this.txtAula.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAula.Location = new System.Drawing.Point(172, 26);
+            this.txtAula.MaxLength = 15;
+            this.txtAula.Name = "txtAula";
+            this.txtAula.Size = new System.Drawing.Size(220, 26);
+            this.txtAula.TabIndex = 74;
             // 
             // label25
             // 
@@ -1493,7 +1512,7 @@
             // gpbInsumos
             // 
             this.gpbInsumos.Controls.Add(this.pictureBox11);
-            this.gpbInsumos.Controls.Add(this.dataGridView1);
+            this.gpbInsumos.Controls.Add(this.dgvInsumos);
             this.gpbInsumos.Location = new System.Drawing.Point(249, 379);
             this.gpbInsumos.Name = "gpbInsumos";
             this.gpbInsumos.Size = new System.Drawing.Size(419, 229);
@@ -1509,12 +1528,12 @@
             this.pictureBox11.TabIndex = 73;
             this.pictureBox11.TabStop = false;
             // 
-            // dataGridView1
+            // dgvInsumos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvInsumos.AllowUserToAddRows = false;
+            this.dgvInsumos.AllowUserToResizeRows = false;
+            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1522,9 +1541,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1534,14 +1553,14 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(377, 178);
-            this.dataGridView1.TabIndex = 49;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
+            this.dgvInsumos.Name = "dgvInsumos";
+            this.dgvInsumos.ReadOnly = true;
+            this.dgvInsumos.RowHeadersVisible = false;
+            this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
+            this.dgvInsumos.TabIndex = 49;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1564,10 +1583,10 @@
             // gpbSeleccionRef
             // 
             this.gpbSeleccionRef.Controls.Add(this.pictureBox10);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton5);
+            this.gpbSeleccionRef.Controls.Add(this.rdbNoMantenerRef);
             this.gpbSeleccionRef.Controls.Add(this.label26);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton6);
-            this.gpbSeleccionRef.Controls.Add(this.comboBox2);
+            this.gpbSeleccionRef.Controls.Add(this.rdbMantenerRef);
+            this.gpbSeleccionRef.Controls.Add(this.cmbxSegundoRefrigerio);
             this.gpbSeleccionRef.Controls.Add(this.label27);
             this.gpbSeleccionRef.Controls.Add(this.cmbxTipoRefrigerio);
             this.gpbSeleccionRef.Controls.Add(this.label31);
@@ -1586,57 +1605,55 @@
             this.pictureBox10.TabIndex = 65;
             this.pictureBox10.TabStop = false;
             // 
-            // radioButton5
+            // rdbNoMantenerRef
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Enabled = false;
-            this.radioButton5.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton5.Location = new System.Drawing.Point(289, 74);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(46, 21);
-            this.radioButton5.TabIndex = 72;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "No";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.Visible = false;
+            this.rdbNoMantenerRef.AutoSize = true;
+            this.rdbNoMantenerRef.Enabled = false;
+            this.rdbNoMantenerRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.rdbNoMantenerRef.Location = new System.Drawing.Point(289, 74);
+            this.rdbNoMantenerRef.Name = "rdbNoMantenerRef";
+            this.rdbNoMantenerRef.Size = new System.Drawing.Size(46, 21);
+            this.rdbNoMantenerRef.TabIndex = 72;
+            this.rdbNoMantenerRef.TabStop = true;
+            this.rdbNoMantenerRef.Text = "No";
+            this.rdbNoMantenerRef.UseVisualStyleBackColor = true;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
+            this.label26.Enabled = false;
             this.label26.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(17, 77);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(152, 17);
             this.label26.TabIndex = 69;
             this.label26.Text = "Mantener refrigerio:";
-            this.label26.Visible = false;
             // 
-            // radioButton6
+            // rdbMantenerRef
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Enabled = false;
-            this.radioButton6.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton6.Location = new System.Drawing.Point(206, 74);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(39, 21);
-            this.radioButton6.TabIndex = 70;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Sí";
-            this.radioButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.Visible = false;
+            this.rdbMantenerRef.AutoSize = true;
+            this.rdbMantenerRef.Enabled = false;
+            this.rdbMantenerRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
+            this.rdbMantenerRef.Location = new System.Drawing.Point(206, 74);
+            this.rdbMantenerRef.Name = "rdbMantenerRef";
+            this.rdbMantenerRef.Size = new System.Drawing.Size(39, 21);
+            this.rdbMantenerRef.TabIndex = 70;
+            this.rdbMantenerRef.TabStop = true;
+            this.rdbMantenerRef.Text = "Sí";
+            this.rdbMantenerRef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rdbMantenerRef.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cmbxSegundoRefrigerio
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 119);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 25);
-            this.comboBox2.TabIndex = 71;
+            this.cmbxSegundoRefrigerio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxSegundoRefrigerio.Enabled = false;
+            this.cmbxSegundoRefrigerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxSegundoRefrigerio.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxSegundoRefrigerio.FormattingEnabled = true;
+            this.cmbxSegundoRefrigerio.Location = new System.Drawing.Point(175, 119);
+            this.cmbxSegundoRefrigerio.Name = "cmbxSegundoRefrigerio";
+            this.cmbxSegundoRefrigerio.Size = new System.Drawing.Size(199, 25);
+            this.cmbxSegundoRefrigerio.TabIndex = 71;
             // 
             // label27
             // 
@@ -1670,6 +1687,46 @@
             this.label31.TabIndex = 66;
             this.label31.Text = "Tipo de refrigerio:";
             // 
+            // errorProviderNombreF
+            // 
+            this.errorProviderNombreF.ContainerControl = this;
+            // 
+            // errorProviderHora
+            // 
+            this.errorProviderHora.ContainerControl = this;
+            // 
+            // errorProviderFecha
+            // 
+            this.errorProviderFecha.ContainerControl = this;
+            // 
+            // errorProviderRefrigerio
+            // 
+            this.errorProviderRefrigerio.ContainerControl = this;
+            // 
+            // errorProviderSolicitado
+            // 
+            this.errorProviderSolicitado.ContainerControl = this;
+            // 
+            // errorProviderBloque
+            // 
+            this.errorProviderBloque.ContainerControl = this;
+            // 
+            // errorProviderPresentacion
+            // 
+            this.errorProviderPresentacion.ContainerControl = this;
+            // 
+            // errorProviderContenido
+            // 
+            this.errorProviderContenido.ContainerControl = this;
+            // 
+            // errorProviderDuracionF
+            // 
+            this.errorProviderDuracionF.ContainerControl = this;
+            // 
+            // errorProviderHora2
+            // 
+            this.errorProviderHora2.ContainerControl = this;
+            // 
             // Nueva_formacion_INCES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1687,6 +1744,7 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.pnlPanelOpciones.ResumeLayout(false);
+            this.pnlPanelOpciones.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -1704,9 +1762,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.gpbDatosCoFa.ResumeLayout(false);
@@ -1733,10 +1788,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.gpbInsumos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
             this.gpbSeleccionRef.ResumeLayout(false);
             this.gpbSeleccionRef.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1755,13 +1820,9 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRetomar;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer5;
-        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape8;
         private System.Windows.Forms.Button btnPausar;
         private System.Windows.Forms.Button btnGuardar;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer3;
@@ -1772,18 +1833,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chkbCoFacilitador;
         private System.Windows.Forms.GroupBox gpbDatosCoFa;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCorreoCoFa;
+        private System.Windows.Forms.TextBox txtTlfnCoFa;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox gpbCoFa;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbxCoFa;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.GroupBox gpbDatosFa;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCorreoFa;
+        private System.Windows.Forms.TextBox txtTlfnFa;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox gpbFacilitador;
@@ -1805,36 +1866,34 @@
         private System.Windows.Forms.RadioButton rdbNoIgual;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.RadioButton rdbSiIgual;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbxSegundoHorario;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbxHorarios;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtSegundaAula;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbNoMantenerAula;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdbMantenerAula;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAula;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInsumos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.GroupBox gpbSeleccionRef;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rdbNoMantenerRef;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.RadioButton rdbMantenerRef;
+        private System.Windows.Forms.ComboBox cmbxSegundoRefrigerio;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpSegundaFecha;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1870,5 +1929,20 @@
         private System.Windows.Forms.Label label2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
+        private System.Windows.Forms.Label lblEtapafinal;
+        private System.Windows.Forms.Label lblEtapaSiguiente;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
+        private System.Windows.Forms.ErrorProvider errorProviderNombreF;
+        private System.Windows.Forms.ErrorProvider errorProviderHora;
+        private System.Windows.Forms.ErrorProvider errorProviderFecha;
+        private System.Windows.Forms.ErrorProvider errorProviderRefrigerio;
+        private System.Windows.Forms.ErrorProvider errorProviderSolicitado;
+        private System.Windows.Forms.ErrorProvider errorProviderBloque;
+        private System.Windows.Forms.ErrorProvider errorProviderPresentacion;
+        private System.Windows.Forms.ErrorProvider errorProviderContenido;
+        private System.Windows.Forms.ErrorProvider errorProviderDuracionF;
+        private System.Windows.Forms.ErrorProvider errorProviderHora2;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

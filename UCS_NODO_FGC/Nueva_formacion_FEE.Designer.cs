@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -39,17 +40,13 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pnlPanelOpciones = new System.Windows.Forms.Panel();
-            this.lblEtapafinal = new System.Windows.Forms.Label();
-            this.lblEtapaSiguiente = new System.Windows.Forms.Label();
             this.btnSiguienteEtapa = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRetomar = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.shapeContainer5 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape8 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -90,22 +87,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCorreoFacilitador = new System.Windows.Forms.Button();
+            this.btnInformacionAdministracion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCorreoCoFa = new System.Windows.Forms.TextBox();
+            this.txtTlfnCoFa = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.gpbCoFa = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbxCoFa = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.gpbDatosFa = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCorreoFa = new System.Windows.Forms.TextBox();
+            this.txtTlfnFa = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gpbFacilitador = new System.Windows.Forms.GroupBox();
@@ -113,7 +110,7 @@
             this.cmbxFa = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.gpbDifusion = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
             this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,7 +122,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gpbFechaHora = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.gpbHorarioCurso = new System.Windows.Forms.GroupBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -147,7 +143,7 @@
             this.label28 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvInsumos = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
@@ -159,6 +155,22 @@
             this.label26 = new System.Windows.Forms.Label();
             this.cmbxTipoRefrigerio = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.lblEtapafinal = new System.Windows.Forms.Label();
+            this.lblEtapaSiguiente = new System.Windows.Forms.Label();
+            this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
+            this.errorProviderNombreF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPresentacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderBloque = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderSolicitado = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -180,7 +192,7 @@
             this.gpbDatosFa.SuspendLayout();
             this.gpbFacilitador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.groupBox6.SuspendLayout();
+            this.gpbDifusion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).BeginInit();
             this.gpbRefrigerio.SuspendLayout();
@@ -193,9 +205,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.gpbInsumos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).BeginInit();
             this.gpbSeleccionRef.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_cabecera
@@ -217,11 +239,11 @@
             this.LabelCabecera.BackColor = System.Drawing.Color.Transparent;
             this.LabelCabecera.Font = new System.Drawing.Font("Lucida Fax", 24.25F, System.Drawing.FontStyle.Bold);
             this.LabelCabecera.ForeColor = System.Drawing.Color.Black;
-            this.LabelCabecera.Location = new System.Drawing.Point(222, 33);
+            this.LabelCabecera.Location = new System.Drawing.Point(185, 31);
             this.LabelCabecera.Name = "LabelCabecera";
             this.LabelCabecera.Size = new System.Drawing.Size(557, 38);
             this.LabelCabecera.TabIndex = 1;
-            this.LabelCabecera.Text = "Nuevo FEE: información básica";
+            this.LabelCabecera.Text = "Nuevo FEE: Información básica";
             // 
             // shapeContainer1
             // 
@@ -245,6 +267,7 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(0, 714);
             this.panel8.Name = "panel8";
@@ -265,7 +288,7 @@
             // 
             // pnlPanelOpciones
             // 
-            this.pnlPanelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(144)))), ((int)(((byte)(189)))));
+            this.pnlPanelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(201)))), ((int)(((byte)(220)))));
             this.pnlPanelOpciones.Controls.Add(this.lblEtapafinal);
             this.pnlPanelOpciones.Controls.Add(this.lblEtapaSiguiente);
             this.pnlPanelOpciones.Controls.Add(this.btnSiguienteEtapa);
@@ -283,24 +306,6 @@
             this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
             this.pnlPanelOpciones.TabIndex = 61;
             // 
-            // lblEtapafinal
-            // 
-            this.lblEtapafinal.AutoSize = true;
-            this.lblEtapafinal.Location = new System.Drawing.Point(78, 579);
-            this.lblEtapafinal.Name = "lblEtapafinal";
-            this.lblEtapafinal.Size = new System.Drawing.Size(41, 13);
-            this.lblEtapafinal.TabIndex = 44;
-            this.lblEtapafinal.Text = "label28";
-            // 
-            // lblEtapaSiguiente
-            // 
-            this.lblEtapaSiguiente.AutoSize = true;
-            this.lblEtapaSiguiente.Location = new System.Drawing.Point(78, 524);
-            this.lblEtapaSiguiente.Name = "lblEtapaSiguiente";
-            this.lblEtapaSiguiente.Size = new System.Drawing.Size(41, 13);
-            this.lblEtapaSiguiente.TabIndex = 43;
-            this.lblEtapaSiguiente.Text = "label28";
-            // 
             // btnSiguienteEtapa
             // 
             this.btnSiguienteEtapa.Enabled = false;
@@ -311,6 +316,7 @@
             this.btnSiguienteEtapa.TabIndex = 42;
             this.btnSiguienteEtapa.Text = "Siguiente etapa";
             this.btnSiguienteEtapa.UseVisualStyleBackColor = true;
+            this.btnSiguienteEtapa.Click += new System.EventHandler(this.btnSiguienteEtapa_Click);
             // 
             // btnLimpiar
             // 
@@ -347,21 +353,11 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel9.Controls.Add(this.panel10);
             this.panel9.Controls.Add(this.label10);
             this.panel9.Location = new System.Drawing.Point(1, 464);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(197, 39);
             this.panel9.TabIndex = 38;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1, 39);
-            this.panel10.TabIndex = 1;
             // 
             // label10
             // 
@@ -377,7 +373,6 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.shapeContainer5);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -385,15 +380,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(197, 39);
             this.panel6.TabIndex = 37;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(2, 39);
-            this.panel7.TabIndex = 1;
             // 
             // label7
             // 
@@ -433,6 +419,7 @@
             this.btnPausar.TabIndex = 20;
             this.btnPausar.Text = "Pausar";
             this.btnPausar.UseVisualStyleBackColor = true;
+            this.btnPausar.Click += new System.EventHandler(this.btnPausar_Click);
             // 
             // btnGuardar
             // 
@@ -451,6 +438,7 @@
             this.shapeContainer3.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer3.Name = "shapeContainer3";
             this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape3,
             this.rectangleShape6});
             this.shapeContainer3.Size = new System.Drawing.Size(197, 615);
             this.shapeContainer3.TabIndex = 38;
@@ -458,15 +446,15 @@
             // 
             // rectangleShape6
             // 
-            this.rectangleShape6.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape6.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape6.BorderColor = System.Drawing.Color.DimGray;
+            this.rectangleShape6.Location = new System.Drawing.Point(1, 0);
             this.rectangleShape6.Name = "rectangleShape6";
             this.rectangleShape6.Size = new System.Drawing.Size(1, 734);
             // 
             // pnlNivel_avanzado
             // 
             this.pnlNivel_avanzado.AutoScroll = true;
-            this.pnlNivel_avanzado.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlNivel_avanzado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_avanzado.Controls.Add(this.pnlNivel_intermedio);
             this.pnlNivel_avanzado.Controls.Add(this.gpbHorarioCurso);
             this.pnlNivel_avanzado.Controls.Add(this.gpbLogistica);
@@ -480,36 +468,36 @@
             // 
             // pnlNivel_intermedio
             // 
-            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
-            this.pnlNivel_intermedio.Controls.Add(this.button2);
-            this.pnlNivel_intermedio.Controls.Add(this.button1);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoFacilitador);
+            this.pnlNivel_intermedio.Controls.Add(this.btnInformacionAdministracion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbCoFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFacilitador);
-            this.pnlNivel_intermedio.Controls.Add(this.groupBox6);
+            this.pnlNivel_intermedio.Controls.Add(this.gpbDifusion);
             this.pnlNivel_intermedio.Controls.Add(this.gpbRefrigerio);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFechaHora);
-            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(910, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_intermedio.TabIndex = 76;
             // 
             // pnlNivel_basico
             // 
-            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
+            this.pnlNivel_basico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_basico.Controls.Add(this.groupBox4);
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox5);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(875, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_basico.TabIndex = 78;
             // 
             // groupBox4
@@ -756,6 +744,8 @@
             this.txtSolicitadoPor.Name = "txtSolicitadoPor";
             this.txtSolicitadoPor.Size = new System.Drawing.Size(226, 25);
             this.txtSolicitadoPor.TabIndex = 26;
+            this.txtSolicitadoPor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSolicitadoPor_KeyPress);
+            this.txtSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.txtSolicitadoPor_Validating);
             // 
             // label11
             // 
@@ -774,6 +764,9 @@
             this.txtNombreFormacion.Name = "txtNombreFormacion";
             this.txtNombreFormacion.Size = new System.Drawing.Size(226, 25);
             this.txtNombreFormacion.TabIndex = 25;
+            this.txtNombreFormacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreFormacion_KeyPress);
+            this.txtNombreFormacion.Leave += new System.EventHandler(this.txtNombreFormacion_Leave);
+            this.txtNombreFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombreFormacion_Validating);
             // 
             // label1
             // 
@@ -859,35 +852,33 @@
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
-            // button2
+            // btnCorreoFacilitador
             // 
-            this.button2.Enabled = false;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(708, 549);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 43);
-            this.button2.TabIndex = 77;
-            this.button2.Text = "Formatos a facilitador";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
+            this.btnCorreoFacilitador.Enabled = false;
+            this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoFacilitador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoFacilitador.Location = new System.Drawing.Point(708, 549);
+            this.btnCorreoFacilitador.Name = "btnCorreoFacilitador";
+            this.btnCorreoFacilitador.Size = new System.Drawing.Size(193, 43);
+            this.btnCorreoFacilitador.TabIndex = 77;
+            this.btnCorreoFacilitador.Text = "Formatos a facilitador";
+            this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnInformacionAdministracion
             // 
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(500, 549);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 43);
-            this.button1.TabIndex = 76;
-            this.button1.Text = "Enviar a administración";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
+            this.btnInformacionAdministracion.Enabled = false;
+            this.btnInformacionAdministracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.btnInformacionAdministracion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnInformacionAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInformacionAdministracion.Location = new System.Drawing.Point(500, 549);
+            this.btnInformacionAdministracion.Name = "btnInformacionAdministracion";
+            this.btnInformacionAdministracion.Size = new System.Drawing.Size(202, 43);
+            this.btnInformacionAdministracion.TabIndex = 76;
+            this.btnInformacionAdministracion.Text = "Enviar a administración";
+            this.btnInformacionAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInformacionAdministracion.UseVisualStyleBackColor = true;
             // 
             // chkbCoFacilitador
             // 
@@ -903,8 +894,8 @@
             // 
             // gpbDatosCoFa
             // 
-            this.gpbDatosCoFa.Controls.Add(this.textBox3);
-            this.gpbDatosCoFa.Controls.Add(this.textBox4);
+            this.gpbDatosCoFa.Controls.Add(this.txtCorreoCoFa);
+            this.gpbDatosCoFa.Controls.Add(this.txtTlfnCoFa);
             this.gpbDatosCoFa.Controls.Add(this.label23);
             this.gpbDatosCoFa.Controls.Add(this.label24);
             this.gpbDatosCoFa.Enabled = false;
@@ -916,21 +907,21 @@
             this.gpbDatosCoFa.TabStop = false;
             this.gpbDatosCoFa.Text = "Datos co-facilitador";
             // 
-            // textBox3
+            // txtCorreoCoFa
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 91);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(227, 23);
-            this.textBox3.TabIndex = 71;
+            this.txtCorreoCoFa.Location = new System.Drawing.Point(113, 91);
+            this.txtCorreoCoFa.Name = "txtCorreoCoFa";
+            this.txtCorreoCoFa.ReadOnly = true;
+            this.txtCorreoCoFa.Size = new System.Drawing.Size(227, 23);
+            this.txtCorreoCoFa.TabIndex = 71;
             // 
-            // textBox4
+            // txtTlfnCoFa
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(227, 23);
-            this.textBox4.TabIndex = 70;
+            this.txtTlfnCoFa.Location = new System.Drawing.Point(113, 43);
+            this.txtTlfnCoFa.Name = "txtTlfnCoFa";
+            this.txtTlfnCoFa.ReadOnly = true;
+            this.txtTlfnCoFa.Size = new System.Drawing.Size(227, 23);
+            this.txtTlfnCoFa.TabIndex = 70;
             // 
             // label23
             // 
@@ -955,7 +946,7 @@
             // gpbCoFa
             // 
             this.gpbCoFa.Controls.Add(this.label21);
-            this.gpbCoFa.Controls.Add(this.comboBox3);
+            this.gpbCoFa.Controls.Add(this.cmbxCoFa);
             this.gpbCoFa.Controls.Add(this.label22);
             this.gpbCoFa.Controls.Add(this.pictureBox8);
             this.gpbCoFa.Enabled = false;
@@ -975,16 +966,18 @@
             this.label21.TabIndex = 67;
             this.label21.Text = ":";
             // 
-            // comboBox3
+            // cmbxCoFa
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(129, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(228, 25);
-            this.comboBox3.TabIndex = 66;
+            this.cmbxCoFa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxCoFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxCoFa.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxCoFa.FormattingEnabled = true;
+            this.cmbxCoFa.Location = new System.Drawing.Point(129, 26);
+            this.cmbxCoFa.Name = "cmbxCoFa";
+            this.cmbxCoFa.Size = new System.Drawing.Size(228, 25);
+            this.cmbxCoFa.TabIndex = 66;
+            this.cmbxCoFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxCoFa_SelectionChangeCommitted);
+            this.cmbxCoFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCoFa_Validating);
             // 
             // label22
             // 
@@ -1007,8 +1000,8 @@
             // 
             // gpbDatosFa
             // 
-            this.gpbDatosFa.Controls.Add(this.textBox2);
-            this.gpbDatosFa.Controls.Add(this.textBox1);
+            this.gpbDatosFa.Controls.Add(this.txtCorreoFa);
+            this.gpbDatosFa.Controls.Add(this.txtTlfnFa);
             this.gpbDatosFa.Controls.Add(this.label20);
             this.gpbDatosFa.Controls.Add(this.label19);
             this.gpbDatosFa.Enabled = false;
@@ -1020,21 +1013,21 @@
             this.gpbDatosFa.TabStop = false;
             this.gpbDatosFa.Text = "Datos Facilitador";
             // 
-            // textBox2
+            // txtCorreoFa
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(227, 23);
-            this.textBox2.TabIndex = 71;
+            this.txtCorreoFa.Location = new System.Drawing.Point(113, 91);
+            this.txtCorreoFa.Name = "txtCorreoFa";
+            this.txtCorreoFa.ReadOnly = true;
+            this.txtCorreoFa.Size = new System.Drawing.Size(227, 23);
+            this.txtCorreoFa.TabIndex = 71;
             // 
-            // textBox1
+            // txtTlfnFa
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(227, 23);
-            this.textBox1.TabIndex = 70;
+            this.txtTlfnFa.Location = new System.Drawing.Point(113, 43);
+            this.txtTlfnFa.Name = "txtTlfnFa";
+            this.txtTlfnFa.ReadOnly = true;
+            this.txtTlfnFa.Size = new System.Drawing.Size(227, 23);
+            this.txtTlfnFa.TabIndex = 70;
             // 
             // label20
             // 
@@ -1088,6 +1081,8 @@
             this.cmbxFa.Name = "cmbxFa";
             this.cmbxFa.Size = new System.Drawing.Size(230, 25);
             this.cmbxFa.TabIndex = 66;
+            this.cmbxFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxFa_SelectionChangeCommitted);
+            this.cmbxFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxFa_Validating);
             // 
             // label17
             // 
@@ -1108,16 +1103,16 @@
             this.pictureBox4.TabIndex = 66;
             this.pictureBox4.TabStop = false;
             // 
-            // groupBox6
+            // gpbDifusion
             // 
-            this.groupBox6.Controls.Add(this.pictureBox3);
-            this.groupBox6.Controls.Add(this.dgvMediosDifusion);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(71, 172);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(404, 420);
-            this.groupBox6.TabIndex = 60;
-            this.groupBox6.TabStop = false;
+            this.gpbDifusion.Controls.Add(this.pictureBox3);
+            this.gpbDifusion.Controls.Add(this.dgvMediosDifusion);
+            this.gpbDifusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbDifusion.Location = new System.Drawing.Point(71, 172);
+            this.gpbDifusion.Name = "gpbDifusion";
+            this.gpbDifusion.Size = new System.Drawing.Size(404, 420);
+            this.gpbDifusion.TabIndex = 60;
+            this.gpbDifusion.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -1134,26 +1129,26 @@
             this.dgvMediosDifusion.AllowUserToResizeRows = false;
             this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.opcion_difusion,
             this.seleccionar_opcion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMediosDifusion.Location = new System.Drawing.Point(24, 31);
             this.dgvMediosDifusion.Name = "dgvMediosDifusion";
@@ -1238,8 +1233,8 @@
             // 
             // gpbFechaHora
             // 
-            this.gpbFechaHora.Controls.Add(this.pictureBox1);
             this.gpbFechaHora.Controls.Add(this.dtpFechaCurso);
+            this.gpbFechaHora.Controls.Add(this.pictureBox1);
             this.gpbFechaHora.Controls.Add(this.label15);
             this.gpbFechaHora.Location = new System.Drawing.Point(71, 97);
             this.gpbFechaHora.Name = "gpbFechaHora";
@@ -1255,17 +1250,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.TabIndex = 61;
             this.pictureBox1.TabStop = false;
-            // 
-            // dtpFechaCurso
-            // 
-            this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaCurso.CustomFormat = "dd/mm/yyyy";
-            this.dtpFechaCurso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaCurso.Location = new System.Drawing.Point(173, 31);
-            this.dtpFechaCurso.Name = "dtpFechaCurso";
-            this.dtpFechaCurso.Size = new System.Drawing.Size(199, 20);
-            this.dtpFechaCurso.TabIndex = 48;
-            this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
             // 
             // label15
             // 
@@ -1434,7 +1418,6 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "No";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Visible = false;
             // 
             // label29
             // 
@@ -1445,7 +1428,6 @@
             this.label29.Size = new System.Drawing.Size(114, 17);
             this.label29.TabIndex = 75;
             this.label29.Text = "Mantener aula:";
-            this.label29.Visible = false;
             // 
             // radioButton4
             // 
@@ -1460,7 +1442,6 @@
             this.radioButton4.Text = "Sí";
             this.radioButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.Visible = false;
             // 
             // pictureBox12
             // 
@@ -1493,7 +1474,7 @@
             // gpbInsumos
             // 
             this.gpbInsumos.Controls.Add(this.pictureBox11);
-            this.gpbInsumos.Controls.Add(this.dataGridView1);
+            this.gpbInsumos.Controls.Add(this.dgvInsumos);
             this.gpbInsumos.Location = new System.Drawing.Point(254, 377);
             this.gpbInsumos.Name = "gpbInsumos";
             this.gpbInsumos.Size = new System.Drawing.Size(419, 229);
@@ -1509,39 +1490,39 @@
             this.pictureBox11.TabIndex = 73;
             this.pictureBox11.TabStop = false;
             // 
-            // dataGridView1
+            // dgvInsumos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInsumos.AllowUserToAddRows = false;
+            this.dgvInsumos.AllowUserToResizeRows = false;
+            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(377, 178);
-            this.dataGridView1.TabIndex = 49;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
+            this.dgvInsumos.Name = "dgvInsumos";
+            this.dgvInsumos.ReadOnly = true;
+            this.dgvInsumos.RowHeadersVisible = false;
+            this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
+            this.dgvInsumos.TabIndex = 49;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1571,6 +1552,7 @@
             this.gpbSeleccionRef.Controls.Add(this.label26);
             this.gpbSeleccionRef.Controls.Add(this.cmbxTipoRefrigerio);
             this.gpbSeleccionRef.Controls.Add(this.label27);
+            this.gpbSeleccionRef.Enabled = false;
             this.gpbSeleccionRef.Location = new System.Drawing.Point(254, 130);
             this.gpbSeleccionRef.Name = "gpbSeleccionRef";
             this.gpbSeleccionRef.Size = new System.Drawing.Size(419, 68);
@@ -1670,6 +1652,108 @@
             this.label27.TabIndex = 66;
             this.label27.Text = "Tipo de refrigerio:";
             // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.rectangleShape3.Location = new System.Drawing.Point(16, 558);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(165, 1);
+            // 
+            // lblEtapafinal
+            // 
+            this.lblEtapafinal.AutoSize = true;
+            this.lblEtapafinal.Font = new System.Drawing.Font("Rockwell", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEtapafinal.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblEtapafinal.Location = new System.Drawing.Point(22, 570);
+            this.lblEtapafinal.Name = "lblEtapafinal";
+            this.lblEtapafinal.Size = new System.Drawing.Size(148, 22);
+            this.lblEtapafinal.TabIndex = 46;
+            this.lblEtapafinal.Text = "Nivel Avanzado";
+            this.lblEtapafinal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblEtapaSiguiente
+            // 
+            this.lblEtapaSiguiente.AutoSize = true;
+            this.lblEtapaSiguiente.Font = new System.Drawing.Font("Rockwell", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEtapaSiguiente.ForeColor = System.Drawing.Color.Chocolate;
+            this.lblEtapaSiguiente.Location = new System.Drawing.Point(17, 529);
+            this.lblEtapaSiguiente.Name = "lblEtapaSiguiente";
+            this.lblEtapaSiguiente.Size = new System.Drawing.Size(158, 22);
+            this.lblEtapaSiguiente.TabIndex = 45;
+            this.lblEtapaSiguiente.Text = "Nivel Intermedio";
+            this.lblEtapaSiguiente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpFechaCurso
+            // 
+            this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaCurso.CustomFormat = "";
+            this.dtpFechaCurso.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaCurso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCurso.Location = new System.Drawing.Point(170, 26);
+            this.dtpFechaCurso.Name = "dtpFechaCurso";
+            this.dtpFechaCurso.Size = new System.Drawing.Size(190, 25);
+            this.dtpFechaCurso.TabIndex = 62;
+            this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpFechaCurso.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaCurso_Validating);
+            // 
+            // errorProviderNombreF
+            // 
+            this.errorProviderNombreF.ContainerControl = this;
+            // 
+            // errorProviderDuracionF
+            // 
+            this.errorProviderDuracionF.ContainerControl = this;
+            // 
+            // errorProviderContenido
+            // 
+            this.errorProviderContenido.ContainerControl = this;
+            // 
+            // errorProviderPresentacion
+            // 
+            this.errorProviderPresentacion.ContainerControl = this;
+            // 
+            // errorProviderBloque
+            // 
+            this.errorProviderBloque.ContainerControl = this;
+            // 
+            // errorProviderSolicitado
+            // 
+            this.errorProviderSolicitado.ContainerControl = this;
+            // 
+            // errorProviderRefrigerio
+            // 
+            this.errorProviderRefrigerio.ContainerControl = this;
+            // 
+            // errorProviderFecha
+            // 
+            this.errorProviderFecha.ContainerControl = this;
+            // 
+            // errorProviderHora
+            // 
+            this.errorProviderHora.ContainerControl = this;
+            // 
+            // errorProviderHora2
+            // 
+            this.errorProviderHora2.ContainerControl = this;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(2, 1);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
             // Nueva_formacion_FEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1717,7 +1801,7 @@
             this.gpbFacilitador.ResumeLayout(false);
             this.gpbFacilitador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.groupBox6.ResumeLayout(false);
+            this.gpbDifusion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).EndInit();
             this.gpbRefrigerio.ResumeLayout(false);
@@ -1734,10 +1818,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.gpbInsumos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
             this.gpbSeleccionRef.ResumeLayout(false);
             this.gpbSeleccionRef.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1751,17 +1845,13 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pnlPanelOpciones;
-        private System.Windows.Forms.Label lblEtapafinal;
-        private System.Windows.Forms.Label lblEtapaSiguiente;
         private System.Windows.Forms.Button btnSiguienteEtapa;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRetomar;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label7;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer5;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape8;
@@ -1773,18 +1863,18 @@
         private System.Windows.Forms.Panel pnlNivel_intermedio;
         private System.Windows.Forms.CheckBox chkbCoFacilitador;
         private System.Windows.Forms.GroupBox gpbDatosCoFa;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCorreoCoFa;
+        private System.Windows.Forms.TextBox txtTlfnCoFa;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.GroupBox gpbCoFa;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbxCoFa;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.GroupBox gpbDatosFa;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCorreoFa;
+        private System.Windows.Forms.TextBox txtTlfnFa;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox gpbFacilitador;
@@ -1792,7 +1882,7 @@
         private System.Windows.Forms.ComboBox cmbxFa;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox gpbDifusion;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.DataGridView dgvMediosDifusion;
         private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
@@ -1804,7 +1894,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gpbFechaHora;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dtpFechaCurso;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox gpbHorarioCurso;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -1826,7 +1915,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvInsumos;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.GroupBox gpbSeleccionRef;
@@ -1838,8 +1927,8 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCorreoFacilitador;
+        private System.Windows.Forms.Button btnInformacionAdministracion;
         private System.Windows.Forms.Panel pnlNivel_basico;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnRutaBitacora;
@@ -1871,5 +1960,21 @@
         private System.Windows.Forms.Label label2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
+        private System.Windows.Forms.Label lblEtapafinal;
+        private System.Windows.Forms.Label lblEtapaSiguiente;
+        private System.Windows.Forms.DateTimePicker dtpFechaCurso;
+        private System.Windows.Forms.ErrorProvider errorProviderNombreF;
+        private System.Windows.Forms.ErrorProvider errorProviderDuracionF;
+        private System.Windows.Forms.ErrorProvider errorProviderContenido;
+        private System.Windows.Forms.ErrorProvider errorProviderPresentacion;
+        private System.Windows.Forms.ErrorProvider errorProviderBloque;
+        private System.Windows.Forms.ErrorProvider errorProviderSolicitado;
+        private System.Windows.Forms.ErrorProvider errorProviderRefrigerio;
+        private System.Windows.Forms.ErrorProvider errorProviderFecha;
+        private System.Windows.Forms.ErrorProvider errorProviderHora;
+        private System.Windows.Forms.ErrorProvider errorProviderHora2;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

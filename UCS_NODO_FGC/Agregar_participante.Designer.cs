@@ -31,11 +31,13 @@
             this.cmbxTiposFormaciones = new System.Windows.Forms.ComboBox();
             this.txtCedulaPart = new System.Windows.Forms.TextBox();
             this.gpbDatosFormacion = new System.Windows.Forms.GroupBox();
+            this.cmbxEmpresaConInce = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cmbxFormaciones = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.gpbDatosParticipantes = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,13 +51,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gpbDatosEmpresa = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtCargoEnEmpresa = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.cmbxNivelEmpresa = new System.Windows.Forms.ComboBox();
-            this.cmbxEmpresaConInce = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCargoEnEmpresa = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gpbDatosFormacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.gpbDatosParticipantes.SuspendLayout();
@@ -98,6 +98,15 @@
             this.gpbDatosFormacion.TabIndex = 3;
             this.gpbDatosFormacion.TabStop = false;
             // 
+            // cmbxEmpresaConInce
+            // 
+            this.cmbxEmpresaConInce.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbxEmpresaConInce.FormattingEnabled = true;
+            this.cmbxEmpresaConInce.Location = new System.Drawing.Point(227, 122);
+            this.cmbxEmpresaConInce.Name = "cmbxEmpresaConInce";
+            this.cmbxEmpresaConInce.Size = new System.Drawing.Size(241, 24);
+            this.cmbxEmpresaConInce.TabIndex = 79;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_participantes;
@@ -107,6 +116,17 @@
             this.pictureBox7.TabIndex = 70;
             this.pictureBox7.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(47, 125);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(161, 17);
+            this.label10.TabIndex = 78;
+            this.label10.Text = "Nombre de la empresa:";
+            // 
             // cmbxFormaciones
             // 
             this.cmbxFormaciones.Font = new System.Drawing.Font("Rockwell", 10F);
@@ -115,17 +135,6 @@
             this.cmbxFormaciones.Name = "cmbxFormaciones";
             this.cmbxFormaciones.Size = new System.Drawing.Size(241, 24);
             this.cmbxFormaciones.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(43, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Cédula del participante:";
             // 
             // label2
             // 
@@ -148,6 +157,17 @@
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tipo de formación:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(43, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Cédula del participante:";
             // 
             // gpbDatosParticipantes
             // 
@@ -296,56 +316,6 @@
             this.gpbDatosEmpresa.TabIndex = 42;
             this.gpbDatosEmpresa.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox2.TabIndex = 72;
-            this.pictureBox2.TabStop = false;
-            // 
-            // txtCargoEnEmpresa
-            // 
-            this.txtCargoEnEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtCargoEnEmpresa.Location = new System.Drawing.Point(227, 27);
-            this.txtCargoEnEmpresa.Name = "txtCargoEnEmpresa";
-            this.txtCargoEnEmpresa.Size = new System.Drawing.Size(241, 23);
-            this.txtCargoEnEmpresa.TabIndex = 74;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(60, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 17);
-            this.label7.TabIndex = 75;
-            this.label7.Text = "Cargo en la empresa:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(67, 73);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(141, 17);
-            this.label8.TabIndex = 76;
-            this.label8.Text = "Nivel en la empresa:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(47, 125);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(161, 17);
-            this.label10.TabIndex = 78;
-            this.label10.Text = "Nombre de la empresa:";
-            // 
             // cmbxNivelEmpresa
             // 
             this.cmbxNivelEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
@@ -360,20 +330,50 @@
             this.cmbxNivelEmpresa.Size = new System.Drawing.Size(241, 24);
             this.cmbxNivelEmpresa.TabIndex = 71;
             // 
-            // cmbxEmpresaConInce
+            // label8
             // 
-            this.cmbxEmpresaConInce.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.cmbxEmpresaConInce.FormattingEnabled = true;
-            this.cmbxEmpresaConInce.Location = new System.Drawing.Point(227, 122);
-            this.cmbxEmpresaConInce.Name = "cmbxEmpresaConInce";
-            this.cmbxEmpresaConInce.Size = new System.Drawing.Size(241, 24);
-            this.cmbxEmpresaConInce.TabIndex = 79;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(67, 73);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(141, 17);
+            this.label8.TabIndex = 76;
+            this.label8.Text = "Nivel en la empresa:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(60, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 17);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "Cargo en la empresa:";
+            // 
+            // txtCargoEnEmpresa
+            // 
+            this.txtCargoEnEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtCargoEnEmpresa.Location = new System.Drawing.Point(227, 27);
+            this.txtCargoEnEmpresa.Name = "txtCargoEnEmpresa";
+            this.txtCargoEnEmpresa.Size = new System.Drawing.Size(241, 23);
+            this.txtCargoEnEmpresa.TabIndex = 74;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox2.TabIndex = 72;
+            this.pictureBox2.TabStop = false;
             // 
             // Agregar_participante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(669, 637);
             this.Controls.Add(this.gpbDatosEmpresa);
             this.Controls.Add(this.panel8);

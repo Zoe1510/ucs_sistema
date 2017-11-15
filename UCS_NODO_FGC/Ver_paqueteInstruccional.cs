@@ -331,7 +331,9 @@ namespace UCS_NODO_FGC
             if (Clases.Paquete_instruccional.tipo_curso == "Abierto")
             {
                 Clases.Paquete_instruccional._contenido = txtRutaContenido.Text;
+
                 cerrarForm();
+                Clases.Paquete_instruccional.utilizado = true;
                 this.Close();
 
             }

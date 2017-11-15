@@ -115,7 +115,7 @@ namespace UCS_NODO_FGC.Clases
         public static Paquete_instruccional obtenerTodoPq(MySqlConnection conexion, int id)
         {
             Paquete_instruccional p = new Paquete_instruccional();
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_ficha, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
+            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
             MySqlDataReader leer = cmd.ExecuteReader();
 
             while (leer.Read())

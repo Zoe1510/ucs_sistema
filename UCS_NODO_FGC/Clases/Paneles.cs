@@ -233,6 +233,24 @@ namespace UCS_NODO_FGC.Clases
             }
             return lista;
         }
+        public static List<Facilitador_todos> LlenarCmbxCoFa(int id_fa)
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores  WHERE id_fa != '{0}' ", id_fa), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa_todos(leer));
+                }
+            }
+            return lista;
+        }
+
+     
 
         public static Facilitador_todos fa_todos(MySqlDataReader reader)
         {

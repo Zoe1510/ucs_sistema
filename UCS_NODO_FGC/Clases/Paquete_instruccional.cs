@@ -25,6 +25,7 @@ namespace UCS_NODO_FGC.Clases
         public static string _contenido { get; set; }
         public static int id_pin { get; set; }
         public static string tipo_curso { get; set; }
+        public static bool utilizado { get; set; }
 
         public static int ModificarContenidoPQ(MySqlConnection conexion, Paquete_instruccional pq)
         {

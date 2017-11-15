@@ -493,5 +493,10 @@ namespace UCS_NODO_FGC
         {
             AddFormInPanel(new Ver_participantes());
         }
+
+        private void btnFrmAddParticipantes_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Agregar_participante());
+        }
     }
 }
