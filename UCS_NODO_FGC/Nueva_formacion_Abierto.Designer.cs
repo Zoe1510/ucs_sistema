@@ -551,7 +551,6 @@
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
             this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
