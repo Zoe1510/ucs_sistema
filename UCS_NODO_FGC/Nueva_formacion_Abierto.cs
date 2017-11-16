@@ -62,9 +62,9 @@ namespace UCS_NODO_FGC
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
 
-               // btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
+                btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
-                
+
                 //controles del nivel intermedio
                 Controles_nivel_intermedio_EstatusInicial();
                 
@@ -515,6 +515,71 @@ namespace UCS_NODO_FGC
             cmbxCoFa.DataSource = Clases.Paneles.LlenarCmbxCoFa(id_facilitador);
             cmbxCoFa.SelectedIndex = -1;
         }
+
+        private void GuardarIntermedio()
+        {
+            try
+            {
+                //primer caso: cuando la formacion es de 4 hrs
+
+                if (formacion.duracion == "4")
+                {
+                    if(dtpFechaCurso.Value <= DateTime.Today)
+                    {
+                        errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                        dtpFechaCurso.Focus();
+                    }
+                    else
+                    {
+                        errorProviderFecha.SetError(dtpFechaCurso, "");
+                        foreach (DataGridViewRow r in dgvMediosDifusion.Rows)
+                        {
+                            DataGridViewCheckBoxCell ck = r.Cells["seleccionar_opcion"] as DataGridViewCheckBoxCell;
+                            if (Convert.ToBoolean(ck.Value))
+                            {
+
+                            }
+                            else
+                            {
+
+                            }
+
+                        }
+                        //if ()
+                        time.fecha_curso = dtpFechaCurso.Value;
+                    }
+                }
+                else
+                {
+                    //segundo caso: cuando la formaicon es de 8 horas y tiene dos bloques, o sea, dos diías de 4 hrs
+                    if(formacion.duracion=="8" && formacion.bloque_curso == "2")
+                    {
+
+                    }else
+                    {
+                        //tercer caso: cuando la formacion es de 8 horas y tiene 1 bloque, o sea, se hace en un día
+                        if(formacion.duracion == "8" && formacion.bloque_curso == "1")
+                        {
+
+                        }else
+                        {
+                            //ultimo caso: cuando la formacion es de 16 horas, siempre tendrá dos bloques, o sea, dos dias
+                            if(formacion.duracion == "16")
+                            {
+
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                conexion.cerrarconexion();
+
+            }
+        }
         /* ------------- Fin Metodos -------------------*/
 
 
@@ -875,7 +940,7 @@ namespace UCS_NODO_FGC
                 {
                     if (pnlNivel_intermedio.Visible == true)
                     {
-
+                        
                     }
                     else
                     {
@@ -1038,7 +1103,7 @@ namespace UCS_NODO_FGC
 
         private void dtpSegundaFecha_Validating(object sender, CancelEventArgs e)
         {
-            if(dtpSegundaFecha.Value <= dtpFechaCurso.Value)
+            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value)
             {
                 errorProviderFecha.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
                 dtpSegundaFecha.Focus();
@@ -1232,6 +1297,47 @@ namespace UCS_NODO_FGC
                         }
                     }
                 }
+            }
+        }
+
+        private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaCurso.Value <= DateTime.Today)
+            {
+                errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                dtpFechaCurso.Focus();
+            }
+            else
+            {
+                errorProviderFecha.SetError(dtpFechaCurso, "");
+                time.fecha_curso = dtpFechaCurso.Value;
+                if ((formacion.duracion == "8" && formacion.bloque_curso == "2") || (formacion.duracion == "16"))
+                {
+                    gpbSegundaFecha.Enabled = true;
+                    dtpSegundaFecha.Enabled = true;
+                    dtpSegundaFecha.Focus();
+                }
+                else if ((formacion.duracion == "4") || (formacion.duracion == "8" && formacion.bloque_curso == "1"))
+                {
+                    gpbFacilitador.Enabled = true;
+                }
+
+
+            }
+        }
+
+        private void dtpSegundaFecha_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value)
+            {
+                errorProviderFecha.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                dtpSegundaFecha.Focus();
+            }
+            else
+            {
+                errorProviderFecha.SetError(dtpSegundaFecha, "");
+                time.fechaDos_curso = dtpSegundaFecha.Value;
+                gpbFacilitador.Enabled = true;
             }
         }
 
