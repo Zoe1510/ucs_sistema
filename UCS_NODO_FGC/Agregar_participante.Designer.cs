@@ -46,8 +46,6 @@
             this.txtApellidoPart = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombrePart = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gpbDatosEmpresa = new System.Windows.Forms.GroupBox();
@@ -56,13 +54,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCargoEnEmpresa = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.Panel_cabecera = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.gpbDatosFormacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.gpbDatosParticipantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel8.SuspendLayout();
             this.gpbDatosEmpresa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.Panel_cabecera.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbxTiposFormaciones
@@ -92,7 +99,7 @@
             this.gpbDatosFormacion.Controls.Add(this.label1);
             this.gpbDatosFormacion.Controls.Add(this.cmbxTiposFormaciones);
             this.gpbDatosFormacion.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbDatosFormacion.Location = new System.Drawing.Point(77, 22);
+            this.gpbDatosFormacion.Location = new System.Drawing.Point(306, 119);
             this.gpbDatosFormacion.Name = "gpbDatosFormacion";
             this.gpbDatosFormacion.Size = new System.Drawing.Size(516, 169);
             this.gpbDatosFormacion.TabIndex = 3;
@@ -180,7 +187,7 @@
             this.gpbDatosParticipantes.Controls.Add(this.label4);
             this.gpbDatosParticipantes.Controls.Add(this.txtCedulaPart);
             this.gpbDatosParticipantes.Controls.Add(this.txtNombrePart);
-            this.gpbDatosParticipantes.Location = new System.Drawing.Point(77, 197);
+            this.gpbDatosParticipantes.Location = new System.Drawing.Point(306, 294);
             this.gpbDatosParticipantes.Name = "gpbDatosParticipantes";
             this.gpbDatosParticipantes.Size = new System.Drawing.Size(516, 205);
             this.gpbDatosParticipantes.TabIndex = 4;
@@ -252,28 +259,6 @@
             this.txtNombrePart.Size = new System.Drawing.Size(241, 23);
             this.txtNombrePart.TabIndex = 7;
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 612);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(669, 25);
-            this.panel8.TabIndex = 41;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(3, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
@@ -281,7 +266,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(398, 542);
+            this.btnCancelar.Location = new System.Drawing.Point(628, 639);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 46);
             this.btnCancelar.TabIndex = 40;
@@ -296,7 +281,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar.Location = new System.Drawing.Point(119, 542);
+            this.btnGuardar.Location = new System.Drawing.Point(349, 639);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(147, 46);
             this.btnGuardar.TabIndex = 39;
@@ -310,7 +295,8 @@
             this.gpbDatosEmpresa.Controls.Add(this.label7);
             this.gpbDatosEmpresa.Controls.Add(this.txtCargoEnEmpresa);
             this.gpbDatosEmpresa.Controls.Add(this.pictureBox2);
-            this.gpbDatosEmpresa.Location = new System.Drawing.Point(77, 408);
+            this.gpbDatosEmpresa.Enabled = false;
+            this.gpbDatosEmpresa.Location = new System.Drawing.Point(306, 505);
             this.gpbDatosEmpresa.Name = "gpbDatosEmpresa";
             this.gpbDatosEmpresa.Size = new System.Drawing.Size(516, 113);
             this.gpbDatosEmpresa.TabIndex = 42;
@@ -369,14 +355,99 @@
             this.pictureBox2.TabIndex = 72;
             this.pictureBox2.TabStop = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.TabIndex = 58;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(227, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // Panel_cabecera
+            // 
+            this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Panel_cabecera.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.panel_cabecera;
+            this.Panel_cabecera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panel_cabecera.Controls.Add(this.label11);
+            this.Panel_cabecera.Controls.Add(this.shapeContainer1);
+            this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
+            this.Panel_cabecera.Name = "Panel_cabecera";
+            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 96);
+            this.Panel_cabecera.TabIndex = 59;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Lucida Fax", 27.25F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(298, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(444, 43);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Agregar participantes";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape7});
+            this.shapeContainer1.Size = new System.Drawing.Size(1122, 96);
+            this.shapeContainer1.TabIndex = 2;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape7
+            // 
+            this.rectangleShape7.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
+            this.rectangleShape7.Name = "rectangleShape7";
+            this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
+            // 
             // Agregar_participante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(669, 637);
-            this.Controls.Add(this.gpbDatosEmpresa);
+            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.ClientSize = new System.Drawing.Size(1122, 739);
+            this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.gpbDatosEmpresa);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.gpbDatosParticipantes);
@@ -385,17 +456,20 @@
             this.Name = "Agregar_participante";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar participante";
+            this.Load += new System.EventHandler(this.Agregar_participante_Load);
             this.gpbDatosFormacion.ResumeLayout(false);
             this.gpbDatosFormacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.gpbDatosParticipantes.ResumeLayout(false);
             this.gpbDatosParticipantes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.gpbDatosEmpresa.ResumeLayout(false);
             this.gpbDatosEmpresa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.Panel_cabecera.ResumeLayout(false);
+            this.Panel_cabecera.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -418,8 +492,6 @@
         private System.Windows.Forms.TextBox txtNombrePart;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.GroupBox gpbDatosEmpresa;
@@ -430,5 +502,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCargoEnEmpresa;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private System.Windows.Forms.Panel Panel_cabecera;
+        private System.Windows.Forms.Label label11;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
     }
 }

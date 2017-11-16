@@ -23,7 +23,7 @@ namespace UCS_NODO_FGC
 
         private void Registrar_clientes_Load(object sender, EventArgs e)
         {
-            
+            this.Location = new Point(-5, 0);
         }
 
         private void txtTelefonoCli_KeyDown(object sender, KeyEventArgs e)

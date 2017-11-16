@@ -117,5 +117,10 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
             }
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

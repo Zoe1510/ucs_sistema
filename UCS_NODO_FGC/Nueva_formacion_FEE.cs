@@ -49,6 +49,8 @@ namespace UCS_NODO_FGC
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
 
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss 
+
                 btnVerPresentacion.Enabled = false;
                 btnVerContenido.Enabled = false;
                 btnRutaContenido.Enabled = false;

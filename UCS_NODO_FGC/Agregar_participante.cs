@@ -16,5 +16,10 @@ namespace UCS_NODO_FGC
         {
             InitializeComponent();
         }
+
+        private void Agregar_participante_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(-5, 0);
+        }
     }
 }

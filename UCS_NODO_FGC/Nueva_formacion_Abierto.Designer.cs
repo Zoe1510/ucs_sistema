@@ -124,6 +124,8 @@
             this.gpbDifusion = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
+            this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
             this.rdbNoRef = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -173,8 +175,6 @@
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
@@ -320,7 +320,7 @@
             // rectangleShape2
             // 
             this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.rectangleShape2.Location = new System.Drawing.Point(0, 1);
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
@@ -551,10 +551,10 @@
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(40, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -1232,6 +1232,25 @@
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 287);
             this.dgvMediosDifusion.TabIndex = 48;
             // 
+            // opcion_difusion
+            // 
+            this.opcion_difusion.HeaderText = "Medio de difusión";
+            this.opcion_difusion.MaxInputLength = 250;
+            this.opcion_difusion.MinimumWidth = 50;
+            this.opcion_difusion.Name = "opcion_difusion";
+            this.opcion_difusion.ReadOnly = true;
+            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.opcion_difusion.Width = 310;
+            // 
+            // seleccionar_opcion
+            // 
+            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccionar_opcion.HeaderText = "";
+            this.seleccionar_opcion.MinimumWidth = 30;
+            this.seleccionar_opcion.Name = "seleccionar_opcion";
+            this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccionar_opcion.Width = 40;
+            // 
             // gpbRefrigerio
             // 
             this.gpbRefrigerio.Controls.Add(this.rdbNoRef);
@@ -1785,25 +1804,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(-1, 97);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // opcion_difusion
-            // 
-            this.opcion_difusion.HeaderText = "Medio de difusión";
-            this.opcion_difusion.MaxInputLength = 250;
-            this.opcion_difusion.MinimumWidth = 50;
-            this.opcion_difusion.Name = "opcion_difusion";
-            this.opcion_difusion.ReadOnly = true;
-            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.opcion_difusion.Width = 310;
-            // 
-            // seleccionar_opcion
-            // 
-            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccionar_opcion.HeaderText = "";
-            this.seleccionar_opcion.MinimumWidth = 30;
-            this.seleccionar_opcion.Name = "seleccionar_opcion";
-            this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccionar_opcion.Width = 40;
             // 
             // Nueva_formacion_Abierto
             // 

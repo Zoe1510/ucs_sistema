@@ -193,6 +193,7 @@ namespace UCS_NODO_FGC
         private void Registrar_usuarios_Load(object sender, EventArgs e)
         {
             txtCedulaUsuario.Focus();
+            this.Location = new Point(-5, 0);
             txtCedulaUsuario.SelectionStart = txtCedulaUsuario.Text.Length;
             if (Clases.Usuario_logeado.cargo_usuario == "Lider")
             {

@@ -62,7 +62,7 @@ namespace UCS_NODO_FGC
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
 
-                btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
 
                 //controles del nivel intermedio
@@ -532,6 +532,8 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderFecha.SetError(dtpFechaCurso, "");
+                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+
                         foreach (DataGridViewRow r in dgvMediosDifusion.Rows)
                         {
                             DataGridViewCheckBoxCell ck = r.Cells["seleccionar_opcion"] as DataGridViewCheckBoxCell;

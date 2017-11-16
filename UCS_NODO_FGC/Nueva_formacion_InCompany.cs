@@ -60,8 +60,8 @@ namespace UCS_NODO_FGC
 
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
-                
 
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
                 //controles del nivel intermedio
                 Controles_nivel_intermedio_EstatusInicial();

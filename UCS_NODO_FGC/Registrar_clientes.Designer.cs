@@ -39,8 +39,6 @@
             this.txtTelefonoCliArea = new System.Windows.Forms.TextBox();
             this.txtCorreoCliArea = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.errorProviderEmpresa = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFee = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNArea = new System.Windows.Forms.ErrorProvider(this.components);
@@ -51,9 +49,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNArea)).BeginInit();
@@ -61,18 +68,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbxFee);
             this.groupBox1.Controls.Add(this.txtNombreArea);
             this.groupBox1.Controls.Add(this.txtNombreEmpresa);
             this.groupBox1.Font = new System.Drawing.Font("Rockwell", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Location = new System.Drawing.Point(338, 139);
+            this.groupBox1.Location = new System.Drawing.Point(261, 139);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 217);
+            this.groupBox1.Size = new System.Drawing.Size(602, 217);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos empresa";
@@ -85,7 +96,7 @@
             this.cmbxFee.Items.AddRange(new object[] {
             "FEE",
             "NO FEE"});
-            this.cmbxFee.Location = new System.Drawing.Point(88, 102);
+            this.cmbxFee.Location = new System.Drawing.Point(239, 102);
             this.cmbxFee.Name = "cmbxFee";
             this.cmbxFee.Size = new System.Drawing.Size(310, 27);
             this.cmbxFee.TabIndex = 3;
@@ -93,13 +104,12 @@
             // txtNombreArea
             // 
             this.txtNombreArea.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreArea.Location = new System.Drawing.Point(88, 154);
+            this.txtNombreArea.Location = new System.Drawing.Point(239, 158);
             this.txtNombreArea.MaxLength = 99;
             this.txtNombreArea.Multiline = true;
             this.txtNombreArea.Name = "txtNombreArea";
             this.txtNombreArea.Size = new System.Drawing.Size(310, 34);
             this.txtNombreArea.TabIndex = 2;
-            this.txtNombreArea.Text = "Nombre del área";
             this.txtNombreArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreArea.Click += new System.EventHandler(this.txtNombreArea_Click);
             this.txtNombreArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreArea_KeyDown);
@@ -109,13 +119,12 @@
             // txtNombreEmpresa
             // 
             this.txtNombreEmpresa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEmpresa.Location = new System.Drawing.Point(88, 42);
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(239, 46);
             this.txtNombreEmpresa.MaxLength = 99;
             this.txtNombreEmpresa.Multiline = true;
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
-            this.txtNombreEmpresa.Size = new System.Drawing.Size(310, 34);
+            this.txtNombreEmpresa.Size = new System.Drawing.Size(310, 31);
             this.txtNombreEmpresa.TabIndex = 1;
-            this.txtNombreEmpresa.Text = "Nombre empresa";
             this.txtNombreEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreEmpresa.Click += new System.EventHandler(this.txtNombreEmpresa_Click);
             this.txtNombreEmpresa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreEmpresa_KeyDown);
@@ -130,7 +139,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(617, 631);
+            this.btnCancelar.Location = new System.Drawing.Point(642, 631);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 47);
             this.btnCancelar.TabIndex = 8;
@@ -141,13 +150,12 @@
             // txtNombreContactoArea
             // 
             this.txtNombreContactoArea.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreContactoArea.Location = new System.Drawing.Point(88, 43);
+            this.txtNombreContactoArea.Location = new System.Drawing.Point(239, 41);
             this.txtNombreContactoArea.MaxLength = 99;
             this.txtNombreContactoArea.Multiline = true;
             this.txtNombreContactoArea.Name = "txtNombreContactoArea";
             this.txtNombreContactoArea.Size = new System.Drawing.Size(310, 34);
             this.txtNombreContactoArea.TabIndex = 4;
-            this.txtNombreContactoArea.Text = "Persona contacto del área";
             this.txtNombreContactoArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreContactoArea.Click += new System.EventHandler(this.txtNombreContacto_Click);
             this.txtNombreContactoArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreContacto_KeyDown);
@@ -162,7 +170,7 @@
             this.btnGuardarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarCliente.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnGuardarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarCliente.Location = new System.Drawing.Point(403, 631);
+            this.btnGuardarCliente.Location = new System.Drawing.Point(375, 631);
             this.btnGuardarCliente.Name = "btnGuardarCliente";
             this.btnGuardarCliente.Size = new System.Drawing.Size(147, 47);
             this.btnGuardarCliente.TabIndex = 7;
@@ -173,13 +181,12 @@
             // txtTelefonoCliArea
             // 
             this.txtTelefonoCliArea.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoCliArea.Location = new System.Drawing.Point(88, 98);
+            this.txtTelefonoCliArea.Location = new System.Drawing.Point(239, 96);
             this.txtTelefonoCliArea.MaxLength = 11;
             this.txtTelefonoCliArea.Multiline = true;
             this.txtTelefonoCliArea.Name = "txtTelefonoCliArea";
             this.txtTelefonoCliArea.Size = new System.Drawing.Size(310, 34);
             this.txtTelefonoCliArea.TabIndex = 5;
-            this.txtTelefonoCliArea.Text = "Teléfono o celular";
             this.txtTelefonoCliArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefonoCliArea.Click += new System.EventHandler(this.txtTelefonoCli_Click);
             this.txtTelefonoCliArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefonoCli_KeyDown);
@@ -190,7 +197,7 @@
             // txtCorreoCliArea
             // 
             this.txtCorreoCliArea.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoCliArea.Location = new System.Drawing.Point(88, 158);
+            this.txtCorreoCliArea.Location = new System.Drawing.Point(239, 156);
             this.txtCorreoCliArea.MaxLength = 255;
             this.txtCorreoCliArea.Multiline = true;
             this.txtCorreoCliArea.Name = "txtCorreoCliArea";
@@ -206,41 +213,20 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtNombreContactoArea);
             this.groupBox2.Controls.Add(this.txtCorreoCliArea);
             this.groupBox2.Controls.Add(this.txtTelefonoCliArea);
             this.groupBox2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox2.Location = new System.Drawing.Point(338, 378);
+            this.groupBox2.Location = new System.Drawing.Point(261, 378);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 214);
+            this.groupBox2.Size = new System.Drawing.Size(602, 214);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Datos persona";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 716);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
-            this.panel8.TabIndex = 38;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(241, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
+            this.groupBox2.Text = "Datos contacto";
             // 
             // errorProviderEmpresa
             // 
@@ -308,14 +294,115 @@
             this.shapeContainer1.TabIndex = 45;
             this.shapeContainer1.TabStop = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 716);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.TabIndex = 58;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(221, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(49, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nombre de la empresa:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(136, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Recibe FEE:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(93, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nombre del área:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(89, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Teléfono o celular:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(17, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(216, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Persona contacto en el área:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(73, 159);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 19);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Correo del contacto:";
+            // 
             // Registrar_clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1122, 741);
-            this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
@@ -329,8 +416,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmpresa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNArea)).EndInit();
@@ -339,6 +424,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -354,8 +441,6 @@
         private System.Windows.Forms.TextBox txtCorreoCliArea;
         private System.Windows.Forms.TextBox txtNombreArea;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbxFee;
         private System.Windows.Forms.ErrorProvider errorProviderEmpresa;
         private System.Windows.Forms.ErrorProvider errorProviderFee;
@@ -367,5 +452,15 @@
         private System.Windows.Forms.Panel Panel_cabecera;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }
