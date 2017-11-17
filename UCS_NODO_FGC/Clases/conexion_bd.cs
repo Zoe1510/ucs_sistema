@@ -12,7 +12,7 @@ namespace UCS_NODO_FGC.Clases
     public static class Conexion
     {
         public static MySqlConnection bd;
-
+        sad
         public static MySqlDataReader ConsultarBD(String query)
         {
             abrirconexion();

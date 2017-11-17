@@ -26,10 +26,11 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-UCS_NODO_FGC/[Bb]in/Debug/Microsoft.VisualBasic.PowerPacks.dll
-!UCS_NODO_FGC/[Bb]in/Debug/MySql.Data.dll
-!UCS_NODO_FGC/[Bb]in/Debug/MySqlBackup.dll
-!UCS_NODO_FGC/[Bb]in/Debug/Microsoft.VisualBasic.PowerPacks.resources.dll
+UCS_NODO_FGC/Clases/conexion_bd.cs
+!UCS_NODO_FGC/[Bb]in//Debug/Microsoft.VisualBasic.PowerPacks.dll
+!UCS_NODO_FGC/[Bb]in//Debug/MySql.Data.dll
+!UCS_NODO_FGC/[Bb]in//Debug/MySqlBackup.dll
+!UCS_NODO_FGC/[Bb]in//Debug/Microsoft.VisualBasic.PowerPacks.resources.dll
 
 
 # Visual Studio 2015 cache/options directory
