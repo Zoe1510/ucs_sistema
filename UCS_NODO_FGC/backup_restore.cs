@@ -74,7 +74,7 @@ namespace UCS_NODO_FGC
         private void Backup(String RutaGuardada)
         {
             //Los parametros de la base de datos para hacer el backup
-            string constring = "server=localhost;user=root;pwd=123456;database=ucs_bd;";
+            string constring = "server=localhost;user=root;pwd=" + Conexion.clave + ";database=ucs_bd;";
 
             // decidir el unicode y convertir fechas nulas en 0 para evitar errores (cosas de MySQL que no acepta como nulas)
             constring += "charset=utf8;convertzerodatetime=true;";

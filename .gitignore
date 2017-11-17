@@ -15,22 +15,16 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 
-UCS_NODO_FGC/[Bb]in/Debug/Microsoft.VisualBasic.PowerPacks.dll
-!UCS_NODO_FGC/[Bb]in/Debug/MySql.Data.dll
-!UCS_NODO_FGC/[Bb]in/Debug/MySqlBackup.dll
-!UCS_NODO_FGC/[Bb]in/Debug/Microsoft.VisualBasic.PowerPacks.resources.dll
-
+!*.dll
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -211,8 +205,6 @@ _pkginfo.txt
 
 # Others
 ClientBin/
-~$*
-*~
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
@@ -311,3 +303,5 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
+*.exe
+*.exe
