@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -104,7 +104,7 @@ namespace UCS_NODO_FGC
 
         private void Restore(String ArchivoSeleccionado)
         {
-            string constring = "server=localhost;user=root;pwd=123456;database=ucs_bd;";
+            string constring = "server=localhost;user=root;pwd="+Conexion.clave+";database=ucs_bd;";
 
             // Important Additional Connection Options
             constring += "charset=utf8;convertzerodatetime=true;";

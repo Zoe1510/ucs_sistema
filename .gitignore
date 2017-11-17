@@ -28,6 +28,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 
+conexion_bd.cs
 !UCS_NODO_FGC/[Bb]in//Debug/Microsoft.VisualBasic.PowerPacks.dll
 !UCS_NODO_FGC/[Bb]in//Debug/MySql.Data.dll
 !UCS_NODO_FGC/[Bb]in//Debug/MySqlBackup.dll
