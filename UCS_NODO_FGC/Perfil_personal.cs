@@ -26,7 +26,7 @@ namespace UCS_NODO_FGC
             txtCorreoUser.Text = Clases.Usuario_logeado.correo_usuario;
             txtTlfnUser.Text = Clases.Usuario_logeado.tlfn_usuario;
             lblCargo.Text = Clases.Usuario_logeado.cargo_usuario;
-            lblCedula.Text = Convert.ToString(Clases.Usuario_logeado.id_usuario);
+            lblCedula.Text = Convert.ToString(Clases.Usuario_logeado.cedula_user);
             lblNombreUsuario.Text = Clases.Usuario_logeado.nombre_usuario +" "+ Clases.Usuario_logeado.apellido_usuario;
             //permite que la imagen sea redonda
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -75,9 +75,10 @@ namespace UCS_NODO_FGC
                         usuario.nombre_usuario = txtNombreUser.Text;
                         usuario.apellido_usuario = txtApellidoUser.Text;
                         usuario.cargo_usuario = lblCargo.Text;
-                        usuario.id_usuario = Convert.ToInt32(lblCedula.Text);
+                        usuario.cedula_user = Convert.ToInt32(lblCedula.Text);
                         usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
                         usuario.password = Clases.Usuario_logeado.password;
+                        usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
                         int resultado;
 
                         resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
@@ -96,9 +97,7 @@ namespace UCS_NODO_FGC
                                     MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     conexion.cerrarconexion();
                                     this.Close();
-                                    Inicio_Sesion ini = new Inicio_Sesion();
-
-                                    ini.Show();
+                                    Inicio_Sesion.ActiveForm.Visible = true;
 
                                 }
                                 else

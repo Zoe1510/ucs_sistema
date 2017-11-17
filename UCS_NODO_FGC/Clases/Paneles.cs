@@ -47,35 +47,7 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-        public static void letrasynumeros(KeyPressEventArgs e)
-        {
-            if ((Char.IsPunctuation(e.KeyChar)) || (Char.IsDigit(e.KeyChar)))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = false;
-
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsWhiteSpace(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
+      
         public static void solonumeros(KeyPressEventArgs e)
         {
             //metodo usado para la validacion de solo numeros en el campo cedula del login
@@ -122,6 +94,7 @@ namespace UCS_NODO_FGC.Clases
 
         public static bool comprobarFormatoTlfn(CancelEventArgs e, string tlfn)
         {
+            //(0){1}[4,2][0-9]{2}-[0-9]{3}-[0-9]{4} //expresion regular que acepta 0426-000-0000 o 0274-000-0000
             Regex rex = new Regex("(04)[0-9]{9,9}$");//puede ser void en panel
             Regex rex2 = new Regex("(02)[0-9]{9,9}$");
             if (!rex.IsMatch(tlfn) && !rex2.IsMatch(tlfn))
@@ -157,9 +130,10 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-        public static conexion_bd con = new conexion_bd();
-        public static List<Empresa> LlenarCombobox(string nombre)
+        
+        public static List<Empresa> LlenarCombobox(string nombre)//funciona
         {
+            conexion_bd con = new conexion_bd();
             List<Empresa> lista = new List<Empresa>();
             if (con.abrirconexion() == true)
             {
@@ -177,10 +151,11 @@ namespace UCS_NODO_FGC.Clases
             con.cerrarconexion();
             return lista;
 
-        }
-        public static conexion_bd con1 = new conexion_bd();
+        }//funciona
+       
         public static List<Preguntas> LlenarComboboxPreguntas(string pregunta)
         {
+            conexion_bd con1 = new conexion_bd();
             List<Preguntas> lista = new List<Preguntas>();
             if (con1.abrirconexion() == true)
             {
@@ -198,8 +173,112 @@ namespace UCS_NODO_FGC.Clases
             con1.cerrarconexion();
             return lista;
 
+        }//funciona
+
+        
+        public static List<Curso_IN> LlenarComboboxCursos(string buscar)//no funciona, muestra la ruta de la clase cursos.inces
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Curso_IN> lista = new List<Curso_IN>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM cursos_inces WHERE nombre_curso_ince LIKE ('%{0}%')", buscar), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(cur(leer));
+                }
+            }
+            con2.cerrarconexion();
+            return lista;
+        }
+        
+        public static List<Fa_ince> LlenarComboboxFacilitadoresINCEs()
+        {
+            conexion_bd con3 = new conexion_bd();
+            List<Fa_ince> lista = new List<Fa_ince>();
+            if (con3.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nombre_fa, apellido_fa FROM facilitadores  WHERE requerimiento_inces = 1"), con3.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa(leer));
+                }
+
+            }
+
+
+            con3.cerrarconexion();
+            return lista;
+
         }
 
+        
+        public static List<Facilitador_todos> LlenarCmbxFaTodos()
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores "), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa_todos(leer));
+                }
+            }
+            return lista;
+        }
+        public static List<Facilitador_todos> LlenarCmbxCoFa(int id_fa)
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores  WHERE id_fa != '{0}' ", id_fa), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+
+                    lista.Add(fa_todos(leer));
+                }
+            }
+            return lista;
+        }
+
+     
+
+        public static Facilitador_todos fa_todos(MySqlDataReader reader)
+        {
+            Facilitador_todos fa1 = new Facilitador_todos();
+            fa1.id_faci = Convert.ToInt32(reader["id_fa"]);
+            fa1.ci_facilitador = Convert.ToString(reader["cedula_fa"]);
+            string nombre = Convert.ToString(reader["nombre_fa"]);
+            string apellido = Convert.ToString(reader["apellido_fa"]);
+            fa1.nombreyapellido1 = nombre + " " + apellido;
+            return fa1;
+        }
+        public static Fa_ince fa(MySqlDataReader reader)
+        {
+            Fa_ince faci = new Fa_ince();
+            faci.id_facilitador=Convert.ToInt32(reader["id_fa"]);
+            faci.ci_facilitador= Convert.ToString(reader["cedula_fa"]);
+            string nombre= Convert.ToString(reader["nombre_fa"]);
+            string apellido = Convert.ToString(reader["apellido_fa"]);
+            faci.nombreyapellido = nombre+" "+apellido;
+            return faci;
+        }
+        public static Curso_IN cur(MySqlDataReader reader)
+        {
+            Curso_IN curso = new Curso_IN();
+            curso.id_INCE= Convert.ToInt32(reader["id_curso_ince"]);
+            curso.nombre_INCE= Convert.ToString(reader["nombre_curso_ince"]);
+            return curso;
+        }
         public static Preguntas pre(MySqlDataReader reader)
         {
             Preguntas pregunta = new Preguntas();

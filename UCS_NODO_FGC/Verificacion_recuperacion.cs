@@ -58,7 +58,7 @@ namespace UCS_NODO_FGC
                 {
                     errorProviderNombre.SetError(txtNombre, "");
 
-                    usuario.id_usuario = Convert.ToInt32(txtCedula.Text);
+                    usuario.cedula_user = Convert.ToInt32(txtCedula.Text);
                     usuario.correo_usuario = txtCorreo.Text;
                     usuario.nombre_usuario = txtNombre.Text;
 
@@ -72,11 +72,12 @@ namespace UCS_NODO_FGC
                             int resultado = Clases.Usuarios.BuscarCorreoUsuario(conexion.conexion, usuario);
                             conexion.cerrarconexion();
 
-                            if (resultado == 1)
+                            if (resultado != 0)
                             {
-                                Clases.Recuperacion_contraseña.cedula = usuario.id_usuario;
+                                Clases.Recuperacion_contraseña.cedula = usuario.cedula_user;
                                 Clases.Recuperacion_contraseña.nombre = usuario.nombre_usuario;
                                 Clases.Recuperacion_contraseña.correo = usuario.correo_usuario;
+                                Clases.Recuperacion_contraseña.id_usuario = resultado;
 
                                 Recuperacion_preguntas formpreguntas = new Recuperacion_preguntas();
                                 Clases.Recuperacion_contraseña.Opcion = 0;
@@ -86,7 +87,7 @@ namespace UCS_NODO_FGC
                             else
                             {
 
-                                MessageBox.Show("Usted no está registrado en la base de datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Los datos no coinciden con la base de datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }
 
@@ -103,22 +104,25 @@ namespace UCS_NODO_FGC
 
                             conexion.cerrarconexion();
 
-                            if (resultado == 1)
+                            if (resultado != 0)
                             {
                                 if (conexion.abrirconexion() == true)
                                 {
-                                                                       
-                                    int retorno = Clases.Usuarios.CambiarContraseña(conexion.conexion, newpass, usuario.id_usuario);
-                                    conexion.cerrarconexion();
-                                    EnviarCorreo(newpass, usuario.correo_usuario);
-                                    this.Close();
+                                   
+                                            int retorno = Clases.Usuarios.CambiarContraseña(conexion.conexion, newpass,resultado);
+                                            conexion.cerrarconexion();
+                                            EnviarCorreo(newpass, usuario.correo_usuario);
+                                            this.Close();
+                                        
+                                                                 
+                                   
                                 }
 
                             }
                             else
                             {
 
-                                MessageBox.Show("El correo no está registrado en la base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Los datos no coinciden con la base de datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             }
 
@@ -145,23 +149,32 @@ namespace UCS_NODO_FGC
         }
         private void EnviarCorreo(String contraseña_nueva, String correo)
         {
-            String remitente = "patricia-bermudez@outlook.com"; //colocar correo predeterminado para envio de contraseñas nuevas
+            String remitente = "soporteucs@gmail.com"; //colocar correo predeterminado para envio de contraseñas nuevas
             String destintario = correo;
             String asunto = "Recuperación de contraseña";
             String mensaje = "Su nueva contraseña es: " + contraseña_nueva;
-            MailMessage ms = new MailMessage(remitente, destintario, asunto, mensaje);
-            SmtpClient smtp = new SmtpClient("smtp.live.com", 587);
+            MailMessage msg = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
 
+            msg.To.Add(destintario);
+            msg.From = new MailAddress(remitente, "SOPORTEUCS", System.Text.Encoding.UTF8);
+            msg.Subject = asunto;
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = mensaje;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+            msg.IsBodyHtml = false;
+
+            smtp.Credentials = new System.Net.NetworkCredential(remitente, "ucs.29933526"); //entre comillas va el password de ese correo electronico
+            smtp.Port = 587;
+            smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            smtp.Credentials = new NetworkCredential(remitente, "yeb909cr1"); //entre comillas va el password de ese correo electronico
-
 
             try
             {
                 Task.Run(() =>
                 {
-                    smtp.Send(ms);
-                    ms.Dispose();
+                    smtp.Send(msg);
+                    msg.Dispose();
                     MessageBox.Show("Correo enviado. Revise su bandeja de entrada.", "AVISO", MessageBoxButtons.OK);
                     Clases.Recuperacion_contraseña.Opcion = 0;
                     

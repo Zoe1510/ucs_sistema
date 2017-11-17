@@ -79,6 +79,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarArea(MySqlConnection conexion, Clientes cliente)
         {
             int retorno = 0;
+            
             MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO areas ( nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, id_cliente1) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", cliente.nombre_areaEmpresa, cliente.nombre_contacto, cliente.tlfn_cliente, cliente.correo_cliente, cliente.id_cliente), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;

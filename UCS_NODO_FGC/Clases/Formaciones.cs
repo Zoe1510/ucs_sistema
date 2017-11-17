@@ -22,21 +22,20 @@ namespace UCS_NODO_FGC.Clases
 
         public string tipo_formacion { get; set; }
 
-        public DateTime fecha_curso { get; set; }
-
-        public DateTime hora_curso { get; set; }
+        
 
         public int id_user { get; set; }
 
         public int id_curso { get; set; }
         public int pq_inst { get; set; }
 
+        public static bool creacion { get; set; } //para saber si la formación se crea o se modifica
         public Formaciones()
         {
 
         }
 
-        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo, DateTime fform, int pq, int idcurso, int id_user, DateTime hora)
+        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user)
         {
             this.fecha_inicial = fi;
             this.solicitado = sol;
@@ -44,11 +43,11 @@ namespace UCS_NODO_FGC.Clases
             this.estatus = sta;
             this.nombre_formacion = nomb;
             this.tipo_formacion = tipo;
-            this.fecha_curso = fform;
+            
             this.pq_inst = pq;
             this.id_curso = idcurso;
             this.id_user = id_user;
-            this.hora_curso = hora;
+            
 
         }
        
@@ -116,7 +115,7 @@ namespace UCS_NODO_FGC.Clases
         public static Paquete_instruccional obtenerTodoPq(MySqlConnection conexion, int id)
         {
             Paquete_instruccional p = new Paquete_instruccional();
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_ficha, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
+            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
             MySqlDataReader leer = cmd.ExecuteReader();
 
             while (leer.Read())

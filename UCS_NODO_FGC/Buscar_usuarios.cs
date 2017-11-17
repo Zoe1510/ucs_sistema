@@ -35,7 +35,7 @@ namespace UCS_NODO_FGC
 
         private void Buscar_usuarios_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(-170, 0);
+            this.Location = new Point(-5, 0);
             conexion.cerrarconexion();
             cmbxCargoUsuario.Visible = true;
             
@@ -321,14 +321,14 @@ namespace UCS_NODO_FGC
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, correo_user, tlfn_user FROM usuarios WHERE nombre_user LIKE ('%{0}%') AND apellido_user LIKE ('%{1}%') AND cargo_user LIKE ('%{2}%')", nombre, apellido, cargo), conexion);
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT cedula_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, correo_user, tlfn_user FROM usuarios WHERE nombre_user LIKE ('%{0}%') AND apellido_user LIKE ('%{1}%') AND cargo_user LIKE ('%{2}%') AND cedula_user > "+0+" ", nombre, apellido, cargo), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 dgvUsuarios.Rows.Clear();
                 while (reader.Read())
                 {
 
-                    usuario.id_usuario = reader.GetInt32(0);
+                    usuario.cedula_user = reader.GetInt32(0);
                     usuario.nacionalidad_usuario = reader.GetString(1);
                     usuario.nombre_usuario = reader.GetString(2);
                     usuario.apellido_usuario = reader.GetString(3);
@@ -336,7 +336,7 @@ namespace UCS_NODO_FGC
                     usuario.correo_usuario = reader.GetString(5);
                     usuario.tlfn_usuario = reader.GetString(6);
 
-                    dgvUsuarios.Rows.Add(usuario.nacionalidad_usuario, usuario.id_usuario, usuario.nombre_usuario, usuario.apellido_usuario, usuario.cargo_usuario, usuario.correo_usuario, usuario.tlfn_usuario);
+                    dgvUsuarios.Rows.Add(usuario.nacionalidad_usuario, usuario.cedula_user, usuario.nombre_usuario, usuario.apellido_usuario, usuario.cargo_usuario, usuario.correo_usuario, usuario.tlfn_usuario);
                     retorno = 1;
                 }
 
@@ -381,10 +381,10 @@ namespace UCS_NODO_FGC
                     {
                         if ((txtCedulaUsuario.Text != "Cédula") && (txtApellidoUsuario.Text != "Apellido") && (txtNombreUsuario.Text != "Nombre"))
                         {
-                            int id = Convert.ToInt32(txtCedulaUsuario.Text);
+                            int ci = Convert.ToInt32(txtCedulaUsuario.Text);
                             comboboxshow();
 
-                            if (id == Clases.Usuario_logeado.id_usuario)//si el id seleccionado es igual al lider que está en la sesion:
+                            if (ci == Clases.Usuario_logeado.cedula_user)//si el id seleccionado es igual al lider que está en la sesion:
                             {
                                 if (conexion.abrirconexion() == true)
                                 {
@@ -400,7 +400,7 @@ namespace UCS_NODO_FGC
                                                 if (MessageBox.Show("La sesión terminará en cuanto se complete la eliminacion de su cuenta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                                                 {
                                                     int resultado;
-                                                    resultado = Clases.Usuarios.EliminarUsuarios(conexion.conexion, id, nacionalidad_usuario);
+                                                    resultado = Clases.Usuarios.EliminarUsuarios(conexion.conexion, ci, nacionalidad_usuario);
 
                                                     if (resultado > 0)
                                                     {
@@ -437,7 +437,7 @@ namespace UCS_NODO_FGC
                                     {
 
                                         int resultado;
-                                        resultado = Clases.Usuarios.EliminarUsuarios(conexion.conexion, id, nacionalidad_usuario);
+                                        resultado = Clases.Usuarios.EliminarUsuarios(conexion.conexion, ci, nacionalidad_usuario);
 
                                         if (resultado > 0)
                                         {
@@ -721,7 +721,7 @@ namespace UCS_NODO_FGC
                             {
                                 if (cmbxCargoUsuario.SelectedIndex != -1)
                                 {
-                                    usuario.id_usuario = Convert.ToInt32(txtCedulaUsuario.Text);
+                                    usuario.cedula_user = Convert.ToInt32(txtCedulaUsuario.Text);
                                     usuario.nombre_usuario = txtNombreUsuario.Text;
                                     usuario.apellido_usuario = txtApellidoUsuario.Text;
                                     cargouser = Convert.ToString(cmbxCargoUsuario.SelectedIndex);

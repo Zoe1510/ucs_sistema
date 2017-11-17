@@ -25,9 +25,10 @@ namespace UCS_NODO_FGC
         //LOAD DEL FORM
         private void Registrar_area_Load(object sender, EventArgs e)
         {
-            if(Clases.Cliente_seleccionado.id_cliente != 0)
+            
+            if (Clases.Cliente_seleccionado.id_cliente != 0)
             {
-                Panel_cabecera.Visible = false;
+                
                 txtNombreEmpresa.Visible = true;
                 txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
                 txtNombreEmpresa.Enabled = false;
@@ -44,6 +45,9 @@ namespace UCS_NODO_FGC
                 Clases.Cliente_seleccionado.nombre_contacto = "";
                 Clases.Cliente_seleccionado.tlfn_cliente = "";
                 Clases.Cliente_seleccionado.correo_cliente = "";
+            }else
+            {
+                this.Location = new Point(-5, 0);
             }
             string nombre = "";
             llenarcombo(nombre);

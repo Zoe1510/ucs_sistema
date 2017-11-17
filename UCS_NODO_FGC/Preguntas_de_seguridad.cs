@@ -63,8 +63,7 @@ namespace UCS_NODO_FGC
                     {
                         while (n_pre < pregunta.Count)
                         {
-                            //if (pregunta[i].id_user1 == Clases.Usuario_logeado.id_usuario)
-                            //{
+                            
                                 if (n_pre == 0)
                                 {
                                     pre = pregunta[0];
@@ -83,12 +82,6 @@ namespace UCS_NODO_FGC
                                     n_pre++;
                                 }
 
-                            //}
-                            //else
-                            //{
-                            //    i++;
-                            //    n_pre++;
-                            //}
                         }
 
                     }

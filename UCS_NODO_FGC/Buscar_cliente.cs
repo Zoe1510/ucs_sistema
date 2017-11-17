@@ -34,7 +34,7 @@ namespace UCS_NODO_FGC
         private void Buscar_cliente_Load(object sender, EventArgs e)
         {
             string nombreempresa = "";
-            //this.Location = new Point(-150, 0);
+            this.Location = new Point(-5, 0);
             try
             {
                 conexion.cerrarconexion();
@@ -180,6 +180,7 @@ namespace UCS_NODO_FGC
         }
         private void btnModificarContacto_Click(object sender, EventArgs e)
         {
+            Clases.Empresa.ModificarArea = 0;
             abrirFormModificar();
         }
 
@@ -326,7 +327,7 @@ namespace UCS_NODO_FGC
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 conexion.cerrarconexion();
@@ -436,8 +437,9 @@ namespace UCS_NODO_FGC
 
         private void btnModificarArea_Click(object sender, EventArgs e)
         {
-            abrirFormModificar();
             Clases.Empresa.ModificarArea = 1;
+            abrirFormModificar();
+           
         }
     }
 }

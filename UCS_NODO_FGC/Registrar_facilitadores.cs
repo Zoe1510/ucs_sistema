@@ -400,7 +400,7 @@ namespace UCS_NODO_FGC
                         }
                         facilitadores.requerimiento_ince = ince;
                         int resultado, resultado2;
-                        resultado = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador, facilitadores.nacionalidad_fa);
+                        resultado = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador);
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -485,7 +485,7 @@ namespace UCS_NODO_FGC
 
         private void Registrar_facilitadores_Load(object sender, EventArgs e)
         {
-            
+            this.Location = new Point(-5, 0);
             cmbUbicacionEdo.SelectedIndex = 16;
         }
 

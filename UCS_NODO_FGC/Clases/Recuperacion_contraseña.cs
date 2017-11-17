@@ -14,6 +14,7 @@ namespace UCS_NODO_FGC.Clases
         public static string nombre { get; set; }
         public static string correo { get; set; }
         public static int cedula { get; set; }
+        public static int id_usuario { get; set; }
        
     }
 }

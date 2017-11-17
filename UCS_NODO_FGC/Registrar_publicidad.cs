@@ -62,7 +62,7 @@ namespace UCS_NODO_FGC
                         int existe = Clases.Difusion.ExisteDif(conexion.conexion, dif);
                         conexion.cerrarconexion();
 
-                        if (existe != 0)
+                        if (existe > 0)
                         {
                             errorProviderContenido.SetError(txtContenido, "Esta opción ya se encuentra registrada.");
                             txtContenido.Clear();

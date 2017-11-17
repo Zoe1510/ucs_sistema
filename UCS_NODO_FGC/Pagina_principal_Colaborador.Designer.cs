@@ -39,10 +39,17 @@
             this.pnlPanelContenedorMenu = new System.Windows.Forms.Panel();
             this.pnlPanelCuerpoMenu = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pnlBtnReportes = new System.Windows.Forms.Panel();
+            this.btnFrmVerReporte = new System.Windows.Forms.Button();
+            this.btnFrmAddReporte = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.pnlBtnParticipantes = new System.Windows.Forms.Panel();
             this.btnFrmAddParticipantes = new System.Windows.Forms.Button();
             this.btnFrmVerParticipante = new System.Windows.Forms.Button();
             this.btnParticipante = new System.Windows.Forms.Button();
+            this.pnlBtnFormatos = new System.Windows.Forms.Panel();
+            this.btnFrmVerFormatos = new System.Windows.Forms.Button();
+            this.btnFormatos = new System.Windows.Forms.Button();
             this.pnlBtnFinal = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnFrmAyuda = new System.Windows.Forms.Button();
@@ -55,10 +62,6 @@
             this.btnFrmVerCliente = new System.Windows.Forms.Button();
             this.btnFrmAddCliente = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
-            this.pnlBtnReportes = new System.Windows.Forms.Panel();
-            this.btnFrmVerReporte = new System.Windows.Forms.Button();
-            this.btnFrmAddReporte = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.pnlBtnUsuario = new System.Windows.Forms.Panel();
             this.btnFrmVerUsuario = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
@@ -75,25 +78,22 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelDisplay = new System.Windows.Forms.Panel();
-            this.pnlBtnFormatos = new System.Windows.Forms.Panel();
-            this.btnFrmVerFormatos = new System.Windows.Forms.Button();
-            this.btnFormatos = new System.Windows.Forms.Button();
             this.pnlPanelBordeVentana.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlPanelContenedorMenu.SuspendLayout();
             this.pnlPanelCuerpoMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.pnlBtnReportes.SuspendLayout();
             this.pnlBtnParticipantes.SuspendLayout();
+            this.pnlBtnFormatos.SuspendLayout();
             this.pnlBtnFinal.SuspendLayout();
             this.pnlBtnFacilitadores.SuspendLayout();
             this.pnlBtnClientes.SuspendLayout();
-            this.pnlBtnReportes.SuspendLayout();
             this.pnlBtnUsuario.SuspendLayout();
             this.pnlBtnFormaciones.SuspendLayout();
             this.pnlPanelCabeceraMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).BeginInit();
-            this.pnlBtnFormatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPanelBordeVentana
@@ -217,6 +217,63 @@
             this.panelContenedor.Size = new System.Drawing.Size(244, 460);
             this.panelContenedor.TabIndex = 10;
             // 
+            // pnlBtnReportes
+            // 
+            this.pnlBtnReportes.Controls.Add(this.btnFrmVerReporte);
+            this.pnlBtnReportes.Controls.Add(this.btnFrmAddReporte);
+            this.pnlBtnReportes.Controls.Add(this.btnReportes);
+            this.pnlBtnReportes.Location = new System.Drawing.Point(0, 252);
+            this.pnlBtnReportes.Name = "pnlBtnReportes";
+            this.pnlBtnReportes.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnReportes.TabIndex = 21;
+            this.pnlBtnReportes.Tag = "";
+            // 
+            // btnFrmVerReporte
+            // 
+            this.btnFrmVerReporte.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnFrmVerReporte.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
+            this.btnFrmVerReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerReporte.Location = new System.Drawing.Point(3, 106);
+            this.btnFrmVerReporte.Name = "btnFrmVerReporte";
+            this.btnFrmVerReporte.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerReporte.TabIndex = 15;
+            this.btnFrmVerReporte.Text = "        Ver reportes";
+            this.btnFrmVerReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerReporte.UseVisualStyleBackColor = true;
+            // 
+            // btnFrmAddReporte
+            // 
+            this.btnFrmAddReporte.FlatAppearance.BorderSize = 0;
+            this.btnFrmAddReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmAddReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnFrmAddReporte.Image = global::UCS_NODO_FGC.Properties.Resources.icon_add;
+            this.btnFrmAddReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmAddReporte.Location = new System.Drawing.Point(3, 53);
+            this.btnFrmAddReporte.Name = "btnFrmAddReporte";
+            this.btnFrmAddReporte.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmAddReporte.TabIndex = 14;
+            this.btnFrmAddReporte.Text = "       Crear reporte";
+            this.btnFrmAddReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmAddReporte.UseVisualStyleBackColor = true;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Image = global::UCS_NODO_FGC.Properties.Resources.icon_reportes;
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(3, 0);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(219, 47);
+            this.btnReportes.TabIndex = 13;
+            this.btnReportes.Text = "         Reportes";
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
             // pnlBtnParticipantes
             // 
             this.pnlBtnParticipantes.Controls.Add(this.btnFrmAddParticipantes);
@@ -273,6 +330,50 @@
             this.btnParticipante.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnParticipante.UseVisualStyleBackColor = true;
             this.btnParticipante.Click += new System.EventHandler(this.btnParticipante_Click);
+            // 
+            // pnlBtnFormatos
+            // 
+            this.pnlBtnFormatos.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBtnFormatos.Controls.Add(this.btnFrmVerFormatos);
+            this.pnlBtnFormatos.Controls.Add(this.btnFormatos);
+            this.pnlBtnFormatos.Location = new System.Drawing.Point(0, 299);
+            this.pnlBtnFormatos.Name = "pnlBtnFormatos";
+            this.pnlBtnFormatos.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnFormatos.TabIndex = 24;
+            this.pnlBtnFormatos.Tag = "";
+            // 
+            // btnFrmVerFormatos
+            // 
+            this.btnFrmVerFormatos.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerFormatos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnFrmVerFormatos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnFrmVerFormatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerFormatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerFormatos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
+            this.btnFrmVerFormatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerFormatos.Location = new System.Drawing.Point(3, 53);
+            this.btnFrmVerFormatos.Name = "btnFrmVerFormatos";
+            this.btnFrmVerFormatos.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerFormatos.TabIndex = 11;
+            this.btnFrmVerFormatos.Text = "       Ver formatos";
+            this.btnFrmVerFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerFormatos.UseVisualStyleBackColor = true;
+            // 
+            // btnFormatos
+            // 
+            this.btnFormatos.FlatAppearance.BorderSize = 0;
+            this.btnFormatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormatos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
+            this.btnFormatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFormatos.Location = new System.Drawing.Point(3, 0);
+            this.btnFormatos.Name = "btnFormatos";
+            this.btnFormatos.Size = new System.Drawing.Size(219, 47);
+            this.btnFormatos.TabIndex = 9;
+            this.btnFormatos.Text = "        Formatos";
+            this.btnFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormatos.UseVisualStyleBackColor = true;
+            this.btnFormatos.Click += new System.EventHandler(this.btnFormatos_Click);
             // 
             // pnlBtnFinal
             // 
@@ -463,63 +564,6 @@
             this.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // pnlBtnReportes
-            // 
-            this.pnlBtnReportes.Controls.Add(this.btnFrmVerReporte);
-            this.pnlBtnReportes.Controls.Add(this.btnFrmAddReporte);
-            this.pnlBtnReportes.Controls.Add(this.btnReportes);
-            this.pnlBtnReportes.Location = new System.Drawing.Point(0, 252);
-            this.pnlBtnReportes.Name = "pnlBtnReportes";
-            this.pnlBtnReportes.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnReportes.TabIndex = 21;
-            this.pnlBtnReportes.Tag = "";
-            // 
-            // btnFrmVerReporte
-            // 
-            this.btnFrmVerReporte.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnFrmVerReporte.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
-            this.btnFrmVerReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerReporte.Location = new System.Drawing.Point(3, 106);
-            this.btnFrmVerReporte.Name = "btnFrmVerReporte";
-            this.btnFrmVerReporte.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerReporte.TabIndex = 15;
-            this.btnFrmVerReporte.Text = "        Ver reportes";
-            this.btnFrmVerReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerReporte.UseVisualStyleBackColor = true;
-            // 
-            // btnFrmAddReporte
-            // 
-            this.btnFrmAddReporte.FlatAppearance.BorderSize = 0;
-            this.btnFrmAddReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmAddReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btnFrmAddReporte.Image = global::UCS_NODO_FGC.Properties.Resources.icon_add;
-            this.btnFrmAddReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmAddReporte.Location = new System.Drawing.Point(3, 53);
-            this.btnFrmAddReporte.Name = "btnFrmAddReporte";
-            this.btnFrmAddReporte.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmAddReporte.TabIndex = 14;
-            this.btnFrmAddReporte.Text = "       Crear reporte";
-            this.btnFrmAddReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmAddReporte.UseVisualStyleBackColor = true;
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.Image = global::UCS_NODO_FGC.Properties.Resources.icon_reportes;
-            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(3, 0);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(219, 47);
-            this.btnReportes.TabIndex = 13;
-            this.btnReportes.Text = "         Reportes";
-            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // pnlBtnUsuario
             // 
@@ -735,50 +779,6 @@
             this.pnlPanelDisplay.Size = new System.Drawing.Size(1131, 667);
             this.pnlPanelDisplay.TabIndex = 14;
             // 
-            // pnlBtnFormatos
-            // 
-            this.pnlBtnFormatos.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBtnFormatos.Controls.Add(this.btnFrmVerFormatos);
-            this.pnlBtnFormatos.Controls.Add(this.btnFormatos);
-            this.pnlBtnFormatos.Location = new System.Drawing.Point(0, 299);
-            this.pnlBtnFormatos.Name = "pnlBtnFormatos";
-            this.pnlBtnFormatos.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnFormatos.TabIndex = 24;
-            this.pnlBtnFormatos.Tag = "";
-            // 
-            // btnFrmVerFormatos
-            // 
-            this.btnFrmVerFormatos.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerFormatos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnFrmVerFormatos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnFrmVerFormatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerFormatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerFormatos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_buscar;
-            this.btnFrmVerFormatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerFormatos.Location = new System.Drawing.Point(3, 53);
-            this.btnFrmVerFormatos.Name = "btnFrmVerFormatos";
-            this.btnFrmVerFormatos.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerFormatos.TabIndex = 11;
-            this.btnFrmVerFormatos.Text = "       Ver formatos";
-            this.btnFrmVerFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerFormatos.UseVisualStyleBackColor = true;
-            // 
-            // btnFormatos
-            // 
-            this.btnFormatos.FlatAppearance.BorderSize = 0;
-            this.btnFormatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormatos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
-            this.btnFormatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormatos.Location = new System.Drawing.Point(3, 0);
-            this.btnFormatos.Name = "btnFormatos";
-            this.btnFormatos.Size = new System.Drawing.Size(219, 47);
-            this.btnFormatos.TabIndex = 9;
-            this.btnFormatos.Text = "        Formatos";
-            this.btnFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormatos.UseVisualStyleBackColor = true;
-            this.btnFormatos.Click += new System.EventHandler(this.btnFormatos_Click);
-            // 
             // Pagina_principal_Colaborador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,17 +799,17 @@
             this.pnlPanelContenedorMenu.ResumeLayout(false);
             this.pnlPanelCuerpoMenu.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.pnlBtnReportes.ResumeLayout(false);
             this.pnlBtnParticipantes.ResumeLayout(false);
+            this.pnlBtnFormatos.ResumeLayout(false);
             this.pnlBtnFinal.ResumeLayout(false);
             this.pnlBtnFacilitadores.ResumeLayout(false);
             this.pnlBtnClientes.ResumeLayout(false);
-            this.pnlBtnReportes.ResumeLayout(false);
             this.pnlBtnUsuario.ResumeLayout(false);
             this.pnlBtnFormaciones.ResumeLayout(false);
             this.pnlPanelCabeceraMenu.ResumeLayout(false);
             this.pnlPanelCabeceraMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).EndInit();
-            this.pnlBtnFormatos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

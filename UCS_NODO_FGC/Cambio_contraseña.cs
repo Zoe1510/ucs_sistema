@@ -29,7 +29,7 @@ namespace UCS_NODO_FGC
                 {
                     if (Clases.Recuperacion_contraseña.cedula != 0) // si viene referenciado desde PREGUNTAS DE SEGURIDAD
                     {
-                        int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Recuperacion_contraseña.cedula, txtNuevoPass.Text);
+                        int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Recuperacion_contraseña.id_usuario, txtNuevoPass.Text);
                         conexion.cerrarconexion();
                         if (resultado != 0)
                         {
@@ -105,8 +105,8 @@ namespace UCS_NODO_FGC
 
         private void Cambio_contraseña_Load(object sender, EventArgs e)
         {
-            //txtNuevoPass.UseSystemPasswordChar = true;
-            //txtConfirPass.UseSystemPasswordChar = true;
+            txtNuevoPass.UseSystemPasswordChar = true;
+            txtConfirPass.UseSystemPasswordChar = true;
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
