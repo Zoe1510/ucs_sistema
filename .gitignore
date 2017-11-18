@@ -23,8 +23,8 @@ x86/
 bld/
 [Oo]bj/
 [Ll]og/
-
-!*.dll
+bin/*
+!bin/*/*.dll
 
 # Visual Studio 2015 cache/options directory
 .vs/
