@@ -23,8 +23,13 @@ x86/
 bld/
 [Oo]bj/
 [Ll]og/
-bin/*
-!bin/*/*.dll
+bin/Debug/*
+bin/Debug/*.xml
+!bin/Debug/*.dll
+*.exe
+*.exe.*
+
+
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -303,5 +308,3 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
-*.exe
-*.exe
