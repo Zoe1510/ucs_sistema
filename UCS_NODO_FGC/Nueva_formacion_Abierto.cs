@@ -62,7 +62,7 @@ namespace UCS_NODO_FGC
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
 
-                btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
 
                 //controles del nivel intermedio
@@ -532,6 +532,8 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderFecha.SetError(dtpFechaCurso, "");
+                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+
                         foreach (DataGridViewRow r in dgvMediosDifusion.Rows)
                         {
                             DataGridViewCheckBoxCell ck = r.Cells["seleccionar_opcion"] as DataGridViewCheckBoxCell;
@@ -1343,28 +1345,21 @@ namespace UCS_NODO_FGC
 
         private void dgvMediosDifusion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Int32 selectedCellCount = dgvMediosDifusion.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellCount > 0)
-            {
-               
-                    System.Text.StringBuilder indices = new System.Text.StringBuilder();
-
-                for (int i = 0; i < selectedCellCount; i++)
-                {
-
-                    indices.Append("Fila: ");
-                    indices.Append(dgvMediosDifusion.SelectedCells[i]).ToString();
-                    indices.Append(", Columna: ");
-                    indices.Append(dgvMediosDifusion.SelectedCells[i].ColumnIndex .ToString());
-                    indices.Append(Environment.NewLine);
-                 
-                }
-
-                    indices.Append("Total: " + selectedCellCount.ToString());
-                    MessageBox.Show(indices.ToString(), " de celdas seleecionnadas");
-                    
-
-            }
+            //Int32 selectedCellCount = dgvMediosDifusion.GetCellCount(DataGridViewElementStates.Selected);
+          //  if (selectedCellCount > 0)
+         //   {
+           //         System.Text.StringBuilder indices = new System.Text.StringBuilder();
+          //      for (int i = 0; i < selectedCellCount; i++)
+           //     {
+            //        indices.Append("Fila: ");
+            //        indices.Append(dgvMediosDifusion.SelectedCells[i]).ToString();
+            //        indices.Append(", Columna: ");
+             //       indices.Append(dgvMediosDifusion.SelectedCells[i].ColumnIndex .ToString());
+            //        indices.Append(Environment.NewLine);     
+          //      }
+          //          indices.Append("Total: " + selectedCellCount.ToString());
+         //           MessageBox.Show(indices.ToString(), " de celdas seleecionnadas");
+         //   }
         }
 
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)

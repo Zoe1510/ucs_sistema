@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvAreasEmpresa = new System.Windows.Forms.DataGridView();
             this.nombre_empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,20 +50,22 @@
             this.btnModificarEmpresa = new System.Windows.Forms.Button();
             this.btnModificarContacto = new System.Windows.Forms.Button();
             this.btnVerTodo = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.errorProviderSelecEmpresa = new System.Windows.Forms.ErrorProvider(this.components);
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAreasEmpresa)).BeginInit();
             this.grpbDatos.SuspendLayout();
             this.grpbOpciones.SuspendLayout();
-            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSelecEmpresa)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbData
@@ -83,9 +85,9 @@
             this.dgvAreasEmpresa.AllowUserToAddRows = false;
             this.dgvAreasEmpresa.AllowUserToResizeColumns = false;
             this.dgvAreasEmpresa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvAreasEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.dgvAreasEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAreasEmpresa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvAreasEmpresa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAreasEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -96,24 +98,24 @@
             this.tlfn_contacto,
             this.correo_contacto,
             this.fee_empresa});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAreasEmpresa.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAreasEmpresa.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAreasEmpresa.Location = new System.Drawing.Point(22, 34);
             this.dgvAreasEmpresa.Name = "dgvAreasEmpresa";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAreasEmpresa.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAreasEmpresa.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvAreasEmpresa.RowHeadersVisible = false;
             this.dgvAreasEmpresa.Size = new System.Drawing.Size(724, 525);
             this.dgvAreasEmpresa.TabIndex = 0;
@@ -330,28 +332,6 @@
             this.btnVerTodo.UseVisualStyleBackColor = false;
             this.btnVerTodo.Click += new System.EventHandler(this.btnVerTodo_Click);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 716);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 23);
-            this.panel8.TabIndex = 38;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(239, 5);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // errorProviderSelecEmpresa
             // 
             this.errorProviderSelecEmpresa.ContainerControl = this;
@@ -362,6 +342,7 @@
             this.Panel_cabecera.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.panel_cabecera;
             this.Panel_cabecera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel_cabecera.Controls.Add(this.label1);
+            this.Panel_cabecera.Controls.Add(this.shapeContainer1);
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
@@ -383,7 +364,7 @@
             // rectangleShape7
             // 
             this.rectangleShape7.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape7.Location = new System.Drawing.Point(0, 96);
+            this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
             // 
@@ -394,9 +375,50 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1122, 739);
-            this.shapeContainer1.TabIndex = 47;
+            this.shapeContainer1.Size = new System.Drawing.Size(1122, 96);
+            this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.TabIndex = 59;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(227, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
             // Buscar_cliente
             // 
@@ -404,12 +426,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1122, 739);
-            this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.panel8);
+            this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.grpbOpciones);
             this.Controls.Add(this.grpbDatos);
             this.Controls.Add(this.grpbData);
-            this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Buscar_cliente";
             this.Text = "Buscar_cliente";
@@ -418,11 +439,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAreasEmpresa)).EndInit();
             this.grpbDatos.ResumeLayout(false);
             this.grpbOpciones.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSelecEmpresa)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -439,20 +460,22 @@
         private System.Windows.Forms.Button btnEliminarArea;
         private System.Windows.Forms.Button btnModificarContacto;
         private System.Windows.Forms.ComboBox cmbxEmpresa;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnModificarArea;
         private System.Windows.Forms.Button btnModificarEmpresa;
         private System.Windows.Forms.ErrorProvider errorProviderSelecEmpresa;
         private System.Windows.Forms.Panel Panel_cabecera;
         private System.Windows.Forms.Label label1;
-        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_empresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_area;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn tlfn_contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo_contacto;
         private System.Windows.Forms.DataGridViewTextBoxColumn fee_empresa;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

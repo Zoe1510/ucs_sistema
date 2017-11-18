@@ -485,7 +485,7 @@ namespace UCS_NODO_FGC
 
         private void Registrar_facilitadores_Load(object sender, EventArgs e)
         {
-            
+            this.Location = new Point(-5, 0);
             cmbUbicacionEdo.SelectedIndex = 16;
         }
 

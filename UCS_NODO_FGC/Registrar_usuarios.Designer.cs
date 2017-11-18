@@ -37,9 +37,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbNacionalidad = new System.Windows.Forms.ComboBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.errorProviderCI = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderApellido = new System.Windows.Forms.ErrorProvider(this.components);
@@ -48,19 +50,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.panel8.SuspendLayout();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCMBCargo)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCedulaUsuario
             // 
             this.txtCedulaUsuario.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaUsuario.Location = new System.Drawing.Point(87, 44);
+            this.txtCedulaUsuario.Location = new System.Drawing.Point(216, 49);
             this.txtCedulaUsuario.MaxLength = 8;
             this.txtCedulaUsuario.Multiline = true;
             this.txtCedulaUsuario.Name = "txtCedulaUsuario";
@@ -78,13 +84,12 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(43, 115);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(172, 120);
             this.txtNombreUsuario.MaxLength = 50;
             this.txtNombreUsuario.Multiline = true;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(270, 28);
             this.txtNombreUsuario.TabIndex = 2;
-            this.txtNombreUsuario.Text = "Nombre";
             this.txtNombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreUsuario.Click += new System.EventHandler(this.txtNombreUsuario_Click);
             this.txtNombreUsuario.TextChanged += new System.EventHandler(this.txtNombreUsuario_TextChanged);
@@ -95,13 +100,12 @@
             // txtApellidoUsuario
             // 
             this.txtApellidoUsuario.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoUsuario.Location = new System.Drawing.Point(43, 177);
+            this.txtApellidoUsuario.Location = new System.Drawing.Point(172, 182);
             this.txtApellidoUsuario.MaxLength = 50;
             this.txtApellidoUsuario.Multiline = true;
             this.txtApellidoUsuario.Name = "txtApellidoUsuario";
             this.txtApellidoUsuario.Size = new System.Drawing.Size(270, 28);
             this.txtApellidoUsuario.TabIndex = 3;
-            this.txtApellidoUsuario.Text = "Apellido";
             this.txtApellidoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtApellidoUsuario.Click += new System.EventHandler(this.txtApellidoUsuario_Click);
             this.txtApellidoUsuario.TextChanged += new System.EventHandler(this.txtApellidoUsuario_TextChanged);
@@ -115,7 +119,7 @@
             this.cmbxCargoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxCargoUsuario.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxCargoUsuario.FormattingEnabled = true;
-            this.cmbxCargoUsuario.Location = new System.Drawing.Point(43, 248);
+            this.cmbxCargoUsuario.Location = new System.Drawing.Point(172, 253);
             this.cmbxCargoUsuario.Name = "cmbxCargoUsuario";
             this.cmbxCargoUsuario.Size = new System.Drawing.Size(270, 27);
             this.cmbxCargoUsuario.TabIndex = 4;
@@ -128,7 +132,7 @@
             this.btnGuardarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarUsuario.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardarUsuario.Location = new System.Drawing.Point(378, 537);
+            this.btnGuardarUsuario.Location = new System.Drawing.Point(375, 523);
             this.btnGuardarUsuario.Name = "btnGuardarUsuario";
             this.btnGuardarUsuario.Size = new System.Drawing.Size(147, 46);
             this.btnGuardarUsuario.TabIndex = 5;
@@ -143,7 +147,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(565, 537);
+            this.btnCancelar.Location = new System.Drawing.Point(607, 523);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 46);
             this.btnCancelar.TabIndex = 6;
@@ -172,36 +176,18 @@
             this.cmbNacionalidad.Items.AddRange(new object[] {
             "V",
             "E"});
-            this.cmbNacionalidad.Location = new System.Drawing.Point(43, 44);
+            this.cmbNacionalidad.Location = new System.Drawing.Point(172, 49);
             this.cmbNacionalidad.Name = "cmbNacionalidad";
             this.cmbNacionalidad.Size = new System.Drawing.Size(38, 27);
             this.cmbNacionalidad.TabIndex = 0;
             this.cmbNacionalidad.Validating += new System.ComponentModel.CancelEventHandler(this.cmbNacionalidad_Validating);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 720);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1117, 22);
-            this.panel8.TabIndex = 38;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(238, 4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbxCargoUsuario);
             this.groupBox1.Controls.Add(this.txtCedulaUsuario);
             this.groupBox1.Controls.Add(this.cmbNacionalidad);
@@ -209,12 +195,52 @@
             this.groupBox1.Controls.Add(this.txtApellidoUsuario);
             this.groupBox1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.groupBox1.Location = new System.Drawing.Point(367, 168);
+            this.groupBox1.Location = new System.Drawing.Point(297, 166);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 313);
+            this.groupBox1.Size = new System.Drawing.Size(524, 313);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(97, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Cargo:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(83, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Apellido:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(83, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nombre:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(91, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Cédula:";
             // 
             // errorProviderCI
             // 
@@ -274,15 +300,56 @@
             this.shapeContainer1.TabIndex = 55;
             this.shapeContainer1.TabStop = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 717);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1117, 25);
+            this.panel8.TabIndex = 58;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(221, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1117, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
             // Registrar_usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1117, 742);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardarUsuario);
@@ -291,8 +358,6 @@
             this.Name = "Registrar_usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.Registrar_usuarios_Load);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).EndInit();
@@ -301,6 +366,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCMBCargo)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,8 +383,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbNacionalidad;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ErrorProvider errorProviderCI;
         private System.Windows.Forms.ErrorProvider errorProviderNombre;
@@ -327,5 +392,13 @@
         private System.Windows.Forms.Label label8;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

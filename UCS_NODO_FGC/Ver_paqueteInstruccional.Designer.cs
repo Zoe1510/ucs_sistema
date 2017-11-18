@@ -37,8 +37,6 @@
             this.txtRutaContenido = new System.Windows.Forms.TextBox();
             this.txtRutaManual = new System.Windows.Forms.TextBox();
             this.txtRutaPresentacion = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.btnModificarUtilizar = new System.Windows.Forms.Button();
             this.btnUtilizar = new System.Windows.Forms.Button();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -69,9 +67,13 @@
             this.f5 = new System.Windows.Forms.Button();
             this.btnModificarManual = new System.Windows.Forms.Button();
             this.btnVerManual = new System.Windows.Forms.Button();
-            this.panel8.SuspendLayout();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel6.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -150,33 +152,11 @@
             this.txtRutaPresentacion.Size = new System.Drawing.Size(493, 25);
             this.txtRutaPresentacion.TabIndex = 42;
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 580);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(723, 25);
-            this.panel8.TabIndex = 48;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(31, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // btnModificarUtilizar
             // 
             this.btnModificarUtilizar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificarUtilizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificarUtilizar.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnModificarUtilizar.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
             this.btnModificarUtilizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarUtilizar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarUtilizar.ForeColor = System.Drawing.SystemColors.Control;
@@ -318,7 +298,7 @@
             this.btnGuardarCambios.BackColor = System.Drawing.Color.Firebrick;
             this.btnGuardarCambios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarCambios.Enabled = false;
-            this.btnGuardarCambios.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnGuardarCambios.FlatAppearance.BorderColor = System.Drawing.Color.Brown;
             this.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarCambios.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCambios.ForeColor = System.Drawing.SystemColors.Control;
@@ -354,7 +334,7 @@
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 26);
             this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(723, 99);
+            this.Panel_cabecera.Size = new System.Drawing.Size(723, 98);
             this.Panel_cabecera.TabIndex = 62;
             // 
             // label8
@@ -376,7 +356,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(723, 99);
+            this.shapeContainer1.Size = new System.Drawing.Size(723, 98);
             this.shapeContainer1.TabIndex = 50;
             this.shapeContainer1.TabStop = false;
             // 
@@ -541,12 +521,54 @@
             this.btnVerManual.UseVisualStyleBackColor = true;
             this.btnVerManual.Click += new System.EventHandler(this.btnVerManual_Click);
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 580);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(723, 25);
+            this.panel8.TabIndex = 69;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(34, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape4});
+            this.shapeContainer4.Size = new System.Drawing.Size(723, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape4
+            // 
+            this.rectangleShape4.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape4.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape4.Name = "rectangleShape2";
+            this.rectangleShape4.Size = new System.Drawing.Size(1118, 1);
+            // 
             // Ver_paqueteInstruccional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(723, 605);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.f5);
             this.Controls.Add(this.f4);
             this.Controls.Add(this.f2);
@@ -563,7 +585,6 @@
             this.Controls.Add(this.btnModificarBitacora);
             this.Controls.Add(this.btnVerBitacora);
             this.Controls.Add(this.btnUtilizar);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnVerPresentacion);
             this.Controls.Add(this.btnVerManual);
             this.Controls.Add(this.btnVerContenido);
@@ -582,12 +603,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ver paquete instruccional";
             this.Load += new System.EventHandler(this.Ver_paqueteInstruccional_Load);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -605,8 +626,6 @@
         private System.Windows.Forms.Button btnVerBitacora;
         private System.Windows.Forms.Button btnVerContenido;
         private System.Windows.Forms.Button btnVerPresentacion;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnModificarUtilizar;
         private System.Windows.Forms.Button btnUtilizar;
         private System.Windows.Forms.Button btnModificarBitacora;
@@ -634,5 +653,9 @@
         private System.Windows.Forms.Button f5;
         private System.Windows.Forms.Button btnModificarManual;
         private System.Windows.Forms.Button btnVerManual;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape4;
     }
 }

@@ -320,7 +320,7 @@
             // rectangleShape2
             // 
             this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.rectangleShape2.Location = new System.Drawing.Point(0, 1);
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
@@ -551,10 +551,10 @@
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(40, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -1232,6 +1232,25 @@
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 287);
             this.dgvMediosDifusion.TabIndex = 48;
             this.dgvMediosDifusion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellContentClick);
+            // 
+            // opcion_difusion
+            // 
+            this.opcion_difusion.HeaderText = "Medio de difusión";
+            this.opcion_difusion.MaxInputLength = 250;
+            this.opcion_difusion.MinimumWidth = 50;
+            this.opcion_difusion.Name = "opcion_difusion";
+            this.opcion_difusion.ReadOnly = true;
+            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.opcion_difusion.Width = 310;
+            // 
+            // seleccionar_opcion
+            // 
+            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccionar_opcion.HeaderText = "";
+            this.seleccionar_opcion.MinimumWidth = 30;
+            this.seleccionar_opcion.Name = "seleccionar_opcion";
+            this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccionar_opcion.Width = 40;
             // 
             // opcion_difusion
             // 

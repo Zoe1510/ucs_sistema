@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
+
     public partial class Nueva_formacion_INCES : Form
     {
+        
+
+
         Clases.Formaciones formacion = new Clases.Formaciones();
         Clases.conexion_bd conexion = new Clases.conexion_bd();
         Clases.Tiempos_curso time = new Clases.Tiempos_curso();
@@ -32,6 +37,7 @@ namespace UCS_NODO_FGC
         string bloques = "";
         public Nueva_formacion_INCES()
         {
+
             InitializeComponent();
         }
 
@@ -41,6 +47,8 @@ namespace UCS_NODO_FGC
             {//------------------------------------------todo hay que hacerlo aquí(un nuevo ingreso)
                 this.Location = new Point(-5, 0);
 
+
+                
                 LabelCabecera.Text = "Nuevo INCES: Información básica";
                 LabelCabecera.Location = new Point(150, 31);
 
@@ -52,6 +60,8 @@ namespace UCS_NODO_FGC
 
                 // como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
+
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
 
                 btnVerPresentacion.Enabled = false;
@@ -71,6 +81,7 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
+                   
                     string difu = "";
                     CargarDatosInsumos(conexion.conexion, difu);
                     dgvInsumos.ClearSelection();
@@ -78,6 +89,26 @@ namespace UCS_NODO_FGC
                 }
 
                
+                cmbxCursoInce.Items.Clear();
+                cmbxSolicitadoPor.Items.Clear();
+                MySqlDataReader CursosInces = Conexion.ConsultarBD("SELECT nombre_curso_ince FROM cursos_inces ");
+
+                while (CursosInces.Read())
+                {               
+                    cmbxCursoInce.Items.Add(CursosInces["nombre_curso_ince"]);
+                }
+                CursosInces.Close();
+
+
+
+                MySqlDataReader SolicitadoPor = Conexion.ConsultarBD("SELECT nombre_empresa FROM clientes");
+                while (SolicitadoPor.Read())
+                {
+                    cmbxSolicitadoPor.Items.Add(SolicitadoPor["nombre_empresa"]);
+                }
+                SolicitadoPor.Close();
+                
+
             }
         }
         /*----------------- METODOS ----------------*/
@@ -102,7 +133,12 @@ namespace UCS_NODO_FGC
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
         }
+        
+        
+       private void CargarDatosPrimeraEtapa()
+        {
 
+        }
        
         private void CargarDatosInsumos(MySqlConnection conexion, string buscar)
         {
@@ -110,7 +146,7 @@ namespace UCS_NODO_FGC
             {
                 MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ins_contenido FROM insumos WHERE ins_contenido LIKE ('%{0}%')", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
-
+               
                 dgvInsumos.Rows.Clear();
                 while (reader.Read())
                 {
@@ -499,6 +535,19 @@ namespace UCS_NODO_FGC
             }
         }
 
-        
+        private void pnlNivel_basico_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbxCursoInce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            btnRutaContenido.Enabled = true;
+            btnRutaPresentacion.Enabled = true;
+            btnRutaBitacora.Enabled = true;
+            btnRutaManual.Enabled = true;
+            
+        }
     }
 }

@@ -32,8 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.pnlDisplay = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlBtnFormaciones = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -42,8 +45,8 @@
             this.btnBackUp = new System.Windows.Forms.Button();
             this.btnManual = new System.Windows.Forms.Button();
             this.btnAcercaDe = new System.Windows.Forms.Button();
-            this.pnlDisplay = new System.Windows.Forms.Panel();
             this.Panel_cabecera.SuspendLayout();
+            this.pnlDisplay.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlBtnFormaciones.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -92,27 +95,56 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1135, 1);
             // 
+            // pnlDisplay
+            // 
+            this.pnlDisplay.Controls.Add(this.pnlBtnFormaciones);
+            this.pnlDisplay.Controls.Add(this.panel8);
+            this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDisplay.Location = new System.Drawing.Point(0, 96);
+            this.pnlDisplay.Name = "pnlDisplay";
+            this.pnlDisplay.Size = new System.Drawing.Size(1121, 643);
+            this.pnlDisplay.TabIndex = 58;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Location = new System.Drawing.Point(0, 618);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1121, 25);
-            this.panel8.TabIndex = 56;
+            this.panel8.TabIndex = 60;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(238, 6);
+            this.label9.Location = new System.Drawing.Point(208, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1121, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
             // pnlBtnFormaciones
             // 
@@ -124,10 +156,10 @@
             this.pnlBtnFormaciones.Controls.Add(this.btnManual);
             this.pnlBtnFormaciones.Controls.Add(this.btnAcercaDe);
             this.pnlBtnFormaciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBtnFormaciones.Location = new System.Drawing.Point(873, 96);
+            this.pnlBtnFormaciones.Location = new System.Drawing.Point(873, 0);
             this.pnlBtnFormaciones.Name = "pnlBtnFormaciones";
             this.pnlBtnFormaciones.Size = new System.Drawing.Size(248, 618);
-            this.pnlBtnFormaciones.TabIndex = 57;
+            this.pnlBtnFormaciones.TabIndex = 61;
             this.pnlBtnFormaciones.Tag = "";
             // 
             // btnCerrar
@@ -239,28 +271,19 @@
             this.btnAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAcercaDe.UseVisualStyleBackColor = true;
             // 
-            // pnlDisplay
-            // 
-            this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDisplay.Location = new System.Drawing.Point(0, 96);
-            this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(873, 618);
-            this.pnlDisplay.TabIndex = 58;
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1121, 739);
             this.Controls.Add(this.pnlDisplay);
-            this.Controls.Add(this.pnlBtnFormaciones);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAyuda";
             this.Load += new System.EventHandler(this.frmAyuda_Load);
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            this.pnlDisplay.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.pnlBtnFormaciones.ResumeLayout(false);
@@ -276,16 +299,18 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel pnlDisplay;
         private System.Windows.Forms.Panel pnlBtnFormaciones;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Button btnBackUp;
         private System.Windows.Forms.Button btnManual;
         private System.Windows.Forms.Button btnAcercaDe;
-        private System.Windows.Forms.Panel pnlDisplay;
-        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

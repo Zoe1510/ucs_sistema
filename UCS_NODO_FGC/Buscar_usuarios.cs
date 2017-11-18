@@ -35,7 +35,7 @@ namespace UCS_NODO_FGC
 
         private void Buscar_usuarios_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(-170, 0);
+            this.Location = new Point(-5, 0);
             conexion.cerrarconexion();
             cmbxCargoUsuario.Visible = true;
             

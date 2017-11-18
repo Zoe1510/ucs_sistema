@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -223,7 +223,7 @@
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 99);
+            this.Panel_cabecera.Size = new System.Drawing.Size(1020, 99);
             this.Panel_cabecera.TabIndex = 48;
             // 
             // LabelCabecera
@@ -245,7 +245,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1122, 99);
+            this.shapeContainer1.Size = new System.Drawing.Size(1020, 99);
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
@@ -262,9 +262,9 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Location = new System.Drawing.Point(0, 548);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.Size = new System.Drawing.Size(1020, 25);
             this.panel8.TabIndex = 59;
             // 
             // label9
@@ -274,7 +274,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label9.Location = new System.Drawing.Point(238, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.Size = new System.Drawing.Size(659, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
@@ -286,7 +286,7 @@
             this.shapeContainer4.Name = "shapeContainer4";
             this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape2});
-            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.Size = new System.Drawing.Size(1020, 25);
             this.shapeContainer4.TabIndex = 1;
             this.shapeContainer4.TabStop = false;
             // 
@@ -312,9 +312,9 @@
             this.pnlPanelOpciones.Controls.Add(this.btnGuardar);
             this.pnlPanelOpciones.Controls.Add(this.shapeContainer3);
             this.pnlPanelOpciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPanelOpciones.Location = new System.Drawing.Point(925, 99);
+            this.pnlPanelOpciones.Location = new System.Drawing.Point(823, 99);
             this.pnlPanelOpciones.Name = "pnlPanelOpciones";
-            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
+            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 449);
             this.pnlPanelOpciones.TabIndex = 60;
             // 
             // lblEtapafinal
@@ -455,7 +455,7 @@
             this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape3,
             this.rectangleShape6});
-            this.shapeContainer3.Size = new System.Drawing.Size(197, 615);
+            this.shapeContainer3.Size = new System.Drawing.Size(197, 449);
             this.shapeContainer3.TabIndex = 38;
             this.shapeContainer3.TabStop = false;
             // 
@@ -485,7 +485,7 @@
             this.pnlNivel_avanzado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_avanzado.Location = new System.Drawing.Point(0, 99);
             this.pnlNivel_avanzado.Name = "pnlNivel_avanzado";
-            this.pnlNivel_avanzado.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_avanzado.Size = new System.Drawing.Size(823, 449);
             this.pnlNivel_avanzado.TabIndex = 63;
             // 
             // pnlNivel_intermedio
@@ -503,7 +503,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 608);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -517,8 +517,9 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 608);
             this.pnlNivel_basico.TabIndex = 89;
+            this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
             // groupBox5
             // 
@@ -793,14 +794,11 @@
             this.cmbxCursoInce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxCursoInce.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxCursoInce.FormattingEnabled = true;
-            this.cmbxCursoInce.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
             this.cmbxCursoInce.Location = new System.Drawing.Point(219, 32);
             this.cmbxCursoInce.Name = "cmbxCursoInce";
             this.cmbxCursoInce.Size = new System.Drawing.Size(226, 25);
             this.cmbxCursoInce.TabIndex = 31;
+            this.cmbxCursoInce.SelectedIndexChanged += new System.EventHandler(this.cmbxCursoInce_SelectedIndexChanged);
             // 
             // cmbxSolicitadoPor
             // 
@@ -808,10 +806,6 @@
             this.cmbxSolicitadoPor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSolicitadoPor.FormattingEnabled = true;
-            this.cmbxSolicitadoPor.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
             this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 78);
             this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
             this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
@@ -1534,26 +1528,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1731,7 +1725,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 739);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1020, 573);
             this.Controls.Add(this.pnlNivel_avanzado);
             this.Controls.Add(this.pnlPanelOpciones);
             this.Controls.Add(this.panel8);

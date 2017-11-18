@@ -34,7 +34,7 @@ namespace UCS_NODO_FGC
         private void Buscar_cliente_Load(object sender, EventArgs e)
         {
             string nombreempresa = "";
-            //this.Location = new Point(-150, 0);
+            this.Location = new Point(-5, 0);
             try
             {
                 conexion.cerrarconexion();

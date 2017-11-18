@@ -60,8 +60,8 @@ namespace UCS_NODO_FGC
 
                 //como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
-                
 
+                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
 
                 //controles del nivel intermedio
                 Controles_nivel_intermedio_EstatusInicial();
@@ -728,6 +728,11 @@ namespace UCS_NODO_FGC
 
 
             }
+        }
+
+        private void pnlNivel_basico_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
