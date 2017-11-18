@@ -48,15 +48,15 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnRefrescar = new System.Windows.Forms.Button();
+            this.btnVerFormacion = new System.Windows.Forms.Button();
             this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCambiarStatus = new System.Windows.Forms.Button();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
@@ -277,10 +277,10 @@
             // 
             // grpbOpciones
             // 
-            this.grpbOpciones.Controls.Add(this.button2);
-            this.grpbOpciones.Controls.Add(this.button1);
-            this.grpbOpciones.Controls.Add(this.btnRefrescar);
+            this.grpbOpciones.Controls.Add(this.btnCambiarStatus);
             this.grpbOpciones.Controls.Add(this.btnModificar);
+            this.grpbOpciones.Controls.Add(this.btnRefrescar);
+            this.grpbOpciones.Controls.Add(this.btnVerFormacion);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbOpciones.Location = new System.Drawing.Point(824, 335);
@@ -290,20 +290,20 @@
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
-            // button1
+            // btnModificar
             // 
-            this.button1.BackColor = System.Drawing.Color.Goldenrod;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(27, 206);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 47);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Modificar formación";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnModificar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnModificar.Location = new System.Drawing.Point(27, 206);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(199, 47);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.Text = "Modificar formación";
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnRefrescar
             // 
@@ -320,20 +320,20 @@
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
             // 
-            // btnModificar
+            // btnVerFormacion
             // 
-            this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(27, 126);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(199, 47);
-            this.btnModificar.TabIndex = 5;
-            this.btnModificar.Text = "Ver formación";
-            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnVerFormacion.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerFormacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerFormacion.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
+            this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVerFormacion.Location = new System.Drawing.Point(27, 126);
+            this.btnVerFormacion.Name = "btnVerFormacion";
+            this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
+            this.btnVerFormacion.TabIndex = 5;
+            this.btnVerFormacion.Text = "Ver formación";
+            this.btnVerFormacion.UseVisualStyleBackColor = false;
             // 
             // nombre_formacion
             // 
@@ -365,20 +365,20 @@
             this.creado_por.Name = "creado_por";
             this.creado_por.ReadOnly = true;
             // 
-            // button2
+            // btnCambiarStatus
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(27, 283);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 47);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Cambiar estatus";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
+            this.btnCambiarStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambiarStatus.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnCambiarStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarStatus.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCambiarStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCambiarStatus.Location = new System.Drawing.Point(27, 283);
+            this.btnCambiarStatus.Name = "btnCambiarStatus";
+            this.btnCambiarStatus.Size = new System.Drawing.Size(199, 47);
+            this.btnCambiarStatus.TabIndex = 9;
+            this.btnCambiarStatus.Text = "Cambiar estatus";
+            this.btnCambiarStatus.UseVisualStyleBackColor = false;
             // 
             // Ver_formaciones
             // 
@@ -424,14 +424,14 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grpbOpciones;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnRefrescar;
+        private System.Windows.Forms.Button btnVerFormacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn etapa_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn creado_por;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCambiarStatus;
     }
 }
