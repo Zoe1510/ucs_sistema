@@ -21,5 +21,21 @@ namespace UCS_NODO_FGC
         {
             this.Location = new Point(-5, 0);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificar_participante par = new Modificar_participante();
+            par.ShowDialog();
+        }
     }
 }

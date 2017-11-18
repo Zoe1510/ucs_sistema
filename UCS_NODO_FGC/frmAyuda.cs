@@ -42,7 +42,7 @@ namespace UCS_NODO_FGC
             string constring = "server=localhost;user=root;pwd=root;database=ucs_bd;";
 
             // decidir el unicode y convertir fechas nulas en 0 para evitar errores (cosas de MySQL que no acepta como nulas)
-            constring += "charset=utf8;convertzerodatetime=true;";
+            constring += "charset=latin1;convertzerodatetime=true;";
 
 
             //Se abre la conexion con el caracter unicode utf8 y los parametros de la base de datos
@@ -70,7 +70,7 @@ namespace UCS_NODO_FGC
             string constring = "server=localhost;user=root;pwd=root;database=ucs_bd;";
 
             // Important Additional Connection Options
-            constring += "charset=utf8;convertzerodatetime=true;";
+            constring += "charset=latin1;convertzerodatetime=true;";
 
 
 
@@ -128,7 +128,7 @@ namespace UCS_NODO_FGC
 
                 fs.Close();
 
-                //Se hace el backup y el archivo es el seleccionado en la ruta de guardado
+                //Se hace el restore y el archivo es el seleccionado en la ruta de guardado
                 Restore(SeleccionarArchivo.FileName);
             }
         }

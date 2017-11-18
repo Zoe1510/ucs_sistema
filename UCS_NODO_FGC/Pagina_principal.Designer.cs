@@ -117,7 +117,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1377, 0);
+            this.panel2.Location = new System.Drawing.Point(1369, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1, 692);
             this.panel2.TabIndex = 2;
@@ -128,7 +128,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1376, 1);
+            this.panel3.Size = new System.Drawing.Size(1368, 1);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -137,7 +137,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(1, 691);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1376, 1);
+            this.panel4.Size = new System.Drawing.Size(1368, 1);
             this.panel4.TabIndex = 4;
             // 
             // pnlPanelBordeVentana
@@ -148,7 +148,7 @@
             this.pnlPanelBordeVentana.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPanelBordeVentana.Location = new System.Drawing.Point(1, 1);
             this.pnlPanelBordeVentana.Name = "pnlPanelBordeVentana";
-            this.pnlPanelBordeVentana.Size = new System.Drawing.Size(1376, 25);
+            this.pnlPanelBordeVentana.Size = new System.Drawing.Size(1368, 25);
             this.pnlPanelBordeVentana.TabIndex = 7;
             // 
             // btn_minimizar
@@ -190,7 +190,7 @@
             this.pnlPanelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPanelDisplay.Location = new System.Drawing.Point(246, 26);
             this.pnlPanelDisplay.Name = "pnlPanelDisplay";
-            this.pnlPanelDisplay.Size = new System.Drawing.Size(1131, 665);
+            this.pnlPanelDisplay.Size = new System.Drawing.Size(1123, 665);
             this.pnlPanelDisplay.TabIndex = 10;
             this.pnlPanelDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPanelDisplay_Paint);
             // 
@@ -695,6 +695,7 @@
             this.btnFrmVerFormatos.Text = "       Ver formatos";
             this.btnFrmVerFormatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerFormatos.UseVisualStyleBackColor = true;
+            this.btnFrmVerFormatos.Click += new System.EventHandler(this.btnFrmVerFormatos_Click);
             // 
             // btnFormatos
             // 
@@ -968,7 +969,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 692);
+            this.ClientSize = new System.Drawing.Size(1370, 692);
             this.Controls.Add(this.pnlPanelDisplay);
             this.Controls.Add(this.pnlPanelContenedorMenu);
             this.Controls.Add(this.pnlPanelBordeVentana);

@@ -177,6 +177,12 @@
     <Compile Include="Modificar_insumo.Designer.cs">
       <DependentUpon>Modificar_insumo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar_participante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_participante.Designer.cs">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modificar_Refrigerio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,12 @@
     <Compile Include="Verificacion_recuperacion.Designer.cs">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_formatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formatos.Designer.cs">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_insumos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +404,9 @@
     <EmbeddedResource Include="Modificar_insumo.resx">
       <DependentUpon>Modificar_insumo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_participante.resx">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modificar_Refrigerio.resx">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formatos.resx">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_insumos.resx">
       <DependentUpon>Ver_insumos.cs</DependentUpon>
