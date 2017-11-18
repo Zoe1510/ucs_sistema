@@ -202,7 +202,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader ruta = Conexion.ConsultarBD("SELECT ruta_archivo FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%'");
                 if (ruta.Read())
                 {
-                    rutaArchivo = ruta["ruta_archivo"].ToString();
+                    rutaArchivo = Convert.ToString(ruta["ruta_archivo"]);
                     Process.Start(rutaArchivo);
                 }
                
