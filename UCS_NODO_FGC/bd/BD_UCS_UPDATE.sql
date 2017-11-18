@@ -1,5 +1,5 @@
 -- MySqlBackup.NET 2.0.9.2
--- Dump Time: 2017-11-13 19:07:56
+-- Dump Time: 2017-11-15 20:59:12
 -- --------------------------------------
 -- Server version 5.5.55 MySQL Community Server (GPL)
 
@@ -41,6 +41,25 @@ INSERT INTO `areas`(`id_area`,`nombre_area`,`nombre_contacto`,`correo_contacto`,
 (6,'Operaciones','Maria jimenez','jimenez.maria@gmail.com','04147890327',3),
 (7,'RRHH','Marianne','Marianne.perez@outlook.com','04126557890',4);
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
+
+-- 
+-- Definition of aulas
+-- 
+
+DROP TABLE IF EXISTS `aulas`;
+CREATE TABLE IF NOT EXISTS `aulas` (
+  `id_aula` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `aula_re` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_aula`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table aulas
+-- 
+
+/*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 
 -- 
 -- Definition of clientes
@@ -90,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   CONSTRAINT `cursos_pq` FOREIGN KEY (`id_p_inst`) REFERENCES `p_instruccional` (`id_pinstruccional`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cursos_ref` FOREIGN KEY (`id_ref1`) REFERENCES `refrigerios` (`id_ref`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cursos_user` FOREIGN KEY (`id_usuario1`) REFERENCES `usuarios` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- 
 -- Dumping data for table cursos
@@ -99,7 +118,15 @@ CREATE TABLE IF NOT EXISTS `cursos` (
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
 INSERT INTO `cursos`(`id_cursos`,`estatus_curso`,`tipo_curso`,`duracion_curso`,`nombre_curso`,`fecha_creacion`,`id_usuario1`,`id_p_inst`,`bloque_curso`,`solicitud_curso`,`id_ref1`) VALUES
 (1,'En curso','Abierto','4','Formacion uno','2017-11-11 19:38:41',1,4,'1','karla ',NULL),
-(2,'En curso','Abierto','4','Curso prueba cuatro horas','2017-11-12 21:41:10',1,5,'1','zoyla',NULL);
+(2,'En curso','Abierto','4','Curso prueba cuatro horas','2017-11-12 21:41:10',1,5,'1','zoyla',NULL),
+(3,'En curso','Abierto','8','Formacion prueba ocho hrs','2017-11-13 19:11:15',1,6,'2','yo',NULL),
+(4,'En curso','Abierto','8','Prueba ocho hrs sgda parte','2017-11-13 19:16:54',1,6,'2','yo again',NULL),
+(5,'En curso','Abierto','8','Ocho hrs un dia','2017-11-13 19:22:17',1,7,'1','yo nesima vez',NULL),
+(6,'En curso','Abierto','4','Cuatro hrs','2017-11-13 21:50:32',1,8,'1','asas',NULL),
+(7,'En curso','Abierto','4','Cuatro horass','2017-11-13 21:53:38',1,8,'1','aaaaa',NULL),
+(8,'En curso','Abierto','4','Horas cuatro','2017-11-13 21:57:33',1,9,'1','karla',NULL),
+(9,'En curso','Abierto','16','Dieciseis hrds','2017-11-14 09:22:17',1,9,'2','zoyla',NULL),
+(10,'En curso','Abierto','8','Ocho hrsa','2017-11-14 09:34:46',1,9,'1','zoyla',NULL);
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 
 -- 
@@ -169,6 +196,28 @@ INSERT INTO `cursos_inces`(`id_curso_ince`,`nombre_curso_ince`) VALUES
 /*!40000 ALTER TABLE `cursos_inces` ENABLE KEYS */;
 
 -- 
+-- Definition of cursos_tienen_aulas
+-- 
+
+DROP TABLE IF EXISTS `cursos_tienen_aulas`;
+CREATE TABLE IF NOT EXISTS `cursos_tienen_aulas` (
+  `id_cta_aula` int(11) unsigned NOT NULL,
+  `id_cta_curso` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id_cta_aula`,`id_cta_curso`),
+  KEY `cta_curso_idx` (`id_cta_curso`),
+  CONSTRAINT `cta_aula` FOREIGN KEY (`id_cta_aula`) REFERENCES `aulas` (`id_aula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `cta_curso` FOREIGN KEY (`id_cta_curso`) REFERENCES `cursos` (`id_cursos`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table cursos_tienen_aulas
+-- 
+
+/*!40000 ALTER TABLE `cursos_tienen_aulas` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `cursos_tienen_aulas` ENABLE KEYS */;
+
+-- 
 -- Definition of cursos_tienen_fa
 -- 
 
@@ -176,6 +225,7 @@ DROP TABLE IF EXISTS `cursos_tienen_fa`;
 CREATE TABLE IF NOT EXISTS `cursos_tienen_fa` (
   `cursos_id_cursos` int(11) unsigned NOT NULL,
   `facilitadores_id_fa` int(20) unsigned NOT NULL,
+  `ctf_id_cofa` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`cursos_id_cursos`,`facilitadores_id_fa`),
   KEY `fk_cursos_has_facilitadores_facilitadores1_idx` (`facilitadores_id_fa`),
   KEY `fk_cursos_has_facilitadores_cursos1_idx` (`cursos_id_cursos`),
@@ -188,9 +238,9 @@ CREATE TABLE IF NOT EXISTS `cursos_tienen_fa` (
 -- 
 
 /*!40000 ALTER TABLE `cursos_tienen_fa` DISABLE KEYS */;
-INSERT INTO `cursos_tienen_fa`(`cursos_id_cursos`,`facilitadores_id_fa`) VALUES
-(2,2),
-(1,8);
+INSERT INTO `cursos_tienen_fa`(`cursos_id_cursos`,`facilitadores_id_fa`,`ctf_id_cofa`) VALUES
+(1,8,NULL),
+(2,2,NULL);
 /*!40000 ALTER TABLE `cursos_tienen_fa` ENABLE KEYS */;
 
 -- 
@@ -363,25 +413,6 @@ INSERT INTO `insumos`(`id_insumos`,`ins_contenido`) VALUES
 /*!40000 ALTER TABLE `insumos` ENABLE KEYS */;
 
 -- 
--- Definition of logistica
--- 
-
-DROP TABLE IF EXISTS `logistica`;
-CREATE TABLE IF NOT EXISTS `logistica` (
-  `id_logistica` int(11) NOT NULL,
-  `aula_re` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_logistica`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- 
--- Dumping data for table logistica
--- 
-
-/*!40000 ALTER TABLE `logistica` DISABLE KEYS */;
-
-/*!40000 ALTER TABLE `logistica` ENABLE KEYS */;
-
--- 
 -- Definition of p_instruccional
 -- 
 
@@ -393,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `p_instruccional` (
   `p_manual` varchar(1000) DEFAULT NULL,
   `p_contenido` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id_pinstruccional`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
 
 -- 
 -- Dumping data for table p_instruccional
@@ -405,7 +436,11 @@ INSERT INTO `p_instruccional`(`id_pinstruccional`,`p_bitacora`,`p_presentacion`,
 (2,NULL,'',NULL,'C:UsersMDesktopPasantiaestructura informe.docx'),
 (3,NULL,'',NULL,'C:\\Users\\ZM\\Desktop\\Pasantia\\estructura informe.docx'),
 (4,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\02UML_DiagramaActividades.pdf'),
-(5,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\Temario_30_de_noviembre_-_copia.pdf');
+(5,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\Temario_30_de_noviembre_-_copia.pdf'),
+(6,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\UNIMAR CON TODOS\\PROGRAMACIÓN FILCAR 2016.pdf'),
+(7,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\UNIMAR CON TODOS\\SC FILCAR.pdf'),
+(8,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\UNIMAR CON TODOS\\Actividades Pabellon Infantil FILCAR 2016.pdf'),
+(9,NULL,'',NULL,'C:\\Users\\ZM\\Documents\\UNIMAR\\Sistemas operativos\\Unidad III.pdf');
 /*!40000 ALTER TABLE `p_instruccional` ENABLE KEYS */;
 
 -- 
@@ -553,7 +588,15 @@ CREATE TABLE IF NOT EXISTS `user_gestionan_cursos` (
 /*!40000 ALTER TABLE `user_gestionan_cursos` DISABLE KEYS */;
 INSERT INTO `user_gestionan_cursos`(`cursos_id_cursos`,`usuarios_id_user`,`fecha_mod_curso`) VALUES
 (1,1,'2017-11-11 19:39:24'),
-(2,1,'2017-11-12 21:41:46');
+(2,1,'2017-11-12 21:41:46'),
+(3,1,'2017-11-13 19:11:53'),
+(4,1,'2017-11-13 19:20:35'),
+(5,1,'2017-11-13 19:22:39'),
+(6,1,'2017-11-13 21:50:51'),
+(7,1,'2017-11-13 21:53:58'),
+(8,1,'2017-11-13 21:57:57'),
+(9,1,'2017-11-14 09:22:57'),
+(10,1,'2017-11-14 09:35:13');
 /*!40000 ALTER TABLE `user_gestionan_cursos` ENABLE KEYS */;
 
 -- 
@@ -597,5 +640,5 @@ INSERT INTO `usuarios`(`id_user`,`cedula_user`,`nacionalidad_user`,`nombre_user`
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2017-11-13 19:07:58
--- Total time: 0:0:0:1:123 (d:h:m:s:ms)
+-- Dump completed on 2017-11-15 20:59:15
+-- Total time: 0:0:0:2:387 (d:h:m:s:ms)

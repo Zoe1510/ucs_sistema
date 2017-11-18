@@ -551,9 +551,10 @@
             this.pnlNivel_basico.Controls.Add(this.groupBox3);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(40, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -907,6 +908,7 @@
             // 
             this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
+            this.dtpSegundaFecha.Enabled = false;
             this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpSegundaFecha.Location = new System.Drawing.Point(183, 29);
@@ -914,6 +916,7 @@
             this.dtpSegundaFecha.Size = new System.Drawing.Size(189, 25);
             this.dtpSegundaFecha.TabIndex = 48;
             this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpSegundaFecha.ValueChanged += new System.EventHandler(this.dtpSegundaFecha_ValueChanged);
             this.dtpSegundaFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpSegundaFecha_Validating);
             // 
             // label31
@@ -1228,6 +1231,7 @@
             this.dgvMediosDifusion.RowHeadersVisible = false;
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 287);
             this.dgvMediosDifusion.TabIndex = 48;
+            this.dgvMediosDifusion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellContentClick);
             // 
             // opcion_difusion
             // 
@@ -1236,6 +1240,7 @@
             this.opcion_difusion.MinimumWidth = 50;
             this.opcion_difusion.Name = "opcion_difusion";
             this.opcion_difusion.ReadOnly = true;
+            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.opcion_difusion.Width = 310;
             // 
             // seleccionar_opcion
@@ -1335,6 +1340,7 @@
             this.dtpFechaCurso.Size = new System.Drawing.Size(190, 25);
             this.dtpFechaCurso.TabIndex = 48;
             this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpFechaCurso.ValueChanged += new System.EventHandler(this.dtpFechaCurso_ValueChanged);
             this.dtpFechaCurso.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaCurso_Validating);
             // 
             // label15
@@ -2028,12 +2034,12 @@
         private System.Windows.Forms.Label label2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
     }
 }
