@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.txtBuscarTodo = new System.Windows.Forms.TextBox();
             this.btnBuscarAreas = new System.Windows.Forms.Button();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvFormatos = new System.Windows.Forms.DataGridView();
+            this.nombre_archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -49,14 +52,16 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminarFa = new System.Windows.Forms.Button();
-            this.nombre_archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.errorProviderBuscar = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnVerArchivo = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.Panel_cabecera.SuspendLayout();
             this.grpbDatos.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormatos)).BeginInit();
             this.panel8.SuspendLayout();
             this.grpbOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_cabecera
@@ -104,7 +109,7 @@
             // 
             // grpbDatos
             // 
-            this.grpbDatos.Controls.Add(this.textBox1);
+            this.grpbDatos.Controls.Add(this.txtBuscarTodo);
             this.grpbDatos.Controls.Add(this.btnBuscarAreas);
             this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -114,6 +119,17 @@
             this.grpbDatos.TabIndex = 49;
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Formatos";
+            // 
+            // txtBuscarTodo
+            // 
+            this.txtBuscarTodo.Location = new System.Drawing.Point(31, 41);
+            this.txtBuscarTodo.Name = "txtBuscarTodo";
+            this.txtBuscarTodo.Size = new System.Drawing.Size(176, 26);
+            this.txtBuscarTodo.TabIndex = 2;
+            this.txtBuscarTodo.Click += new System.EventHandler(this.txtBuscarTodo_Click);
+            this.txtBuscarTodo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarTodo_KeyDown);
+            this.txtBuscarTodo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarTodo_KeyPress);
+            this.txtBuscarTodo.Leave += new System.EventHandler(this.txtBuscarTodo_Leave);
             // 
             // btnBuscarAreas
             // 
@@ -129,6 +145,7 @@
             this.btnBuscarAreas.TabIndex = 1;
             this.btnBuscarAreas.Text = "Buscar";
             this.btnBuscarAreas.UseVisualStyleBackColor = false;
+            this.btnBuscarAreas.Click += new System.EventHandler(this.btnBuscarAreas_Click);
             // 
             // grpbData
             // 
@@ -140,51 +157,63 @@
             this.grpbData.Size = new System.Drawing.Size(766, 559);
             this.grpbData.TabIndex = 48;
             this.grpbData.TabStop = false;
-            this.grpbData.Text = "Áreas registradas";
+            this.grpbData.Text = "Formatos registrados";
             // 
             // dgvFormatos
             // 
             this.dgvFormatos.AllowUserToAddRows = false;
             this.dgvFormatos.AllowUserToResizeColumns = false;
             this.dgvFormatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvFormatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.NullValue = null;
+            this.dgvFormatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFormatos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFormatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvFormatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFormatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_archivo});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFormatos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormatos.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvFormatos.Location = new System.Drawing.Point(22, 34);
             this.dgvFormatos.Name = "dgvFormatos";
             this.dgvFormatos.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFormatos.RowHeadersVisible = false;
             this.dgvFormatos.Size = new System.Drawing.Size(724, 497);
             this.dgvFormatos.TabIndex = 0;
+            this.dgvFormatos.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFormatos_MouseClick);
+            // 
+            // nombre_archivo
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nombre_archivo.DefaultCellStyle = dataGridViewCellStyle8;
+            this.nombre_archivo.HeaderText = "Nombre del archivo";
+            this.nombre_archivo.MaxInputLength = 250;
+            this.nombre_archivo.MinimumWidth = 100;
+            this.nombre_archivo.Name = "nombre_archivo";
+            this.nombre_archivo.ReadOnly = true;
+            this.nombre_archivo.Width = 500;
             // 
             // panel8
             // 
@@ -229,6 +258,8 @@
             // 
             // grpbOpciones
             // 
+            this.grpbOpciones.Controls.Add(this.btnImprimir);
+            this.grpbOpciones.Controls.Add(this.btnVerArchivo);
             this.grpbOpciones.Controls.Add(this.btnAgregar);
             this.grpbOpciones.Controls.Add(this.btnRefrescar);
             this.grpbOpciones.Controls.Add(this.btnEliminarFa);
@@ -236,25 +267,26 @@
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbOpciones.Location = new System.Drawing.Point(839, 316);
             this.grpbOpciones.Name = "grpbOpciones";
-            this.grpbOpciones.Size = new System.Drawing.Size(240, 279);
+            this.grpbOpciones.Size = new System.Drawing.Size(240, 381);
             this.grpbOpciones.TabIndex = 61;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
+            this.btnAgregar.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAgregar.Location = new System.Drawing.Point(31, 132);
+            this.btnAgregar.Location = new System.Drawing.Point(31, 104);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(176, 47);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Añadir";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnRefrescar
             // 
@@ -264,12 +296,13 @@
             this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefrescar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRefrescar.Location = new System.Drawing.Point(31, 54);
+            this.btnRefrescar.Location = new System.Drawing.Point(31, 37);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(176, 47);
             this.btnRefrescar.TabIndex = 7;
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnEliminarFa
             // 
@@ -279,30 +312,48 @@
             this.btnEliminarFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarFa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarFa.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminarFa.Location = new System.Drawing.Point(31, 207);
+            this.btnEliminarFa.Location = new System.Drawing.Point(31, 306);
             this.btnEliminarFa.Name = "btnEliminarFa";
             this.btnEliminarFa.Size = new System.Drawing.Size(176, 47);
             this.btnEliminarFa.TabIndex = 6;
             this.btnEliminarFa.Text = "Eliminar";
             this.btnEliminarFa.UseVisualStyleBackColor = false;
+            this.btnEliminarFa.Click += new System.EventHandler(this.btnEliminarFa_Click);
             // 
-            // nombre_archivo
+            // errorProviderBuscar
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nombre_archivo.DefaultCellStyle = dataGridViewCellStyle3;
-            this.nombre_archivo.HeaderText = "Nombre del archivo";
-            this.nombre_archivo.MaxInputLength = 250;
-            this.nombre_archivo.MinimumWidth = 100;
-            this.nombre_archivo.Name = "nombre_archivo";
-            this.nombre_archivo.ReadOnly = true;
-            this.nombre_archivo.Width = 500;
+            this.errorProviderBuscar.ContainerControl = this;
             // 
-            // textBox1
+            // btnVerArchivo
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 26);
-            this.textBox1.TabIndex = 2;
+            this.btnVerArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
+            this.btnVerArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerArchivo.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnVerArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerArchivo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerArchivo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVerArchivo.Location = new System.Drawing.Point(31, 171);
+            this.btnVerArchivo.Name = "btnVerArchivo";
+            this.btnVerArchivo.Size = new System.Drawing.Size(176, 47);
+            this.btnVerArchivo.TabIndex = 8;
+            this.btnVerArchivo.Text = "Ver documento";
+            this.btnVerArchivo.UseVisualStyleBackColor = false;
+            this.btnVerArchivo.Click += new System.EventHandler(this.btnVerArchivo_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Chocolate;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnImprimir.Location = new System.Drawing.Point(31, 238);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(176, 47);
+            this.btnImprimir.TabIndex = 9;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // Ver_formatos
             // 
@@ -327,6 +378,7 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.grpbOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderBuscar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,11 +397,14 @@
         private System.Windows.Forms.Label label9;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBuscarTodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_archivo;
         private System.Windows.Forms.GroupBox grpbOpciones;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnEliminarFa;
+        private System.Windows.Forms.ErrorProvider errorProviderBuscar;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnVerArchivo;
     }
 }

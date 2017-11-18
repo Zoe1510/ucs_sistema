@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
+
 namespace UCS_NODO_FGC.Clases
 {
     //En vez de enviar la variable conexion como parametro a todas las funciones se declara de manera estatic y solo haria falta llamar a la clase

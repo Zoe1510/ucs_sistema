@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using System.IO;
 
 namespace UCS_NODO_FGC
 {
@@ -849,10 +850,10 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-                        
+                       
                         p_inst.contenido =contenido;
                         btnVerContenido.Enabled = true;
-
+                       
                     }
                 }
                
