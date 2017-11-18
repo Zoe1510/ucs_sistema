@@ -1364,6 +1364,11 @@ namespace UCS_NODO_FGC
             */
         }
 
+        private void txtNombreFormacion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)
         {
             if(dtpFechaCurso.Value <= DateTime.Today)

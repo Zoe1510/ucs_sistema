@@ -61,7 +61,7 @@ namespace UCS_NODO_FGC
                 // como estarán los botones inicialmente para cada nivel
                 Load_Sig_Re();
 
-                //btnSiguienteEtapa.Enabled = true; //Solo para tomar ss
+               
 
 
                 btnVerPresentacion.Enabled = false;
@@ -73,6 +73,7 @@ namespace UCS_NODO_FGC
                 btnVerBitacora.Enabled = false;
                 btnVerManual.Enabled = false;
 
+                
 
                 //controles del nivel intermedio
                 Controles_nivel_intermedio_EstatusInicial();
@@ -132,6 +133,9 @@ namespace UCS_NODO_FGC
             chkbCoFacilitador.Enabled = false;
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
+            dtpFechaCurso.Enabled = false;
+
+           
         }
         
         
@@ -172,6 +176,9 @@ namespace UCS_NODO_FGC
         /*------------------ Botones panel lateral derecho -------------------*/
         private void btnSiguienteEtapa_Click(object sender, EventArgs e)
         {
+            btnSiguienteEtapa.Enabled = false;
+            btnGuardar.Enabled = true;
+
             //cuando Siguiente etapa, quita el panel actual
             if (pnlNivel_basico.Visible == true)
             {
@@ -184,6 +191,7 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Location = new Point(3, 570);
                 pnlNivel_basico.Visible = false;
 
+        
 
 
             }
@@ -552,11 +560,31 @@ namespace UCS_NODO_FGC
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (pnlNivel_basico.Visible == true)
+            {
+                GuardarBasico();
+                if (guardar == true)
+                {
+                    btnSiguienteEtapa.Enabled = true;
+                    btnPausar.Enabled = true;
+                    btnLimpiar.Enabled = true;
+
+                    btnModificar.Enabled = false;
+                    btnRetomar.Enabled = false;
+                    btnGuardar.Enabled = false;
+
+                }
+            }
+        }
+
+        private void GuardarBasico()
+        {
             if (cmbxCursoInce.SelectedIndex == -1)
             {
                 errorProviderNombreF.SetError(cmbxCursoInce, "Debe proporcionar el nombre la formación.");
                 cmbxCursoInce.Focus();
-            } else 
+            }
+            else
             {
                 errorProviderNombreF.SetError(cmbxCursoInce, "");
                 if (cmbxSolicitadoPor.SelectedIndex == -1)
@@ -593,29 +621,47 @@ namespace UCS_NODO_FGC
                                 errorProviderContenido.SetError(btnRutaContenido, "");
                                 if (manual == "")
                                 {
-                                    errorProviderManual.SetError(btnRutaManual, "Debe seleccionar un contenido para la formación.");
+                                    errorProviderManual.SetError(btnRutaManual, "Debe seleccionar un manual para la formación.");
 
-                                } else // si el manual existe
+                                }
+                                else // si el manual existe
                                 {
                                     errorProviderManual.SetError(btnRutaManual, "");
+
                                     // si se pasan todas las validaciones de la primera etapa, se guarda el paquete instruccional seleccionado
+                                    manual = manual.Replace("\\", "/");
+                                    bitacora = manual.Replace("\\", "/");
+                                    presentacion = manual.Replace("\\", "/");
+                                    contenido = manual.Replace("\\", "/");
+
                                     MySqlDataReader GuardarPaqueteInstruccional = Conexion.ConsultarBD("INSERT INTO p_instruccional (p_bitacora, p_manual, p_contenido, p_presentacion) VALUES ('" + bitacora + "', '" + manual + "', '" + contenido + "', '" + presentacion + "')");
                                     GuardarPaqueteInstruccional.Close();
 
+                                    int id_paq = 0;
+                                    MySqlDataReader BuscarIdPaquete = Conexion.ConsultarBD("SELECT id_pinstruccional FROM p_instruccional WHERE  p_manual='"+manual+"' AND p_contenido='"+contenido+"'");
+                                    if (BuscarIdPaquete.Read())
+                                    {
+                                         id_paq = int.Parse(BuscarIdPaquete["id_pinstruccional"].ToString());
+                                        
+                                    }
+                                    BuscarIdPaquete.Close();
                                     // 
-                                    // MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, id_usuario1, id_p_inst, bloque_curso, solicitud_curso) VALUES (, , , , ,, , , )");
-
+                                    if (id_paq != 0)
+                                    {
+                                        String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                     
+                                        MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '"+FechaCreacion+"' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "' )");
+                                        CrearCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        
+                                    }
                                 }
                             }
-                        }                       
+                        }
                     }
                 }
-            }                      
-        }
-
-        private void GuardarBasico()
-        {
-
+            }
         }
 
         private void GuardarIntermedio()
@@ -662,6 +708,63 @@ namespace UCS_NODO_FGC
                 errorProviderBloque.SetError(cmbxBloques, "Debe proporcionar los bloques de la formación.");
                 cmbxBloques.Focus();
             }
+        }
+
+        private void btnPausar_Click(object sender, EventArgs e)
+        {
+            //si pausa, deshabilita los controles:
+            deshabiltarControlesBasico();
+            //además se deshabilita guardar, pausar, siguiente etapa, modificar, limpiar
+            //se habilita retomar
+
+            btnRetomar.Enabled = true; //habilitado
+
+            btnSiguienteEtapa.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnPausar.Enabled = false;
+            btnLimpiar.Enabled = false;
+        }
+
+        private void deshabiltarControlesBasico()
+        {
+            //para el boton pausar en el (nivel_basico)
+            cmbxCursoInce.Enabled = false;
+            cmbxSolicitadoPor.Enabled = false;
+            cmbxDuracionFormacion.Enabled = false;
+            cmbxBloques.Enabled = false;
+            btnRutaContenido.Enabled = false;
+            btnRutaPresentacion.Enabled = false;
+            btnRutaManual.Enabled = false;
+            btnRutaBitacora.Enabled = false;
+        }
+
+        private void btnRetomar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            vaciarFormacion();
+
+        }
+
+        private void vaciarFormacion()
+        {
+            cmbxCursoInce.SelectedIndex = -1;
+            cmbxSolicitadoPor.SelectedIndex = -1;
+            cmbxDuracionFormacion.SelectedIndex = -1;
+            cmbxBloques.SelectedIndex = -1;
+            btnRutaContenido.Enabled = false;
+            btnRutaPresentacion.Enabled = false;
+            btnRutaManual.Enabled = false;
+            btnRutaBitacora.Enabled = false;
+            bitacora = "";
+            manual = "";
+            contenido = "";
+            presentacion = "";   
+
         }
     }
 }
