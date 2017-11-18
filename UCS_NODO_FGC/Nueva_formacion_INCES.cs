@@ -401,28 +401,28 @@ namespace UCS_NODO_FGC
                     conexion.cerrarconexion();
                     if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                        errorProviderManual.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
                         cmbxFa.SelectedIndex = -1;
                         fa.id_facilitador = 0;
                         cmbxFa.Focus();
                     }
                     else
                     {
-                        errorProviderPresentacion.SetError(cmbxFa, "");
+                        errorProviderManual.SetError(cmbxFa, "");
                         if (conexion.abrirconexion() == true)
                         {
                             int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
                             conexion.cerrarconexion();
                             if (fa_disponibleDia2 == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
                             {
-                                errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
+                                errorProviderManual.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
                                 cmbxFa.SelectedIndex = -1;
                                 fa.id_facilitador = 0;
                                 cmbxFa.Focus();
                             }
                             else
                             {
-                                errorProviderPresentacion.SetError(cmbxFa, "");
+                                errorProviderManual.SetError(cmbxFa, "");
                                 //si todo bien, cargar los datos en el gpbDatosFa
                                 gpbDatosFa.Enabled = true;
                                 chkbCoFacilitador.Enabled = true;
@@ -459,28 +459,28 @@ namespace UCS_NODO_FGC
                     conexion.cerrarconexion();
                     if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                        errorProviderManual.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
                         cmbxCoFa.SelectedIndex = -1;
                         Cofa.id_facilitador = 0;
                         cmbxCoFa.Focus();
                     }
                     else
                     {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "");
+                        errorProviderManual.SetError(cmbxCoFa, "");
                         if (conexion.abrirconexion() == true)
                         {
                             int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
                             conexion.cerrarconexion();
                             if (fa_disponibleDia2 == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
                             {
-                                errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
+                                errorProviderManual.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
                                 cmbxCoFa.SelectedIndex = -1;
                                 Cofa.id_facilitador = 0;
                                 cmbxCoFa.Focus();
                             }
                             else
                             {
-                                errorProviderPresentacion.SetError(cmbxCoFa, "");
+                                errorProviderManual.SetError(cmbxCoFa, "");
                                 //si todo bien, cargar los datos en el gpbDatosFa
                                 gpbDatosCoFa.Enabled = true;
 
@@ -548,6 +548,120 @@ namespace UCS_NODO_FGC
             btnRutaBitacora.Enabled = true;
             btnRutaManual.Enabled = true;
             
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (cmbxCursoInce.SelectedIndex == -1)
+            {
+                errorProviderNombreF.SetError(cmbxCursoInce, "Debe proporcionar el nombre la formación.");
+                cmbxCursoInce.Focus();
+            } else 
+            {
+                errorProviderNombreF.SetError(cmbxCursoInce, "");
+                if (cmbxSolicitadoPor.SelectedIndex == -1)
+                {
+                    errorProviderSolicitado.SetError(cmbxSolicitadoPor, "Debe proporcionar el nombre de quien solicita.");
+                    cmbxSolicitadoPor.Focus();
+                }
+                else
+                {
+                    errorProviderSolicitado.SetError(cmbxSolicitadoPor, "");
+                    if (cmbxDuracionFormacion.SelectedIndex == -1)
+                    {
+                        errorProviderDuracionF.SetError(cmbxDuracionFormacion, "Debe proporcionar la duración de la formación.");
+                        cmbxDuracionFormacion.Focus();
+                    }
+                    else
+                    {
+                        errorProviderDuracionF.SetError(cmbxDuracionFormacion, "");
+                        if (cmbxBloques.SelectedIndex == -1)
+                        {
+                            errorProviderBloque.SetError(cmbxBloques, "Debe proporcionar los bloques de la formación.");
+                            cmbxBloques.Focus();
+                        }
+                        else
+                        {
+                            errorProviderBloque.SetError(cmbxBloques, "");
+                            if (contenido == "")
+                            {
+                                errorProviderContenido.SetError(btnRutaContenido, "Debe seleccionar un contenido para la formación.");
+
+                            }
+                            else //si el contenido existe
+                            {
+                                errorProviderContenido.SetError(btnRutaContenido, "");
+                                if (manual == "")
+                                {
+                                    errorProviderManual.SetError(btnRutaManual, "Debe seleccionar un contenido para la formación.");
+
+                                } else // si el manual existe
+                                {
+                                    errorProviderManual.SetError(btnRutaManual, "");
+                                    // si se pasan todas las validaciones de la primera etapa, se guarda el paquete instruccional seleccionado
+                                    MySqlDataReader GuardarPaqueteInstruccional = Conexion.ConsultarBD("INSERT INTO p_instruccional (p_bitacora, p_manual, p_contenido, p_presentacion) VALUES ('" + bitacora + "', '" + manual + "', '" + contenido + "', '" + presentacion + "')");
+                                    GuardarPaqueteInstruccional.Close();
+
+                                    // 
+                                    // MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, id_usuario1, id_p_inst, bloque_curso, solicitud_curso) VALUES (, , , , ,, , , )");
+
+                                }
+                            }
+                        }                       
+                    }
+                }
+            }                      
+        }
+
+        private void GuardarBasico()
+        {
+
+        }
+
+        private void GuardarIntermedio()
+        {
+
+        }
+
+        private void GuardarAvanzado()
+        {
+
+        }
+
+        private void cmbxCursoInce_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbxCursoInce.SelectedIndex == -1)
+            {
+                errorProviderNombreF.SetError(cmbxCursoInce, "Debe proporcionar el nombre la formación.");
+                cmbxCursoInce.Focus();
+            }
+        }
+
+        private void cmbxSolicitadoPor_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbxSolicitadoPor.SelectedIndex == -1)
+            {
+                errorProviderSolicitado.SetError(cmbxSolicitadoPor, "Debe proporcionar el nombre de quien solicita.");
+                cmbxSolicitadoPor.Focus();
+            }
+        }
+
+        private void cmbxDuracionFormacion_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbxDuracionFormacion.SelectedIndex == -1)
+            {
+                errorProviderDuracionF.SetError(cmbxDuracionFormacion, "Debe proporcionar la duración de la formación.");
+                cmbxDuracionFormacion.Focus();
+            }
+        }
+
+        private void cmbxBloques_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbxBloques.SelectedIndex == -1)
+            {
+                errorProviderBloque.SetError(cmbxBloques, "Debe proporcionar los bloques de la formación.");
+                cmbxBloques.Focus();
+            }
         }
     }
 }

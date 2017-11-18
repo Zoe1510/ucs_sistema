@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -163,7 +163,7 @@
             this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderSolicitado = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderBloque = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPresentacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderManual = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -207,7 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
@@ -274,7 +274,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label9.Location = new System.Drawing.Point(238, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(659, 18);
+            this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
@@ -446,6 +446,7 @@
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // shapeContainer3
             // 
@@ -543,6 +544,7 @@
             this.cmbxBloques.Name = "cmbxBloques";
             this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
             this.cmbxBloques.TabIndex = 30;
+            this.cmbxBloques.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxBloques_Validating);
             // 
             // label12
             // 
@@ -799,6 +801,7 @@
             this.cmbxCursoInce.Size = new System.Drawing.Size(226, 25);
             this.cmbxCursoInce.TabIndex = 31;
             this.cmbxCursoInce.SelectedIndexChanged += new System.EventHandler(this.cmbxCursoInce_SelectedIndexChanged);
+            this.cmbxCursoInce.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCursoInce_Validating);
             // 
             // cmbxSolicitadoPor
             // 
@@ -810,6 +813,7 @@
             this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
             this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
             this.cmbxSolicitadoPor.TabIndex = 27;
+            this.cmbxSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxSolicitadoPor_Validating);
             // 
             // label11
             // 
@@ -853,6 +857,7 @@
             this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
             this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
             this.cmbxDuracionFormacion.TabIndex = 29;
+            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
             // 
             // groupBox1
             // 
@@ -1528,26 +1533,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1705,9 +1710,9 @@
             // 
             this.errorProviderBloque.ContainerControl = this;
             // 
-            // errorProviderPresentacion
+            // errorProviderManual
             // 
-            this.errorProviderPresentacion.ContainerControl = this;
+            this.errorProviderManual.ContainerControl = this;
             // 
             // errorProviderContenido
             // 
@@ -1793,7 +1798,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderManual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
@@ -1933,7 +1938,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderRefrigerio;
         private System.Windows.Forms.ErrorProvider errorProviderSolicitado;
         private System.Windows.Forms.ErrorProvider errorProviderBloque;
-        private System.Windows.Forms.ErrorProvider errorProviderPresentacion;
+        private System.Windows.Forms.ErrorProvider errorProviderManual;
         private System.Windows.Forms.ErrorProvider errorProviderContenido;
         private System.Windows.Forms.ErrorProvider errorProviderDuracionF;
         private System.Windows.Forms.ErrorProvider errorProviderHora2;

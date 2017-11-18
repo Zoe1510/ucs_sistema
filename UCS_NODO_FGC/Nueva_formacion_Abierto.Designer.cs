@@ -1252,25 +1252,6 @@
             this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.seleccionar_opcion.Width = 40;
             // 
-            // opcion_difusion
-            // 
-            this.opcion_difusion.HeaderText = "Medio de difusión";
-            this.opcion_difusion.MaxInputLength = 250;
-            this.opcion_difusion.MinimumWidth = 50;
-            this.opcion_difusion.Name = "opcion_difusion";
-            this.opcion_difusion.ReadOnly = true;
-            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.opcion_difusion.Width = 310;
-            // 
-            // seleccionar_opcion
-            // 
-            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccionar_opcion.HeaderText = "";
-            this.seleccionar_opcion.MinimumWidth = 30;
-            this.seleccionar_opcion.Name = "seleccionar_opcion";
-            this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccionar_opcion.Width = 40;
-            // 
             // gpbRefrigerio
             // 
             this.gpbRefrigerio.Controls.Add(this.rdbNoRef);
