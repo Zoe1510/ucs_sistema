@@ -13,7 +13,9 @@ namespace UCS_NODO_FGC.Clases
     public static class Conexion
     {
         public static MySqlConnection bd;
+
         public static String clave = "root";
+
 
         public static MySqlDataReader ConsultarBD(String query)
         {
@@ -62,6 +64,7 @@ namespace UCS_NODO_FGC.Clases
 
         public conexion_bd()
         {
+
             conexion = new MySqlConnection("host=127.0.0.1; port=3306; user=root; password="+Conexion.clave+"; database=ucs_bd");
             Conexion.bd = conexion;
         }

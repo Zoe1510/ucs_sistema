@@ -320,7 +320,7 @@
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 96);
+            this.Panel_cabecera.Size = new System.Drawing.Size(1020, 96);
             this.Panel_cabecera.TabIndex = 55;
             // 
             // label1
@@ -342,7 +342,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1122, 96);
+            this.shapeContainer1.Size = new System.Drawing.Size(1020, 96);
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
@@ -359,9 +359,9 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Location = new System.Drawing.Point(0, 548);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.Size = new System.Drawing.Size(1020, 25);
             this.panel8.TabIndex = 60;
             // 
             // label9
@@ -371,7 +371,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label9.Location = new System.Drawing.Point(227, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.Size = new System.Drawing.Size(659, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
@@ -383,7 +383,7 @@
             this.shapeContainer4.Name = "shapeContainer4";
             this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape2});
-            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.Size = new System.Drawing.Size(1020, 25);
             this.shapeContainer4.TabIndex = 1;
             this.shapeContainer4.TabStop = false;
             // 
@@ -399,7 +399,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1122, 739);
+            this.ClientSize = new System.Drawing.Size(1020, 573);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.grpbOpciones);
             this.Controls.Add(this.grpbDatos);

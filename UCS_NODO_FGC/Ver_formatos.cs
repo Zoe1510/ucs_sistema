@@ -16,6 +16,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Ver_formatos : Form
     {
+        conexion_bd conexion = new conexion_bd();
         string rutaArchivo, nombreArchivo;
         string todo = "";
         int resultado = 0;
@@ -120,12 +121,23 @@ namespace UCS_NODO_FGC
                 todo = "";
                 //dizque validacion
                 MySqlDataReader existe = Conexion.ConsultarBD("SELECT id_formato FROM formatos WHERE ruta_archivo LIKE '%" + rutaArchivo + "%' ");
+                
                 if(existe.Read())
                 {
                     MessageBox.Show("Este formato ya se encuentra añadido", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }else
                 {
-                    MySqlDataReader insertar = Conexion.ConsultarBD("INSERT INTO formatos (nombre_archivo, ruta_archivo) VALUES ('" + nombreArchivo + "', '" + rutaArchivo + "')");
+                    existe.Close();
+                    conexion.cerrarconexion();
+                    if (conexion.abrirconexion() == true)
+                    {
+                        rutaArchivo = rutaArchivo.Replace("\\", "/");
+                        string query = @"INSERT INTO formatos (nombre_archivo, ruta_archivo) VALUES ('" + nombreArchivo + "', '" + rutaArchivo + "')";
+                        MySqlCommand cmd = new MySqlCommand(query, conexion.conexion);
+                        cmd.ExecuteNonQuery();
+                        conexion.cerrarconexion();
+                    }
+                    
                     llenarDGV(todo);
                     rutaArchivo ="";
                     nombreArchivo ="";
@@ -186,27 +198,26 @@ namespace UCS_NODO_FGC
 
         private void dgvFormatos_MouseClick(object sender, MouseEventArgs e)
         {
-            //if (dgvFormatos.SelectedRows.Count == 1)
-            //{
-            //    nombreArchivo = dgvFormatos.SelectedRows[0].Cells[0].Value.ToString();
-            //    MySqlDataReader ruta = Conexion.ConsultarBD("SELECT ruta_archivo FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%'");
-            //    rutaArchivo = ruta.ToString();       
-            //}
+            if (dgvFormatos.SelectedRows.Count == 1)
+            {
+                nombreArchivo = dgvFormatos.SelectedRows[0].Cells[0].Value.ToString();
+                MySqlDataReader ruta = Conexion.ConsultarBD(@"SELECT ruta_archivo FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%'");
+                if (ruta.Read())
+                {
+                    rutaArchivo = Convert.ToString(ruta["ruta_archivo"]);
+                    rutaArchivo = rutaArchivo.Replace("\\", "/");
+
+                }
+            }
         }
 
         private void btnVerArchivo_Click(object sender, EventArgs e)
         {
             if (dgvFormatos.SelectedRows.Count == 1)
             {
-                nombreArchivo = dgvFormatos.SelectedRows[0].Cells[0].Value.ToString();
-                MySqlDataReader ruta = Conexion.ConsultarBD("SELECT ruta_archivo FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%'");
-                if (ruta.Read())
-                {
-                    rutaArchivo = Convert.ToString(ruta["ruta_archivo"]);
-                    Process.Start(rutaArchivo);
-                }
-               
-               
+              
+                Process.Start(rutaArchivo);
+
             }
             else
             {

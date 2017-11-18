@@ -1231,6 +1231,7 @@
             this.dgvMediosDifusion.RowHeadersVisible = false;
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 287);
             this.dgvMediosDifusion.TabIndex = 48;
+            this.dgvMediosDifusion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellContentClick);
             // 
             // opcion_difusion
             // 

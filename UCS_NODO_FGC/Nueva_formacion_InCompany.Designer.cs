@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelOpciones = new System.Windows.Forms.Panel();
             this.lblEtapafinal = new System.Windows.Forms.Label();
             this.lblEtapaSiguiente = new System.Windows.Forms.Label();
@@ -83,15 +85,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
-            this.label32 = new System.Windows.Forms.Label();
             this.gpbCorreos = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnCorreoFacilitadores = new System.Windows.Forms.Button();
             this.btnCorreoAdministracion = new System.Windows.Forms.Button();
             this.gpbFecha = new System.Windows.Forms.GroupBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
+            this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.gpbAulas = new System.Windows.Forms.GroupBox();
             this.rdbNoInstalaciones = new System.Windows.Forms.RadioButton();
@@ -145,6 +147,8 @@
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.rdbNoMantenerRef = new System.Windows.Forms.RadioButton();
@@ -164,10 +168,6 @@
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
@@ -226,9 +226,9 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Location = new System.Drawing.Point(0, 548);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.Size = new System.Drawing.Size(1020, 25);
             this.panel8.TabIndex = 58;
             // 
             // label9
@@ -238,10 +238,28 @@
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label9.Location = new System.Drawing.Point(238, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.Size = new System.Drawing.Size(659, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1020, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 1);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
             // pnlPanelOpciones
             // 
@@ -258,9 +276,9 @@
             this.pnlPanelOpciones.Controls.Add(this.btnGuardar);
             this.pnlPanelOpciones.Controls.Add(this.shapeContainer3);
             this.pnlPanelOpciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPanelOpciones.Location = new System.Drawing.Point(925, 99);
+            this.pnlPanelOpciones.Location = new System.Drawing.Point(823, 99);
             this.pnlPanelOpciones.Name = "pnlPanelOpciones";
-            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
+            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 449);
             this.pnlPanelOpciones.TabIndex = 59;
             // 
             // lblEtapafinal
@@ -401,7 +419,7 @@
             this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape3,
             this.rectangleShape6});
-            this.shapeContainer3.Size = new System.Drawing.Size(197, 615);
+            this.shapeContainer3.Size = new System.Drawing.Size(197, 449);
             this.shapeContainer3.TabIndex = 38;
             this.shapeContainer3.TabStop = false;
             // 
@@ -431,7 +449,7 @@
             this.pnlNivel_avanzado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_avanzado.Location = new System.Drawing.Point(0, 99);
             this.pnlNivel_avanzado.Name = "pnlNivel_avanzado";
-            this.pnlNivel_avanzado.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_avanzado.Size = new System.Drawing.Size(823, 449);
             this.pnlNivel_avanzado.TabIndex = 62;
             // 
             // pnlNivel_intermedio
@@ -450,7 +468,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(806, 587);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -464,8 +482,9 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(806, 587);
             this.pnlNivel_basico.TabIndex = 92;
+            this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
             // groupBox5
             // 
@@ -853,28 +872,6 @@
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
-            // dtpSegundaFecha
-            // 
-            this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
-            this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSegundaFecha.Location = new System.Drawing.Point(205, 83);
-            this.dtpSegundaFecha.Name = "dtpSegundaFecha";
-            this.dtpSegundaFecha.Size = new System.Drawing.Size(167, 25);
-            this.dtpSegundaFecha.TabIndex = 48;
-            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(29, 89);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(170, 17);
-            this.label32.TabIndex = 49;
-            this.label32.Text = "Segundo día del curso:";
-            // 
             // gpbCorreos
             // 
             this.gpbCorreos.Controls.Add(this.pictureBox3);
@@ -943,6 +940,18 @@
             this.pictureBox7.TabIndex = 61;
             this.pictureBox7.TabStop = false;
             // 
+            // dtpSegundaFecha
+            // 
+            this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
+            this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpSegundaFecha.Location = new System.Drawing.Point(205, 83);
+            this.dtpSegundaFecha.Name = "dtpSegundaFecha";
+            this.dtpSegundaFecha.Size = new System.Drawing.Size(167, 25);
+            this.dtpSegundaFecha.TabIndex = 48;
+            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            // 
             // dtpFechaCurso
             // 
             this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -954,6 +963,16 @@
             this.dtpFechaCurso.Size = new System.Drawing.Size(167, 25);
             this.dtpFechaCurso.TabIndex = 48;
             this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(29, 89);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(170, 17);
+            this.label32.TabIndex = 49;
+            this.label32.Text = "Segundo día del curso:";
             // 
             // label33
             // 
@@ -1534,26 +1553,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1561,6 +1580,26 @@
             this.dgvInsumos.RowHeadersVisible = false;
             this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
             this.dgvInsumos.TabIndex = 49;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
+            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.Width = 310;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewCheckBoxColumn1.HeaderText = "";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 30;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn1.Width = 40;
             // 
             // gpbSeleccionRef
             // 
@@ -1705,7 +1744,7 @@
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 99);
+            this.Panel_cabecera.Size = new System.Drawing.Size(1020, 99);
             this.Panel_cabecera.TabIndex = 47;
             // 
             // LabelCabecera
@@ -1727,7 +1766,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1122, 99);
+            this.shapeContainer1.Size = new System.Drawing.Size(1020, 99);
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1737,44 +1776,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(-1, 96);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
-            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.Width = 310;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 30;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCheckBoxColumn1.Width = 40;
-            // 
-            // rectangleShape2
-            // 
-            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.rectangleShape2.Location = new System.Drawing.Point(0, 1);
-            this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // shapeContainer4
-            // 
-            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer4.Name = "shapeContainer4";
-            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape2});
-            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
-            this.shapeContainer4.TabIndex = 1;
-            this.shapeContainer4.TabStop = false;
             // 
             // errorProviderHora
             // 
@@ -1796,7 +1797,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1122, 739);
+            this.ClientSize = new System.Drawing.Size(1020, 573);
             this.Controls.Add(this.pnlNivel_avanzado);
             this.Controls.Add(this.pnlPanelOpciones);
             this.Controls.Add(this.panel8);

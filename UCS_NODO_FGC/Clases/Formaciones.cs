@@ -182,28 +182,13 @@ namespace UCS_NODO_FGC.Clases
             int retorno = 0;
             string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido) VALUES ( ?presentacion, ?contenido)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
-            // cmd.Parameters.AddWithValue("?bitacora", pq.bitacora);
-            //cmd.Parameters.AddWithValue("?presentacion", pq.presentacion);
-            //cmd.Parameters.AddWithValue("?ficha", pq.ficha);
-            //cmd.Parameters.AddWithValue("?manual", pq.manual);
-            //cmd.Parameters.AddWithValue("?contenido", pq.contenido);
-
-
-            //MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.Blob);
-            //bitacora.Value = pq.bitacora;
-            //cmd.Parameters.Add(bitacora);
+            
 
             MySqlParameter presentacion = new MySqlParameter("?presentacion", MySqlDbType.VarChar);
             presentacion.Value = pq.presentacion;
             cmd.Parameters.Add(presentacion);
 
-            //MySqlParameter ficha = new MySqlParameter("?ficha", MySqlDbType.Blob);
-            //ficha.Value = pq.ficha;
-            //cmd.Parameters.Add(ficha);
-
-            //MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.Blob);
-            //manual.Value = pq.manual;
-            //cmd.Parameters.Add(manual);
+          
 
             MySqlParameter contenido = new MySqlParameter("?contenido", MySqlDbType.VarChar);
             contenido.Value = pq.contenido;

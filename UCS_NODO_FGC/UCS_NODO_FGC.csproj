@@ -317,6 +317,12 @@
     <Compile Include="Verificacion_recuperacion.Designer.cs">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_formaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formaciones.Designer.cs">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_formatos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formaciones.resx">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_formatos.resx">
       <DependentUpon>Ver_formatos.cs</DependentUpon>
@@ -685,6 +694,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_edificio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ucs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

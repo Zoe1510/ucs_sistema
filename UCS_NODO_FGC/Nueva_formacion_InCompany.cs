@@ -729,5 +729,10 @@ namespace UCS_NODO_FGC
 
             }
         }
+
+        private void pnlNivel_basico_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

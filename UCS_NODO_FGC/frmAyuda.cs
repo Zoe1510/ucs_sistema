@@ -137,5 +137,31 @@ namespace UCS_NODO_FGC
         {
             this.Close();
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAcercaDe_Click(object sender, EventArgs e)
+        {
+            if (pnlDisplay.Visible == false)
+            {
+                pnlDisplay.Visible = true;
+            }else
+            {
+                pnlDisplay.Visible = false;
+            }
+        }
     }
 }

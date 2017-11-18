@@ -163,7 +163,7 @@
             this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderSolicitado = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderBloque = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderPresentacion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderManual = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -207,7 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderManual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
@@ -446,6 +446,7 @@
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // shapeContainer3
             // 
@@ -519,6 +520,7 @@
             this.pnlNivel_basico.Name = "pnlNivel_basico";
             this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
             this.pnlNivel_basico.TabIndex = 89;
+            this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
             // groupBox5
             // 
@@ -542,6 +544,7 @@
             this.cmbxBloques.Name = "cmbxBloques";
             this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
             this.cmbxBloques.TabIndex = 30;
+            this.cmbxBloques.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxBloques_Validating);
             // 
             // label12
             // 
@@ -793,14 +796,12 @@
             this.cmbxCursoInce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxCursoInce.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxCursoInce.FormattingEnabled = true;
-            this.cmbxCursoInce.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
             this.cmbxCursoInce.Location = new System.Drawing.Point(219, 32);
             this.cmbxCursoInce.Name = "cmbxCursoInce";
             this.cmbxCursoInce.Size = new System.Drawing.Size(226, 25);
             this.cmbxCursoInce.TabIndex = 31;
+            this.cmbxCursoInce.SelectedIndexChanged += new System.EventHandler(this.cmbxCursoInce_SelectedIndexChanged);
+            this.cmbxCursoInce.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCursoInce_Validating);
             // 
             // cmbxSolicitadoPor
             // 
@@ -808,14 +809,11 @@
             this.cmbxSolicitadoPor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSolicitadoPor.FormattingEnabled = true;
-            this.cmbxSolicitadoPor.Items.AddRange(new object[] {
-            "4 Horas",
-            "8 Horas",
-            "16 Horas"});
             this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 78);
             this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
             this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
             this.cmbxSolicitadoPor.TabIndex = 27;
+            this.cmbxSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxSolicitadoPor_Validating);
             // 
             // label11
             // 
@@ -859,6 +857,7 @@
             this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
             this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
             this.cmbxDuracionFormacion.TabIndex = 29;
+            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
             // 
             // groupBox1
             // 
@@ -1711,9 +1710,9 @@
             // 
             this.errorProviderBloque.ContainerControl = this;
             // 
-            // errorProviderPresentacion
+            // errorProviderManual
             // 
-            this.errorProviderPresentacion.ContainerControl = this;
+            this.errorProviderManual.ContainerControl = this;
             // 
             // errorProviderContenido
             // 
@@ -1731,6 +1730,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1122, 739);
             this.Controls.Add(this.pnlNivel_avanzado);
             this.Controls.Add(this.pnlPanelOpciones);
@@ -1798,7 +1798,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRefrigerio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderSolicitado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderBloque)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPresentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderManual)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderContenido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDuracionF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
@@ -1938,7 +1938,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderRefrigerio;
         private System.Windows.Forms.ErrorProvider errorProviderSolicitado;
         private System.Windows.Forms.ErrorProvider errorProviderBloque;
-        private System.Windows.Forms.ErrorProvider errorProviderPresentacion;
+        private System.Windows.Forms.ErrorProvider errorProviderManual;
         private System.Windows.Forms.ErrorProvider errorProviderContenido;
         private System.Windows.Forms.ErrorProvider errorProviderDuracionF;
         private System.Windows.Forms.ErrorProvider errorProviderHora2;
