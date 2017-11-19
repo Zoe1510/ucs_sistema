@@ -637,7 +637,7 @@ namespace UCS_NODO_FGC
                         {
                             int existeReprogramado = 0;
                             string statusR = "Reprogramado";
-                            existeReprogramado = Clases.Formaciones.CursoOtroStatusExiste(conexion.conexion, formacion, statusR);
+                            existeReprogramado = Clases.Formaciones.CursoOtroStatusExiste(formacion, statusR);
                             conexion.cerrarconexion();
 
                             if (existeReprogramado != 0)//Si existe curso reprogramado
