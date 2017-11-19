@@ -130,6 +130,7 @@ namespace UCS_NODO_FGC.Clases
 
             while (leer.Read())
             {
+
                if(leer.GetString(0) == null)
                 {
                     p.presentacion = "";
@@ -165,7 +166,8 @@ namespace UCS_NODO_FGC.Clases
                 {
                     p.bitacora = "";
                 }
-             
+
+         
 
             }
             return p;

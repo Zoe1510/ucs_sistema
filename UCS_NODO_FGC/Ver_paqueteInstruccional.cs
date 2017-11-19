@@ -19,10 +19,7 @@ namespace UCS_NODO_FGC
         public Ver_paqueteInstruccional()
         {
             InitializeComponent();
-            MessageBox.Show("contenido: " + Clases.Paquete_instruccional._contenido);
-            MessageBox.Show("presentacion: " + Clases.Paquete_instruccional._presentacion);
-            MessageBox.Show("manual: " + Clases.Paquete_instruccional._manual);
-            MessageBox.Show("bitacora: " + Clases.Paquete_instruccional._bitacora);
+           
         }
 
         private void cerrarForm()
@@ -254,6 +251,7 @@ namespace UCS_NODO_FGC
                         
  
                         p_inst.contenido= txtRutaContenido.Text;
+                        p_inst.contenido = p_inst.contenido.Replace("\\", "/");
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -273,6 +271,7 @@ namespace UCS_NODO_FGC
                         if (Clases.Paquete_instruccional._presentacion != txtRutaPresentacion.Text && txtRutaPresentacion.Text != "No existe archivo.")
                         {
                             p_inst.presentacion = txtRutaPresentacion.Text;
+                            p_inst.presentacion = p_inst.presentacion.Replace("\\", "/");
                             conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
@@ -304,6 +303,7 @@ namespace UCS_NODO_FGC
                     if (Clases.Paquete_instruccional._contenido != txtRutaContenido.Text)//hay cambio en el contenido
                     {
                         p_inst.contenido = txtRutaContenido.Text;
+                        p_inst.contenido = p_inst.contenido.Replace("\\", "/");
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -319,6 +319,8 @@ namespace UCS_NODO_FGC
                     if (Clases.Paquete_instruccional._presentacion != txtRutaPresentacion.Text && txtRutaPresentacion.Text != "No existe archivo.") // Hay cambios en la presentacion
                     {
                         p_inst.presentacion = txtRutaPresentacion.Text;
+                        p_inst.presentacion = p_inst.presentacion.Replace("\\", "/");
+
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -334,6 +336,7 @@ namespace UCS_NODO_FGC
                     if (Clases.Paquete_instruccional._manual != txtRutaManual.Text) // Hay cambios en el manual
                     {
                         p_inst.manual = txtRutaManual.Text;
+                        p_inst.manual = p_inst.manual.Replace("\\", "/");
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -348,7 +351,8 @@ namespace UCS_NODO_FGC
 
                     if (Clases.Paquete_instruccional._bitacora != txtRutaBitacora.Text && txtRutaBitacora.Text != "No existe archivo.") // Hay cambios en la bitacora
                     {
-                        p_inst.presentacion = txtRutaBitacora.Text;
+                        p_inst.bitacora = txtRutaBitacora.Text;
+                        p_inst.bitacora = p_inst.bitacora.Replace("\\", "/");
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
