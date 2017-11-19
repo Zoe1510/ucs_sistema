@@ -226,9 +226,9 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 548);
+            this.panel8.Location = new System.Drawing.Point(0, 714);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1020, 25);
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
             this.panel8.TabIndex = 58;
             // 
             // label9
@@ -238,7 +238,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label9.Location = new System.Drawing.Point(238, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(659, 18);
+            this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
@@ -250,7 +250,7 @@
             this.shapeContainer4.Name = "shapeContainer4";
             this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape2});
-            this.shapeContainer4.Size = new System.Drawing.Size(1020, 25);
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
             this.shapeContainer4.TabIndex = 1;
             this.shapeContainer4.TabStop = false;
             // 
@@ -276,9 +276,9 @@
             this.pnlPanelOpciones.Controls.Add(this.btnGuardar);
             this.pnlPanelOpciones.Controls.Add(this.shapeContainer3);
             this.pnlPanelOpciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPanelOpciones.Location = new System.Drawing.Point(823, 99);
+            this.pnlPanelOpciones.Location = new System.Drawing.Point(925, 99);
             this.pnlPanelOpciones.Name = "pnlPanelOpciones";
-            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 449);
+            this.pnlPanelOpciones.Size = new System.Drawing.Size(197, 615);
             this.pnlPanelOpciones.TabIndex = 59;
             // 
             // lblEtapafinal
@@ -419,7 +419,7 @@
             this.shapeContainer3.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape3,
             this.rectangleShape6});
-            this.shapeContainer3.Size = new System.Drawing.Size(197, 449);
+            this.shapeContainer3.Size = new System.Drawing.Size(197, 615);
             this.shapeContainer3.TabIndex = 38;
             this.shapeContainer3.TabStop = false;
             // 
@@ -449,7 +449,7 @@
             this.pnlNivel_avanzado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_avanzado.Location = new System.Drawing.Point(0, 99);
             this.pnlNivel_avanzado.Name = "pnlNivel_avanzado";
-            this.pnlNivel_avanzado.Size = new System.Drawing.Size(823, 449);
+            this.pnlNivel_avanzado.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_avanzado.TabIndex = 62;
             // 
             // pnlNivel_intermedio
@@ -468,7 +468,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(806, 587);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -482,7 +482,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(806, 587);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_basico.TabIndex = 92;
             this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
@@ -1744,7 +1744,7 @@
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
             this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(1020, 99);
+            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 99);
             this.Panel_cabecera.TabIndex = 47;
             // 
             // LabelCabecera
@@ -1766,7 +1766,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1020, 99);
+            this.shapeContainer1.Size = new System.Drawing.Size(1122, 99);
             this.shapeContainer1.TabIndex = 2;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1797,7 +1797,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 573);
+            this.ClientSize = new System.Drawing.Size(1122, 739);
             this.Controls.Add(this.pnlNivel_avanzado);
             this.Controls.Add(this.pnlPanelOpciones);
             this.Controls.Add(this.panel8);

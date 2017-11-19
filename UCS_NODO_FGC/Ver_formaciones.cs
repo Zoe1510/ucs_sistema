@@ -6,6 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
+using System.IO;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace UCS_NODO_FGC
@@ -15,6 +19,17 @@ namespace UCS_NODO_FGC
         public Ver_formaciones()
         {
             InitializeComponent();
+        }
+
+        private void Ver_formaciones_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void llenarDGV()
+        {
+            dgvFormaciones.Rows.Clear();
+            MySqlDataReader formaciones = Conexion.ConsultarBD("SELECT ");
         }
     }
 }

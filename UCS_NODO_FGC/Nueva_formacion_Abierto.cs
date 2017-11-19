@@ -291,12 +291,14 @@ namespace UCS_NODO_FGC
                                             {
                                                 p_inst.presentacion = "";
                                             }
-                                            MessageBox.Show("Entré acá");
+                                            
                                             formacion.fecha_inicial = fecha_creacion;
 
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
 
                                             p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+
+                                            formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
 
                                             conexion.cerrarconexion();
                                             if (p_inst.id_pinstruccional == 0)//si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR

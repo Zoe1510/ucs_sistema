@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -40,7 +40,12 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbData = new System.Windows.Forms.GroupBox();
-            this.dgvAreasEmpresa = new System.Windows.Forms.DataGridView();
+            this.dgvFormaciones = new System.Windows.Forms.DataGridView();
+            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,19 +53,14 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnCambiarStatus = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnVerFormacion = new System.Windows.Forms.Button();
-            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCambiarStatus = new System.Windows.Forms.Button();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAreasEmpresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).BeginInit();
             this.grpbDatos.SuspendLayout();
             this.grpbOpciones.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +151,7 @@
             // 
             // grpbData
             // 
-            this.grpbData.Controls.Add(this.dgvAreasEmpresa);
+            this.grpbData.Controls.Add(this.dgvFormaciones);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbData.Location = new System.Drawing.Point(29, 119);
@@ -161,44 +161,74 @@
             this.grpbData.TabStop = false;
             this.grpbData.Text = "Formaciones registradas";
             // 
-            // dgvAreasEmpresa
+            // dgvFormaciones
             // 
-            this.dgvAreasEmpresa.AllowUserToAddRows = false;
-            this.dgvAreasEmpresa.AllowUserToResizeColumns = false;
-            this.dgvAreasEmpresa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvAreasEmpresa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAreasEmpresa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvAreasEmpresa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvAreasEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAreasEmpresa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFormaciones.AllowUserToAddRows = false;
+            this.dgvFormaciones.AllowUserToResizeColumns = false;
+            this.dgvFormaciones.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvFormaciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvFormaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvFormaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
             this.tipo_formacion,
             this.estatus_formacion,
             this.etapa_formacion,
             this.creado_por});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAreasEmpresa.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAreasEmpresa.Location = new System.Drawing.Point(22, 34);
-            this.dgvAreasEmpresa.Name = "dgvAreasEmpresa";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAreasEmpresa.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAreasEmpresa.RowHeadersVisible = false;
-            this.dgvAreasEmpresa.Size = new System.Drawing.Size(724, 525);
-            this.dgvAreasEmpresa.TabIndex = 0;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvFormaciones.Location = new System.Drawing.Point(22, 34);
+            this.dgvFormaciones.Name = "dgvFormaciones";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFormaciones.RowHeadersVisible = false;
+            this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
+            this.dgvFormaciones.TabIndex = 0;
+            // 
+            // nombre_formacion
+            // 
+            this.nombre_formacion.HeaderText = "Formación";
+            this.nombre_formacion.Name = "nombre_formacion";
+            this.nombre_formacion.ReadOnly = true;
+            // 
+            // tipo_formacion
+            // 
+            this.tipo_formacion.HeaderText = "Tipo";
+            this.tipo_formacion.Name = "tipo_formacion";
+            this.tipo_formacion.ReadOnly = true;
+            // 
+            // estatus_formacion
+            // 
+            this.estatus_formacion.HeaderText = "Estatus";
+            this.estatus_formacion.Name = "estatus_formacion";
+            this.estatus_formacion.ReadOnly = true;
+            // 
+            // etapa_formacion
+            // 
+            this.etapa_formacion.HeaderText = "Etapa actual";
+            this.etapa_formacion.Name = "etapa_formacion";
+            this.etapa_formacion.ReadOnly = true;
+            // 
+            // creado_por
+            // 
+            this.creado_por.HeaderText = "Creador";
+            this.creado_por.Name = "creado_por";
+            this.creado_por.ReadOnly = true;
             // 
             // grpbDatos
             // 
@@ -244,6 +274,11 @@
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.Font = new System.Drawing.Font("Rockwell", 8F);
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "En curso",
+            "Reprogramado",
+            "Suspendido",
+            "Finalizado"});
             this.comboBox2.Location = new System.Drawing.Point(79, 91);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(158, 21);
@@ -278,9 +313,9 @@
             // grpbOpciones
             // 
             this.grpbOpciones.Controls.Add(this.btnCambiarStatus);
+            this.grpbOpciones.Controls.Add(this.btnVerFormacion);
             this.grpbOpciones.Controls.Add(this.btnModificar);
             this.grpbOpciones.Controls.Add(this.btnRefrescar);
-            this.grpbOpciones.Controls.Add(this.btnVerFormacion);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbOpciones.Location = new System.Drawing.Point(824, 335);
@@ -290,6 +325,21 @@
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
+            // btnCambiarStatus
+            // 
+            this.btnCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
+            this.btnCambiarStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambiarStatus.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
+            this.btnCambiarStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarStatus.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCambiarStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCambiarStatus.Location = new System.Drawing.Point(27, 132);
+            this.btnCambiarStatus.Name = "btnCambiarStatus";
+            this.btnCambiarStatus.Size = new System.Drawing.Size(199, 47);
+            this.btnCambiarStatus.TabIndex = 9;
+            this.btnCambiarStatus.Text = "Cambiar estatus";
+            this.btnCambiarStatus.UseVisualStyleBackColor = false;
+            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Goldenrod;
@@ -298,7 +348,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(27, 206);
+            this.btnModificar.Location = new System.Drawing.Point(27, 216);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 47);
             this.btnModificar.TabIndex = 8;
@@ -328,57 +378,12 @@
             this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerFormacion.Location = new System.Drawing.Point(27, 126);
+            this.btnVerFormacion.Location = new System.Drawing.Point(27, 296);
             this.btnVerFormacion.Name = "btnVerFormacion";
             this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
             this.btnVerFormacion.TabIndex = 5;
             this.btnVerFormacion.Text = "Ver formación";
             this.btnVerFormacion.UseVisualStyleBackColor = false;
-            // 
-            // nombre_formacion
-            // 
-            this.nombre_formacion.HeaderText = "Formación";
-            this.nombre_formacion.Name = "nombre_formacion";
-            this.nombre_formacion.ReadOnly = true;
-            // 
-            // tipo_formacion
-            // 
-            this.tipo_formacion.HeaderText = "Tipo";
-            this.tipo_formacion.Name = "tipo_formacion";
-            this.tipo_formacion.ReadOnly = true;
-            // 
-            // estatus_formacion
-            // 
-            this.estatus_formacion.HeaderText = "Estatus";
-            this.estatus_formacion.Name = "estatus_formacion";
-            this.estatus_formacion.ReadOnly = true;
-            // 
-            // etapa_formacion
-            // 
-            this.etapa_formacion.HeaderText = "Etapa actual";
-            this.etapa_formacion.Name = "etapa_formacion";
-            this.etapa_formacion.ReadOnly = true;
-            // 
-            // creado_por
-            // 
-            this.creado_por.HeaderText = "Creador";
-            this.creado_por.Name = "creado_por";
-            this.creado_por.ReadOnly = true;
-            // 
-            // btnCambiarStatus
-            // 
-            this.btnCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
-            this.btnCambiarStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCambiarStatus.FlatAppearance.BorderColor = System.Drawing.Color.LimeGreen;
-            this.btnCambiarStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiarStatus.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCambiarStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCambiarStatus.Location = new System.Drawing.Point(27, 283);
-            this.btnCambiarStatus.Name = "btnCambiarStatus";
-            this.btnCambiarStatus.Size = new System.Drawing.Size(199, 47);
-            this.btnCambiarStatus.TabIndex = 9;
-            this.btnCambiarStatus.Text = "Cambiar estatus";
-            this.btnCambiarStatus.UseVisualStyleBackColor = false;
             // 
             // Ver_formaciones
             // 
@@ -392,12 +397,13 @@
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Ver_formaciones";
+            this.Load += new System.EventHandler(this.Ver_formaciones_Load);
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.grpbData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAreasEmpresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).EndInit();
             this.grpbDatos.ResumeLayout(false);
             this.grpbDatos.PerformLayout();
             this.grpbOpciones.ResumeLayout(false);
@@ -416,7 +422,7 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.GroupBox grpbData;
-        public System.Windows.Forms.DataGridView dgvAreasEmpresa;
+        public System.Windows.Forms.DataGridView dgvFormaciones;
         private System.Windows.Forms.GroupBox grpbDatos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
