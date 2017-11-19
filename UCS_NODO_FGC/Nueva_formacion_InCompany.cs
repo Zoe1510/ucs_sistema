@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -37,6 +38,14 @@ namespace UCS_NODO_FGC
 
         private void Nueva_formacion_InCompany_Load(object sender, EventArgs e)
         {
+
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT nombre_empresa FROM `clientes`");
+
+            while (leer.Read())
+            {
+                cmbxSolicitadoPor.Items.Add(leer["nombre_empresa"]);
+            }
+
             if (Clases.Formaciones.creacion == true)//si viene referenciado del boton de la pagina principal
             {//------------------------------------------todo hay que hacerlo aquí(un nuevo ingreso)
                 this.Location = new Point(-5, 0);
@@ -80,6 +89,7 @@ namespace UCS_NODO_FGC
                 //cargar los facilitadores del nivel_intermedio
                 llenarcomboFacilitador();
             }
+                /*Hola*/
                 /* TIENE QUE SABER: Se puede llegar a este form de dos maneras:
 
                     Opcion 1)Por el botón del panel principal (Nuevo Incompany) aquí, se mostrará como parte de la ventana principal
@@ -731,6 +741,40 @@ namespace UCS_NODO_FGC
         }
 
         private void pnlNivel_basico_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbxBloques_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreFormacion_Leave(object sender, EventArgs e)
+        {
+            if (txtNombreFormacion.Text != "")//siempre y cuando el txt contenga algo, se valida
+            {
+                formacion.estatus = "En curso"; //predeterminado en esta etapa
+                formacion.tipo_formacion = "InCompany"; //predeterminado para este form
+                formacion.nombre_formacion = txtNombreFormacion.Text;
+                String nombre_cliente = HelperFunctions.GetValueComboxBox(cmbxSolicitadoPor); 
+                bool existe = Clases.Formaciones.ExisteCursoInCompany(formacion.nombre_formacion,nombre_cliente);
+
+
+            }
+        }
+
+        private void cmbxSolicitadoPor_DropDownClosed(object sender, EventArgs e)
+        {
+            ComboBox combobox = sender as ComboBox;
+
+            if (combobox.SelectedIndex != -1)
+            {
+                txtNombreFormacion.ReadOnly = false;
+            }
+        }
+
+        private void cmbxSolicitadoPor_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

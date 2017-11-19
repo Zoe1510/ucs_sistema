@@ -21,7 +21,8 @@ namespace UCS_NODO_FGC.Clases
         public string nombre_formacion { get; set; }
 
         public string tipo_formacion { get; set; }
-
+        public int etapa_curso { get; set; }
+        //la etapa puede ser 1, 2 o 3, representan los paneles de cada form
         
 
         public int id_user { get; set; }
@@ -54,7 +55,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarNuevaFormacion(MySqlConnection conexion, Formaciones form)
         {
             int retorno = 0;
-            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado)";
+            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?estatus", form.estatus);
             cmd.Parameters.AddWithValue("?tipo", form.tipo_formacion);
@@ -67,6 +68,7 @@ namespace UCS_NODO_FGC.Clases
             cmd.Parameters.AddWithValue("?id_pq", form.pq_inst);
             cmd.Parameters.AddWithValue("?bloque", form.bloque_curso);
             cmd.Parameters.AddWithValue("?solicitado", form.solicitado);
+            cmd.Parameters.AddWithValue("?etapa", form.etapa_curso);
             //el id debe venir de la persona logueada o sea de la clases.usuariologueado.id_usuario
             retorno = cmd.ExecuteNonQuery();
             return retorno;
@@ -97,12 +99,20 @@ namespace UCS_NODO_FGC.Clases
 
             return resultado;
         }
-        public static int CursoOtroStatusExiste(MySqlConnection conexion, Formaciones form, string status)
+
+        //Funciona de javier
+        public static bool ExisteCursoInCompany(String nombre_formacion, String cliente)
+        {
+            //MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '" + form.nombre_formacion + "' AND tipo_curso='" + form.tipo_formacion + "' AND estatus_curso LIKE ('%" + status + "%')");
+
+            return false;
+        }
+
+        public static int CursoOtroStatusExiste(Formaciones form, string status)
         {
             int resultado = 0;
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_p_inst FROM cursos WHERE nombre_curso = '{0}' AND tipo_curso='{2}' AND estatus_curso LIKE ('%{1}%')", form.nombre_formacion, status, form.tipo_formacion), conexion);
-            MySqlDataReader leer = cmd.ExecuteReader();
-
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '"+ form.nombre_formacion + "' AND tipo_curso='"+ form.tipo_formacion + "' AND estatus_curso LIKE ('%"+ status + "%')");
+           
             while (leer.Read())
             {
                 resultado = leer.GetInt32(0);
@@ -137,11 +147,26 @@ namespace UCS_NODO_FGC.Clases
                 {
                     p.contenido = "";
                 }
-               
-                //p.ficha = leer.GetString(2);
-               // p.manual = leer.GetString(3);
-               // p.bitacora = leer.GetString(4);
-                
+
+                if (leer.GetString(2) != null)
+                {
+                    p.manual = leer.GetString(2);
+                }
+                else
+                {
+                    p.manual = "";
+                }
+
+                if (leer.GetString(3) != null)
+                {
+                    p.bitacora = leer.GetString(3);
+                }
+                else
+                {
+                    p.bitacora = "";
+                }
+             
+
             }
             return p;
         }
@@ -182,28 +207,13 @@ namespace UCS_NODO_FGC.Clases
             int retorno = 0;
             string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido) VALUES ( ?presentacion, ?contenido)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
-            // cmd.Parameters.AddWithValue("?bitacora", pq.bitacora);
-            //cmd.Parameters.AddWithValue("?presentacion", pq.presentacion);
-            //cmd.Parameters.AddWithValue("?ficha", pq.ficha);
-            //cmd.Parameters.AddWithValue("?manual", pq.manual);
-            //cmd.Parameters.AddWithValue("?contenido", pq.contenido);
-
-
-            //MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.Blob);
-            //bitacora.Value = pq.bitacora;
-            //cmd.Parameters.Add(bitacora);
+            
 
             MySqlParameter presentacion = new MySqlParameter("?presentacion", MySqlDbType.VarChar);
             presentacion.Value = pq.presentacion;
             cmd.Parameters.Add(presentacion);
 
-            //MySqlParameter ficha = new MySqlParameter("?ficha", MySqlDbType.Blob);
-            //ficha.Value = pq.ficha;
-            //cmd.Parameters.Add(ficha);
-
-            //MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.Blob);
-            //manual.Value = pq.manual;
-            //cmd.Parameters.Add(manual);
+          
 
             MySqlParameter contenido = new MySqlParameter("?contenido", MySqlDbType.VarChar);
             contenido.Value = pq.contenido;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
+using System.IO;
 
 namespace UCS_NODO_FGC
 {
@@ -290,12 +291,14 @@ namespace UCS_NODO_FGC
                                             {
                                                 p_inst.presentacion = "";
                                             }
-                                            MessageBox.Show("Entré acá");
+                                            
                                             formacion.fecha_inicial = fecha_creacion;
 
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
 
                                             p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+
+                                            formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
 
                                             conexion.cerrarconexion();
                                             if (p_inst.id_pinstruccional == 0)//si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
@@ -636,7 +639,7 @@ namespace UCS_NODO_FGC
                         {
                             int existeReprogramado = 0;
                             string statusR = "Reprogramado";
-                            existeReprogramado = Clases.Formaciones.CursoOtroStatusExiste(conexion.conexion, formacion, statusR);
+                            existeReprogramado = Clases.Formaciones.CursoOtroStatusExiste(formacion, statusR);
                             conexion.cerrarconexion();
 
                             if (existeReprogramado != 0)//Si existe curso reprogramado
@@ -849,10 +852,10 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-                        
+                       
                         p_inst.contenido =contenido;
                         btnVerContenido.Enabled = true;
-
+                       
                     }
                 }
                

@@ -19,6 +19,10 @@ namespace UCS_NODO_FGC
         public Ver_paqueteInstruccional()
         {
             InitializeComponent();
+            MessageBox.Show("contenido: " + Clases.Paquete_instruccional._contenido);
+            MessageBox.Show("presentacion: " + Clases.Paquete_instruccional._presentacion);
+            MessageBox.Show("manual: " + Clases.Paquete_instruccional._manual);
+            MessageBox.Show("bitacora: " + Clases.Paquete_instruccional._bitacora);
         }
 
         private void cerrarForm()
@@ -152,7 +156,7 @@ namespace UCS_NODO_FGC
         private void btnModificarContenido_Click(object sender, EventArgs e)
         {
             OpenFileDialog od = new OpenFileDialog();
-            od.Filter = "DOC files |*.doc; *.docx; *.docm; *.dotx; *.dotm";
+            od.Filter = "PDF files |*.pdf";
             if (od.ShowDialog() == DialogResult.OK)
             {
                 
@@ -248,7 +252,7 @@ namespace UCS_NODO_FGC
                     if (Clases.Paquete_instruccional._contenido != txtRutaContenido.Text)//hay cambio en el contenido
                     {
                         
-                        
+ 
                         p_inst.contenido= txtRutaContenido.Text;
                         if (Clases.Paquete_instruccional._presentacion != txtRutaPresentacion.Text && txtRutaPresentacion.Text != "No existe archivo.")
                         {
@@ -315,8 +319,86 @@ namespace UCS_NODO_FGC
                    
                 }else if(Clases.Paquete_instruccional.tipo_curso == "INCES")
                 {
+                    p_inst.id_pinstruccional = Clases.Paquete_instruccional.id_pin;
+                    bool actualizado = false;
+                    int Modc, ModP, ModM, ModB;
+                    if (Clases.Paquete_instruccional._contenido != txtRutaContenido.Text)//hay cambio en el contenido
+                    {
+                        p_inst.contenido = txtRutaContenido.Text;
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            Modc = Clases.Paquete_instruccional.ModificarContenidoPQ(conexion.conexion, p_inst);
+                            conexion.cerrarconexion();
+                            if (Modc > 0)
+                            {
+                                actualizado = true;   
+                            }
+                        }
+                    }
+                    
+                    if (Clases.Paquete_instruccional._presentacion != txtRutaPresentacion.Text && txtRutaPresentacion.Text != "No existe archivo.") // Hay cambios en la presentacion
+                    {
+                        p_inst.presentacion = txtRutaPresentacion.Text;
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            ModP = Clases.Paquete_instruccional.ModificarPresentacionPQ(conexion.conexion, p_inst);
+                            conexion.cerrarconexion();
+                            if (ModP > 0)
+                            {
+                                actualizado = true;
+                            }
+                        }
+                    }
+
+                    if (Clases.Paquete_instruccional._manual != txtRutaManual.Text) // Hay cambios en el manual
+                    {
+                        p_inst.manual = txtRutaManual.Text;
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            ModM = Clases.Paquete_instruccional.ModificarManualPQ(conexion.conexion, p_inst);
+                            conexion.cerrarconexion();
+                            if (ModM > 0)
+                            {
+                                actualizado = true;
+                            }
+                        }
+                    }
+
+                    if (Clases.Paquete_instruccional._bitacora != txtRutaBitacora.Text && txtRutaBitacora.Text != "No existe archivo.") // Hay cambios en la bitacora
+                    {
+                        p_inst.presentacion = txtRutaBitacora.Text;
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            ModB = Clases.Paquete_instruccional.ModificarBitacoraPQ(conexion.conexion, p_inst);
+                            conexion.cerrarconexion();
+                            if (ModB > 0)
+                            {
+                                actualizado = true;
+                            }
+                        }
+                    }
+
+                    if (actualizado == true)
+                    {
+                        MessageBox.Show("Actualizado correctamente.");
+                    } else
+                    {
+                        MessageBox.Show("No se han detectado cambios.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+
+
 
                 }
+
+
+
+
+
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -347,7 +429,22 @@ namespace UCS_NODO_FGC
             }
             else if (Clases.Paquete_instruccional.tipo_curso == "INCES")
             {
+                Clases.Paquete_instruccional._contenido = txtRutaContenido.Text;
+                Clases.Paquete_instruccional._manual = txtRutaManual.Text;
 
+                if (txtRutaPresentacion.Text != "No existe archivo.")
+                {
+                    Clases.Paquete_instruccional._presentacion = txtRutaPresentacion.Text;
+                }
+
+                if (txtRutaBitacora.Text != "No existe archivo.")
+                {
+                    Clases.Paquete_instruccional._bitacora = txtRutaBitacora.Text;
+                }
+
+                cerrarForm();
+                Clases.Paquete_instruccional.utilizado = true;
+                this.Close();
             }
         }
     }

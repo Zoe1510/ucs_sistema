@@ -107,6 +107,7 @@
     <Compile Include="Clases\Curso_IN.cs" />
     <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
+    <Compile Include="Clases\HelperFunctions.cs" />
     <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
     <Compile Include="Clases\Empresa.cs" />
@@ -176,6 +177,12 @@
     </Compile>
     <Compile Include="Modificar_insumo.Designer.cs">
       <DependentUpon>Modificar_insumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_participante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_participante.Designer.cs">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
     </Compile>
     <Compile Include="Modificar_Refrigerio.cs">
       <SubType>Form</SubType>
@@ -311,6 +318,18 @@
     <Compile Include="Verificacion_recuperacion.Designer.cs">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_formaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formaciones.Designer.cs">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_formatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formatos.Designer.cs">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_insumos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,11 +411,15 @@
     <EmbeddedResource Include="Modificar_insumo.resx">
       <DependentUpon>Modificar_insumo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_participante.resx">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modificar_Refrigerio.resx">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_Abierto.resx">
       <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_FEE.resx">
       <DependentUpon>Nueva_formacion_FEE.cs</DependentUpon>
@@ -462,6 +485,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formaciones.resx">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formatos.resx">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_insumos.resx">
       <DependentUpon>Ver_insumos.cs</DependentUpon>
@@ -667,6 +696,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_edificio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ucs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
