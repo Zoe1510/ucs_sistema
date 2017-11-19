@@ -41,22 +41,23 @@
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvFormaciones = new System.Windows.Forms.DataGridView();
-            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbxEstatus = new System.Windows.Forms.ComboBox();
+            this.cmbxNombre = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
             this.btnCambiarStatus = new System.Windows.Forms.Button();
+            this.btnVerFormacion = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
-            this.btnVerFormacion = new System.Windows.Forms.Button();
+            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracion_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
@@ -175,6 +176,7 @@
             this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
             this.tipo_formacion,
+            this.duracion_curso,
             this.estatus_formacion,
             this.etapa_formacion,
             this.creado_por});
@@ -200,42 +202,12 @@
             this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
             this.dgvFormaciones.TabIndex = 0;
             // 
-            // nombre_formacion
-            // 
-            this.nombre_formacion.HeaderText = "Formación";
-            this.nombre_formacion.Name = "nombre_formacion";
-            this.nombre_formacion.ReadOnly = true;
-            // 
-            // tipo_formacion
-            // 
-            this.tipo_formacion.HeaderText = "Tipo";
-            this.tipo_formacion.Name = "tipo_formacion";
-            this.tipo_formacion.ReadOnly = true;
-            // 
-            // estatus_formacion
-            // 
-            this.estatus_formacion.HeaderText = "Estatus";
-            this.estatus_formacion.Name = "estatus_formacion";
-            this.estatus_formacion.ReadOnly = true;
-            // 
-            // etapa_formacion
-            // 
-            this.etapa_formacion.HeaderText = "Etapa actual";
-            this.etapa_formacion.Name = "etapa_formacion";
-            this.etapa_formacion.ReadOnly = true;
-            // 
-            // creado_por
-            // 
-            this.creado_por.HeaderText = "Creador";
-            this.creado_por.Name = "creado_por";
-            this.creado_por.ReadOnly = true;
-            // 
             // grpbDatos
             // 
             this.grpbDatos.Controls.Add(this.label3);
             this.grpbDatos.Controls.Add(this.label2);
-            this.grpbDatos.Controls.Add(this.comboBox2);
-            this.grpbDatos.Controls.Add(this.comboBox1);
+            this.grpbDatos.Controls.Add(this.cmbxEstatus);
+            this.grpbDatos.Controls.Add(this.cmbxNombre);
             this.grpbDatos.Controls.Add(this.btnBuscar);
             this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -268,32 +240,33 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Nombre:";
             // 
-            // comboBox2
+            // cmbxEstatus
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbxEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxEstatus.Font = new System.Drawing.Font("Rockwell", 8F);
+            this.cmbxEstatus.FormattingEnabled = true;
+            this.cmbxEstatus.Items.AddRange(new object[] {
             "En curso",
             "Reprogramado",
             "Suspendido",
             "Finalizado"});
-            this.comboBox2.Location = new System.Drawing.Point(79, 91);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(158, 21);
-            this.comboBox2.TabIndex = 5;
+            this.cmbxEstatus.Location = new System.Drawing.Point(79, 91);
+            this.cmbxEstatus.Name = "cmbxEstatus";
+            this.cmbxEstatus.Size = new System.Drawing.Size(158, 21);
+            this.cmbxEstatus.TabIndex = 5;
             // 
-            // comboBox1
+            // cmbxNombre
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(79, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cmbxNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxNombre.Font = new System.Drawing.Font("Rockwell", 8F);
+            this.cmbxNombre.FormattingEnabled = true;
+            this.cmbxNombre.Location = new System.Drawing.Point(79, 44);
+            this.cmbxNombre.Name = "cmbxNombre";
+            this.cmbxNombre.Size = new System.Drawing.Size(158, 21);
+            this.cmbxNombre.TabIndex = 4;
+            this.cmbxNombre.SelectionChangeCommitted += new System.EventHandler(this.cmbxNombre_SelectionChangeCommitted);
             // 
             // btnBuscar
             // 
@@ -340,6 +313,21 @@
             this.btnCambiarStatus.Text = "Cambiar estatus";
             this.btnCambiarStatus.UseVisualStyleBackColor = false;
             // 
+            // btnVerFormacion
+            // 
+            this.btnVerFormacion.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerFormacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerFormacion.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
+            this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnVerFormacion.Location = new System.Drawing.Point(27, 296);
+            this.btnVerFormacion.Name = "btnVerFormacion";
+            this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
+            this.btnVerFormacion.TabIndex = 5;
+            this.btnVerFormacion.Text = "Ver formación";
+            this.btnVerFormacion.UseVisualStyleBackColor = false;
+            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Goldenrod;
@@ -369,21 +357,46 @@
             this.btnRefrescar.TabIndex = 7;
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
-            // btnVerFormacion
+            // nombre_formacion
             // 
-            this.btnVerFormacion.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVerFormacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerFormacion.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerFormacion.Location = new System.Drawing.Point(27, 296);
-            this.btnVerFormacion.Name = "btnVerFormacion";
-            this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
-            this.btnVerFormacion.TabIndex = 5;
-            this.btnVerFormacion.Text = "Ver formación";
-            this.btnVerFormacion.UseVisualStyleBackColor = false;
+            this.nombre_formacion.HeaderText = "Formación";
+            this.nombre_formacion.Name = "nombre_formacion";
+            this.nombre_formacion.ReadOnly = true;
+            // 
+            // tipo_formacion
+            // 
+            this.tipo_formacion.HeaderText = "Tipo";
+            this.tipo_formacion.Name = "tipo_formacion";
+            this.tipo_formacion.ReadOnly = true;
+            // 
+            // duracion_curso
+            // 
+            this.duracion_curso.HeaderText = "Duración";
+            this.duracion_curso.MaxInputLength = 9;
+            this.duracion_curso.MinimumWidth = 100;
+            this.duracion_curso.Name = "duracion_curso";
+            this.duracion_curso.ReadOnly = true;
+            this.duracion_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // estatus_formacion
+            // 
+            this.estatus_formacion.HeaderText = "Estatus";
+            this.estatus_formacion.Name = "estatus_formacion";
+            this.estatus_formacion.ReadOnly = true;
+            // 
+            // etapa_formacion
+            // 
+            this.etapa_formacion.HeaderText = "Etapa actual";
+            this.etapa_formacion.Name = "etapa_formacion";
+            this.etapa_formacion.ReadOnly = true;
+            // 
+            // creado_por
+            // 
+            this.creado_por.HeaderText = "Creador";
+            this.creado_por.Name = "creado_por";
+            this.creado_por.ReadOnly = true;
             // 
             // Ver_formaciones
             // 
@@ -426,18 +439,19 @@
         private System.Windows.Forms.GroupBox grpbDatos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbxEstatus;
+        private System.Windows.Forms.ComboBox cmbxNombre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grpbOpciones;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnVerFormacion;
+        private System.Windows.Forms.Button btnCambiarStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_formacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duracion_curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn etapa_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn creado_por;
-        private System.Windows.Forms.Button btnCambiarStatus;
     }
 }

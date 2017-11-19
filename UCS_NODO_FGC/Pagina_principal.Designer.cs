@@ -796,6 +796,7 @@
             this.btnFrmVerFormacion.Text = "     Ver formaciones";
             this.btnFrmVerFormacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerFormacion.UseVisualStyleBackColor = true;
+            this.btnFrmVerFormacion.Click += new System.EventHandler(this.btnFrmVerFormacion_Click);
             // 
             // btnFrmAddAbierto
             // 

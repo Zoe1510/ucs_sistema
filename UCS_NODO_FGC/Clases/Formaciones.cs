@@ -205,7 +205,7 @@ namespace UCS_NODO_FGC.Clases
         public static int GuardarPaqueteInstruccional(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int retorno = 0;
-            string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido) VALUES ( ?presentacion, ?contenido)";
+            string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido, p_manual, p_bitacora) VALUES ( ?presentacion, ?contenido, ?manual, ?bitacora)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             
 
@@ -219,6 +219,14 @@ namespace UCS_NODO_FGC.Clases
             contenido.Value = pq.contenido;
             cmd.Parameters.Add(contenido);
 
+            MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.VarChar);
+            manual.Value = pq.manual;
+            cmd.Parameters.Add(manual);
+
+            MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.VarChar);
+            bitacora.Value = pq.bitacora;
+            cmd.Parameters.Add(bitacora);
+
            
 
             retorno = cmd.ExecuteNonQuery();
@@ -227,5 +235,15 @@ namespace UCS_NODO_FGC.Clases
         }
 
         
+    }
+
+    public class Cursos
+    {
+       
+        public string nombre_formacion12 { get; set; }
+
+      
+        public  int id_curso12 { get; set; }
+       
     }
 }
