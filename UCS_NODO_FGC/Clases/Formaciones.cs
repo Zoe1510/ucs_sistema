@@ -99,12 +99,20 @@ namespace UCS_NODO_FGC.Clases
 
             return resultado;
         }
-        public static int CursoOtroStatusExiste(MySqlConnection conexion, Formaciones form, string status)
+
+        //Funciona de javier
+        public static bool ExisteCursoInCompany(String nombre_formacion, String cliente)
+        {
+            //MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '" + form.nombre_formacion + "' AND tipo_curso='" + form.tipo_formacion + "' AND estatus_curso LIKE ('%" + status + "%')");
+
+            return false;
+        }
+
+        public static int CursoOtroStatusExiste(Formaciones form, string status)
         {
             int resultado = 0;
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_p_inst FROM cursos WHERE nombre_curso = '{0}' AND tipo_curso='{2}' AND estatus_curso LIKE ('%{1}%')", form.nombre_formacion, status, form.tipo_formacion), conexion);
-            MySqlDataReader leer = cmd.ExecuteReader();
-
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '"+ form.nombre_formacion + "' AND tipo_curso='"+ form.tipo_formacion + "' AND estatus_curso LIKE ('%"+ status + "%')");
+           
             while (leer.Read())
             {
                 resultado = leer.GetInt32(0);

@@ -107,6 +107,7 @@
     <Compile Include="Clases\Curso_IN.cs" />
     <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
+    <Compile Include="Clases\HelperFunctions.cs" />
     <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
     <Compile Include="Clases\Empresa.cs" />
