@@ -503,5 +503,10 @@ namespace UCS_NODO_FGC
         {
             AddFormInPanel(new Ver_formatos());
         }
+
+        private void btnFrmVerFormacion_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_formaciones());
+        }
     }
 }

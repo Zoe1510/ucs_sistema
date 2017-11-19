@@ -290,8 +290,10 @@ namespace UCS_NODO_FGC
                                             if (btnVerPresentacion.Enabled == false)
                                             {
                                                 p_inst.presentacion = "";
+                                               
                                             }
-                                            
+                                            p_inst.bitacora = "";
+                                            p_inst.manual = "";
                                             formacion.fecha_inicial = fecha_creacion;
 
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
@@ -305,6 +307,7 @@ namespace UCS_NODO_FGC
                                             {
                                                 if (conexion.abrirconexion() == true)
                                                 {
+
                                                     int resultado2 = Clases.Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
                                                     conexion.cerrarconexion();
 

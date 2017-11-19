@@ -250,7 +250,21 @@ namespace UCS_NODO_FGC.Clases
             return lista;
         }
 
-     
+        public static List<Cursos> llenarCmbxCursos()
+        {
+            List<Cursos> lista = new List<Cursos>();
+            MySqlDataReader cursos = Conexion.ConsultarBD("SELECT * FROM cursos");
+            while (cursos.Read())
+            {
+                Cursos c = new Cursos();
+                c.nombre_formacion12 = Convert.ToString(cursos["nombre_curso"]);
+                c.id_curso12 = Convert.ToInt32(cursos["id_cursos"]);
+                lista.Add(c);
+                
+                
+            }
+            return lista;
+        }
 
         public static Facilitador_todos fa_todos(MySqlDataReader reader)
         {

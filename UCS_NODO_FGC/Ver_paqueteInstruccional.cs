@@ -250,39 +250,18 @@ namespace UCS_NODO_FGC
                         
                         
                         p_inst.contenido= txtRutaContenido.Text;
-                        if (Clases.Paquete_instruccional._presentacion != txtRutaPresentacion.Text && txtRutaPresentacion.Text != "No existe archivo.")
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                         {
-                            p_inst.presentacion = txtRutaPresentacion.Text;
+                            Modc = Clases.Paquete_instruccional.ModificarContenidoPQ(conexion.conexion, p_inst);
                             conexion.cerrarconexion();
-                            if (conexion.abrirconexion() == true)
+                            if (Modc > 0)
                             {
-                                Modc = Clases.Paquete_instruccional.ModificarContenidoPQ(conexion.conexion, p_inst);
-                                conexion.cerrarconexion();
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    ModP= Clases.Paquete_instruccional.ModificarPresentacionPQ(conexion.conexion, p_inst);
-                                    conexion.cerrarconexion();
-                                    if(ModP>0 && Modc > 0)
-                                    {
-                                        MessageBox.Show("Actualizado correctamente.");
-                                        Clases.Paquete_instruccional._presentacion = p_inst.presentacion;
-                                    }
-                                }
+                               MessageBox.Show("Actualizado correctamente.");
                             }
-                        }else
-                        {
-                            conexion.cerrarconexion();
-                            if (conexion.abrirconexion() == true)
-                            {
-                                Modc = Clases.Paquete_instruccional.ModificarContenidoPQ(conexion.conexion, p_inst);
-                                conexion.cerrarconexion();
-                                if (Modc > 0)
-                                {
-                                    MessageBox.Show("Actualizado correctamente.");
-                                }
-                            }
-
                         }
+
+                        
                         
                     }
                     else//no hay cambio en el contenido
@@ -331,7 +310,10 @@ namespace UCS_NODO_FGC
             if (Clases.Paquete_instruccional.tipo_curso == "Abierto")
             {
                 Clases.Paquete_instruccional._contenido = txtRutaContenido.Text;
-
+                if (txtRutaPresentacion.Text != "No existe archivo.")
+                {
+                    Clases.Paquete_instruccional._presentacion = txtRutaPresentacion.Text;
+                }
                 cerrarForm();
                 Clases.Paquete_instruccional.utilizado = true;
                 this.Close();
