@@ -125,7 +125,7 @@ namespace UCS_NODO_FGC
 
         private void Controles_nivel_intermedio_EstatusInicial()
         {
-            gpbRefrigerio.Enabled = false;
+           
             gpbFechaHora.Enabled = true;
             
             gpbFacilitador.Enabled = false;
@@ -133,7 +133,7 @@ namespace UCS_NODO_FGC
             chkbCoFacilitador.Enabled = false;
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
-            dtpFechaCurso.Enabled = false;
+           
 
            
         }
@@ -540,6 +540,36 @@ namespace UCS_NODO_FGC
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
                 time.fechaDos_curso = dtpSegundaFecha.Value;
                 gpbFacilitador.Enabled = true;
+                String id_curso="";
+                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '"+cmbxCursoInce.Text+"'");
+                if (obtener_id_curso.Read())
+                {
+                    id_curso = obtener_id_curso["id_curso_ince"].ToString();
+                }
+                obtener_id_curso.Close();
+
+                MySqlDataReader obtener_id_de_facilitadores = Conexion.ConsultarBD("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE ='" + id_curso+"'");
+                List<string> lista_facilitadores = new List<string>();
+
+                while (obtener_id_de_facilitadores.Read())
+                {
+                    lista_facilitadores.Add(obtener_id_de_facilitadores["id_fa_INCE"].ToString());                   
+                }
+                obtener_id_de_facilitadores.Close();
+                cmbxFa.Items.Clear();
+                foreach (string id_facilitador in lista_facilitadores)
+                {
+                    MessageBox.Show("id de facilitador:" + id_facilitador);
+                    MySqlDataReader obtener_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores WHERE id_fa='" + id_facilitador + "'");
+                    if (obtener_facilitador.Read())
+                    {
+                        cmbxFa.Items.Add(obtener_facilitador["nombre_fa"]);
+                        obtener_facilitador.Close();
+                    }
+                    
+                    
+                }
+
             }
         }
 
@@ -765,6 +795,41 @@ namespace UCS_NODO_FGC
             contenido = "";
             presentacion = "";   
 
+        }
+
+        private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpFechaCurso.Value <= DateTime.Today)
+            {
+                errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                dtpFechaCurso.Focus();
+            }
+            else
+            {
+                errorProviderFecha.SetError(dtpFechaCurso, "");
+                time.fecha_curso = dtpFechaCurso.Value;
+                dtpSegundaFecha.Enabled = true;
+                dtpSegundaFecha.Focus();
+                
+                
+
+
+            }
+        }
+
+        private void dtpSegundaFecha_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value)
+            {
+                errorProviderFecha.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                dtpSegundaFecha.Focus();
+            }
+            else
+            {
+                errorProviderFecha.SetError(dtpSegundaFecha, "");
+                time.fechaDos_curso = dtpSegundaFecha.Value;
+                gpbFacilitador.Enabled = true;
+            }
         }
     }
 }

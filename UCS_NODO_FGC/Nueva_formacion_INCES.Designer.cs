@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -521,7 +521,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(929, 608);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(943, 608);
             this.pnlNivel_basico.TabIndex = 89;
             this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
@@ -1262,27 +1262,29 @@
             // dtpSegundaFecha
             // 
             this.dtpSegundaFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSegundaFecha.CustomFormat = "dd/mm/yyyy";
+            this.dtpSegundaFecha.CustomFormat = "";
             this.dtpSegundaFecha.Font = new System.Drawing.Font("Rockwell", 12F);
             this.dtpSegundaFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpSegundaFecha.Location = new System.Drawing.Point(204, 90);
             this.dtpSegundaFecha.Name = "dtpSegundaFecha";
             this.dtpSegundaFecha.Size = new System.Drawing.Size(167, 26);
             this.dtpSegundaFecha.TabIndex = 48;
-            this.dtpSegundaFecha.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpSegundaFecha.Value = new System.DateTime(2017, 11, 18, 19, 38, 42, 0);
+            this.dtpSegundaFecha.ValueChanged += new System.EventHandler(this.dtpSegundaFecha_ValueChanged);
             this.dtpSegundaFecha.Validating += new System.ComponentModel.CancelEventHandler(this.dtpSegundaFecha_Validating);
             // 
             // dtpFechaCurso
             // 
             this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaCurso.CustomFormat = "dd/mm/yyyy";
+            this.dtpFechaCurso.CustomFormat = "";
             this.dtpFechaCurso.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaCurso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaCurso.Location = new System.Drawing.Point(205, 31);
             this.dtpFechaCurso.Name = "dtpFechaCurso";
             this.dtpFechaCurso.Size = new System.Drawing.Size(167, 26);
             this.dtpFechaCurso.TabIndex = 48;
-            this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpFechaCurso.Value = new System.DateTime(2017, 11, 18, 0, 0, 0, 0);
+            this.dtpFechaCurso.ValueChanged += new System.EventHandler(this.dtpFechaCurso_ValueChanged);
             this.dtpFechaCurso.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaCurso_Validating);
             // 
             // label28
@@ -1536,26 +1538,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle38;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";

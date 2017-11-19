@@ -1369,6 +1369,16 @@ namespace UCS_NODO_FGC
 
         }
 
+        private void cmbxFa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gpbFacilitador_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)
         {
             if(dtpFechaCurso.Value <= DateTime.Today)
