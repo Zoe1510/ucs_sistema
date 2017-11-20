@@ -130,6 +130,7 @@ namespace UCS_NODO_FGC.Clases
 
             while (leer.Read())
             {
+
                if(leer.GetString(0) == null)
                 {
                     p.presentacion = "";
@@ -147,11 +148,27 @@ namespace UCS_NODO_FGC.Clases
                 {
                     p.contenido = "";
                 }
-               
-                //p.ficha = leer.GetString(2);
-               // p.manual = leer.GetString(3);
-               // p.bitacora = leer.GetString(4);
-                
+
+                if (leer.GetString(2) != null)
+                {
+                    p.manual = leer.GetString(2);
+                }
+                else
+                {
+                    p.manual = "";
+                }
+
+                if (leer.GetString(3) != null)
+                {
+                    p.bitacora = leer.GetString(3);
+                }
+                else
+                {
+                    p.bitacora = "";
+                }
+
+         
+
             }
             return p;
         }

@@ -1,3 +1,4 @@
+
 #You can also use two asterisks to match nested directories; a/**/z would match a/z, a/b/z, a/b/c/z, and so on.
 
 ## Ignore Visual Studio temporary files, build results, and

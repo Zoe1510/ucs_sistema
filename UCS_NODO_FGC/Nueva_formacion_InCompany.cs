@@ -773,5 +773,10 @@ namespace UCS_NODO_FGC
                 txtNombreFormacion.ReadOnly = false;
             }
         }
+
+        private void cmbxSolicitadoPor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
