@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Panel_cabecera = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -45,69 +42,35 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbxEstatus = new System.Windows.Forms.ComboBox();
-            this.cmbxNombre = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
             this.btnCambiarStatus = new System.Windows.Forms.Button();
             this.btnVerFormacion = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
+            this.errorProviderCmbxNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCmbxEstatus = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Panel_cabecera = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitud_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracion_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Panel_cabecera.SuspendLayout();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).BeginInit();
             this.grpbDatos.SuspendLayout();
             this.grpbOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCmbxNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCmbxEstatus)).BeginInit();
+            this.Panel_cabecera.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Panel_cabecera
-            // 
-            this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
-            this.Panel_cabecera.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.panel_cabecera;
-            this.Panel_cabecera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Panel_cabecera.Controls.Add(this.label1);
-            this.Panel_cabecera.Controls.Add(this.shapeContainer1);
-            this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
-            this.Panel_cabecera.Name = "Panel_cabecera";
-            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 96);
-            this.Panel_cabecera.TabIndex = 47;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lucida Fax", 27.25F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(316, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 43);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ver formaciones";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape7});
-            this.shapeContainer1.Size = new System.Drawing.Size(1122, 96);
-            this.shapeContainer1.TabIndex = 2;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // rectangleShape7
-            // 
-            this.rectangleShape7.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
-            this.rectangleShape7.Name = "rectangleShape7";
-            this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
             // 
             // panel8
             // 
@@ -176,6 +139,7 @@
             this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
             this.tipo_formacion,
+            this.solicitud_curso,
             this.duracion_curso,
             this.estatus_formacion,
             this.etapa_formacion,
@@ -201,13 +165,14 @@
             this.dgvFormaciones.RowHeadersVisible = false;
             this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
             this.dgvFormaciones.TabIndex = 0;
+            this.dgvFormaciones.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFormaciones_MouseClick);
             // 
             // grpbDatos
             // 
+            this.grpbDatos.Controls.Add(this.txtBuscarNombre);
             this.grpbDatos.Controls.Add(this.label3);
             this.grpbDatos.Controls.Add(this.label2);
             this.grpbDatos.Controls.Add(this.cmbxEstatus);
-            this.grpbDatos.Controls.Add(this.cmbxNombre);
             this.grpbDatos.Controls.Add(this.btnBuscar);
             this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -255,18 +220,7 @@
             this.cmbxEstatus.Name = "cmbxEstatus";
             this.cmbxEstatus.Size = new System.Drawing.Size(158, 21);
             this.cmbxEstatus.TabIndex = 5;
-            // 
-            // cmbxNombre
-            // 
-            this.cmbxNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxNombre.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.cmbxNombre.FormattingEnabled = true;
-            this.cmbxNombre.Location = new System.Drawing.Point(79, 44);
-            this.cmbxNombre.Name = "cmbxNombre";
-            this.cmbxNombre.Size = new System.Drawing.Size(158, 21);
-            this.cmbxNombre.TabIndex = 4;
-            this.cmbxNombre.SelectionChangeCommitted += new System.EventHandler(this.cmbxNombre_SelectionChangeCommitted);
+            this.cmbxEstatus.SelectionChangeCommitted += new System.EventHandler(this.cmbxEstatus_SelectionChangeCommitted);
             // 
             // btnBuscar
             // 
@@ -282,6 +236,7 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grpbOpciones
             // 
@@ -312,6 +267,7 @@
             this.btnCambiarStatus.TabIndex = 9;
             this.btnCambiarStatus.Text = "Cambiar estatus";
             this.btnCambiarStatus.UseVisualStyleBackColor = false;
+            this.btnCambiarStatus.Click += new System.EventHandler(this.btnCambiarStatus_Click);
             // 
             // btnVerFormacion
             // 
@@ -327,6 +283,7 @@
             this.btnVerFormacion.TabIndex = 5;
             this.btnVerFormacion.Text = "Ver formación";
             this.btnVerFormacion.UseVisualStyleBackColor = false;
+            this.btnVerFormacion.Click += new System.EventHandler(this.btnVerFormacion_Click);
             // 
             // btnModificar
             // 
@@ -359,6 +316,57 @@
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
+            // errorProviderCmbxNombre
+            // 
+            this.errorProviderCmbxNombre.ContainerControl = this;
+            // 
+            // errorProviderCmbxEstatus
+            // 
+            this.errorProviderCmbxEstatus.ContainerControl = this;
+            // 
+            // Panel_cabecera
+            // 
+            this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Panel_cabecera.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.panel_cabecera;
+            this.Panel_cabecera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panel_cabecera.Controls.Add(this.label1);
+            this.Panel_cabecera.Controls.Add(this.shapeContainer1);
+            this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_cabecera.Location = new System.Drawing.Point(0, 0);
+            this.Panel_cabecera.Name = "Panel_cabecera";
+            this.Panel_cabecera.Size = new System.Drawing.Size(1122, 96);
+            this.Panel_cabecera.TabIndex = 47;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Lucida Fax", 27.25F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(316, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(342, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ver formaciones";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape7});
+            this.shapeContainer1.Size = new System.Drawing.Size(1122, 96);
+            this.shapeContainer1.TabIndex = 2;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape7
+            // 
+            this.rectangleShape7.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
+            this.rectangleShape7.Name = "rectangleShape7";
+            this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
+            // 
             // nombre_formacion
             // 
             this.nombre_formacion.HeaderText = "Formación";
@@ -370,6 +378,14 @@
             this.tipo_formacion.HeaderText = "Tipo";
             this.tipo_formacion.Name = "tipo_formacion";
             this.tipo_formacion.ReadOnly = true;
+            // 
+            // solicitud_curso
+            // 
+            this.solicitud_curso.HeaderText = "Solicitado por";
+            this.solicitud_curso.MaxInputLength = 100;
+            this.solicitud_curso.Name = "solicitud_curso";
+            this.solicitud_curso.ReadOnly = true;
+            this.solicitud_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // duracion_curso
             // 
@@ -398,10 +414,19 @@
             this.creado_por.Name = "creado_por";
             this.creado_por.ReadOnly = true;
             // 
+            // txtBuscarNombre
+            // 
+            this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
+            this.txtBuscarNombre.Location = new System.Drawing.Point(79, 48);
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(154, 20);
+            this.txtBuscarNombre.TabIndex = 8;
+            // 
             // Ver_formaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1122, 739);
             this.Controls.Add(this.grpbOpciones);
             this.Controls.Add(this.grpbDatos);
@@ -411,8 +436,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Ver_formaciones";
             this.Load += new System.EventHandler(this.Ver_formaciones_Load);
-            this.Panel_cabecera.ResumeLayout(false);
-            this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.grpbData.ResumeLayout(false);
@@ -420,6 +443,10 @@
             this.grpbDatos.ResumeLayout(false);
             this.grpbDatos.PerformLayout();
             this.grpbOpciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCmbxNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCmbxEstatus)).EndInit();
+            this.Panel_cabecera.ResumeLayout(false);
+            this.Panel_cabecera.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -440,18 +467,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbxEstatus;
-        private System.Windows.Forms.ComboBox cmbxNombre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grpbOpciones;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnVerFormacion;
         private System.Windows.Forms.Button btnCambiarStatus;
+        private System.Windows.Forms.ErrorProvider errorProviderCmbxNombre;
+        private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_formacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn solicitud_curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracion_curso;
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn etapa_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn creado_por;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
     }
 }

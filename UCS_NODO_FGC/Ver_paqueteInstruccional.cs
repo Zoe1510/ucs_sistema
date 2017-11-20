@@ -152,7 +152,7 @@ namespace UCS_NODO_FGC
         private void btnModificarContenido_Click(object sender, EventArgs e)
         {
             OpenFileDialog od = new OpenFileDialog();
-            od.Filter = "DOC files |*.doc; *.docx; *.docm; *.dotx; *.dotm";
+            od.Filter = "PDF files |*.pdf";
             if (od.ShowDialog() == DialogResult.OK)
             {
                 

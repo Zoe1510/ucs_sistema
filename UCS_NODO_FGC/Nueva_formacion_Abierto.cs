@@ -53,6 +53,7 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Location = new Point(22, 570);
 
                 this.Location = new Point(-5, 0);
+
                 fecha_creacion = DateTime.Now;
 
                 btnVerPresentacion.Enabled = false;
@@ -1025,38 +1026,41 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Text = "Añadir participantes";
                 lblEtapafinal.Location = new Point(3, 570);
                 pnlNivel_basico.Visible = false;
-                
-                
-                ////comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
-                //if (formacion.duracion == "4")
-                //{
-                //    Controles_nivel_intermedio_EstatusInicial();
-                //    dtpFechaCurso.Focus();
-                //}else
-                //{
-                //    if(formacion.duracion == "8" && formacion.bloque_curso=="1")
-                //    {
-                //        Controles_nivel_intermedio_EstatusInicial();
-                //        gpbRefrigerio.Enabled = true;
-                //        rdbNoRef.Checked = true;
-                //    }else if(formacion.duracion == "8" && formacion.bloque_curso == "2")
-                //    {
-                //        Controles_nivel_intermedio_EstatusInicial();
-                        
-                //        dtpFechaCurso.Focus();
-                //    }else
-                //    {
-                //        if(formacion.duracion == "16")
-                //        {
-                //            Controles_nivel_intermedio_EstatusInicial();
-                            
-                //            gpbRefrigerio.Enabled = true;
-                //            rdbNoRef.Checked = true;
-                //        }
-                //    }
-                //}
-                //pnlNivel_intermedio.Visible = true;
-                //Load_Sig_Re();
+
+
+                //comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
+                if (formacion.duracion == "4")
+                {
+                    Controles_nivel_intermedio_EstatusInicial();
+                    dtpFechaCurso.Focus();
+                }
+                else
+                {
+                    if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+                        gpbRefrigerio.Enabled = true;
+                        rdbNoRef.Checked = true;
+                    }
+                    else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+
+                        dtpFechaCurso.Focus();
+                    }
+                    else
+                    {
+                        if (formacion.duracion == "16")
+                        {
+                            Controles_nivel_intermedio_EstatusInicial();
+
+                            gpbRefrigerio.Enabled = true;
+                            rdbNoRef.Checked = true;
+                        }
+                    }
+                }
+                pnlNivel_intermedio.Visible = true;
+                Load_Sig_Re();
             }
             else
             {

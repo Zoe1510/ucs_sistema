@@ -223,12 +223,23 @@ namespace UCS_NODO_FGC.Clases
     }
 
     public class Cursos
-    {
-       
-        public string nombre_formacion12 { get; set; }
-
-      
+    {       
+        public string nombre_formacion12 { get; set; }        
         public  int id_curso12 { get; set; }
-       
+
+
+        public static string solicitud_formacion13 { get; set; }
+        public static string tipo_formacion13 { get; set; }
+        public static string nombre_formacion13 { get; set; }
+        public static string estatus_formacion13 { get; set; }
+        public static int etapa_formacion13 { get; set; }
+        public static string nombreCreador_formacion13 { get; set; }
+        public static int id_curso13 { get; set; }
+        public static int id_user13 { get; set; }
+
+
+
     }
+
+   
 }
