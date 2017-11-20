@@ -141,8 +141,9 @@ namespace UCS_NODO_FGC
 
             gpbFechaHora.Enabled = true;
 
-            gpbFacilitador.Enabled = false;
-            gpbDatosFa.Enabled = false;
+            gpbFacilitador.Enabled = true;
+            cmbxFa.Enabled = true;
+            gpbDatosFa.Enabled = true;
             chkbCoFacilitador.Enabled = false;
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
@@ -205,10 +206,7 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Text = "Añadir participantes";
                 lblEtapafinal.Location = new Point(3, 570);
                 pnlNivel_basico.Visible = false;
-
-
-
-
+                                
             } else if (pnlNivel_intermedio.Visible == true)
             {
                 
@@ -470,7 +468,7 @@ namespace UCS_NODO_FGC
 
         private void cmbxFa_Validating(object sender, CancelEventArgs e)
         {
-            if ((formacion.duracion == "16"))
+            /*if ((formacion.duracion == "16"))
             {
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
@@ -516,7 +514,7 @@ namespace UCS_NODO_FGC
                         }
                     }
                 }
-            }
+            } */
 
         }
 
@@ -590,6 +588,7 @@ namespace UCS_NODO_FGC
                 
                 dtpSegundaFecha.Focus();
                 gpbFacilitador.Enabled = true;
+                cmbxFa.Enabled = true;
             }
         }
         private void dtpSegundaFecha_Validating(object sender, CancelEventArgs e)
@@ -850,7 +849,7 @@ namespace UCS_NODO_FGC
                                             {
                                                 String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                                 //Se crea la formacion con un paquete nuevo
-                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '"+FechaCreacion+"','"+FechaCreacion+"','','', '', '')");
+                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2, duracionE1, duracionE2, duracionE3) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '"+FechaCreacion+"','"+FechaCreacion+"','','', '', '', '', '', '')");
                                                 CrearCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -864,7 +863,7 @@ namespace UCS_NODO_FGC
                                                 IdCurso.Close();
 
 
-                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
+                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "', '"+FechaCreacion+"')");
                                                 usuarios_gestionan_cursos.Close();
 
                                                 MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
@@ -884,7 +883,7 @@ namespace UCS_NODO_FGC
                                         {
                                             String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                             //Se crea la formacion con un paquete ya existente
-                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + FechaCreacion + "','','', '', '')");
+                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2, duracionE1, duracionE2, duracionE3) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + FechaCreacion + "','','', '', '', '', '','')");
                                             CrearCurso.Close();
                                            
                                             MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -897,7 +896,7 @@ namespace UCS_NODO_FGC
                                             IdCurso.Close();
 
 
-                                            MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
+                                            MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "', '"+FechaCreacion+"')");
                                             usuarios_gestionan_cursos.Close();
 
                                             MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
@@ -1137,7 +1136,8 @@ namespace UCS_NODO_FGC
             gpbRefrigerio.Enabled = false;
             dtpFechaCurso.Enabled = false;
             dtpSegundaFecha.Enabled = false;
-            gpbFacilitador.Enabled = false;
+            gpbFacilitador.Enabled = true;
+            cmbxFa.Enabled = true;
             chkbCoFacilitador.Enabled = false;
             gpbCoFa.Enabled = false;
 
@@ -1167,13 +1167,7 @@ namespace UCS_NODO_FGC
                 gpbRefrigerio.Enabled = true;
                 dtpFechaCurso.Enabled = true;
                 dtpSegundaFecha.Enabled = true;
-                gpbFacilitador.Enabled = true;
-                cmbxFa.Enabled = true;
-                if (cmbxFa.SelectedIndex != -1)
-                {
-                    chkbCoFacilitador.Enabled = true;
-                    cmbxCoFa.Enabled = true;
-                }
+               
                 
             }
 
@@ -1205,7 +1199,7 @@ namespace UCS_NODO_FGC
             contenido = "";
             presentacion = "";
             formacion.pq_inst = 0;
-            //.
+            
         }
 
         private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
@@ -1240,8 +1234,6 @@ namespace UCS_NODO_FGC
                 MessageBox.Show("entro 2");
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
                 time.fechaDos_curso = dtpSegundaFecha.Value;
-                gpbFacilitador.Enabled = true;
-                cmbxFa.Enabled = true;
 
                 MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '" + cmbxCursoInce.Text + "'");
                 int id_curso = 0;
@@ -1279,7 +1271,8 @@ namespace UCS_NODO_FGC
                     }
                     obtener_facilitador.Close();
                 }
-
+                gpbFacilitador.Enabled = true;
+                cmbxFa.Enabled = true;
                 cmbxFa.Focus();
 
                 
@@ -1302,7 +1295,7 @@ namespace UCS_NODO_FGC
         {
             if (cmbxCoFa.Text != "")
             {
-                ComboboxItem item = new ComboboxItem();
+                //ComboboxItem item = new ComboboxItem();
                 //para llenar el combobox con los co-facilitadores
                 MySqlDataReader datos_co_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores where id_fa='" + (cmbxCoFa.SelectedItem as ComboboxItem).Value + "'");
                 if (datos_co_facilitador.Read())
@@ -1370,6 +1363,7 @@ namespace UCS_NODO_FGC
 
         private void rdbNoMantenerRef_CheckedChanged(object sender, EventArgs e)
         {
+            /*
             if (cmbxTipoRefrigerio.SelectedIndex == -1)
             {
                 errorProviderFecha.SetError(cmbxTipoRefrigerio, "Debe seleccionar un tipo de refrigerio");
@@ -1396,6 +1390,7 @@ namespace UCS_NODO_FGC
                     }
                 }
             }
+            */
         }
 
         private void cmbxTipoRefrigerio_SelectedIndexChanged(object sender, EventArgs e)
