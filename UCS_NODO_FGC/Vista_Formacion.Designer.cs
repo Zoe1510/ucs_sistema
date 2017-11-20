@@ -34,39 +34,39 @@
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEstatus = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSolicitud = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSolicitud = new System.Windows.Forms.TextBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtEstadoB = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.txtEstadoA = new System.Windows.Forms.TextBox();
+            this.txtEstadoI = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtTiempoA = new System.Windows.Forms.TextBox();
             this.txtTiempoI = new System.Windows.Forms.TextBox();
             this.txtTiempoB = new System.Windows.Forms.TextBox();
-            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.txtEstadoI = new System.Windows.Forms.TextBox();
-            this.txtEstadoA = new System.Windows.Forms.TextBox();
-            this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtEstadoB = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape8 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.txtTipo = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtEstatus = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -142,6 +142,79 @@
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
             // 
+            // txtEstatus
+            // 
+            this.txtEstatus.Enabled = false;
+            this.txtEstatus.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtEstatus.Location = new System.Drawing.Point(203, 111);
+            this.txtEstatus.Name = "txtEstatus";
+            this.txtEstatus.Size = new System.Drawing.Size(309, 23);
+            this.txtEstatus.TabIndex = 18;
+            this.txtEstatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(44, 111);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(144, 19);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Estatus formación:";
+            // 
+            // txtTipo
+            // 
+            this.txtTipo.Enabled = false;
+            this.txtTipo.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtTipo.Location = new System.Drawing.Point(203, 71);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(309, 23);
+            this.txtTipo.TabIndex = 16;
+            this.txtTipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(41, 72);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(147, 19);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Tipo de formación:";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Enabled = false;
+            this.txtUsuario.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtUsuario.Location = new System.Drawing.Point(203, 192);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(309, 23);
+            this.txtUsuario.TabIndex = 14;
+            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(107, 193);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 19);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Creación:";
+            // 
+            // txtSolicitud
+            // 
+            this.txtSolicitud.Enabled = false;
+            this.txtSolicitud.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtSolicitud.Location = new System.Drawing.Point(203, 153);
+            this.txtSolicitud.Name = "txtSolicitud";
+            this.txtSolicitud.Size = new System.Drawing.Size(309, 23);
+            this.txtSolicitud.TabIndex = 12;
+            this.txtSolicitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtNombre
             // 
             this.txtNombre.Enabled = false;
@@ -174,37 +247,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Nombre formación:";
             // 
-            // txtSolicitud
-            // 
-            this.txtSolicitud.Enabled = false;
-            this.txtSolicitud.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtSolicitud.Location = new System.Drawing.Point(203, 153);
-            this.txtSolicitud.Name = "txtSolicitud";
-            this.txtSolicitud.Size = new System.Drawing.Size(309, 23);
-            this.txtSolicitud.TabIndex = 12;
-            this.txtSolicitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Enabled = false;
-            this.txtUsuario.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtUsuario.Location = new System.Drawing.Point(203, 192);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(309, 23);
-            this.txtUsuario.TabIndex = 14;
-            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(107, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 19);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Creación:";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtEstadoA);
@@ -227,85 +269,62 @@
             this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             // 
-            // label4
+            // txtEstadoA
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(24, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 19);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Estado de las etapas:";
+            this.txtEstadoA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEstadoA.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtEstadoA.Enabled = false;
+            this.txtEstadoA.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.txtEstadoA.Location = new System.Drawing.Point(178, 159);
+            this.txtEstadoA.Name = "txtEstadoA";
+            this.txtEstadoA.Size = new System.Drawing.Size(180, 19);
+            this.txtEstadoA.TabIndex = 28;
+            this.txtEstadoA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtEstadoB
+            // txtEstadoI
             // 
-            this.txtEstadoB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEstadoB.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtEstadoB.Enabled = false;
-            this.txtEstadoB.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.txtEstadoB.Location = new System.Drawing.Point(178, 101);
-            this.txtEstadoB.Name = "txtEstadoB";
-            this.txtEstadoB.Size = new System.Drawing.Size(180, 19);
-            this.txtEstadoB.TabIndex = 12;
-            this.txtEstadoB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEstadoI.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEstadoI.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtEstadoI.Enabled = false;
+            this.txtEstadoI.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.txtEstadoI.Location = new System.Drawing.Point(178, 130);
+            this.txtEstadoI.Name = "txtEstadoI";
+            this.txtEstadoI.Size = new System.Drawing.Size(180, 19);
+            this.txtEstadoI.TabIndex = 27;
+            this.txtEstadoI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label5
+            // label11
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(55, 101);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 19);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Nivel básico";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(367, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(140, 17);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Tiempo transcurrido";
             // 
-            // label6
+            // label10
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(41, 130);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 19);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Nivel intermedio";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(247, 71);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 17);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "Estado";
             // 
-            // label7
+            // label8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(46, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 19);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Nivel avanzado";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(3, 16);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape8,
-            this.rectangleShape7,
-            this.rectangleShape6,
-            this.rectangleShape5,
-            this.rectangleShape4,
-            this.rectangleShape3,
-            this.rectangleShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(541, 199);
-            this.shapeContainer2.TabIndex = 20;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape1.Location = new System.Drawing.Point(37, 74);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(475, 1);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(79, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Etapa";
             // 
             // txtTiempoA
             // 
@@ -343,90 +362,85 @@
             this.txtTiempoB.TabIndex = 21;
             this.txtTiempoB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // rectangleShape3
+            // label7
             // 
-            this.rectangleShape3.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape3.Location = new System.Drawing.Point(169, 48);
-            this.rectangleShape3.Name = "rectangleShape3";
-            this.rectangleShape3.Size = new System.Drawing.Size(1, 121);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(46, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 19);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Nivel avanzado";
             // 
-            // rectangleShape4
+            // label6
             // 
-            this.rectangleShape4.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape4.Location = new System.Drawing.Point(361, 47);
-            this.rectangleShape4.Name = "rectangleShape4";
-            this.rectangleShape4.Size = new System.Drawing.Size(1, 124);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(41, 130);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 19);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Nivel intermedio";
             // 
-            // label8
+            // label5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(79, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 17);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Etapa";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(55, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 19);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Nivel básico";
             // 
-            // label10
+            // txtEstadoB
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(247, 71);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 17);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Estado";
+            this.txtEstadoB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEstadoB.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtEstadoB.Enabled = false;
+            this.txtEstadoB.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.txtEstadoB.Location = new System.Drawing.Point(178, 101);
+            this.txtEstadoB.Name = "txtEstadoB";
+            this.txtEstadoB.Size = new System.Drawing.Size(180, 19);
+            this.txtEstadoB.TabIndex = 12;
+            this.txtEstadoB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label11
+            // label4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(367, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 17);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Tiempo transcurrido";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(24, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 19);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Estado de las etapas:";
             // 
-            // rectangleShape5
+            // shapeContainer2
             // 
-            this.rectangleShape5.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape5.Location = new System.Drawing.Point(34, 47);
-            this.rectangleShape5.Name = "rectangleShape5";
-            this.rectangleShape5.Size = new System.Drawing.Size(479, 1);
+            this.shapeContainer2.Location = new System.Drawing.Point(3, 16);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape8,
+            this.rectangleShape7,
+            this.rectangleShape6,
+            this.rectangleShape5,
+            this.rectangleShape4,
+            this.rectangleShape3,
+            this.rectangleShape1});
+            this.shapeContainer2.Size = new System.Drawing.Size(541, 199);
+            this.shapeContainer2.TabIndex = 20;
+            this.shapeContainer2.TabStop = false;
             // 
-            // txtEstadoI
+            // rectangleShape8
             // 
-            this.txtEstadoI.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEstadoI.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtEstadoI.Enabled = false;
-            this.txtEstadoI.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.txtEstadoI.Location = new System.Drawing.Point(178, 130);
-            this.txtEstadoI.Name = "txtEstadoI";
-            this.txtEstadoI.Size = new System.Drawing.Size(180, 19);
-            this.txtEstadoI.TabIndex = 27;
-            this.txtEstadoI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtEstadoA
-            // 
-            this.txtEstadoA.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEstadoA.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txtEstadoA.Enabled = false;
-            this.txtEstadoA.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.txtEstadoA.Location = new System.Drawing.Point(178, 159);
-            this.txtEstadoA.Name = "txtEstadoA";
-            this.txtEstadoA.Size = new System.Drawing.Size(180, 19);
-            this.txtEstadoA.TabIndex = 28;
-            this.txtEstadoA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // rectangleShape6
-            // 
-            this.rectangleShape6.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape6.Location = new System.Drawing.Point(34, 170);
-            this.rectangleShape6.Name = "rectangleShape6";
-            this.rectangleShape6.Size = new System.Drawing.Size(479, 1);
+            this.rectangleShape8.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape8.Location = new System.Drawing.Point(34, 47);
+            this.rectangleShape8.Name = "rectangleShape8";
+            this.rectangleShape8.Size = new System.Drawing.Size(1, 124);
             // 
             // rectangleShape7
             // 
@@ -435,12 +449,40 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1, 124);
             // 
-            // rectangleShape8
+            // rectangleShape6
             // 
-            this.rectangleShape8.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.rectangleShape8.Location = new System.Drawing.Point(34, 47);
-            this.rectangleShape8.Name = "rectangleShape8";
-            this.rectangleShape8.Size = new System.Drawing.Size(1, 124);
+            this.rectangleShape6.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape6.Location = new System.Drawing.Point(34, 170);
+            this.rectangleShape6.Name = "rectangleShape6";
+            this.rectangleShape6.Size = new System.Drawing.Size(479, 1);
+            // 
+            // rectangleShape5
+            // 
+            this.rectangleShape5.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape5.Location = new System.Drawing.Point(34, 47);
+            this.rectangleShape5.Name = "rectangleShape5";
+            this.rectangleShape5.Size = new System.Drawing.Size(479, 1);
+            // 
+            // rectangleShape4
+            // 
+            this.rectangleShape4.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape4.Location = new System.Drawing.Point(361, 47);
+            this.rectangleShape4.Name = "rectangleShape4";
+            this.rectangleShape4.Size = new System.Drawing.Size(1, 124);
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape3.Location = new System.Drawing.Point(169, 48);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(1, 121);
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.BorderColor = System.Drawing.Color.MidnightBlue;
+            this.rectangleShape1.Location = new System.Drawing.Point(37, 74);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(475, 1);
             // 
             // btnActualizar
             // 
@@ -450,54 +492,12 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnActualizar.Location = new System.Drawing.Point(242, 531);
+            this.btnActualizar.Location = new System.Drawing.Point(242, 526);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(132, 46);
             this.btnActualizar.TabIndex = 76;
             this.btnActualizar.Text = "Aceptar";
             this.btnActualizar.UseVisualStyleBackColor = false;
-            // 
-            // txtTipo
-            // 
-            this.txtTipo.Enabled = false;
-            this.txtTipo.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtTipo.Location = new System.Drawing.Point(203, 71);
-            this.txtTipo.Name = "txtTipo";
-            this.txtTipo.Size = new System.Drawing.Size(309, 23);
-            this.txtTipo.TabIndex = 16;
-            this.txtTipo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(41, 72);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(147, 19);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Tipo de formación:";
-            // 
-            // txtEstatus
-            // 
-            this.txtEstatus.Enabled = false;
-            this.txtEstatus.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtEstatus.Location = new System.Drawing.Point(203, 111);
-            this.txtEstatus.Name = "txtEstatus";
-            this.txtEstatus.Size = new System.Drawing.Size(309, 23);
-            this.txtEstatus.TabIndex = 18;
-            this.txtEstatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(44, 111);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(144, 19);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Estatus formación:";
             // 
             // Vista_Formacion
             // 
