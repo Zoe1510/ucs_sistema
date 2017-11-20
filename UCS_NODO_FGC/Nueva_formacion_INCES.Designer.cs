@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -507,7 +507,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(922, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -1346,6 +1346,7 @@
             this.rdbNoIgual.TabStop = true;
             this.rdbNoIgual.Text = "No";
             this.rdbNoIgual.UseVisualStyleBackColor = true;
+            this.rdbNoIgual.CheckedChanged += new System.EventHandler(this.rdbNoIgual_CheckedChanged);
             // 
             // label16
             // 
@@ -1369,6 +1370,7 @@
             this.rdbSiIgual.Text = "Sí";
             this.rdbSiIgual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rdbSiIgual.UseVisualStyleBackColor = true;
+            this.rdbSiIgual.CheckedChanged += new System.EventHandler(this.rdbSiIgual_CheckedChanged);
             // 
             // cmbxSegundoHorario
             // 
@@ -1399,10 +1401,15 @@
             this.cmbxHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxHorarios.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxHorarios.FormattingEnabled = true;
+            this.cmbxHorarios.Items.AddRange(new object[] {
+            "08:00 am - 05:00pm",
+            "09:00 am - 06:00pm"});
             this.cmbxHorarios.Location = new System.Drawing.Point(175, 27);
             this.cmbxHorarios.Name = "cmbxHorarios";
             this.cmbxHorarios.Size = new System.Drawing.Size(199, 25);
             this.cmbxHorarios.TabIndex = 67;
+            this.cmbxHorarios.SelectedIndexChanged += new System.EventHandler(this.cmbxHorarios_SelectedIndexChanged);
+            this.cmbxHorarios.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxHorarios_Validating);
             // 
             // label13
             // 
@@ -1505,6 +1512,7 @@
             this.txtAula.Name = "txtAula";
             this.txtAula.Size = new System.Drawing.Size(220, 26);
             this.txtAula.TabIndex = 74;
+            this.txtAula.TextChanged += new System.EventHandler(this.txtAula_TextChanged);
             // 
             // label25
             // 
@@ -1541,26 +1549,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1624,6 +1632,7 @@
             this.rdbNoMantenerRef.TabStop = true;
             this.rdbNoMantenerRef.Text = "No";
             this.rdbNoMantenerRef.UseVisualStyleBackColor = true;
+            this.rdbNoMantenerRef.CheckedChanged += new System.EventHandler(this.rdbNoMantenerRef_CheckedChanged);
             // 
             // label26
             // 
@@ -1649,6 +1658,7 @@
             this.rdbMantenerRef.Text = "Sí";
             this.rdbMantenerRef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.rdbMantenerRef.UseVisualStyleBackColor = true;
+            this.rdbMantenerRef.CheckedChanged += new System.EventHandler(this.rdbMantenerRef_CheckedChanged);
             // 
             // cmbxSegundoRefrigerio
             // 
@@ -1683,6 +1693,7 @@
             this.cmbxTipoRefrigerio.Name = "cmbxTipoRefrigerio";
             this.cmbxTipoRefrigerio.Size = new System.Drawing.Size(199, 25);
             this.cmbxTipoRefrigerio.TabIndex = 67;
+            this.cmbxTipoRefrigerio.SelectedIndexChanged += new System.EventHandler(this.cmbxTipoRefrigerio_SelectedIndexChanged);
             // 
             // label31
             // 
