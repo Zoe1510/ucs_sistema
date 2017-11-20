@@ -411,6 +411,9 @@
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hacer_reportes.resx">
+      <DependentUpon>Hacer_reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio_Sesion.resx">
       <DependentUpon>Inicio_Sesion.cs</DependentUpon>
     </EmbeddedResource>
