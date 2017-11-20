@@ -16,7 +16,7 @@ namespace UCS_NODO_FGC
 
     public partial class Nueva_formacion_INCES : Form
     {
-        
+
 
 
         Clases.Formaciones formacion = new Clases.Formaciones();
@@ -41,6 +41,20 @@ namespace UCS_NODO_FGC
             InitializeComponent();
         }
 
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+
+        }
+
+
+
         private void Nueva_formacion_INCES_Load(object sender, EventArgs e)
         {
             if (Clases.Formaciones.creacion == true)//si viene referenciado del boton de la pagina principal
@@ -48,7 +62,7 @@ namespace UCS_NODO_FGC
                 this.Location = new Point(-5, 0);
 
 
-                
+
                 LabelCabecera.Text = "Nuevo INCES: Información básica";
                 LabelCabecera.Location = new Point(150, 31);
 
@@ -72,7 +86,7 @@ namespace UCS_NODO_FGC
                 btnVerBitacora.Enabled = false;
                 btnVerManual.Enabled = false;
 
-                
+
 
                 //controles del nivel intermedio
                 Controles_nivel_intermedio_EstatusInicial();
@@ -81,20 +95,20 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
-                   
+
                     string difu = "";
                     CargarDatosInsumos(conexion.conexion, difu);
                     dgvInsumos.ClearSelection();
                     conexion.cerrarconexion();
                 }
 
-               
+
                 cmbxCursoInce.Items.Clear();
                 cmbxSolicitadoPor.Items.Clear();
                 MySqlDataReader CursosInces = Conexion.ConsultarBD("SELECT nombre_curso_ince FROM cursos_inces ");
 
                 while (CursosInces.Read())
-                {               
+                {
                     cmbxCursoInce.Items.Add(CursosInces["nombre_curso_ince"]);
                 }
                 CursosInces.Close();
@@ -107,7 +121,7 @@ namespace UCS_NODO_FGC
                     cmbxSolicitadoPor.Items.Add(SolicitadoPor["nombre_empresa"]);
                 }
                 SolicitadoPor.Close();
-                
+
 
             }
         }
@@ -124,32 +138,34 @@ namespace UCS_NODO_FGC
 
         private void Controles_nivel_intermedio_EstatusInicial()
         {
-           
+
             gpbFechaHora.Enabled = true;
-            
+
             gpbFacilitador.Enabled = false;
             gpbDatosFa.Enabled = false;
             chkbCoFacilitador.Enabled = false;
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
-           
+            button1.Enabled = false;
+            button2.Enabled = false;
 
-           
+
+
         }
-        
-        
-       private void CargarDatosPrimeraEtapa()
+
+
+        private void CargarDatosPrimeraEtapa()
         {
 
         }
-       
+
         private void CargarDatosInsumos(MySqlConnection conexion, string buscar)
         {
             try
             {
                 MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ins_contenido FROM insumos WHERE ins_contenido LIKE ('%{0}%')", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
-               
+
                 dgvInsumos.Rows.Clear();
                 while (reader.Read())
                 {
@@ -168,8 +184,8 @@ namespace UCS_NODO_FGC
             }
         }
 
-       //falta llenar el cmbxFacilitadores con los facilitadores asignados al curso seleccionado en la etapa_basica
-       
+        //falta llenar el cmbxFacilitadores con los facilitadores asignados al curso seleccionado en la etapa_basica
+
 
 
         /*------------------ Botones panel lateral derecho -------------------*/
@@ -190,7 +206,7 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Location = new Point(3, 570);
                 pnlNivel_basico.Visible = false;
 
-        
+
 
 
             }
@@ -394,12 +410,12 @@ namespace UCS_NODO_FGC
         private void cmbxFa_SelectionChangeCommitted(object sender, EventArgs e)
         {
             fa.id_facilitador = Convert.ToInt32(cmbxFa.SelectedValue);
-           
+
         }
 
         private void cmbxFa_Validating(object sender, CancelEventArgs e)
         {
-            if ((formacion.duracion == "16") )
+            if ((formacion.duracion == "16"))
             {
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
@@ -456,8 +472,7 @@ namespace UCS_NODO_FGC
 
         private void cmbxCoFa_Validating(object sender, CancelEventArgs e)
         {
-            //validar si este facilitador estará disponible para esa o esas fechas
-            if ((formacion.duracion == "16") || (formacion.duracion == "8" && formacion.bloque_curso == "2"))
+            if ((formacion.duracion == "16"))
             {
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
@@ -517,12 +532,12 @@ namespace UCS_NODO_FGC
             {
                 errorProviderFecha.SetError(dtpFechaCurso, "");
                 time.fecha_curso = dtpFechaCurso.Value;
-                if ( (formacion.duracion == "16"))
-                {                   
+                if ((formacion.duracion == "16"))
+                {
                     dtpSegundaFecha.Focus();
                     gpbFacilitador.Enabled = true;
                 }
-                
+
 
 
             }
@@ -539,34 +554,38 @@ namespace UCS_NODO_FGC
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
                 time.fechaDos_curso = dtpSegundaFecha.Value;
                 gpbFacilitador.Enabled = true;
-                String id_curso="";
-                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '"+cmbxCursoInce.Text+"'");
+                String id_curso = "";
+                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '" + cmbxCursoInce.Text + "'");
                 if (obtener_id_curso.Read())
                 {
                     id_curso = obtener_id_curso["id_curso_ince"].ToString();
                 }
                 obtener_id_curso.Close();
 
-                MySqlDataReader obtener_id_de_facilitadores = Conexion.ConsultarBD("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE ='" + id_curso+"'");
+                MySqlDataReader obtener_id_de_facilitadores = Conexion.ConsultarBD("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE ='" + id_curso + "'");
                 List<string> lista_facilitadores = new List<string>();
 
                 while (obtener_id_de_facilitadores.Read())
                 {
-                    lista_facilitadores.Add(obtener_id_de_facilitadores["id_fa_INCE"].ToString());                   
+                    lista_facilitadores.Add(obtener_id_de_facilitadores["id_fa_INCE"].ToString());
                 }
                 obtener_id_de_facilitadores.Close();
                 cmbxFa.Items.Clear();
                 foreach (string id_facilitador in lista_facilitadores)
                 {
-                   
+
                     MySqlDataReader obtener_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores WHERE id_fa='" + id_facilitador + "'");
                     if (obtener_facilitador.Read())
                     {
-                        cmbxFa.Items.Add(obtener_facilitador["nombre_fa"]);
+
+                        ComboboxItem item = new ComboboxItem();
+                        item.Text = obtener_facilitador["nombre_fa"].ToString() + " " + obtener_facilitador["apellido_fa"].ToString();
+                        item.Value = int.Parse(obtener_facilitador["id_fa"].ToString());
+                        cmbxFa.Items.Add(item);
                         obtener_facilitador.Close();
                     }
-                    
-                    
+
+
                 }
 
             }
@@ -579,8 +598,8 @@ namespace UCS_NODO_FGC
 
         private void cmbxCursoInce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
+
+
 
 
             //validar si existe un curso de cualquier estatus en la base de datos con el mismo nombre
@@ -685,7 +704,27 @@ namespace UCS_NODO_FGC
                     btnGuardar.Enabled = false;
 
                 }
+            } else if (pnlNivel_intermedio.Visible == true)
+            {
+                GuardarIntermedio();
+                if (guardar == true)
+                {
+                    btnSiguienteEtapa.Enabled = true;
+                    btnPausar.Enabled = true;
+                    btnLimpiar.Enabled = true;
+
+                    btnModificar.Enabled = false;
+                    btnRetomar.Enabled = false;
+                    btnGuardar.Enabled = false;
+                }
+
+            } else if (pnlNivel_avanzado.Visible == true)
+            {
+
             }
+
+
+
         }
 
         private void GuardarBasico()
@@ -746,7 +785,7 @@ namespace UCS_NODO_FGC
                                     //se valida si el paquete ya existe
                                     int paquete_existe = 0;
 
-                                    if(formacion.pq_inst == 0)
+                                    if (formacion.pq_inst == 0)
                                     {
                                         MySqlDataReader BuscarPaquete = Conexion.ConsultarBD("SELECT id_pinstruccional FROM p_instruccional WHERE  p_manual='" + manual + "' AND p_contenido='" + contenido + "'");
                                         if (BuscarPaquete.Read())
@@ -756,14 +795,14 @@ namespace UCS_NODO_FGC
                                         }
                                         BuscarPaquete.Close();
                                     }
-                                   
-                                   
+
+
                                     if (paquete_existe == 0)
                                     {
 
                                         errorProviderManual.SetError(btnRutaManual, "");
 
-                                        if(formacion.pq_inst == 0)
+                                        if (formacion.pq_inst == 0)
                                         {
                                             // si se pasan todas las validaciones de la primera etapa, se guarda el paquete instruccional seleccionado
                                             MySqlDataReader GuardarPaqueteInstruccional = Conexion.ConsultarBD("INSERT INTO p_instruccional (p_bitacora, p_manual, p_contenido, p_presentacion) VALUES ('" + bitacora + "', '" + manual + "', '" + contenido + "', '" + presentacion + "')");
@@ -783,12 +822,12 @@ namespace UCS_NODO_FGC
                                             {
                                                 String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                                 //Se crea la formacion con un paquete nuevo
-                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1' )");
+                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '"+FechaCreacion+"','"+FechaCreacion+"','','')");
                                                 CrearCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-                                                MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '"+cmbxCursoInce.Text+"' AND solicitud_curso='"+cmbxSolicitadoPor.Text+"' AND estatus_curso='En curso'");
+                                                MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "' AND estatus_curso='En curso'");
                                                 int id_curso = 0;
                                                 if (IdCurso.Read())
                                                 {
@@ -797,10 +836,10 @@ namespace UCS_NODO_FGC
                                                 IdCurso.Close();
 
 
-                                               MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('"+id_curso+"', '"+ Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
-                                               usuarios_gestionan_cursos.Close();
+                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
+                                                usuarios_gestionan_cursos.Close();
 
-                                                MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='"+cmbxSolicitadoPor.Text+"'");
+                                                MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
                                                 int id_cliente = 0;
                                                 if (IdCliente.Read())
                                                 {
@@ -809,7 +848,7 @@ namespace UCS_NODO_FGC
 
                                                 IdCliente.Close();
 
-                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('"+id_cliente+"', '"+id_curso+"')");
+                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + id_cliente + "', '" + id_curso + "')");
                                                 clientes_solicitan_cursos.Close();
 
                                             }
@@ -846,7 +885,7 @@ namespace UCS_NODO_FGC
                                             clientes_solicitan_cursos.Close();
 
                                         }
-                                       
+
 
                                     } else
                                     {
@@ -864,6 +903,73 @@ namespace UCS_NODO_FGC
 
         private void GuardarIntermedio()
         {
+            guardar = false;
+
+            if (rdbNoRef.Checked == false && rdbSiRef.Checked == false)
+            {
+                errorProviderRefrigerio.SetError(gpbRefrigerio, "Debe seleccionar una opción.");
+                gpbRefrigerio.Focus();
+            } else {
+                errorProviderRefrigerio.SetError(gpbRefrigerio, "");
+                if (dtpFechaCurso.Value <= DateTime.Today)
+                {
+                    errorProviderContenido.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                    dtpFechaCurso.Focus();
+                } else
+                {
+                    errorProviderContenido.SetError(dtpFechaCurso, "");
+                    if (dtpSegundaFecha.Value <= dtpFechaCurso.Value || dtpSegundaFecha.Value <= DateTime.Today)
+                    {
+                        errorProviderContenido.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                        dtpSegundaFecha.Focus();
+                    } else
+                    {
+                        errorProviderContenido.SetError(dtpFechaCurso, "");
+                        if (cmbxFa.SelectedIndex == -1)
+                        {
+                            errorProviderContenido.SetError(cmbxFa, "Debe seleccionar un facilitador.");
+                            cmbxFa.Focus();
+                        } else
+                        {
+                            errorProviderContenido.SetError(cmbxFa, "");
+                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                            {
+                                errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                cmbxCoFa.Focus();
+                            } else
+                            {
+                                errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                int id_curso = 0;
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND estatus_curso='En curso'");
+                                if (obtener_id_curso.Read())
+                                {
+                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                }
+                                obtener_id_curso.Close();
+                              
+                                MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET fecha_uno='"+dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', fecha_dos='"+dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'");
+                                ActualizarCursoSegundaEtapa.Close();
+
+                                if (chkbCoFacilitador.Checked==true && cmbxCoFa.SelectedIndex != -1) {
+                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa) VALUES ('" + id_curso + "', '" + (cmbxFa.SelectedItem as ComboboxItem).Value + "', '"+ (cmbxCoFa.SelectedItem as ComboboxItem).Value + "')");
+                                    FacilitadorCurso.Close();
+                                } else
+                                {
+                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa) VALUES ('" + id_curso + "', '" + (cmbxFa.SelectedItem as ComboboxItem).Value + "')");
+                                    FacilitadorCurso.Close();
+                                }
+                              
+
+
+                            }
+
+                        }
+                    }
+                }
+                
+            }
+
 
         }
 
@@ -885,13 +991,13 @@ namespace UCS_NODO_FGC
                         Clases.Paquete_instruccional pq = new Clases.Paquete_instruccional();
                         pq = Clases.Formaciones.obtenerTodoPq(conexion.conexion, id_pq);
                         conexion.cerrarconexion();
-                      
+
                         Clases.Paquete_instruccional._bitacora = pq.bitacora;
                         Clases.Paquete_instruccional._contenido = pq.contenido;
 
                         Clases.Paquete_instruccional._manual = pq.manual;
                         Clases.Paquete_instruccional._presentacion = pq.presentacion;
-               
+
                         Clases.Paquete_instruccional.id_pin = id_pq;
                         Clases.Paquete_instruccional.tipo_curso = "INCES";
                         Ver_paqueteInstruccional verp = new Ver_paqueteInstruccional();
@@ -1018,7 +1124,8 @@ namespace UCS_NODO_FGC
             bitacora = "";
             manual = "";
             contenido = "";
-            presentacion = "";   
+            presentacion = "";
+            formacion.pq_inst = 0;
 
         }
 
@@ -1035,7 +1142,7 @@ namespace UCS_NODO_FGC
                 time.fecha_curso = dtpFechaCurso.Value;
                 dtpSegundaFecha.Enabled = true;
                 dtpSegundaFecha.Focus();
-            
+
             }
         }
 
@@ -1063,8 +1170,76 @@ namespace UCS_NODO_FGC
         {
             if (cmbxFa.Text != "")
             {
-                //MySqlDataReader datos_facilitador = Conexion.ConsultarBD("");
+                ComboboxItem item = new ComboboxItem();
+                MySqlDataReader datos_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores where id_fa='" + (cmbxFa.SelectedItem as ComboboxItem).Value + "'");
+                if (datos_facilitador.Read())
+                {
+                    //al seleccionar un elemento del combobox, se llenan los datos del co-facilitador
+                    txtTlfnFa.Text = datos_facilitador["tlfn_fa"].ToString();
+                    txtCorreoFa.Text = datos_facilitador["correo_fa"].ToString();
+                }
+                datos_facilitador.Close();
+
+                String id_curso = "";
+                //se busca el id del curso
+                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '" + cmbxCursoInce.Text + "'");
+                if (obtener_id_curso.Read())
+                {
+                    id_curso = obtener_id_curso["id_curso_ince"].ToString();
+                }
+                obtener_id_curso.Close();
+
+                //para luego buscar todos los facilitadores relacionados con el curso
+                MySqlDataReader obtener_id_de_facilitadores = Conexion.ConsultarBD("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE ='" + id_curso + "'");
+                List<string> lista_facilitadores = new List<string>();
+
+                while (obtener_id_de_facilitadores.Read())
+                {
+                    //se hace una lista con todos esos facilitadores
+                    lista_facilitadores.Add(obtener_id_de_facilitadores["id_fa_INCE"].ToString());
+                }
+                obtener_id_de_facilitadores.Close();
+                cmbxCoFa.Items.Clear();
+                foreach (string id_co_facilitador in lista_facilitadores)
+                {
+                    //se seleccionan los datos de los facilitadores de la lista
+                    MySqlDataReader obtener_co_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores WHERE id_fa='" + id_co_facilitador + "'");
+                    if (obtener_co_facilitador.Read())
+                    {
+                        //si el id del facilitador es diferente al primero, pasa a ser un co-facilitador
+                        if (obtener_co_facilitador["id_fa"].ToString() != (cmbxFa.SelectedItem as ComboboxItem).Value.ToString())
+                        {
+                           
+                            item.Text = obtener_co_facilitador["nombre_fa"].ToString() + " " + obtener_co_facilitador["apellido_fa"].ToString();
+                            item.Value = int.Parse(obtener_co_facilitador["id_fa"].ToString());
+                            cmbxCoFa.Items.Add(item);
+                            obtener_co_facilitador.Close();                            
+                            chkbCoFacilitador.Enabled = true;
+
+                        }
+
+                    }
+
+
+                }
+
             }
         }
+
+        private void cmbxCoFa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbxCoFa.Text != "")
+            {
+                ComboboxItem item = new ComboboxItem();
+                //para llenar el combobox con los co-facilitadores
+                MySqlDataReader datos_co_facilitador = Conexion.ConsultarBD("SELECT * FROM facilitadores where id_fa='" + (cmbxCoFa.SelectedItem as ComboboxItem).Value + "'");
+                if (datos_co_facilitador.Read())
+                {
+                    txtTlfnCoFa.Text = datos_co_facilitador["tlfn_fa"].ToString();
+                    txtCorreoCoFa.Text = datos_co_facilitador["correo_fa"].ToString();
+                }
+                datos_co_facilitador.Close();
+            }
+        } 
     }
 }

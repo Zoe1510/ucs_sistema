@@ -1,4 +1,4 @@
--- MySqlBackup.NET 2.0.9.2
+﻿-- MySqlBackup.NET 2.0.9.2
 -- Dump Time: 2017-11-20 00:35:59
 -- --------------------------------------
 -- Server version 5.5.55 MySQL Community Server (GPL)
@@ -444,11 +444,12 @@ CREATE TABLE IF NOT EXISTS `p_instruccional` (
   `p_manual` varchar(1000) DEFAULT NULL,
   `p_contenido` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id_pinstruccional`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃÂ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
 
 -- 
 -- Dumping data for table p_instruccional
 -- 
+
 
 /*!40000 ALTER TABLE `p_instruccional` DISABLE KEYS */;
 INSERT INTO `p_instruccional`(`id_pinstruccional`,`p_bitacora`,`p_presentacion`,`p_manual`,`p_contenido`) VALUES
@@ -649,3 +650,4 @@ INSERT INTO `usuarios`(`id_user`,`cedula_user`,`nacionalidad_user`,`nombre_user`
 
 -- Dump completed on 2017-11-20 00:35:59
 -- Total time: 0:0:0:0:932 (d:h:m:s:ms)
+
