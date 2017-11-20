@@ -822,7 +822,7 @@ namespace UCS_NODO_FGC
                                             {
                                                 String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                                 //Se crea la formacion con un paquete nuevo
-                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1' )");
+                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '','','','')");
                                                 CrearCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -939,7 +939,28 @@ namespace UCS_NODO_FGC
                             } else
                             {
                                 errorProviderContenido.SetError(cmbxCoFa, "");
-                                MySqlDataReader tiempos = Conexion.ConsultarBD("INSERT INTO tiempos (fecha_diaUno, fecha_diaDos, horario_diaUno, horario_diaDos) VALUES ('"+dtpFechaCurso.Value+"', '"+dtpSegundaFecha.Value+"', '', '')");
+
+                                int id_curso = 0;
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND estatus_curso='Abierto'");
+                                if (obtener_id_curso.Read())
+                                {
+                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                }
+                                obtener_id_curso.Close();
+
+                                MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET fecha_uno='"+dtpFechaCurso.Value+"', fecha_dos='"+dtpSegundaFecha.Value+"'");
+                                ActualizarCursoSegundaEtapa.Close();
+
+                                if (chkbCoFacilitador.Checked==true && cmbxCoFa.SelectedIndex != -1) {
+                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tiene_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa) VALUES ('" + id_curso + "', '" + (cmbxFa.SelectedItem as ComboboxItem).Value + "', '"+ (cmbxCoFa.SelectedItem as ComboboxItem).Value + "'");
+                                    FacilitadorCurso.Close();
+                                } else
+                                {
+                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tiene_fa (cursos_id_cursos, facilitadores_id_fa) VALUES ('" + id_curso + "', '" + (cmbxFa.SelectedItem as ComboboxItem).Value + "'");
+                                    FacilitadorCurso.Close();
+                                }
+                              
+
 
                             }
 

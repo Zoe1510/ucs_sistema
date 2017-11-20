@@ -95,6 +95,12 @@
     <Compile Include="Buscar_usuarios.Designer.cs">
       <DependentUpon>Buscar_usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cambiar_Estatus_Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cambiar_Estatus_Curso.Designer.cs">
+      <DependentUpon>Cambiar_Estatus_Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cambio_contraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hacer_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hacer_reportes.Designer.cs">
+      <DependentUpon>Hacer_reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio_Sesion.cs">
       <SubType>Form</SubType>
@@ -360,6 +372,12 @@
     <Compile Include="Ver_refrigerios.Designer.cs">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista_Formacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista_Formacion.Designer.cs">
+      <DependentUpon>Vista_Formacion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Agregar_insumo.resx">
       <DependentUpon>Agregar_insumo.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar_usuarios.resx">
       <DependentUpon>Buscar_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cambiar_Estatus_Curso.resx">
+      <DependentUpon>Cambiar_Estatus_Curso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cambio_contraseña.resx">
       <DependentUpon>Cambio_contraseña.cs</DependentUpon>
@@ -506,6 +527,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_refrigerios.resx">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista_Formacion.resx">
+      <DependentUpon>Vista_Formacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
