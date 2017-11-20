@@ -1,5 +1,5 @@
-﻿-- MySqlBackup.NET 2.0.9.2
--- Dump Time: 2017-11-20 00:35:59
+-- MySqlBackup.NET 2.0.9.2
+-- Dump Time: 2017-11-20 15:43:13
 -- --------------------------------------
 -- Server version 5.5.55 MySQL Community Server (GPL)
 
@@ -41,25 +41,6 @@ INSERT INTO `areas`(`id_area`,`nombre_area`,`nombre_contacto`,`correo_contacto`,
 (6,'Operaciones','Maria jimenez','jimenez.maria@gmail.com','04147890327',3),
 (7,'RRHH','Marianne','Marianne.perez@outlook.com','04126557890',4);
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
-
--- 
--- Definition of aulas
--- 
-
-DROP TABLE IF EXISTS `aulas`;
-CREATE TABLE IF NOT EXISTS `aulas` (
-  `id_aula` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `aula_re` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_aula`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- 
--- Dumping data for table aulas
--- 
-
-/*!40000 ALTER TABLE `aulas` DISABLE KEYS */;
-
-/*!40000 ALTER TABLE `aulas` ENABLE KEYS */;
 
 -- 
 -- Definition of clientes
@@ -129,6 +110,11 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `fecha_dos` date DEFAULT NULL,
   `horario_uno` varchar(100) DEFAULT NULL,
   `horario_dos` varchar(100) DEFAULT NULL,
+  `aula_dia1` varchar(45) DEFAULT NULL,
+  `aula_dia2` varchar(45) DEFAULT NULL,
+  `duracionE1` time DEFAULT NULL,
+  `duracionE2` time DEFAULT NULL,
+  `duracionE3` time DEFAULT NULL,
   PRIMARY KEY (`id_cursos`),
   KEY `cursos_paquete_idx` (`id_p_inst`),
   KEY `cursos_ref_idx` (`id_ref1`),
@@ -136,17 +122,17 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   CONSTRAINT `cursos_pq` FOREIGN KEY (`id_p_inst`) REFERENCES `p_instruccional` (`id_pinstruccional`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cursos_ref` FOREIGN KEY (`id_ref1`) REFERENCES `refrigerios` (`id_ref`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `cursos_user` FOREIGN KEY (`id_usuario1`) REFERENCES `usuarios` (`id_user`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- 
 -- Dumping data for table cursos
 -- 
 
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
-INSERT INTO `cursos`(`id_cursos`,`estatus_curso`,`tipo_curso`,`duracion_curso`,`nombre_curso`,`fecha_creacion`,`id_usuario1`,`id_p_inst`,`bloque_curso`,`solicitud_curso`,`id_ref1`,`etapa_curso`,`fecha_uno`,`fecha_dos`,`horario_uno`,`horario_dos`) VALUES
-(1,'Suspendido','Abierto','4','Formacion uno','2017-11-11 19:38:41',1,4,'1','karla ',NULL,1,NULL,NULL,NULL,NULL),
-(2,'Finalizado','Abierto','4','Formacion dos','2017-11-12 21:41:10',1,5,'1','zoyla',NULL,1,NULL,NULL,NULL,NULL),
-(3,'En curso','Abierto','8','Formacion tres','2017-11-13 19:11:15',1,6,'2','yo',NULL,1,NULL,NULL,NULL,NULL);
+INSERT INTO `cursos`(`id_cursos`,`estatus_curso`,`tipo_curso`,`duracion_curso`,`nombre_curso`,`fecha_creacion`,`id_usuario1`,`id_p_inst`,`bloque_curso`,`solicitud_curso`,`id_ref1`,`etapa_curso`,`fecha_uno`,`fecha_dos`,`horario_uno`,`horario_dos`,`aula_dia1`,`aula_dia2`,`duracionE1`,`duracionE2`,`duracionE3`) VALUES
+(1,'Suspendido','Abierto','4','Formacion uno','2017-11-11 19:38:41',1,4,'1','karla ',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(2,'Finalizado','Abierto','4','Formacion dos','2017-11-12 21:41:10',1,5,'1','zoyla',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+(3,'En curso','Abierto','8','Formacion tres','2017-11-13 19:11:15',1,6,'2','yo',NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 
 -- 
@@ -214,28 +200,6 @@ CREATE TABLE IF NOT EXISTS `cursos_inces` (
 INSERT INTO `cursos_inces`(`id_curso_ince`,`nombre_curso_ince`) VALUES
 (17,'Manejo de alimentos');
 /*!40000 ALTER TABLE `cursos_inces` ENABLE KEYS */;
-
--- 
--- Definition of cursos_tienen_aulas
--- 
-
-DROP TABLE IF EXISTS `cursos_tienen_aulas`;
-CREATE TABLE IF NOT EXISTS `cursos_tienen_aulas` (
-  `id_cta_aula` int(11) unsigned NOT NULL,
-  `id_cta_curso` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`id_cta_aula`,`id_cta_curso`),
-  KEY `cta_curso_idx` (`id_cta_curso`),
-  CONSTRAINT `cta_aula` FOREIGN KEY (`id_cta_aula`) REFERENCES `aulas` (`id_aula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `cta_curso` FOREIGN KEY (`id_cta_curso`) REFERENCES `cursos` (`id_cursos`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- 
--- Dumping data for table cursos_tienen_aulas
--- 
-
-/*!40000 ALTER TABLE `cursos_tienen_aulas` DISABLE KEYS */;
-
-/*!40000 ALTER TABLE `cursos_tienen_aulas` ENABLE KEYS */;
 
 -- 
 -- Definition of cursos_tienen_fa
@@ -444,12 +408,11 @@ CREATE TABLE IF NOT EXISTS `p_instruccional` (
   `p_manual` varchar(1000) DEFAULT NULL,
   `p_contenido` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id_pinstruccional`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃÂ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COMMENT='Aqui se guardarÃ¡n los planes instruccionales \nel contenido de cada formacion como bitacora, presentacion, otros	';
 
 -- 
 -- Dumping data for table p_instruccional
 -- 
-
 
 /*!40000 ALTER TABLE `p_instruccional` DISABLE KEYS */;
 INSERT INTO `p_instruccional`(`id_pinstruccional`,`p_bitacora`,`p_presentacion`,`p_manual`,`p_contenido`) VALUES
@@ -588,7 +551,8 @@ DROP TABLE IF EXISTS `user_gestionan_cursos`;
 CREATE TABLE IF NOT EXISTS `user_gestionan_cursos` (
   `cursos_id_cursos` int(11) unsigned NOT NULL,
   `usuarios_id_user` int(8) NOT NULL,
-  `fecha_mod_curso` datetime NOT NULL,
+  `fecha_mod_inicio` datetime NOT NULL,
+  `fecha_mod_final` datetime NOT NULL,
   KEY `curso_curso1_idx` (`cursos_id_cursos`),
   KEY `curso_user_idx` (`usuarios_id_user`),
   CONSTRAINT `curso_curso1` FOREIGN KEY (`cursos_id_cursos`) REFERENCES `cursos` (`id_cursos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -600,10 +564,10 @@ CREATE TABLE IF NOT EXISTS `user_gestionan_cursos` (
 -- 
 
 /*!40000 ALTER TABLE `user_gestionan_cursos` DISABLE KEYS */;
-INSERT INTO `user_gestionan_cursos`(`cursos_id_cursos`,`usuarios_id_user`,`fecha_mod_curso`) VALUES
-(1,1,'2017-11-11 19:39:24'),
-(2,1,'2017-11-12 21:41:46'),
-(3,1,'2017-11-13 19:11:53');
+INSERT INTO `user_gestionan_cursos`(`cursos_id_cursos`,`usuarios_id_user`,`fecha_mod_inicio`,`fecha_mod_final`) VALUES
+(1,1,'2017-11-11 19:39:24','0001-01-01 00:00:00'),
+(2,1,'2017-11-12 21:41:46','0001-01-01 00:00:00'),
+(3,1,'2017-11-13 19:11:53','0001-01-01 00:00:00');
 /*!40000 ALTER TABLE `user_gestionan_cursos` ENABLE KEYS */;
 
 -- 
@@ -648,6 +612,5 @@ INSERT INTO `usuarios`(`id_user`,`cedula_user`,`nacionalidad_user`,`nombre_user`
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 
--- Dump completed on 2017-11-20 00:35:59
--- Total time: 0:0:0:0:932 (d:h:m:s:ms)
-
+-- Dump completed on 2017-11-20 15:43:14
+-- Total time: 0:0:0:0:904 (d:h:m:s:ms)

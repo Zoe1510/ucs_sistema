@@ -14,7 +14,7 @@ namespace UCS_NODO_FGC.Clases
     {
         public static MySqlConnection bd;
 
-        public static String clave = "123456";
+        public static String clave = "root";
 
 
         public static MySqlDataReader ConsultarBD(String query)

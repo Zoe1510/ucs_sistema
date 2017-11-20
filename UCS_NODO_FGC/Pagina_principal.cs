@@ -508,5 +508,10 @@ namespace UCS_NODO_FGC
         {
             AddFormInPanel(new Ver_formaciones());
         }
+
+        private void btnFrmAddReporte_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Hacer_reportes());
+        }
     }
 }
