@@ -1205,7 +1205,7 @@ namespace UCS_NODO_FGC
             contenido = "";
             presentacion = "";
             formacion.pq_inst = 0;
-
+            //.
         }
 
         private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
