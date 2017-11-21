@@ -53,6 +53,7 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Location = new Point(22, 570);
 
                 this.Location = new Point(-5, 0);
+
                 fecha_creacion = DateTime.Now;
 
                 btnVerPresentacion.Enabled = false;
@@ -232,6 +233,7 @@ namespace UCS_NODO_FGC
             btnRetomar.Enabled = false;
             btnSiguienteEtapa.Enabled = false;
             btnModificar.Enabled = false;
+
             btnGuardar.Enabled = true;
             btnPausar.Enabled = true;
             btnLimpiar.Enabled = true;
@@ -339,7 +341,7 @@ namespace UCS_NODO_FGC
                                                                             {
                                                                                 if (conexion.abrirconexion() == true)
                                                                                 {
-                                                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_modifinal);
+                                                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user,fecha_creacion, fecha_modifinal);
                                                                                     conexion.cerrarconexion();
                                                                                     if (agregarUGC > 0)
                                                                                     {
@@ -458,7 +460,7 @@ namespace UCS_NODO_FGC
                                                         {
                                                             if (conexion.abrirconexion() == true)
                                                             {
-                                                                int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_modifinal);
+                                                                int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, fecha_modifinal);
                                                                 conexion.cerrarconexion();
                                                                 if (agregarUGC > 0)
                                                                 {
