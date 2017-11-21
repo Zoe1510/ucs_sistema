@@ -35,6 +35,7 @@ namespace UCS_NODO_FGC
         string manual = "";
         string bitacora = "";
         string bloques = "";
+        String FechaCreacion;
         public Nueva_formacion_INCES()
         {
 
@@ -61,7 +62,7 @@ namespace UCS_NODO_FGC
             {//------------------------------------------todo hay que hacerlo aquí(un nuevo ingreso)
                 this.Location = new Point(-5, 0);
 
-
+                FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 LabelCabecera.Text = "Nuevo INCES: Información básica";
                 LabelCabecera.Location = new Point(150, 31);
@@ -848,9 +849,9 @@ namespace UCS_NODO_FGC
                                             // 
                                             if (id_paq != 0)
                                             {
-                                                String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                                String FechaFinal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                                 //Se crea la formacion con un paquete nuevo
-                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '"+FechaCreacion+"','"+FechaCreacion+"','','', '', '')");
+                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula_dia1, aula_dia2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '"+FechaCreacion+"','"+FechaCreacion+"','','', '', '')");
                                                 CrearCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -864,7 +865,7 @@ namespace UCS_NODO_FGC
                                                 IdCurso.Close();
 
 
-                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
+                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "' , '" + FechaFinal + "')");
                                                 usuarios_gestionan_cursos.Close();
 
                                                 MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
@@ -882,9 +883,9 @@ namespace UCS_NODO_FGC
                                             }
                                         } else
                                         {
-                                            String FechaCreacion = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                            String FechaFinal = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                                             //Se crea la formacion con un paquete ya existente
-                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula1, aula2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + FechaCreacion + "','','', '', '')");
+                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, fecha_uno, fecha_dos, horario_uno, horario_dos, aula_dia1, aula_dia2) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + FechaCreacion + "','','', '', '')");
                                             CrearCurso.Close();
                                            
                                             MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -897,7 +898,7 @@ namespace UCS_NODO_FGC
                                             IdCurso.Close();
 
 
-                                            MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "')");
+                                            MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + FechaCreacion + "', '" + FechaFinal + "')");
                                             usuarios_gestionan_cursos.Close();
 
                                             MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
@@ -1240,8 +1241,9 @@ namespace UCS_NODO_FGC
                 MessageBox.Show("entro 2");
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
                 time.fechaDos_curso = dtpSegundaFecha.Value;
-                gpbFacilitador.Enabled = true;
-                cmbxFa.Enabled = true;
+                //gpbFacilitador.Enabled = true;
+                //cmbxFa.Enabled = true;
+                cmbxFa.Focus();
 
                 MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince = '" + cmbxCursoInce.Text + "'");
                 int id_curso = 0;
@@ -1280,7 +1282,7 @@ namespace UCS_NODO_FGC
                     obtener_facilitador.Close();
                 }
 
-                cmbxFa.Focus();
+                
 
                 
 
