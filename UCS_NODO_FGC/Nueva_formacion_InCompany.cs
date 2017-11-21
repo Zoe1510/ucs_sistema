@@ -546,82 +546,82 @@ namespace UCS_NODO_FGC
             {
 
                 //validar si estará disponible para la fecha del dia 1
-                if (conexion.abrirconexion() == true)
-                {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
-                    conexion.cerrarconexion();
-                    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                    {
-                        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en la fecha seleccionada.");
-                        cmbxFa.SelectedIndex = -1;
-                        fa.id_facilitador = 0;
-                        cmbxFa.Focus();
-                    }
-                    else
-                    {
-                        errorProviderPresentacion.SetError(cmbxFa, "");
-                        //si todo bien, cargar los datos en el gpbDatosFa
-                        gpbDatosFa.Enabled = true;
-                        chkbCoFacilitador.Enabled = true;
-                        if (conexion.abrirconexion() == true)
-                        {
-                            faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, fa.id_facilitador);
+                //if (conexion.abrirconexion() == true)
+                //{
+                //    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                //    conexion.cerrarconexion();
+                //    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en la fecha seleccionada.");
+                //        cmbxFa.SelectedIndex = -1;
+                //        fa.id_facilitador = 0;
+                //        cmbxFa.Focus();
+                //    }
+                //    else
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxFa, "");
+                //        si todo bien, cargar los datos en el gpbDatosFa
+                //        gpbDatosFa.Enabled = true;
+                //        chkbCoFacilitador.Enabled = true;
+                //        if (conexion.abrirconexion() == true)
+                //        {
+                //            faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, fa.id_facilitador);
 
-                            conexion.cerrarconexion();
-                            txtTlfnFa.Text = faDatos.tlfn_facilitador;
-                            txtCorreoFa.Text = faDatos.correo_facilitador;
-                        }
+                //            conexion.cerrarconexion();
+                //            txtTlfnFa.Text = faDatos.tlfn_facilitador;
+                //            txtCorreoFa.Text = faDatos.correo_facilitador;
+                //        }
 
 
-                    }
-                }
+                //    }
+                //}
             }
             else if ((formacion.duracion == "16") || (formacion.duracion == "8" && formacion.bloque_curso == "2"))
             {
-                //validar ambas fechas
-                if (conexion.abrirconexion() == true)
-                {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
-                    conexion.cerrarconexion();
-                    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                    {
-                        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
-                        cmbxFa.SelectedIndex = -1;
-                        fa.id_facilitador = 0;
-                        cmbxFa.Focus();
-                    }
-                    else
-                    {
-                        errorProviderPresentacion.SetError(cmbxFa, "");
-                        if (conexion.abrirconexion() == true)
-                        {
-                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
-                            conexion.cerrarconexion();
-                            if (fa_disponibleDia2 == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                            {
-                                errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
-                                cmbxFa.SelectedIndex = -1;
-                                fa.id_facilitador = 0;
-                                cmbxFa.Focus();
-                            }
-                            else
-                            {
-                                errorProviderPresentacion.SetError(cmbxFa, "");
-                                //si todo bien, cargar los datos en el gpbDatosFa
-                                gpbDatosFa.Enabled = true;
-                                chkbCoFacilitador.Enabled = true;
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, fa.id_facilitador);
+                ////validar ambas fechas
+                //if (conexion.abrirconexion() == true)
+                //{
+                //    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                //    conexion.cerrarconexion();
+                //    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                //        cmbxFa.SelectedIndex = -1;
+                //        fa.id_facilitador = 0;
+                //        cmbxFa.Focus();
+                //    }
+                //    else
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxFa, "");
+                //        if (conexion.abrirconexion() == true)
+                //        {
+                //            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
+                //            conexion.cerrarconexion();
+                //            if (fa_disponibleDia2 == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //            {
+                //                errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
+                //                cmbxFa.SelectedIndex = -1;
+                //                fa.id_facilitador = 0;
+                //                cmbxFa.Focus();
+                //            }
+                //            else
+                //            {
+                //                errorProviderPresentacion.SetError(cmbxFa, "");
+                //                //si todo bien, cargar los datos en el gpbDatosFa
+                //                gpbDatosFa.Enabled = true;
+                //                chkbCoFacilitador.Enabled = true;
+                //                if (conexion.abrirconexion() == true)
+                //                {
+                //                    faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, fa.id_facilitador);
 
-                                    conexion.cerrarconexion();
-                                    txtTlfnFa.Text = faDatos.tlfn_facilitador;
-                                    txtCorreoFa.Text = faDatos.correo_facilitador;
-                                }
-                            }
-                        }
-                    }
-                }
+                //                    conexion.cerrarconexion();
+                //                    txtTlfnFa.Text = faDatos.tlfn_facilitador;
+                //                    txtCorreoFa.Text = faDatos.correo_facilitador;
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
             }
         }
 
@@ -636,83 +636,83 @@ namespace UCS_NODO_FGC
             if ((formacion.duracion == "4") || (formacion.duracion == "8" && formacion.bloque_curso == "1"))
             {
 
-                //validar si estará disponible para la fecha del dia 1
-                if (conexion.abrirconexion() == true)
-                {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
-                    conexion.cerrarconexion();
-                    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                    {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha seleccionada.");
-                        cmbxCoFa.SelectedIndex = -1;
-                        Cofa.id_facilitador = 0;
-                        cmbxCoFa.Focus();
-                    }
-                    else
-                    {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "");
-                        //si todo bien, cargar los datos en el gpbDatosCoFa
-                        gpbDatosCoFa.Enabled = true;
+                ////validar si estará disponible para la fecha del dia 1
+                //if (conexion.abrirconexion() == true)
+                //{
+                //    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                //    conexion.cerrarconexion();
+                //    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha seleccionada.");
+                //        cmbxCoFa.SelectedIndex = -1;
+                //        Cofa.id_facilitador = 0;
+                //        cmbxCoFa.Focus();
+                //    }
+                //    else
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxCoFa, "");
+                //        //si todo bien, cargar los datos en el gpbDatosCoFa
+                //        gpbDatosCoFa.Enabled = true;
 
-                        if (conexion.abrirconexion() == true)
-                        {
-                            faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, Cofa.id_facilitador);
+                //        if (conexion.abrirconexion() == true)
+                //        {
+                //            faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, Cofa.id_facilitador);
 
-                            conexion.cerrarconexion();
-                            txtTlfnCoFa.Text = faDatos.tlfn_facilitador;
-                            txtCorreoCoFa.Text = faDatos.correo_facilitador;
-                        }
+                //            conexion.cerrarconexion();
+                //            txtTlfnCoFa.Text = faDatos.tlfn_facilitador;
+                //            txtCorreoCoFa.Text = faDatos.correo_facilitador;
+                //        }
 
 
-                    }
-                }
+                //    }
+                //}
             }
             else if ((formacion.duracion == "16") || (formacion.duracion == "8" && formacion.bloque_curso == "2"))
             {
-                //validar ambas fechas
-                if (conexion.abrirconexion() == true)
-                {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
-                    conexion.cerrarconexion();
-                    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                    {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
-                        cmbxCoFa.SelectedIndex = -1;
-                        Cofa.id_facilitador = 0;
-                        cmbxCoFa.Focus();
-                    }
-                    else
-                    {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "");
-                        if (conexion.abrirconexion() == true)
-                        {
-                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
-                            conexion.cerrarconexion();
-                            if (fa_disponibleDia2 == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
-                            {
-                                errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
-                                cmbxCoFa.SelectedIndex = -1;
-                                Cofa.id_facilitador = 0;
-                                cmbxCoFa.Focus();
-                            }
-                            else
-                            {
-                                errorProviderPresentacion.SetError(cmbxCoFa, "");
-                                //si todo bien, cargar los datos en el gpbDatosFa
-                                gpbDatosCoFa.Enabled = true;
+                ////validar ambas fechas
+                //if (conexion.abrirconexion() == true)
+                //{
+                //    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                //    conexion.cerrarconexion();
+                //    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                //        cmbxCoFa.SelectedIndex = -1;
+                //        Cofa.id_facilitador = 0;
+                //        cmbxCoFa.Focus();
+                //    }
+                //    else
+                //    {
+                //        errorProviderPresentacion.SetError(cmbxCoFa, "");
+                //        if (conexion.abrirconexion() == true)
+                //        {
+                //            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
+                //            conexion.cerrarconexion();
+                //            if (fa_disponibleDia2 == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                //            {
+                //                errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
+                //                cmbxCoFa.SelectedIndex = -1;
+                //                Cofa.id_facilitador = 0;
+                //                cmbxCoFa.Focus();
+                //            }
+                //            else
+                //            {
+                //                errorProviderPresentacion.SetError(cmbxCoFa, "");
+                //                //si todo bien, cargar los datos en el gpbDatosFa
+                //                gpbDatosCoFa.Enabled = true;
 
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, Cofa.id_facilitador);
+                //                if (conexion.abrirconexion() == true)
+                //                {
+                //                    faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, Cofa.id_facilitador);
 
-                                    conexion.cerrarconexion();
-                                    txtTlfnCoFa.Text = faDatos.tlfn_facilitador;
-                                    txtCorreoCoFa.Text = faDatos.correo_facilitador;
-                                }
-                            }
-                        }
-                    }
-                }
+                //                    conexion.cerrarconexion();
+                //                    txtTlfnCoFa.Text = faDatos.tlfn_facilitador;
+                //                    txtCorreoCoFa.Text = faDatos.correo_facilitador;
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
             }
         }
 

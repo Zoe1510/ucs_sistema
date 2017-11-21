@@ -33,7 +33,6 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.gpbItems = new System.Windows.Forms.GroupBox();
-            this.lblObli4 = new System.Windows.Forms.Label();
             this.lblObli3 = new System.Windows.Forms.Label();
             this.lblObli2 = new System.Windows.Forms.Label();
             this.lblObli1 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCamposobli = new System.Windows.Forms.Label();
             this.btnCrearReporte = new System.Windows.Forms.Button();
+            this.lblObli4 = new System.Windows.Forms.Label();
             this.Panel_cabecera.SuspendLayout();
             this.gpbItems.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -129,17 +129,6 @@
             this.gpbItems.TabIndex = 49;
             this.gpbItems.TabStop = false;
             this.gpbItems.Text = "Seleccione";
-            // 
-            // lblObli4
-            // 
-            this.lblObli4.AutoSize = true;
-            this.lblObli4.ForeColor = System.Drawing.Color.Red;
-            this.lblObli4.Location = new System.Drawing.Point(561, 198);
-            this.lblObli4.Name = "lblObli4";
-            this.lblObli4.Size = new System.Drawing.Size(17, 19);
-            this.lblObli4.TabIndex = 75;
-            this.lblObli4.Text = "*";
-            this.lblObli4.Visible = false;
             // 
             // lblObli3
             // 
@@ -391,6 +380,17 @@
             this.btnCrearReporte.Text = "Crear reporte";
             this.btnCrearReporte.UseVisualStyleBackColor = false;
             // 
+            // lblObli4
+            // 
+            this.lblObli4.AutoSize = true;
+            this.lblObli4.ForeColor = System.Drawing.Color.Red;
+            this.lblObli4.Location = new System.Drawing.Point(561, 198);
+            this.lblObli4.Name = "lblObli4";
+            this.lblObli4.Size = new System.Drawing.Size(17, 19);
+            this.lblObli4.TabIndex = 75;
+            this.lblObli4.Text = "*";
+            this.lblObli4.Visible = false;
+            // 
             // Hacer_reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,11 +442,11 @@
         private System.Windows.Forms.Button btnReporte1;
         private System.Windows.Forms.Button btnReporte2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblObli4;
         private System.Windows.Forms.Label lblObli3;
         private System.Windows.Forms.Label lblObli2;
         private System.Windows.Forms.Label lblObli1;
         private System.Windows.Forms.Label lblCamposobli;
         private System.Windows.Forms.Button btnCrearReporte;
+        private System.Windows.Forms.Label lblObli4;
     }
 }

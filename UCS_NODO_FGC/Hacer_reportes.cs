@@ -208,7 +208,7 @@ namespace UCS_NODO_FGC
 
             }
             f.estatus = estatus;
-            cmbxNombreFormacion.Enabled = true;
+            cmbxNombreFormacion.Enabled = false;
             //cmbxNombreFormacion.Items.Add("No existe formación con esas especificaciones");
             
         }

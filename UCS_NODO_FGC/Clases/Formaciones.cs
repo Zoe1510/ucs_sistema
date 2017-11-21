@@ -56,7 +56,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarNuevaFormacion(MySqlConnection conexion, Formaciones form)
         {
             int retorno = 0;
-            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa)";
+            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?estatus", form.estatus);
             cmd.Parameters.AddWithValue("?tipo", form.tipo_formacion);
@@ -70,6 +70,7 @@ namespace UCS_NODO_FGC.Clases
             cmd.Parameters.AddWithValue("?bloque", form.bloque_curso);
             cmd.Parameters.AddWithValue("?solicitado", form.solicitado);
             cmd.Parameters.AddWithValue("?etapa", form.etapa_curso);
+            cmd.Parameters.AddWithValue("?tiempoE1", form.TiempoEtapa);
             //el id debe venir de la persona logueada o sea de la clases.usuariologueado.id_usuario
             retorno = cmd.ExecuteNonQuery();
             return retorno;

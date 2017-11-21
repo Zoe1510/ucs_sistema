@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 using System.Diagnostics;
 using System.IO;
 
@@ -292,12 +293,13 @@ namespace UCS_NODO_FGC
                                             if (btnVerPresentacion.Enabled == false)
                                             {
                                                 p_inst.presentacion = "";
-                                               
+
                                             }
                                             p_inst.bitacora = "";
                                             p_inst.manual = "";
                                             formacion.fecha_inicial = fecha_creacion;
-
+                                            formacion.TiempoEtapa = Convert.ToString(fecha_modifinal - fecha_creacion);
+                                            //MessageBox.Show(formacion.TiempoEtapa);
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
 
                                             p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
@@ -339,6 +341,7 @@ namespace UCS_NODO_FGC
 
                                                                             if (id_curso != 0)
                                                                             {
+                                                                                formacion.id_curso = id_curso;
                                                                                 if (conexion.abrirconexion() == true)
                                                                                 {
                                                                                     int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user,fecha_creacion, fecha_modifinal);
@@ -430,8 +433,11 @@ namespace UCS_NODO_FGC
                                 {
                                     errorProviderBloque.SetError(cmbxBloques, "");
 
+                                    p_inst.bitacora = "";
+                                    p_inst.manual = "";
                                     formacion.fecha_inicial = fecha_creacion;
-
+                                    formacion.TiempoEtapa = Convert.ToString(fecha_modifinal - fecha_creacion);
+                                    formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                     formacion.id_user = Clases.Usuario_logeado.id_usuario;
 
                                     p_inst.id_pinstruccional = formacion.pq_inst;
@@ -1141,13 +1147,13 @@ namespace UCS_NODO_FGC
             //validar si este facilitador estará disponible para esa o esas fechas
             if ((formacion.duracion == "4") || (formacion.duracion == "8" && formacion.bloque_curso == "1"))
             {
-
+                
                 //validar si estará disponible para la fecha del dia 1
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador, formacion.id_curso);
                     conexion.cerrarconexion();
-                    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                    if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
                         errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en la fecha seleccionada.");
                         cmbxFa.SelectedIndex = -1;
@@ -1178,9 +1184,9 @@ namespace UCS_NODO_FGC
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador, formacion.id_curso);
                     conexion.cerrarconexion();
-                    if (fa_disponible == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                    if (fa_disponible !=0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
                         errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
                         cmbxFa.SelectedIndex = -1;
@@ -1192,9 +1198,9 @@ namespace UCS_NODO_FGC
                         errorProviderPresentacion.SetError(cmbxFa, "");
                         if (conexion.abrirconexion() == true)
                         {
-                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
+                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, fa.id_facilitador, formacion.id_curso);
                             conexion.cerrarconexion();
-                            if (fa_disponibleDia2 == fa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                            if (fa_disponibleDia2 !=0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                             {
                                 errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
                                 cmbxFa.SelectedIndex = -1;
@@ -1236,9 +1242,9 @@ namespace UCS_NODO_FGC
                 //validar si estará disponible para la fecha del dia 1
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador, formacion.id_curso);
                     conexion.cerrarconexion();
-                    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                    if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
                         errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha seleccionada.");
                         cmbxCoFa.SelectedIndex = -1;
@@ -1269,9 +1275,9 @@ namespace UCS_NODO_FGC
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia1(conexion.conexion, time.fecha_curso);
+                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador, formacion.id_curso);
                     conexion.cerrarconexion();
-                    if (fa_disponible == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                    if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
                         errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
                         cmbxCoFa.SelectedIndex = -1;
@@ -1283,9 +1289,9 @@ namespace UCS_NODO_FGC
                         errorProviderPresentacion.SetError(cmbxCoFa, "");
                         if (conexion.abrirconexion() == true)
                         {
-                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso);
+                            int fa_disponibleDia2 = Clases.Facilitadores.CoFacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, Cofa.id_facilitador, formacion.id_curso);
                             conexion.cerrarconexion();
-                            if (fa_disponibleDia2 == Cofa.id_facilitador)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                            if (fa_disponibleDia2 != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                             {
                                 errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
                                 cmbxCoFa.SelectedIndex = -1;
