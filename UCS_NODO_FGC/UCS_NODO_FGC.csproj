@@ -372,6 +372,12 @@
     <Compile Include="Ver_refrigerios.Designer.cs">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_reportes.Designer.cs">
+      <DependentUpon>Ver_reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista_Formacion.cs">
       <SubType>Form</SubType>
     </Compile>

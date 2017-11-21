@@ -635,6 +635,7 @@
             this.btnFrmVerReporte.Text = "        Ver reportes";
             this.btnFrmVerReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFrmVerReporte.UseVisualStyleBackColor = true;
+            this.btnFrmVerReporte.Click += new System.EventHandler(this.btnFrmVerReporte_Click);
             // 
             // btnFrmAddReporte
             // 
