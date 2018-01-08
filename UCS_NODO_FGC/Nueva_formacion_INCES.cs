@@ -284,7 +284,7 @@ namespace UCS_NODO_FGC
                                                 DateTime FechaFinal = DateTime.Now;
                                                 String TiempoEtapa = Convert.ToString(FechaFinal - FechaCreacion);
                                                 //Se crea la formacion con un paquete nuevo
-                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso,  duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + TiempoEtapa + "')");
+                                                MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso,  duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1','" + TiempoEtapa + "')");
                                                 CrearCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -320,7 +320,7 @@ namespace UCS_NODO_FGC
                                             DateTime FechaFinal = DateTime.Now;
                                             String TiempoEtapa = Convert.ToString(FechaFinal - FechaCreacion);
                                             //Se crea la formacion con un paquete ya existente
-                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + FechaCreacion + "','" + TiempoEtapa + "')");
+                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + FechaCreacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + TiempoEtapa + "')");
                                             CrearCurso.Close();
 
                                             MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);

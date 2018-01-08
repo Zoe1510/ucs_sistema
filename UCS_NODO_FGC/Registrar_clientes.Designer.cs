@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbxFee = new System.Windows.Forms.ComboBox();
             this.txtNombreArea = new System.Windows.Forms.TextBox();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
@@ -39,6 +42,9 @@
             this.txtTelefonoCliArea = new System.Windows.Forms.TextBox();
             this.txtCorreoCliArea = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.errorProviderEmpresa = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFee = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNArea = new System.Windows.Forms.ErrorProvider(this.components);
@@ -53,12 +59,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmpresa)).BeginInit();
@@ -88,6 +88,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos empresa";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(93, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Nombre del área:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(136, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Recibe FEE:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(49, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nombre de la empresa:";
+            // 
             // cmbxFee
             // 
             this.cmbxFee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -99,7 +129,7 @@
             this.cmbxFee.Location = new System.Drawing.Point(239, 102);
             this.cmbxFee.Name = "cmbxFee";
             this.cmbxFee.Size = new System.Drawing.Size(310, 27);
-            this.cmbxFee.TabIndex = 3;
+            this.cmbxFee.TabIndex = 2;
             // 
             // txtNombreArea
             // 
@@ -109,7 +139,7 @@
             this.txtNombreArea.Multiline = true;
             this.txtNombreArea.Name = "txtNombreArea";
             this.txtNombreArea.Size = new System.Drawing.Size(310, 34);
-            this.txtNombreArea.TabIndex = 2;
+            this.txtNombreArea.TabIndex = 3;
             this.txtNombreArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreArea.Click += new System.EventHandler(this.txtNombreArea_Click);
             this.txtNombreArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreArea_KeyDown);
@@ -228,6 +258,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos contacto";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(73, 159);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 19);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Correo del contacto:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(17, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(216, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Persona contacto en el área:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(89, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 19);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Teléfono o celular:";
+            // 
             // errorProviderEmpresa
             // 
             this.errorProviderEmpresa.ContainerControl = this;
@@ -334,66 +394,6 @@
             this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(49, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre de la empresa:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(136, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Recibe FEE:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(93, 161);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Nombre del área:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(89, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 19);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Teléfono o celular:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(17, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Persona contacto en el área:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(73, 159);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 19);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Correo del contacto:";
             // 
             // Registrar_clientes
             // 

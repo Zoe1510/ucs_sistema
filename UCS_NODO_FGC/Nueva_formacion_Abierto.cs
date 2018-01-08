@@ -1362,23 +1362,32 @@ namespace UCS_NODO_FGC
 
         private void dgvMediosDifusion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           /* 
-            Int32 selectedCellCount = dgvMediosDifusion.GetCellCount(DataGridViewElementStates.Selected);
-            if (selectedCellCount > 0)
+
+            foreach(DataGridView row in dgvMediosDifusion.Rows)
             {
-                    System.Text.StringBuilder indices = new System.Text.StringBuilder();
-                for (int i = 0; i < selectedCellCount; i++)
-                {
-                   indices.Append("Fila: ");
-                   indices.Append(dgvMediosDifusion.SelectedCells[i]).ToString();
-                   indices.Append(", Columna: ");
-                   indices.Append(dgvMediosDifusion.SelectedCells[i].ColumnIndex .ToString());
-                   indices.Append(Environment.NewLine);     
-                }
-                   indices.Append("Total: " + selectedCellCount.ToString());
-                   MessageBox.Show(indices.ToString(), " de celdas seleecionnadas");
-            } 
-            */
+               // CheckBox check = row("chkSeleccion") as CheckBox;
+
+                //if (check.Checked)
+                //{
+                //    //aqui la fila esta marcada
+                //}
+            }
+            //Int32 selectedCellCount = dgvMediosDifusion.GetCellCount(DataGridViewElementStates.Selected);
+            //if (selectedCellCount > 0)
+            //{
+            //    System.Text.StringBuilder indices = new System.Text.StringBuilder();
+            //    for (int i = 0; i < selectedCellCount; i++)
+            //    {
+            //        indices.Append("Fila: ");
+            //        indices.Append(dgvMediosDifusion.SelectedCells[i]).ToString();
+            //        indices.Append(", Columna: ");
+            //        indices.Append(dgvMediosDifusion.SelectedCells[i].ColumnIndex.ToString());
+            //        indices.Append(Environment.NewLine);
+            //    }
+            //    indices.Append("Total: " + selectedCellCount.ToString());
+            //    MessageBox.Show(indices.ToString(), " de celdas seleecionnadas");
+            //}
+
         }
 
         private void txtNombreFormacion_TextChanged(object sender, EventArgs e)

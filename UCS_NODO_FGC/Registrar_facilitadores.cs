@@ -340,6 +340,7 @@ namespace UCS_NODO_FGC
                     {
                         errorProviderCI.SetError(txtCedulaFa, "");
 
+
                         errorProviderNombre.SetError(txtNombreFa, "Debe proporcionar un nombre válido.");
                         txtNombreFa.Focus();
                     } else if (txtApellidoFa.Text == "Apellido" || txtApellidoFa.Text == "")
@@ -348,10 +349,23 @@ namespace UCS_NODO_FGC
 
                         errorProviderApellido.SetError(txtApellidoFa, "Debe proporcionar un apellido válido.");
                         txtApellidoFa.Focus();
-                    } else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
+                    } else if (txtCorreoFa.Text == "correo@ejemplo.com" || txtCorreoFa.Text == "")
                     {
                         errorProviderApellido.SetError(txtApellidoFa, "");
 
+                        errorProviderCorreo.SetError(txtCorreoFa, "Debe proporcionar un correo válido");
+                        txtCorreoFa.Focus();
+                    } else if (txtTelefonoFa.Text == "")
+                    {
+                        errorProviderCorreo.SetError(txtCorreoFa, "");
+
+                        errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un tel+efono válido");
+                        txtTelefonoFa.Focus();
+                    }
+                    else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
+                    {
+
+                        errorProviderTlfn.SetError(txtTelefonoFa, "");
                         errorProviderEspec.SetError(txtEspecialidadFa, "Debe proporcionar la especialidad del facilitador.");
                         txtEspecialidadFa.Focus();
                     } else if (cmbxINCE.SelectedIndex == -1)
@@ -413,7 +427,7 @@ namespace UCS_NODO_FGC
                                 {
                                     if (resultado2 != 0)
                                     {
-                                        if (MessageBox.Show("El usuario fue creado con exito. ¿Desea añadir más facilitadores?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                        if (MessageBox.Show("El usuario fue creado con éxito. ¿Desea añadir más facilitadores?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                         {
                                             this.Close();
                                         }

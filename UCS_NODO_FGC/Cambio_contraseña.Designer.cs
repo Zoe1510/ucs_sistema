@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_cerrar = new System.Windows.Forms.Button();
             this.btn_minimizar = new System.Windows.Forms.Button();
@@ -46,34 +44,17 @@
             this.errorProviderConfirPass = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizarPass = new System.Windows.Forms.Button();
-            this.panel5.SuspendLayout();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirPass)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 327);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(572, 23);
-            this.panel5.TabIndex = 216;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8F);
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label4.Location = new System.Drawing.Point(0, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(572, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
             // 
             // panel6
             // 
@@ -245,25 +226,64 @@
             this.btnActualizarPass.UseVisualStyleBackColor = false;
             this.btnActualizarPass.Click += new System.EventHandler(this.btnActualizarPass_Click);
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 325);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(572, 25);
+            this.panel8.TabIndex = 226;
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(572, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label4.Location = new System.Drawing.Point(0, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(572, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
             // Cambio_contraseña
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(572, 350);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizarPass);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cambio_contraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de contraseña";
             this.Load += new System.EventHandler(this.Cambio_contraseña_Load);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -271,15 +291,14 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirPass)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btn_cerrar;
         private System.Windows.Forms.Button btn_minimizar;
@@ -295,5 +314,9 @@
         private System.Windows.Forms.ErrorProvider errorProviderConfirPass;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnActualizarPass;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label4;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

@@ -21,14 +21,14 @@ namespace UCS_NODO_FGC
         public Vista_Formacion()
         {
             InitializeComponent();
-            int id_user1 = Cursos.id_user13;
-            MySqlDataReader consulta = Conexion.ConsultarBD("select fecha_creacion, fecha_mod_curso from cursos cur inner join user_gestionan_cursos ugc on cur.id_cursos = ugc.cursos_id_cursos where cur.id_usuario1 ='" + id_user1 + "' ");
-            if (consulta.Read())
-            {
-                DateTime fecha_Mod = Convert.ToDateTime(consulta["fecha_mod_curso"]);
-                DateTime fecha_creacion = Convert.ToDateTime(consulta["fecha_creacion"]);
-                Duracion = new TimeSpan(fecha_Mod.Ticks - fecha_creacion.Ticks);
-            }
+            //int id_user1 = Cursos.id_user13;
+            //MySqlDataReader consulta = Conexion.ConsultarBD("select fecha_creacion, fecha_mod_curso from cursos cur inner join user_gestionan_cursos ugc on cur.id_cursos = ugc.cursos_id_cursos where cur.id_usuario1 ='" + id_user1 + "' ");
+            //if (consulta.Read())
+            //{
+            //    DateTime fecha_Mod = Convert.ToDateTime(consulta["fecha_mod_curso"]);
+            //    DateTime fecha_creacion = Convert.ToDateTime(consulta["fecha_creacion"]);
+            //    Duracion = new TimeSpan(fecha_Mod.Ticks - fecha_creacion.Ticks);
+            //}
             
 
            
@@ -71,7 +71,7 @@ namespace UCS_NODO_FGC
                 txtEstadoA.Text = "Finalizada";
             }
 
-            txtTiempoB.Text = " "+Duracion.ToString()+" horas";
+            //txtTiempoB.Text = " "+Duracion.ToString()+" horas";
             txtTiempoI.Text = "0 horas";
             txtTiempoA.Text = "0 horas";
         }

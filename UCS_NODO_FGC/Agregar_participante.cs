@@ -20,6 +20,9 @@ namespace UCS_NODO_FGC
         private void Agregar_participante_Load(object sender, EventArgs e)
         {
             this.Location = new Point(-5, 0);
+            cmbxFormaciones.Enabled = false;
+            cmbxEmpresaConInce.Enabled = false;
+            gpbDatosParticipantes.Enabled = false;
         }
     }
 }

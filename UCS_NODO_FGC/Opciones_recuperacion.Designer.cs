@@ -42,6 +42,8 @@
             this.btnFormCorreoElectronico = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -191,10 +193,11 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.shapeContainer1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(2, 314);
+            this.panel5.Location = new System.Drawing.Point(2, 311);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(644, 24);
+            this.panel5.Size = new System.Drawing.Size(644, 27);
             this.panel5.TabIndex = 210;
             // 
             // label4
@@ -208,6 +211,24 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer1.Size = new System.Drawing.Size(644, 27);
+            this.shapeContainer1.TabIndex = 1;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(-237, 1);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
             // Opciones_recuperacion
             // 
@@ -227,6 +248,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Opciones_recuperacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Opciones_recuperacion_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Opciones_recuperacion_MouseMove);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -253,5 +276,7 @@
         private System.Windows.Forms.Button btnFormCorreoElectronico;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

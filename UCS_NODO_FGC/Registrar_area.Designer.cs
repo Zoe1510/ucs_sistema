@@ -80,7 +80,7 @@
             this.txtNombreArea.Multiline = true;
             this.txtNombreArea.Name = "txtNombreArea";
             this.txtNombreArea.Size = new System.Drawing.Size(310, 30);
-            this.txtNombreArea.TabIndex = 1;
+            this.txtNombreArea.TabIndex = 2;
             this.txtNombreArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreArea.Click += new System.EventHandler(this.txtNombreArea_Click);
             this.txtNombreArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreArea_KeyDown);
@@ -98,7 +98,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(621, 619);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 47);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -111,7 +111,7 @@
             this.txtNombreContactoArea.Multiline = true;
             this.txtNombreContactoArea.Name = "txtNombreContactoArea";
             this.txtNombreContactoArea.Size = new System.Drawing.Size(310, 30);
-            this.txtNombreContactoArea.TabIndex = 2;
+            this.txtNombreContactoArea.TabIndex = 3;
             this.txtNombreContactoArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreContactoArea.Click += new System.EventHandler(this.txtNombreContacto_Click);
             this.txtNombreContactoArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreContacto_KeyDown);
@@ -129,7 +129,7 @@
             this.btnGuardarArea.Location = new System.Drawing.Point(338, 619);
             this.btnGuardarArea.Name = "btnGuardarArea";
             this.btnGuardarArea.Size = new System.Drawing.Size(147, 47);
-            this.btnGuardarArea.TabIndex = 5;
+            this.btnGuardarArea.TabIndex = 6;
             this.btnGuardarArea.Text = "Registrar";
             this.btnGuardarArea.UseVisualStyleBackColor = false;
             this.btnGuardarArea.Click += new System.EventHandler(this.btnGuardarArea_Click);
@@ -142,7 +142,7 @@
             this.txtTelefonoCliArea.Multiline = true;
             this.txtTelefonoCliArea.Name = "txtTelefonoCliArea";
             this.txtTelefonoCliArea.Size = new System.Drawing.Size(310, 30);
-            this.txtTelefonoCliArea.TabIndex = 3;
+            this.txtTelefonoCliArea.TabIndex = 4;
             this.txtTelefonoCliArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefonoCliArea.Click += new System.EventHandler(this.txtTelefonoCli_Click);
             this.txtTelefonoCliArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefonoCli_KeyDown);
@@ -158,7 +158,7 @@
             this.txtCorreoCliArea.Multiline = true;
             this.txtCorreoCliArea.Name = "txtCorreoCliArea";
             this.txtCorreoCliArea.Size = new System.Drawing.Size(310, 30);
-            this.txtCorreoCliArea.TabIndex = 4;
+            this.txtCorreoCliArea.TabIndex = 5;
             this.txtCorreoCliArea.Text = "correo@ejemplo.com";
             this.txtCorreoCliArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCorreoCliArea.Click += new System.EventHandler(this.txtCorreoCli_Click);
@@ -169,7 +169,7 @@
             // 
             // cmbxEmpresa
             // 
-            this.cmbxEmpresa.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbxEmpresa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.cmbxEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxEmpresa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,13 +177,13 @@
             this.cmbxEmpresa.Location = new System.Drawing.Point(253, 34);
             this.cmbxEmpresa.Name = "cmbxEmpresa";
             this.cmbxEmpresa.Size = new System.Drawing.Size(310, 27);
-            this.cmbxEmpresa.TabIndex = 0;
+            this.cmbxEmpresa.TabIndex = 1;
             this.cmbxEmpresa.SelectionChangeCommitted += new System.EventHandler(this.cmbxEmpresa_SelectionChangeCommitted);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombreEmpresa);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbxEmpresa);
             this.groupBox1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -209,12 +209,12 @@
             this.txtNombreEmpresa.Cursor = System.Windows.Forms.Cursors.No;
             this.txtNombreEmpresa.Enabled = false;
             this.txtNombreEmpresa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEmpresa.Location = new System.Drawing.Point(253, 31);
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(253, 34);
             this.txtNombreEmpresa.MaxLength = 99;
             this.txtNombreEmpresa.Multiline = true;
             this.txtNombreEmpresa.Name = "txtNombreEmpresa";
             this.txtNombreEmpresa.Size = new System.Drawing.Size(310, 30);
-            this.txtNombreEmpresa.TabIndex = 17;
+            this.txtNombreEmpresa.TabIndex = 1;
             this.txtNombreEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreEmpresa.Visible = false;
             // 
@@ -254,7 +254,7 @@
             this.groupBox3.Location = new System.Drawing.Point(265, 355);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(591, 214);
-            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Persona";
             // 
