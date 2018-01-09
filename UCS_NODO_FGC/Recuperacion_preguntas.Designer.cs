@@ -467,6 +467,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recuperacion_preguntas";
             this.Load += new System.EventHandler(this.Recuperacion_preguntas_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Recuperacion_preguntas_MouseMove);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

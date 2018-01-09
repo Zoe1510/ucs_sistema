@@ -45,9 +45,9 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizarPass = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -237,6 +237,18 @@
             this.panel8.Size = new System.Drawing.Size(572, 25);
             this.panel8.TabIndex = 226;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label4.Location = new System.Drawing.Point(0, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(572, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
             // shapeContainer4
             // 
             this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
@@ -255,18 +267,6 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8F);
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label4.Location = new System.Drawing.Point(0, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(572, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // Cambio_contraseña
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,6 +284,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de contraseña";
             this.Load += new System.EventHandler(this.Cambio_contraseña_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Cambio_contraseña_MouseMove);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -166,5 +166,18 @@ namespace UCS_NODO_FGC
             cliente.fee_empresa = fee;
             
         }
+
+        private void txtNombreEmpresa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Clases.Paneles.sololetras(e);
+            if (txtNombreEmpresa.Text.Length == 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToUpper().ToCharArray()[0];
+            }
+            else if (txtNombreEmpresa.Text.Length > 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
+            }
+        }
     }
 }

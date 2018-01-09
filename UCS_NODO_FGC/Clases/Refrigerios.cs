@@ -40,7 +40,7 @@ namespace UCS_NODO_FGC.Clases
         public static int ExisteRef(MySqlConnection conexion, Refrigerios re)
         {
             int id_ref = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_ref FROM refrigerios WHERE ref_nombre='{0}' OR ref_contenido= '{1}' ", re.nombre, re.contenido_ref), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_ref FROM refrigerios WHERE ref_nombre='{0}' AND ref_contenido= '{1}' ", re.nombre, re.contenido_ref), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())

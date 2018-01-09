@@ -258,6 +258,12 @@ namespace UCS_NODO_FGC
             txtNombreContactoArea.Text = "Persona contacto del área";
             txtTelefonoCliArea.Text = "Teléfono o celular";
             txtCorreoCliArea.Text = "correo@ejemplo.com";
+            errorProviderEmpresa.SetError(txtNombreEmpresa, "");
+            errorProviderFee.SetError(cmbxFee, "");
+            errorProviderNArea.SetError(txtNombreArea, "");
+            errorProviderContacto.SetError(txtNombreContactoArea, "");
+            errorProviderTlfn.SetError(txtTelefonoCliArea, "");
+            errorProviderCorreo.SetError(txtCorreoCliArea, "");
         }
         
         private void Guardar()
@@ -290,11 +296,22 @@ namespace UCS_NODO_FGC
                         errorProviderNArea.SetError(txtNombreArea, "");
                         errorProviderContacto.SetError(txtNombreContactoArea, "Debe proporcionar un contacto de área válido");
                         txtNombreContactoArea.Focus();
+                    }else if (txtTelefonoCliArea.Text == "" || txtTelefonoCliArea.TextLength < 11)
+                    {
+                        errorProviderContacto.SetError(txtNombreContactoArea, "");
+                        errorProviderTlfn.SetError(txtTelefonoCliArea, "Debe proporcionar un número de teléfono válido.");
+                        txtTelefonoCliArea.Focus();
+                    }
+                    else if (txtCorreoCliArea.Text == "correo@ejemplo.com")
+                    {
+                        errorProviderTlfn.SetError(txtTelefonoCliArea, "");
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "Debe proporcionar un correo electrónico válido.");
+                        txtCorreoCliArea.Focus();
                     }
                     else //si todo ok, procede a registrarlo
                     {
-                        errorProviderContacto.SetError(txtNombreContactoArea, "");
 
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "");
 
                         cliente.nombre_empresa = txtNombreEmpresa.Text;
                         cliente.nombre_areaEmpresa = txtNombreArea.Text;
@@ -337,7 +354,7 @@ namespace UCS_NODO_FGC
                                         if (agregar > 0 && addAreas > 0)
                                         {
 
-                                            if (MessageBox.Show("El cliente fue creado con exito. ¿Desea añadir otro cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                            if (MessageBox.Show("El cliente fue creado con éxito. ¿Desea añadir otro cliente?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                             {
                                                 this.Close();
                                             }

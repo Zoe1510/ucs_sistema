@@ -315,6 +315,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verificacion_recuperacion";
             this.Load += new System.EventHandler(this.Verificacion_recuperacion_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Verificacion_recuperacion_MouseMove);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

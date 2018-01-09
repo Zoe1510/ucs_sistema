@@ -741,12 +741,11 @@ namespace UCS_NODO_FGC
                                     usuario.cargo_usuario = cargouser;
                                     usuario.correo_usuario = dgvUsuarios.SelectedRows[0].Cells[5].Value.ToString();
                                     usuario.tlfn_usuario = dgvUsuarios.SelectedRows[0].Cells[6].Value.ToString();
-                                    usuarioSeleccionado = Clases.Usuarios.obtenerUsuario(conexion.conexion, usuario.id_usuario, nacionalidad_usuario);
+                                    usuarioSeleccionado = Clases.Usuarios.obtenerUsuario(conexion.conexion, usuario.cedula_user, nacionalidad_usuario);
                                     conexion.cerrarconexion();
+                                    usuario.id_usuario = usuarioSeleccionado.id_usuario;
                                     usuario.password = usuarioSeleccionado.password;
-                                   
-
-
+                                    
                                     if (conexion.abrirconexion() == true)
                                     {
                                         int resultado;

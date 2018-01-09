@@ -554,7 +554,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(922, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(35, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -1235,6 +1235,8 @@
             this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 287);
             this.dgvMediosDifusion.TabIndex = 48;
             this.dgvMediosDifusion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellContentClick);
+            this.dgvMediosDifusion.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellValueChanged);
+            this.dgvMediosDifusion.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvMediosDifusion_CurrentCellDirtyStateChanged);
             // 
             // opcion_difusion
             // 
@@ -1249,6 +1251,7 @@
             // seleccionar_opcion
             // 
             this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccionar_opcion.FalseValue = "true";
             this.seleccionar_opcion.HeaderText = "";
             this.seleccionar_opcion.MinimumWidth = 30;
             this.seleccionar_opcion.Name = "seleccionar_opcion";

@@ -359,7 +359,7 @@ namespace UCS_NODO_FGC
                     {
                         errorProviderCorreo.SetError(txtCorreoFa, "");
 
-                        errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un tel+efono válido");
+                        errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un número de teléfono válido");
                         txtTelefonoFa.Focus();
                     }
                     else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")

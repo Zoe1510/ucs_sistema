@@ -248,5 +248,16 @@ namespace UCS_NODO_FGC
                 this.Close();
             }
         }
+        public int xClick = 0, yClick = 0;
+        private void Verificacion_recuperacion_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+
+            { xClick = e.X; yClick = e.Y; }
+
+            else
+
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
+        }
     }
 }

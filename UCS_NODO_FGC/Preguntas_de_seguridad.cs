@@ -274,6 +274,17 @@ namespace UCS_NODO_FGC
         {
             id_pre3= Convert.ToInt32(cmbxPregunta3.SelectedValue);
         }
+        public int xClick = 0, yClick = 0;
+        private void Preguntas_de_seguridad_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+
+            { xClick = e.X; yClick = e.Y; }
+
+            else
+
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
+        }
 
         private void txtRespuesta1_Validating(object sender, CancelEventArgs e)
         {

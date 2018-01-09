@@ -79,6 +79,9 @@ namespace UCS_NODO_FGC
             {
                 errorProviderTlfn.SetError(txtTelefonoCliArea, "Debe proporcionar un número válido.");
                 txtTelefonoCliArea.Focus();
+            }else
+            {
+                errorProviderTlfn.SetError(txtTelefonoCliArea, "");
             }
             
         }
@@ -272,9 +275,21 @@ namespace UCS_NODO_FGC
                     errorProviderNContacto.SetError(txtNombreContactoArea, "Debe proporcionar un contácto en el área.");
                     txtNombreContactoArea.Focus();
                 }
-                else
+                else if (txtTelefonoCliArea.Text == "" || txtTelefonoCliArea.TextLength < 11)
                 {
                     errorProviderNContacto.SetError(txtNombreContactoArea, "");
+                    errorProviderTlfn.SetError(txtTelefonoCliArea, "Debe proporcionar un número de teléfono válido.");
+                    txtTelefonoCliArea.Focus();
+                }
+                else if (txtCorreoCliArea.Text == "correo@ejemplo.com")
+                {
+                    errorProviderTlfn.SetError(txtTelefonoCliArea, "");
+                    errorProviderCorreo.SetError(txtCorreoCliArea, "Debe proporcionar un correo electrónico válido.");
+                    txtCorreoCliArea.Focus();
+                }
+                else
+                {
+                    errorProviderCorreo.SetError(txtCorreoCliArea, "");
                     conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
@@ -311,6 +326,9 @@ namespace UCS_NODO_FGC
             }
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

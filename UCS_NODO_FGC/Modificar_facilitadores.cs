@@ -536,12 +536,18 @@ namespace UCS_NODO_FGC
                         errorProviderNombre.SetError(txtNombreFa, "");
                         errorProviderApellido.SetError(txtApellidoFa, "Debe proporcionar un apelllido válido.");
                         txtApellidoFa.Focus();
-                    }
-                    else if(txtTelefonoFa.TextLength < 11)
+                    } else if (txtCorreoFa.Text == "" || txtCorreoFa.Text == "correo@ejemplo.com")
                     {
+                        errorProviderApellido.SetError(txtApellidoFa, "");
+                        errorProviderCorreo.SetError(txtCorreoFa, "Debe proporcionar un correo electrónico válido");
+                        txtCorreoFa.Focus();
+                    }
+                    else if(txtTelefonoFa.TextLength < 11 || txtTelefonoFa.Text == "Téléfono o celular")
+                    {
+                        errorProviderCorreo.SetError(txtCorreoFa, "");
                         errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un teléfono válido.");
                         txtTelefonoFa.Focus();
-                        errorProviderApellido.SetError(txtApellidoFa, "");
+                       
                     }
                     else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
                     {

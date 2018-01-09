@@ -1405,6 +1405,21 @@ namespace UCS_NODO_FGC
 
         }
 
+        
+        private void dgvMediosDifusion_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            //aporte de rafael
+            if (dgvMediosDifusion.IsCurrentCellDirty)
+            {
+                dgvMediosDifusion.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void dgvMediosDifusion_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //aporte de rafael
+        }
+
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)
         {
             if(dtpFechaCurso.Value <= DateTime.Today)
