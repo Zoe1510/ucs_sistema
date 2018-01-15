@@ -438,7 +438,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.Preguntas_de_seguridad_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Preguntas_de_seguridad_MouseDown);
+            
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Preguntas_de_seguridad_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

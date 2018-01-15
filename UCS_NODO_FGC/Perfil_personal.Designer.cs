@@ -50,8 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreUser = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.lblOlvidarContraseña = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,17 +64,21 @@
             this.errorProviderApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCorreo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderTlfn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -330,28 +332,6 @@
             this.txtNombreUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUser_KeyPress);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 716);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
-            this.panel8.TabIndex = 57;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(225, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // lblOlvidarContraseña
             // 
             this.lblOlvidarContraseña.AutoSize = true;
@@ -500,17 +480,58 @@
             // 
             this.errorProviderTlfn.ContainerControl = this;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 716);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.TabIndex = 62;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(221, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape3});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape3.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape3.Name = "rectangleShape2";
+            this.rectangleShape3.Size = new System.Drawing.Size(1118, 1);
+            // 
             // Perfil_personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1122, 741);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizarDatos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -526,8 +547,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.Panel_cabecera.ResumeLayout(false);
@@ -536,6 +555,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -566,8 +587,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
         private System.Windows.Forms.Button btnEditarPerfil;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblOlvidarContraseña;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label5;
@@ -578,5 +597,9 @@
         private System.Windows.Forms.ErrorProvider errorProviderApellido;
         private System.Windows.Forms.ErrorProvider errorProviderCorreo;
         private System.Windows.Forms.ErrorProvider errorProviderTlfn;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
     }
 }

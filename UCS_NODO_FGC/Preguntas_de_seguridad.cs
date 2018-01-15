@@ -14,10 +14,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Preguntas_de_seguridad : Form
     {
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        
 
         public Clases.Preguntas pre, pre2, pre3 = new Clases.Preguntas();
         public Clases.conexion_bd conexion = new Clases.conexion_bd();
@@ -37,7 +34,7 @@ namespace UCS_NODO_FGC
             if(Clases.Usuarios.ActualizarPreguntas == 1)
             {
                 btn_cerrar.Visible = true;
-            }else
+            }else if (Clases.Usuarios.ActualizarPreguntas == 0 || Clases.Recuperacion_contraseña.Opcion==3)
             {
                 btn_cerrar.Visible = false;
             }
@@ -99,7 +96,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
-                if (Clases.Usuarios.ActualizarPreguntas == 0)
+                if (Clases.Usuarios.ActualizarPreguntas == 0 || Clases.Recuperacion_contraseña.cedula==1)
                 {
                     conexion.cerrarconexion();
                     if ((cmbxPregunta1.SelectedIndex != -1) && (cmbxPregunta2.SelectedIndex != -1) && (cmbxPregunta3.SelectedIndex != -1))
@@ -119,6 +116,9 @@ namespace UCS_NODO_FGC
                                 {
                                     MessageBox.Show("Guardado exitosamente.", "", MessageBoxButtons.OK);
                                     this.Close();
+                                    Clases.Recuperacion_contraseña.cedula = 0;
+                                    Clases.Recuperacion_contraseña.nombre = "";
+                                    Clases.Recuperacion_contraseña.Opcion = 0;
                                 }
                                 else
                                 {
@@ -258,12 +258,6 @@ namespace UCS_NODO_FGC
         private void cmbxPregunta1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             id_pre1 = Convert.ToInt32(cmbxPregunta1.SelectedValue);
-        }
-
-        private void Preguntas_de_seguridad_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void cmbxPregunta2_SelectionChangeCommitted(object sender, EventArgs e)

@@ -20,39 +20,64 @@ namespace UCS_NODO_FGC
 
         private void Actualizar()
         {
-            txtNuevoPass.UseSystemPasswordChar = true;
-            txtConfirPass.UseSystemPasswordChar = true;
+            
             try
             {
-                conexion.cerrarconexion();
-                if (conexion.abrirconexion() == true)
+                if(txtNuevoPass.Text == txtConfirPass.Text && txtNuevoPass.TextLength==txtConfirPass.TextLength)
                 {
-                    if (Clases.Recuperacion_contraseña.cedula != 0) // si viene referenciado desde PREGUNTAS DE SEGURIDAD
+                    errorProviderNewPass.SetError(txtNuevoPass, "");
+                    errorProviderConfirPass.SetError(txtConfirPass, "");
+                    conexion.cerrarconexion();
+                    if (conexion.abrirconexion() == true)
                     {
-                        int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Recuperacion_contraseña.id_usuario, txtNuevoPass.Text);
-                        conexion.cerrarconexion();
-                        if (resultado != 0)
+                        if (Clases.Recuperacion_contraseña.cedula > 2) // si viene referenciado desde PREGUNTAS DE SEGURIDAD
                         {
-                            MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                            Clases.Recuperacion_contraseña.cedula = 0;
-                            Clases.Recuperacion_contraseña.nombre = "";
-                            Clases.Recuperacion_contraseña.Opcion = 0;
+                            int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Recuperacion_contraseña.id_usuario, txtNuevoPass.Text);
+                            conexion.cerrarconexion();
+                            if (resultado != 0)
+                            {
+                                MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                                Clases.Recuperacion_contraseña.cedula = 0;
+                                Clases.Recuperacion_contraseña.nombre = "";
+                                Clases.Recuperacion_contraseña.Opcion = 0;
+                            }
                         }
-                    }else//se ejecuta si viene por edicion en el perfil
-                    {
-                        MessageBox.Show(txtNuevoPass.Text);
-                        int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion,Clases.Usuario_logeado.id_usuario, txtNuevoPass.Text);
-                        conexion.cerrarconexion();
-                        if (resultado != 0)
+                        else if (Clases.Recuperacion_contraseña.cedula == 1)//se ejecuta si viene desde la primera vez ingresando al sistema
                         {
-                            MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Usuario_logeado.id_usuario, txtNuevoPass.Text);
+                            conexion.cerrarconexion();
+                            if (resultado != 0)
+                            {
+                                MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                                Preguntas_de_seguridad pre = new Preguntas_de_seguridad();
+                                pre.ShowDialog();
+
+                            }
+                        }
+                        else//se ejecuta si viene por edicion en el perfil
+                        {
                             
+                            int resultado = Clases.Usuarios.ActualizarContraseña(conexion.conexion, Clases.Usuario_logeado.id_usuario, txtNuevoPass.Text);
+                            conexion.cerrarconexion();
+                            if (resultado != 0)
+                            {
+                                MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+
+                            }
                         }
+
                     }
-                   
+                }else
+                {
+                    errorProviderConfirPass.SetError(txtConfirPass, "Las contraseñas no coinciden.");
+                    errorProviderNewPass.SetError(txtNuevoPass, "Las contraseñas no coinciden.");
+                    txtConfirPass.Clear();
+                    txtNuevoPass.Clear();
                 }
+                
 
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -90,23 +115,37 @@ namespace UCS_NODO_FGC
                 errorProviderConfirPass.SetError(txtConfirPass, "Las contraseñas no coinciden.");
                 errorProviderNewPass.SetError(txtNuevoPass, "Las contraseñas no coinciden.");
                 txtConfirPass.Clear();
-                txtConfirPass.Focus();
+                txtNuevoPass.Clear();
+                
             }else
             {
                 errorProviderNewPass.SetError(txtNuevoPass, "");
                 errorProviderConfirPass.SetError(txtConfirPass, "");
+                
             }
         }
 
         private void btnActualizarPass_Click(object sender, EventArgs e)
         {
-            Actualizar();
+            if (txtNuevoPass.Text == txtConfirPass.Text && txtNuevoPass.TextLength == txtConfirPass.TextLength)
+            {
+                if(txtNuevoPass.Text != "") { Actualizar(); }
+                
+            }
         }
 
         private void Cambio_contraseña_Load(object sender, EventArgs e)
         {
-            txtNuevoPass.UseSystemPasswordChar = true;
-            txtConfirPass.UseSystemPasswordChar = true;
+            if (Clases.Recuperacion_contraseña.Opcion == 3)
+            {
+                btn_cerrar.Visible = false;
+                
+            }else
+            {
+                btn_cerrar.Visible = true;
+                
+            }
+            
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -120,6 +159,15 @@ namespace UCS_NODO_FGC
         }
 
         public int xClick = 0, yClick = 0;
+
+        private void txtNuevoPass_TextChanged(object sender, EventArgs e)
+        {
+            if(txtNuevoPass.TextLength >= 8)
+            {
+                txtConfirPass.Enabled = true;
+            }
+        }
+
         private void Cambio_contraseña_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)

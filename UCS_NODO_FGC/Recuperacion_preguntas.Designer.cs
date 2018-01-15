@@ -183,7 +183,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.DarkRed;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnCancelar.Location = new System.Drawing.Point(400, 586);
             this.btnCancelar.Name = "btnCancelar";
@@ -199,7 +199,7 @@
             this.btnGuardarPDS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarPDS.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.btnGuardarPDS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarPDS.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnGuardarPDS.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnGuardarPDS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGuardarPDS.Location = new System.Drawing.Point(174, 586);
             this.btnGuardarPDS.Name = "btnGuardarPDS";

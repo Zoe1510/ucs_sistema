@@ -60,8 +60,11 @@ namespace UCS_NODO_FGC
             //si el usuario es nuevo:
             if (Clases.Usuario_logeado.password=="12345678")
             {
-                MessageBox.Show("Debe actualizar sus datos");
-                AddFormInPanel(new Perfil_profesional());
+                Clases.Recuperacion_contraseña.Opcion = 3;
+                Clases.Recuperacion_contraseña.cedula = 1;
+                MessageBox.Show("Debe actualizar su contraseña y establecer las preguntas de seguridad.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Cambio_contraseña c = new Cambio_contraseña();
+                c.ShowDialog();
                 
             }
 
