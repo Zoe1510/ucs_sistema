@@ -24,16 +24,20 @@ namespace UCS_NODO_FGC
         Clases.Facilitadores faDatos = new Clases.Facilitadores();
         Clases.Paquete_instruccional p_inst = new Clases.Paquete_instruccional();
         List<Clases.Paquete_instruccional> pLista = new List<Clases.Paquete_instruccional>();
+        List<string> nombre_publicidad = new List<string>();
+        List<string> lista_insumo = new List<string>();
         bool guardar = false;
         string duracion = "";
         bool ExisteFormacion;
         string presentacion = "";
         string contenido="";
         string bloques = "";
+        int id_refrigerio, id_refrigerio2, id_horario, id_horario2;
+     
 
-        DateTime fecha_creacion, fecha_modifinal;
-
-
+        DateTime fecha_creacion, fecha_modifinal, inicioE2, inicioE3;
+       
+        
         public Nueva_formacion_Abierto()
         {
             InitializeComponent();
@@ -56,6 +60,7 @@ namespace UCS_NODO_FGC
                 this.Location = new Point(-5, 0);
 
                 fecha_creacion = DateTime.Now;
+                dtpFechaCurso.Value = DateTime.Today;
 
                 btnVerPresentacion.Enabled = false;
                 btnVerContenido.Enabled = false;
@@ -91,6 +96,11 @@ namespace UCS_NODO_FGC
                 }
                 //cargar los facilitadores del nivel_intermedio
                 llenarcomboFacilitador();
+
+                llenarcomboRefrigerio();
+            }else //si viene referenciado desde el modulo ver formaciones, donde se cargaran los datos ingresados previamente para su modificacion
+            {
+
             }
             
             
@@ -112,18 +122,71 @@ namespace UCS_NODO_FGC
         }
         private void vaciarFormacion()
         {
-            //usado en el nivel_basico
-            formacion.duracion = "";
-            formacion.pq_inst = 0;
-            contenido = "";
-            presentacion = "";
-            formacion.nombre_formacion = "";
-            formacion.id_user = 0;
-            txtNombreFormacion.Clear();
-            cmbxDuracionFormacion.SelectedIndex = -1;
-            cmbxBloques.SelectedIndex = -1;
-            txtSolicitadoPor.Clear();
+            if (pnlNivel_basico.Visible == true)
+            {
+                //usado en el nivel_basico
+                formacion.duracion = "";
+                formacion.pq_inst = 0;
+                contenido = "";
+                presentacion = "";
+                formacion.nombre_formacion = "";
+                formacion.id_user = 0;
+                txtNombreFormacion.Clear();
+                cmbxDuracionFormacion.SelectedIndex = -1;
+                cmbxBloques.SelectedIndex = -1;
+                txtSolicitadoPor.Clear();
 
+            }
+            else if (pnlNivel_intermedio.Visible == true)
+            {
+                fa.id_facilitador = 0;
+                Cofa.id_facilitador = 0;
+
+                rdbNoRef.Checked = false;
+                rdbSiRef.Checked = false;
+                cmbxFa.SelectedIndex = -1;
+                cmbxCoFa.SelectedIndex = -1;
+                chkbCoFacilitador.Checked = false;
+                txtCorreoFa.Clear();
+                txtCorreoCoFa.Clear();
+                txtTlfnFa.Clear();
+                txtTlfnCoFa.Clear();
+
+            }
+            else if (pnlNivel_avanzado.Visible == true)
+            {
+                cmbxHorarios.SelectedIndex = -1;
+                cmbxHorario2.SelectedIndex = -1;
+                rdbNoIgualHorario.Checked = false;
+                rdbNoMantenerAula.Checked = false;
+                rdbNoMantenerRef.Checked = false;
+                rdbNoRef.Checked = false;
+                rdbSiIgualHorario.Checked = false;
+                rdbSiMantenerAula.Checked = false;
+                rdbSiRef.Checked = false;
+                cmbxTipoRefrigerio.SelectedIndex = -1;
+                txtAulaSeleccionada.Clear();
+
+            }
+
+        }
+
+        private void ordenTerceraEtapa()
+        {
+            gpbHorarioCurso.Location = new Point(254, 47);
+            gpbHorarioCurso.Height = 73;
+
+            gpbSeleccionRef.Location = new Point(254, 132);
+            gpbSeleccionRef.Enabled = false;
+
+            gpbLogistica.Location = new Point(254, 215);
+            gpbLogistica.Height = 155;
+            gpbLogistica.Width = 419;
+
+            gpbInsumos.Location = new Point(254, 377);
+            gpbInsumos.Height = 229;
+            gpbInsumos.Width = 419;
+           
         }
         private void VerPaqueteInst(int id_pq)
         {
@@ -134,6 +197,7 @@ namespace UCS_NODO_FGC
                     conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
+                        ExisteFormacion = true;
                         Clases.Paquete_instruccional pq = new Clases.Paquete_instruccional();
                         pq = Clases.Formaciones.obtenerTodoPq(conexion.conexion, id_pq);
                         conexion.cerrarconexion();
@@ -147,7 +211,7 @@ namespace UCS_NODO_FGC
                         Ver_paqueteInstruccional verp = new Ver_paqueteInstruccional();
                         verp.ShowDialog();
                         formacion.pq_inst = id_pq;
-                        ExisteFormacion = true;
+                       
                         
                     }
                 }
@@ -157,6 +221,7 @@ namespace UCS_NODO_FGC
                     {
                         formacion.pq_inst = id_pq;
                         ExisteFormacion = true;
+                        GuardarBasico();
                     }
                     else
                     {
@@ -182,6 +247,7 @@ namespace UCS_NODO_FGC
             btnRutaContenido.Enabled = false;
             btnRutaPresentacion.Enabled = false;
         }        
+
         private void CargarDatosPublicidad(MySqlConnection conexion, string di)
         {
             //usado para cargarla publicidad(Nivel_intermedio)
@@ -229,6 +295,7 @@ namespace UCS_NODO_FGC
 
             }
         }
+
         private void Load_Sig_Re()
         {
             btnRetomar.Enabled = false;
@@ -239,7 +306,59 @@ namespace UCS_NODO_FGC
             btnPausar.Enabled = true;
             btnLimpiar.Enabled = true;
         }
-        private void GuardarBasico()
+       
+        private void llenarcomboFacilitador()
+        {
+            //llenar el combobox con las empresas registradas:
+            cmbxFa.ValueMember = "id_faci";
+            cmbxFa.DisplayMember = "nombreyapellido1";
+            cmbxFa.DataSource = Clases.Paneles.LlenarCmbxFaTodos();
+            cmbxFa.SelectedIndex = -1;
+        }
+        private void llenarcomboRefrigerio()
+        {
+            //llenar el combobox de la tercera etapa con los tipos de refrigerios
+            cmbxTipoRefrigerio.ValueMember = "id_ref";
+            cmbxTipoRefrigerio.DisplayMember = "nombre";
+            cmbxTipoRefrigerio.DataSource = Paneles.llenarcmbxRef();
+            cmbxTipoRefrigerio.SelectedIndex = -1;
+        }
+        private void llenarcombo2Refrigerio(int id_ref)
+        {
+            //llenar el combobox de la tercera etapa con los tipos de refrigerios
+            cmbxTipoRefrigerio2.ValueMember = "id_ref";
+            cmbxTipoRefrigerio2.DisplayMember = "nombre";
+            cmbxTipoRefrigerio2.DataSource = Paneles.llenarcmbx2Ref(id_ref);
+            cmbxTipoRefrigerio2.SelectedIndex = -1;
+        }
+        private void llenarComboCoFa(int id_facilitador)
+        {
+            //llenar el combobox con las empresas registradas:
+            cmbxCoFa.ValueMember = "id_faci";
+            cmbxCoFa.DisplayMember = "nombreyapellido1";
+            cmbxCoFa.DataSource = Clases.Paneles.LlenarCmbxCoFa(id_facilitador);
+            cmbxCoFa.SelectedIndex = -1;
+        }
+
+        private void llenarComboHorario(string tipo)
+        {
+            //llenar el combobox con los horarios registrados en la BD
+            cmbxHorarios.ValueMember = "id_horario";
+            cmbxHorarios.DisplayMember = "contenido_horario";
+            cmbxHorarios.DataSource = Horarios.llenarcmbxHorario(tipo);
+            cmbxHorarios.SelectedIndex = -1;
+        }
+
+        private void llenarComboHorario2(string tipo, int id)
+        {
+            //llenar el combobox con los horarios registrados en la BD
+            cmbxHorario2.ValueMember = "id_horario";
+            cmbxHorario2.DisplayMember = "contenido_horario";
+            cmbxHorario2.DataSource = Horarios.llenarcmbxHorario2(tipo, id);
+            cmbxHorario2.SelectedIndex = -1;
+        }
+
+        public void GuardarBasico()
         {
             //el estatus del curso en esta etapa siempre será "En curso"
             // los posibles estatus son: En curso, Reprogramado, Suspendido
@@ -325,13 +444,15 @@ namespace UCS_NODO_FGC
                                                             conexion.cerrarconexion();
                                                             if (id_paquete != 0)//se obtiene un id_intruccional cooncordante con el archivo subido
                                                             {
-
+                                                                
                                                                 if (conexion.abrirconexion() == true)
                                                                 {
                                                                     int resultado = 0;
                                                                     resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
 
                                                                     conexion.cerrarconexion();
+
+                                                                   
                                                                     if (resultado > 0 && resultado2 > 0)
                                                                     {
                                                                         if (conexion.abrirconexion() == true)
@@ -513,23 +634,6 @@ namespace UCS_NODO_FGC
 
             }
         }
-        private void llenarcomboFacilitador()
-        {
-            //llenar el combobox con las empresas registradas:
-            cmbxFa.ValueMember = "id_faci";
-            cmbxFa.DisplayMember = "nombreyapellido1";
-            cmbxFa.DataSource = Clases.Paneles.LlenarCmbxFaTodos();
-            cmbxFa.SelectedIndex = -1;
-        }
-        private void llenarComboCoFa(int id_facilitador)
-        {
-            //llenar el combobox con las empresas registradas:
-            cmbxCoFa.ValueMember = "id_faci";
-            cmbxCoFa.DisplayMember = "nombreyapellido1";
-            cmbxCoFa.DataSource = Clases.Paneles.LlenarCmbxCoFa(id_facilitador);
-            cmbxCoFa.SelectedIndex = -1;
-        }
-
         private void GuardarIntermedio()
         {
             try
@@ -538,7 +642,8 @@ namespace UCS_NODO_FGC
 
                 if (formacion.duracion == "4")
                 {
-                    if(dtpFechaCurso.Value <= DateTime.Today)
+                    
+                    if (dtpFechaCurso.Value <= DateTime.Today)
                     {
                         errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
                         dtpFechaCurso.Focus();
@@ -546,23 +651,101 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderFecha.SetError(dtpFechaCurso, "");
-                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
-
-                        foreach (DataGridViewRow r in dgvMediosDifusion.Rows)
+                       
+                        if (cmbxFa.SelectedIndex == -1)
                         {
-                            DataGridViewCheckBoxCell ck = r.Cells["seleccionar_opcion"] as DataGridViewCheckBoxCell;
-                            if (Convert.ToBoolean(ck.Value))
+                            errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                            cmbxFa.Focus();
+                        }else
+                        {
+                            errorProviderSolicitado.SetError(cmbxFa, "");
+                            
+                            if(chkbCoFacilitador.Checked==true && cmbxCoFa.SelectedIndex == -1)
                             {
+                                errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                cmbxCoFa.Focus();
+                            }else
+                            {
+                                errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                if (nombre_publicidad.Count <= 0)
+                                {
+                                    errorProviderBloque.SetError(dgvMediosDifusion, "Debe seleccionar al menos 1 medio de difusión.");
+                                }
+                                else
+                                {
+                                    
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                    DateTime FinalE2 = DateTime.Now;
+                                    String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+                                    List<Difusion> medios_publicitarios = new List<Difusion>();
+                                    int id_curso = 0;
+                                    //se obtiene el id del curso
+                                    MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                    if (obtener_id_curso.Read())
+                                    {
+                                        id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                    }
+                                    obtener_id_curso.Close();
+                                    Difusion d = new Difusion();
+                                    //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                    for (int i = 0; i < nombre_publicidad.Count; i++)
+                                    {
+                                        string publi = nombre_publicidad[i].ToString();
+                                        MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_difusion FROM difusion WHERE dif_contenido = '" + publi + "' LIMIT 1");
+                                        while (seleccionId.Read())
+                                        {
+                                           
+                                            d.id_dif = int.Parse(seleccionId["id_difusion"].ToString());
+                                            d.contenido_dif = publi;
+                                            medios_publicitarios.Add(d);
+                                            //error en el codigo
+                                        }
+
+                                        seleccionId.Close();
+                                        MySqlDataReader guardarRelacionCursoPublicidad = Conexion.ConsultarBD("INSERT INTO cursos_tiene_publicidad (ctp_id_curso, ctp_id_difusion, ctp_contenido_dif) VALUES('" + id_curso + "', '" + medios_publicitarios[i].id_dif + "', '" + medios_publicitarios[i].contenido_dif + "')");
+                                       
+                                        guardarRelacionCursoPublicidad.Close();
+                                    }
+
+
+                                    //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                    MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                    ActualizarCursoSegundaEtapa.Close();
+                                    
+                                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+                                        else // sino, solo guarda al facilitador
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+
+                                        //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                        ordenTerceraEtapa();
+                                    //llenar el cmbx de horarios:
+                                    cmbxHorarios.Items.Clear();
+                                    string tipo = "A";
+                                    llenarComboHorario(tipo);
+                                        
+                                        //para la logistica:
+                                        rdbSiMantenerAula.Enabled = false;
+                                        rdbNoMantenerAula.Enabled = false;
+                                        txtSegundaAula.Enabled = false;
+                                    
+                                }
 
                             }
-                            else
-                            {
-
-                            }
-
                         }
-                        //if ()
-                        time.fecha_curso = dtpFechaCurso.Value;
+     
                     }
                 }
                 else
@@ -570,19 +753,415 @@ namespace UCS_NODO_FGC
                     //segundo caso: cuando la formaicon es de 8 horas y tiene dos bloques, o sea, dos diías de 4 hrs
                     if(formacion.duracion=="8" && formacion.bloque_curso == "2")
                     {
+                        
+                        if (dtpFechaCurso.Value <= DateTime.Today)
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                            dtpFechaCurso.Focus();
+                        }
+                        else
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "");
+                            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value || dtpSegundaFecha.Value <= DateTime.Today)
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                                dtpSegundaFecha.Focus();
+                            }
+                            else
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "");
+                                if (cmbxFa.SelectedIndex == -1)
+                                {
+                                    errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                    cmbxFa.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderSolicitado.SetError(cmbxFa, "");
 
-                    }else
+                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                    {
+                                        errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                        cmbxCoFa.Focus();
+                                    }
+                                    else
+                                    {
+                                        errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                        if (nombre_publicidad.Count <= 0)
+                                        {
+                                            errorProviderBloque.SetError(dgvMediosDifusion, "Debe seleccionar al menos 1 medio de difusión.");
+                                        }
+                                        else
+                                        {
+                                            time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss"); 
+                                            time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                            DateTime FinalE2 = DateTime.Now;
+                                            String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+                                            List<Difusion> medios_publicitarios = new List<Difusion>();
+                                            int id_curso = 0;
+                                            //se obtiene el id del curso
+                                            MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                            if (obtener_id_curso.Read())
+                                            {
+                                                id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                            }
+                                            obtener_id_curso.Close();
+                                            Difusion d = new Difusion();
+                                            //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                            for (int i = 0; i < nombre_publicidad.Count; i++)
+                                            {
+                                                string publi = nombre_publicidad[i].ToString();
+                                                MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_difusion FROM difusion WHERE dif_contenido = '" + publi + "' LIMIT 1");
+                                                while (seleccionId.Read())
+                                                {
+                                                   
+                                                    d.id_dif = int.Parse(seleccionId["id_difusion"].ToString());
+                                                    d.contenido_dif = publi;
+                                                    medios_publicitarios.Add(d);
+                                                    //error en el codigo
+                                                }
+
+                                                seleccionId.Close();
+                                                MySqlDataReader guardarRelacionCursoPublicidad = Conexion.ConsultarBD("INSERT INTO cursos_tiene_publicidad (ctp_id_curso, ctp_id_difusion, ctp_contenido_dif) VALUES('" + id_curso + "', '" + medios_publicitarios[i].id_dif + "', '" + medios_publicitarios[i].contenido_dif + "')");
+                                              
+                                                guardarRelacionCursoPublicidad.Close();
+                                            }
+
+                                            ////se actualiza la informacion del curso con los valores nuevos: 
+                                            //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                            MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "',fecha_dos='" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                            ActualizarCursoSegundaEtapa.Close();
+                                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+                                            else // sino, solo guarda al facilitador
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+
+                                            //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                            ordenTerceraEtapa();                                            
+                                            gpbHorarioCurso.Height = 169;                                           
+                                            gpbSeleccionRef.Visible = false;
+                                            //llenar el cmbx de horarios:
+                                            cmbxHorarios.Items.Clear();
+                                            string tipo = "A";
+                                            llenarComboHorario(tipo);
+                                            //para la logistica:
+                                            rdbSiMantenerAula.Enabled = true;
+                                            rdbNoMantenerAula.Enabled = true;
+                                            txtSegundaAula.Enabled = false;
+
+                                        }
+
+                                    }
+                                }
+                            }
+                           
+                        }
+                    }
+                    else
                     {
                         //tercer caso: cuando la formacion es de 8 horas y tiene 1 bloque, o sea, se hace en un día
                         if(formacion.duracion == "8" && formacion.bloque_curso == "1")
                         {
+                            if (rdbSiRef.Checked == false && rdbNoRef.Checked == false)
+                            {
+                                errorProviderBloque.SetError(gpbRefrigerio, "Debe especificar si la formación poseerá refrigerio.");
+                            }
+                            else
+                            {
+                                if (dtpFechaCurso.Value <= DateTime.Today)
+                                {
+                                    errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                                    dtpFechaCurso.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderFecha.SetError(dtpFechaCurso, "");
 
-                        }else
+                                    if (cmbxFa.SelectedIndex == -1)
+                                    {
+                                        errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                        cmbxFa.Focus();
+                                    }
+                                    else
+                                    {
+                                        errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                        {
+                                            errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                            cmbxCoFa.Focus();
+                                        }
+                                        else
+                                        {
+                                            errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                            if (nombre_publicidad.Count <= 0)
+                                            {
+                                                errorProviderBloque.SetError(dgvMediosDifusion, "Debe seleccionar al menos 1 medio de difusión.");
+                                            }
+                                            else
+                                            {
+                                                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                                DateTime FinalE2 = DateTime.Now;
+                                                String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+                                                List<Difusion> medios_publicitarios = new List<Difusion>();
+                                                int id_curso = 0;
+
+                                                //se obtiene el id del curso
+                                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                                if (obtener_id_curso.Read())
+                                                {
+                                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                                }
+                                                obtener_id_curso.Close();
+                                                Difusion d = new Difusion();
+                                                //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                                for (int i = 0; i < nombre_publicidad.Count; i++)
+                                                {
+                                                    string publi = nombre_publicidad[i].ToString();
+                                                    MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_difusion FROM difusion WHERE dif_contenido = '" + publi + "' LIMIT 1");
+                                                    while (seleccionId.Read())
+                                                    {
+                                                        d.id_dif = int.Parse(seleccionId["id_difusion"].ToString());
+                                                        d.contenido_dif = publi;
+                                                        medios_publicitarios.Add(d);
+                                                    
+                                                    }
+
+                                                    seleccionId.Close();
+                                                    MySqlDataReader guardarRelacionCursoPublicidad = Conexion.ConsultarBD("INSERT INTO cursos_tiene_publicidad (ctp_id_curso, ctp_id_difusion, ctp_contenido_dif) VALUES('" + id_curso + "', '" + medios_publicitarios[i].id_dif + "', '" + medios_publicitarios[i].contenido_dif + "')");
+                                                    
+                                                    guardarRelacionCursoPublicidad.Close();
+                                                }
+                                                if (rdbSiRef.Checked == false)
+                                                {
+                                                    gpbSeleccionRef.Enabled = false;
+                                                    gpbSeleccionRef.Visible = true;
+                                                    MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                                    ActualizarCursoTieneRef.Close();
+                                                }
+                                                else
+                                                {
+                                                    gpbSeleccionRef.Enabled = true;
+                                                    gpbSeleccionRef.Visible = true;
+                                                    MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='1' ");
+                                                    ActualizarCursoTieneRef.Close();
+                                                }
+
+                                                //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                                MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                                ActualizarCursoSegundaEtapa.Close();
+                                                // si el checkbox esta seleccionado es que tiene co-facilitador
+                                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                                    {
+                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                        FacilitadorCurso.Close();
+                                                        guardar = true;
+                                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                     }
+                                                     else // sino, solo guarda al facilitador
+                                                     {
+                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                        FacilitadorCurso.Close();
+                                                        guardar = true;
+                                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                     }
+
+
+
+                                                    //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                                    ordenTerceraEtapa();
+                                                    
+                                                    //llenar el cmbx de horarios:
+                                                    cmbxHorarios.Items.Clear();
+                                                string tipo = "B";
+                                                llenarComboHorario(tipo);
+
+                                                //para la logistica:
+                                                rdbSiMantenerAula.Enabled = false;
+                                                    rdbNoMantenerAula.Enabled = false;
+                                                    txtSegundaAula.Enabled = false;
+                                               
+                                               
+                                            }
+
+                                        }
+                                    }
+
+
+
+                                }
+                            }
+                            
+                        }
+                        else
                         {
                             //ultimo caso: cuando la formacion es de 16 horas, siempre tendrá dos bloques, o sea, dos dias
                             if(formacion.duracion == "16")
                             {
+                                if (rdbSiRef.Checked == false && rdbNoRef.Checked==false)
+                                {
+                                    errorProviderBloque.SetError(gpbRefrigerio, "Debe especificar si la formación poseerá refrigerio.");
+                                }
+                                else
+                                {
 
+                                    if(rdbSiRef.Checked == false)
+                                        gpbSeleccionRef.Enabled = false;
+                                    else
+                                    gpbSeleccionRef.Enabled = true;
+
+
+
+                                    if (dtpFechaCurso.Value <= DateTime.Today)
+                                    {
+                                        errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                                        dtpFechaCurso.Focus();
+                                    }
+                                    else
+                                    {
+                                        errorProviderFecha.SetError(dtpFechaCurso, "");
+                                        if (dtpSegundaFecha.Value <= dtpFechaCurso.Value || dtpSegundaFecha.Value <= DateTime.Today)
+                                        {
+                                            errorProviderContenido.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                                            dtpSegundaFecha.Focus();
+                                        }
+                                        else
+                                        {
+                                            errorProviderContenido.SetError(dtpSegundaFecha, "");
+                                            if (cmbxFa.SelectedIndex == -1)
+                                            {
+                                                errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                                cmbxFa.Focus();
+                                            }
+                                            else
+                                            {
+                                                errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                                {
+                                                    errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                                    cmbxCoFa.Focus();
+                                                }
+                                                else
+                                                {
+                                                    errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                                    if (nombre_publicidad.Count <=0)
+                                                    {
+                                                        errorProviderBloque.SetError(dgvMediosDifusion, "Debe seleccionar al menos 1 medio de difusión.");
+                                                    }
+                                                    else
+                                                    {
+                                                        time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss"); ;
+                                                        DateTime FinalE2 = DateTime.Now;
+                                                        String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+                                                        List<Difusion> medios_publicitarios = new List<Difusion>();
+                                                        int id_curso = 0;
+                                                        //se obtiene el id del curso
+                                                        MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                                        if (obtener_id_curso.Read())
+                                                        {
+                                                            id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                                        }
+                                                        obtener_id_curso.Close();
+                                                        Difusion d = new Difusion();
+                                                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                                        for (int i = 0; i < nombre_publicidad.Count; i++)
+                                                        {
+                                                           string publi=nombre_publicidad[i].ToString();
+                                                            MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_difusion FROM difusion WHERE dif_contenido = '" + publi + "' LIMIT 1");
+                                                            while (seleccionId.Read())
+                                                            {                                                               
+                                                                d.id_dif = int.Parse(seleccionId["id_difusion"].ToString());
+                                                                d.contenido_dif =publi;
+                                                                medios_publicitarios.Add(d);
+                                                              
+                                                            }
+
+                                                            seleccionId.Close();
+                                                            MySqlDataReader guardarRelacionCursoPublicidad = Conexion.ConsultarBD("INSERT INTO cursos_tiene_publicidad (ctp_id_curso, ctp_id_difusion, ctp_contenido_dif) VALUES('" + id_curso + "', '" + medios_publicitarios[i].id_dif + "', '" + medios_publicitarios[i].contenido_dif + "')");
+                                                           
+                                                            guardarRelacionCursoPublicidad.Close();
+                                                        }
+
+                                                        ////se actualiza la informacion del curso con los valores nuevos: 
+                                                        //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                                        MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "',fecha_dos='" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                                        ActualizarCursoSegundaEtapa.Close();
+                                                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                                        {
+                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                            FacilitadorCurso.Close();
+                                                            guardar = true;
+                                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                         }
+                                                         else // sino, solo guarda al facilitador
+                                                         {
+                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                            FacilitadorCurso.Close();
+                                                            guardar = true;
+                                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                         }
+
+                                                        //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+
+
+                                                        if (rdbSiRef.Checked == false)
+                                                        {
+                                                            ordenTerceraEtapa();
+                                                            gpbSeleccionRef.Enabled = false;
+                                                            gpbSeleccionRef.Visible = false;
+                                                            gpbHorarioCurso.Height = 169;
+                                                           
+
+                                                        }
+                                                        else
+                                                        {
+                                                            ordenTerceraEtapa();
+                                                            gpbHorarioCurso.Location = new Point(33, 47);
+                                                            gpbHorarioCurso.Height = 169;
+                                                            gpbSeleccionRef.Location = new Point(464, 47);
+                                                            gpbSeleccionRef.Height = 169;
+                                                            gpbSeleccionRef.Enabled = true;
+                                                            gpbSeleccionRef.Visible = true;
+                                                            rdbNoMantenerRef.Visible = true;
+                                                            rdbSiMantenerRef.Visible = true;
+                                                            rdbNoMantenerRef.Enabled = true;
+                                                            rdbSiMantenerRef.Enabled = true;
+                                                        }
+                                                        //llenar el cmbx de horarios:
+                                                        cmbxHorarios.Items.Clear();
+                                                        string tipo = "B";
+                                                        llenarComboHorario(tipo);
+
+                                                        //para la logistica:
+                                                        rdbSiMantenerAula.Enabled = true;
+                                                        rdbNoMantenerAula.Enabled = true;
+                                                        txtSegundaAula.Enabled = false;
+
+                                                    }
+
+                                                }
+                                            }
+
+                                        }
+
+                                    }
+                                }
                             }
                         }
                     }
@@ -596,6 +1175,419 @@ namespace UCS_NODO_FGC
 
             }
         }
+        private void GuardarAvanzado()
+        {
+            try
+            {
+                if (formacion.duracion == "4")
+                {
+                    if (cmbxHorarios.SelectedIndex == -1)
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "Debe seleccionar uno de los horarios disponibles.");
+                        cmbxHorarios.Focus();
+                    }else
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "");
+                        if(txtAulaSeleccionada.Text == "")
+                        {
+                            errorProviderNombreF.SetError(txtAulaSeleccionada, "Debe proporcionar el aula en el que se dictará la formación.");
+                            txtAulaSeleccionada.Focus();
+                        }else
+                        {
+                            errorProviderNombreF.SetError(txtAulaSeleccionada, "");
+                            if(lista_insumo.Count <= 0)
+                            {
+                                errorProviderContenido.SetError(dgvInsumos, "Debe seleccionar los insumos que se usarán durante la formación.");
+
+                            }else
+                            {
+                                errorProviderContenido.SetError(dgvInsumos, "");
+                                
+                                DateTime FinalE3 = DateTime.Now;
+                                String duracionE3 = Convert.ToString(FinalE3 - inicioE3);
+                                string aula = txtAulaSeleccionada.Text;
+                              
+                                List<Insumos> insumos_curso = new List<Insumos>();
+                               
+                                int id_curso = 0;
+                                //se obtiene el id del curso
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                if (obtener_id_curso.Read())
+                                {
+                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                }
+                                obtener_id_curso.Close();
+
+                                Insumos insu = new Insumos();
+                                //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                for (int i = 0; i < lista_insumo.Count; i++)
+                                {
+                                    string publi = lista_insumo[i].ToString();
+                                    MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_insumos FROM insumos WHERE ins_contenido = '" + publi + "' LIMIT 1");
+                                    while (seleccionId.Read())
+                                    {
+                                       
+                                        insu.id_insumos = int.Parse(seleccionId["id_insumos"].ToString());
+                                        insu.contenido_insumo = publi;
+                                        insumos_curso.Add(insu);
+                                        
+                                    }
+
+                                    seleccionId.Close();
+                                    MySqlDataReader guardarRelacionCursoInsumo = Conexion.ConsultarBD("INSERT INTO cursos_tienen_insumos (cti_id_curso, cti_id_insumo, cti_contenido_insumo) VALUES('" + id_curso + "', '" + insumos_curso[i].id_insumos + "', '" + insumos_curso[i].contenido_insumo + "')");
+                                   
+                                    guardarRelacionCursoInsumo.Close();
+                                }
+
+                                ////se actualiza la informacion del curso con los valores nuevos: 
+                                //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='"+ id_horario +"', aula_dia1='"+ aula +"' WHERE id_cursos='" + id_curso + "'");
+                                ActualizarCursoTerceraEtapa.Close();
+                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                               
+
+                            }
+                        }
+                    }
+                }else if(formacion.duracion == "8" && formacion.bloque_curso == "2")
+                {
+                    if (cmbxHorarios.SelectedIndex == -1)
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "Debe seleccionar uno de los horarios disponibles.");
+                        cmbxHorarios.Focus();
+                    }
+                    else
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "");
+                        if(rdbNoIgualHorario.Checked && cmbxHorario2.SelectedIndex == -1)
+                        {
+                            errorProviderBloque.SetError(cmbxHorario2, "Debe seleccionar uno de los horarios disponibles.");
+                            cmbxHorario2.Focus();
+
+                        }else
+                        {
+                            errorProviderBloque.SetError(cmbxHorario2, "");
+                            if (txtAulaSeleccionada.Text == "")
+                            {
+                                errorProviderNombreF.SetError(txtAulaSeleccionada, "Debe proporcionar el aula en el que se dictará la formación.");
+                                txtAulaSeleccionada.Focus();
+                            }
+                            else
+                            {
+                                errorProviderNombreF.SetError(txtAulaSeleccionada, "");
+                                if (rdbNoMantenerAula.Checked && txtSegundaAula.Text == "")
+                                {
+                                    errorProviderContenido.SetError(txtSegundaAula, "Debe proporcionar el aula en el que se dictará la formación.");
+                                    txtSegundaAula.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(txtSegundaAula, "");
+
+                                    if (lista_insumo.Count <= 0)
+                                    {
+                                        errorProviderContenido.SetError(dgvInsumos, "Debe seleccionar los insumos que se usarán durante la formación.");
+
+                                    }
+                                    else
+                                    {
+                                        errorProviderContenido.SetError(dgvInsumos, "");
+
+                                        DateTime FinalE3 = DateTime.Now;
+                                        String duracionE3 = Convert.ToString(FinalE3 - inicioE3);
+                                        string aula = txtAulaSeleccionada.Text;
+                                        string aula2;
+                                        if (rdbSiMantenerAula.Checked)
+                                        {
+                                            aula2 = aula;
+                                        }else
+                                        {
+                                            aula2 = txtSegundaAula.Text;
+                                        }
+                                                                              
+                                        
+                                        List<Insumos> insumos_curso = new List<Insumos>();
+                                        
+                                        int id_curso = 0;
+                                        //se obtiene el id del curso
+                                        MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                        if (obtener_id_curso.Read())
+                                        {
+                                            id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                        }
+                                        obtener_id_curso.Close();
+
+                                        Insumos insu = new Insumos();
+                                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                        for (int i = 0; i < lista_insumo.Count; i++)
+                                        {
+                                            string publi = lista_insumo[i].ToString();
+                                            MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_insumos FROM insumos WHERE ins_contenido = '" + publi + "' LIMIT 1");
+                                            while (seleccionId.Read())
+                                            {
+                                                insu.id_insumos = int.Parse(seleccionId["id_insumos"].ToString());
+                                                insu.contenido_insumo = publi;
+                                                insumos_curso.Add(insu);
+
+                                            }
+
+                                            seleccionId.Close();
+                                            MySqlDataReader guardarRelacionCursoInsumo = Conexion.ConsultarBD("INSERT INTO cursos_tienen_insumos (cti_id_curso, cti_id_insumo, cti_contenido_insumo) VALUES('" + id_curso + "', '" + insumos_curso[i].id_insumos + "', '" + insumos_curso[i].contenido_insumo + "')");
+                                           
+                                            guardarRelacionCursoInsumo.Close();
+                                        }
+
+                                        ////se actualiza la informacion del curso con los valores nuevos: 
+                                        //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                        MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "' WHERE id_cursos='" + id_curso + "'");
+                                        ActualizarCursoTerceraEtapa.Close();
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+                                    }
+                                }
+
+                            }
+
+                        }
+                        
+                    }
+                }
+                else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                {
+                    
+                    if (cmbxHorarios.SelectedIndex == -1)
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "Debe seleccionar uno de los horarios disponibles.");
+                        cmbxHorarios.Focus();
+                    }
+                    else
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "");
+                        if (gpbSeleccionRef.Enabled == true )
+                        {
+                            if(cmbxTipoRefrigerio.SelectedIndex == -1)
+                            {
+                                errorProviderFecha.SetError(cmbxTipoRefrigerio, "Debe seleccionar un tipo de refrigerio para la formación.");
+                                cmbxTipoRefrigerio.Focus();
+
+                            }
+                        }
+                        errorProviderFecha.SetError(cmbxTipoRefrigerio, "");
+                       
+                        if (txtAulaSeleccionada.Text == "")
+                        {
+                            errorProviderNombreF.SetError(txtAulaSeleccionada, "Debe proporcionar el aula en el que se dictará la formación.");
+                            txtAulaSeleccionada.Focus();
+                        }
+                        else
+                        {
+                            errorProviderNombreF.SetError(txtAulaSeleccionada, "");
+                            if (lista_insumo.Count <= 0)
+                            {
+                                errorProviderContenido.SetError(dgvInsumos, "Debe seleccionar los insumos que se usarán durante la formación.");
+
+                            }
+                            else
+                            {
+                                errorProviderContenido.SetError(dgvInsumos, "");
+                                                             
+                             
+                                DateTime FinalE3 = DateTime.Now;
+                                String duracionE3 = Convert.ToString(FinalE3 - inicioE3);
+                                string aula = txtAulaSeleccionada.Text;                             
+
+                                List<Insumos> insumos_curso = new List<Insumos>();
+                               
+                                int id_curso = 0;
+
+                                //se obtiene el id del curso
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                if (obtener_id_curso.Read())
+                                {
+                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                }
+                                obtener_id_curso.Close();
+
+                                Insumos insu = new Insumos();
+                                //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                for (int i = 0; i < lista_insumo.Count; i++)
+                                {
+                                    string publi = lista_insumo[i].ToString();
+                                    MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_insumos FROM insumos WHERE ins_contenido = '" + publi + "' LIMIT 1");
+                                    while (seleccionId.Read())
+                                    {
+                                       
+                                        insu.id_insumos = int.Parse(seleccionId["id_insumos"].ToString());
+                                        insu.contenido_insumo = publi;
+                                        insumos_curso.Add(insu);
+
+                                    }
+
+                                    seleccionId.Close();
+                                    MySqlDataReader guardarRelacionCursoInsumo = Conexion.ConsultarBD("INSERT INTO cursos_tienen_insumos (cti_id_curso, cti_id_insumo, cti_contenido_insumo) VALUES('" + id_curso + "', '" + insumos_curso[i].id_insumos + "', '" + insumos_curso[i].contenido_insumo + "')");
+                                   
+                                    guardarRelacionCursoInsumo.Close();
+                                }
+
+                                ////se actualiza la informacion del curso con los valores nuevos: 
+                              
+                                if (id_refrigerio > 0)
+                                {
+                                    MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='" + id_horario + "', aula_dia1='" + aula + "', id_ref1='"+id_refrigerio+"' WHERE id_cursos='" + id_curso + "'");
+                                    ActualizarCursoTerceraEtapa.Close();
+                                }
+                                else
+                                {
+                                    MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='" + id_horario + "', aula_dia1='" + aula + "' WHERE id_cursos='" + id_curso + "'");
+                                    ActualizarCursoTerceraEtapa.Close();
+                                }
+                               
+                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+                            }
+                        }
+                    }
+                }
+                else if (formacion.duracion == "16")
+                {
+                    if (cmbxHorarios.SelectedIndex == -1)
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "Debe seleccionar uno de los horarios disponibles.");
+                        cmbxHorarios.Focus();
+                    }
+                    else
+                    {
+                        errorProviderHora.SetError(cmbxHorarios, "");
+                        if (rdbNoIgualHorario.Checked && cmbxHorario2.SelectedIndex == -1)
+                        {
+                            errorProviderBloque.SetError(cmbxHorario2, "Debe seleccionar uno de los horarios disponibles.");
+                            cmbxHorario2.Focus();
+
+                        }
+                        else
+                        {
+                            errorProviderBloque.SetError(cmbxHorario2, "");
+                            if (gpbSeleccionRef.Enabled == true)
+                            {
+                                if (cmbxTipoRefrigerio.SelectedIndex == -1)
+                                {
+                                    errorProviderFecha.SetError(cmbxTipoRefrigerio, "Debe seleccionar un tipo de refrigerio para la formación.");
+                                    cmbxTipoRefrigerio.Focus();
+
+                                }else if (rdbNoMantenerRef.Checked==true && cmbxTipoRefrigerio2.SelectedIndex == -1)
+                                {
+                                    errorProviderBloque.SetError(cmbxTipoRefrigerio2, "Debe seleccionar un tipo de refrigerio para la formación.");
+                                    cmbxTipoRefrigerio2.Focus();
+                                }
+                            }
+                            errorProviderFecha.SetError(cmbxTipoRefrigerio, "");
+                            errorProviderBloque.SetError(cmbxTipoRefrigerio2, "");
+                            if (txtAulaSeleccionada.Text == "")
+                            {
+                                errorProviderNombreF.SetError(txtAulaSeleccionada, "Debe proporcionar el aula en el que se dictará la formación.");
+                                txtAulaSeleccionada.Focus();
+                            }
+                            else
+                            {
+                                errorProviderNombreF.SetError(txtAulaSeleccionada, "");
+                                if (rdbNoMantenerAula.Checked && txtSegundaAula.Text == "")
+                                {
+                                    errorProviderContenido.SetError(txtSegundaAula, "Debe proporcionar el aula en el que se dictará la formación.");
+                                    txtSegundaAula.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(txtSegundaAula, "");
+
+                                    if (lista_insumo.Count <= 0)
+                                    {
+                                        errorProviderContenido.SetError(dgvInsumos, "Debe seleccionar los insumos que se usarán durante la formación.");
+
+                                    }
+                                    else
+                                    {
+                                        errorProviderContenido.SetError(dgvInsumos, "");
+
+                                        DateTime FinalE3 = DateTime.Now;
+                                        String duracionE3 = Convert.ToString(FinalE3 - inicioE3);
+                                        string aula = txtAulaSeleccionada.Text;
+                                        string aula2;
+                                        if (rdbSiMantenerAula.Checked)
+                                        {
+                                            aula2 = aula;
+                                        }
+                                        else
+                                        {
+                                            aula2 = txtSegundaAula.Text;
+                                        }
+                                      
+                                       
+                                        List<Insumos> insumos_curso = new List<Insumos>();
+                                       
+                                        int id_curso = 0;
+                                        //se obtiene el id del curso
+                                        MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='Abierto'");
+                                        if (obtener_id_curso.Read())
+                                        {
+                                            id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                        }
+                                        obtener_id_curso.Close();
+
+                                        Insumos insu = new Insumos();
+                                        //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
+                                        for (int i = 0; i < lista_insumo.Count; i++)
+                                        {
+                                            string publi = lista_insumo[i].ToString();
+                                            MySqlDataReader seleccionId = Conexion.ConsultarBD("SELECT id_insumos FROM insumos WHERE ins_contenido = '" + publi + "' LIMIT 1");
+                                            while (seleccionId.Read())
+                                            {
+                                                insu.id_insumos = int.Parse(seleccionId["id_insumos"].ToString());
+                                                insu.contenido_insumo = publi;
+                                                insumos_curso.Add(insu);
+
+                                            }
+
+                                            seleccionId.Close();
+                                            MySqlDataReader guardarRelacionCursoInsumo = Conexion.ConsultarBD("INSERT INTO cursos_tienen_insumos (cti_id_curso, cti_id_insumo, cti_contenido_insumo) VALUES('" + id_curso + "', '" + insumos_curso[i].id_insumos + "', '" + insumos_curso[i].contenido_insumo + "')");
+                                           
+                                            guardarRelacionCursoInsumo.Close();
+                                        }
+
+                                        ////se actualiza la informacion del curso con los valores nuevos: 
+                                        if (id_refrigerio > 0)
+                                        {
+                                            MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "', id_ref1='"+id_refrigerio+ "',id_ref2='" + id_refrigerio2 + "' WHERE id_cursos='" + id_curso + "'");
+                                            ActualizarCursoTerceraEtapa.Close();
+                                        }else
+                                        {
+                                            MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', duracionE3='" + duracionE3 + "', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "' WHERE id_cursos='" + id_curso + "'");
+                                            ActualizarCursoTerceraEtapa.Close();
+                                        }
+                                            //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                       
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                conexion.cerrarconexion();
+
+            }
+        }
+
         /* ------------- Fin Metodos -------------------*/
 
 
@@ -956,13 +1948,23 @@ namespace UCS_NODO_FGC
                 {
                     if (pnlNivel_intermedio.Visible == true)
                     {
-                        
+                        GuardarIntermedio();
+                        if (guardar == true)
+                        {
+                            btnSiguienteEtapa.Enabled = true;
+                            btnPausar.Enabled = true;
+                            btnLimpiar.Enabled = true;
+
+                            btnModificar.Enabled = false;
+                            btnRetomar.Enabled = false;
+                            btnGuardar.Enabled = false;
+                        }
                     }
                     else
                     {
                         if (pnlNivel_avanzado.Visible == true)
                         {
-
+                            GuardarAvanzado();
                         }
                     }
                 }
@@ -974,6 +1976,7 @@ namespace UCS_NODO_FGC
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             vaciarFormacion();
+            btnSiguienteEtapa.Enabled = false;
         }
 
         private void btnPausar_Click(object sender, EventArgs e)
@@ -1004,12 +2007,23 @@ namespace UCS_NODO_FGC
                 btnRutaContenido.Enabled = true;
                 btnRutaPresentacion.Enabled = true;
                 //Y lo deja igual que el load
-            }else
+            }else if (pnlNivel_intermedio.Visible == true)
             {
-                if (pnlNivel_intermedio.Visible == true)
-                {
 
-                }
+                gpbRefrigerio.Enabled = true;
+                dtpFechaCurso.Enabled = true;
+                dtpSegundaFecha.Enabled = true;
+                chkbCoFacilitador.Enabled = true;
+                cmbxFa.Enabled = true;
+                gpbDifusion.Enabled = true;
+
+            }
+            else if (pnlNivel_avanzado.Visible == true)
+            {
+                cmbxHorarios.Enabled = true;
+                cmbxTipoRefrigerio.Enabled = true;
+                txtAulaSeleccionada.Enabled = true;
+                gpbInsumos.Enabled = true;
             }
 
             Load_Sig_Re();
@@ -1130,8 +2144,9 @@ namespace UCS_NODO_FGC
             else
             {
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
-                time.fechaDos_curso = dtpSegundaFecha.Value;
+                time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd"); ;
                 gpbFacilitador.Enabled = true;
+                cmbxFa.Focus();
             }
         }
        
@@ -1139,7 +2154,7 @@ namespace UCS_NODO_FGC
         {
             fa.id_facilitador = Convert.ToInt32(cmbxFa.SelectedValue);
             llenarComboCoFa(fa.id_facilitador);
-
+           
         }
 
         private void cmbxFa_Validating(object sender, CancelEventArgs e)
@@ -1151,11 +2166,11 @@ namespace UCS_NODO_FGC
                 //validar si estará disponible para la fecha del dia 1
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador, formacion.id_curso);
+                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador);
                     conexion.cerrarconexion();
                     if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en la fecha seleccionada.");
+                        MessageBox.Show("El facilitador está ocupado en la fecha seleccionada.");
                         cmbxFa.SelectedIndex = -1;
                         fa.id_facilitador = 0;
                         cmbxFa.Focus();
@@ -1181,28 +2196,30 @@ namespace UCS_NODO_FGC
             }
             else if ((formacion.duracion == "16") || (formacion.duracion == "8" && formacion.bloque_curso == "2"))
             {
+                
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador, formacion.id_curso);
+                    int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador);
                     conexion.cerrarconexion();
-                    if (fa_disponible !=0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
+                    if (fa_disponible > 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                        MessageBox.Show("El facilitador está ocupado en esta fecha: " + time.fecha_curso + ".");
                         cmbxFa.SelectedIndex = -1;
                         fa.id_facilitador = 0;
                         cmbxFa.Focus();
                     }
                     else
                     {
+                        MessageBox.Show(fa_disponible.ToString());
                         errorProviderPresentacion.SetError(cmbxFa, "");
                         if (conexion.abrirconexion() == true)
                         {
-                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, fa.id_facilitador, formacion.id_curso);
+                            int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, fa.id_facilitador);
                             conexion.cerrarconexion();
-                            if (fa_disponibleDia2 !=0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
+                            if (fa_disponibleDia2 >0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                             {
-                                errorProviderPresentacion.SetError(cmbxFa, "El facilitador está ocupado en esta fecha : " + dtpSegundaFecha.ToString() + ".");
+                                MessageBox.Show("El facilitador está ocupado en esta fecha: " + time.fechaDos_curso + ".");
                                 cmbxFa.SelectedIndex = -1;
                                 fa.id_facilitador = 0;
                                 cmbxFa.Focus();
@@ -1242,11 +2259,11 @@ namespace UCS_NODO_FGC
                 //validar si estará disponible para la fecha del dia 1
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador, formacion.id_curso);
+                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador);
                     conexion.cerrarconexion();
                     if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha seleccionada.");
+                        MessageBox.Show("El Co-facilitador está ocupado en la fecha seleccionada.");
                         cmbxCoFa.SelectedIndex = -1;
                         Cofa.id_facilitador = 0;
                         cmbxCoFa.Focus();
@@ -1275,11 +2292,11 @@ namespace UCS_NODO_FGC
                 //validar ambas fechas
                 if (conexion.abrirconexion() == true)
                 {
-                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador, formacion.id_curso);
+                    int fa_disponible = Clases.Facilitadores.CoFacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador);
                     conexion.cerrarconexion();
                     if (fa_disponible != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                     {
-                        errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en esta fecha : " + dtpFechaCurso.ToString() + ".");
+                        MessageBox.Show("El Co-facilitador está ocupado en esta fecha: " + time.fecha_curso + ".");
                         cmbxCoFa.SelectedIndex = -1;
                         Cofa.id_facilitador = 0;
                         cmbxCoFa.Focus();
@@ -1289,11 +2306,11 @@ namespace UCS_NODO_FGC
                         errorProviderPresentacion.SetError(cmbxCoFa, "");
                         if (conexion.abrirconexion() == true)
                         {
-                            int fa_disponibleDia2 = Clases.Facilitadores.CoFacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, Cofa.id_facilitador, formacion.id_curso);
+                            int fa_disponibleDia2 = Clases.Facilitadores.CoFacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, Cofa.id_facilitador);
                             conexion.cerrarconexion();
                             if (fa_disponibleDia2 != 0)//si retorna algo es que este facilitador ya está ocupado para esa fecha
                             {
-                                errorProviderPresentacion.SetError(cmbxCoFa, "El Co-facilitador está ocupado en la fecha : " + dtpSegundaFecha.ToString() + ".");
+                                MessageBox.Show("El Co-facilitador está ocupado en la fecha : " + time.fechaDos_curso + ".");
                                 cmbxCoFa.SelectedIndex = -1;
                                 Cofa.id_facilitador = 0;
                                 cmbxCoFa.Focus();
@@ -1321,6 +2338,7 @@ namespace UCS_NODO_FGC
 
         private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
         {
+            inicioE2 = DateTime.Now;
             if (dtpFechaCurso.Value <= DateTime.Today)
             {
                 errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
@@ -1328,8 +2346,9 @@ namespace UCS_NODO_FGC
             }
             else
             {
+                
                 errorProviderFecha.SetError(dtpFechaCurso, "");
-                time.fecha_curso = dtpFechaCurso.Value;
+                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
                 if ((formacion.duracion == "8" && formacion.bloque_curso == "2") || (formacion.duracion == "16"))
                 {
                     gpbSegundaFecha.Enabled = true;
@@ -1339,9 +2358,10 @@ namespace UCS_NODO_FGC
                 else if ((formacion.duracion == "4") || (formacion.duracion == "8" && formacion.bloque_curso == "1"))
                 {
                     gpbFacilitador.Enabled = true;
+                    cmbxFa.Focus();
                 }
 
-
+                
             }
         }
 
@@ -1355,71 +2375,10 @@ namespace UCS_NODO_FGC
             else
             {
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
-                time.fechaDos_curso = dtpSegundaFecha.Value;
+                time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd");
                 gpbFacilitador.Enabled = true;
             }
         }
-
-        private void dgvMediosDifusion_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            foreach(DataGridView row in dgvMediosDifusion.Rows)
-            {
-               // CheckBox check = row("chkSeleccion") as CheckBox;
-
-                //if (check.Checked)
-                //{
-                //    //aqui la fila esta marcada
-                //}
-            }
-            //Int32 selectedCellCount = dgvMediosDifusion.GetCellCount(DataGridViewElementStates.Selected);
-            //if (selectedCellCount > 0)
-            //{
-            //    System.Text.StringBuilder indices = new System.Text.StringBuilder();
-            //    for (int i = 0; i < selectedCellCount; i++)
-            //    {
-            //        indices.Append("Fila: ");
-            //        indices.Append(dgvMediosDifusion.SelectedCells[i]).ToString();
-            //        indices.Append(", Columna: ");
-            //        indices.Append(dgvMediosDifusion.SelectedCells[i].ColumnIndex.ToString());
-            //        indices.Append(Environment.NewLine);
-            //    }
-            //    indices.Append("Total: " + selectedCellCount.ToString());
-            //    MessageBox.Show(indices.ToString(), " de celdas seleecionnadas");
-            //}
-
-        }
-
-        private void txtNombreFormacion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbxFa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gpbFacilitador_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        private void dgvMediosDifusion_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            //aporte de rafael
-            if (dgvMediosDifusion.IsCurrentCellDirty)
-            {
-                dgvMediosDifusion.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
-        }
-
-        private void dgvMediosDifusion_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            //aporte de rafael
-        }
-
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)
         {
             if(dtpFechaCurso.Value <= DateTime.Today)
@@ -1429,7 +2388,7 @@ namespace UCS_NODO_FGC
             }else
             {
                 errorProviderFecha.SetError(dtpFechaCurso, "");
-                time.fecha_curso = dtpFechaCurso.Value;
+                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd"); ;
                 if ((formacion.duracion == "8" && formacion.bloque_curso == "2")|| (formacion.duracion == "16"))
                 {
                     gpbSegundaFecha.Enabled = true;
@@ -1442,23 +2401,203 @@ namespace UCS_NODO_FGC
 
             }
         }
+
+
+        private void dgvMediosDifusion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {            
+            // Detecta si se ha seleccionado el header de la grilla
+            //
+            if (e.RowIndex == -1)
+                return;
+
+            if (dgvMediosDifusion.Columns[e.ColumnIndex].Name == "seleccionar_opcion")
+            {
+
+                //
+                // Se toma la fila seleccionada
+                //
+                DataGridViewRow row = dgvMediosDifusion.Rows[e.RowIndex];
+
+                //
+                // Se selecciona la celda del checkbox
+                //
+                DataGridViewCheckBoxCell cellSelecion = row.Cells["seleccionar_opcion"] as DataGridViewCheckBoxCell;
+              
+
+                if (Convert.ToBoolean(cellSelecion.Value))
+                {
+                    row.DefaultCellStyle.BackColor = Color.Green;
+                    string nombre = row.Cells["opcion_difusion"].Value.ToString();
+                    nombre_publicidad.Add(nombre); 
+                   
+                 
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                                     
+                    for (int i=0; i< nombre_publicidad.Count; i++)
+                    {
+                       
+                        if (row.Cells["opcion_difusion"].Value.ToString()== nombre_publicidad[i].ToString())
+                        {
+                            nombre_publicidad.RemoveAt(i);
+                        }
+                        
+                       
+                    }
+                  
+                }
+
+
+            }
+
+
+        }
+        private void dgvMediosDifusion_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            //aporte de rafael
+            if (dgvMediosDifusion.IsCurrentCellDirty)
+            {
+                dgvMediosDifusion.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
        
 
-        
 
-        
 
-        //    esto va dentro del boton guardar.
-        //    FechaFinalForm = DateTime.Now;
-        //    if (primeravez == 0)
-        //    { 
-        //        Duracion = new TimeSpan(FechaFinalForm.Ticks - FechaInicioForm.Ticks) + Duracion;
-        //        MessageBox.Show("el tiempo que ha transcurrido es: " + Duracion.ToString());
-        //    }
-        //    else
-        //    {
-        //        Duracion1 = new TimeSpan(FechaFinalForm.Ticks - FechaPausaForm.Ticks) + Duracion;
-        //        MessageBox.Show("el tiempo que ha transcurrido es duracion 1 : " + Duracion1.ToString());
-        //    }
+        /*---------------------------Tercera etapa------------------------------*/
+        private void dgvInsumos_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            //aporte de rafael
+            if (dgvInsumos.IsCurrentCellDirty)
+            {
+                dgvInsumos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+        private void dgvInsumos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Detecta si se ha seleccionado el header de la grilla
+            //
+            if (e.RowIndex == -1)
+                return;
+            if (dgvInsumos.Columns[e.ColumnIndex].Name == "seleccion_opcion")
+            {
+
+                //
+                // Se toma la fila seleccionada
+                //
+                DataGridViewRow row = dgvInsumos.Rows[e.RowIndex];
+
+                //
+                // Se selecciona la celda del checkbox
+                //
+                DataGridViewCheckBoxCell cellSelecion = row.Cells["seleccion_opcion"] as DataGridViewCheckBoxCell;
+
+
+                if (Convert.ToBoolean(cellSelecion.Value))
+                {
+                    row.DefaultCellStyle.BackColor = Color.Green;
+                    string nombre = row.Cells["insumo"].Value.ToString();
+                    lista_insumo.Add(nombre);
+
+                   
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+
+                    for (int i = 0; i < lista_insumo.Count; i++)
+                    {
+
+                        if (row.Cells["insumo"].Value.ToString() == lista_insumo[i].ToString())
+                        {
+                            lista_insumo.RemoveAt(i);
+                        }
+
+
+                    }
+                  
+                }
+
+            }
+        }
+
+
+        private void rdbSiIgualHorario_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbxHorario2.Items.Clear();
+            cmbxHorario2.Text = cmbxHorarios.Text;
+            cmbxHorario2.Enabled = false;
+            id_horario2 = id_horario;
+        }
+
+        private void rdbNoIgualHorario_CheckedChanged(object sender, EventArgs e)
+        {
+            string t;
+            if (formacion.duracion=="8" && formacion.bloque_curso == "2")
+            {
+                t = "B";
+                llenarComboHorario2(t, id_horario);
+                               
+            }else if(formacion.duracion == "16")
+            {
+                t = "A";
+                llenarComboHorario2(t, id_horario);
+
+            }
+            cmbxHorario2.Enabled = true;
+            cmbxHorario2.Focus();
+        }
+
+        private void rdbSiMantenerAula_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSegundaAula.Text = txtAulaSeleccionada.Text;
+            txtSegundaAula.Enabled = false;
+        }
+
+        private void rdbNoMantenerAula_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSegundaAula.Enabled = true;
+            txtSegundaAula.Focus();
+        }
+
+        private void rdbSiMantenerRef_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbxTipoRefrigerio2.Enabled = false;
+            cmbxTipoRefrigerio2.SelectedIndex = -1;
+            cmbxTipoRefrigerio2.Text = cmbxTipoRefrigerio.Text;
+            id_refrigerio2 = id_refrigerio;
+        }
+
+        private void rdbNoMantenerRef_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbxTipoRefrigerio2.Enabled = true;
+        }
+
+        private void cmbxTipoRefrigerio2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            id_refrigerio2 = Convert.ToInt32(cmbxTipoRefrigerio2.SelectedValue);
+        }
+
+        private void cmbxTipoRefrigerio_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
+            llenarcombo2Refrigerio(id_refrigerio);
+        }       
+
+       
+        private void cmbxHorarios_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            inicioE3 = DateTime.Now;
+            id_horario = Convert.ToInt32(cmbxHorarios.SelectedValue);
+        }
+        private void cmbxHorario2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            id_horario2= Convert.ToInt32(cmbxHorario2.SelectedValue);
+        }
+
+              
     }
 }

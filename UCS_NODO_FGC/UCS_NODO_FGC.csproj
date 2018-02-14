@@ -114,6 +114,7 @@
     <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
     <Compile Include="Clases\HelperFunctions.cs" />
+    <Compile Include="Clases\Horarios.cs" />
     <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
     <Compile Include="Clases\Empresa.cs" />
@@ -255,12 +256,6 @@
     </Compile>
     <Compile Include="Perfil_personal.Designer.cs">
       <DependentUpon>Perfil_personal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Perfil_profesional.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Perfil_profesional.Designer.cs">
-      <DependentUpon>Perfil_profesional.cs</DependentUpon>
     </Compile>
     <Compile Include="Preguntas_de_seguridad.cs">
       <SubType>Form</SubType>
@@ -474,9 +469,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil_personal.resx">
       <DependentUpon>Perfil_personal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Perfil_profesional.resx">
-      <DependentUpon>Perfil_profesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preguntas_de_seguridad.resx">
       <DependentUpon>Preguntas_de_seguridad.cs</DependentUpon>

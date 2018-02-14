@@ -29,16 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvFormaciones = new System.Windows.Forms.DataGridView();
+            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solicitud_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracion_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbxEstatus = new System.Windows.Forms.ComboBox();
@@ -54,14 +62,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.nombre_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.solicitud_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracion_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estatus_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etapa_formacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).BeginInit();
@@ -130,9 +130,9 @@
             this.dgvFormaciones.AllowUserToAddRows = false;
             this.dgvFormaciones.AllowUserToResizeColumns = false;
             this.dgvFormaciones.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = null;
-            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFormaciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFormaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvFormaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -144,28 +144,75 @@
             this.estatus_formacion,
             this.etapa_formacion,
             this.creado_por});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFormaciones.Location = new System.Drawing.Point(22, 34);
             this.dgvFormaciones.Name = "dgvFormaciones";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormaciones.RowHeadersVisible = false;
             this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
             this.dgvFormaciones.TabIndex = 0;
             this.dgvFormaciones.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFormaciones_MouseClick);
+            // 
+            // nombre_formacion
+            // 
+            this.nombre_formacion.HeaderText = "Formación";
+            this.nombre_formacion.Name = "nombre_formacion";
+            this.nombre_formacion.ReadOnly = true;
+            // 
+            // tipo_formacion
+            // 
+            this.tipo_formacion.HeaderText = "Tipo";
+            this.tipo_formacion.Name = "tipo_formacion";
+            this.tipo_formacion.ReadOnly = true;
+            // 
+            // solicitud_curso
+            // 
+            this.solicitud_curso.HeaderText = "Solicitado por";
+            this.solicitud_curso.MaxInputLength = 100;
+            this.solicitud_curso.Name = "solicitud_curso";
+            this.solicitud_curso.ReadOnly = true;
+            this.solicitud_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // duracion_curso
+            // 
+            this.duracion_curso.HeaderText = "Duración";
+            this.duracion_curso.MaxInputLength = 9;
+            this.duracion_curso.MinimumWidth = 100;
+            this.duracion_curso.Name = "duracion_curso";
+            this.duracion_curso.ReadOnly = true;
+            this.duracion_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // estatus_formacion
+            // 
+            this.estatus_formacion.HeaderText = "Estatus";
+            this.estatus_formacion.Name = "estatus_formacion";
+            this.estatus_formacion.ReadOnly = true;
+            // 
+            // etapa_formacion
+            // 
+            this.etapa_formacion.HeaderText = "Etapa actual";
+            this.etapa_formacion.Name = "etapa_formacion";
+            this.etapa_formacion.ReadOnly = true;
+            // 
+            // creado_por
+            // 
+            this.creado_por.HeaderText = "Creador";
+            this.creado_por.Name = "creado_por";
+            this.creado_por.ReadOnly = true;
             // 
             // grpbDatos
             // 
@@ -182,6 +229,14 @@
             this.grpbDatos.TabIndex = 64;
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Curso";
+            // 
+            // txtBuscarNombre
+            // 
+            this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
+            this.txtBuscarNombre.Location = new System.Drawing.Point(79, 48);
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(154, 20);
+            this.txtBuscarNombre.TabIndex = 8;
             // 
             // label3
             // 
@@ -299,6 +354,7 @@
             this.btnModificar.TabIndex = 8;
             this.btnModificar.Text = "Modificar formación";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRefrescar
             // 
@@ -366,61 +422,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
-            // 
-            // nombre_formacion
-            // 
-            this.nombre_formacion.HeaderText = "Formación";
-            this.nombre_formacion.Name = "nombre_formacion";
-            this.nombre_formacion.ReadOnly = true;
-            // 
-            // tipo_formacion
-            // 
-            this.tipo_formacion.HeaderText = "Tipo";
-            this.tipo_formacion.Name = "tipo_formacion";
-            this.tipo_formacion.ReadOnly = true;
-            // 
-            // solicitud_curso
-            // 
-            this.solicitud_curso.HeaderText = "Solicitado por";
-            this.solicitud_curso.MaxInputLength = 100;
-            this.solicitud_curso.Name = "solicitud_curso";
-            this.solicitud_curso.ReadOnly = true;
-            this.solicitud_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // duracion_curso
-            // 
-            this.duracion_curso.HeaderText = "Duración";
-            this.duracion_curso.MaxInputLength = 9;
-            this.duracion_curso.MinimumWidth = 100;
-            this.duracion_curso.Name = "duracion_curso";
-            this.duracion_curso.ReadOnly = true;
-            this.duracion_curso.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // estatus_formacion
-            // 
-            this.estatus_formacion.HeaderText = "Estatus";
-            this.estatus_formacion.Name = "estatus_formacion";
-            this.estatus_formacion.ReadOnly = true;
-            // 
-            // etapa_formacion
-            // 
-            this.etapa_formacion.HeaderText = "Etapa actual";
-            this.etapa_formacion.Name = "etapa_formacion";
-            this.etapa_formacion.ReadOnly = true;
-            // 
-            // creado_por
-            // 
-            this.creado_por.HeaderText = "Creador";
-            this.creado_por.Name = "creado_por";
-            this.creado_por.ReadOnly = true;
-            // 
-            // txtBuscarNombre
-            // 
-            this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.txtBuscarNombre.Location = new System.Drawing.Point(79, 48);
-            this.txtBuscarNombre.Name = "txtBuscarNombre";
-            this.txtBuscarNombre.Size = new System.Drawing.Size(154, 20);
-            this.txtBuscarNombre.TabIndex = 8;
             // 
             // Ver_formaciones
             // 

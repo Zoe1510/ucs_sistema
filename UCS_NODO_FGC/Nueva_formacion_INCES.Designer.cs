@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -59,9 +59,11 @@
             this.pnlNivel_intermedio = new System.Windows.Forms.Panel();
             this.pnlNivel_basico = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cmbxBloques = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnRutaBitacora = new System.Windows.Forms.Button();
             this.btnRutaManual = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@
             this.btnVerPresentacion = new System.Windows.Forms.Button();
             this.btnVerContenido = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.cmbxCursoInce = new System.Windows.Forms.ComboBox();
             this.cmbxSolicitadoPor = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -111,6 +114,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.gpbFacilitador = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.cmbxFa = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
@@ -143,10 +147,10 @@
             this.txtAula = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.rdbNoMantenerRef = new System.Windows.Forms.RadioButton();
@@ -166,7 +170,6 @@
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbxFa = new System.Windows.Forms.ComboBox();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -176,9 +179,12 @@
             this.pnlNivel_intermedio.SuspendLayout();
             this.pnlNivel_basico.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -197,8 +203,8 @@
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.gpbInsumos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.gpbSeleccionRef.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
@@ -507,7 +513,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -521,12 +527,13 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
             this.pnlNivel_basico.TabIndex = 89;
             this.pnlNivel_basico.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlNivel_basico_Paint);
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.pictureBox6);
             this.groupBox5.Controls.Add(this.cmbxBloques);
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Location = new System.Drawing.Point(206, 222);
@@ -534,6 +541,15 @@
             this.groupBox5.Size = new System.Drawing.Size(478, 82);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::UCS_NODO_FGC.Properties.Resources.icon_bloques;
+            this.pictureBox6.Location = new System.Drawing.Point(13, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 69;
+            this.pictureBox6.TabStop = false;
             // 
             // cmbxBloques
             // 
@@ -561,6 +577,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.pictureBox7);
             this.groupBox4.Controls.Add(this.btnRutaBitacora);
             this.groupBox4.Controls.Add(this.btnRutaManual);
             this.groupBox4.Controls.Add(this.label6);
@@ -572,6 +589,15 @@
             this.groupBox4.Size = new System.Drawing.Size(479, 117);
             this.groupBox4.TabIndex = 38;
             this.groupBox4.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
+            this.pictureBox7.Location = new System.Drawing.Point(13, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox7.TabIndex = 70;
+            this.pictureBox7.TabStop = false;
             // 
             // btnRutaBitacora
             // 
@@ -608,7 +634,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 9F);
             this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(189, 28);
+            this.label6.Location = new System.Drawing.Point(189, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(197, 14);
             this.label6.TabIndex = 35;
@@ -618,7 +644,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 25);
+            this.label4.Location = new System.Drawing.Point(20, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(167, 17);
             this.label4.TabIndex = 31;
@@ -780,6 +806,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.pictureBox12);
             this.groupBox2.Controls.Add(this.cmbxCursoInce);
             this.groupBox2.Controls.Add(this.cmbxSolicitadoPor);
             this.groupBox2.Controls.Add(this.label11);
@@ -792,6 +819,15 @@
             this.groupBox2.Size = new System.Drawing.Size(479, 174);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::UCS_NODO_FGC.Properties.Resources.icon_logistica;
+            this.pictureBox12.Location = new System.Drawing.Point(13, 2);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox12.TabIndex = 68;
+            this.pictureBox12.TabStop = false;
             // 
             // cmbxCursoInce
             // 
@@ -1151,6 +1187,20 @@
             this.label18.TabIndex = 67;
             this.label18.Text = ":";
             // 
+            // cmbxFa
+            // 
+            this.cmbxFa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxFa.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxFa.FormattingEnabled = true;
+            this.cmbxFa.Location = new System.Drawing.Point(129, 27);
+            this.cmbxFa.Name = "cmbxFa";
+            this.cmbxFa.Size = new System.Drawing.Size(240, 25);
+            this.cmbxFa.TabIndex = 66;
+            this.cmbxFa.SelectedIndexChanged += new System.EventHandler(this.cmbxFa_SelectedIndexChanged);
+            this.cmbxFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxFa_SelectionChangeCommitted);
+            this.cmbxFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxFa_Validating);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -1361,7 +1411,6 @@
             // cmbxSegundoHorario
             // 
             this.cmbxSegundoHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxSegundoHorario.Enabled = false;
             this.cmbxSegundoHorario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxSegundoHorario.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSegundoHorario.FormattingEnabled = true;
@@ -1395,6 +1444,7 @@
             this.cmbxHorarios.Size = new System.Drawing.Size(199, 25);
             this.cmbxHorarios.TabIndex = 67;
             this.cmbxHorarios.SelectedIndexChanged += new System.EventHandler(this.cmbxHorarios_SelectedIndexChanged);
+            this.cmbxHorarios.SelectionChangeCommitted += new System.EventHandler(this.cmbxHorarios_SelectionChangeCommitted);
             this.cmbxHorarios.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxHorarios_Validating);
             // 
             // label13
@@ -1446,7 +1496,6 @@
             // rdbNoMantenerAula
             // 
             this.rdbNoMantenerAula.AutoSize = true;
-            this.rdbNoMantenerAula.Enabled = false;
             this.rdbNoMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbNoMantenerAula.Location = new System.Drawing.Point(302, 73);
             this.rdbNoMantenerAula.Name = "rdbNoMantenerAula";
@@ -1455,11 +1504,11 @@
             this.rdbNoMantenerAula.TabStop = true;
             this.rdbNoMantenerAula.Text = "No";
             this.rdbNoMantenerAula.UseVisualStyleBackColor = true;
+            this.rdbNoMantenerAula.CheckedChanged += new System.EventHandler(this.rdbNoMantenerAula_CheckedChanged);
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Enabled = false;
             this.label29.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(49, 70);
             this.label29.Name = "label29";
@@ -1470,7 +1519,6 @@
             // rdbMantenerAula
             // 
             this.rdbMantenerAula.AutoSize = true;
-            this.rdbMantenerAula.Enabled = false;
             this.rdbMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbMantenerAula.Location = new System.Drawing.Point(202, 73);
             this.rdbMantenerAula.Name = "rdbMantenerAula";
@@ -1513,13 +1561,68 @@
             // 
             // gpbInsumos
             // 
-            this.gpbInsumos.Controls.Add(this.pictureBox11);
             this.gpbInsumos.Controls.Add(this.dgvInsumos);
+            this.gpbInsumos.Controls.Add(this.pictureBox11);
             this.gpbInsumos.Location = new System.Drawing.Point(249, 379);
             this.gpbInsumos.Name = "gpbInsumos";
             this.gpbInsumos.Size = new System.Drawing.Size(419, 229);
             this.gpbInsumos.TabIndex = 78;
             this.gpbInsumos.TabStop = false;
+            // 
+            // dgvInsumos
+            // 
+            this.dgvInsumos.AllowUserToAddRows = false;
+            this.dgvInsumos.AllowUserToResizeRows = false;
+            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.insumo,
+            this.seleccion_opcion});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvInsumos.Location = new System.Drawing.Point(21, 25);
+            this.dgvInsumos.Name = "dgvInsumos";
+            this.dgvInsumos.RowHeadersVisible = false;
+            this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
+            this.dgvInsumos.TabIndex = 74;
+            this.dgvInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsumos_CellContentClick);
+            this.dgvInsumos.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInsumos_CurrentCellDirtyStateChanged);
+            // 
+            // insumo
+            // 
+            this.insumo.HeaderText = "Insumos";
+            this.insumo.MaxInputLength = 250;
+            this.insumo.MinimumWidth = 50;
+            this.insumo.Name = "insumo";
+            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.insumo.Width = 310;
+            // 
+            // seleccion_opcion
+            // 
+            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccion_opcion.FalseValue = "false";
+            this.seleccion_opcion.HeaderText = "";
+            this.seleccion_opcion.MinimumWidth = 30;
+            this.seleccion_opcion.Name = "seleccion_opcion";
+            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion_opcion.TrueValue = "true";
+            this.seleccion_opcion.Width = 40;
             // 
             // pictureBox11
             // 
@@ -1529,58 +1632,6 @@
             this.pictureBox11.Size = new System.Drawing.Size(24, 24);
             this.pictureBox11.TabIndex = 73;
             this.pictureBox11.TabStop = false;
-            // 
-            // dgvInsumos
-            // 
-            this.dgvInsumos.AllowUserToAddRows = false;
-            this.dgvInsumos.AllowUserToResizeRows = false;
-            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
-            this.dgvInsumos.Name = "dgvInsumos";
-            this.dgvInsumos.ReadOnly = true;
-            this.dgvInsumos.RowHeadersVisible = false;
-            this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
-            this.dgvInsumos.TabIndex = 49;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
-            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 310;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 30;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 40;
             // 
             // gpbSeleccionRef
             // 
@@ -1610,7 +1661,6 @@
             // rdbNoMantenerRef
             // 
             this.rdbNoMantenerRef.AutoSize = true;
-            this.rdbNoMantenerRef.Enabled = false;
             this.rdbNoMantenerRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbNoMantenerRef.Location = new System.Drawing.Point(289, 74);
             this.rdbNoMantenerRef.Name = "rdbNoMantenerRef";
@@ -1624,7 +1674,6 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Enabled = false;
             this.label26.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(17, 77);
             this.label26.Name = "label26";
@@ -1635,7 +1684,6 @@
             // rdbMantenerRef
             // 
             this.rdbMantenerRef.AutoSize = true;
-            this.rdbMantenerRef.Enabled = false;
             this.rdbMantenerRef.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbMantenerRef.Location = new System.Drawing.Point(206, 74);
             this.rdbMantenerRef.Name = "rdbMantenerRef";
@@ -1650,7 +1698,6 @@
             // cmbxSegundoRefrigerio
             // 
             this.cmbxSegundoRefrigerio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxSegundoRefrigerio.Enabled = false;
             this.cmbxSegundoRefrigerio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxSegundoRefrigerio.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSegundoRefrigerio.FormattingEnabled = true;
@@ -1658,6 +1705,7 @@
             this.cmbxSegundoRefrigerio.Name = "cmbxSegundoRefrigerio";
             this.cmbxSegundoRefrigerio.Size = new System.Drawing.Size(199, 25);
             this.cmbxSegundoRefrigerio.TabIndex = 71;
+            this.cmbxSegundoRefrigerio.SelectionChangeCommitted += new System.EventHandler(this.cmbxSegundoRefrigerio_SelectionChangeCommitted);
             // 
             // label27
             // 
@@ -1680,7 +1728,7 @@
             this.cmbxTipoRefrigerio.Name = "cmbxTipoRefrigerio";
             this.cmbxTipoRefrigerio.Size = new System.Drawing.Size(199, 25);
             this.cmbxTipoRefrigerio.TabIndex = 67;
-            this.cmbxTipoRefrigerio.SelectedIndexChanged += new System.EventHandler(this.cmbxTipoRefrigerio_SelectedIndexChanged);
+            this.cmbxTipoRefrigerio.SelectionChangeCommitted += new System.EventHandler(this.cmbxTipoRefrigerio_SelectionChangeCommitted);
             // 
             // label31
             // 
@@ -1732,20 +1780,6 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
-            // cmbxFa
-            // 
-            this.cmbxFa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxFa.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxFa.FormattingEnabled = true;
-            this.cmbxFa.Location = new System.Drawing.Point(129, 27);
-            this.cmbxFa.Name = "cmbxFa";
-            this.cmbxFa.Size = new System.Drawing.Size(240, 25);
-            this.cmbxFa.TabIndex = 66;
-            this.cmbxFa.SelectedIndexChanged += new System.EventHandler(this.cmbxFa_SelectedIndexChanged);
-            this.cmbxFa.SelectionChangeCommitted += new System.EventHandler(this.cmbxFa_SelectionChangeCommitted);
-            this.cmbxFa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxFa_Validating);
-            // 
             // Nueva_formacion_INCES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1775,11 +1809,14 @@
             this.pnlNivel_basico.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1807,8 +1844,8 @@
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.gpbInsumos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.gpbSeleccionRef.ResumeLayout(false);
             this.gpbSeleccionRef.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1849,8 +1886,6 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape6;
         private System.Windows.Forms.Panel pnlNivel_avanzado;
         private System.Windows.Forms.Panel pnlNivel_intermedio;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chkbCoFacilitador;
         private System.Windows.Forms.GroupBox gpbDatosCoFa;
         private System.Windows.Forms.TextBox txtCorreoCoFa;
@@ -1900,9 +1935,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dgvInsumos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.GroupBox gpbSeleccionRef;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.RadioButton rdbNoMantenerRef;
@@ -1964,5 +1996,13 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.ComboBox cmbxFa;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvInsumos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }

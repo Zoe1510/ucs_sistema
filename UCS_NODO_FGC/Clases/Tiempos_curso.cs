@@ -9,8 +9,8 @@ namespace UCS_NODO_FGC.Clases
     public class Tiempos_curso
     {
         public int id_tiempo { get; set; }
-        public DateTime fecha_curso { get; set; }
-        public DateTime fechaDos_curso { get; set; }
+        public string fecha_curso { get; set; }
+        public string fechaDos_curso { get; set; }
 
         public string horario_curso1 { get; set; }
         public string horario_curso2 { get; set; }

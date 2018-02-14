@@ -130,7 +130,7 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-        
+       
         public static List<Empresa> LlenarCombobox(string nombre)//funciona
         {
             conexion_bd con = new conexion_bd();
@@ -249,7 +249,24 @@ namespace UCS_NODO_FGC.Clases
             }
             return lista;
         }
+        public static List<Refrigerios> llenarcmbx2Ref(int id_ref)
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Refrigerios> lista = new List<Refrigerios>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM refrigerios WHERE id_ref != '{0}'", id_ref), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
 
+                    lista.Add(refrig(leer));
+                }
+            }
+            return lista;
+
+
+        }
         public static List<Cursos> llenarCmbxCursos()
         {
             List<Cursos> lista = new List<Cursos>();
@@ -310,7 +327,31 @@ namespace UCS_NODO_FGC.Clases
 
             return cliente;
         }
+        public static List<Refrigerios> llenarcmbxRef()
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Refrigerios> lista = new List<Refrigerios>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM refrigerios"), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
 
+                    lista.Add(refrig(leer));
+                }
+            }
+            return lista;
+            
+           
+        }
+        public static Refrigerios refrig (MySqlDataReader reader)
+        {
+            Refrigerios refrigerios = new Refrigerios();
+            refrigerios.id_ref = Convert.ToInt32(reader["id_ref"]);
+            refrigerios.nombre = Convert.ToString(reader["ref_nombre"]);
+            return refrigerios;
+        }
         public static int ModificarEmpresa(MySqlConnection conexion, Empresa empresa)
         {
             int resultado = 0;

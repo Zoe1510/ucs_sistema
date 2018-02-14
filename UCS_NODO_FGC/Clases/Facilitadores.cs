@@ -104,10 +104,10 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
-        public static int FacilitadorDisponibleDia(MySqlConnection conexion, DateTime dia, int idFa, int idCurso)
+        public static int FacilitadorDisponibleDia(MySqlConnection conexion, string dia, int idFa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha='"+dia+ "' AND facilitadores_id_fa='" + idFa + "'  AND cursos_id_cursos='" + idCurso+ "'"), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos FROM cursos_tienen_fa WHERE ctf_fecha='{0}' AND facilitadores_id_fa='{1}'", dia, idFa), conexion);
             MySqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
             {
@@ -116,10 +116,10 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
-        public static int FacilitadorDisponibleDia2(MySqlConnection conexion, DateTime dia2, int idFa, int idCurso)
+        public static int FacilitadorDisponibleDia2(MySqlConnection conexion, string dia2, int idFa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha2='" + dia2 + "' AND facilitadores_id_fa='" + idFa + "'  AND cursos_id_cursos='" + idCurso + "'"), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos FROM cursos_tienen_fa WHERE ctf_fecha2='{0}' AND facilitadores_id_fa='{1}'",dia2, idFa), conexion);
             MySqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
             {
@@ -127,10 +127,10 @@ namespace UCS_NODO_FGC.Clases
             }
             return retorno;
         }
-        public static int CoFacilitadorDisponibleDia(MySqlConnection conexion, DateTime dia, int idCoFa, int idCurso)
+        public static int CoFacilitadorDisponibleDia(MySqlConnection conexion, string dia, int idCoFa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha='" + dia + "' AND ctf_id_cofa='" + idCoFa + "'  AND cursos_id_cursos='" + idCurso + "'"), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha='" + dia + "' AND ctf_id_cofa='" + idCoFa + "' "), conexion);
             MySqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
             {
@@ -139,10 +139,10 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
-        public static int CoFacilitadorDisponibleDia2(MySqlConnection conexion, DateTime dia2, int idCoFa, int idCurso)
+        public static int CoFacilitadorDisponibleDia2(MySqlConnection conexion, string dia2, int idCoFa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha2='" + dia2 + "' AND ctf_id_cofa='" + idCoFa + "'  AND cursos_id_cursos='" + idCurso + "'"), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT cursos_id_cursos from cursos_tienen_fa WHERE ctf_fecha2='" + dia2 + "' AND ctf_id_cofa='" + idCoFa + "'"), conexion);
             MySqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
             {

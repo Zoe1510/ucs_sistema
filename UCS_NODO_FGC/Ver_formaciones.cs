@@ -262,5 +262,43 @@ namespace UCS_NODO_FGC
                 MessageBox.Show("Debe seleccionar una formación de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dgvFormaciones.SelectedRows.Count == 1)
+            {
+                Cursos.nombre_formacion13 = formaciones.nombre_formacion;
+                Cursos.estatus_formacion13 = formaciones.estatus;
+                Cursos.id_curso13 = formaciones.id_curso;
+                Cursos.solicitud_formacion13 = formaciones.solicitado;
+                Cursos.nombreCreador_formacion13 = nombre_user;
+                Cursos.tipo_formacion13 = formaciones.tipo_formacion;
+                Cursos.etapa_formacion13 = formaciones.etapa_curso;
+                Cursos.id_user13 = formaciones.id_user;
+                Formaciones.creacion = false;
+                if(Cursos.tipo_formacion13 == "Abierto")
+                {
+                    Nueva_formacion_Abierto abierto = new Nueva_formacion_Abierto();
+                    abierto.ShowDialog();
+                }else if(Cursos.tipo_formacion13 == "INCES")
+                {
+                    Nueva_formacion_INCES inces = new Nueva_formacion_INCES();
+                    inces.ShowDialog();
+                }else if(Cursos.tipo_formacion13 == "InCompany")
+                {
+                    Nueva_formacion_InCompany incomp = new Nueva_formacion_InCompany();
+                    incomp.ShowDialog();
+
+                }else if(Cursos.tipo_formacion13 == "FEE")
+                {
+                    Nueva_formacion_FEE fee = new Nueva_formacion_FEE();
+                    fee.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una formación de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 }

@@ -247,7 +247,7 @@ namespace UCS_NODO_FGC.Clases
         public string nombre_formacion12 { get; set; }        
         public  int id_curso12 { get; set; }
 
-
+        
         public static string solicitud_formacion13 { get; set; }
         public static string tipo_formacion13 { get; set; }
         public static string nombre_formacion13 { get; set; }

@@ -527,7 +527,7 @@ namespace UCS_NODO_FGC
             else
             {
                 errorProviderFecha.SetError(dtpSegundaFecha, "");
-                time.fechaDos_curso = dtpSegundaFecha.Value;
+                time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss"); ;
                 gpbFacilitador.Enabled = true;
             }
         }
@@ -726,7 +726,7 @@ namespace UCS_NODO_FGC
             else
             {
                 errorProviderFecha.SetError(dtpFechaCurso, "");
-                time.fecha_curso = dtpFechaCurso.Value;
+                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss");
                 if ((formacion.duracion == "8" && formacion.bloque_curso == "2") || (formacion.duracion == "16"))
                 {
                     dtpSegundaFecha.Focus();

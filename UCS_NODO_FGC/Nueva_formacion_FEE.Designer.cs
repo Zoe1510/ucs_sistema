@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -116,10 +116,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gpbDifusion = new System.Windows.Forms.GroupBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dgvMediosDifusion = new System.Windows.Forms.DataGridView();
             this.opcion_difusion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seleccionar_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
             this.rdbNoRef = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -131,34 +131,19 @@
             this.label15 = new System.Windows.Forms.Label();
             this.gpbHorarioCurso = new System.Windows.Forms.GroupBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.rdbNoIgual = new System.Windows.Forms.RadioButton();
-            this.label16 = new System.Windows.Forms.Label();
-            this.rdbSiIgual = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.cmbxHorarios = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.gpbLogistica = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.label29 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAula = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label25 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.cmbxTipoRefrigerio = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.errorProviderNombreF = new System.Windows.Forms.ErrorProvider(this.components);
@@ -171,6 +156,7 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -193,8 +179,8 @@
             this.gpbFacilitador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gpbDifusion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gpbRefrigerio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gpbFechaHora.SuspendLayout();
@@ -204,8 +190,8 @@
             this.gpbLogistica.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.gpbInsumos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.gpbSeleccionRef.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
@@ -218,6 +204,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_cabecera
@@ -369,6 +356,7 @@
             this.btnLimpiar.TabIndex = 41;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnModificar
             // 
@@ -391,6 +379,7 @@
             this.btnRetomar.TabIndex = 39;
             this.btnRetomar.Text = "Retomar";
             this.btnRetomar.UseVisualStyleBackColor = true;
+            this.btnRetomar.Click += new System.EventHandler(this.btnRetomar_Click);
             // 
             // panel9
             // 
@@ -473,6 +462,7 @@
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // shapeContainer3
             // 
@@ -529,10 +519,10 @@
             this.pnlNivel_intermedio.Controls.Add(this.gpbDifusion);
             this.pnlNivel_intermedio.Controls.Add(this.gpbRefrigerio);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFechaHora);
-            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(164, 615);
             this.pnlNivel_intermedio.TabIndex = 76;
             // 
             // pnlNivel_basico
@@ -543,14 +533,15 @@
             this.pnlNivel_basico.Controls.Add(this.groupBox5);
             this.pnlNivel_basico.Controls.Add(this.groupBox2);
             this.pnlNivel_basico.Controls.Add(this.groupBox1);
-            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(925, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(19, 615);
             this.pnlNivel_basico.TabIndex = 78;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.pictureBox7);
             this.groupBox4.Controls.Add(this.btnRutaBitacora);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label4);
@@ -575,6 +566,7 @@
             this.btnRutaBitacora.TabIndex = 37;
             this.btnRutaBitacora.Text = "Bitácora";
             this.btnRutaBitacora.UseVisualStyleBackColor = false;
+            this.btnRutaBitacora.Click += new System.EventHandler(this.btnRutaBitacora_Click);
             // 
             // label6
             // 
@@ -610,6 +602,7 @@
             this.btnRutaPresentacion.TabIndex = 34;
             this.btnRutaPresentacion.Text = "Presentación";
             this.btnRutaPresentacion.UseVisualStyleBackColor = false;
+            this.btnRutaPresentacion.Click += new System.EventHandler(this.btnRutaPresentacion_Click);
             // 
             // btnRutaContenido
             // 
@@ -624,6 +617,7 @@
             this.btnRutaContenido.TabIndex = 33;
             this.btnRutaContenido.Text = "Contenido";
             this.btnRutaContenido.UseVisualStyleBackColor = false;
+            this.btnRutaContenido.Click += new System.EventHandler(this.btnRutaContenido_Click);
             // 
             // groupBox3
             // 
@@ -666,6 +660,7 @@
             this.btnVerBitacora.TabIndex = 7;
             this.btnVerBitacora.Text = "Ver bitácora";
             this.btnVerBitacora.UseVisualStyleBackColor = true;
+            this.btnVerBitacora.Click += new System.EventHandler(this.btnVerBitacora_Click);
             // 
             // btnPPT
             // 
@@ -705,6 +700,7 @@
             this.btnVerPresentacion.TabIndex = 2;
             this.btnVerPresentacion.Text = "Ver presentacion";
             this.btnVerPresentacion.UseVisualStyleBackColor = true;
+            this.btnVerPresentacion.Click += new System.EventHandler(this.btnVerPresentacion_Click);
             // 
             // btnVerContenido
             // 
@@ -716,6 +712,7 @@
             this.btnVerContenido.TabIndex = 1;
             this.btnVerContenido.Text = "Ver contenido";
             this.btnVerContenido.UseVisualStyleBackColor = true;
+            this.btnVerContenido.Click += new System.EventHandler(this.btnVerContenido_Click);
             // 
             // groupBox5
             // 
@@ -844,11 +841,14 @@
             this.cmbxDuracionFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxDuracionFormacion.FormattingEnabled = true;
             this.cmbxDuracionFormacion.Items.AddRange(new object[] {
+            "6 Horas",
             "8 Horas"});
             this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 124);
             this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
             this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
             this.cmbxDuracionFormacion.TabIndex = 29;
+            this.cmbxDuracionFormacion.SelectionChangeCommitted += new System.EventHandler(this.cmbxDuracionFormacion_SelectionChangeCommitted);
+            this.cmbxDuracionFormacion.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxDuracionFormacion_Validating);
             // 
             // groupBox1
             // 
@@ -940,6 +940,7 @@
             this.chkbCoFacilitador.TabIndex = 73;
             this.chkbCoFacilitador.Text = "Requiere co-facilitador";
             this.chkbCoFacilitador.UseVisualStyleBackColor = true;
+            this.chkbCoFacilitador.CheckedChanged += new System.EventHandler(this.chkbCoFacilitador_CheckedChanged);
             // 
             // gpbDatosCoFa
             // 
@@ -1154,14 +1155,70 @@
             // 
             // gpbDifusion
             // 
-            this.gpbDifusion.Controls.Add(this.pictureBox3);
             this.gpbDifusion.Controls.Add(this.dgvMediosDifusion);
+            this.gpbDifusion.Controls.Add(this.pictureBox3);
             this.gpbDifusion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbDifusion.Location = new System.Drawing.Point(71, 172);
             this.gpbDifusion.Name = "gpbDifusion";
             this.gpbDifusion.Size = new System.Drawing.Size(404, 420);
             this.gpbDifusion.TabIndex = 60;
             this.gpbDifusion.TabStop = false;
+            // 
+            // dgvMediosDifusion
+            // 
+            this.dgvMediosDifusion.AllowUserToAddRows = false;
+            this.dgvMediosDifusion.AllowUserToResizeRows = false;
+            this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.opcion_difusion,
+            this.seleccionar_opcion});
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle58;
+            this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvMediosDifusion.Location = new System.Drawing.Point(23, 31);
+            this.dgvMediosDifusion.Name = "dgvMediosDifusion";
+            this.dgvMediosDifusion.RowHeadersVisible = false;
+            this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 357);
+            this.dgvMediosDifusion.TabIndex = 63;
+            this.dgvMediosDifusion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMediosDifusion_CellContentClick);
+            this.dgvMediosDifusion.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvMediosDifusion_CurrentCellDirtyStateChanged);
+            // 
+            // opcion_difusion
+            // 
+            this.opcion_difusion.HeaderText = "Medio de difusión";
+            this.opcion_difusion.MaxInputLength = 250;
+            this.opcion_difusion.MinimumWidth = 50;
+            this.opcion_difusion.Name = "opcion_difusion";
+            this.opcion_difusion.ReadOnly = true;
+            this.opcion_difusion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.opcion_difusion.Width = 310;
+            // 
+            // seleccionar_opcion
+            // 
+            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccionar_opcion.FalseValue = "false";
+            this.seleccionar_opcion.HeaderText = "";
+            this.seleccionar_opcion.MinimumWidth = 30;
+            this.seleccionar_opcion.Name = "seleccionar_opcion";
+            this.seleccionar_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccionar_opcion.TrueValue = "true";
+            this.seleccionar_opcion.Width = 40;
             // 
             // pictureBox3
             // 
@@ -1171,58 +1228,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.TabIndex = 62;
             this.pictureBox3.TabStop = false;
-            // 
-            // dgvMediosDifusion
-            // 
-            this.dgvMediosDifusion.AllowUserToAddRows = false;
-            this.dgvMediosDifusion.AllowUserToResizeRows = false;
-            this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.opcion_difusion,
-            this.seleccionar_opcion});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvMediosDifusion.Location = new System.Drawing.Point(24, 31);
-            this.dgvMediosDifusion.Name = "dgvMediosDifusion";
-            this.dgvMediosDifusion.ReadOnly = true;
-            this.dgvMediosDifusion.RowHeadersVisible = false;
-            this.dgvMediosDifusion.Size = new System.Drawing.Size(356, 362);
-            this.dgvMediosDifusion.TabIndex = 48;
-            // 
-            // opcion_difusion
-            // 
-            this.opcion_difusion.HeaderText = "Medio de difusión";
-            this.opcion_difusion.MaxInputLength = 250;
-            this.opcion_difusion.MinimumWidth = 50;
-            this.opcion_difusion.Name = "opcion_difusion";
-            this.opcion_difusion.ReadOnly = true;
-            this.opcion_difusion.Width = 310;
-            // 
-            // seleccionar_opcion
-            // 
-            this.seleccionar_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccionar_opcion.HeaderText = "";
-            this.seleccionar_opcion.MinimumWidth = 30;
-            this.seleccionar_opcion.Name = "seleccionar_opcion";
-            this.seleccionar_opcion.ReadOnly = true;
-            this.seleccionar_opcion.Width = 40;
             // 
             // gpbRefrigerio
             // 
@@ -1301,7 +1306,7 @@
             this.dtpFechaCurso.Name = "dtpFechaCurso";
             this.dtpFechaCurso.Size = new System.Drawing.Size(190, 25);
             this.dtpFechaCurso.TabIndex = 62;
-            this.dtpFechaCurso.Value = new System.DateTime(2017, 10, 31, 20, 7, 0, 0);
+            this.dtpFechaCurso.Value = new System.DateTime(2018, 2, 6, 0, 0, 0, 0);
             this.dtpFechaCurso.Validating += new System.ComponentModel.CancelEventHandler(this.dtpFechaCurso_Validating);
             // 
             // pictureBox1
@@ -1326,16 +1331,11 @@
             // gpbHorarioCurso
             // 
             this.gpbHorarioCurso.Controls.Add(this.pictureBox9);
-            this.gpbHorarioCurso.Controls.Add(this.rdbNoIgual);
-            this.gpbHorarioCurso.Controls.Add(this.label16);
-            this.gpbHorarioCurso.Controls.Add(this.rdbSiIgual);
-            this.gpbHorarioCurso.Controls.Add(this.comboBox1);
-            this.gpbHorarioCurso.Controls.Add(this.label14);
             this.gpbHorarioCurso.Controls.Add(this.cmbxHorarios);
             this.gpbHorarioCurso.Controls.Add(this.label13);
             this.gpbHorarioCurso.Location = new System.Drawing.Point(254, 47);
             this.gpbHorarioCurso.Name = "gpbHorarioCurso";
-            this.gpbHorarioCurso.Size = new System.Drawing.Size(419, 73);
+            this.gpbHorarioCurso.Size = new System.Drawing.Size(419, 76);
             this.gpbHorarioCurso.TabIndex = 65;
             this.gpbHorarioCurso.TabStop = false;
             // 
@@ -1348,69 +1348,6 @@
             this.pictureBox9.TabIndex = 65;
             this.pictureBox9.TabStop = false;
             // 
-            // rdbNoIgual
-            // 
-            this.rdbNoIgual.AutoSize = true;
-            this.rdbNoIgual.Enabled = false;
-            this.rdbNoIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbNoIgual.Location = new System.Drawing.Point(274, 75);
-            this.rdbNoIgual.Name = "rdbNoIgual";
-            this.rdbNoIgual.Size = new System.Drawing.Size(46, 21);
-            this.rdbNoIgual.TabIndex = 72;
-            this.rdbNoIgual.TabStop = true;
-            this.rdbNoIgual.Text = "No";
-            this.rdbNoIgual.UseVisualStyleBackColor = true;
-            this.rdbNoIgual.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(27, 76);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(136, 17);
-            this.label16.TabIndex = 69;
-            this.label16.Text = "Mantener horario:";
-            this.label16.Visible = false;
-            // 
-            // rdbSiIgual
-            // 
-            this.rdbSiIgual.AutoSize = true;
-            this.rdbSiIgual.Enabled = false;
-            this.rdbSiIgual.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.rdbSiIgual.Location = new System.Drawing.Point(196, 75);
-            this.rdbSiIgual.Name = "rdbSiIgual";
-            this.rdbSiIgual.Size = new System.Drawing.Size(39, 21);
-            this.rdbSiIgual.TabIndex = 70;
-            this.rdbSiIgual.TabStop = true;
-            this.rdbSiIgual.Text = "Sí";
-            this.rdbSiIgual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rdbSiIgual.UseVisualStyleBackColor = true;
-            this.rdbSiIgual.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(173, 119);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 25);
-            this.comboBox1.TabIndex = 71;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Enabled = false;
-            this.label14.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(33, 122);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(130, 17);
-            this.label14.TabIndex = 68;
-            this.label14.Text = "Segundo horario:";
-            // 
             // cmbxHorarios
             // 
             this.cmbxHorarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1420,7 +1357,8 @@
             this.cmbxHorarios.Location = new System.Drawing.Point(175, 27);
             this.cmbxHorarios.Name = "cmbxHorarios";
             this.cmbxHorarios.Size = new System.Drawing.Size(199, 25);
-            this.cmbxHorarios.TabIndex = 67;
+            this.cmbxHorarios.TabIndex = 100;
+            this.cmbxHorarios.SelectionChangeCommitted += new System.EventHandler(this.cmbxHorarios_SelectionChangeCommitted);
             // 
             // label13
             // 
@@ -1434,76 +1372,14 @@
             // 
             // gpbLogistica
             // 
-            this.gpbLogistica.Controls.Add(this.textBox6);
-            this.gpbLogistica.Controls.Add(this.label30);
-            this.gpbLogistica.Controls.Add(this.radioButton3);
-            this.gpbLogistica.Controls.Add(this.label29);
-            this.gpbLogistica.Controls.Add(this.radioButton4);
             this.gpbLogistica.Controls.Add(this.pictureBox12);
-            this.gpbLogistica.Controls.Add(this.textBox5);
+            this.gpbLogistica.Controls.Add(this.txtAula);
             this.gpbLogistica.Controls.Add(this.label28);
-            this.gpbLogistica.Location = new System.Drawing.Point(254, 215);
+            this.gpbLogistica.Location = new System.Drawing.Point(254, 214);
             this.gpbLogistica.Name = "gpbLogistica";
-            this.gpbLogistica.Size = new System.Drawing.Size(419, 155);
+            this.gpbLogistica.Size = new System.Drawing.Size(419, 67);
             this.gpbLogistica.TabIndex = 75;
             this.gpbLogistica.TabStop = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(172, 107);
-            this.textBox6.MaxLength = 15;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(220, 26);
-            this.textBox6.TabIndex = 79;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(56, 111);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(107, 17);
-            this.label30.TabIndex = 78;
-            this.label30.Text = "Segunda aula:";
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Enabled = false;
-            this.radioButton3.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton3.Location = new System.Drawing.Point(302, 73);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(46, 21);
-            this.radioButton3.TabIndex = 77;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "No";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(49, 70);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(114, 17);
-            this.label29.TabIndex = 75;
-            this.label29.Text = "Mantener aula:";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Enabled = false;
-            this.radioButton4.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton4.Location = new System.Drawing.Point(202, 73);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(39, 21);
-            this.radioButton4.TabIndex = 76;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Sí";
-            this.radioButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // pictureBox12
             // 
@@ -1514,14 +1390,14 @@
             this.pictureBox12.TabIndex = 74;
             this.pictureBox12.TabStop = false;
             // 
-            // textBox5
+            // txtAula
             // 
-            this.textBox5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(172, 26);
-            this.textBox5.MaxLength = 15;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(220, 26);
-            this.textBox5.TabIndex = 74;
+            this.txtAula.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAula.Location = new System.Drawing.Point(172, 26);
+            this.txtAula.MaxLength = 15;
+            this.txtAula.Name = "txtAula";
+            this.txtAula.Size = new System.Drawing.Size(220, 26);
+            this.txtAula.TabIndex = 102;
             // 
             // label28
             // 
@@ -1535,13 +1411,68 @@
             // 
             // gpbInsumos
             // 
-            this.gpbInsumos.Controls.Add(this.pictureBox11);
             this.gpbInsumos.Controls.Add(this.dgvInsumos);
-            this.gpbInsumos.Location = new System.Drawing.Point(254, 377);
+            this.gpbInsumos.Controls.Add(this.pictureBox11);
+            this.gpbInsumos.Location = new System.Drawing.Point(254, 288);
             this.gpbInsumos.Name = "gpbInsumos";
-            this.gpbInsumos.Size = new System.Drawing.Size(419, 229);
+            this.gpbInsumos.Size = new System.Drawing.Size(419, 318);
             this.gpbInsumos.TabIndex = 74;
             this.gpbInsumos.TabStop = false;
+            // 
+            // dgvInsumos
+            // 
+            this.dgvInsumos.AllowUserToAddRows = false;
+            this.dgvInsumos.AllowUserToResizeRows = false;
+            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.insumo,
+            this.seleccion_opcion});
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle60.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle60;
+            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvInsumos.Location = new System.Drawing.Point(21, 32);
+            this.dgvInsumos.Name = "dgvInsumos";
+            this.dgvInsumos.RowHeadersVisible = false;
+            this.dgvInsumos.Size = new System.Drawing.Size(377, 262);
+            this.dgvInsumos.TabIndex = 103;
+            this.dgvInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsumos_CellContentClick);
+            this.dgvInsumos.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInsumos_CurrentCellDirtyStateChanged);
+            // 
+            // insumo
+            // 
+            this.insumo.HeaderText = "Insumos";
+            this.insumo.MaxInputLength = 250;
+            this.insumo.MinimumWidth = 50;
+            this.insumo.Name = "insumo";
+            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.insumo.Width = 310;
+            // 
+            // seleccion_opcion
+            // 
+            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccion_opcion.FalseValue = "false";
+            this.seleccion_opcion.HeaderText = "";
+            this.seleccion_opcion.MinimumWidth = 30;
+            this.seleccion_opcion.Name = "seleccion_opcion";
+            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion_opcion.TrueValue = "true";
+            this.seleccion_opcion.Width = 40;
             // 
             // pictureBox11
             // 
@@ -1552,72 +1483,14 @@
             this.pictureBox11.TabIndex = 73;
             this.pictureBox11.TabStop = false;
             // 
-            // dgvInsumos
-            // 
-            this.dgvInsumos.AllowUserToAddRows = false;
-            this.dgvInsumos.AllowUserToResizeRows = false;
-            this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewCheckBoxColumn1});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
-            this.dgvInsumos.Name = "dgvInsumos";
-            this.dgvInsumos.ReadOnly = true;
-            this.dgvInsumos.RowHeadersVisible = false;
-            this.dgvInsumos.Size = new System.Drawing.Size(377, 178);
-            this.dgvInsumos.TabIndex = 49;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Insumos";
-            this.dataGridViewTextBoxColumn1.MaxInputLength = 250;
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 310;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewCheckBoxColumn1.HeaderText = "";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 30;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.dataGridViewCheckBoxColumn1.Width = 40;
-            // 
             // gpbSeleccionRef
             // 
             this.gpbSeleccionRef.Controls.Add(this.pictureBox10);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton1);
-            this.gpbSeleccionRef.Controls.Add(this.label25);
-            this.gpbSeleccionRef.Controls.Add(this.radioButton2);
-            this.gpbSeleccionRef.Controls.Add(this.comboBox2);
-            this.gpbSeleccionRef.Controls.Add(this.label26);
             this.gpbSeleccionRef.Controls.Add(this.cmbxTipoRefrigerio);
             this.gpbSeleccionRef.Controls.Add(this.label27);
-            this.gpbSeleccionRef.Enabled = false;
-            this.gpbSeleccionRef.Location = new System.Drawing.Point(254, 130);
+            this.gpbSeleccionRef.Location = new System.Drawing.Point(254, 132);
             this.gpbSeleccionRef.Name = "gpbSeleccionRef";
-            this.gpbSeleccionRef.Size = new System.Drawing.Size(419, 68);
+            this.gpbSeleccionRef.Size = new System.Drawing.Size(419, 72);
             this.gpbSeleccionRef.TabIndex = 73;
             this.gpbSeleccionRef.TabStop = false;
             // 
@@ -1630,69 +1503,6 @@
             this.pictureBox10.TabIndex = 65;
             this.pictureBox10.TabStop = false;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton1.Location = new System.Drawing.Point(289, 74);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(46, 21);
-            this.radioButton1.TabIndex = 72;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "No";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.Visible = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(17, 77);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(152, 17);
-            this.label25.TabIndex = 69;
-            this.label25.Text = "Mantener refrigerio:";
-            this.label25.Visible = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Enabled = false;
-            this.radioButton2.Font = new System.Drawing.Font("Rockwell", 11.25F);
-            this.radioButton2.Location = new System.Drawing.Point(206, 74);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 21);
-            this.radioButton2.TabIndex = 70;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Sí";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 119);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 25);
-            this.comboBox2.TabIndex = 71;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Enabled = false;
-            this.label26.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(23, 122);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(146, 17);
-            this.label26.TabIndex = 68;
-            this.label26.Text = "Segundo refrigerio:";
-            // 
             // cmbxTipoRefrigerio
             // 
             this.cmbxTipoRefrigerio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1702,7 +1512,8 @@
             this.cmbxTipoRefrigerio.Location = new System.Drawing.Point(175, 27);
             this.cmbxTipoRefrigerio.Name = "cmbxTipoRefrigerio";
             this.cmbxTipoRefrigerio.Size = new System.Drawing.Size(199, 25);
-            this.cmbxTipoRefrigerio.TabIndex = 67;
+            this.cmbxTipoRefrigerio.TabIndex = 101;
+            this.cmbxTipoRefrigerio.SelectionChangeCommitted += new System.EventHandler(this.cmbxTipoRefrigerio_SelectionChangeCommitted);
             // 
             // label27
             // 
@@ -1754,6 +1565,15 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_libro;
+            this.pictureBox7.Location = new System.Drawing.Point(18, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox7.TabIndex = 70;
+            this.pictureBox7.TabStop = false;
+            // 
             // Nueva_formacion_FEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1802,8 +1622,8 @@
             this.gpbFacilitador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gpbDifusion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMediosDifusion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.gpbRefrigerio.ResumeLayout(false);
             this.gpbRefrigerio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1817,8 +1637,8 @@
             this.gpbLogistica.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.gpbInsumos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsumos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.gpbSeleccionRef.ResumeLayout(false);
             this.gpbSeleccionRef.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1832,6 +1652,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderHora2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1884,9 +1705,6 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.GroupBox gpbDifusion;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.DataGridView dgvMediosDifusion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
         private System.Windows.Forms.GroupBox gpbRefrigerio;
         private System.Windows.Forms.RadioButton rdbNoRef;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1897,34 +1715,16 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox gpbHorarioCurso;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.RadioButton rdbNoIgual;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RadioButton rdbSiIgual;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cmbxHorarios;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gpbLogistica;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAula;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dgvInsumos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.GroupBox gpbSeleccionRef;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnCorreoFacilitador;
@@ -1976,5 +1776,12 @@
         private System.Windows.Forms.ErrorProvider errorProviderHora2;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private System.Windows.Forms.DataGridView dgvInsumos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;
+        private System.Windows.Forms.DataGridView dgvMediosDifusion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
