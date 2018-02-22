@@ -198,12 +198,7 @@ namespace UCS_NODO_FGC
                 }
                 else if (txtNombreEmpresa.Visible == true)//si viene referenciado de REGISTRAR CLIENTES
                 {
-                    if (cmbxEmpresa.SelectedIndex == -1)
-                    {
-                        errorProviderCMBxNCli.SetError(cmbxEmpresa, "Debe seleccionar una empresa para continuar con el registro.");
-
-                    }
-                    else if (txtNombreArea.Text == "" || txtNombreArea.Text == "Nombre del área")
+                    if (txtNombreArea.Text == "" || txtNombreArea.Text == "Nombre del área")
                     {
                         errorProviderCMBxNCli.SetError(cmbxEmpresa, "");
                         errorProviderNomArea.SetError(txtNombreArea, "Debe proporcionar un nombre válido.");

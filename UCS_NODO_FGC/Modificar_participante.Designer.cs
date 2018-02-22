@@ -33,7 +33,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCargoEnEmpresa = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gpbDatosParticipantes = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCorreoPart = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCedulaPart = new System.Windows.Forms.TextBox();
             this.txtNombrePart = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -54,9 +54,11 @@
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbxEmpresa = new System.Windows.Forms.ComboBox();
             this.gpbDatosEmpresa.SuspendLayout();
-            this.gpbDatosParticipantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.gpbDatosParticipantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -64,6 +66,8 @@
             // 
             // gpbDatosEmpresa
             // 
+            this.gpbDatosEmpresa.Controls.Add(this.cmbxEmpresa);
+            this.gpbDatosEmpresa.Controls.Add(this.label1);
             this.gpbDatosEmpresa.Controls.Add(this.cmbxNivelEmpresa);
             this.gpbDatosEmpresa.Controls.Add(this.label8);
             this.gpbDatosEmpresa.Controls.Add(this.label7);
@@ -72,7 +76,7 @@
             this.gpbDatosEmpresa.Enabled = false;
             this.gpbDatosEmpresa.Location = new System.Drawing.Point(118, 315);
             this.gpbDatosEmpresa.Name = "gpbDatosEmpresa";
-            this.gpbDatosEmpresa.Size = new System.Drawing.Size(516, 113);
+            this.gpbDatosEmpresa.Size = new System.Drawing.Size(516, 172);
             this.gpbDatosEmpresa.TabIndex = 44;
             this.gpbDatosEmpresa.TabStop = false;
             // 
@@ -85,7 +89,7 @@
             "B",
             "C",
             "D"});
-            this.cmbxNivelEmpresa.Location = new System.Drawing.Point(227, 70);
+            this.cmbxNivelEmpresa.Location = new System.Drawing.Point(227, 120);
             this.cmbxNivelEmpresa.Name = "cmbxNivelEmpresa";
             this.cmbxNivelEmpresa.Size = new System.Drawing.Size(241, 24);
             this.cmbxNivelEmpresa.TabIndex = 71;
@@ -95,7 +99,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 10F);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(67, 73);
+            this.label8.Location = new System.Drawing.Point(67, 123);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(141, 17);
             this.label8.TabIndex = 76;
@@ -106,7 +110,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Rockwell", 10F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(60, 28);
+            this.label7.Location = new System.Drawing.Point(60, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 17);
             this.label7.TabIndex = 75;
@@ -115,10 +119,19 @@
             // txtCargoEnEmpresa
             // 
             this.txtCargoEnEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtCargoEnEmpresa.Location = new System.Drawing.Point(227, 27);
+            this.txtCargoEnEmpresa.Location = new System.Drawing.Point(227, 75);
             this.txtCargoEnEmpresa.Name = "txtCargoEnEmpresa";
             this.txtCargoEnEmpresa.Size = new System.Drawing.Size(241, 23);
             this.txtCargoEnEmpresa.TabIndex = 74;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox2.TabIndex = 72;
+            this.pictureBox2.TabStop = false;
             // 
             // gpbDatosParticipantes
             // 
@@ -136,6 +149,15 @@
             this.gpbDatosParticipantes.Size = new System.Drawing.Size(516, 205);
             this.gpbDatosParticipantes.TabIndex = 43;
             this.gpbDatosParticipantes.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_participante;
+            this.pictureBox1.Location = new System.Drawing.Point(23, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 25);
+            this.pictureBox1.TabIndex = 71;
+            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -191,7 +213,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Rockwell", 10F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(28, 75);
+            this.label4.Location = new System.Drawing.Point(31, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(177, 17);
             this.label4.TabIndex = 8;
@@ -213,24 +235,6 @@
             this.txtNombrePart.Size = new System.Drawing.Size(241, 23);
             this.txtNombrePart.TabIndex = 7;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox2.TabIndex = 72;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_participante;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 25);
-            this.pictureBox1.TabIndex = 71;
-            this.pictureBox1.TabStop = false;
-            // 
             // Panel_cabecera
             // 
             this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
@@ -250,7 +254,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Lucida Fax", 27.25F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(110, 19);
+            this.label11.Location = new System.Drawing.Point(110, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(477, 43);
             this.label11.TabIndex = 1;
@@ -280,7 +284,7 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 540);
+            this.panel8.Location = new System.Drawing.Point(0, 586);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(763, 25);
             this.panel8.TabIndex = 63;
@@ -322,7 +326,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(439, 464);
+            this.btnCancelar.Location = new System.Drawing.Point(439, 505);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 46);
             this.btnCancelar.TabIndex = 62;
@@ -337,19 +341,44 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar.Location = new System.Drawing.Point(181, 464);
+            this.btnGuardar.Location = new System.Drawing.Point(181, 505);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(147, 46);
             this.btnGuardar.TabIndex = 61;
             this.btnGuardar.Text = "Modificar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(80, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 17);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "Empresa asociada:";
+            // 
+            // cmbxEmpresa
+            // 
+            this.cmbxEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbxEmpresa.FormattingEnabled = true;
+            this.cmbxEmpresa.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.cmbxEmpresa.Location = new System.Drawing.Point(227, 30);
+            this.cmbxEmpresa.Name = "cmbxEmpresa";
+            this.cmbxEmpresa.Size = new System.Drawing.Size(241, 24);
+            this.cmbxEmpresa.TabIndex = 79;
+            // 
             // Modificar_participante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(763, 565);
+            this.ClientSize = new System.Drawing.Size(763, 611);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -362,9 +391,9 @@
             this.Text = "Modificar participante";
             this.gpbDatosEmpresa.ResumeLayout(false);
             this.gpbDatosEmpresa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gpbDatosParticipantes.ResumeLayout(false);
             this.gpbDatosParticipantes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
@@ -402,5 +431,7 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cmbxEmpresa;
+        private System.Windows.Forms.Label label1;
     }
 }

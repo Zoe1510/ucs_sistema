@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbxTiposFormaciones = new System.Windows.Forms.ComboBox();
             this.txtCedulaPart = new System.Windows.Forms.TextBox();
             this.gpbDatosFormacion = new System.Windows.Forms.GroupBox();
+            this.cmbxFormaciones = new System.Windows.Forms.ComboBox();
             this.cmbxEmpresaConInce = new System.Windows.Forms.ComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cmbxFormaciones = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gpbDatosParticipantes = new System.Windows.Forms.GroupBox();
+            this.cmbNacionalidad = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCorreoPart = new System.Windows.Forms.TextBox();
@@ -62,6 +64,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.errorProviderCI = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderApellido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCorreo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderTipoF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderNombreF = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderNombreE = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gpbDatosFormacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.gpbDatosParticipantes.SuspendLayout();
@@ -70,31 +81,54 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel8.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTipoF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbxTiposFormaciones
             // 
+            this.cmbxTiposFormaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbxTiposFormaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxTiposFormaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxTiposFormaciones.Font = new System.Drawing.Font("Rockwell", 10F);
             this.cmbxTiposFormaciones.FormattingEnabled = true;
+            this.cmbxTiposFormaciones.Items.AddRange(new object[] {
+            "Abiertos",
+            "FEE",
+            "INCES",
+            "InCompany"});
             this.cmbxTiposFormaciones.Location = new System.Drawing.Point(227, 28);
             this.cmbxTiposFormaciones.Name = "cmbxTiposFormaciones";
             this.cmbxTiposFormaciones.Size = new System.Drawing.Size(241, 24);
             this.cmbxTiposFormaciones.TabIndex = 0;
+            this.cmbxTiposFormaciones.SelectionChangeCommitted += new System.EventHandler(this.cmbxTiposFormaciones_SelectionChangeCommitted);
+            this.cmbxTiposFormaciones.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxTiposFormaciones_Validating);
             // 
             // txtCedulaPart
             // 
             this.txtCedulaPart.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtCedulaPart.Location = new System.Drawing.Point(227, 28);
+            this.txtCedulaPart.Location = new System.Drawing.Point(275, 28);
+            this.txtCedulaPart.MaxLength = 8;
             this.txtCedulaPart.Name = "txtCedulaPart";
-            this.txtCedulaPart.Size = new System.Drawing.Size(241, 23);
+            this.txtCedulaPart.Size = new System.Drawing.Size(193, 23);
             this.txtCedulaPart.TabIndex = 2;
+            this.txtCedulaPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCedulaPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaPart_KeyPress);
+            this.txtCedulaPart.Validating += new System.ComponentModel.CancelEventHandler(this.txtCedulaPart_Validating);
             // 
             // gpbDatosFormacion
             // 
+            this.gpbDatosFormacion.Controls.Add(this.cmbxFormaciones);
             this.gpbDatosFormacion.Controls.Add(this.cmbxEmpresaConInce);
             this.gpbDatosFormacion.Controls.Add(this.pictureBox7);
             this.gpbDatosFormacion.Controls.Add(this.label10);
-            this.gpbDatosFormacion.Controls.Add(this.cmbxFormaciones);
             this.gpbDatosFormacion.Controls.Add(this.label2);
             this.gpbDatosFormacion.Controls.Add(this.label1);
             this.gpbDatosFormacion.Controls.Add(this.cmbxTiposFormaciones);
@@ -105,14 +139,30 @@
             this.gpbDatosFormacion.TabIndex = 3;
             this.gpbDatosFormacion.TabStop = false;
             // 
+            // cmbxFormaciones
+            // 
+            this.cmbxFormaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxFormaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxFormaciones.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbxFormaciones.FormattingEnabled = true;
+            this.cmbxFormaciones.Location = new System.Drawing.Point(227, 74);
+            this.cmbxFormaciones.Name = "cmbxFormaciones";
+            this.cmbxFormaciones.Size = new System.Drawing.Size(241, 24);
+            this.cmbxFormaciones.TabIndex = 80;
+            this.cmbxFormaciones.SelectionChangeCommitted += new System.EventHandler(this.cmbxFormaciones_SelectionChangeCommitted);
+            // 
             // cmbxEmpresaConInce
             // 
+            this.cmbxEmpresaConInce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxEmpresaConInce.Enabled = false;
+            this.cmbxEmpresaConInce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxEmpresaConInce.Font = new System.Drawing.Font("Rockwell", 10F);
             this.cmbxEmpresaConInce.FormattingEnabled = true;
             this.cmbxEmpresaConInce.Location = new System.Drawing.Point(227, 122);
             this.cmbxEmpresaConInce.Name = "cmbxEmpresaConInce";
             this.cmbxEmpresaConInce.Size = new System.Drawing.Size(241, 24);
             this.cmbxEmpresaConInce.TabIndex = 79;
+            this.cmbxEmpresaConInce.SelectionChangeCommitted += new System.EventHandler(this.cmbxEmpresaConInce_SelectionChangeCommitted);
             // 
             // pictureBox7
             // 
@@ -133,15 +183,6 @@
             this.label10.Size = new System.Drawing.Size(161, 17);
             this.label10.TabIndex = 78;
             this.label10.Text = "Nombre de la empresa:";
-            // 
-            // cmbxFormaciones
-            // 
-            this.cmbxFormaciones.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.cmbxFormaciones.FormattingEnabled = true;
-            this.cmbxFormaciones.Location = new System.Drawing.Point(227, 77);
-            this.cmbxFormaciones.Name = "cmbxFormaciones";
-            this.cmbxFormaciones.Size = new System.Drawing.Size(241, 24);
-            this.cmbxFormaciones.TabIndex = 1;
             // 
             // label2
             // 
@@ -178,6 +219,7 @@
             // 
             // gpbDatosParticipantes
             // 
+            this.gpbDatosParticipantes.Controls.Add(this.cmbNacionalidad);
             this.gpbDatosParticipantes.Controls.Add(this.pictureBox1);
             this.gpbDatosParticipantes.Controls.Add(this.label6);
             this.gpbDatosParticipantes.Controls.Add(this.txtCorreoPart);
@@ -192,6 +234,21 @@
             this.gpbDatosParticipantes.Size = new System.Drawing.Size(516, 205);
             this.gpbDatosParticipantes.TabIndex = 4;
             this.gpbDatosParticipantes.TabStop = false;
+            // 
+            // cmbNacionalidad
+            // 
+            this.cmbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNacionalidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbNacionalidad.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.cmbNacionalidad.FormattingEnabled = true;
+            this.cmbNacionalidad.ItemHeight = 16;
+            this.cmbNacionalidad.Items.AddRange(new object[] {
+            "V",
+            "E"});
+            this.cmbNacionalidad.Location = new System.Drawing.Point(227, 28);
+            this.cmbNacionalidad.Name = "cmbNacionalidad";
+            this.cmbNacionalidad.Size = new System.Drawing.Size(42, 24);
+            this.cmbNacionalidad.TabIndex = 72;
             // 
             // pictureBox1
             // 
@@ -215,11 +272,19 @@
             // 
             // txtCorreoPart
             // 
+            this.txtCorreoPart.Enabled = false;
             this.txtCorreoPart.Font = new System.Drawing.Font("Rockwell", 10F);
             this.txtCorreoPart.Location = new System.Drawing.Point(227, 166);
             this.txtCorreoPart.Name = "txtCorreoPart";
             this.txtCorreoPart.Size = new System.Drawing.Size(241, 23);
             this.txtCorreoPart.TabIndex = 11;
+            this.txtCorreoPart.Text = "correo@ejemplo.com";
+            this.txtCorreoPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCorreoPart.Click += new System.EventHandler(this.txtCorreo_Click);
+            this.txtCorreoPart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyDown);
+            this.txtCorreoPart.Leave += new System.EventHandler(this.txtCorreo_Leave);
+            this.txtCorreoPart.MouseLeave += new System.EventHandler(this.txtCorreo_Leave);
+            this.txtCorreoPart.Validating += new System.ComponentModel.CancelEventHandler(this.txtCorreo_Validating);
             // 
             // label5
             // 
@@ -234,11 +299,16 @@
             // 
             // txtApellidoPart
             // 
+            this.txtApellidoPart.Enabled = false;
             this.txtApellidoPart.Font = new System.Drawing.Font("Rockwell", 10F);
             this.txtApellidoPart.Location = new System.Drawing.Point(227, 120);
+            this.txtApellidoPart.MaxLength = 40;
             this.txtApellidoPart.Name = "txtApellidoPart";
             this.txtApellidoPart.Size = new System.Drawing.Size(241, 23);
             this.txtApellidoPart.TabIndex = 9;
+            this.txtApellidoPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtApellidoPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoPart_KeyPress);
+            this.txtApellidoPart.Validating += new System.ComponentModel.CancelEventHandler(this.txtApellidoPart_Validating);
             // 
             // label4
             // 
@@ -253,11 +323,16 @@
             // 
             // txtNombrePart
             // 
+            this.txtNombrePart.Enabled = false;
             this.txtNombrePart.Font = new System.Drawing.Font("Rockwell", 10F);
             this.txtNombrePart.Location = new System.Drawing.Point(227, 72);
+            this.txtNombrePart.MaxLength = 40;
             this.txtNombrePart.Name = "txtNombrePart";
             this.txtNombrePart.Size = new System.Drawing.Size(241, 23);
             this.txtNombrePart.TabIndex = 7;
+            this.txtNombrePart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNombrePart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombrePart_KeyPress);
+            this.txtNombrePart.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombrePart_Validating);
             // 
             // btnCancelar
             // 
@@ -266,12 +341,13 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(628, 639);
+            this.btnCancelar.Location = new System.Drawing.Point(627, 639);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(147, 46);
             this.btnCancelar.TabIndex = 40;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -281,12 +357,13 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar.Location = new System.Drawing.Point(349, 639);
+            this.btnGuardar.Location = new System.Drawing.Point(367, 639);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(147, 46);
             this.btnGuardar.TabIndex = 39;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // gpbDatosEmpresa
             // 
@@ -304,6 +381,8 @@
             // 
             // cmbxNivelEmpresa
             // 
+            this.cmbxNivelEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxNivelEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxNivelEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
             this.cmbxNivelEmpresa.FormattingEnabled = true;
             this.cmbxNivelEmpresa.Items.AddRange(new object[] {
@@ -315,6 +394,8 @@
             this.cmbxNivelEmpresa.Name = "cmbxNivelEmpresa";
             this.cmbxNivelEmpresa.Size = new System.Drawing.Size(241, 24);
             this.cmbxNivelEmpresa.TabIndex = 71;
+            this.cmbxNivelEmpresa.SelectionChangeCommitted += new System.EventHandler(this.cmbxNivelEmpresa_SelectionChangeCommitted);
+            this.cmbxNivelEmpresa.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxNivelEmpresa_Validating);
             // 
             // label8
             // 
@@ -342,9 +423,13 @@
             // 
             this.txtCargoEnEmpresa.Font = new System.Drawing.Font("Rockwell", 10F);
             this.txtCargoEnEmpresa.Location = new System.Drawing.Point(227, 27);
+            this.txtCargoEnEmpresa.MaxLength = 100;
             this.txtCargoEnEmpresa.Name = "txtCargoEnEmpresa";
             this.txtCargoEnEmpresa.Size = new System.Drawing.Size(241, 23);
             this.txtCargoEnEmpresa.TabIndex = 74;
+            this.txtCargoEnEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCargoEnEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCargoEnEmpresa_KeyPress);
+            this.txtCargoEnEmpresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtCargoEnEmpresa_Validating);
             // 
             // pictureBox2
             // 
@@ -439,6 +524,42 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
             // 
+            // errorProviderCI
+            // 
+            this.errorProviderCI.ContainerControl = this;
+            // 
+            // errorProviderNombre
+            // 
+            this.errorProviderNombre.ContainerControl = this;
+            // 
+            // errorProviderApellido
+            // 
+            this.errorProviderApellido.ContainerControl = this;
+            // 
+            // errorProviderCorreo
+            // 
+            this.errorProviderCorreo.ContainerControl = this;
+            // 
+            // errorProviderTipoF
+            // 
+            this.errorProviderTipoF.ContainerControl = this;
+            // 
+            // errorProviderNombreF
+            // 
+            this.errorProviderNombreF.ContainerControl = this;
+            // 
+            // errorProviderNombreE
+            // 
+            this.errorProviderNombreE.ContainerControl = this;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
             // Agregar_participante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,6 +591,15 @@
             this.panel8.PerformLayout();
             this.Panel_cabecera.ResumeLayout(false);
             this.Panel_cabecera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTipoF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombreE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,7 +609,6 @@
         private System.Windows.Forms.ComboBox cmbxTiposFormaciones;
         private System.Windows.Forms.TextBox txtCedulaPart;
         private System.Windows.Forms.GroupBox gpbDatosFormacion;
-        private System.Windows.Forms.ComboBox cmbxFormaciones;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -510,5 +639,16 @@
         private System.Windows.Forms.Label label11;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
+        private System.Windows.Forms.ComboBox cmbxFormaciones;
+        private System.Windows.Forms.ComboBox cmbNacionalidad;
+        private System.Windows.Forms.ErrorProvider errorProviderCI;
+        private System.Windows.Forms.ErrorProvider errorProviderNombre;
+        private System.Windows.Forms.ErrorProvider errorProviderApellido;
+        private System.Windows.Forms.ErrorProvider errorProviderCorreo;
+        private System.Windows.Forms.ErrorProvider errorProviderTipoF;
+        private System.Windows.Forms.ErrorProvider errorProviderNombreF;
+        private System.Windows.Forms.ErrorProvider errorProviderNombreE;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }

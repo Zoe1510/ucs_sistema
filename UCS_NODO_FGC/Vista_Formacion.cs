@@ -17,23 +17,19 @@ namespace UCS_NODO_FGC
 {
     public partial class Vista_Formacion : Form
     {
-        TimeSpan Duracion;
+        string duracion, duracion2, duracion3;
         public Vista_Formacion()
         {
             InitializeComponent();
-            //int id_user1 = Cursos.id_user13;
-            //MySqlDataReader consulta = Conexion.ConsultarBD("select fecha_creacion, fecha_mod_curso from cursos cur inner join user_gestionan_cursos ugc on cur.id_cursos = ugc.cursos_id_cursos where cur.id_usuario1 ='" + id_user1 + "' ");
-            //if (consulta.Read())
-            //{
-            //    DateTime fecha_Mod = Convert.ToDateTime(consulta["fecha_mod_curso"]);
-            //    DateTime fecha_creacion = Convert.ToDateTime(consulta["fecha_creacion"]);
-            //    Duracion = new TimeSpan(fecha_Mod.Ticks - fecha_creacion.Ticks);
-            //}
+            int id_user1 = Cursos.id_user13;
+            MySqlDataReader consulta = Conexion.ConsultarBD("SELECT duracionE1, duracionE2, duracionE3 FROM cursos WHERE id_cursos='"+ Cursos.id_curso13+"'");
+            if (consulta.Read())
+            {
+                duracion=Convert.ToString(consulta["duracionE1"]);
+                duracion2=Convert.ToString(consulta["duracionE2"]);
+                duracion3 = Convert.ToString(consulta["duracionE3"]);
+            }
             
-
-           
-
-
         }
 
         private void Vista_Formacion_Load(object sender, EventArgs e)
@@ -50,6 +46,9 @@ namespace UCS_NODO_FGC
                     txtEstadoB.Text = "En proceso";
                     txtEstadoI.Text = "Sin iniciar";
                     txtEstadoA.Text = "Sin iniciar";
+                    txtTiempoB.Text = " " + duracion + " min.";
+                    txtTiempoI.Text = "0 min.";
+                    txtTiempoA.Text = "0 min.";
 
                 }
                 else if (Cursos.etapa_formacion13 == 2)
@@ -57,23 +56,30 @@ namespace UCS_NODO_FGC
                     txtEstadoB.Text = "Finalizada";
                     txtEstadoI.Text = "En proceso";
                     txtEstadoA.Text = "Sin iniciar";
+                    txtTiempoB.Text = " " + duracion + " min.";
+                    txtTiempoI.Text = " " + duracion2 + " min.";
+                    txtTiempoA.Text = "0 min.";
                 }
                 else if (Cursos.etapa_formacion13 == 3)
                 {
                     txtEstadoB.Text = "Finalizada";
                     txtEstadoI.Text = "Finalizada";
                     txtEstadoA.Text = "En proceso";
+                    txtTiempoB.Text = " " + duracion + " min.";
+                    txtTiempoI.Text = " " + duracion2 + " min.";
+                    txtTiempoA.Text = " " + duracion3 + " min.";
                 }
             }else if (Cursos.estatus_formacion13 == "Suspendido" || Cursos.estatus_formacion13 == "Finalizado")
             {
                 txtEstadoB.Text = "Finalizada";
                 txtEstadoI.Text = "Finalizada";
                 txtEstadoA.Text = "Finalizada";
+                txtTiempoB.Text = " " + duracion + " min.";
+                txtTiempoI.Text = " " + duracion2 + " min.";
+                txtTiempoA.Text = " " + duracion3 + " min.";
             }
 
-            //txtTiempoB.Text = " "+Duracion.ToString()+" horas";
-            txtTiempoI.Text = "0 horas";
-            txtTiempoA.Text = "0 horas";
+        
         }
     }
 }

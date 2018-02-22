@@ -40,7 +40,7 @@ namespace UCS_NODO_FGC.Clases
         {
             //ver video de conexion a base de datos para saber como manipular o no el id_cliente que es autoincrementable
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO clientes ( nombre_empresa, fee_empresa) VALUES ('{0}', '{1}')", cliente.nombre_empresa, cliente.fee_empresa), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO clientes ( nombre_empresa, fee_empresa, ci_user1) VALUES ('{0}', '{1}', '{2}')", cliente.nombre_empresa, cliente.fee_empresa, Usuario_logeado.cedula_user), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }

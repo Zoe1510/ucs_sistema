@@ -80,6 +80,7 @@ namespace UCS_NODO_FGC
                 Load_Sig_Re();
 
                 dtpFechaCurso.Value = DateTime.Today;
+                dtpSegundaFecha.Value = DateTime.Today;
 
                 btnVerPresentacion.Enabled = false;
                 btnVerContenido.Enabled = false;
@@ -129,12 +130,8 @@ namespace UCS_NODO_FGC
                 cmbxDuracionFormacion.SelectedIndex = 0;
                 cmbxDuracionFormacion.Enabled = false;
 
-                MySqlDataReader SolicitadoPor = Conexion.ConsultarBD("SELECT nombre_empresa FROM clientes");
-                while (SolicitadoPor.Read())
-                {
-                    cmbxSolicitadoPor.Items.Add(SolicitadoPor["nombre_empresa"]);
-                }
-                SolicitadoPor.Close();
+                int i = 0;
+                llenarcmbxEmpresas(i);
 
                 llenarcomboRefrigerio();
                 string tipo = "A";
@@ -172,6 +169,15 @@ namespace UCS_NODO_FGC
 
         }
 
+        private void llenarcmbxEmpresas(int id)
+        {
+            MySqlDataReader SolicitadoPor = Conexion.ConsultarBD("SELECT nombre_empresa FROM clientes WHERE id_clientes !='"+id+"'");
+            while (SolicitadoPor.Read())
+            {
+                cmbxSolicitadoPor.Items.Add(SolicitadoPor["nombre_empresa"]);
+            }
+            SolicitadoPor.Close();
+        }
 
         private void CargarDatosPrimeraEtapa()
         {
@@ -338,8 +344,15 @@ namespace UCS_NODO_FGC
                                                 }
 
                                                 IdCliente.Close();
+                                                MySqlDataReader idince = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince='" + cmbxCursoInce.Text + "'");
+                                                int id_ince = 0;
+                                                if (idince.Read())
+                                                {
+                                                    id_ince = Convert.ToInt32(idince["id_curso_ince"]);
+                                                }
+                                                idince.Close();
 
-                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + id_cliente + "', '" + id_curso + "')");
+                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_cursoInce) VALUES ('" + id_cliente + "', '" + id_curso + "', '" + id_ince + "')");
                                                 clientes_solicitan_cursos.Close();
 
                                             }
@@ -348,9 +361,22 @@ namespace UCS_NODO_FGC
                                         {
                                             DateTime FechaFinal = DateTime.Now;
                                             formacion.TiempoEtapa = Convert.ToString(FechaFinal - fecha_creacion);
+                                            formacion.fecha_inicial = fecha_creacion;                                            
+                                            formacion.nombre_formacion = cmbxCursoInce.Text;
+                                            formacion.estatus = "En curso";
+                                            formacion.duracion = "16";
+                                           
+                                            formacion.solicitado = cmbxSolicitadoPor.Text;
+                                            //Se crea la formacion con un paquete nuevo
+                                            int resultado;
+
+                                            if (conexion.abrirconexion() == true)
+                                                resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
+
+                                            conexion.cerrarconexion();
                                             //Se crea la formacion con un paquete ya existente
-                                            MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + fecha_creacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + formacion.TiempoEtapa + "')");
-                                            CrearCurso.Close();
+                                            //MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + fecha_creacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + formacion.TiempoEtapa + "')");
+                                            //CrearCurso.Close();
 
                                             MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                             MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "' AND estatus_curso='En curso'");
@@ -361,7 +387,13 @@ namespace UCS_NODO_FGC
                                             }
                                             IdCurso.Close();
 
-
+                                            MySqlDataReader idince = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince='" + cmbxCursoInce.Text + "'");
+                                            int id_ince = 0;
+                                            if (idince.Read())
+                                            {
+                                                id_ince = Convert.ToInt32(idince["id_curso_ince"]);
+                                            }
+                                            idince.Close();
                                             MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "', '" + FechaFinal + "')");
                                             usuarios_gestionan_cursos.Close();
 
@@ -374,7 +406,7 @@ namespace UCS_NODO_FGC
 
                                             IdCliente.Close();
 
-                                            MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + id_cliente + "', '" + id_curso + "')");
+                                            MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_cursoInce) VALUES ('" + id_cliente + "', '" + id_curso + "', '"+id_ince+"')");
                                             clientes_solicitan_cursos.Close();
                                             guardar = true;
 
@@ -444,7 +476,7 @@ namespace UCS_NODO_FGC
                                 string duracionE2 = Convert.ToString(FinalE2 - inicioE2);
                                 int id_curso = 0;
                                 //se obtiene el id del curso
-                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES'");
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
                                 if (obtener_id_curso.Read())
                                 {
                                     id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
@@ -467,7 +499,7 @@ namespace UCS_NODO_FGC
                                     FacilitadorCurso.Close();
                                     guardar = true;
                                 }
-
+                                MessageBox.Show("Los datos se han guardado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                                 //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                 if (rdbSiRef.Checked == false)
@@ -613,7 +645,7 @@ namespace UCS_NODO_FGC
 
                                 int id_curso = 0;
                                 //se obtiene el id del curso
-                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES'");
+                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
                                 if (obtener_id_curso.Read())
                                 {
                                     id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
@@ -1153,84 +1185,153 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
                 if (cmbxCursoInce.Text != "")//siempre y cuando el txt contenga algo, se valida
                 {
+                    formacion.estatus = "En curso"; //predeterminado en esta etapa
+                    formacion.tipo_formacion = "INCES"; //predeterminado para este form
+                    formacion.nombre_formacion = cmbxCursoInce.Text;
+
+                    int existeEjecucion = 0;
+
                     if (conexion.abrirconexion() == true)
+                        existeEjecucion = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+
+                    conexion.cerrarconexion();
+
+                    if (existeEjecucion != 0)
                     {
-                        formacion.estatus = "En curso"; //predeterminado en esta etapa
-                        formacion.tipo_formacion = "INCES"; //predeterminado para este form
-                        formacion.nombre_formacion = cmbxCursoInce.Text;
-                        conexion.cerrarconexion();
+                        //errorProviderNombreF.SetError(cmbxCursoInce, "Ya existe una formacion con este nombre en estado 'En curso'");
+
+                        formacion.bloque_curso = "2";
+                        formacion.etapa_curso = 1;
+                        formacion.tipo_formacion = "INCES";
+                        formacion.id_user = Usuario_logeado.id_usuario;
+                        //estado inicial de los bloques de esta formación
+                        cmbxBloques.SelectedIndex = 0;
+                        cmbxBloques.Enabled = false;
+
+                        //estado inicial de la duracion de esta formación
+                        cmbxDuracionFormacion.SelectedIndex = 0;
+                        cmbxDuracionFormacion.Enabled = false;
+                        MySqlDataReader idince = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince='" + cmbxCursoInce.Text + "'");
+                        int id_ince = 0;
+                        if (idince.Read())
+                        {
+                            id_ince = Convert.ToInt32(idince["id_curso_ince"]);
+                        }
+                        idince.Close();
+
+                       
+                        List<string> nombre = new List<string>();
+                        List<int> lista_id = new List<int>();
+                        MySqlDataReader nombreSolicitud = Conexion.ConsultarBD("SELECT id_cliente1 FROM clientes_solicitan_cursos WHERE id_cursoInce= '" + id_ince+ "'");
+                        while (nombreSolicitud.Read())
+                        {
+                           int n = Convert.ToInt32(nombreSolicitud["id_cliente1"]);                          
+                           lista_id.Add(n);
+                           
+                        }
+                        
+                        nombreSolicitud.Close();
+
+                        for(int x=0; x<lista_id.Count; x++)
+                        {
+                            MySqlDataReader Ncliente = Conexion.ConsultarBD("SELECT nombre_empresa FROM clientes WHERE id_clientes='" + lista_id[x] + "'");
+                            while (Ncliente.Read())
+                            {
+                                string a = Convert.ToString(Ncliente["nombre_empresa"]);
+                                nombre.Add(a);
+                            }
+                            Ncliente.Close();
+                        }
+
+                        for (int i=0; i < nombre.Count; i++)
+                        {
+                            for (int a=0; a< cmbxSolicitadoPor.Items.Count; a++)
+                            {
+                                if (cmbxSolicitadoPor.Items[a].ToString() == nombre[i])
+                                {
+                                    cmbxSolicitadoPor.Items.RemoveAt(a);
+                                }
+                            }
+                            
+                        }
+
+
                         if (conexion.abrirconexion() == true)
                         {
-                            int existeEjecucion = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+                            List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
+                            paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
                             conexion.cerrarconexion();
 
-                            if (existeEjecucion != 0)
+                            if (paqueteExiste.Count != 0)
                             {
-                                errorProviderNombreF.SetError(cmbxCursoInce, "Ya existe una formacion con este nombre en estado 'En curso'");
-                                cmbxCursoInce.Focus();
-                                vaciarFormacion();
-                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                btnRutaContenido.Enabled = true;
-                                btnRutaPresentacion.Enabled = true;
-                                btnRutaBitacora.Enabled = true;
-                                btnRutaManual.Enabled = true;
 
-                                formacion.bloque_curso = "2";
-                                formacion.etapa_curso = 1;
-                                formacion.tipo_formacion = "INCES";
-                                formacion.id_user = Usuario_logeado.id_usuario;
-                                //estado inicial de los bloques de esta formación
-                                cmbxBloques.SelectedIndex = 0;
-                                cmbxBloques.Enabled = false;
+                                List<int> IdDistintos = new List<int>();
+                                //selecciona solo los números únicos
+                                IdDistintos = paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
 
-                                //estado inicial de la duracion de esta formación
-                                cmbxDuracionFormacion.SelectedIndex = 0;
-                                cmbxDuracionFormacion.Enabled = false;
-                            }
-                            else
-                            {
-                                errorProviderNombreF.SetError(cmbxCursoInce, "");
-                                //luego de la busqueda en su propio tipo de curso, se podrá añadir el curso
-                                //pero se busca cualquier concordancia de nombre en otros tipos de curso para el paquete instruccional
-                                if (conexion.abrirconexion() == true)
+                                if (IdDistintos.Count == 1)
                                 {
-                                    List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
-                                    paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
-                                    conexion.cerrarconexion();
 
-                                    if (paqueteExiste.Count != 0)
-                                    {
-
-                                        List<int> IdDistintos = new List<int>();
-                                        //selecciona solo los números únicos
-                                        IdDistintos = paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
-
-                                        if (IdDistintos.Count == 1)
-                                        {
-
-                                            VerPaqueteInst(IdDistintos[0]);
-                                            btnRutaContenido.Enabled = true;
-                                            btnRutaPresentacion.Enabled = true;
-                                            btnRutaBitacora.Enabled = true;
-                                            btnRutaManual.Enabled = true;
-                                        }
-
-                                    }
-                                    else
-                                    {
-
-                                        ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                        btnRutaContenido.Enabled = true;
-                                        btnRutaPresentacion.Enabled = true;
-                                        btnRutaManual.Enabled = true;
-                                        btnRutaBitacora.Enabled = true;
-                                    }
+                                    VerPaqueteInst(IdDistintos[0]);
 
                                 }
 
                             }
+                            else
+                            {
+
+                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
+                                btnRutaContenido.Enabled = true;
+                                btnRutaPresentacion.Enabled = true;
+                                btnRutaManual.Enabled = true;
+                                btnRutaBitacora.Enabled = true;
+                            }
+
                         }
+
+
+                       
                     }
+                    else
+                    {
+                        errorProviderNombreF.SetError(cmbxCursoInce, "");
+                        //luego de la busqueda en su propio tipo de curso, se podrá añadir el curso
+                        //pero se busca cualquier concordancia de nombre en otros tipos de curso para el paquete instruccional
+                        if (conexion.abrirconexion() == true)
+                        {
+                            List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
+                            paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
+                            conexion.cerrarconexion();
+
+                            if (paqueteExiste.Count != 0)
+                            {
+
+                                List<int> IdDistintos = new List<int>();
+                                //selecciona solo los números únicos
+                                IdDistintos = paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
+
+                                if (IdDistintos.Count == 1)
+                                {
+
+                                    VerPaqueteInst(IdDistintos[0]);
+                                    
+                                }
+
+                            }
+                            else
+                            {
+
+                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
+                                btnRutaContenido.Enabled = true;
+                                btnRutaPresentacion.Enabled = true;
+                                btnRutaManual.Enabled = true;
+                                btnRutaBitacora.Enabled = true;
+                            }
+
+                        }
+
+                    }
+
 
                 }
 

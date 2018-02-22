@@ -44,13 +44,7 @@ namespace UCS_NODO_FGC.Clases
             this.correo_usuario = correo_usuario;
         }
 
-         //public static int AgregarUsuarios(MySqlConnection conexion, Usuarios usuario)
-         //{
-         //   int retorno = 0;
-         //   MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO usuarios (id_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, tlfn_user, pass_user, correo_user) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", usuario.id_usuario, usuario.nacionalidad_usuario, usuario.nombre_usuario, usuario.apellido_usuario, usuario.cargo_usuario, usuario.tlfn_usuario, usuario.password,usuario.correo_usuario), conexion);
-         //   retorno = comando.ExecuteNonQuery();
-         //   return retorno;
-         //}
+        
          
         public static int AgregarUsuarios(MySqlConnection conexion, Usuarios usuario)
         {

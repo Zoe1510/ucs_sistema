@@ -37,8 +37,8 @@
             this.txtCorreoCliArea = new System.Windows.Forms.TextBox();
             this.cmbxEmpresa = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -194,16 +194,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Empresa";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(56, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 19);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Nombre de la empresa:";
-            // 
             // txtNombreEmpresa
             // 
             this.txtNombreEmpresa.Cursor = System.Windows.Forms.Cursors.No;
@@ -217,6 +207,16 @@
             this.txtNombreEmpresa.TabIndex = 1;
             this.txtNombreEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreEmpresa.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(56, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 19);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Nombre de la empresa:";
             // 
             // groupBox2
             // 

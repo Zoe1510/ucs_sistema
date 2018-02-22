@@ -18,6 +18,7 @@ namespace UCS_NODO_FGC
     {
         Formaciones formaciones = new Formaciones();
         int resultado = 0;
+        string nombre_user;
         public Ver_formaciones()
         {
             InitializeComponent();
@@ -167,7 +168,7 @@ namespace UCS_NODO_FGC
             }
         }
 
-        string nombre_user;
+       
 
         private void dgvFormaciones_MouseClick(object sender, MouseEventArgs e)
         {

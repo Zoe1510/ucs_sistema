@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -135,6 +136,14 @@
             this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFormaciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFormaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFormaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
@@ -144,24 +153,24 @@
             this.estatus_formacion,
             this.etapa_formacion,
             this.creado_por});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormaciones.Location = new System.Drawing.Point(22, 34);
             this.dgvFormaciones.Name = "dgvFormaciones";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFormaciones.RowHeadersVisible = false;
             this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
             this.dgvFormaciones.TabIndex = 0;
@@ -181,7 +190,7 @@
             // 
             // solicitud_curso
             // 
-            this.solicitud_curso.HeaderText = "Solicitado por";
+            this.solicitud_curso.HeaderText = "Solicitud";
             this.solicitud_curso.MaxInputLength = 100;
             this.solicitud_curso.Name = "solicitud_curso";
             this.solicitud_curso.ReadOnly = true;
@@ -204,7 +213,7 @@
             // 
             // etapa_formacion
             // 
-            this.etapa_formacion.HeaderText = "Etapa actual";
+            this.etapa_formacion.HeaderText = "Etapa";
             this.etapa_formacion.Name = "etapa_formacion";
             this.etapa_formacion.ReadOnly = true;
             // 
@@ -235,7 +244,7 @@
             this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
             this.txtBuscarNombre.Location = new System.Drawing.Point(79, 48);
             this.txtBuscarNombre.Name = "txtBuscarNombre";
-            this.txtBuscarNombre.Size = new System.Drawing.Size(154, 20);
+            this.txtBuscarNombre.Size = new System.Drawing.Size(158, 20);
             this.txtBuscarNombre.TabIndex = 8;
             // 
             // label3
@@ -476,6 +485,7 @@
         private System.Windows.Forms.Button btnCambiarStatus;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn solicitud_curso;
@@ -483,6 +493,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn etapa_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn creado_por;
-        private System.Windows.Forms.TextBox txtBuscarNombre;
     }
 }

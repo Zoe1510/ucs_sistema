@@ -118,7 +118,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.logo_ucs;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(258, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(285, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 70);
             this.pictureBox1.TabIndex = 73;
@@ -136,7 +136,7 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(29, 67);
+            this.groupBox1.Location = new System.Drawing.Point(46, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(547, 233);
             this.groupBox1.TabIndex = 74;
@@ -263,9 +263,9 @@
             this.groupBox2.Controls.Add(this.txtEstadoB);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.shapeContainer2);
-            this.groupBox2.Location = new System.Drawing.Point(29, 298);
+            this.groupBox2.Location = new System.Drawing.Point(47, 306);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(547, 218);
+            this.groupBox2.Size = new System.Drawing.Size(547, 210);
             this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             // 
@@ -431,7 +431,7 @@
             this.rectangleShape4,
             this.rectangleShape3,
             this.rectangleShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(541, 199);
+            this.shapeContainer2.Size = new System.Drawing.Size(541, 191);
             this.shapeContainer2.TabIndex = 20;
             this.shapeContainer2.TabStop = false;
             // 
@@ -492,7 +492,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnActualizar.Location = new System.Drawing.Point(242, 526);
+            this.btnActualizar.Location = new System.Drawing.Point(258, 522);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(132, 46);
             this.btnActualizar.TabIndex = 76;

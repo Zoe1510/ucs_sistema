@@ -100,7 +100,7 @@ namespace UCS_NODO_FGC
                 llenarcomboRefrigerio();
             }else //si viene referenciado desde el modulo ver formaciones, donde se cargaran los datos ingresados previamente para su modificacion
             {
-
+                
             }
             
             
