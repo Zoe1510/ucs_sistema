@@ -126,6 +126,7 @@
     <Compile Include="Clases\Paneles.cs" />
     <Compile Include="Clases\Paquete_instruccional.cs" />
     <Compile Include="Clases\Participantes.cs" />
+    <Compile Include="Clases\Participante_seleccionado.cs" />
     <Compile Include="Clases\Preguntas.cs" />
     <Compile Include="Clases\Recuperacion_contraseña.cs" />
     <Compile Include="Clases\Refrigerios.cs" />

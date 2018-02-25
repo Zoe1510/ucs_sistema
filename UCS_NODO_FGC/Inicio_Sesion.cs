@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -33,14 +35,14 @@ namespace UCS_NODO_FGC
         private void Txt_id_user_Click(object sender, EventArgs e)
         {
             //metodo usado para el evento click sobre el textbox cedula
-            if(Txt_id_user.Text != "")
+            if (Txt_id_user.Text != "")
             {
 
-            }else
+            } else
             {
                 Txt_id_user.Text = "";
             }
-            
+
         }
 
         private void Txt_pass_user_Click(object sender, EventArgs e)
@@ -71,17 +73,56 @@ namespace UCS_NODO_FGC
             else
             {
                 e.Handled = true;
-                
-               
+
+
             }
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
             login();
+            
+            
         }
 
-      
+        private void actualizar()
+        {
+            List<Formaciones> lista = new List<Formaciones>();
+            string hoy = DateTime.Today.ToString("yyyy-MM-dd");
+            MessageBox.Show(hoy);
+            //aqui se actualizará el estatus de los cursos (a Finalizado) cuyas fechas hayan pasado (que sean inferiores a la actual).
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
+            while (leer.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(leer["id_cursos"]);
+                lista.Add(f);
+            }
+            leer.Close();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
+                cambiar.Close();
+                lista.Clear();
+            }
+
+            //si el curso está en etapa 2 mostrar aviso para escoger el aula y la disposicion de la misma (de acuerdo al facilitador) 
+            //también se evaluará 1 dia si es el día anterior a una formación (para la validación con el facilitador) --> mostrar aviso
+            MySqlDataReader leer2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND estatus_curso='En curso'");
+            while (leer2.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(leer2["id_cursos"]);
+                f.dia1 = Convert.ToDateTime(leer2["fecha_uno"]).AddDays(-1);
+                f.nombre_formacion = Convert.ToString(leer2["nombre_curso"]);
+                //investigar más de la creacion de paneles dinamicamente con botones incluidos un check y una X (aplica para lo de abajo, maybe lo de arriba)
+                lista.Add(f);
+            }
+            //aviso para dia antes también de la conexion a internet en el aula correspondiente (si aplica)
+            //aviso un dia antes de mobiliario y sonido
+
+
+        }
         public void login ()
         {
             try
@@ -108,6 +149,8 @@ namespace UCS_NODO_FGC
 
                                     if (usuarioIngresado.id_usuario != 0)//si la contraseña corresponde al id:
                                     {
+                                        actualizar();
+
                                         Clases.Usuario_logeado.cedula_user = usuario.cedula_user;
                                         Clases.Usuario_logeado.nombre_usuario = usuarioIngresado.nombre_usuario;
                                         Clases.Usuario_logeado.apellido_usuario = usuarioIngresado.apellido_usuario;

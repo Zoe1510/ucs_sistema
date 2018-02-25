@@ -25,7 +25,8 @@ namespace UCS_NODO_FGC.Clases
         public int etapa_curso { get; set; }
         //la etapa puede ser 1, 2 o 3, representan los paneles de cada form
         
-
+        public DateTime dia1 { get; set; }
+        public DateTime dia2 { get; set; }
         public int id_user { get; set; }
 
         public int id_curso { get; set; }

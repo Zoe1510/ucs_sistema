@@ -197,10 +197,11 @@
             // 
             this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
             this.txtBuscarNombre.Location = new System.Drawing.Point(79, 34);
-            this.txtBuscarNombre.MaxLength = 45;
+            this.txtBuscarNombre.MaxLength = 44;
             this.txtBuscarNombre.Name = "txtBuscarNombre";
             this.txtBuscarNombre.Size = new System.Drawing.Size(158, 20);
             this.txtBuscarNombre.TabIndex = 9;
+            this.txtBuscarNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombrePart_KeyPress);
             // 
             // cmbxEstatus
             // 
@@ -217,6 +218,7 @@
             this.cmbxEstatus.Name = "cmbxEstatus";
             this.cmbxEstatus.Size = new System.Drawing.Size(158, 21);
             this.cmbxEstatus.TabIndex = 8;
+            this.cmbxEstatus.SelectionChangeCommitted += new System.EventHandler(this.cmbxEstatus_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -305,10 +307,12 @@
             this.dgvParticipantes.Location = new System.Drawing.Point(20, 34);
             this.dgvParticipantes.MultiSelect = false;
             this.dgvParticipantes.Name = "dgvParticipantes";
+            this.dgvParticipantes.ReadOnly = true;
             this.dgvParticipantes.RowHeadersVisible = false;
             this.dgvParticipantes.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvParticipantes.Size = new System.Drawing.Size(783, 510);
             this.dgvParticipantes.TabIndex = 0;
+            this.dgvParticipantes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvParticipantes_MouseClick);
             // 
             // ci_participante
             // 
@@ -316,6 +320,7 @@
             this.ci_participante.MaxInputLength = 10;
             this.ci_participante.MinimumWidth = 100;
             this.ci_participante.Name = "ci_participante";
+            this.ci_participante.ReadOnly = true;
             this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ci_participante.Width = 120;
             // 
@@ -325,6 +330,7 @@
             this.nombre_participante.MaxInputLength = 100;
             this.nombre_participante.MinimumWidth = 100;
             this.nombre_participante.Name = "nombre_participante";
+            this.nombre_participante.ReadOnly = true;
             this.nombre_participante.Width = 180;
             // 
             // apellido_participante
@@ -333,17 +339,20 @@
             this.apellido_participante.MaxInputLength = 100;
             this.apellido_participante.MinimumWidth = 100;
             this.apellido_participante.Name = "apellido_participante";
+            this.apellido_participante.ReadOnly = true;
             this.apellido_participante.Width = 150;
             // 
             // correo_par
             // 
             this.correo_par.HeaderText = "Correo";
             this.correo_par.Name = "correo_par";
+            this.correo_par.ReadOnly = true;
             // 
             // empresa_asociada
             // 
             this.empresa_asociada.HeaderText = "Empresa asociada";
             this.empresa_asociada.Name = "empresa_asociada";
+            this.empresa_asociada.ReadOnly = true;
             // 
             // panel8
             // 

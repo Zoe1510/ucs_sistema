@@ -319,23 +319,22 @@ namespace UCS_NODO_FGC
 
                                                 conexion.cerrarconexion();
 
-                                                //MySqlDataReader CrearCurso = Conexion.ConsultarBD(@"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso,  duracionE1) VALUES ('En curso', 'INCES',  '16', '" + cmbxCursoInce.Text + "', '" + fecha_creacion + "' ,'" + Usuario_logeado.id_usuario + "','" + id_paq + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1','" + formacion.TiempoEtapa + "')");
-                                                //CrearCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-
+                                               
                                                 MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "' AND estatus_curso='En curso'");
                                                 int id_curso = 0;
                                                 if (IdCurso.Read())
                                                 {
                                                     id_curso = int.Parse(IdCurso["id_cursos"].ToString());
                                                 }
-                                                IdCurso.Close();
-
-                                                MessageBox.Show(fecha_creacion.ToString());
-                                                MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "' , '" + FechaFinal + "')");
-                                                usuarios_gestionan_cursos.Close();
-
+                                                IdCurso.Close();                                                
+                                                //MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "' , '" + FechaFinal + "')");
+                                                //usuarios_gestionan_cursos.Close();
+                                                if (conexion.abrirconexion() == true)
+                                                {
+                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, Usuario_logeado.id_usuario, fecha_creacion, FechaFinal);
+                                                    conexion.cerrarconexion();
+                                                   
+                                                }
                                                 MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
                                                 int id_cliente = 0;
                                                 if (IdCliente.Read())
@@ -354,6 +353,9 @@ namespace UCS_NODO_FGC
 
                                                 MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_cursoInce) VALUES ('" + id_cliente + "', '" + id_curso + "', '" + id_ince + "')");
                                                 clientes_solicitan_cursos.Close();
+
+                                                guardar = true;
+                                                MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                                             }
                                         }
@@ -375,10 +377,7 @@ namespace UCS_NODO_FGC
 
                                             conexion.cerrarconexion();
                                             //Se crea la formacion con un paquete ya existente
-                                            //MySqlDataReader CrearCurso = Conexion.ConsultarBD("INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion ,id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES ('En curso', 'INCES', '" + 16 + "', '" + cmbxCursoInce.Text + "', '" + fecha_creacion + "' ,'" + Usuario_logeado.id_usuario + "','" + formacion.pq_inst + "' ,'" + cmbxBloques.Text + "' ,'" + cmbxSolicitadoPor.Text + "',  '1', '" + formacion.TiempoEtapa + "')");
-                                            //CrearCurso.Close();
-
-                                            MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                             
                                             MySqlDataReader IdCurso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "' AND estatus_curso='En curso'");
                                             int id_curso = 0;
                                             if (IdCurso.Read())
@@ -394,8 +393,16 @@ namespace UCS_NODO_FGC
                                                 id_ince = Convert.ToInt32(idince["id_curso_ince"]);
                                             }
                                             idince.Close();
-                                            MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "', '" + FechaFinal + "')");
-                                            usuarios_gestionan_cursos.Close();
+
+                                            if (conexion.abrirconexion() == true)
+                                            {
+                                                int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, Usuario_logeado.id_usuario, fecha_creacion, FechaFinal);
+                                                conexion.cerrarconexion();
+
+                                            }
+                                            //esto no guardaba bien las fechas
+                                            //MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "', '" + FechaFinal + "')");
+                                            //usuarios_gestionan_cursos.Close();
 
                                             MySqlDataReader IdCliente = Conexion.ConsultarBD("SELECT id_clientes FROM clientes WHERE nombre_empresa='" + cmbxSolicitadoPor.Text + "'");
                                             int id_cliente = 0;
@@ -408,7 +415,9 @@ namespace UCS_NODO_FGC
 
                                             MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_cursoInce) VALUES ('" + id_cliente + "', '" + id_curso + "', '"+id_ince+"')");
                                             clientes_solicitan_cursos.Close();
+
                                             guardar = true;
+                                            MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                         }
 

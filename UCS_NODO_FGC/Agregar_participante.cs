@@ -586,7 +586,7 @@ namespace UCS_NODO_FGC
                                                 int id_cli = 0;
                                                 participante.id_cli1 = 0;
                                                 participante.nombreE = "No asociado";
-                                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cli + "', '"+participante.nombreE+"')");
+                                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('"+participante.nacionalidad+"','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cli + "', '"+participante.nombreE+"')");
                                                 MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 leer.Close();
 
@@ -675,7 +675,7 @@ namespace UCS_NODO_FGC
         }
         private void agregarP()
         {
-            MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cliente + "', '"+participante.nombreE+"')");
+            MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('"+participante.nacionalidad+"','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cliente + "', '"+participante.nombreE+"')");
             MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             leer.Close();
         }

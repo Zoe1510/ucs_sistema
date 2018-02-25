@@ -97,8 +97,20 @@ namespace UCS_NODO_FGC
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             refrescar();
-        }              
+        }
 
+        private void txtNombrePart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Clases.Paneles.sololetras(e);
+            if (txtBuscarNombre.Text.Length == 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToUpper().ToCharArray()[0];
+            }
+            else if (txtBuscarNombre.Text.Length > 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
+            }
+        }
         private void cmbxEstatus_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string estatus = Convert.ToString(cmbxEstatus.SelectedIndex);
