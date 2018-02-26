@@ -557,6 +557,7 @@ namespace UCS_NODO_FGC
                                         errorProviderCorreo.SetError(txtCorreoPart, "");
                                         if(participante.id_participante > 0)//lo que significa, que ya se encuentra registrado en el sistema
                                         {
+                                            //falta una validacion, si el participante ya se encuentra regiustrado en el curso
                                             MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO cursos_tienen_participantes (ctp_id_participante, ctp_id_curso, ctp_id_cliente) VALUES ('"+participante.id_participante+"', '"+id_curso+"', '"+participante.id_cli1+"')");
                                             MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             leer.Close();

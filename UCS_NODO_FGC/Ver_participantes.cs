@@ -77,20 +77,26 @@ namespace UCS_NODO_FGC
             txtBuscarNombre.Clear();
             cmbxEstatus.SelectedIndex = -1;
             dtpFechaCurso.Value = DateTime.Today;
+            btnEliminar.Enabled = false;
         } 
 
-        private void Busqueda(string nombreC, string estatus, string fecha)
+        private void Busqueda(string nombreC, string e, string f)
         {
             try
             {
                 dgvParticipantes.Rows.Clear();
-                string query = "SELECT nombre_empresa, nombre_par, apellido_par, cedula_par, correo_par FROM cursos_tienen_participantes ctp inner join cursos cur on cur.id_cursos = ctp.ctp_id_curso inner join participantes p on ctp.ctp_id_participante = p.id_participante inner join clientes c on ctp.ctp_id_cliente = c.id_clientes where cur.nombre_curso like '"+nombreC+"' and cur.estatus_curso like'"+estatus+"' and cur.fecha_uno like '"+fecha+"' ";
-                MySqlDataReader b = Conexion.ConsultarBD(query);
+                
+                //"SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM cursos_tienen_participantes ctp inner join cursos cur on cur.id_cursos = ctp.ctp_id_curso inner join participantes p on ctp.ctp_id_participante = p.id_participante where cur.nombre_curso like 'Prueba abierto' and cur.estatus_curso like 'En curso' and cur.fecha_uno like '2018-03-01'"
+                
+                MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante inner join cursos cur on ctp.ctp_id_curso = cur.id_cursos where cur.nombre_curso like '" + nombreC + "' and cur.estatus_curso like '" + e + "' and cur.fecha_uno like '"+f+"'");
                 while (b.Read())
-                {
+                {                   
+                    //MessageBox.Show("entré a la busqueda");
                     resultado = 1;
-                    dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["nombre_empresa"]);
+                    dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["nombreE"]);                    
                 }
+                b.Close();
+                
             }
             catch (MySqlException ex)
             {
@@ -152,21 +158,52 @@ namespace UCS_NODO_FGC
                     }
                     else
                     {
-                        resultado = 0;
+                        
                         errorProviderCmbxEstatus.SetError(cmbxEstatus, "");
                         string nombre = txtBuscarNombre.Text;
-                        string estatus = formaciones.estatus;
+                        
                         string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
-                        Busqueda(nombre, estatus, fecha);
+                        DateTime today = DateTime.Today;
+                        // Busqueda(nombre, formaciones.estatus, fecha);
+                        try
+                        {
+                            dgvParticipantes.Rows.Clear();
+
+                            //"SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM cursos_tienen_participantes ctp inner join cursos cur on cur.id_cursos = ctp.ctp_id_curso inner join participantes p on ctp.ctp_id_participante = p.id_participante where cur.nombre_curso like 'Prueba abierto' and cur.estatus_curso like 'En curso' and cur.fecha_uno like '2018-03-01'"
+
+                            MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante inner join cursos cur on ctp.ctp_id_curso = cur.id_cursos where cur.nombre_curso like '" + nombre + "' and cur.estatus_curso like '" + formaciones.estatus + "' and cur.fecha_uno like '" + fecha + "'");
+                            while (b.Read())
+                            {
+                                //MessageBox.Show("entré a la busqueda");
+                                resultado = 1;
+                                dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["nombreE"]);
+                            }
+                            b.Close();
+
+                        }
+                        catch (MySqlException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        //MessageBox.Show(""+nombre+","+estatus+", "+fecha+"");
+
                         //aqui debe estar el metodo que permita llenar el dgv con los parametros de busqueda
                         if (resultado == 1)
                         {
-                            dgvParticipantes.CurrentRow.Selected = true;
-                            resultado = 0;
-                            //txtBuscarNombre.Clear();
-                            //cmbxEstatus.SelectedIndex = -1;
-                            //dtpFechaCurso.Value = DateTime.Today;
+                            //dgvParticipantes.CurrentRow.Selected = true;
+                            
+                            //if(today < DateTime.Parse(fecha) && estatus=="En curso")
+                            //{
+                            //    btnEliminar.Enabled = true;
+                            //    MessageBox.Show("entré");
+                            //}
+                            //else
+                            //{
+                            //    btnEliminar.Enabled =false;
+                            //    MessageBox.Show("no entré");
+                            //}
 
+                            
                         }
                         else
                         {
@@ -239,6 +276,27 @@ namespace UCS_NODO_FGC
                 buscarId.Close();
 
                 
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvParticipantes.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show("¿Está seguro de eliminar al postulado " + part.nombreP + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //MySqlDataReader del = Conexion.ConsultarBD("DELETE FROM cursos WHERE id_cursos='"+part.id_participante+"'");
+                    //del.Close();
+                    //string nombre = txtBuscarNombre.Text;
+                    //string estatus = formaciones.estatus;
+                    //string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+                    ////string today = DateTime.Today.ToString("yyyy-MM-dd");
+                    //Busqueda(nombre, estatus, fecha);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un participante de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

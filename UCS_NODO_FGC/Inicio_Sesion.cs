@@ -89,7 +89,7 @@ namespace UCS_NODO_FGC
         {
             List<Formaciones> lista = new List<Formaciones>();
             string hoy = DateTime.Today.ToString("yyyy-MM-dd");
-            MessageBox.Show(hoy);
+            
             //aqui se actualizará el estatus de los cursos (a Finalizado) cuyas fechas hayan pasado (que sean inferiores a la actual).
             MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
             while (leer.Read())
@@ -103,20 +103,43 @@ namespace UCS_NODO_FGC
             {
                 MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
                 cambiar.Close();
-                lista.Clear();
+               
             }
-
+            lista.Clear();
             //si el curso está en etapa 2 mostrar aviso para escoger el aula y la disposicion de la misma (de acuerdo al facilitador) 
+
             //también se evaluará 1 dia si es el día anterior a una formación (para la validación con el facilitador) --> mostrar aviso
             MySqlDataReader leer2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND estatus_curso='En curso'");
             while (leer2.Read())
             {
                 Formaciones f = new Formaciones();
                 f.id_curso = Convert.ToInt32(leer2["id_cursos"]);
-                f.dia1 = Convert.ToDateTime(leer2["fecha_uno"]).AddDays(-1);
+                f.dia1 = DateTime.Parse(leer2["fecha_uno"].ToString());
                 f.nombre_formacion = Convert.ToString(leer2["nombre_curso"]);
                 //investigar más de la creacion de paneles dinamicamente con botones incluidos un check y una X (aplica para lo de abajo, maybe lo de arriba)
                 lista.Add(f);
+            }
+            leer2.Close();
+
+            DateTime dia = DateTime.Today;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                DateTime diaA = lista[i].dia1;
+                if (diaA.AddDays(-1) == dia)
+                {
+                    //si esta condicion se cumple, es que el dia de hoy es un dia anterior al de una formación.
+                } else
+                {
+                    //si lo anterior no ocurre, comprobar todas aquellas formaciones que se dan el lunes,
+                    // y ver si el dia actual es viernes, para mostrar los avisos (del facilitador y lo demás)
+                    DayOfWeek prueba =lista[i].dia1.DayOfWeek;
+                    DayOfWeek pruebaV = DateTime.Today.DayOfWeek;
+                    string lunes = "Lunes";
+                    if (prueba == DayOfWeek.Monday &&pruebaV==DayOfWeek.Friday )
+                    {
+                        MessageBox.Show(lunes);
+                    }
+                }
             }
             //aviso para dia antes también de la conexion a internet en el aula correspondiente (si aplica)
             //aviso un dia antes de mobiliario y sonido
