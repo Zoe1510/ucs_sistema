@@ -98,7 +98,7 @@
             this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.gpbAulas = new System.Windows.Forms.GroupBox();
+            this.gpbInstalacion = new System.Windows.Forms.GroupBox();
             this.rdbNoInstalaciones = new System.Windows.Forms.RadioButton();
             this.rdbInstalaciones = new System.Windows.Forms.RadioButton();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -195,7 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gpbFecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.gpbAulas.SuspendLayout();
+            this.gpbInstalacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.gpbDatosCoFa.SuspendLayout();
             this.gpbCoFa.SuspendLayout();
@@ -470,7 +470,7 @@
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.gpbCorreos);
             this.pnlNivel_intermedio.Controls.Add(this.gpbFecha);
-            this.pnlNivel_intermedio.Controls.Add(this.gpbAulas);
+            this.pnlNivel_intermedio.Controls.Add(this.gpbInstalacion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbCoFa);
@@ -480,7 +480,7 @@
             this.pnlNivel_intermedio.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_intermedio.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
-            this.pnlNivel_intermedio.Size = new System.Drawing.Size(920, 615);
+            this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
             // 
             // pnlNivel_basico
@@ -494,7 +494,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(917, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(34, 615);
             this.pnlNivel_basico.TabIndex = 92;
             // 
             // groupBox5
@@ -1033,17 +1033,17 @@
             this.label33.TabIndex = 49;
             this.label33.Text = "Primer día del curso:";
             // 
-            // gpbAulas
+            // gpbInstalacion
             // 
-            this.gpbAulas.Controls.Add(this.rdbNoInstalaciones);
-            this.gpbAulas.Controls.Add(this.rdbInstalaciones);
-            this.gpbAulas.Controls.Add(this.pictureBox12);
-            this.gpbAulas.Controls.Add(this.label28);
-            this.gpbAulas.Location = new System.Drawing.Point(51, 66);
-            this.gpbAulas.Name = "gpbAulas";
-            this.gpbAulas.Size = new System.Drawing.Size(404, 69);
-            this.gpbAulas.TabIndex = 83;
-            this.gpbAulas.TabStop = false;
+            this.gpbInstalacion.Controls.Add(this.rdbNoInstalaciones);
+            this.gpbInstalacion.Controls.Add(this.rdbInstalaciones);
+            this.gpbInstalacion.Controls.Add(this.pictureBox12);
+            this.gpbInstalacion.Controls.Add(this.label28);
+            this.gpbInstalacion.Location = new System.Drawing.Point(51, 66);
+            this.gpbInstalacion.Name = "gpbInstalacion";
+            this.gpbInstalacion.Size = new System.Drawing.Size(404, 69);
+            this.gpbInstalacion.TabIndex = 83;
+            this.gpbInstalacion.TabStop = false;
             // 
             // rdbNoInstalaciones
             // 
@@ -1385,7 +1385,7 @@
             this.gpbHorarioCurso.Controls.Add(this.label13);
             this.gpbHorarioCurso.Location = new System.Drawing.Point(249, 28);
             this.gpbHorarioCurso.Name = "gpbHorarioCurso";
-            this.gpbHorarioCurso.Size = new System.Drawing.Size(419, 158);
+            this.gpbHorarioCurso.Size = new System.Drawing.Size(419, 71);
             this.gpbHorarioCurso.TabIndex = 76;
             this.gpbHorarioCurso.TabStop = false;
             // 
@@ -1521,7 +1521,6 @@
             // rdbNoMantenerAula
             // 
             this.rdbNoMantenerAula.AutoSize = true;
-            this.rdbNoMantenerAula.Enabled = false;
             this.rdbNoMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbNoMantenerAula.Location = new System.Drawing.Point(302, 73);
             this.rdbNoMantenerAula.Name = "rdbNoMantenerAula";
@@ -1544,7 +1543,6 @@
             // rdbSiMantenerAula
             // 
             this.rdbSiMantenerAula.AutoSize = true;
-            this.rdbSiMantenerAula.Enabled = false;
             this.rdbSiMantenerAula.Font = new System.Drawing.Font("Rockwell", 11.25F);
             this.rdbSiMantenerAula.Location = new System.Drawing.Point(202, 73);
             this.rdbSiMantenerAula.Name = "rdbSiMantenerAula";
@@ -1894,8 +1892,8 @@
             this.gpbFecha.ResumeLayout(false);
             this.gpbFecha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.gpbAulas.ResumeLayout(false);
-            this.gpbAulas.PerformLayout();
+            this.gpbInstalacion.ResumeLayout(false);
+            this.gpbInstalacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.gpbDatosCoFa.ResumeLayout(false);
             this.gpbDatosCoFa.PerformLayout();
@@ -1966,7 +1964,7 @@
         private System.Windows.Forms.ErrorProvider errorProviderBloque;
         private System.Windows.Forms.ErrorProvider errorProviderSolicitado;
         private System.Windows.Forms.Panel pnlNivel_intermedio;
-        private System.Windows.Forms.GroupBox gpbAulas;
+        private System.Windows.Forms.GroupBox gpbInstalacion;
         private System.Windows.Forms.RadioButton rdbNoInstalaciones;
         private System.Windows.Forms.RadioButton rdbInstalaciones;
         private System.Windows.Forms.PictureBox pictureBox12;

@@ -760,39 +760,41 @@ namespace UCS_NODO_FGC
                                         guardarRelacionCursoPublicidad.Close();
                                     }
 
+                                    MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                    ActualizarCursoTieneRef.Close();
 
                                     //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
                                     MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoSegundaEtapa.Close();
-                                    
-                                        // si el checkbox esta seleccionado es que tiene co-facilitador
-                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
-                                        else // sino, solo guarda al facilitador
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
 
-                                        //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
-                                        ordenTerceraEtapa();
+                                    // si el checkbox esta seleccionado es que tiene co-facilitador
+                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+                                    else // sino, solo guarda al facilitador
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+
+                                    //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                    ordenTerceraEtapa();
                                     //llenar el cmbx de horarios:
                                     cmbxHorarios.Items.Clear();
-                                    string tipo = "A";
+                                    string tipo = "B";
                                     llenarComboHorario(tipo);
-                                        
-                                        //para la logistica:
-                                        rdbSiMantenerAula.Enabled = false;
-                                        rdbNoMantenerAula.Enabled = false;
-                                        txtSegundaAula.Enabled = false;
-                                    
+
+                                    //para la logistica:
+                                    rdbSiMantenerAula.Enabled = false;
+                                    rdbNoMantenerAula.Enabled = false;
+                                    txtSegundaAula.Enabled = false;
+
                                 }
 
                             }
@@ -880,6 +882,9 @@ namespace UCS_NODO_FGC
                                                 guardarRelacionCursoPublicidad.Close();
                                             }
 
+                                            MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                            ActualizarCursoTieneRef.Close();
+
                                             ////se actualiza la informacion del curso con los valores nuevos: 
                                             //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
                                             MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" +time.fecha_curso+ "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
@@ -906,7 +911,7 @@ namespace UCS_NODO_FGC
                                             gpbSeleccionRef.Visible = false;
                                             //llenar el cmbx de horarios:
                                             cmbxHorarios.Items.Clear();
-                                            string tipo = "A";
+                                            string tipo = "B";
                                             llenarComboHorario(tipo);
                                             //para la logistica:
                                             rdbSiMantenerAula.Enabled = true;
@@ -1017,36 +1022,34 @@ namespace UCS_NODO_FGC
                                                 ActualizarCursoSegundaEtapa.Close();
                                                 // si el checkbox esta seleccionado es que tiene co-facilitador
                                                 if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                                    {
-                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                                        FacilitadorCurso.Close();
-                                                        guardar = true;
-                                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                     }
-                                                     else // sino, solo guarda al facilitador
-                                                     {
-                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                                        FacilitadorCurso.Close();
-                                                        guardar = true;
-                                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                     }
+                                                {
+                                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                                    FacilitadorCurso.Close();
+                                                    guardar = true;
+                                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                }
+                                                else // sino, solo guarda al facilitador
+                                                {
+                                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                                    FacilitadorCurso.Close();
+                                                    guardar = true;
+                                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                }
 
+                                                //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                                ordenTerceraEtapa();
 
-
-                                                    //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
-                                                    ordenTerceraEtapa();
-                                                    
-                                                    //llenar el cmbx de horarios:
-                                                    cmbxHorarios.Items.Clear();
-                                                string tipo = "B";
+                                                //llenar el cmbx de horarios:
+                                                cmbxHorarios.Items.Clear();
+                                                string tipo = "A";
                                                 llenarComboHorario(tipo);
 
                                                 //para la logistica:
                                                 rdbSiMantenerAula.Enabled = false;
-                                                    rdbNoMantenerAula.Enabled = false;
-                                                    txtSegundaAula.Enabled = false;
-                                               
-                                               
+                                                rdbNoMantenerAula.Enabled = false;
+                                                txtSegundaAula.Enabled = false;
+
+
                                             }
 
                                         }
@@ -1070,10 +1073,25 @@ namespace UCS_NODO_FGC
                                 else
                                 {
 
-                                    if(rdbSiRef.Checked == false)
+                                    if (rdbSiRef.Checked == false)
+                                    {
                                         gpbSeleccionRef.Enabled = false;
+                                        gpbSeleccionRef.Visible = true;
+                                        MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                        ActualizarCursoTieneRef.Close();
+                                    }
                                     else
-                                    gpbSeleccionRef.Enabled = true;
+                                    {
+                                        //llenar el cmbx de horarios:
+                                        cmbxHorarios.Items.Clear();
+                                        string tipo = "A";
+                                        llenarComboHorario(tipo);
+
+                                        gpbSeleccionRef.Enabled = true;
+                                        gpbSeleccionRef.Visible = true;
+                                        MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='1' ");
+                                        ActualizarCursoTieneRef.Close();
+                                    }
 
 
 
@@ -1198,7 +1216,7 @@ namespace UCS_NODO_FGC
                                                         }
                                                         //llenar el cmbx de horarios:
                                                         cmbxHorarios.Items.Clear();
-                                                        string tipo = "B";
+                                                        string tipo = "A";
                                                         llenarComboHorario(tipo);
 
                                                         //para la logistica:

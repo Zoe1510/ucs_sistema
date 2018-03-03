@@ -728,7 +728,7 @@ namespace UCS_NODO_FGC
                                     {
                                         //llenar el cmbx de horarios:
                                         cmbxHorarios.Items.Clear();
-                                        string tipo = "B";
+                                        string tipo = "A";
                                         llenarComboHorario(tipo);
 
                                         gpbSeleccionRef.Enabled = true;

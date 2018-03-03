@@ -98,6 +98,31 @@ namespace UCS_NODO_FGC
                 
         }
         /*---------------------- METODOS ------------------------*/
+        private void ordenTerceraEtapa()
+        {
+            gpbHorarioCurso.Location = new Point(254, 47);
+            gpbHorarioCurso.Height = 73;
+
+            gpbSeleccionRef.Location = new Point(254, 132);
+            gpbSeleccionRef.Enabled = false;
+
+            gpbAula.Location = new Point(254, 215);
+            gpbAula.Height = 155;
+            gpbAula.Width = 419;
+
+            gpbInsumos.Location = new Point(254, 377);
+            gpbInsumos.Height = 229;
+            gpbInsumos.Width = 419;
+
+        }
+        private void llenarComboHorario(string tipo)
+        {
+            //llenar el combobox con los horarios registrados en la BD
+            cmbxHorarios.ValueMember = "id_horario";
+            cmbxHorarios.DisplayMember = "contenido_horario";
+            cmbxHorarios.DataSource = Horarios.llenarcmbxHorario(tipo);
+            cmbxHorarios.SelectedIndex = -1;
+        }
         private void llenarcmbxEmpresas(int id)
         {
             MySqlDataReader SolicitadoPor = Conexion.ConsultarBD("SELECT nombre_empresa FROM clientes WHERE id_clientes !='" + id + "'");
@@ -600,11 +625,588 @@ namespace UCS_NODO_FGC
         }
         private void GuardarIntermedio()
         {
+            try
+            {
+                if (formacion.duracion == "4")
+                {
+                    if (rdbInstalaciones.Checked == false && rdbNoInstalaciones.Checked == false)
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "Debe especificar dónde será la formación.");
+                    }
+                    else
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "");
 
+                        if (dtpFechaCurso.Value <= DateTime.Today)
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                            dtpFechaCurso.Focus();
+                        }
+                        else
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "");
+
+                            if (cmbxFa.SelectedIndex == -1)
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                cmbxFa.Focus();
+                            }
+                            else
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                    cmbxCoFa.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+                                    DateTime FinalE2 = DateTime.Now;
+                                    String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+
+                                    int id_curso = 0;
+                                    //se obtiene el id del curso
+                                    MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='InCompany'");
+                                    if (obtener_id_curso.Read())
+                                    {
+                                        id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                    }
+                                    obtener_id_curso.Close();
+
+                                    formacion.bloque_curso = "1";
+
+                                    MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                    ActualizarCursoTieneRef.Close();
+
+                                    //SI SE HACE EN LA UCS ENTONCES
+                                    if (rdbInstalaciones.Checked == true)
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='Si' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                    }
+                                    else  //SI NO SE HACE EN LA UCS
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='No' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                    }
+
+                                    //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                    MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                    ActualizarCursoSegundaEtapa.Close();
+
+                                    // si el checkbox esta seleccionado es que tiene co-facilitador
+                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+                                    else // sino, solo guarda al facilitador
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+
+                                    //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                    ordenTerceraEtapa();
+                                    //llenar el cmbx de horarios:
+                                    cmbxHorarios.Items.Clear();
+                                    string tipo = "B";
+                                    llenarComboHorario(tipo);
+
+                                    //para la logistica:
+                                    rdbSiMantenerAula.Enabled = false;
+                                    rdbNoMantenerAula.Enabled = false;
+                                    txtSegundaAula.Enabled = false;
+
+                                    gpbSeleccionRef.Enabled = false;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
+                {
+                    if (rdbInstalaciones.Checked == false && rdbNoInstalaciones.Checked == false)
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "Debe especificar dónde será la formación.");
+                    }else
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "");
+                        if (dtpFechaCurso.Value <= DateTime.Today)
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                            dtpFechaCurso.Focus();
+                        }
+                        else
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "");
+                            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value || dtpSegundaFecha.Value <= DateTime.Today)
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                                dtpSegundaFecha.Focus();
+                            }
+                            else
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "");
+                            }
+                            if (cmbxFa.SelectedIndex == -1)
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                cmbxFa.Focus();
+                            }
+                            else
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                    cmbxCoFa.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+                                    time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd");
+                                    DateTime FinalE2 = DateTime.Now;
+                                    String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+
+                                    int id_curso = 0;
+                                    //se obtiene el id del curso
+                                    MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='InCompany'");
+                                    if (obtener_id_curso.Read())
+                                    {
+                                        id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                    }
+                                    obtener_id_curso.Close();
+
+                                    formacion.bloque_curso = "2";
+                                    gpbSeleccionRef.Enabled = false;
+
+                                    MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                    ActualizarCursoTieneRef.Close();
+
+                                    //SI SE HACE EN LA UCS ENTONCES
+                                    if (rdbInstalaciones.Checked == true)
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='Si' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        gpbAula.Enabled = true;
+                                    }
+                                    else //SI NO SE HACE EN LA UCS
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='No' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        gpbAula.Enabled = false;
+                                    }
+
+                                    //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                    MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                    ActualizarCursoSegundaEtapa.Close();
+                                    // si el checkbox esta seleccionado es que tiene co-facilitador
+                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+                                    else // sino, solo guarda al facilitador
+                                    {
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                        FacilitadorCurso.Close();
+                                        guardar = true;
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                    }
+
+                                    //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                    ordenTerceraEtapa();
+                                    gpbHorarioCurso.Height = 169;
+                                    gpbSeleccionRef.Visible = false;
+                                    //llenar el cmbx de horarios:
+                                    cmbxHorarios.Items.Clear();
+                                    string tipo = "B";
+                                    llenarComboHorario(tipo);
+                                    //para la logistica:
+                                    rdbSiMantenerAula.Enabled = true;
+                                    rdbNoMantenerAula.Enabled = true;
+                                    txtSegundaAula.Enabled = false;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                {
+                    if (rdbInstalaciones.Checked == false && rdbNoInstalaciones.Checked==false)
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "Debe especificar dónde será la formación.");
+                    }
+                    else
+                    {
+                        if (dtpFechaCurso.Value <= DateTime.Today)
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                            dtpFechaCurso.Focus();
+                        }
+                        else
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "");
+
+                            if (cmbxFa.SelectedIndex == -1)
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                cmbxFa.Focus();
+                            }
+                            else
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                    cmbxCoFa.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");                                    
+                                    DateTime FinalE2 = DateTime.Now;
+                                    String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+
+                                    int id_curso = 0;
+                                    //se obtiene el id del curso
+                                    MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='InCompany'");
+                                    if (obtener_id_curso.Read())
+                                    {
+                                        id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                    }
+                                    obtener_id_curso.Close();
+
+                                    formacion.bloque_curso = "1";
+
+                                    if (rdbInstalaciones.Checked == true)
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='Si' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        //para la logistica:
+                                        rdbSiMantenerAula.Enabled = false;
+                                        rdbNoMantenerAula.Enabled = false;
+                                        txtSegundaAula.Enabled = false;
+
+                                        if (rdbSiRef.Checked == false && rdbNoRef.Checked == false)
+                                        {
+                                            errorProviderBloque.SetError(gpbRefrigerio, "Debe especificar si la formación poseerá refrigerio.");
+                                        }
+                                        else
+                                        {
+                                            if (rdbSiRef.Checked == false)
+                                            {
+                                                gpbSeleccionRef.Enabled = false;
+                                                gpbSeleccionRef.Visible = true;
+                                                MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                                ActualizarCursoTieneRef.Close();
+                                            }
+                                            else
+                                            {
+                                                //llenar el cmbx de horarios:
+                                                cmbxHorarios.Items.Clear();
+                                                string tipo = "A";
+                                                llenarComboHorario(tipo);
+
+                                                gpbSeleccionRef.Enabled = true;
+                                                gpbSeleccionRef.Visible = true;
+                                                MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='1' ");
+                                                ActualizarCursoTieneRef.Close();
+                                            }
+
+                                            //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                            MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                            ActualizarCursoSegundaEtapa.Close();
+                                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+                                            else // sino, solo guarda al facilitador
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+
+                                            //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
+                                            ordenTerceraEtapa();
+
+
+                                        }
+                                    }
+                                    else //SI LA FORMACION NO SE DICTARÁ EN LA UCS
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='No' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        ordenTerceraEtapa();
+                                        gpbSeleccionRef.Enabled = false;
+                                        gpbAula.Enabled = false;
+                                        gpbHorarioCurso.Height = 169;
+                                        MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                        ActualizarCursoTieneRef.Close();
+                                        //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                        MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                        ActualizarCursoSegundaEtapa.Close();
+                                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+                                        else // sino, solo guarda al facilitador
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+
+                                    }
+                                }
+                           }
+                        }
+                    }
+                }
+                else if (formacion.duracion == "16")
+                {
+                    if (rdbInstalaciones.Checked == false && rdbNoInstalaciones.Checked==false)
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "Debe especificar dónde será la formación.");
+                    }else
+                    {
+                        errorProviderBloque.SetError(gpbInstalacion, "");
+                        if (dtpFechaCurso.Value <= DateTime.Today)
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "La fecha seleccionada es inválida.");
+                            dtpFechaCurso.Focus();
+                        }
+                        else
+                        {
+                            errorProviderFecha.SetError(dtpFechaCurso, "");
+                            if (dtpSegundaFecha.Value <= dtpFechaCurso.Value || dtpSegundaFecha.Value <= DateTime.Today)
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "La fecha seleccionada es inválida.");
+                                dtpSegundaFecha.Focus();
+                            }
+                            else
+                            {
+                                errorProviderContenido.SetError(dtpSegundaFecha, "");
+                            }
+                            if (cmbxFa.SelectedIndex == -1)
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "Debe escoger un facilitador.");
+                                cmbxFa.Focus();
+                            }
+                            else
+                            {
+                                errorProviderSolicitado.SetError(cmbxFa, "");
+
+                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex == -1)
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "No ha seleccionado ningún co-facilitador.");
+                                    cmbxCoFa.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderContenido.SetError(cmbxCoFa, "");
+
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+                                    time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd");
+                                    DateTime FinalE2 = DateTime.Now;
+                                    String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
+
+                                    int id_curso = 0;
+                                    //se obtiene el id del curso
+                                    MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + txtNombreFormacion.Text + "' AND tipo_curso='InCompany'");
+                                    if (obtener_id_curso.Read())
+                                    {
+                                        id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                                    }
+                                    obtener_id_curso.Close();
+
+                                    formacion.bloque_curso = "2";
+
+                                   
+
+                                    if (rdbInstalaciones.Checked == true)
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='Si' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        //para la logistica:
+                                        rdbSiMantenerAula.Enabled = true;
+                                        rdbNoMantenerAula.Enabled = true;
+                                        txtSegundaAula.Enabled = false;
+
+                                        if (rdbSiRef.Checked == false && rdbNoRef.Checked == false)
+                                        {
+                                            errorProviderBloque.SetError(gpbRefrigerio, "Debe especificar si la formación poseerá refrigerio.");
+                                        }else
+                                        {
+                                            if (rdbSiRef.Checked == false)
+                                            {
+                                                gpbSeleccionRef.Enabled = false;
+                                                gpbSeleccionRef.Visible = true;
+                                                MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                                ActualizarCursoTieneRef.Close();
+                                            }
+                                            else
+                                            {
+                                                //llenar el cmbx de horarios:
+                                                cmbxHorarios.Items.Clear();
+                                                string tipo = "A";
+                                                llenarComboHorario(tipo);
+
+                                                gpbSeleccionRef.Enabled = true;
+                                                gpbSeleccionRef.Visible = true;
+                                                MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='1' ");
+                                                ActualizarCursoTieneRef.Close();
+                                            }
+
+                                            ////se actualiza la informacion del curso con los valores nuevos: 
+                                            //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                            MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                            ActualizarCursoSegundaEtapa.Close();
+                                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+                                            else // sino, solo guarda al facilitador
+                                            {
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                                FacilitadorCurso.Close();
+                                                guardar = true;
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            }
+
+                                            if (rdbSiRef.Checked == false)
+                                            {
+                                                ordenTerceraEtapa();
+                                                gpbSeleccionRef.Enabled = false;
+                                               
+                                                gpbHorarioCurso.Height = 169;
+
+
+                                            }
+                                            else
+                                            {
+                                                ordenTerceraEtapa();
+                                                gpbHorarioCurso.Location = new Point(33, 47);
+                                                gpbHorarioCurso.Height = 169;
+                                                gpbSeleccionRef.Location = new Point(464, 47);
+                                                gpbSeleccionRef.Height = 169;
+                                                gpbSeleccionRef.Enabled = true;
+                                                gpbSeleccionRef.Visible = true;
+                                                rdbNoMantenerRef.Visible = true;
+                                                rdbMantenerRef.Visible = true;
+                                                rdbNoMantenerRef.Enabled = true;
+                                                rdbMantenerRef.Enabled = true;
+                                            }
+                                          
+
+                                          
+
+                                        }
+                                    }
+                                    else //SI LA FORMACION NO SE DICTARÁ EN LA UCS
+                                    {
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET ubicacion_ucs='No' WHERE id_cursos='" + id_curso + "'");
+                                        update.Close();
+                                        ordenTerceraEtapa();
+                                        gpbSeleccionRef.Enabled = false;
+                                        gpbAula.Enabled = false;                                  
+                                        gpbHorarioCurso.Height = 169;
+                                        MySqlDataReader ActualizarCursoTieneRef = Conexion.ConsultarBD("UPDATE cursos SET tiene_ref='0' ");
+                                        ActualizarCursoTieneRef.Close();
+                                        //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
+                                        MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                        ActualizarCursoSegundaEtapa.Close();
+                                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+                                        else // sino, solo guarda al facilitador
+                                        {
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                            FacilitadorCurso.Close();
+                                            guardar = true;
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                conexion.cerrarconexion();
+
+            }
         }
+
         private void GuardarAvanzado()
         {
+            try
+            {
+                if (formacion.duracion == "4")
+                {
 
+                }else if (formacion.duracion == "8" && formacion.bloque_curso=="2")
+                {
+
+                }
+                else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                {
+
+                }
+                else if (formacion.duracion == "16")
+                {
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                conexion.cerrarconexion();
+
+            }
         }
                 
         /*---------------------- Panel lateral derecho ------------------------*/
@@ -622,7 +1224,13 @@ namespace UCS_NODO_FGC
                 lblEtapafinal.Text = "Añadir participantes";
                 lblEtapafinal.Location = new Point(3, 570);
                 pnlNivel_basico.Visible = false;
-
+                if((formacion.duracion =="4") || (formacion.duracion=="8" & formacion.bloque_curso == "1"))
+                {
+                    dtpSegundaFecha.Enabled = false;
+                }else
+                {
+                    dtpSegundaFecha.Enabled = true;
+                }
 
             }
             else
@@ -1165,10 +1773,22 @@ namespace UCS_NODO_FGC
             rdbSiRef.Checked = false;
             rdbNoRef.Checked = false;
             gpbRefrigerio.Enabled =false;
+            btnGuardar.Enabled = true;
         }
         private void rdbInstalaciones_CheckedChanged(object sender, EventArgs e)
         {
-            gpbRefrigerio.Enabled = true;
+            btnGuardar.Enabled = true;
+            if(formacion.duracion == "8" && formacion.bloque_curso=="1")
+            {
+                gpbRefrigerio.Enabled = true;
+            }else if(formacion.duracion == "16")
+            {
+                gpbRefrigerio.Enabled = true;
+            }else
+            {
+                gpbRefrigerio.Enabled = false;
+            }
+            
         }
         
         private void dtpFechaCurso_ValueChanged(object sender, EventArgs e)
