@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -76,7 +76,7 @@
             // 
             // grpbOpciones
             // 
-            this.grpbOpciones.Controls.Add(this.button1);
+            this.grpbOpciones.Controls.Add(this.btnImprimir);
             this.grpbOpciones.Controls.Add(this.btnRefrescar);
             this.grpbOpciones.Controls.Add(this.btnEliminar);
             this.grpbOpciones.Controls.Add(this.btnModificar);
@@ -89,21 +89,21 @@
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
-            // button1
+            // btnImprimir
             // 
-            this.button1.BackColor = System.Drawing.Color.Goldenrod;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(27, 177);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 49);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Imprimir lista";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnImprimir.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.Enabled = false;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnImprimir.Location = new System.Drawing.Point(27, 177);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(199, 49);
+            this.btnImprimir.TabIndex = 8;
+            this.btnImprimir.Text = "Imprimir lista";
+            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // btnRefrescar
             // 
@@ -218,7 +218,7 @@
             this.cmbxEstatus.Location = new System.Drawing.Point(79, 87);
             this.cmbxEstatus.Name = "cmbxEstatus";
             this.cmbxEstatus.Size = new System.Drawing.Size(158, 21);
-            this.cmbxEstatus.TabIndex = 8;
+            this.cmbxEstatus.TabIndex = 10;
             this.cmbxEstatus.SelectionChangeCommitted += new System.EventHandler(this.cmbxEstatus_SelectionChangeCommitted);
             // 
             // label3
@@ -500,7 +500,7 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridView dgvParticipantes;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;

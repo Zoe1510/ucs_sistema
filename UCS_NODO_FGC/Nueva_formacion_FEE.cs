@@ -318,81 +318,267 @@ namespace UCS_NODO_FGC
         {
            try
             {
-                if (txtNombreFormacion.Text == "")
+                if( ExisteFormacion == false)
                 {
-                    errorProviderNombreF.SetError(txtNombreFormacion, "Debe proporcionar un nombre a la formación.");
-                    txtNombreFormacion.Focus();
-                }else
-                {
-                    errorProviderNombreF.SetError(txtNombreFormacion, "");
-                    txtSolicitadoPor.Focus();//para que el foco se mueva al siguiente paso
-                    if (txtSolicitadoPor.Text == "")
+                    if (txtNombreFormacion.Text == "")
                     {
-                        errorProviderSolicitado.SetError(txtSolicitadoPor, "Debe proporcionar esta información.");
-                        txtSolicitadoPor.Focus();
-
-                    }else
+                        errorProviderNombreF.SetError(txtNombreFormacion, "Debe proporcionar un nombre a la formación.");
+                        txtNombreFormacion.Focus();
+                    }
+                    else
                     {
-                        errorProviderSolicitado.SetError(txtSolicitadoPor, "Debe proporcionar esta información.");
-                        cmbxDuracionFormacion.Focus();
-                        if(cmbxDuracionFormacion.SelectedIndex == -1)
+                        errorProviderNombreF.SetError(txtNombreFormacion, "");
+                        txtSolicitadoPor.Focus();//para que el foco se mueva al siguiente paso
+                        if (txtSolicitadoPor.Text == "")
                         {
-                            errorProviderDuracionF.SetError(cmbxDuracionFormacion, "Debe proporcionar la duración de la formación.");
+                            errorProviderSolicitado.SetError(txtSolicitadoPor, "Debe proporcionar esta información.");
+                            txtSolicitadoPor.Focus();
+
+                        }
+                        else
+                        {
+                            errorProviderSolicitado.SetError(txtSolicitadoPor, "Debe proporcionar esta información.");
                             cmbxDuracionFormacion.Focus();
-                        }else
-                        {
-                            errorProviderDuracionF.SetError(cmbxDuracionFormacion, "");
-                            if (btnVerContenido.Enabled == false)
+                            if (cmbxDuracionFormacion.SelectedIndex == -1)
                             {
-                                errorProviderContenido.SetError(btnRutaContenido, "Debe seleccionar un contenido para la formación.");
-                            }else
+                                errorProviderDuracionF.SetError(cmbxDuracionFormacion, "Debe proporcionar la duración de la formación.");
+                                cmbxDuracionFormacion.Focus();
+                            }
+                            else
                             {
-                                errorProviderContenido.SetError(btnRutaContenido, "");
-                                if (btnVerPresentacion.Enabled == false)
+                                errorProviderDuracionF.SetError(cmbxDuracionFormacion, "");
+                                if (btnVerContenido.Enabled == false)
                                 {
-                                    p_inst.presentacion = "";
+                                    errorProviderContenido.SetError(btnRutaContenido, "Debe seleccionar un contenido para la formación.");
                                 }
-                                if (btnVerBitacora.Enabled == false)
+                                else
                                 {
-                                    p_inst.bitacora = "";
-                                }
-                                p_inst.manual = "";
-
-                                formacion.fecha_inicial = fecha_creacion;
-                                formacion.TiempoEtapa = Convert.ToString(FinalE1 - fecha_creacion);
-
-                                if(conexion.abrirconexion()==true)
-                                    p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
-
-                                conexion.cerrarconexion();
-                                //si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
-                                if (p_inst.id_pinstruccional == 0)
-                                {
-                                    int resultado2=0;
-                                    
-                                    if (conexion.abrirconexion() == true)
-                                        resultado2 = Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
-
-                                    conexion.cerrarconexion();
-                                    //si se guardó con éxito: recoger el id de ese paquete.
-                                    if (resultado2 != 0)
+                                    errorProviderContenido.SetError(btnRutaContenido, "");
+                                    if (btnVerPresentacion.Enabled == false)
                                     {
-                                        int id_paquete = 0;
-                                        if (conexion.abrirconexion() == true)
-                                            id_paquete = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+                                        p_inst.presentacion = "";
+                                    }
+                                    if (btnVerBitacora.Enabled == false)
+                                    {
+                                        p_inst.bitacora = "";
+                                    }
+                                    p_inst.manual = "";
 
-                                        formacion.pq_inst = id_paquete;
+                                    formacion.fecha_inicial = fecha_creacion;
+                                    formacion.TiempoEtapa = Convert.ToString(FinalE1 - fecha_creacion);
+
+                                    if (conexion.abrirconexion() == true)
+                                        p_inst.id_pinstruccional = Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);                                  
+                                    
+                                    conexion.cerrarconexion();
+
+                                    //si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
+                                    if (p_inst.id_pinstruccional == 0)
+                                    {
+                                        int resultado2 = 0;
+
+                                        if (conexion.abrirconexion() == true)
+                                            resultado2 = Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
+
                                         conexion.cerrarconexion();
-                                        if (id_paquete != 0)//se obtiene un id_intruccional cooncordante con el archivo subido
+                                        //si se guardó con éxito: recoger el id de ese paquete.
+                                        if (resultado2 != 0)
+                                        {
+                                            int id_paquete = 0;
+                                            if (conexion.abrirconexion() == true)
+                                                id_paquete = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+
+                                            formacion.pq_inst = id_paquete;
+                                            conexion.cerrarconexion();
+                                            if (id_paquete != 0)//se obtiene un id_intruccional cooncordante con el archivo subido
+                                            {
+
+                                                if (conexion.abrirconexion() == true)
+                                                {
+                                                    int resultado = 0;
+                                                    resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
+
+                                                    conexion.cerrarconexion();
+                                                    if (resultado > 0 && resultado2 > 0)
+                                                    {
+                                                        if (conexion.abrirconexion() == true)
+                                                        {
+                                                            int id_curso = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+                                                            conexion.cerrarconexion();
+
+                                                            if (id_curso != 0)
+                                                            {
+                                                                formacion.id_curso = id_curso;
+                                                                if (conexion.abrirconexion() == true)
+                                                                {
+                                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
+                                                                    conexion.cerrarconexion();
+                                                                    if (agregarUGC > 0)
+                                                                    {
+                                                                        guardar = true;
+                                                                        MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                                                                        if (formacion.duracion == "8")
+                                                                        {
+                                                                            string tipo = "A";
+                                                                            llenarComboHorario(tipo);
+                                                                            gpbRefrigerio.Enabled = true;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            //averiguar horarios usados en las jornadas de 6 hrs
+
+                                                                        }
+
+                                                                    }
+                                                                }
+
+
+                                                            }
+                                                            else
+                                                            {
+                                                                MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    }
+
+                                                }
+                                            }
+                                            else//si no se encuentra el id del paquete 
+                                            {
+                                                MessageBox.Show("No hay id paquete");
+                                            }
+                                        }
+
+                                    }
+                                    else//consiguió un paquete igualito
+                                    {
+                                        VerPaqueteInst(p_inst.id_pinstruccional);
+                                        int resultado = 0;
+                                        if (conexion.abrirconexion() == true)
                                         {
 
+                                            resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
+
+                                            conexion.cerrarconexion();
+                                        }
+
+                                        if (resultado > 0)
+                                        {
+                                            int id_curso = 0;
+                                            if (conexion.abrirconexion() == true)
+                                            {
+                                                //esto es para recoger el id del curso que se acaba de agregar (ignorar el nombre del método)
+                                                id_curso = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+                                                conexion.cerrarconexion();
+                                            }
+
+                                            if (id_curso != 0)
+                                            {
+                                                formacion.id_curso = id_curso;
+                                                if (conexion.abrirconexion() == true)
+                                                {
+                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
+                                                    conexion.cerrarconexion();
+                                                    if (agregarUGC > 0)
+                                                    {
+                                                        guardar = true;
+                                                        MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                        if (formacion.duracion == "8")
+                                                        {
+                                                            string tipo = "A";
+                                                            llenarComboHorario(tipo);
+                                                            gpbRefrigerio.Enabled = true;
+                                                        }
+                                                        else
+                                                        {
+                                                            //averiguar horarios usados en las jornadas de 6 hrs
+
+                                                        }
+                                                    }
+                                                }
+
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+                else //Si ExisteFormacion == true
+                {
+                    if (txtNombreFormacion.Text == "")
+                    {
+                        errorProviderNombreF.SetError(txtNombreFormacion, "Debe proporcionar el nombre de la formación.");
+                        txtNombreFormacion.Focus();
+                    }
+                    else
+                    {
+                        errorProviderNombreF.SetError(txtNombreFormacion, "");
+                        if (txtSolicitadoPor.Text == "")
+                        {
+                            errorProviderSolicitado.SetError(txtSolicitadoPor, "Debe proporcionar el nombre de quien solicita.");
+                            txtSolicitadoPor.Focus();
+                        }
+                        else
+                        {
+                            errorProviderSolicitado.SetError(txtSolicitadoPor, "");
+                            if (cmbxDuracionFormacion.SelectedIndex == -1)
+                            {
+                                errorProviderDuracionF.SetError(cmbxDuracionFormacion, "Debe proporcionar la duración de la formación.");
+                                cmbxDuracionFormacion.Focus();
+                            }
+                            else
+                            {
+                                errorProviderDuracionF.SetError(cmbxDuracionFormacion, "");
+                                if (cmbxBloques.SelectedIndex == -1)
+                                {
+                                    errorProviderBloque.SetError(cmbxBloques, "Debe proporcionar los bloques de la formación.");
+                                    cmbxBloques.Focus();
+                                }
+                                else
+                                {
+                                    errorProviderBloque.SetError(cmbxBloques, "");
+
+                                    p_inst.bitacora = "";
+                                    p_inst.manual = "";
+                                    formacion.fecha_inicial = fecha_creacion;
+                                    formacion.TiempoEtapa = Convert.ToString(FinalE1 - fecha_creacion);
+                                    formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
+                                    formacion.id_user = Clases.Usuario_logeado.id_usuario;
+                                    formacion.nombre_formacion = txtNombreFormacion.Text;
+                                    p_inst.id_pinstruccional = formacion.pq_inst;
+                                    conexion.cerrarconexion();
+                                    if (conexion.abrirconexion() == true)
+                                    {
+                                        int cursoexiste = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+                                        conexion.cerrarconexion();
+
+                                        if (cursoexiste == 0)
+                                        {
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 int resultado = 0;
                                                 resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
 
                                                 conexion.cerrarconexion();
-                                                if (resultado > 0 && resultado2 > 0)
+                                                if (resultado > 0)
                                                 {
                                                     if (conexion.abrirconexion() == true)
                                                     {
@@ -401,7 +587,6 @@ namespace UCS_NODO_FGC
 
                                                         if (id_curso != 0)
                                                         {
-                                                            formacion.id_curso = id_curso;
                                                             if (conexion.abrirconexion() == true)
                                                             {
                                                                 int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
@@ -410,17 +595,17 @@ namespace UCS_NODO_FGC
                                                                 {
                                                                     guardar = true;
                                                                     MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                                    string tipo = "A";
                                                                     if (formacion.duracion == "8")
                                                                     {
+                                                                        string tipo = "A";
                                                                         llenarComboHorario(tipo);
-                                                                        gpbRefrigerio.Enabled=true;
-                                                                    }else
+                                                                        gpbRefrigerio.Enabled = true;
+                                                                    }
+                                                                    else
                                                                     {
                                                                         //averiguar horarios usados en las jornadas de 6 hrs
 
                                                                     }
-                                                                       
                                                                 }
                                                             }
 
@@ -428,33 +613,31 @@ namespace UCS_NODO_FGC
                                                         }
                                                         else
                                                         {
+                                                            //error no se pudo agregar la formacion
                                                             MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                         }
                                                     }
                                                 }
-                                                else
-                                                {
-                                                    MessageBox.Show("Error: No se pudo agregar la formación 1.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                }
 
                                             }
-                                        }
-                                        else//si no se encuentra el id del paquete 
-                                        {
-                                            MessageBox.Show("No hay id paquete");
-                                        }
-                                    }
-                                        
-                                }
-                                else//consiguió un paquete igualito
-                                {
-                                    VerPaqueteInst(p_inst.id_pinstruccional);
-                                }
 
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No se puede agregar esta formación. Existe una con el mismo nombre en estatus 'En curso'", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            vaciarFormacion();
+                                        }
+
+
+                                    }
+
+                                }
                             }
                         }
                     }
+
                 }
+                
             }
             catch (MySqlException ex)
             {
@@ -889,7 +1072,7 @@ namespace UCS_NODO_FGC
         {
             //validar si existe un curso de cualquier estatus en la base de datos con el mismo nombre
             //para recuperar el paquete instruccional o dejar que el usuario lo escoja
-            /*REVISAR, CODIGO TOMADO DESDE FORMACIONES ABIERTAS*/
+           
             try
             {
                 if (txtNombreFormacion.Text != "")//siempre y cuando el txt contenga algo, se valida
@@ -967,6 +1150,7 @@ namespace UCS_NODO_FGC
                                                 ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
                                                 btnRutaContenido.Enabled = true;
                                                 btnRutaPresentacion.Enabled = true;
+                                                btnRutaBitacora.Enabled = true;
                                             }
 
                                         }
@@ -1062,7 +1246,8 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-
+                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
+                        contenido = contenido.Replace("\\", "/");
                         p_inst.contenido = contenido;
                         btnVerContenido.Enabled = true;
 
@@ -1095,7 +1280,10 @@ namespace UCS_NODO_FGC
                     od.Filter = "PPT files |*.ppt;*.pptx;*.pptm";
                     if (od.ShowDialog() == DialogResult.OK)
                     {
+                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
+
                         presentacion = od.FileName;
+                        presentacion = presentacion.Replace("\\", "/");
                         p_inst.presentacion = presentacion;
                         btnVerPresentacion.Enabled = true;
                     }
@@ -1133,8 +1321,10 @@ namespace UCS_NODO_FGC
                     od.Filter = "PDF files |*.pdf";
                     if (od.ShowDialog() == DialogResult.OK)
                     {
-                        bitacora = od.FileName;
+                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual                    
 
+                        bitacora = od.FileName;
+                        bitacora = bitacora.Replace("\\", "/");
                         p_inst.bitacora = bitacora;
                         btnVerBitacora.Enabled = true;
 

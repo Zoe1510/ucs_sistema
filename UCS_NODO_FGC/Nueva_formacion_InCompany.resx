@@ -124,36 +124,39 @@
     <value>True</value>
   </metadata>
   <metadata name="errorProviderNombreF.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>192, 35</value>
+    <value>184, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>83</value>
   </metadata>
   <metadata name="errorProviderDuracionF.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>367, 35</value>
+    <value>359, 17</value>
   </metadata>
   <metadata name="errorProviderContenido.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>546, 35</value>
+    <value>538, 17</value>
   </metadata>
   <metadata name="errorProviderPresentacion.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>727, 35</value>
+    <value>719, 17</value>
   </metadata>
   <metadata name="errorProviderBloque.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 74</value>
+    <value>19, 49</value>
   </metadata>
   <metadata name="errorProviderSolicitado.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>179, 74</value>
+    <value>181, 49</value>
   </metadata>
   <metadata name="errorProviderHora.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>18, 117</value>
+    <value>354, 54</value>
   </metadata>
   <metadata name="errorProviderFecha.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>168, 117</value>
+    <value>504, 54</value>
   </metadata>
   <metadata name="errorProviderRefrigerio.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>323, 117</value>
+    <value>917, 23</value>
   </metadata>
   <metadata name="errorProviderHora2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>18, 30</value>
+    <value>10, 12</value>
+  </metadata>
+  <metadata name="errorProviderManual.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>659, 54</value>
   </metadata>
 </root>

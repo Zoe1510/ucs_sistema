@@ -1303,41 +1303,15 @@ namespace UCS_NODO_FGC
                     }
                     else
                     {
-                        errorProviderNombreF.SetError(cmbxCursoInce, "");
-                        //luego de la busqueda en su propio tipo de curso, se podrá añadir el curso
-                        //pero se busca cualquier concordancia de nombre en otros tipos de curso para el paquete instruccional
-                        if (conexion.abrirconexion() == true)
-                        {
-                            List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
-                            paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
-                            conexion.cerrarconexion();
+                        errorProviderNombreF.SetError(cmbxCursoInce, "");                       
 
-                            if (paqueteExiste.Count != 0)
-                            {
+                        ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
+                        btnRutaContenido.Enabled = true;
+                        btnRutaPresentacion.Enabled = true;
+                        btnRutaManual.Enabled = true;
+                        btnRutaBitacora.Enabled = true;
 
-                                List<int> IdDistintos = new List<int>();
-                                //selecciona solo los números únicos
-                                IdDistintos = paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
 
-                                if (IdDistintos.Count == 1)
-                                {
-
-                                    VerPaqueteInst(IdDistintos[0]);
-                                    
-                                }
-
-                            }
-                            else
-                            {
-
-                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                btnRutaContenido.Enabled = true;
-                                btnRutaPresentacion.Enabled = true;
-                                btnRutaManual.Enabled = true;
-                                btnRutaBitacora.Enabled = true;
-                            }
-
-                        }
 
                     }
 
@@ -1392,11 +1366,6 @@ namespace UCS_NODO_FGC
 
         
         /*-------------------- Controles del Nivel_intermedio ------------------------*/
-
-        private void cmbxCursoInce_Leave(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbxFa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1511,7 +1480,7 @@ namespace UCS_NODO_FGC
                 {
                     int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador);
                     conexion.cerrarconexion();
-                    if (fa_disponible > 0)//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                    if (fa_disponible > 0)//si retorna algo: este ya está ocupado para esa fecha
                     {
                         MessageBox.Show("El facilitador está ocupado en esta fecha : " + time.fecha_curso + ".");
                         cmbxFa.SelectedIndex = -1;
@@ -1526,7 +1495,7 @@ namespace UCS_NODO_FGC
                         {
                             int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, fa.id_facilitador);
                             conexion.cerrarconexion();
-                            if (fa_disponibleDia2 > 0 )//si el id que retorna es el del facilitador seleccionado: este ya está ocupado para esa fecha
+                            if (fa_disponibleDia2 > 0 )//si retorna algo: este ya está ocupado para esa fecha
                             {
                                 MessageBox.Show("El facilitador está ocupado en esta fecha : " + time.fechaDos_curso + ".");
                                 cmbxFa.SelectedIndex = -1;

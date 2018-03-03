@@ -102,7 +102,7 @@ namespace UCS_NODO_FGC
                 {
                     if(participante.ci_participante != Participante_seleccionado.ci_participante)
                     {
-                        errorProviderCI.SetError(txtCedulaPart, "Este número de cédula ya se encuentra registrado.");
+                        errorProviderCI.SetError(txtCedulaPart, "Este número de cédula ya se encuentra registrada.");
                         txtCedulaPart.Focus();
                     }else
                     {
@@ -420,13 +420,25 @@ namespace UCS_NODO_FGC
                                 //procede a actualizar:
                                 if (txtCedulaPart.Text != Participante_seleccionado.ci_participante.ToString() || txtNombrePart.Text != Participante_seleccionado.nombreP || txtApellidoPart.Text!= Participante_seleccionado.apellidoP || txtCorreoPart.Text != Participante_seleccionado.correoP || cmbxEmpresa.Text != Participante_seleccionado.nombreE || txtCargoEnEmpresa.Text != Participante_seleccionado.cargoE || cmbxNivelEmpresa.Text != Participante_seleccionado.nivelE)
                                 {
-                                    MySqlDataReader update = Conexion.ConsultarBD("UPDATE participantes SET cedula_par='"+participante.ci_participante+"', nacionalidad='"+participante.nacionalidad+"', nombre_par='"+participante.nombreP+"', apellido_par='"+participante.apellidoP+"', correo_par='"+participante.correoP+"', nivelE='"+participante.nivelE+"', cargoE='"+participante.cargoE+"', nombreE='"+participante.nombreE+"', id_cli1='"+participante.id_cli1+"' WHERE id_participante='"+Participante_seleccionado.id_participante+"'");
-                                    update.Close();
-                                    if (MessageBox.Show("Los datos fueron actualizados correctamente.", "", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                    //si el participante ya se encuentra regiustrado en el curso
+                                    MySqlDataReader existe = Conexion.ConsultarBD("select id_participante from participantes where cedula_par='" + participante.ci_participante + "'");
+                                    if (existe.Read())
                                     {
-                                        this.Close();
-                                        cmbxEmpresa.SelectedIndex = -1;
+                                        errorProviderCI.SetError(txtCedulaPart, "Este número de cédula ya se encuentra registrada.");                                
+                                        txtCedulaPart.Focus();
                                     }
+                                    else
+                                    {
+                                        errorProviderCI.SetError(txtCedulaPart, "");
+                                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE participantes SET cedula_par='" + participante.ci_participante + "', nacionalidad='" + participante.nacionalidad + "', nombre_par='" + participante.nombreP + "', apellido_par='" + participante.apellidoP + "', correo_par='" + participante.correoP + "', nivelE='" + participante.nivelE + "', cargoE='" + participante.cargoE + "', nombreE='" + participante.nombreE + "', id_cli1='" + participante.id_cli1 + "' WHERE id_participante='" + Participante_seleccionado.id_participante + "'");
+                                        update.Close();
+                                        if (MessageBox.Show("Los datos fueron actualizados correctamente.", "", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                                        {
+                                            this.Close();
+                                            cmbxEmpresa.SelectedIndex = -1;
+                                        }
+                                    }
+                                   
 
                                 }
                                 else

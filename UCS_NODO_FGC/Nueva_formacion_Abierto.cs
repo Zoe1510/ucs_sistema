@@ -198,16 +198,16 @@ namespace UCS_NODO_FGC
                     if (conexion.abrirconexion() == true)
                     {
                         ExisteFormacion = true;
-                        Clases.Paquete_instruccional pq = new Clases.Paquete_instruccional();
-                        pq = Clases.Formaciones.obtenerTodoPq(conexion.conexion, id_pq);
+                        Paquete_instruccional pq = new Clases.Paquete_instruccional();
+                        pq = Formaciones.obtenerTodoPq(conexion.conexion, id_pq);
                         conexion.cerrarconexion();
-                        Clases.Paquete_instruccional._bitacora = pq.bitacora;
-                        Clases.Paquete_instruccional._contenido = pq.contenido;
+                        Paquete_instruccional._bitacora = pq.bitacora;
+                        Paquete_instruccional._contenido = pq.contenido;
                         
-                        Clases.Paquete_instruccional._manual = pq.manual;
-                        Clases.Paquete_instruccional._presentacion = pq.presentacion;
-                        Clases.Paquete_instruccional.id_pin = id_pq;
-                        Clases.Paquete_instruccional.tipo_curso = formacion.tipo_formacion;
+                        Paquete_instruccional._manual = pq.manual;
+                        Paquete_instruccional._presentacion = pq.presentacion;
+                        Paquete_instruccional.id_pin = id_pq;
+                        Paquete_instruccional.tipo_curso = formacion.tipo_formacion;
                         Ver_paqueteInstruccional verp = new Ver_paqueteInstruccional();
                         verp.ShowDialog();
                         formacion.pq_inst = id_pq;
@@ -407,111 +407,162 @@ namespace UCS_NODO_FGC
                                     else //si el contenido existe
                                     {
                                         errorProviderContenido.SetError(btnRutaContenido, "");
-                                        if (conexion.abrirconexion() == true)
+                                        p_inst.bitacora = "";
+                                        p_inst.manual = "";
+
+
+                                        if (btnVerPresentacion.Enabled == false)
                                         {
-                                            if (btnVerPresentacion.Enabled == false)
-                                            {
-                                                p_inst.presentacion = "";
+                                            p_inst.presentacion = "";                                            
+                                        }
 
-                                            }
-                                            p_inst.bitacora = "";
-                                            p_inst.manual = "";
-                                            formacion.fecha_inicial = fecha_creacion;
-                                            formacion.TiempoEtapa = Convert.ToString(fecha_modifinal - fecha_creacion);
-                                            //MessageBox.Show(formacion.TiempoEtapa);
-                                            formacion.id_user = Clases.Usuario_logeado.id_usuario;
-
+                                        if (conexion.abrirconexion() == true)
                                             p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+                                        conexion.cerrarconexion();
 
-                                            formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
+                                        formacion.fecha_inicial = fecha_creacion;
+                                        formacion.TiempoEtapa = Convert.ToString(fecha_modifinal - fecha_creacion);
+                                        //MessageBox.Show(formacion.TiempoEtapa);
+                                        formacion.id_user = Clases.Usuario_logeado.id_usuario;
+                                        formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
 
-                                            conexion.cerrarconexion();
-                                            if (p_inst.id_pinstruccional == 0)//si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
+
+                                        if (p_inst.id_pinstruccional == 0)//si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
+                                        {
+                                            int resultado2 = 0;
+                                            if (conexion.abrirconexion() == true)
+                                            {
+
+                                                resultado2 = Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
+                                                conexion.cerrarconexion();
+                                            }
+                                            int id_paquete = 0;
+
+
+                                            if (resultado2 != 0)//si se guardó con éxito: recoger el id de ese paquete.
                                             {
                                                 if (conexion.abrirconexion() == true)
+                                                    id_paquete = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+
+                                                conexion.cerrarconexion();                                              
+                                                
+                                                if (id_paquete != 0)//se obtiene un id_intruccional cooncordante con el archivo subido
                                                 {
-
-                                                    int resultado2 = Clases.Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
-                                                    conexion.cerrarconexion();
-
-
+                                                    formacion.pq_inst = id_paquete;
+                                                    int resultado = 0;
                                                     if (conexion.abrirconexion() == true)
                                                     {
-                                                        if (resultado2 != 0)//si se guardó con éxito: recoger el id de ese paquete.
+
+                                                        resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
+
+                                                        conexion.cerrarconexion();
+                                                    }
+
+
+                                                    if (resultado > 0 && resultado2 > 0)
+                                                    {
+                                                        int id_curso = 0;
+                                                        if (conexion.abrirconexion() == true)
                                                         {
-                                                            int id_paquete = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
-                                                            formacion.pq_inst = id_paquete;
+                                                            //esto es para recoger el id del curso que se acaba de agregar (ignorar el nombre del método)
+                                                            id_curso = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
                                                             conexion.cerrarconexion();
-                                                            if (id_paquete != 0)//se obtiene un id_intruccional cooncordante con el archivo subido
+                                                        }
+
+                                                        if (id_curso != 0)
+                                                        {
+                                                            formacion.id_curso = id_curso;
+                                                            if (conexion.abrirconexion() == true)
                                                             {
-                                                                
-                                                                if (conexion.abrirconexion() == true)
+                                                                int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, fecha_modifinal);
+                                                                conexion.cerrarconexion();
+                                                                if (agregarUGC > 0)
                                                                 {
-                                                                    int resultado = 0;
-                                                                    resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
-
-                                                                    conexion.cerrarconexion();
-
-                                                                   
-                                                                    if (resultado > 0 && resultado2 > 0)
-                                                                    {
-                                                                        if (conexion.abrirconexion() == true)
-                                                                        {
-                                                                            int id_curso = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
-                                                                            conexion.cerrarconexion();
-
-                                                                            if (id_curso != 0)
-                                                                            {
-                                                                                formacion.id_curso = id_curso;
-                                                                                if (conexion.abrirconexion() == true)
-                                                                                {
-                                                                                    int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user,fecha_creacion, fecha_modifinal);
-                                                                                    conexion.cerrarconexion();
-                                                                                    if (agregarUGC > 0)
-                                                                                    {
-                                                                                        guardar = true;
-                                                                                        MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                                                    }
-                                                                                }
-
-
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        MessageBox.Show("Error: No se pudo agregar la formación 1.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                                    }
-
+                                                                    guardar = true;
+                                                                    MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                                 }
-                                                            }
-                                                            else//si no se encuentra el id del paquete 
-                                                            {
-                                                                MessageBox.Show("No hay id paquete");
                                                             }
 
 
                                                         }
                                                         else
                                                         {
-                                                            MessageBox.Show("No hay id_curso");
+                                                            MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                         }
 
                                                     }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Error: No se pudo agregar la formación 1.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                    }
+
+
                                                 }
+                                                else//si no se encuentra el id del paquete 
+                                                {
+                                                    MessageBox.Show("No hay id paquete");
+                                                }
+
+
                                             }
-                                            else//consiguió un paquete igualito
+                                            else
                                             {
-                                                VerPaqueteInst(p_inst.id_pinstruccional);
+                                                MessageBox.Show("No hay id_curso");
                                             }
+
 
 
                                         }
+                                        else//consiguió un paquete igualito
+                                        {
+                                            VerPaqueteInst(p_inst.id_pinstruccional);
+                                            int resultado = 0;
+                                            if (conexion.abrirconexion() == true)
+                                            {
 
+                                                resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
+
+                                                conexion.cerrarconexion();
+                                            }
+
+                                            if (resultado > 0)
+                                            {
+                                                int id_curso = 0;
+                                                if (conexion.abrirconexion() == true)
+                                                {
+                                                    //esto es para recoger el id del curso que se acaba de agregar (ignorar el nombre del método)
+                                                    id_curso = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
+                                                    conexion.cerrarconexion();
+                                                }
+
+                                                if (id_curso != 0)
+                                                {
+                                                    formacion.id_curso = id_curso;
+                                                    if (conexion.abrirconexion() == true)
+                                                    {
+                                                        int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, fecha_modifinal);
+                                                        conexion.cerrarconexion();
+                                                        if (agregarUGC > 0)
+                                                        {
+                                                            guardar = true;
+                                                            MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                        }
+                                                    }
+
+
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+                                        }
+                                        
                                     }
                                 }
                             }
@@ -560,7 +611,7 @@ namespace UCS_NODO_FGC
                                     formacion.TiempoEtapa = Convert.ToString(fecha_modifinal - fecha_creacion);
                                     formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                     formacion.id_user = Clases.Usuario_logeado.id_usuario;
-
+                                    formacion.nombre_formacion = txtNombreFormacion.Text;
                                     p_inst.id_pinstruccional = formacion.pq_inst;
                                     conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
@@ -601,6 +652,7 @@ namespace UCS_NODO_FGC
                                                         else
                                                         {
                                                             //error no se pudo agregar la formacion
+                                                            MessageBox.Show("Error: No se pudo agregar la formación.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                         }
                                                     }
                                                 }
@@ -675,7 +727,7 @@ namespace UCS_NODO_FGC
                                 else
                                 {
                                     
-                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                    time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
                                     DateTime FinalE2 = DateTime.Now;
                                     String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
                                     List<Difusion> medios_publicitarios = new List<Difusion>();
@@ -710,20 +762,20 @@ namespace UCS_NODO_FGC
 
 
                                     //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
-                                    MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                    MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoSegundaEtapa.Close();
                                     
                                         // si el checkbox esta seleccionado es que tiene co-facilitador
                                         if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                         {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
                                             FacilitadorCurso.Close();
                                             guardar = true;
                                             MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                         }
                                         else // sino, solo guarda al facilitador
                                         {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
                                             FacilitadorCurso.Close();
                                             guardar = true;
                                             MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -794,8 +846,8 @@ namespace UCS_NODO_FGC
                                         }
                                         else
                                         {
-                                            time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss"); 
-                                            time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                            time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd"); 
+                                            time.fechaDos_curso = dtpSegundaFecha.Value.ToString("yyyy-MM-dd");
                                             DateTime FinalE2 = DateTime.Now;
                                             String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
                                             List<Difusion> medios_publicitarios = new List<Difusion>();
@@ -830,19 +882,19 @@ namespace UCS_NODO_FGC
 
                                             ////se actualiza la informacion del curso con los valores nuevos: 
                                             //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
-                                            MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "',fecha_dos='" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                            MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" +time.fecha_curso+ "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                             ActualizarCursoSegundaEtapa.Close();
                                             // si el checkbox esta seleccionado es que tiene co-facilitador
                                             if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                             {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
                                                 FacilitadorCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                             }
                                             else // sino, solo guarda al facilitador
                                             {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
                                                 FacilitadorCurso.Close();
                                                 guardar = true;
                                                 MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -913,7 +965,7 @@ namespace UCS_NODO_FGC
                                             }
                                             else
                                             {
-                                                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                                                time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
                                                 DateTime FinalE2 = DateTime.Now;
                                                 String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
                                                 List<Difusion> medios_publicitarios = new List<Difusion>();
@@ -961,19 +1013,19 @@ namespace UCS_NODO_FGC
                                                 }
 
                                                 //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
-                                                MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                                MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + time.fecha_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                                 ActualizarCursoSegundaEtapa.Close();
                                                 // si el checkbox esta seleccionado es que tiene co-facilitador
                                                 if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                                     {
-                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
                                                         FacilitadorCurso.Close();
                                                         guardar = true;
                                                         MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                      }
                                                      else // sino, solo guarda al facilitador
                                                      {
-                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "')");
                                                         FacilitadorCurso.Close();
                                                         guardar = true;
                                                         MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -1065,7 +1117,8 @@ namespace UCS_NODO_FGC
                                                     }
                                                     else
                                                     {
-                                                        time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss"); ;
+                                                        time.fecha_curso = dtpFechaCurso.Value.ToString("yyyy-MM-dd"); 
+                                                        time.fechaDos_curso=dtpSegundaFecha.Value.ToString("yyyy-MM-dd");
                                                         DateTime FinalE2 = DateTime.Now;
                                                         String duracionE2 = Convert.ToString(FinalE2 - inicioE2);
                                                         List<Difusion> medios_publicitarios = new List<Difusion>();
@@ -1099,19 +1152,19 @@ namespace UCS_NODO_FGC
 
                                                         ////se actualiza la informacion del curso con los valores nuevos: 
                                                         //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
-                                                        MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "',fecha_dos='" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
+                                                        MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" +time.fecha_curso + "',fecha_dos='" + time.fechaDos_curso + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                                         ActualizarCursoSegundaEtapa.Close();
                                                         // si el checkbox esta seleccionado es que tiene co-facilitador
                                                         if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                                         {
-                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
                                                             FacilitadorCurso.Close();
                                                             guardar = true;
                                                             MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                          }
                                                          else // sino, solo guarda al facilitador
                                                          {
-                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
                                                             FacilitadorCurso.Close();
                                                             guardar = true;
                                                             MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -1855,7 +1908,8 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-                       
+                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
+                        contenido = contenido.Replace("\\", "/");
                         p_inst.contenido =contenido;
                         btnVerContenido.Enabled = true;
                        
@@ -1890,7 +1944,10 @@ namespace UCS_NODO_FGC
                     od.Filter = "PPT files |*.ppt;*.pptx;*.pptm";
                     if (od.ShowDialog() == DialogResult.OK)
                     {
+                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
+
                         presentacion = od.FileName;
+                        presentacion = presentacion.Replace("\\", "/");
                         p_inst.presentacion = presentacion;
                         btnVerPresentacion.Enabled = true;
                     }

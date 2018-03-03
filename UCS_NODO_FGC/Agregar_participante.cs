@@ -122,6 +122,7 @@ namespace UCS_NODO_FGC
                     txtNombrePart.Focus();
                     txtApellidoPart.Enabled = true;
                     txtCorreoPart.Enabled = true;
+                    participante.id_participante = 0;
                 }
             }else
             {
@@ -455,7 +456,7 @@ namespace UCS_NODO_FGC
                 c.nombre_formacion = Convert.ToString(formacion["nombre_curso"]);
                 lista.Add(c);
             }
-
+            formacion.Close();
             return lista;
         }        
 
@@ -554,13 +555,33 @@ namespace UCS_NODO_FGC
                                     }
                                     else
                                     {
+                                        //MessageBox.Show(participante.id_participante.ToString());
                                         errorProviderCorreo.SetError(txtCorreoPart, "");
                                         if(participante.id_participante > 0)//lo que significa, que ya se encuentra registrado en el sistema
                                         {
-                                            //falta una validacion, si el participante ya se encuentra regiustrado en el curso
-                                            MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO cursos_tienen_participantes (ctp_id_participante, ctp_id_curso, ctp_id_cliente) VALUES ('"+participante.id_participante+"', '"+id_curso+"', '"+participante.id_cli1+"')");
-                                            MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            leer.Close();
+                                            //si el participante ya se encuentra regiustrado en el curso
+                                            MySqlDataReader existe = Conexion.ConsultarBD("select id_ctf from cursos_tienen_participantes where ctp_id_participante='" + participante.id_participante + "' and ctp_id_curso='" + id_curso + "'");
+                                            if (existe.Read())
+                                            {
+                                                errorProviderCI.SetError(txtCedulaPart, "El participante ya se encuentra registrado en esta formación.");
+                                                txtCedulaPart.Clear();
+                                                txtApellidoPart.Clear();
+                                                txtNombrePart.Clear();
+                                                txtCorreoPart.Text = "correo@ejemplo.com";
+                                                txtCargoEnEmpresa.Clear();
+                                                cmbNacionalidad.SelectedIndex = -1;
+                                                cmbxNivelEmpresa.SelectedIndex = -1;
+                                                txtCedulaPart.Focus();
+                                            }
+                                            else
+                                            {
+                                                errorProviderCI.SetError(txtCedulaPart, "");
+                                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO cursos_tienen_participantes (ctp_id_participante, ctp_id_curso, ctp_id_cliente) VALUES ('" + participante.id_participante + "', '" + id_curso + "', '" + participante.id_cli1 + "')");
+                                                MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                leer.Close();
+                                            }
+                                            existe.Close();
+                                            
                                         } else
                                         {
                                             participante.ci_participante = Convert.ToInt32(txtCedulaPart.Text);

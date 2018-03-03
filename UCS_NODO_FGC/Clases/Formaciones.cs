@@ -104,13 +104,7 @@ namespace UCS_NODO_FGC.Clases
             return resultado;
         }
 
-        //Funciona de javier
-        public static bool ExisteCursoInCompany(String nombre_formacion, String cliente)
-        {
-            //MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '" + form.nombre_formacion + "' AND tipo_curso='" + form.tipo_formacion + "' AND estatus_curso LIKE ('%" + status + "%')");
-
-            return false;
-        }
+       
 
         public static int CursoOtroStatusExiste(Formaciones form, string status)
         {
@@ -192,11 +186,23 @@ namespace UCS_NODO_FGC.Clases
         public static int ObtenerIdPaquete(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int retorno = 0;
-            string query = @"SELECT id_pinstruccional FROM p_instruccional WHERE p_contenido = ?contenido ";
+            string query = @"SELECT id_pinstruccional FROM p_instruccional WHERE p_contenido = ?contenido AND p_presentacion=?presentacion AND p_bitacora=?bitacora AND p_manual=?manual";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             MySqlParameter contenido = new MySqlParameter("?contenido", MySqlDbType.VarChar);
             contenido.Value = pq.contenido;
             cmd.Parameters.Add(contenido);
+
+            MySqlParameter presentacion = new MySqlParameter("?presentacion", MySqlDbType.VarChar);
+            presentacion.Value = pq.presentacion;
+            cmd.Parameters.Add(presentacion);
+
+            MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.VarChar);
+            bitacora.Value = pq.bitacora;
+            cmd.Parameters.Add(bitacora);
+
+            MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.VarChar);
+            manual.Value = pq.manual;
+            cmd.Parameters.Add(manual);
 
             MySqlDataReader leer = cmd.ExecuteReader();
 
