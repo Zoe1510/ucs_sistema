@@ -67,6 +67,10 @@
             this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtFechauno = new System.Windows.Forms.TextBox();
+            this.txtFechados = new System.Windows.Forms.TextBox();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -79,7 +83,7 @@
             this.panel8.Controls.Add(this.label9);
             this.panel8.Controls.Add(this.shapeContainer1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 583);
+            this.panel8.Location = new System.Drawing.Point(0, 663);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(641, 25);
             this.panel8.TabIndex = 45;
@@ -126,6 +130,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFechados);
+            this.groupBox1.Controls.Add(this.txtFechauno);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtEstatus);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtTipo);
@@ -136,9 +144,9 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(46, 67);
+            this.groupBox1.Location = new System.Drawing.Point(46, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 233);
+            this.groupBox1.Size = new System.Drawing.Size(547, 305);
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
             // 
@@ -188,7 +196,7 @@
             // 
             this.txtUsuario.Enabled = false;
             this.txtUsuario.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtUsuario.Location = new System.Drawing.Point(203, 192);
+            this.txtUsuario.Location = new System.Drawing.Point(203, 189);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(309, 23);
             this.txtUsuario.TabIndex = 14;
@@ -199,7 +207,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(107, 193);
+            this.label2.Location = new System.Drawing.Point(107, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 19);
             this.label2.TabIndex = 13;
@@ -209,7 +217,7 @@
             // 
             this.txtSolicitud.Enabled = false;
             this.txtSolicitud.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtSolicitud.Location = new System.Drawing.Point(203, 153);
+            this.txtSolicitud.Location = new System.Drawing.Point(203, 150);
             this.txtSolicitud.Name = "txtSolicitud";
             this.txtSolicitud.Size = new System.Drawing.Size(309, 23);
             this.txtSolicitud.TabIndex = 12;
@@ -230,7 +238,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(112, 154);
+            this.label3.Location = new System.Drawing.Point(112, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 19);
             this.label3.TabIndex = 9;
@@ -263,7 +271,7 @@
             this.groupBox2.Controls.Add(this.txtEstadoB);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.shapeContainer2);
-            this.groupBox2.Location = new System.Drawing.Point(47, 306);
+            this.groupBox2.Location = new System.Drawing.Point(46, 375);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(547, 210);
             this.groupBox2.TabIndex = 75;
@@ -492,19 +500,62 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnActualizar.Location = new System.Drawing.Point(258, 522);
+            this.btnActualizar.Location = new System.Drawing.Point(224, 602);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(132, 46);
+            this.btnActualizar.Size = new System.Drawing.Size(214, 46);
             this.btnActualizar.TabIndex = 76;
             this.btnActualizar.Text = "Aceptar";
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(99, 228);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 19);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Fecha uno:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(100, 266);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(88, 19);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Fecha dos:";
+            // 
+            // txtFechauno
+            // 
+            this.txtFechauno.Enabled = false;
+            this.txtFechauno.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtFechauno.Location = new System.Drawing.Point(203, 228);
+            this.txtFechauno.Name = "txtFechauno";
+            this.txtFechauno.Size = new System.Drawing.Size(309, 23);
+            this.txtFechauno.TabIndex = 21;
+            this.txtFechauno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtFechados
+            // 
+            this.txtFechados.Enabled = false;
+            this.txtFechados.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtFechados.Location = new System.Drawing.Point(203, 266);
+            this.txtFechados.Name = "txtFechados";
+            this.txtFechados.Size = new System.Drawing.Size(309, 23);
+            this.txtFechados.TabIndex = 22;
+            this.txtFechados.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Vista_Formacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(641, 608);
+            this.ClientSize = new System.Drawing.Size(641, 688);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -567,5 +618,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtEstatus;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtFechados;
+        private System.Windows.Forms.TextBox txtFechauno;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }

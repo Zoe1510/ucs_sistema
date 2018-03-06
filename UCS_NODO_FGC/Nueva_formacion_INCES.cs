@@ -211,6 +211,9 @@ namespace UCS_NODO_FGC
 
         private void GuardarBasico()
         {
+            formacion.tiene_ref = "0"; // no tiene por estar en la etapa 1 o nivel básico (esto se actualiza en la etapa 2)
+            formacion.ubicacion_ucs = "Si"; //siempre es si
+
             if (cmbxCursoInce.SelectedIndex == -1)
             {
                 errorProviderNombreF.SetError(cmbxCursoInce, "Debe proporcionar el nombre la formación.");

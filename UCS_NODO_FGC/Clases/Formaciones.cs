@@ -11,7 +11,8 @@ namespace UCS_NODO_FGC.Clases
     {
         public string bloque_curso { get; set; }
         public DateTime fecha_inicial { get; set; }
-
+        public string tiene_ref { get; set; }
+        public string ubicacion_ucs { get; set; }
         public string TiempoEtapa { get; set; }
         public string solicitado { get; set; }
 
@@ -33,12 +34,13 @@ namespace UCS_NODO_FGC.Clases
         public int pq_inst { get; set; }
 
         public static bool creacion { get; set; } //para saber si la formación se crea o se modifica
+
         public Formaciones()
         {
 
         }
 
-        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user)
+        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user, string tR, string ub)
         {
             this.fecha_inicial = fi;
             this.solicitado = sol;
@@ -50,14 +52,15 @@ namespace UCS_NODO_FGC.Clases
             this.pq_inst = pq;
             this.id_curso = idcurso;
             this.id_user = id_user;
-            
+            this.tiene_ref = tR;
+            this.ubicacion_ucs = ub;
 
         }
        
         public static int AgregarNuevaFormacion(MySqlConnection conexion, Formaciones form)
         {
             int retorno = 0;
-            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1)";
+            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1, tiene_ref, ubicacion_ucs) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1, ?tiene_ref, ?ubicacion_ucs)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?estatus", form.estatus);
             cmd.Parameters.AddWithValue("?tipo", form.tipo_formacion);
@@ -72,6 +75,8 @@ namespace UCS_NODO_FGC.Clases
             cmd.Parameters.AddWithValue("?solicitado", form.solicitado);
             cmd.Parameters.AddWithValue("?etapa", form.etapa_curso);
             cmd.Parameters.AddWithValue("?tiempoE1", form.TiempoEtapa);
+            cmd.Parameters.AddWithValue("?tiene_ref", form.tiene_ref);
+            cmd.Parameters.AddWithValue("?ubicacion_ucs", form.ubicacion_ucs);
             //el id debe venir de la persona logueada o sea de la clases.usuariologueado.id_usuario
             retorno = cmd.ExecuteNonQuery();
             return retorno;
@@ -254,7 +259,23 @@ namespace UCS_NODO_FGC.Clases
         public string nombre_formacion12 { get; set; }        
         public  int id_curso12 { get; set; }
 
-        
+        public static string aula1 { get; set; }
+        public static string aula2 { get; set; }
+        public static string horario1 { get; set; }
+        public static string horario2 { get; set; }
+        public static string tipo_ref1 { get; set; }
+        public static string tipo_ref2 { get; set; }
+
+        public static string p_contenido { get; set; }
+        public static string p_presentacion { get; set; }
+        public static string p_bitacora { get; set; }
+        public static string p_manual { get; set; }
+        public static string tiene_ref { get; set; }
+        public static string ubicacion_ucs { get; set; }
+        public static string fecha_uno13 { get; set; }
+        public static string fecha_dos13 { get; set; }
+        public static string bloque_curso13 { get; set; }
+        public static string duracion_formacion13 { get; set; }
         public static string solicitud_formacion13 { get; set; }
         public static string tipo_formacion13 { get; set; }
         public static string nombre_formacion13 { get; set; }
@@ -263,6 +284,7 @@ namespace UCS_NODO_FGC.Clases
         public static string nombreCreador_formacion13 { get; set; }
         public static int id_curso13 { get; set; }
         public static int id_user13 { get; set; }
+        public static int id_pinst { get; set; }
 
 
 

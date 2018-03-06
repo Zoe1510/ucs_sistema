@@ -318,7 +318,10 @@ namespace UCS_NODO_FGC
         {
            try
             {
-                if( ExisteFormacion == false)
+                formacion.tiene_ref = "0"; // no tiene por estar en la etapa 1 o nivel básico (esto se actualiza en la etapa 2)
+                formacion.ubicacion_ucs = "Si"; //siempre es si
+
+                if ( ExisteFormacion == false)
                 {
                     if (txtNombreFormacion.Text == "")
                     {

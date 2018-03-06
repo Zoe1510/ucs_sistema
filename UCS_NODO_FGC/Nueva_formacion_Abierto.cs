@@ -116,7 +116,7 @@ namespace UCS_NODO_FGC
             gpbDifusion.Enabled = true;
             gpbFacilitador.Enabled = false;
             gpbDatosFa.Enabled = false;
-            chkbCoFacilitador.Enabled = false;
+            chkbCoFacilitador.Enabled =true;
             gpbCoFa.Enabled = false;
             gpbDatosCoFa.Enabled = false;
         }
@@ -365,6 +365,8 @@ namespace UCS_NODO_FGC
 
             try
             {
+                formacion.tiene_ref = "0"; // no tiene por estar en la etapa 1 o nivel básico (esto se actualiza en la etapa 2)
+                formacion.ubicacion_ucs = "Si"; //siempre es si
                 if (ExisteFormacion == false)
                 {
                     if (txtNombreFormacion.Text == "")
@@ -1330,7 +1332,7 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderHora.SetError(cmbxHorarios, "");
-                        if(rdbNoIgualHorario.Checked && cmbxHorario2.SelectedIndex == -1)
+                        if(rdbNoIgualHorario.Checked==true && cmbxHorario2.SelectedIndex == -1)
                         {
                             errorProviderBloque.SetError(cmbxHorario2, "Debe seleccionar uno de los horarios disponibles.");
                             cmbxHorario2.Focus();
@@ -1346,7 +1348,7 @@ namespace UCS_NODO_FGC
                             else
                             {
                                 errorProviderNombreF.SetError(txtAulaSeleccionada, "");
-                                if (rdbNoMantenerAula.Checked && txtSegundaAula.Text == "")
+                                if (rdbNoMantenerAula.Checked==true && txtSegundaAula.Text == "")
                                 {
                                     errorProviderContenido.SetError(txtSegundaAula, "Debe proporcionar el aula en el que se dictará la formación.");
                                     txtSegundaAula.Focus();
@@ -1531,7 +1533,7 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderHora.SetError(cmbxHorarios, "");
-                        if (rdbNoIgualHorario.Checked && cmbxHorario2.SelectedIndex == -1)
+                        if (rdbNoIgualHorario.Checked==true && cmbxHorario2.SelectedIndex == -1)
                         {
                             errorProviderBloque.SetError(cmbxHorario2, "Debe seleccionar uno de los horarios disponibles.");
                             cmbxHorario2.Focus();
@@ -2129,19 +2131,20 @@ namespace UCS_NODO_FGC
                 {
                     Controles_nivel_intermedio_EstatusInicial();
                     dtpFechaCurso.Focus();
+                    dtpSegundaFecha.Enabled = false;
                 }
                 else
                 {
                     if (formacion.duracion == "8" && formacion.bloque_curso == "1")
                     {
                         Controles_nivel_intermedio_EstatusInicial();
-                        gpbRefrigerio.Enabled = true;
+                        dtpSegundaFecha.Enabled = false;
                         rdbNoRef.Checked = true;
                     }
                     else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
                     {
                         Controles_nivel_intermedio_EstatusInicial();
-
+                        dtpSegundaFecha.Enabled = true;
                         dtpFechaCurso.Focus();
                     }
                     else
@@ -2149,8 +2152,7 @@ namespace UCS_NODO_FGC
                         if (formacion.duracion == "16")
                         {
                             Controles_nivel_intermedio_EstatusInicial();
-
-                            gpbRefrigerio.Enabled = true;
+                            dtpSegundaFecha.Enabled = true;
                             rdbNoRef.Checked = true;
                         }
                     }
@@ -2573,7 +2575,7 @@ namespace UCS_NODO_FGC
 
                 if (Convert.ToBoolean(cellSelecion.Value))
                 {
-                    row.DefaultCellStyle.BackColor = Color.Green;
+                    
                     string nombre = row.Cells["insumo"].Value.ToString();
                     lista_insumo.Add(nombre);
 
@@ -2581,7 +2583,7 @@ namespace UCS_NODO_FGC
                 }
                 else
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red;
+
 
                     for (int i = 0; i < lista_insumo.Count; i++)
                     {
