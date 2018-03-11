@@ -18,5 +18,7 @@ namespace UCS_NODO_FGC.Clases
         public static string cargoE { get; set; }
         public static string nivelE { get; set; }
         public static string nombreE { get; set; }
+        public static string tlfn_par { get; set; }
+
     }
 }

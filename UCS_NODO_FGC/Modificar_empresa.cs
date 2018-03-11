@@ -114,36 +114,84 @@ namespace UCS_NODO_FGC
             
             try
             {
-                if (conexion.abrirconexion() == true)
+                if(txtNombreEmpresa.Text == Clases.Cliente_seleccionado.nombre_empresa && cliente.fee_empresa == Clases.Cliente_seleccionado.fee_empresa)
                 {
-                    clienteexiste = Clases.Clientes.ClienteExiste(conexion.conexion, cliente);
+                    MessageBox.Show("No hay modificaciones.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombreEmpresa.Text = "Nombre empresa";
+                    cmbxFee.SelectedIndex = -1;
+                    Clases.Paneles.VaciarClienteSeleccionado();
+                    this.Close();
+                }else
+                {
                     conexion.cerrarconexion();
-
-                    if (clienteexiste.nombre_empresa == "" )//no se retornó nada, se puede aceptar modificacion
+                    if (conexion.abrirconexion() == true)
+                    {
+                        clienteexiste = Clases.Clientes.ClienteExiste(conexion.conexion, cliente);
+                        conexion.cerrarconexion();
+                    }
+                        
+                    if (txtNombreEmpresa.Text == Clases.Cliente_seleccionado.nombre_empresa && cliente.fee_empresa != Clases.Cliente_seleccionado.fee_empresa)
                     {
                         Modificar();
+                    }else if (txtNombreEmpresa.Text != Clases.Cliente_seleccionado.nombre_empresa && cliente.fee_empresa == Clases.Cliente_seleccionado.fee_empresa)
+                    {
+                        if (cliente.nombre_empresa == clienteexiste.nombre_empresa)//si es iGUAL AL txt, no hay cambios en el nombre. 
+                        {
+                            MessageBox.Show("Ya existe una empresa registrada con este nombre.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
+                            txtNombreEmpresa.Focus();
 
-                    }else if(txtNombreEmpresa.Text ==clienteexiste.nombre_empresa && clienteexiste.fee_empresa==cliente.fee_empresa)//si es iGUAL AL txt, no hay cambios en el nombre. 
-                    {
-                        MessageBox.Show("No hay modificaciones.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtNombreEmpresa.Text = "Nombre empresa";
-                        cmbxFee.SelectedIndex = -1;
-                        Clases.Paneles.VaciarClienteSeleccionado();
-                        this.Close();
+                        }else
+                        {
+                            Modificar();
+                        }
                         
-                    }else if (txtNombreEmpresa.Text == clienteexiste.nombre_empresa && clienteexiste.fee_empresa != cliente.fee_empresa)
-                    {
-                        Modificar();
                     }
-                    else if (clienteexiste.nombre_empresa != txtNombreEmpresa.Text )//si es distinto del txt o del cmbx, es que una empresa ya tiene ese nombre
+                    else if (txtNombreEmpresa.Text != Clases.Cliente_seleccionado.nombre_empresa && cliente.fee_empresa != Clases.Cliente_seleccionado.fee_empresa)
                     {
-                        
-                        MessageBox.Show("Ya existe una empresa registrada con este nombre.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
-                        txtNombreEmpresa.Focus();
+                        if (cliente.nombre_empresa == clienteexiste.nombre_empresa)//si es iGUAL AL txt, no hay cambios en el nombre. 
+                        {
+                            MessageBox.Show("Ya existe una empresa registrada con este nombre.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
+                            txtNombreEmpresa.Focus();
+
+                        }
+                        else
+                        {
+                            Modificar();
+                        }
                     }
+                   
+                    //if (clienteexiste.nombre_empresa == null)//no se retornó nada, se puede aceptar modificacion
+                    //{
+                    //    Modificar();
+
+                    //}
+                    //else if (cliente.nombre_empresa == clienteexiste.nombre_empresa && clienteexiste.fee_empresa == Clases.Cliente_seleccionado.fee_empresa)//si es iGUAL AL txt, no hay cambios en el nombre. 
+                    //{
+                    //    MessageBox.Show("No hay modificaciones.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    txtNombreEmpresa.Text = "Nombre empresa";
+                    //    cmbxFee.SelectedIndex = -1;
+                    //    Clases.Paneles.VaciarClienteSeleccionado();
+                    //    this.Close();
+
+
+                    //}
+                    //else if (Clases.Cliente_seleccionado.nombre_empresa == clienteexiste.nombre_empresa && clienteexiste.fee_empresa != Clases.Cliente_seleccionado.fee_empresa)
+                    //{
+                    //    Modificar();
+                    //}
+                    //else if (Clases.Cliente_seleccionado.nombre_empresa != clienteexiste.nombre_empresa)//si es distinto del txt o del cmbx, es que una empresa ya tiene ese nombre
+                    //{
+
+                    //    MessageBox.Show("Ya existe una empresa registrada con este nombre.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
+                    //    txtNombreEmpresa.Focus();
+                    //}
+
+
+
                 }
-
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {

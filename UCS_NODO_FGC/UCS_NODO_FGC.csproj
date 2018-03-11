@@ -110,6 +110,7 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Cliente_seleccionado.cs" />
     <Compile Include="Clases\conexion_bd.cs" />
+    <Compile Include="Clases\Curso_AFI.cs" />
     <Compile Include="Clases\Curso_IN.cs" />
     <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
@@ -133,6 +134,12 @@
     <Compile Include="Clases\Tiempos_curso.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
+    <Compile Include="Cursos_AFI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos_AFI.Designer.cs">
+      <DependentUpon>Cursos_AFI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cursos_INCES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cambio_contraseña.resx">
       <DependentUpon>Cambio_contraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos_AFI.resx">
+      <DependentUpon>Cursos_AFI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cursos_INCES.resx">
       <DependentUpon>Cursos_INCES.cs</DependentUpon>
@@ -726,6 +736,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo ucs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

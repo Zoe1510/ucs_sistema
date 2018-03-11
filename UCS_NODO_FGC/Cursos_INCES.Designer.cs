@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvInce = new System.Windows.Forms.DataGridView();
             this.Nombre_curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,21 +49,21 @@
             this.cmbxCurso = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.errorProvidercmbx = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Panel_cabecera = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.Panel_cabecera = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInce)).BeginInit();
             this.grpbOpciones.SuspendLayout();
             this.grpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvidercmbx)).BeginInit();
-            this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.Panel_cabecera.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpbData
@@ -83,33 +83,33 @@
             this.dgvInce.AllowUserToAddRows = false;
             this.dgvInce.AllowUserToResizeColumns = false;
             this.dgvInce.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvInce.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.NullValue = null;
+            this.dgvInce.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInce.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvInce.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInce.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInce.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInce.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInce.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre_curso,
             this.nombre_fa,
             this.apellido_fa,
             this.cedula_fa});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInce.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInce.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInce.Location = new System.Drawing.Point(20, 34);
             this.dgvInce.MultiSelect = false;
             this.dgvInce.Name = "dgvInce";
@@ -310,6 +310,47 @@
             // 
             this.errorProvidercmbx.ContainerControl = this;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 714);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1121, 25);
+            this.panel8.TabIndex = 60;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(227, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1121, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
             // Panel_cabecera
             // 
             this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
@@ -353,52 +394,11 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1135, 1);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.shapeContainer4);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 714);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1121, 25);
-            this.panel8.TabIndex = 60;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(227, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
-            // shapeContainer4
-            // 
-            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer4.Name = "shapeContainer4";
-            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape2});
-            this.shapeContainer4.Size = new System.Drawing.Size(1121, 25);
-            this.shapeContainer4.TabIndex = 1;
-            this.shapeContainer4.TabStop = false;
-            // 
-            // rectangleShape2
-            // 
-            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
-            this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
-            // 
             // Cursos_INCES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1121, 739);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.grpbOpciones);
@@ -413,10 +413,10 @@
             this.grpbOpciones.ResumeLayout(false);
             this.grpbDatos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvidercmbx)).EndInit();
-            this.Panel_cabecera.ResumeLayout(false);
-            this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.Panel_cabecera.ResumeLayout(false);
+            this.Panel_cabecera.PerformLayout();
             this.ResumeLayout(false);
 
         }

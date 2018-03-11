@@ -48,7 +48,7 @@ namespace UCS_NODO_FGC.Clases
         public static Clientes ClienteExiste(MySqlConnection conexion, Clientes cliente)
         {
             Clientes cli = new Clientes();
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, nombre_empresa, fee_empresa FROM clientes WHERE nombre_empresa LIKE ('%{0}%')", cliente.nombre_empresa), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, nombre_empresa, fee_empresa FROM clientes WHERE nombre_empresa='{0}'", cliente.nombre_empresa), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())

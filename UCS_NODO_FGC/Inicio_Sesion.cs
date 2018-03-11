@@ -76,6 +76,10 @@ namespace UCS_NODO_FGC
 
 
             }
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                Txt_pass_user.Focus();
+            }
         }
 
         private void btn_login_Click(object sender, EventArgs e)

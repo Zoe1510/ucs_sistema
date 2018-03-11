@@ -47,7 +47,7 @@ namespace UCS_NODO_FGC
            
            try
             {
-                MySqlDataReader participantes = Conexion.ConsultarBD("SELECT nombre_par, cedula_par, apellido_par, correo_par, id_cli1, nombreE FROM participantes");
+                MySqlDataReader participantes = Conexion.ConsultarBD("SELECT nombre_par, cedula_par, apellido_par, correo_par, id_cli1, nombreE, tlfn_par FROM participantes");
                 while (participantes.Read())
                 {
 
@@ -57,7 +57,8 @@ namespace UCS_NODO_FGC
                     part.nombreP = Convert.ToString(participantes["nombre_par"]);
                     part.apellidoP = Convert.ToString(participantes["apellido_par"]);
                     part.correoP = Convert.ToString(participantes["correo_par"]);
-                    dgvParticipantes.Rows.Add(part.ci_participante, part.nombreP, part.apellidoP, part.correoP, part.nombreE);
+                    part.tlfn_participante= Convert.ToString(participantes["tlfn_par"]);
+                    dgvParticipantes.Rows.Add(part.ci_participante, part.nombreP, part.apellidoP, part.correoP,part.tlfn_participante, part.nombreE);
                     
                 }
                 dgvParticipantes.ClearSelection();
@@ -88,12 +89,12 @@ namespace UCS_NODO_FGC
                 
                 //"SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM cursos_tienen_participantes ctp inner join cursos cur on cur.id_cursos = ctp.ctp_id_curso inner join participantes p on ctp.ctp_id_participante = p.id_participante where cur.nombre_curso like 'Prueba abierto' and cur.estatus_curso like 'En curso' and cur.fecha_uno like '2018-03-01'"
                 
-                MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante inner join cursos cur on ctp.ctp_id_curso = cur.id_cursos where cur.nombre_curso like '" + nombreC + "' and cur.estatus_curso like '" + e + "' and cur.fecha_uno like '"+f+"'");
+                MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par, tlfn_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante inner join cursos cur on ctp.ctp_id_curso = cur.id_cursos where cur.nombre_curso like '" + nombreC + "' and cur.estatus_curso like '" + e + "' and cur.fecha_uno like '"+f+"'");
                 while (b.Read())
                 {                   
                     //MessageBox.Show("entré a la busqueda");
                     resultado = 1;
-                    dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["nombreE"]);                    
+                    dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"],b["tlfn_par"], b["nombreE"]);                    
                 }
                 b.Close();
                 
@@ -119,6 +120,7 @@ namespace UCS_NODO_FGC
                 Participante_seleccionado.nivelE = part.nivelE;
                 Participante_seleccionado.cargoE = part.cargoE;
                 Participante_seleccionado.nombreE = part.nombreE;
+                Participante_seleccionado.tlfn_par = part.tlfn_participante;
                
                 Modificar_participante par = new Modificar_participante();
                 par.ShowDialog();
@@ -171,7 +173,7 @@ namespace UCS_NODO_FGC
                         //aqui debe estar el metodo que permita llenar el dgv con los parametros de busqueda
                         if (resultado == 1)
                         {
-                            dgvParticipantes.CurrentRow.Selected = true;
+                           // dgvParticipantes.CurrentRow.Selected = true;
 
                             if (today < DateTime.Parse(fecha) && formaciones.estatus == "En curso")
                             {

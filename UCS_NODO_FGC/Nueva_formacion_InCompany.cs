@@ -91,15 +91,16 @@ namespace UCS_NODO_FGC
                     conexion.cerrarconexion();
                 }
 
-              
-               
+
+
                 //cargar los facilitadores del nivel_intermedio
                 llenarcomboFacilitador();
 
                 llenarcomboRefrigerio();
-            }else //si viene referenciado de modificar formacion            
+
+            } else //si viene referenciado de modificar formacion            
             {
-                LabelCabecera.Text = ""+Cursos.nombre_formacion13+": Información básica";
+                LabelCabecera.Text = "" + Cursos.nombre_formacion13 + ": Información básica";
                 LabelCabecera.Location = new Point(115, 31);
 
                 lblEtapaSiguiente.Text = "Nivel Intermedio";
@@ -107,103 +108,30 @@ namespace UCS_NODO_FGC
 
                 lblEtapafinal.Text = "Nivel Avanzado";
                 lblEtapafinal.Location = new Point(22, 570);
-
-               
-
-                contenido = Cursos.p_contenido;
-                btnVerContenido.Enabled = true;
-                if(Cursos.p_presentacion == "")
-                {
-                    btnVerPresentacion.Enabled = false;
-                }else
-                {
-                    presentacion = Cursos.p_presentacion;
-                    btnVerPresentacion.Enabled = true;
-                }
-
-                if(Cursos.p_bitacora == "")
-                {
-                    btnVerBitacora.Enabled = false;
-                }else
-                {
-                    bitacora = Cursos.p_bitacora;
-                    btnVerBitacora.Enabled = true;
-                }
-
-                if(Cursos.p_manual == "")
-                {
-                    btnVerManual.Enabled = false;
-                }else
-                {
-                    manual = Cursos.p_manual;
-                    btnVerManual.Enabled = true;
-                }
-
+                
                 //botones laterales
                 btnGuardar.Enabled = false;
                 btnPausar.Enabled = false;
                 btnLimpiar.Enabled = false;
                 btnModificar.Enabled = false;
                 btnRetomar.Enabled = true;
-                if (Cursos.etapa_formacion13 > 1)
-                    btnSiguienteEtapa.Enabled = true;
-                else
-                    btnSiguienteEtapa.Enabled = false;
-
-                //estado de los campos del nivel básico:
-                txtNombreFormacion.Enabled = false;
-                cmbxSolicitadoPor.Enabled = false;
-                cmbxDuracionFormacion.Enabled = false;
-                cmbxBloques.Enabled = false;
+                btnSiguienteEtapa.Enabled = true;
                 
-                btnRutaContenido.Enabled = false;
-                btnRutaPresentacion.Enabled = false;
-                btnRutaBitacora.Enabled = false;
-                btnRutaManual.Enabled = false;
-
-                //estado de los campos del nivel intermedio.
-                gpbInstalacion.Enabled = false;
-
-                //carga el nombre
-                txtNombreFormacion.Text = Cursos.nombre_formacion13;
-                //carga quien solicita
-                for (int a = 0; a < cmbxSolicitadoPor.Items.Count; a++)
+                if (Cursos.etapa_formacion13 == 1)
                 {
-                    if (cmbxSolicitadoPor.Items[a].ToString() == Cursos.solicitud_formacion13)
-                    {
-                        cmbxSolicitadoPor.SelectedItem= cmbxSolicitadoPor.Items[a];
-                    }
+                    CargarDatosEtapaUno();
+                    
                 }
-                //carga duración y bloques
-                switch (Cursos.duracion_formacion13)
+                else if(Cursos.etapa_formacion13 == 2)
                 {
-                    case "4 Horas":
-                        cmbxDuracionFormacion.SelectedIndex = 0;
-                        cmbxBloques.Items.Clear();
-                        cmbxBloques.Items.Add("1");
-                        cmbxBloques.SelectedIndex = 0;
-                        break;
-                    case "8 Horas":
-                        cmbxDuracionFormacion.SelectedIndex = 1;
-                        cmbxBloques.Items.Clear();
-                        cmbxBloques.Items.Add("1");
-                        cmbxBloques.Items.Add("2");
-                        if(Cursos.bloque_curso13 == "2")
-                        {
-                            cmbxBloques.SelectedIndex = 1;
-                        }else
-                        {
-                            cmbxBloques.SelectedIndex = 0;
-                        }
-                        break;
-                    case "16 Horas":
-                        cmbxDuracionFormacion.SelectedIndex = 2;
-                        cmbxBloques.Items.Clear();
-                        cmbxBloques.Items.Add("2");
-                        cmbxBloques.SelectedIndex = 0;
-                        break;
+
+                }else if (Cursos.etapa_formacion13 == 3)
+                {
+
                 }
-                
+
+
+
             }
                 
         }
@@ -480,6 +408,104 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private void CargarDatosEtapaUno()
+        {
+            //estado de los campos del nivel básico:
+            txtNombreFormacion.Enabled = false;
+            cmbxSolicitadoPor.Enabled = false;
+            cmbxDuracionFormacion.Enabled = false;
+            cmbxBloques.Enabled = false;
+
+            btnRutaContenido.Enabled = false;
+            btnRutaPresentacion.Enabled = false;
+            btnRutaBitacora.Enabled = false;
+            btnRutaManual.Enabled = false;
+
+            //carga el nombre
+            txtNombreFormacion.Text = Cursos.nombre_formacion13;
+            //carga quien solicita
+            for (int a = 0; a < cmbxSolicitadoPor.Items.Count; a++)
+            {
+                if (cmbxSolicitadoPor.Items[a].ToString() == Cursos.solicitud_formacion13)
+                {
+                    cmbxSolicitadoPor.SelectedItem = cmbxSolicitadoPor.Items[a];
+                }
+            }
+            //carga duración y bloques
+            switch (Cursos.duracion_formacion13)
+            {
+                case "4 Horas":
+                    cmbxDuracionFormacion.SelectedIndex = 0;
+                    cmbxBloques.Items.Clear();
+                    cmbxBloques.Items.Add("1");
+                    cmbxBloques.SelectedIndex = 0;
+                    break;
+                case "8 Horas":
+                    cmbxDuracionFormacion.SelectedIndex = 1;
+                    cmbxBloques.Items.Clear();
+                    cmbxBloques.Items.Add("1");
+                    cmbxBloques.Items.Add("2");
+                    if (Cursos.bloque_curso13 == "2")
+                    {
+                        cmbxBloques.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        cmbxBloques.SelectedIndex = 0;
+                    }
+                    break;
+                case "16 Horas":
+                    cmbxDuracionFormacion.SelectedIndex = 2;
+                    cmbxBloques.Items.Clear();
+                    cmbxBloques.Items.Add("2");
+                    cmbxBloques.SelectedIndex = 0;
+                    break;
+            }
+
+            //CARGAR DATOS DE PAQUETE INSTRUCCIONAL
+
+            contenido = Cursos.p_contenido;
+            btnVerContenido.Enabled = true;
+            if (Cursos.p_presentacion == "")
+            {
+                btnVerPresentacion.Enabled = false;
+            }
+            else
+            {
+                presentacion = Cursos.p_presentacion;
+                btnVerPresentacion.Enabled = true;
+            }
+
+            if (Cursos.p_bitacora == "")
+            {
+                btnVerBitacora.Enabled = false;
+            }
+            else
+            {
+                bitacora = Cursos.p_bitacora;
+                btnVerBitacora.Enabled = true;
+            }
+
+            if (Cursos.p_manual == "")
+            {
+                btnVerManual.Enabled = false;
+            }
+            else
+            {
+                manual = Cursos.p_manual;
+                btnVerManual.Enabled = true;
+            }
+
+        }
+        private void CargarDatosEtapaDos()
+        {
+
+        }
+        private void CargarDatosEtapaTres()
+        {
+
+        }
+
         private void GuardarBasico()
         {
             try
@@ -606,6 +632,8 @@ namespace UCS_NODO_FGC
                                                             {
                                                                 int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
                                                                 conexion.cerrarconexion();
+                                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "')");
+                                                                clientes_solicitan_cursos.Close();
                                                                 if (agregarUGC > 0)
                                                                 {
                                                                     guardar = true;
@@ -671,6 +699,9 @@ namespace UCS_NODO_FGC
                                                     {
                                                         int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
                                                         conexion.cerrarconexion();
+
+                                                        MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "')");
+                                                        clientes_solicitan_cursos.Close();
                                                         if (agregarUGC > 0)
                                                         {
                                                             guardar = true;
@@ -1808,6 +1839,7 @@ namespace UCS_NODO_FGC
                 lblEtapaSiguiente.Location = new Point(22, 529);
                 lblEtapafinal.Text = "Añadir participantes";
                 lblEtapafinal.Location = new Point(3, 570);
+
                 pnlNivel_basico.Visible = false;
 
                 //comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
@@ -1984,12 +2016,21 @@ namespace UCS_NODO_FGC
         private void btnPausar_Click(object sender, EventArgs e)
         {
             //si pausa, deshabilita los controles:
-            deshabiltarControlesBasico();
-            //además se deshabilita guardar, pausar, siguiente etapa, modificar, limpiar
-            //se habilita retomar
+            if (pnlNivel_basico.Visible == true)
+            {
+                deshabiltarControlesBasico();
+            }else if (pnlNivel_intermedio.Visible == true)
+            {
+                //se deshabilitará controles del nivel intermedio
+            }else if (pnlNivel_avanzado.Visible == true)
+            {
+
+            }
+
+                //además se deshabilita guardar, pausar, siguiente etapa, modificar, limpiar
+                //se habilita retomar
 
             btnRetomar.Enabled = true; //habilitado
-
             btnSiguienteEtapa.Enabled = false;
             btnModificar.Enabled = false;
             btnGuardar.Enabled = false;
@@ -2053,7 +2094,7 @@ namespace UCS_NODO_FGC
             {
                 if (pnlNivel_basico.Visible == true)
                 {
-                    //estado de los campos del nivel básico:
+                    //si retomar, se habilitan todos los campos
                     txtNombreFormacion.Enabled = true;
                     cmbxSolicitadoPor.Enabled = true;
                     cmbxDuracionFormacion.Enabled = true;
@@ -2063,14 +2104,21 @@ namespace UCS_NODO_FGC
                     btnRutaPresentacion.Enabled = true;
                     btnRutaBitacora.Enabled = true;
                     btnRutaManual.Enabled = true;
+                    btnVerContenido.Enabled= false;
+                    btnVerManual.Enabled = false;
+                    btnVerPresentacion.Enabled = false;
+                    btnVerBitacora.Enabled = false;
 
-                    btnPausar.Enabled = true;
+                    //comportamiento del panel lateral:
+                    btnGuardar.Enabled = false;
+                    btnLimpiar.Enabled = false;
                     btnRetomar.Enabled = false;
-                    btnModificar.Enabled = true;
-                    if (Cursos.etapa_formacion13 > 1)
-                        btnSiguienteEtapa.Enabled = true;
-                    else
-                        btnSiguienteEtapa.Enabled = false;
+
+                    btnPausar.Enabled = true;                    
+                    btnModificar.Enabled = true;                   
+                    btnSiguienteEtapa.Enabled = true;
+
+                    
                 }
                 else if (pnlNivel_intermedio.Visible == true)
                 {
@@ -2151,16 +2199,7 @@ namespace UCS_NODO_FGC
                 }
                 leer.Close();
 
-                //MySqlDataReader leer2 = Conexion.ConsultarBD("SELECT id_cursos, solicitud_curso FROM cursos WHERE nombre_curso = '" + formacion.nombre_formacion + "' AND tipo_curso='InCompany' AND estatus_curso LIKE 'Reprogramado'");
-                //while (leer2.Read())
-                //{
-                //    Formaciones f = new Formaciones();
-                //    f.id_curso = Convert.ToInt32(leer2["id_cursos"]);
-                //    f.solicitado = Convert.ToString(leer["solicitud_curso"]);
-                //    f.estatus = "Reprogramado";
-                //    lista.Add(f);
-                //}
-                //leer2.Close();
+
 
                 //si está: buscar todos los clientes que lo hayan solicitado (en la tabla clientes solicitan cursos) 
                 for (int i = 0; i < nombre.Count; i++)

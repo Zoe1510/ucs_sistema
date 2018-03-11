@@ -283,6 +283,16 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_delete {
+            get {
+                object obj = ResourceManager.GetObject("icon_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_docx {
             get {
                 object obj = ResourceManager.GetObject("icon_docx", resourceCulture);

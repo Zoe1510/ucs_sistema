@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -35,7 +36,14 @@ namespace UCS_NODO_FGC
 
         private void Registrar_INCES_Load(object sender, EventArgs e)
         {
-            llenarcombo();
+            if(Curso_IN.In == 1)
+            {
+                llenarcombo();
+            }else
+            {
+
+            }
+           
             txtNombreCurso.Focus();
         }
         int id = 0;
@@ -99,73 +107,83 @@ namespace UCS_NODO_FGC
                     else //si todo ok
                     {
                         errorProviderFacilitador.SetError(cmbxFacilitador, "");
-                        curso.nombre_cursoINCE = txtNombreCurso.Text;
-
-                        //el id ya lo tengo del selection commited
-                        if (conexion.abrirconexion() == true)
+                        if (Curso_IN.In == 1) //SI viene referenciado de CURSOS_INCES
                         {
-                            //verificar que no exista en la base de datos
-                            int existe = Clases.INCES.CursoExiste(conexion.conexion, curso.nombre_cursoINCE);
-                            conexion.cerrarconexion();
-                            if (existe == 0)//si no existe
-                            {
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    //agregar a la base de datos
-                                    int agregado = Clases.INCES.AgregarCurso(conexion.conexion, curso);
-                                    conexion.cerrarconexion();
-                                    if (agregado > 0)//curso agregado exitosamente
-                                    {
-                                        if (conexion.abrirconexion() == true)
-                                        {
-                                            //seleccionar el id del curso añadido
-                                            int id_curso = Clases.INCES.CursoExiste(conexion.conexion, curso.nombre_cursoINCE);
-                                            conexion.cerrarconexion();
 
+                            //el id ya lo tengo del selection commited
+                            if (conexion.abrirconexion() == true)
+                            {
+                                curso.nombre_cursoINCE = txtNombreCurso.Text;
+                                //verificar que no exista en la base de datos
+                                int existe = Clases.INCES.CursoExiste(conexion.conexion, curso.nombre_cursoINCE);
+                                conexion.cerrarconexion();
+                                if (existe == 0)//si no existe
+                                {
+                                    if (conexion.abrirconexion() == true)
+                                    {
+                                        //agregar a la base de datos
+                                        int agregado = Clases.INCES.AgregarCurso(conexion.conexion, curso);
+                                        conexion.cerrarconexion();
+                                        if (agregado > 0)//curso agregado exitosamente
+                                        {
                                             if (conexion.abrirconexion() == true)
                                             {
-                                                //verificar que no exista asignacion existente
-                                                int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, id_curso, fa.id_facilitador);
+                                                //seleccionar el id del curso añadido
+                                                int id_curso = Clases.INCES.CursoExiste(conexion.conexion, curso.nombre_cursoINCE);
                                                 conexion.cerrarconexion();
-                                                //si el id que retorna no es el id_fa, se puede asignar
-                                                if (asignacion == 0 || asignacion != id)
+
+                                                if (conexion.abrirconexion() == true)
                                                 {
-                                                    errorProviderFacilitador.SetError(cmbxFacilitador, "");
-                                                    if (conexion.abrirconexion() == true)
+                                                    //verificar que no exista asignacion existente
+                                                    int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, id_curso, fa.id_facilitador);
+                                                    conexion.cerrarconexion();
+                                                    //si el id que retorna no es el id_fa, se puede asignar
+                                                    if (asignacion == 0 || asignacion != id)
                                                     {
-                                                        //asignando curso a facilitador
-                                                        int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion, fa.id_facilitador, id_curso);
-                                                        conexion.cerrarconexion();
-                                                        if (asignado > 0)
+                                                        errorProviderFacilitador.SetError(cmbxFacilitador, "");
+                                                        if (conexion.abrirconexion() == true)
                                                         {
-                                                            MessageBox.Show("Curso registrado con éxito.", "AVISO", MessageBoxButtons.OK);
-                                                            this.Close();
+                                                            //asignando curso a facilitador
+                                                            int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion, fa.id_facilitador, id_curso);
+                                                            conexion.cerrarconexion();
+                                                            if (asignado > 0)
+                                                            {
+                                                                MessageBox.Show("Curso registrado con éxito.", "AVISO", MessageBoxButtons.OK);
+                                                                this.Close();
+                                                            }
                                                         }
                                                     }
-                                                }
-                                                else if (asignacion == id)
-                                                {
-                                                    errorProviderFacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
-                                                    cmbxFacilitador.SelectedIndex = -1;
-                                                    cmbxFacilitador.Focus();                                                    
+                                                    else if (asignacion == id)
+                                                    {
+                                                        errorProviderFacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
+                                                        cmbxFacilitador.SelectedIndex = -1;
+                                                        cmbxFacilitador.Focus();
+                                                    }
                                                 }
                                             }
                                         }
+                                        else
+                                        {
+                                            MessageBox.Show("No se pudo agregar el curso.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
                                     }
-                                    else
-                                    {
-                                        MessageBox.Show("No se pudo agregar el curso.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Este curso ya se encuentra registrado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    txtNombreCurso.Clear();
                                 }
 
                             }
-                            else
-                            {
-                                MessageBox.Show("Este curso ya se encuentra registrado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                txtNombreCurso.Clear();
-                            }
 
                         }
+                        else //Si viene reverenciado de CURSOS_AFI
+                        {
+
+                        }
+
+                        
                     }
                 }
             }

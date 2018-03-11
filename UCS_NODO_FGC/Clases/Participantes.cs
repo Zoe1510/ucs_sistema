@@ -18,6 +18,7 @@ namespace UCS_NODO_FGC.Clases
         public string cargoE { get; set; }
         public string nivelE { get; set; }
         public string nombreE { get; set; }
+        public string tlfn_participante { get; set; }
 
         public Participantes()
         {
@@ -25,7 +26,7 @@ namespace UCS_NODO_FGC.Clases
         }
 
 
-        public Participantes(int id, int ci, string n, string a, string co, string ca, string ni, string ne)
+        public Participantes(int id, int ci, string n, string a, string co, string ca, string ni, string ne, string tlf)
         {
             this.id_participante = id;
             this.ci_participante = ci;
@@ -35,6 +36,7 @@ namespace UCS_NODO_FGC.Clases
             this.cargoE = ca;
             this.nivelE = ni;
             this.nombreE = ne;
+            this.tlfn_participante = tlf;
         }
     }
 }

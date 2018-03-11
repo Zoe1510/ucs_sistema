@@ -37,6 +37,10 @@ namespace UCS_NODO_FGC
         private void txtCedulaPart_KeyPress(object sender, KeyPressEventArgs e)
         {
             Paneles.solonumeros(e);
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtNombrePart.Focus();
+            }
         }
          private void txtCedulaPart_Validating(object sender, CancelEventArgs e)
         {
@@ -49,7 +53,7 @@ namespace UCS_NODO_FGC
             {
                 cmbNacionalidad.SelectedIndex = 0;
             }
-            if(txtCedulaPart.Text != "")
+            if(txtCedulaPart.Text != "" && txtCedulaPart.TextLength >=7)
             {
                 errorProviderCI.SetError(txtCedulaPart, "");
                 participante.ci_participante = Convert.ToInt32(txtCedulaPart.Text);
@@ -64,6 +68,7 @@ namespace UCS_NODO_FGC
                     participante.nivelE = Convert.ToString(leer["nivelE"]);
                     participante.id_participante = Convert.ToInt32(leer["id_participante"]);
                     participante.id_cli1 = Convert.ToInt32(leer["id_cli1"]);
+                    participante.tlfn_participante = Convert.ToString("tlfn_par");
 
                     MySqlDataReader existe = Conexion.ConsultarBD("select id_ctf from cursos_tienen_participantes where ctp_id_participante='" + participante.id_participante + "' and ctp_id_curso='" + id_curso + "'");
                     if (existe.Read())
@@ -72,6 +77,7 @@ namespace UCS_NODO_FGC
                         txtCedulaPart.Clear();
                         txtApellidoPart.Clear();
                         txtNombrePart.Clear();
+                        txtTlfnParticipante.Clear();
                         txtCorreoPart.Text = "correo@ejemplo.com";
                         txtCargoEnEmpresa.Clear();
                         cmbNacionalidad.SelectedIndex = -1;
@@ -90,6 +96,7 @@ namespace UCS_NODO_FGC
                                 txtCedulaPart.Clear();
                                 txtApellidoPart.Clear();
                                 txtNombrePart.Clear();
+                                txtTlfnParticipante.Clear();
                                 txtCorreoPart.Text = "correo@ejemplo.com";
                                 txtCargoEnEmpresa.Clear();
                                 cmbNacionalidad.SelectedIndex = -1;
@@ -122,6 +129,9 @@ namespace UCS_NODO_FGC
                     txtNombrePart.Focus();
                     txtApellidoPart.Enabled = true;
                     txtCorreoPart.Enabled = true;
+                    txtTlfnParticipante.Enabled = true;
+
+
                     participante.id_participante = 0;
                 }
             }else
@@ -142,6 +152,10 @@ namespace UCS_NODO_FGC
             else if (txtNombrePart.Text.Length > 0)
             {
                 e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
+            }
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtApellidoPart.Focus();
             }
         }
         private void txtNombrePart_Validating(object sender, CancelEventArgs e)
@@ -168,6 +182,10 @@ namespace UCS_NODO_FGC
             {
                 e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
             }
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtCorreoPart.Focus();
+            }
         }
         private void txtApellidoPart_Validating(object sender, CancelEventArgs e)
         {
@@ -180,7 +198,13 @@ namespace UCS_NODO_FGC
                 txtApellidoPart.Focus();
             }
         }
-
+        private void txtCorreoPart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtTlfnParticipante.Focus();
+            }
+        }
         private void txtCorreo_Leave(object sender, EventArgs e)
         {
             if (txtCorreoPart.Text == "")
@@ -220,7 +244,22 @@ namespace UCS_NODO_FGC
             }
         }
 
-        
+        private void txtTlfnParticipante_Validating(object sender, CancelEventArgs e)
+        {
+            if (Clases.Paneles.comprobarFormatoTlfn(e, txtTlfnParticipante.Text) == false)
+            {
+                errorProviderTlfn.SetError(txtTlfnParticipante, "Debe proporcionar un número de teléfono válido.");
+                txtTlfnParticipante.Focus();
+            }
+            else
+            {
+                errorProviderTlfn.SetError(txtTlfnParticipante, "");
+            }
+        }
+        private void txtTlfnParticipante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Clases.Paneles.solonumeros(e);
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -277,8 +316,8 @@ namespace UCS_NODO_FGC
                 }
 
                 llenarcmbxFormaciones();
-                cmbxFormaciones.Enabled = true;
-                cmbxFormaciones.Focus();
+                //cmbxFormaciones.Enabled = true;
+                //cmbxFormaciones.Focus();
             }
             else
             {
@@ -336,14 +375,15 @@ namespace UCS_NODO_FGC
             }
             else if (tipo_formacion == "InCompany")
             {
-
+                //de acuerdo a la tabla de clientes_soicitan_cursos, sacar la relacion entre el curso escogido y las empresas que lo hayan solicitado
             }
             else if (tipo_formacion == "Abierto") //si la formación es de tipo abierto
             {
                 gpbDatosParticipantes.Enabled = true;
                 cmbxEmpresaConInce.Enabled = false;
                 txtCedulaPart.Enabled = true;
-                txtCedulaPart.Focus();
+                //txtCedulaPart.Focus();
+                gpbDatosEmpresa.Enabled = false;
             }
             cmbxEmpresaConInce.Focus();
         }
@@ -357,7 +397,7 @@ namespace UCS_NODO_FGC
             txtCedulaPart.Enabled = true;
             cmbNacionalidad.Enabled = true;
             participante.id_cli1 = id_cliente;
-            txtCedulaPart.Focus();
+            //txtCedulaPart.Focus();
 
         }
 
@@ -404,6 +444,10 @@ namespace UCS_NODO_FGC
             {
                 e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
             }
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                cmbxNivelEmpresa.Focus();
+            }
         }
         private void txtCargoEnEmpresa_Validating(object sender, CancelEventArgs e)
         {
@@ -442,43 +486,6 @@ namespace UCS_NODO_FGC
                 cmbxEmpresaConInce.SelectedIndex = -1;
             
         }
-
-        private List<Formaciones> SeleccionFormacion()
-        {
-            string tipo = tipo_formacion;
-            int nivel = 1;
-            List<Formaciones> lista = new List<Formaciones>();
-            MySqlDataReader formacion = Conexion.ConsultarBD("SELECT * FROM cursos WHERE tipo_curso= '" + tipo + "' AND etapa_curso >'" + nivel + "'");
-            while (formacion.Read())
-            {
-                Formaciones c = new Formaciones();
-                c.id_curso = Convert.ToInt32(formacion["id_cursos"]);
-                c.nombre_formacion = Convert.ToString(formacion["nombre_curso"]);
-                lista.Add(c);
-            }
-            formacion.Close();
-            return lista;
-        }        
-
-        private void llenarcmbxFormaciones()
-        {
-            if (SeleccionFormacion().Count != 0)
-            {
-                errorProviderNombreF.SetError(cmbxFormaciones, "");
-                cmbxFormaciones.ValueMember = "id_curso";
-                cmbxFormaciones.DisplayMember = "nombre_formacion";
-                cmbxFormaciones.DataSource = SeleccionFormacion();
-                cmbxFormaciones.SelectedIndex = -1;
-            }else
-            {
-                cmbxFormaciones.Enabled = false;
-                errorProviderNombreF.SetError(cmbxFormaciones, "No hay formaciones de este tipo en el nivel intermedio.");
-                cmbxTiposFormaciones.Focus();
-            }
-            
-        }
-
-       
         private List<Empresa> SeleccionarFEE()
         {
             List<Empresa> lista = new List<Empresa>();           
@@ -495,13 +502,75 @@ namespace UCS_NODO_FGC
 
             return lista;
         }
-
         private void llenarcmbxFEE()
         {
             cmbxEmpresaConInce.ValueMember = "id_clientes";
             cmbxEmpresaConInce.DisplayMember = "nombre_empresa";
             cmbxEmpresaConInce.DataSource = SeleccionarFEE();
             cmbxEmpresaConInce.SelectedIndex = -1;
+
+        }
+        private List<Empresa> SeleccionarIncompany()
+        {
+            List<Empresa> lista = new List<Empresa>();
+            //falta
+            return lista;
+        }
+        private void llenarcmbxIncompany()
+        {
+            cmbxEmpresaConInce.ValueMember = "id_clientes";
+            cmbxEmpresaConInce.DisplayMember = "nombre_empresa";
+            cmbxEmpresaConInce.DataSource = SeleccionarIncompany();
+            cmbxEmpresaConInce.SelectedIndex = -1;
+        }
+        private List<Formaciones> SeleccionFormacion()
+        {
+            string tipo = tipo_formacion;
+            int nivel = 1;
+            List<Formaciones> lista = new List<Formaciones>();
+            MySqlDataReader formacion = Conexion.ConsultarBD("SELECT * FROM cursos WHERE tipo_curso= '" + tipo + "' AND etapa_curso >'" + nivel + "'AND estatus_curso='En curso'");
+            while (formacion.Read())
+            {
+                Formaciones c = new Formaciones();
+                c.id_curso = Convert.ToInt32(formacion["id_cursos"]);
+                c.nombre_formacion = Convert.ToString(formacion["nombre_curso"]);
+                lista.Add(c);
+            }
+            formacion.Close();
+            return lista;
+        }        
+        private void llenarcmbxFormaciones()
+        {
+            if (SeleccionFormacion().Count != 0)
+            {
+                cmbxEmpresaConInce.Enabled =true;
+                cmbxFormaciones.Enabled = true;
+                if (tipo_formacion == "INCES")
+                    gpbDatosEmpresa.Enabled = true;
+                errorProviderNombreF.SetError(cmbxFormaciones, "");
+                cmbxFormaciones.ValueMember = "id_curso";
+                cmbxFormaciones.DisplayMember = "nombre_formacion";
+                cmbxFormaciones.DataSource = SeleccionFormacion();
+                cmbxFormaciones.SelectedIndex = -1;
+            }else
+            {
+                cmbxEmpresaConInce.Enabled = false;
+                cmbxFormaciones.Enabled = false;
+                cmbxTiposFormaciones.Focus();
+                errorProviderNombreF.SetError(cmbxFormaciones, "No hay formaciones de este tipo en el nivel intermedio.");
+                if (tipo_formacion == "INCES")
+                    gpbDatosEmpresa.Enabled = false;
+                
+                
+            }
+            
+        }       
+
+       
+
+       
+        private void Panel_cabecera_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
@@ -557,97 +626,109 @@ namespace UCS_NODO_FGC
                                     {
                                         //MessageBox.Show(participante.id_participante.ToString());
                                         errorProviderCorreo.SetError(txtCorreoPart, "");
-                                        if(participante.id_participante > 0)//lo que significa, que ya se encuentra registrado en el sistema
+                                        if(txtTlfnParticipante.Text=="")
                                         {
-                                            //si el participante ya se encuentra regiustrado en el curso
-                                            MySqlDataReader existe = Conexion.ConsultarBD("select id_ctf from cursos_tienen_participantes where ctp_id_participante='" + participante.id_participante + "' and ctp_id_curso='" + id_curso + "'");
-                                            if (existe.Read())
-                                            {
-                                                errorProviderCI.SetError(txtCedulaPart, "El participante ya se encuentra registrado en esta formación.");
-                                                txtCedulaPart.Clear();
-                                                txtApellidoPart.Clear();
-                                                txtNombrePart.Clear();
-                                                txtCorreoPart.Text = "correo@ejemplo.com";
-                                                txtCargoEnEmpresa.Clear();
-                                                cmbNacionalidad.SelectedIndex = -1;
-                                                cmbxNivelEmpresa.SelectedIndex = -1;
-                                                txtCedulaPart.Focus();
-                                            }
-                                            else
-                                            {
-                                                errorProviderCI.SetError(txtCedulaPart, "");
-                                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO cursos_tienen_participantes (ctp_id_participante, ctp_id_curso, ctp_id_cliente) VALUES ('" + participante.id_participante + "', '" + id_curso + "', '" + participante.id_cli1 + "')");
-                                                MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                leer.Close();
-                                            }
-                                            existe.Close();
-                                            
-                                        } else
+                                            errorProviderTlfn.SetError(txtTlfnParticipante, "Debe proporcionar el nro de teléfono del participante");
+                                            txtTlfnParticipante.Focus();
+                                        }else
                                         {
-                                            participante.ci_participante = Convert.ToInt32(txtCedulaPart.Text);
-                                            participante.nombreP = txtNombrePart.Text;
-                                            participante.apellidoP = txtApellidoPart.Text;
-                                            participante.correoP = txtCorreoPart.Text;
-                                            string n="";
-                                            switch (cmbNacionalidad.SelectedIndex)
+                                            errorProviderTlfn.SetError(txtTlfnParticipante, "");
+                                            if (participante.id_participante > 0)//lo que significa, que ya se encuentra registrado en el sistema
                                             {
-                                                case 0:
-                                                    n = "V";
-                                                    break;
-                                                case 1:
-                                                    n = "E";
-                                                    break;
-                                            }
-                                            participante.nacionalidad = n;
-
-
-                                            if (tipo_formacion == "Abierto")
-                                            {
-                                                participante.cargoE = "";
-                                                participante.nivelE = "";
-                                                int id_cli = 0;
-                                                participante.id_cli1 = 0;
-                                                participante.nombreE = "No asociado";
-                                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('"+participante.nacionalidad+"','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cli + "', '"+participante.nombreE+"')");
-                                                MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                leer.Close();
-
-                                                agregarP2();
-                                            }
-                                            else if (tipo_formacion == "FEE")
-                                            {
-                                                participante.cargoE = "";
-                                                participante.nivelE = "";
-
-                                                agregarP();
-
-                                                agregarP2();
-                                            }
-                                            else if (tipo_formacion == "INCES")
-                                            {
-                                                if(cmbxEmpresaConInce.SelectedIndex != -1)
+                                                //si el participante ya se encuentra regiustrado en el curso
+                                                MySqlDataReader existe = Conexion.ConsultarBD("select id_ctf from cursos_tienen_participantes where ctp_id_participante='" + participante.id_participante + "' and ctp_id_curso='" + id_curso + "'");
+                                                if (existe.Read())
                                                 {
-                                                    errorProviderNombreE.SetError(cmbxEmpresaConInce, "");                                                    
-                                                    participante.cargoE = txtCargoEnEmpresa.Text;
-                                                    agregarP();
-                                                    agregarP2();
+                                                    errorProviderCI.SetError(txtCedulaPart, "El participante ya se encuentra registrado en esta formación.");
+                                                    txtCedulaPart.Clear();
+                                                    txtApellidoPart.Clear();
+                                                    txtNombrePart.Clear();
+                                                    txtTlfnParticipante.Clear();
+                                                    txtCorreoPart.Text = "correo@ejemplo.com";
+                                                    txtCargoEnEmpresa.Clear();
+                                                    cmbNacionalidad.SelectedIndex = -1;
+                                                    cmbxNivelEmpresa.SelectedIndex = -1;
+                                                    txtCedulaPart.Focus();
                                                 }
                                                 else
                                                 {
-                                                    errorProviderNombreE.SetError(cmbxEmpresaConInce, "Debe seleccionar una empresa o cliente.");
-                                                    cmbxEmpresaConInce.Focus();
+                                                    errorProviderCI.SetError(txtCedulaPart, "");
+                                                    MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO cursos_tienen_participantes (ctp_id_participante, ctp_id_curso, ctp_id_cliente) VALUES ('" + participante.id_participante + "', '" + id_curso + "', '" + participante.id_cli1 + "')");
+                                                    MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    leer.Close();
                                                 }
-                                            }
-                                            else if (tipo_formacion == "InCompany")
-                                            {
-                                                participante.cargoE = "";
-                                                participante.nivelE = "";
+                                                existe.Close();
 
-                                                agregarP();
-                                                agregarP2();
                                             }
-                                            
+                                            else
+                                            {
+                                                participante.ci_participante = Convert.ToInt32(txtCedulaPart.Text);
+                                                participante.nombreP = txtNombrePart.Text;
+                                                participante.apellidoP = txtApellidoPart.Text;
+                                                participante.correoP = txtCorreoPart.Text;
+                                                participante.tlfn_participante = txtTlfnParticipante.Text;
+                                                string n = "";
+                                                switch (cmbNacionalidad.SelectedIndex)
+                                                {
+                                                    case 0:
+                                                        n = "V";
+                                                        break;
+                                                    case 1:
+                                                        n = "E";
+                                                        break;
+                                                }
+                                                participante.nacionalidad = n;
+
+
+                                                if (tipo_formacion == "Abierto")
+                                                {
+                                                    participante.cargoE = "";
+                                                    participante.nivelE = "";
+                                                    int id_cli = 0;
+                                                    participante.id_cli1 = 0;
+                                                    participante.nombreE = "No asociado";
+                                                    MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE, tlfn_par) VALUES ('" + participante.nacionalidad + "','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cli + "', '" + participante.nombreE + "', '"+participante.tlfn_participante+"')");
+                                                    MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    leer.Close();
+
+                                                    agregarP2();
+                                                }
+                                                else if (tipo_formacion == "FEE")
+                                                {
+                                                    participante.cargoE = "";
+                                                    participante.nivelE = "";
+
+                                                    agregarP();
+
+                                                    agregarP2();
+                                                }
+                                                else if (tipo_formacion == "INCES")
+                                                {
+                                                    if (cmbxEmpresaConInce.SelectedIndex != -1)
+                                                    {
+                                                        errorProviderNombreE.SetError(cmbxEmpresaConInce, "");
+                                                        participante.cargoE = txtCargoEnEmpresa.Text;
+                                                        agregarP();
+                                                        agregarP2();
+                                                    }
+                                                    else
+                                                    {
+                                                        errorProviderNombreE.SetError(cmbxEmpresaConInce, "Debe seleccionar una empresa o cliente.");
+                                                        cmbxEmpresaConInce.Focus();
+                                                    }
+                                                }
+                                                else if (tipo_formacion == "InCompany")
+                                                {
+                                                    participante.cargoE = "";
+                                                    participante.nivelE = "";
+
+                                                    agregarP();
+                                                    agregarP2();
+                                                }
+
+                                            }
                                         }
+                                        
                                                                                
 
                                     }
@@ -669,6 +750,7 @@ namespace UCS_NODO_FGC
             txtNombrePart.Text = participante.nombreP;
             txtApellidoPart.Text = participante.apellidoP;
             txtCorreoPart.Text = participante.correoP;
+            txtTlfnParticipante.Text = participante.tlfn_participante;
             txtNombrePart.Enabled = false;
             txtApellidoPart.Enabled = false;
             txtCorreoPart.Enabled = false;
@@ -697,7 +779,7 @@ namespace UCS_NODO_FGC
         }
         private void agregarP()
         {
-            MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE) VALUES ('"+participante.nacionalidad+"','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cliente + "', '"+participante.nombreE+"')");
+            MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO participantes (nacionalidad, cedula_par, nombre_par, apellido_par, correo_par, cargoE, nivelE, id_cli1, nombreE, tlfn_par) VALUES ('"+participante.nacionalidad+"','" + participante.ci_participante + "', '" + participante.nombreP + "', '" + participante.apellidoP + "', '" + participante.correoP + "', '" + participante.cargoE + "', '" + participante.nivelE + "', '" + id_cliente + "', '"+participante.nombreE+"', '"+participante.tlfn_participante+"')");
             MessageBox.Show("Participante añadido correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             leer.Close();
         }

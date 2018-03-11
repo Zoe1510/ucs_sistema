@@ -476,6 +476,19 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
             }
         }
-        
+
+        private void cmbxFee_Validating(object sender, CancelEventArgs e)
+        {
+            if(cmbxFee.SelectedIndex == -1)
+            {
+               
+                errorProviderFee.SetError(cmbxFee, "Debe seleccionar una de las opciones.");
+                cmbxFee.Focus();
+            }
+            else
+            {
+                errorProviderFee.SetError(cmbxFee, "");
+            }
+        }
     }
 }

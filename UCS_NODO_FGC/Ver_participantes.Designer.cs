@@ -47,11 +47,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvParticipantes = new System.Windows.Forms.DataGridView();
-            this.ci_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresa_asociada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -63,6 +58,12 @@
             this.errorProviderCmbxNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCmbxEstatus = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ci_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlfn_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa_asociada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbOpciones.SuspendLayout();
             this.grpbDatos.SuspendLayout();
             this.grpbData.SuspendLayout();
@@ -296,6 +297,7 @@
             this.nombre_participante,
             this.apellido_participante,
             this.correo_par,
+            this.tlfn_par,
             this.empresa_asociada});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -314,46 +316,6 @@
             this.dgvParticipantes.Size = new System.Drawing.Size(783, 510);
             this.dgvParticipantes.TabIndex = 0;
             this.dgvParticipantes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvParticipantes_MouseClick);
-            // 
-            // ci_participante
-            // 
-            this.ci_participante.HeaderText = "Cédula";
-            this.ci_participante.MaxInputLength = 10;
-            this.ci_participante.MinimumWidth = 100;
-            this.ci_participante.Name = "ci_participante";
-            this.ci_participante.ReadOnly = true;
-            this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ci_participante.Width = 120;
-            // 
-            // nombre_participante
-            // 
-            this.nombre_participante.HeaderText = "Nombre participante";
-            this.nombre_participante.MaxInputLength = 100;
-            this.nombre_participante.MinimumWidth = 100;
-            this.nombre_participante.Name = "nombre_participante";
-            this.nombre_participante.ReadOnly = true;
-            this.nombre_participante.Width = 180;
-            // 
-            // apellido_participante
-            // 
-            this.apellido_participante.HeaderText = "Apellido";
-            this.apellido_participante.MaxInputLength = 100;
-            this.apellido_participante.MinimumWidth = 100;
-            this.apellido_participante.Name = "apellido_participante";
-            this.apellido_participante.ReadOnly = true;
-            this.apellido_participante.Width = 150;
-            // 
-            // correo_par
-            // 
-            this.correo_par.HeaderText = "Correo";
-            this.correo_par.Name = "correo_par";
-            this.correo_par.ReadOnly = true;
-            // 
-            // empresa_asociada
-            // 
-            this.empresa_asociada.HeaderText = "Empresa asociada";
-            this.empresa_asociada.Name = "empresa_asociada";
-            this.empresa_asociada.ReadOnly = true;
             // 
             // panel8
             // 
@@ -451,6 +413,53 @@
             // 
             this.errorProviderFecha.ContainerControl = this;
             // 
+            // ci_participante
+            // 
+            this.ci_participante.HeaderText = "Cédula";
+            this.ci_participante.MaxInputLength = 10;
+            this.ci_participante.MinimumWidth = 100;
+            this.ci_participante.Name = "ci_participante";
+            this.ci_participante.ReadOnly = true;
+            this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ci_participante.Width = 120;
+            // 
+            // nombre_participante
+            // 
+            this.nombre_participante.HeaderText = "Nombre participante";
+            this.nombre_participante.MaxInputLength = 100;
+            this.nombre_participante.MinimumWidth = 100;
+            this.nombre_participante.Name = "nombre_participante";
+            this.nombre_participante.ReadOnly = true;
+            this.nombre_participante.Width = 180;
+            // 
+            // apellido_participante
+            // 
+            this.apellido_participante.HeaderText = "Apellido";
+            this.apellido_participante.MaxInputLength = 100;
+            this.apellido_participante.MinimumWidth = 100;
+            this.apellido_participante.Name = "apellido_participante";
+            this.apellido_participante.ReadOnly = true;
+            this.apellido_participante.Width = 150;
+            // 
+            // correo_par
+            // 
+            this.correo_par.HeaderText = "Correo";
+            this.correo_par.Name = "correo_par";
+            this.correo_par.ReadOnly = true;
+            // 
+            // tlfn_par
+            // 
+            this.tlfn_par.HeaderText = "Teléfono";
+            this.tlfn_par.MaxInputLength = 15;
+            this.tlfn_par.Name = "tlfn_par";
+            this.tlfn_par.ReadOnly = true;
+            // 
+            // empresa_asociada
+            // 
+            this.empresa_asociada.HeaderText = "Empresa asociada";
+            this.empresa_asociada.Name = "empresa_asociada";
+            this.empresa_asociada.ReadOnly = true;
+            // 
             // Ver_participantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,13 +515,14 @@
         private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;
         private System.Windows.Forms.ComboBox cmbxEstatus;
         private System.Windows.Forms.TextBox txtBuscarNombre;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpFechaCurso;
+        private System.Windows.Forms.ErrorProvider errorProviderFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ci_participante;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_participante;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_participante;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo_par;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tlfn_par;
         private System.Windows.Forms.DataGridViewTextBoxColumn empresa_asociada;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpFechaCurso;
-        private System.Windows.Forms.ErrorProvider errorProviderFecha;
     }
 }

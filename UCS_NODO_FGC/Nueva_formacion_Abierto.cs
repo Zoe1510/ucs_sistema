@@ -1705,88 +1705,45 @@ namespace UCS_NODO_FGC
             {
                 if(txtNombreFormacion.Text != "")//siempre y cuando el txt contenga algo, se valida
                 {
+                    formacion.estatus = "En curso"; //predeterminado en esta etapa
+                    formacion.tipo_formacion = "Abierto"; //predeterminado para este form
+                    formacion.nombre_formacion = txtNombreFormacion.Text;
+
+                    errorProviderNombreF.SetError(txtNombreFormacion, "");
+                    
+                    //pero se busca cualquier concordancia de nombre en otros tipos de curso para el paquete instruccional
                     if (conexion.abrirconexion() == true)
                     {
-                        formacion.estatus = "En curso"; //predeterminado en esta etapa
-                        formacion.tipo_formacion = "Abierto"; //predeterminado para este form
-                        formacion.nombre_formacion = txtNombreFormacion.Text;
+                        List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
+                        paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
                         conexion.cerrarconexion();
-                        if (conexion.abrirconexion() == true)
+
+                        if (paqueteExiste.Count != 0)
                         {
-                            int existeReprogramado = 0;
-                            string statusR = "Reprogramado";
-                            existeReprogramado = Clases.Formaciones.CursoOtroStatusExiste(formacion, statusR);
-                            conexion.cerrarconexion();
 
-                            if (existeReprogramado != 0)//Si existe curso reprogramado
+                            List<int> IdDistintos = new List<int>();
+                            //selecciona solo los números únicos
+                            IdDistintos = paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
+
+                            if (IdDistintos.Count == 1)
                             {
-                                errorProviderNombreF.SetError(txtNombreFormacion, "Ya existe una formacion con este nombre en estado 'Reprogramado'");
-                                txtNombreFormacion.Focus();
-                                vaciarFormacion();
-                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                btnRutaContenido.Enabled = true;
-                                btnRutaPresentacion.Enabled = true;
 
+                                VerPaqueteInst(IdDistintos[0]);
                             }
-                            else
-                            {
-                                errorProviderNombreF.SetError(txtNombreFormacion, "");
 
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    int existeEjecucion = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
-                                    conexion.cerrarconexion();
-
-                                    if (existeEjecucion != 0)
-                                    {
-                                        errorProviderNombreF.SetError(txtNombreFormacion, "Ya existe una formacion con este nombre en estado 'En curso'");
-                                        txtNombreFormacion.Focus();
-                                        vaciarFormacion();
-                                        ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                        btnRutaContenido.Enabled = true;
-                                        btnRutaPresentacion.Enabled = true;
-                                    }
-                                    else
-                                    {
-                                        errorProviderNombreF.SetError(txtNombreFormacion, "");
-                                        //luego de la busqueda en su propio tipo de curso, se podrá añadir el curso
-                                        //pero se busca cualquier concordancia de nombre en otros tipos de curso para el paquete instruccional
-                                        if (conexion.abrirconexion() == true)
-                                        {
-                                            List<Clases.Paquete_instruccional> paqueteExiste =  new List<Clases.Paquete_instruccional>();
-                                            paqueteExiste = Clases.Formaciones.ObtenerPaqueteStatusCursoDistinto(conexion.conexion, formacion);
-                                            conexion.cerrarconexion();
-
-                                            if(paqueteExiste.Count != 0)
-                                            {
-                                              
-                                                List<int> IdDistintos = new List<int>();
-                                                //selecciona solo los números únicos
-                                               IdDistintos= paqueteExiste.Select(x => x.id_pinstruccional).Distinct().ToList();
-                                                
-                                                if(IdDistintos.Count == 1)
-                                                {
-                                                   
-                                                    VerPaqueteInst(IdDistintos[0]);
-                                                }
-                                                
-                                            }else
-                                            {
-                                               
-                                                ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
-                                                btnRutaContenido.Enabled = true;
-                                                btnRutaPresentacion.Enabled = true;
-                                            }
-                                            
-                                        }
-
-                                    }
-                                }
-                            }
                         }
+                        else
+                        {
+
+                            ExisteFormacion = false;//significa que no existe, el usuario podrá establecer su propio paquete instruccional
+                            btnRutaContenido.Enabled = true;
+                            btnRutaPresentacion.Enabled = true;
+                        }
+
                     }
+                    
                 }
-               
+
             }
             catch (MySqlException ex)
             {

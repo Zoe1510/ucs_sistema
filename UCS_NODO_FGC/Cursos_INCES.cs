@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -82,6 +83,7 @@ namespace UCS_NODO_FGC
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            Curso_IN.In = 1;
             Registrar_INCES ince = new Registrar_INCES();
             ince.ShowDialog();
             refrescar();
@@ -248,6 +250,7 @@ namespace UCS_NODO_FGC
 
         private void btnAsignarCurso_Click(object sender, EventArgs e)
         {
+            Curso_IN.In = 1;
             Asignar_INCE asignar = new Asignar_INCE();
             asignar.ShowDialog();
             refrescar();

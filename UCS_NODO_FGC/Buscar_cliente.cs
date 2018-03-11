@@ -416,6 +416,8 @@ namespace UCS_NODO_FGC
                             ModE.ShowDialog();
                             cmbxEmpresa.SelectedIndex = -1;
                             refrescar();
+                            string a = "";
+                            llenarcombo(a);
                             Clases.Paneles.VaciarClienteSeleccionado();
                             dgvAreasEmpresa.ClearSelection();
                         }

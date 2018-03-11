@@ -84,7 +84,7 @@
             this.groupBox1.Location = new System.Drawing.Point(261, 139);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(602, 217);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos empresa";
             // 
@@ -130,6 +130,7 @@
             this.cmbxFee.Name = "cmbxFee";
             this.cmbxFee.Size = new System.Drawing.Size(310, 27);
             this.cmbxFee.TabIndex = 2;
+            this.cmbxFee.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxFee_Validating);
             // 
             // txtNombreArea
             // 
@@ -254,7 +255,7 @@
             this.groupBox2.Location = new System.Drawing.Point(261, 378);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(602, 214);
-            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos contacto";
             // 
