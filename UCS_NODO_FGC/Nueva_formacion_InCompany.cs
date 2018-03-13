@@ -723,6 +723,10 @@ namespace UCS_NODO_FGC
 
         private void CargarDatosEtapaUno()
         {
+            formacion.nombre_formacion = Cursos.nombre_formacion13;
+            formacion.solicitado = Cursos.solicitud_formacion13;
+            formacion.duracion = Cursos.duracion_formacion13;
+            formacion.bloque_curso = Cursos.bloque_curso13;
 
             deshabiltarControlesBasico();
             //carga el nombre
@@ -799,8 +803,34 @@ namespace UCS_NODO_FGC
                 manual = Cursos.p_manual;
                 btnVerManual.Enabled = true;
             }
-            evaluarAFI();
 
+            //para cargar el cmbxfa
+            AFI.id_AFI = 0;
+            formacion.nombre_formacion = txtNombreFormacion.Text;
+            //verificar si el curso etá registrado en cursos_afi para seleccionar a los facilitadores que pueden realizar ese curso.
+            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + formacion.nombre_formacion + "'");
+            if (id.Read())
+            {
+                AFI.id_AFI = Convert.ToInt32(id["id_curso_afi"]);
+            }
+            id.Close();
+            if (AFI.id_AFI != 0) //si el curso está registrado: se seleccionan los id de facilitadores y se quitan del comboboxFa los que no estén asignados a esa formación.
+            {
+
+                MySqlDataReader cof = Conexion.ConsultarBD("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='" + AFI.id_AFI + "'");
+                while (cof.Read())
+                {
+                    Facilitador_todos f = new Facilitador_todos();
+                    f.nombre_facilitador = cof["nombre_fa"].ToString();
+                    f.apellido_facilitador = cof["apellido_fa"].ToString();
+                    f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
+
+                    cmbxFa.Items.Add(f.nombreyapellido1);
+
+                }
+                cof.Close();
+                
+            }
         }
         private void CargarDatosEtapaDos()
         {
@@ -827,28 +857,31 @@ namespace UCS_NODO_FGC
             if(Cursos.bloque_curso13 == "2")
             {
                 dtpSegundaFecha.Value = Convert.ToDateTime(Cursos.fecha_dos13);
-            }else
+
+                time.fechaDos_curso = Cursos.fecha_dos13;
+            }
+            else
             {
                 dtpSegundaFecha.Enabled = false;
             }
 
-            int id_curs = 0;
-            string nombre_curso = txtNombreFormacion.Text;
-            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + nombre_curso + "'");
-            if (id.Read())
-            {
-                id_curs = Convert.ToInt32(id["id_curso_afi"]);
-            }
-            id.Close();
+            //int id_curs = 0;
+            //string nombre_curso = txtNombreFormacion.Text;
+            //MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + nombre_curso + "'");
+            //if (id.Read())
+            //{
+            //    id_curs = Convert.ToInt32(id["id_curso_afi"]);
+            //}
+            //id.Close();
 
             //List<Facilitador_todos> lf = new List<Facilitador_todos>();
-            //lf= Paneles.LlenarCmbxfa_AFI(id_curs);
-            //for(int i=0; i<lf.Count; i++)
-            //    {
-            //        cmbxFa.Items.Add(lf[i].nombreyapellido1);
-            //    }
+            //lf = Paneles.LlenarCmbxfa_AFI(id_curs);
+            //for (int i = 0; i < lf.Count; i++)
+            //{
+            //    cmbxFa.Items.Add(lf[i].nombreyapellido1);
+            //}
 
-            evaluarAFI();
+
 
             //seleccionar facilitador encargado del curso 
             int id_fa = 0, co_fa=0;
@@ -872,7 +905,10 @@ namespace UCS_NODO_FGC
                 fcombo.correo_facilitador = nom["correo_fa"].ToString();
                 fcombo.tlfn_facilitador = nom["tlfn_fa"].ToString();
                 fcombo.nombreyapellido1 = fcombo.nombre_facilitador + " " + fcombo.apellido_facilitador;
-                
+
+                cmbxFa.Text = fcombo.nombreyapellido1;
+                txtCorreoFa.Text = fcombo.correo_facilitador;
+                txtTlfnFa.Text = fcombo.tlfn_facilitador;
             }
             nom.Close();
             //recorremos el comboboxFa
@@ -885,9 +921,7 @@ namespace UCS_NODO_FGC
             //        txtTlfnFa.Text = fcombo.tlfn_facilitador;
             //    }
             //}
-            cmbxFa.Text = fcombo.nombreyapellido1;
-            txtCorreoFa.Text = fcombo.correo_facilitador;
-            txtTlfnFa.Text = fcombo.tlfn_facilitador;
+           
 
             //evaluar si esa formacion tiene co facilitador
             if (co_fa != 0)
@@ -909,12 +943,20 @@ namespace UCS_NODO_FGC
                 txtCorreoCoFa.Text = cf.correo_facilitador;
                 txtTlfnCoFa.Text = cf.tlfn_facilitador;
                 chkbCoFacilitador.Checked=true;
-            }else
+
+                Cofa.id_facilitador = co_fa;
+            }
+            else
             {
                 chkbCoFacilitador.Checked = false;
             }
-             
+
+            formacion.ubicacion_ucs = Cursos.ubicacion_ucs;
+            formacion.tiene_ref = Cursos.tiene_ref;
+            time.fecha_curso = Cursos.fecha_uno13; 
+            fa.id_facilitador = id_fa;
             
+
         }
         private void CargarDatosEtapaTres()
         {
@@ -922,11 +964,11 @@ namespace UCS_NODO_FGC
 
             CargarDatosEtapaDos();
             deshabilitarControlesAvanzado();
-            MessageBox.Show(Cursos.horario1+" :Horario1");
+
             cmbxHorarios.Text = Cursos.horario1;
             txtAula.Text = Cursos.aula1;
-
-            if(Cursos.tiene_ref == "Si")
+            MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAula.Text +" :aula " );
+            if (Cursos.tiene_ref == "Si")
             {
                 cmbxTipoRefrigerio.Text = Cursos.tipo_ref1;
                 if(Cursos.tipo_ref2 != "No aplica")
@@ -960,7 +1002,7 @@ namespace UCS_NODO_FGC
             }else
             {
                 cmbxHorario2.SelectedIndex = -1;
-                txtSegundaAula.Clear();
+                txtSegundaAula.Text = Cursos.aula2;
                 rdbSiIgualHorario.Checked = false;
                 rdbNoIgualHorario.Checked = false;
                 rdbSiMantenerAula.Checked = false;
@@ -976,9 +1018,9 @@ namespace UCS_NODO_FGC
             }
             ins.Close();
             //recorrer el datagridview y buscar igualdades para luego marcar el check
-            foreach (DataGridViewRow row in dgvInsumos.Rows)
-            {                
-                for (int i = 0; i<lista_insumo.Count; i++)
+            for (int i = 0; i < lista_insumo.Count; i++) 
+            {
+                foreach (DataGridViewRow row in dgvInsumos.Rows)
                 {
                     string celda = Convert.ToString(row.Cells["insumno"].Value);
                     if (celda == lista_insumo[i])
@@ -3185,17 +3227,18 @@ namespace UCS_NODO_FGC
                 {
                     llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
                 }
-
+                MessageBox.Show(fa.id_facilitador + " idFa ");
             }
             else
             {
-                int id = 0;
+                fa.id_facilitador = 0;
                 MySqlDataReader cnom = Conexion.ConsultarBD("select * from facilitadores where nombre_apellido='" + cmbxFa.Text + "'");
                 if (cnom.Read())
                 {
-                    id = Convert.ToInt32(cnom["id_fa"]);
+                    fa.id_facilitador = Convert.ToInt32(cnom["id_fa"]);
                 }
-                llenarComboCOFA_AFI(AFI.id_AFI, id);
+                llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
+                MessageBox.Show(fa.id_facilitador + " idFa ");
                 
 
             }

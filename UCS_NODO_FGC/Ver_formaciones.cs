@@ -353,6 +353,7 @@ namespace UCS_NODO_FGC
                 llenardatos();
                 Vista_Formacion verf = new Vista_Formacion();
                 verf.ShowDialog();
+                vaciardatos();
             }
             else
             {
@@ -392,6 +393,7 @@ namespace UCS_NODO_FGC
                         Nueva_formacion_FEE fee = new Nueva_formacion_FEE();
                         fee.ShowDialog();
                     }
+                    vaciardatos();
                 }
                 
             }
@@ -470,6 +472,13 @@ namespace UCS_NODO_FGC
                                 Cursos.tipo_ref1 = "No aplica";
                                 Cursos.tipo_ref2 = "No aplica";
                                 Cursos.horario2 = "No aplica";
+
+                                MySqlDataReader aulas = Conexion.ConsultarBD("select aula_dia1, aula_dia2 from cursos where id_cursos='" + formaciones.id_curso + "'");
+                                if (aulas.Read())
+                                {
+                                    Cursos.aula1 = Convert.ToString(aulas["aula_dia1"]);                                  
+                                }
+                                aulas.Close();
                                 //lo que se puede buscar en este caso: horario 1 y aula 1
                             }
                             else if (formaciones.bloque_curso == "2")
@@ -579,7 +588,34 @@ namespace UCS_NODO_FGC
                 leer.Close();
 
             }
-           // MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tipo_ref1+Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
+           MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
+        }
+        private void vaciardatos()
+        {
+            Cursos.nombre_formacion13 = "";
+            Cursos.estatus_formacion13 = "";
+            Cursos.id_curso13 =0;
+            Cursos.solicitud_formacion13 = "";
+            Cursos.nombreCreador_formacion13 ="";
+            Cursos.tipo_formacion13 = "";
+            Cursos.etapa_formacion13 = 0;
+            Cursos.id_user13 = 0;
+            Cursos.duracion_formacion13 = "";
+            Cursos.bloque_curso13 = "";
+            Cursos.tiene_ref = "";
+            Cursos.ubicacion_ucs ="";
+            Cursos.p_contenido = "";
+            Cursos.p_presentacion ="";
+            Cursos.p_manual ="";
+            Cursos.p_bitacora ="";
+            Cursos.aula1 = "";
+            Cursos.aula2 = "";
+            Cursos.tipo_ref1 = "";
+            Cursos.tipo_ref2 = "";
+            Cursos.horario1 = "";
+            Cursos.horario2 = "";
+            Cursos.fecha_uno13 = "";
+            Cursos.fecha_dos13 = "";
         }
     }
 }
