@@ -365,7 +365,7 @@ namespace UCS_NODO_FGC
         /* ------------- Metodos -------------------*/
         private void Controles_nivel_intermedio_EstatusInicial()
         {
-            gpbRefrigerio.Enabled = false;
+            gpbRefrigerio.Enabled = true;
             gpbFecha.Enabled = true;
             gpbSegundaFecha.Enabled = false;
             gpbDifusion.Enabled = true;

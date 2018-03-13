@@ -554,7 +554,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(53, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(913, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -931,6 +931,7 @@
             // 
             // btnCorreoFacilitador
             // 
+            this.btnCorreoFacilitador.Enabled = false;
             this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnCorreoFacilitador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
             this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -944,6 +945,7 @@
             // 
             // btnCorreoComercializacion
             // 
+            this.btnCorreoComercializacion.Enabled = false;
             this.btnCorreoComercializacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
             this.btnCorreoComercializacion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
             this.btnCorreoComercializacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
