@@ -254,18 +254,22 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Facilitador_todos> lista = new List<Facilitador_todos>();
-            MySqlCommand comando = new MySqlCommand(String.Format("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='{0}'", id_Curso), con2.conexion);
-
-            MySqlDataReader cof = comando.ExecuteReader();
-            while (cof.Read())
+            if (con2.abrirconexion() == true)
             {
-                Facilitador_todos f = new Facilitador_todos();
-                f.nombre_facilitador = cof["nombre_fa"].ToString();
-                f.apellido_facilitador = cof["apellido_fa"].ToString();
-                f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
-                lista.Add(f);
+                MySqlCommand comando = new MySqlCommand(String.Format("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='{0}'", id_Curso), con2.conexion);
 
+                MySqlDataReader cof = comando.ExecuteReader();
+                while (cof.Read())
+                {
+                    Facilitador_todos f = new Facilitador_todos();
+                    f.nombre_facilitador = cof["nombre_fa"].ToString();
+                    f.apellido_facilitador = cof["apellido_fa"].ToString();
+                    f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
+                    lista.Add(f);
+
+                }
             }
+            con2.cerrarconexion();
             return lista;
         }
         public static List<Facilitador_todos> LlenarCmbxCoFa(int id_fa)
@@ -282,7 +286,9 @@ namespace UCS_NODO_FGC.Clases
                     lista.Add(fa_todos(leer));
                 }
             }
+            
             return lista;
+
         }
         public static List<Refrigerios> llenarcmbx2Ref(int id_ref)
         {
@@ -298,6 +304,7 @@ namespace UCS_NODO_FGC.Clases
                     lista.Add(refrig(leer));
                 }
             }
+            con2.cerrarconexion();
             return lista;
 
 

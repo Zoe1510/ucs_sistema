@@ -2360,7 +2360,7 @@ namespace UCS_NODO_FGC
                     }
                     else
                     {
-                        MessageBox.Show(fa_disponible.ToString());
+                        
                         errorProviderPresentacion.SetError(cmbxFa, "");
                         if (conexion.abrirconexion() == true)
                         {

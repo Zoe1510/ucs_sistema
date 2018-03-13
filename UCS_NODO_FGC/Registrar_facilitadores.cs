@@ -388,6 +388,7 @@ namespace UCS_NODO_FGC
                         facilitadores.apellido_facilitador = txtApellidoFa.Text;
                         facilitadores.correo_facilitador = txtCorreoFa.Text;
                         facilitadores.tlfn_facilitador = txtTelefonoFa.Text;
+                        facilitadores.nombreyapellido = facilitadores.nombre_facilitador + " " + facilitadores.apellido_facilitador;
                         string edo = Convert.ToString(cmbUbicacionEdo.SelectedIndex);
                         seleccionarEdo(edo);
                         nacionalidad = Convert.ToString(cmbNacionalidad.SelectedIndex);

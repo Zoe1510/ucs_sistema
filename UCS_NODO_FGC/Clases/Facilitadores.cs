@@ -47,7 +47,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarFacilitador(MySqlConnection conexion, Facilitadores facilitador)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO facilitadores ( cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", facilitador.ci_facilitador, facilitador.nacionalidad_fa, facilitador.nombre_facilitador,facilitador.apellido_facilitador, facilitador.tlfn_facilitador, facilitador.correo_facilitador, facilitador.ubicacion_facilitador, facilitador.especialidad_facilitador, facilitador.requerimiento_ince), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO facilitadores ( cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces, nombre_apellido) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}')", facilitador.ci_facilitador, facilitador.nacionalidad_fa, facilitador.nombre_facilitador,facilitador.apellido_facilitador, facilitador.tlfn_facilitador, facilitador.correo_facilitador, facilitador.ubicacion_facilitador, facilitador.especialidad_facilitador, facilitador.requerimiento_ince, facilitador.nombreyapellido), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
@@ -99,7 +99,7 @@ namespace UCS_NODO_FGC.Clases
         public static int ActualizarFa (MySqlConnection conexion, Facilitadores fa)
         {
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE facilitadores SET  nombre_fa='{1}', apellido_fa='{2}', tlfn_fa='{3}', correo_fa='{4}', ubicacion_fa='{5}', especialidad_fa='{6}', cedula_fa='{7}', nacionalidad_fa='{8}', requerimiento_inces='{9}'  WHERE id_fa='{0}' ", fa.id_facilitador, fa.nombre_facilitador, fa.apellido_facilitador, fa.tlfn_facilitador, fa.correo_facilitador, fa.ubicacion_facilitador, fa.especialidad_facilitador, fa.ci_facilitador, fa.nacionalidad_fa, fa.requerimiento_ince), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE facilitadores SET  nombre_fa='{1}', apellido_fa='{2}', tlfn_fa='{3}', correo_fa='{4}', ubicacion_fa='{5}', especialidad_fa='{6}', cedula_fa='{7}', nacionalidad_fa='{8}', requerimiento_inces='{9}', nombre_apellido='{10}'  WHERE id_fa='{0}' ", fa.id_facilitador, fa.nombre_facilitador, fa.apellido_facilitador, fa.tlfn_facilitador, fa.correo_facilitador, fa.ubicacion_facilitador, fa.especialidad_facilitador, fa.ci_facilitador, fa.nacionalidad_fa, fa.requerimiento_ince, fa.nombreyapellido), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
