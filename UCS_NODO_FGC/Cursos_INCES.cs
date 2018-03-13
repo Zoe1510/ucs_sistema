@@ -125,6 +125,7 @@ namespace UCS_NODO_FGC
             dgvInce.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     buscar = "";
@@ -181,6 +182,7 @@ namespace UCS_NODO_FGC
                 if (cmbxCurso.SelectedIndex != -1)
                 {
                     errorProvidercmbx.SetError(cmbxCurso, "");
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         buscar = Clases.INCES.SeleccionarNombreCurso(conexion.conexion, ince.id_cursoINCE);

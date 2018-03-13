@@ -71,6 +71,7 @@
             this.cmbxCurso.Size = new System.Drawing.Size(232, 25);
             this.cmbxCurso.TabIndex = 79;
             this.cmbxCurso.SelectionChangeCommitted += new System.EventHandler(this.cmbxCurso_SelectionChangeCommitted);
+            this.cmbxCurso.Leave += new System.EventHandler(this.cmbxCurso_Leave);
             this.cmbxCurso.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCurso_Validating);
             // 
             // label2

@@ -87,6 +87,7 @@
             this.picFotoUser = new System.Windows.Forms.PictureBox();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.btnFrmVerCursosAFI = new System.Windows.Forms.Button();
             this.pnlPanelBordeVentana.SuspendLayout();
             this.pnlPanelContenedorMenu.SuspendLayout();
             this.pnlPanelCuerpoMenu.SuspendLayout();
@@ -117,7 +118,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1385, 0);
+            this.panel2.Location = new System.Drawing.Point(1377, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1, 730);
             this.panel2.TabIndex = 2;
@@ -128,7 +129,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(1, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1384, 1);
+            this.panel3.Size = new System.Drawing.Size(1376, 1);
             this.panel3.TabIndex = 3;
             // 
             // panel4
@@ -137,7 +138,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(1, 729);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1384, 1);
+            this.panel4.Size = new System.Drawing.Size(1376, 1);
             this.panel4.TabIndex = 4;
             // 
             // pnlPanelBordeVentana
@@ -149,7 +150,7 @@
             this.pnlPanelBordeVentana.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPanelBordeVentana.Location = new System.Drawing.Point(1, 1);
             this.pnlPanelBordeVentana.Name = "pnlPanelBordeVentana";
-            this.pnlPanelBordeVentana.Size = new System.Drawing.Size(1384, 25);
+            this.pnlPanelBordeVentana.Size = new System.Drawing.Size(1376, 25);
             this.pnlPanelBordeVentana.TabIndex = 7;
             // 
             // btn_minimizar
@@ -191,7 +192,7 @@
             this.pnlPanelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPanelDisplay.Location = new System.Drawing.Point(246, 26);
             this.pnlPanelDisplay.Name = "pnlPanelDisplay";
-            this.pnlPanelDisplay.Size = new System.Drawing.Size(1139, 703);
+            this.pnlPanelDisplay.Size = new System.Drawing.Size(1131, 703);
             this.pnlPanelDisplay.TabIndex = 10;
             this.pnlPanelDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPanelDisplay_Paint);
             // 
@@ -238,12 +239,13 @@
             // 
             // pnlBtnLogistica
             // 
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosAFI);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosInces);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerInsumos);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerPublicidad);
             this.pnlBtnLogistica.Controls.Add(this.btnFrmVerRefrigerios);
             this.pnlBtnLogistica.Controls.Add(this.btnLogistica);
-            this.pnlBtnLogistica.Location = new System.Drawing.Point(0, 246);
+            this.pnlBtnLogistica.Location = new System.Drawing.Point(0, 247);
             this.pnlBtnLogistica.Name = "pnlBtnLogistica";
             this.pnlBtnLogistica.Size = new System.Drawing.Size(219, 48);
             this.pnlBtnLogistica.TabIndex = 18;
@@ -969,11 +971,28 @@
             this.rsLineaSeparadora.Name = "rsLineaSeparadora";
             this.rsLineaSeparadora.Size = new System.Drawing.Size(198, 1);
             // 
+            // btnFrmVerCursosAFI
+            // 
+            this.btnFrmVerCursosAFI.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerCursosAFI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerCursosAFI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerCursosAFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerCursosAFI.Image = global::UCS_NODO_FGC.Properties.Resources.icon_formaciones;
+            this.btnFrmVerCursosAFI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerCursosAFI.Location = new System.Drawing.Point(3, 265);
+            this.btnFrmVerCursosAFI.Name = "btnFrmVerCursosAFI";
+            this.btnFrmVerCursosAFI.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerCursosAFI.TabIndex = 15;
+            this.btnFrmVerCursosAFI.Text = "      Cursos A.F.I.";
+            this.btnFrmVerCursosAFI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerCursosAFI.UseVisualStyleBackColor = true;
+            this.btnFrmVerCursosAFI.Click += new System.EventHandler(this.btnFrmVerCursosAFI_Click);
+            // 
             // Pagina_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 730);
+            this.ClientSize = new System.Drawing.Size(1378, 730);
             this.Controls.Add(this.pnlPanelDisplay);
             this.Controls.Add(this.pnlPanelContenedorMenu);
             this.Controls.Add(this.pnlPanelBordeVentana);
@@ -1066,5 +1085,6 @@
         private System.Windows.Forms.Button btnFrmAddINCES;
         private System.Windows.Forms.Button btnFrmVerCursosInces;
         private System.Windows.Forms.Button btnFrmVerInsumos;
+        private System.Windows.Forms.Button btnFrmVerCursosAFI;
     }
 }

@@ -141,7 +141,7 @@ namespace UCS_NODO_FGC
             else
             {
 
-                pnlBtnReportes.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 261);
+                pnlBtnReportes.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 316);
             }
             //boton fromatos
             if (pnlBtnReportes.Height == 162)
@@ -324,7 +324,7 @@ namespace UCS_NODO_FGC
         {
             if (pnlBtnLogistica.Height == 48)
             {
-                pnlBtnLogistica.Height = 260;
+                pnlBtnLogistica.Height = 315;
                 btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
                 btnReportes.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
@@ -520,6 +520,11 @@ namespace UCS_NODO_FGC
         private void btnFrmVerReporte_Click(object sender, EventArgs e)
         {
             AddFormInPanel(new Ver_reportes());
+        }
+
+        private void btnFrmVerCursosAFI_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Cursos_AFI());
         }
     }
 }

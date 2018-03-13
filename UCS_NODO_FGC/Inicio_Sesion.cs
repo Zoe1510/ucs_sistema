@@ -93,7 +93,7 @@ namespace UCS_NODO_FGC
         {
             List<Formaciones> lista = new List<Formaciones>();
             string hoy = DateTime.Today.ToString("yyyy-MM-dd");
-            
+            List<int> lista_reprogramados = new List<int>();
             //aqui se actualizará el estatus de los cursos (a Finalizado) cuyas fechas hayan pasado (que sean inferiores a la actual).
             MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
             while (leer.Read())
@@ -103,6 +103,16 @@ namespace UCS_NODO_FGC
                 lista.Add(f);
             }
             leer.Close();
+
+            MySqlDataReader leerR = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='2' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
+            while (leerR.Read())
+            {
+                int f = 0;
+                f= Convert.ToInt32(leerR["id_cursos"]);
+                lista_reprogramados.Add(f);
+            }
+            leerR.Close();
+
             for (int i = 0; i < lista.Count; i++)
             {
                 MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
@@ -110,6 +120,13 @@ namespace UCS_NODO_FGC
                
             }
             lista.Clear();
+
+            for(int i =0; i< lista_reprogramados.Count; i++)
+            {
+                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista_reprogramados[i] + "'");
+                cambiar.Close();
+            }
+            lista_reprogramados.Clear();
             //si el curso está en etapa 2 mostrar aviso para escoger el aula y la disposicion de la misma (de acuerdo al facilitador) 
 
             //también se evaluará 1 dia si es el día anterior a una formación (para la validación con el facilitador) --> mostrar aviso

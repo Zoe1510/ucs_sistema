@@ -153,6 +153,7 @@
             this.btnEliminarCurso.ForeColor = System.Drawing.SystemColors.Control;
             this.btnEliminarCurso.Name = "btnEliminarCurso";
             this.btnEliminarCurso.UseVisualStyleBackColor = false;
+            this.btnEliminarCurso.Click += new System.EventHandler(this.btnEliminarCurso_Click);
             // 
             // btnAsignarCurso
             // 
@@ -163,6 +164,7 @@
             this.btnAsignarCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAsignarCurso.Name = "btnAsignarCurso";
             this.btnAsignarCurso.UseVisualStyleBackColor = false;
+            this.btnAsignarCurso.Click += new System.EventHandler(this.btnAsignarCurso_Click);
             // 
             // btnModificarCurso
             // 
@@ -173,6 +175,7 @@
             this.btnModificarCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnModificarCurso.Name = "btnModificarCurso";
             this.btnModificarCurso.UseVisualStyleBackColor = false;
+            this.btnModificarCurso.Click += new System.EventHandler(this.btnModificarCurso_Click);
             // 
             // btnAgregar
             // 
@@ -194,6 +197,7 @@
             this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnEliminarAsignacion
             // 
@@ -204,6 +208,7 @@
             this.btnEliminarAsignacion.ForeColor = System.Drawing.SystemColors.Control;
             this.btnEliminarAsignacion.Name = "btnEliminarAsignacion";
             this.btnEliminarAsignacion.UseVisualStyleBackColor = false;
+            this.btnEliminarAsignacion.Click += new System.EventHandler(this.btnEliminarAsignacion_Click);
             // 
             // grpbDatos
             // 
@@ -220,6 +225,7 @@
             resources.ApplyResources(this.cmbxCurso, "cmbxCurso");
             this.cmbxCurso.FormattingEnabled = true;
             this.cmbxCurso.Name = "cmbxCurso";
+            this.cmbxCurso.SelectionChangeCommitted += new System.EventHandler(this.cmbxCurso_SelectionChangeCommitted);
             // 
             // btnBuscar
             // 
@@ -230,6 +236,7 @@
             this.btnBuscar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grpbData
             // 
@@ -277,6 +284,7 @@
             this.dgvInce.ReadOnly = true;
             this.dgvInce.RowHeadersVisible = false;
             this.dgvInce.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvInce.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvince_MouseClick);
             // 
             // Nombre_curso
             // 

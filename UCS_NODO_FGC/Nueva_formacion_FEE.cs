@@ -16,21 +16,22 @@ namespace UCS_NODO_FGC
 {
     public partial class Nueva_formacion_FEE : Form
     {
+        Curso_AFI AFI = new Curso_AFI();
         Formaciones formacion = new Clases.Formaciones();
         conexion_bd conexion = new Clases.conexion_bd();
         Tiempos_curso time = new Clases.Tiempos_curso();
         Facilitadores fa = new Clases.Facilitadores();
         Facilitadores Cofa = new Clases.Facilitadores();
         Facilitadores faDatos = new Clases.Facilitadores();
+
         Paquete_instruccional p_inst = new Clases.Paquete_instruccional();
+        List<Facilitador_todos> lista = new List<Facilitador_todos>();
+        List<int> lista_id = new List<int>();
 
         bool guardar, ExisteFormacion;
         string presentacion = "";
         string contenido = "";
-        string manual = "";
         string bitacora = "";
-        string bloques = "";
-        string horario;
         int id_refrigerio, id_horario;
 
         DateTime fecha_creacion, FinalE1, FinalE2, FinalE3, inicioE2, inicioE3;
@@ -313,6 +314,93 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private static List<Facilitador_todos> listaCOFA_AFI(int id_curs, int idFA)
+        {
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            MySqlDataReader cof = Conexion.ConsultarBD("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_fa!= '" + idFA + "' AND atf.id_cursos_afi='" + id_curs + "'");
+            while (cof.Read())
+            {
+                Facilitador_todos f = new Facilitador_todos();
+                f.nombre_facilitador = cof["nombre_fa"].ToString();
+                f.apellido_facilitador = cof["apellido_fa"].ToString();
+                f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
+                lista.Add(f);
+
+            }
+            return lista;
+        }
+        private void llenarComboCOFA_AFI(int idC, int idFa)
+        {
+            cmbxCoFa.ValueMember = "id_faci";
+            cmbxCoFa.DisplayMember = "nombreyapellido1";
+            cmbxCoFa.DataSource = listaCOFA_AFI(idC, idFa);
+            cmbxCoFa.SelectedIndex = -1;
+        }
+
+        private void evaluarAFI()
+        {
+            AFI.id_AFI = 0;
+            formacion.nombre_formacion = txtNombreFormacion.Text;
+            //verificar si el curso etá registrado en cursos_afi para seleccionar a los facilitadores que pueden realizar ese curso.
+            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + formacion.nombre_formacion + "'");
+            if (id.Read())
+            {
+                AFI.id_AFI = Convert.ToInt32(id["id_curso_afi"]);
+            }
+            id.Close();
+            if (AFI.id_AFI != 0) //si el curso está registrado: se seleccionan los id de facilitadores y se quitan del comboboxFa los que no estén asignados a esa formación.
+            {
+
+                MySqlDataReader cof = Conexion.ConsultarBD("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='" + AFI.id_AFI + "'");
+                while (cof.Read())
+                {
+                    Facilitador_todos f = new Facilitador_todos();
+                    f.nombre_facilitador = cof["nombre_fa"].ToString();
+                    f.apellido_facilitador = cof["apellido_fa"].ToString();
+                    f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
+                    lista.Add(f);
+
+                }
+
+                cmbxFa.ValueMember = "id_faci";
+                cmbxFa.DisplayMember = "nombreyapellido1";
+                cmbxFa.DataSource = lista;
+                cmbxFa.SelectedIndex = -1;
+            }
+        }
+        private void GuardarAfiE2()
+        {
+            AFI.id_AFI = 0;
+            formacion.nombre_formacion = txtNombreFormacion.Text;
+            //verificar si el curso etá registrado en cursos_afi para seleccionar a los facilitadores que pueden realizar ese curso.
+            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + formacion.nombre_formacion + "'");
+            if (id.Read())
+            {
+                AFI.id_AFI = Convert.ToInt32(id["id_curso_afi"]);
+            }
+            id.Close();
+
+            if (AFI.id_AFI == 0) //si la formacion no está registrada en afi --> se registra la formacion y la asignacion de facilitador
+            {
+                MySqlDataReader add = Conexion.ConsultarBD("INSERT INTO cursos_afi (nombre_curso_afi) VALUES ('" + formacion.nombre_formacion + "')");
+                add.Close();
+                MySqlDataReader idc = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + formacion.nombre_formacion + "'");
+                if (idc.Read())
+                {
+                    AFI.id_AFI = Convert.ToInt32(idc["id_curso_afi"]);
+                }
+                idc.Close();
+                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO afi_tiene_facilitadores (id_cursos_afi, id_fa) VALUES ('" + AFI.id_AFI + "','" + fa.id_facilitador + "' ) ");
+                leer.Close();
+                // si el checkbox esta seleccionado es que tiene co-facilitador
+                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                {
+                    MySqlDataReader leer2 = Conexion.ConsultarBD("INSERT INTO afi_tiene_facilitadores (id_cursos_afi, id_fa) VALUES ('" + AFI.id_AFI + "','" + Cofa.id_facilitador + "' ) ");
+                    leer2.Close();
+                }
+            }
+
+        }
 
         private void GuardarBasico()
         {
@@ -418,6 +506,8 @@ namespace UCS_NODO_FGC
                                                                     conexion.cerrarconexion();
                                                                     if (agregarUGC > 0)
                                                                     {
+                                                                        evaluarAFI(); //para ver si el curso está registrado en afi y modificar los facilitadores mostrados en E2
+                                                                        
                                                                         guardar = true;
                                                                         MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -489,6 +579,8 @@ namespace UCS_NODO_FGC
                                                     conexion.cerrarconexion();
                                                     if (agregarUGC > 0)
                                                     {
+                                                        evaluarAFI(); //para ver si el curso está registrado en afi y modificar los facilitadores mostrados en E2
+
                                                         guardar = true;
                                                         MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                         if (formacion.duracion == "8")
@@ -596,6 +688,8 @@ namespace UCS_NODO_FGC
                                                                 conexion.cerrarconexion();
                                                                 if (agregarUGC > 0)
                                                                 {
+                                                                    evaluarAFI(); //para ver si el curso está registrado en afi y modificar los facilitadores mostrados en E2
+
                                                                     guardar = true;
                                                                     MessageBox.Show("La formación se ha agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                                     if (formacion.duracion == "8")
@@ -743,6 +837,9 @@ namespace UCS_NODO_FGC
                                     //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
                                     MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', duracionE2='" + duracionE2 + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoSegundaEtapa.Close();
+
+                                    GuardarAfiE2(); //evalua again si el curso está registrado en afi, en caso de que no: lo registra.
+
                                     // si el checkbox esta seleccionado es que tiene co-facilitador
                                     if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                     {
@@ -1321,7 +1418,15 @@ namespace UCS_NODO_FGC
         private void cmbxFa_SelectionChangeCommitted(object sender, EventArgs e)
         {
             fa.id_facilitador = Convert.ToInt32(cmbxFa.SelectedValue);
-            llenarComboCoFa(fa.id_facilitador);
+        
+            if (AFI.id_AFI == 0)
+            {
+                llenarComboCoFa(fa.id_facilitador);
+            }
+            else
+            {
+                llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
+            }
         }
 
         private void cmbxFa_Validating(object sender, CancelEventArgs e)

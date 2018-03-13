@@ -26,7 +26,7 @@ namespace UCS_NODO_FGC
 
         private void llenarcombo()
         {
-            //llenar el combobox con las empresas registradas:
+            
             cmbxFacilitador.ValueMember = "id_facilitador";            
             cmbxFacilitador.DisplayMember = "nombreyapellido";
             cmbxFacilitador.DataSource = Clases.Paneles.LlenarComboboxFacilitadoresINCEs();
@@ -41,12 +41,21 @@ namespace UCS_NODO_FGC
                 llenarcombo();
             }else
             {
-
+                llenarcomboTodoFa();
             }
            
             txtNombreCurso.Focus();
         }
-        int id = 0;
+       
+
+        private void llenarcomboTodoFa()
+        {
+           
+            cmbxFacilitador.ValueMember = "id_faci";
+            cmbxFacilitador.DisplayMember = "nombreyapellido1";
+            cmbxFacilitador.DataSource = Paneles.LlenarCmbxFaTodos();
+            cmbxFacilitador.SelectedIndex = -1;
+        }
         private void cmbxFacilitador_SelectionChangeCommitted(object sender, EventArgs e)
         {
             fa.id_facilitador = Convert.ToInt32(cmbxFacilitador.SelectedValue);
@@ -134,11 +143,11 @@ namespace UCS_NODO_FGC
 
                                                 if (conexion.abrirconexion() == true)
                                                 {
-                                                    //verificar que no exista asignacion existente
+                                                    //verificar que no haya asignacion existente
                                                     int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, id_curso, fa.id_facilitador);
                                                     conexion.cerrarconexion();
                                                     //si el id que retorna no es el id_fa, se puede asignar
-                                                    if (asignacion == 0 || asignacion != id)
+                                                    if (asignacion == 0 || asignacion != fa.id_facilitador)
                                                     {
                                                         errorProviderFacilitador.SetError(cmbxFacilitador, "");
                                                         if (conexion.abrirconexion() == true)
@@ -153,7 +162,7 @@ namespace UCS_NODO_FGC
                                                             }
                                                         }
                                                     }
-                                                    else if (asignacion == id)
+                                                    else if (asignacion == fa.id_facilitador)
                                                     {
                                                         errorProviderFacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
                                                         cmbxFacilitador.SelectedIndex = -1;
@@ -180,7 +189,53 @@ namespace UCS_NODO_FGC
                         }
                         else //Si viene reverenciado de CURSOS_AFI
                         {
+                            int id_curs = 0;
+                            string nombre_curso = txtNombreCurso.Text;
+                            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + nombre_curso + "'");
+                            if (id.Read())
+                            {
+                                id_curs = Convert.ToInt32(id["id_curso_afi"]);
+                            }
+                            id.Close();
+                            if(id_curs == 0)
+                            {
+                                MySqlDataReader add = Conexion.ConsultarBD("INSERT INTO cursos_afi (nombre_curso_afi) VALUES ('"+ nombre_curso + "')");
+                                add.Close();
+                                MySqlDataReader idc = Conexion.ConsultarBD("SELECT id_curso_afi from cursos_afi where nombre_curso_afi='" + nombre_curso + "'");
+                                if (idc.Read())
+                                {
+                                    id_curs = Convert.ToInt32(idc["id_curso_afi"]);
+                                }
+                                idc.Close();
+                                int asignacion = 0;
+                                MySqlDataReader asig = Conexion.ConsultarBD("SELECT id_fa FROM afi_tiene_facilitadores WHERE id_fa='"+fa.id_facilitador+"' AND id_cursos_afi='"+id_curs+"'");
+                                if (asig.Read())
+                                {
+                                    asignacion = Convert.ToInt32(asig["id_fa"]);
+                                }
+                                asig.Close();
+                                //si el id que retorna no es el id_fa, se puede asignar
+                                if (asignacion == 0 || asignacion != fa.id_facilitador)
+                                {
+                                    MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO afi_tiene_facilitadores (id_cursos_afi, id_fa) VALUES ('" + id_curs + "','" + fa.id_facilitador + "' ) ");
+                                    leer.Close();
 
+                                    MessageBox.Show("Curso registrado con éxito.", "AVISO", MessageBoxButtons.OK);
+                                    this.Close();
+
+                                }
+                                else if (asignacion == fa.id_facilitador)
+                                {
+                                    errorProviderFacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
+                                    cmbxFacilitador.SelectedIndex = -1;
+                                    cmbxFacilitador.Focus();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Este curso ya se encuentra registrado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtNombreCurso.Clear();
+                            }
                         }
 
                         

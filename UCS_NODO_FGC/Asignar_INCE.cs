@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -16,7 +17,7 @@ namespace UCS_NODO_FGC
         Clases.conexion_bd conexion = new Clases.conexion_bd();
         Clases.INCES ince = new Clases.INCES();
         Clases.Facilitadores fa = new Clases.Facilitadores();
-        
+
         public Asignar_INCE()
         {
             InitializeComponent();
@@ -25,8 +26,16 @@ namespace UCS_NODO_FGC
         private void Asignar_INCE_Load(object sender, EventArgs e)
         {
             cmbxCurso.Focus();
-            llenarcomboCurso();
-            
+            if (Curso_IN.In == 0)
+            {
+                llenarcomboAfi();
+            }
+            else if (Curso_IN.In == 1)
+            {
+
+                llenarcomboCurso();
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -65,35 +74,63 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderfacilitador.SetError(cmbxFacilitador, "");
-                        conexion.cerrarconexion();
-                        if (conexion.abrirconexion() == true)
+                        if (Curso_IN.In == 1)//si viene referenciado de cursos inces
                         {
-                            //verificar que no exista asignacion 
-                            int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, ince.id_cursoINCE, fa.id_facilitador);
                             conexion.cerrarconexion();
+                            if (conexion.abrirconexion() == true)
+                            {
+                                //verificar que no exista asignacion 
+                                int asignacion = Clases.INCES.AsignacionExiste(conexion.conexion, ince.id_cursoINCE, fa.id_facilitador);
+                                conexion.cerrarconexion();
+                                //si el id que retorna no es el id_fa, se puede asignar
+                                if (asignacion == 0 || asignacion != fa.id_facilitador)
+                                {
+
+                                    if (conexion.abrirconexion() == true)
+                                    {
+                                        //asignando curso a facilitador
+                                        int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion, fa.id_facilitador, ince.id_cursoINCE);
+                                        conexion.cerrarconexion();
+                                        if (asignado > 0)
+                                        {
+                                            MessageBox.Show("Curso asignado con éxito.", "AVISO", MessageBoxButtons.OK);
+                                            this.Close();
+                                        }
+                                    }
+                                }
+                                else if (asignacion == fa.id_facilitador)
+                                {
+                                    errorProviderfacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
+                                    cmbxFacilitador.SelectedIndex = -1;
+                                    cmbxFacilitador.Focus();
+                                }
+                            }
+                        }else //si viene referenciado desde cursos_afi
+                        {
+                            int asignacion = 0;
+                            MySqlDataReader asig = Conexion.ConsultarBD("SELECT id_fa FROM afi_tiene_facilitadores WHERE id_fa='" + fa.id_facilitador + "' AND id_cursos_afi='" + ince.id_cursoINCE + "'");
+                            if (asig.Read())
+                            {
+                                asignacion = Convert.ToInt32(asig["id_fa"]);
+                            }
+                            asig.Close();
                             //si el id que retorna no es el id_fa, se puede asignar
                             if (asignacion == 0 || asignacion != fa.id_facilitador)
                             {
-                                
-                                if (conexion.abrirconexion() == true)
-                                {
-                                    //asignando curso a facilitador
-                                    int asignado = Clases.INCES.AgregarAsignacion(conexion.conexion, fa.id_facilitador, ince.id_cursoINCE);
-                                    conexion.cerrarconexion();
-                                    if (asignado > 0)
-                                    {
-                                        MessageBox.Show("Curso registrado con éxito.", "AVISO", MessageBoxButtons.OK);
-                                        this.Close();
-                                    }
-                                }
+                                MySqlDataReader leer = Conexion.ConsultarBD("INSERT INTO afi_tiene_facilitadores (id_cursos_afi, id_fa) VALUES ('" + ince.id_cursoINCE + "','" + fa.id_facilitador + "' ) ");
+                                leer.Close();
+
+                                MessageBox.Show("Curso asignado con éxito.", "AVISO", MessageBoxButtons.OK);
+                                this.Close();
                             }
                             else if (asignacion == fa.id_facilitador)
                             {
                                 errorProviderfacilitador.SetError(cmbxFacilitador, "El facilitador ya está asignado a este curso.");
                                 cmbxFacilitador.SelectedIndex = -1;
-                                cmbxFacilitador.Focus();                               
+                                cmbxFacilitador.Focus();
                             }
                         }
+                        
 
                     }
                 }
@@ -103,6 +140,21 @@ namespace UCS_NODO_FGC
                 MessageBox.Show("Ha ocurrido una error: " + ex.Message);
             }
         }
+
+        private void llenarcomboAfi()
+        {
+
+            string buscar1 = "";
+            //llenar el combobox con los cursos inces registradas:
+            cmbxCurso.ValueMember = "id_AFI";
+            cmbxCurso.DisplayMember = "nombre_AFI";
+            cmbxCurso.DataSource = Paneles.SeleccionarAFI(buscar1);
+
+            cmbxCurso.SelectedIndex = -1;
+            llenarcomboTodoFa();
+
+        }
+
 
         private void llenarcomboCurso()
         {
@@ -119,14 +171,23 @@ namespace UCS_NODO_FGC
         }
         private void llenarcomboFa()
         {
-            //llenar el combobox con las empresas registradas:
+
             cmbxFacilitador.ValueMember = "id_facilitador";
             cmbxFacilitador.DisplayMember = "nombreyapellido";
             cmbxFacilitador.DataSource = Clases.Paneles.LlenarComboboxFacilitadoresINCEs();
             cmbxFacilitador.SelectedIndex = -1;
 
         }
+        private void llenarcomboTodoFa()
+        {
 
+            cmbxFacilitador.ValueMember = "id_faci";
+            cmbxFacilitador.DisplayMember = "nombreyapellido1";
+            cmbxFacilitador.DataSource = Paneles.LlenarCmbxFaTodos();
+            cmbxFacilitador.SelectedIndex = -1;
+        }
+
+        
         private void cmbxCurso_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ince.id_cursoINCE = Convert.ToInt32(cmbxCurso.SelectedValue);
@@ -159,6 +220,74 @@ namespace UCS_NODO_FGC
             {
                 errorProvidercurso.SetError(cmbxCurso, "");
             }
+        }
+
+        private void cmbxCurso_Leave(object sender, EventArgs e)
+        {
+            
+            List<int> lista_id = new List<int>();
+            if (Curso_IN.In == 0) //si viene referenciado desde cursos AFI
+            {
+                MySqlDataReader nombreSolicitud = Conexion.ConsultarBD("SELECT id_fa FROM afi_tiene_facilitadores WHERE id_cursos_afi= '" + ince.id_cursoINCE + "'");
+                while (nombreSolicitud.Read())
+                {
+                    int n = Convert.ToInt32(nombreSolicitud["id_fa"]);
+                    lista_id.Add(n);
+
+                }
+                nombreSolicitud.Close();
+            }else //si viene de cursos inces
+            {
+                MySqlDataReader inces = Conexion.ConsultarBD("SELECT id_fa_INCE FROM inces_tiene_facilitadores WHERE id_curso_INCE='" + ince.id_cursoINCE + "' ");
+                while (inces.Read())
+                {
+                    int n = Convert.ToInt32(inces["id_fa_INCE"]);
+                    lista_id.Add(n);
+                }
+            }
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            List<Fa_ince> lista1 = new List<Fa_ince>();
+
+            if (Curso_IN.In == 0) //si viene referenciado desde cursos AFI
+            {
+                lista = Paneles.LlenarCmbxFaTodos();
+                for (int x = 0; x < lista_id.Count; x++)
+                {
+
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                        if (lista[i].id_faci == lista_id[x])
+                        {
+                            lista.RemoveAt(i);
+                        }
+                    }
+
+                }
+                cmbxFacilitador.ValueMember = "id_faci";
+                cmbxFacilitador.DisplayMember = "nombreyapellido1";
+                cmbxFacilitador.DataSource = lista;
+                cmbxFacilitador.SelectedIndex = -1;
+            }
+            else
+            {
+                lista1 = Paneles.LlenarComboboxFacilitadoresINCEs();
+
+                for (int x = 0; x < lista_id.Count; x++)
+                {
+                    for (int i = 0; i < lista1.Count; i++)
+                    {
+                        if (lista1[i].id_facilitador == lista_id[x])
+                        {
+                            lista1.RemoveAt(i);
+                        }
+                    }
+                }
+                cmbxFacilitador.ValueMember = "id_facilitador";
+                cmbxFacilitador.DisplayMember = "nombreyapellido";
+                cmbxFacilitador.DataSource = lista1;
+                cmbxFacilitador.SelectedIndex = -1;
+            }
+
         }
     }
 }

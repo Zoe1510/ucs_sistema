@@ -18,7 +18,7 @@ namespace UCS_NODO_FGC
         conexion_bd conexion = new Clases.conexion_bd();
         Curso_AFI afi = new Curso_AFI();
         int retorno = 0;
-        string buscar = "", nombre_curso="";
+        string buscar = "", nombre_curso = "";
         public Cursos_AFI()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace UCS_NODO_FGC
             dgvInce.ClearSelection();
         }
 
-       
+
 
         private void Cursos_AFI_Load(object sender, EventArgs e)
         {
@@ -55,6 +55,7 @@ namespace UCS_NODO_FGC
             dgvInce.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     buscar = "";
@@ -72,32 +73,22 @@ namespace UCS_NODO_FGC
             }
         }
 
-        public List<Curso_AFI> SeleccionarAFI(string b)
-        {
-            List<Curso_AFI> lista = new List<Curso_AFI>();
-            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos_afi WHERE nombre_curso_afi LIKE '"+b+"'");
-            while (leer.Read())
-            {
-                Curso_AFI c = new Curso_AFI();
-                c.id_AFI = Convert.ToInt32(leer["id_curso_afi"]);
-                c.nombre_AFI = Convert.ToString(leer["nombre_curso_afi"]);
-                lista.Add(c);
-            }
-            return lista;
-        }
+
 
         private void llenarcombo()
         {
-
+        
             string buscar1 = "";
             //llenar el combobox con los cursos inces registradas:
             cmbxCurso.ValueMember = "id_AFI";
             cmbxCurso.DisplayMember = "nombre_AFI";
-            cmbxCurso.DataSource =SeleccionarAFI(buscar1);
+            cmbxCurso.DataSource = Paneles.SeleccionarAFI(buscar1);
 
             cmbxCurso.SelectedIndex = -1;
 
         }
+
+
 
         private void CargarDatosTabla(MySqlConnection conexion, string buscar)//filtrado por nombre curso
         {
@@ -299,7 +290,6 @@ namespace UCS_NODO_FGC
                 MessageBox.Show(ex.Message);
                 conexion.cerrarconexion();
             }
-
         }
 
         private void btnEliminarAsignacion_Click(object sender, EventArgs e)

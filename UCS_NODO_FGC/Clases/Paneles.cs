@@ -130,7 +130,24 @@ namespace UCS_NODO_FGC.Clases
             }
         }
 
-       
+        public static List<Curso_AFI> SeleccionarAFI(string b)
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Curso_AFI> lista = new List<Curso_AFI>();
+            if (con2.abrirconexion() == true)
+            {
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_curso_afi, nombre_curso_afi FROM cursos_afi WHERE nombre_curso_afi LIKE ('%{0}%')", b), con2.conexion);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Curso_AFI c = new Curso_AFI();
+                    c.id_AFI = Convert.ToInt32(leer["id_curso_afi"]);
+                    c.nombre_AFI = Convert.ToString(leer["nombre_curso_afi"]);
+                    lista.Add(c);
+                }
+            }
+            return lista;
+        }
         public static List<Empresa> LlenarCombobox(string nombre)//funciona
         {
             conexion_bd con = new conexion_bd();
@@ -215,7 +232,6 @@ namespace UCS_NODO_FGC.Clases
             return lista;
 
         }
-
         
         public static List<Facilitador_todos> LlenarCmbxFaTodos()
         {
@@ -230,6 +246,25 @@ namespace UCS_NODO_FGC.Clases
 
                     lista.Add(fa_todos(leer));
                 }
+            }
+            return lista;
+        }
+
+        public static List<Facilitador_todos> LlenarCmbxfa_AFI(int id_Curso)
+        {
+            conexion_bd con2 = new conexion_bd();
+            List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            MySqlCommand comando = new MySqlCommand(String.Format("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='{0}'", id_Curso), con2.conexion);
+
+            MySqlDataReader cof = comando.ExecuteReader();
+            while (cof.Read())
+            {
+                Facilitador_todos f = new Facilitador_todos();
+                f.nombre_facilitador = cof["nombre_fa"].ToString();
+                f.apellido_facilitador = cof["apellido_fa"].ToString();
+                f.nombreyapellido1 = f.nombre_facilitador + " " + f.apellido_facilitador;
+                lista.Add(f);
+
             }
             return lista;
         }
