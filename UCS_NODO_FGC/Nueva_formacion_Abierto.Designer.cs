@@ -98,8 +98,8 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCorreoFacilitador = new System.Windows.Forms.Button();
+            this.btnCorreoComercializacion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
             this.txtCorreoCoFa = new System.Windows.Forms.TextBox();
@@ -527,8 +527,8 @@
             this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.gpbSegundaFecha);
-            this.pnlNivel_intermedio.Controls.Add(this.button2);
-            this.pnlNivel_intermedio.Controls.Add(this.button1);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoFacilitador);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoComercializacion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbCoFa);
@@ -554,7 +554,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(919, 612);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(53, 612);
             this.pnlNivel_basico.TabIndex = 76;
             // 
             // groupBox5
@@ -929,31 +929,31 @@
             this.label31.TabIndex = 49;
             this.label31.Text = "Segunda fecha:";
             // 
-            // button2
+            // btnCorreoFacilitador
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(705, 550);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 43);
-            this.button2.TabIndex = 75;
-            this.button2.Text = "Formatos a facilitador";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoFacilitador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoFacilitador.Location = new System.Drawing.Point(705, 550);
+            this.btnCorreoFacilitador.Name = "btnCorreoFacilitador";
+            this.btnCorreoFacilitador.Size = new System.Drawing.Size(193, 43);
+            this.btnCorreoFacilitador.TabIndex = 75;
+            this.btnCorreoFacilitador.Text = "Formatos a facilitador";
+            this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCorreoComercializacion
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.button1.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(497, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 43);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Enviar a administración";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCorreoComercializacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoComercializacion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoComercializacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoComercializacion.Location = new System.Drawing.Point(497, 550);
+            this.btnCorreoComercializacion.Name = "btnCorreoComercializacion";
+            this.btnCorreoComercializacion.Size = new System.Drawing.Size(202, 43);
+            this.btnCorreoComercializacion.TabIndex = 43;
+            this.btnCorreoComercializacion.Text = "Enviar a administración";
+            this.btnCorreoComercializacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoComercializacion.UseVisualStyleBackColor = true;
             // 
             // chkbCoFacilitador
             // 
@@ -1959,7 +1959,7 @@
         private System.Windows.Forms.TextBox txtAulaSeleccionada;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Panel pnlNivel_intermedio;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCorreoComercializacion;
         private System.Windows.Forms.CheckBox chkbCoFacilitador;
         private System.Windows.Forms.GroupBox gpbDatosCoFa;
         private System.Windows.Forms.TextBox txtCorreoCoFa;
@@ -2001,7 +2001,7 @@
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.DataGridView dgvInsumos;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCorreoFacilitador;
         private System.Windows.Forms.GroupBox gpbSegundaFecha;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.DateTimePicker dtpSegundaFecha;

@@ -94,7 +94,7 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnCorreoFacilitador = new System.Windows.Forms.Button();
-            this.btnInformacionAdministracion = new System.Windows.Forms.Button();
+            this.btnCorreoAdministracion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
             this.txtCorreoCoFa = new System.Windows.Forms.TextBox();
@@ -510,7 +510,7 @@
             this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.btnCorreoFacilitador);
-            this.pnlNivel_intermedio.Controls.Add(this.btnInformacionAdministracion);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoAdministracion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
             this.pnlNivel_intermedio.Controls.Add(this.gpbCoFa);
@@ -536,7 +536,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(65, 615);
             this.pnlNivel_basico.TabIndex = 78;
             // 
             // groupBox4
@@ -925,19 +925,19 @@
             this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
             // 
-            // btnInformacionAdministracion
+            // btnCorreoAdministracion
             // 
-            this.btnInformacionAdministracion.Enabled = false;
-            this.btnInformacionAdministracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.btnInformacionAdministracion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.btnInformacionAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInformacionAdministracion.Location = new System.Drawing.Point(500, 549);
-            this.btnInformacionAdministracion.Name = "btnInformacionAdministracion";
-            this.btnInformacionAdministracion.Size = new System.Drawing.Size(202, 43);
-            this.btnInformacionAdministracion.TabIndex = 76;
-            this.btnInformacionAdministracion.Text = "Enviar a administración";
-            this.btnInformacionAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInformacionAdministracion.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministracion.Enabled = false;
+            this.btnCorreoAdministracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoAdministracion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoAdministracion.Location = new System.Drawing.Point(500, 549);
+            this.btnCorreoAdministracion.Name = "btnCorreoAdministracion";
+            this.btnCorreoAdministracion.Size = new System.Drawing.Size(202, 43);
+            this.btnCorreoAdministracion.TabIndex = 76;
+            this.btnCorreoAdministracion.Text = "Enviar a administración";
+            this.btnCorreoAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoAdministracion.UseVisualStyleBackColor = true;
             // 
             // chkbCoFacilitador
             // 
@@ -1729,7 +1729,7 @@
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button btnCorreoFacilitador;
-        private System.Windows.Forms.Button btnInformacionAdministracion;
+        private System.Windows.Forms.Button btnCorreoAdministracion;
         private System.Windows.Forms.Panel pnlNivel_basico;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnRutaBitacora;
