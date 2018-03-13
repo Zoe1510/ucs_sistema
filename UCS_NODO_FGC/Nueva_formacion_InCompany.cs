@@ -2059,72 +2059,130 @@ namespace UCS_NODO_FGC
         private void btnSiguienteEtapa_Click(object sender, EventArgs e)
         {
             guardar = false;
-            //cuando Siguiente etapa, quita el panel actual
-            if (pnlNivel_basico.Visible == true)
-            {
-                if(Formaciones.creacion == true)
+
+            if (Formaciones.creacion == true)
+            {               
+                if (pnlNivel_basico.Visible == true)
                 {
                     LabelCabecera.Text = "Nuevo Incompany: Detalles técnicos";
                     LabelCabecera.Location = new Point(115, 31);
-                }else
-                {
-                    LabelCabecera.Text = "" + Cursos.nombre_formacion13 + ": Información básica";
-                    LabelCabecera.Location = new Point(115, 31);
 
-                }
-                
+                    pnlNivel_basico.Visible = false;
+                    pnlNivel_intermedio.Visible = true;
 
-                lblEtapaSiguiente.Text = "Nivel Avanzado";
-                lblEtapaSiguiente.Location = new Point(22, 529);
-                lblEtapafinal.Text = "Añadir participantes";
-                lblEtapafinal.Location = new Point(3, 570);
+                    Load_Sig_Re();
 
-                pnlNivel_basico.Visible = false;
-
-                //comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
-                if (formacion.duracion == "4")
-                {
-                    Controles_nivel_intermedio_EstatusInicial();
-                                         
-                }
-                else
-                {
-                    if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                    //comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
+                    if (formacion.duracion == "4")
                     {
                         Controles_nivel_intermedio_EstatusInicial();
-                        
+
+                    }else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+
                     }
                     else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
                     {
-                        Controles_nivel_intermedio_EstatusInicial();
-                        
-                        if (Formaciones.creacion == true)
-                        {
-                            dtpSegundaFecha.Enabled = true;                          
-                        }
-                      
+                        Controles_nivel_intermedio_EstatusInicial();                      
+                        dtpSegundaFecha.Enabled = true;                       
+
                     }
                     else
                     {
                         if (formacion.duracion == "16")
                         {
-                            Controles_nivel_intermedio_EstatusInicial();                                                       
-                            if (Formaciones.creacion == true)
-                            {
-                                dtpSegundaFecha.Enabled = true;
-                            }
-                            
+                            Controles_nivel_intermedio_EstatusInicial();
+                            dtpSegundaFecha.Enabled = true;
                         }
                     }
                 }
-
-                pnlNivel_intermedio.Visible = true;
-
-                if (Formaciones.creacion == true)
-                    Load_Sig_Re();
-                else
+                else if (pnlNivel_intermedio.Visible == true)
                 {
-                    btnGuardar.Enabled = false;                    
+                    LabelCabecera.Text = "Nuevo InCompany: Logística";
+                    LabelCabecera.Location = new Point(200, 31);
+                                      
+
+                    lblEtapaSiguiente.Location = new Point(3, 529);
+                    lblEtapaSiguiente.Text = "Añadir participantes";
+
+                    lblEtapafinal.Location = new Point(3, 570);
+                    lblEtapafinal.Text = "Día de la formación";
+
+                    pnlNivel_intermedio.Visible = false;
+                    pnlNivel_avanzado.Visible = true;
+                    Load_Sig_Re();
+
+                }
+
+            }
+            else
+            {
+                if (pnlNivel_basico.Visible == true)
+                {
+                    LabelCabecera.Text = "" + Cursos.nombre_formacion13 + ": Información básica";
+                    LabelCabecera.Location = new Point(115, 31);
+
+                    pnlNivel_basico.Visible = false;
+                    pnlNivel_intermedio.Visible = true;
+
+                    btnGuardar.Enabled = false;
+                    btnLimpiar.Enabled = false;
+                    btnRetomar.Enabled = true;
+
+                    //comportamiento del panel nivel_intermedio de acuerdo a la duracion del curso
+                    if (formacion.duracion == "4")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+
+                    }
+                    else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+
+                    }
+                    else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();                        
+                    }
+                    else if (formacion.duracion == "16")
+                    {
+                        Controles_nivel_intermedio_EstatusInicial();
+                        
+                    }
+
+                    if (Cursos.etapa_formacion13 == 1)
+                    {
+                        btnSiguienteEtapa.Enabled = false;
+                        btnRetomar.Enabled = false;
+                        btnPausar.Enabled = true;
+                        btnModificar.Enabled = true;
+                    }
+                    else
+                    {
+                        btnSiguienteEtapa.Enabled = true;
+                        btnRetomar.Enabled = true;
+                        btnPausar.Enabled = false;
+                        btnModificar.Enabled = false;
+                        //--campos desactivados (etapa intermedio)
+                        deshabilitarControlesIntermedio();
+                    }
+                }
+                else if (pnlNivel_intermedio.Visible == true)
+                {
+                    pnlNivel_intermedio.Visible = false;
+                    pnlNivel_avanzado.Visible = true;
+
+                    lblEtapaSiguiente.Location = new Point(3, 529);
+                    lblEtapaSiguiente.Text = "Añadir participantes";
+
+                    lblEtapafinal.Location = new Point(3, 570);
+                    lblEtapafinal.Text = "Día de la formación";
+                   
+                    LabelCabecera.Text = "Logística";
+                    LabelCabecera.Location = new Point(250, 31);
+                    btnGuardar.Enabled = false;
+
                     btnLimpiar.Enabled = false;
                     btnRetomar.Enabled = true;
 
@@ -2135,72 +2193,23 @@ namespace UCS_NODO_FGC
                         btnPausar.Enabled = true;
                         btnModificar.Enabled = true;
                     }
-                    else 
+                    else
                     {
                         btnSiguienteEtapa.Enabled = true;
                         btnRetomar.Enabled = true;
                         btnPausar.Enabled = false;
                         btnModificar.Enabled = false;
-                        //--campos desactivados (etapa intermedio)
-                        deshabilitarControlesIntermedio();
                     }
-                   
-                }
 
-            }
-            else
-            {
-                if (pnlNivel_intermedio.Visible == true)
-                {
-                    LabelCabecera.Text = "Nuevo InCompany: Logística";
-                    LabelCabecera.Location = new Point(200, 31);
-
-                    pnlNivel_intermedio.Visible = false;
-
-                    lblEtapaSiguiente.Location = new Point(3, 529);
-                    lblEtapaSiguiente.Text = "Añadir participantes";
-
-                    lblEtapafinal.Location = new Point(3, 570);
-                    lblEtapafinal.Text = "Día de la formación";
-
-                    
-                    pnlNivel_avanzado.Visible = true;
-                    if (Formaciones.creacion == true)
-                        Load_Sig_Re();
-                    else
+                    if (Cursos.etapa_formacion13 == 3)
                     {
-                        LabelCabecera.Text = "Logística";
-                        LabelCabecera.Location = new Point(250, 31);
-                        btnGuardar.Enabled = false;
-                        
-                        btnLimpiar.Enabled = false;
-                        btnRetomar.Enabled = true;
-
-                        if (Cursos.etapa_formacion13 == 1)
-                        {
-                            btnSiguienteEtapa.Enabled = false;
-                            btnRetomar.Enabled = false;
-                            btnPausar.Enabled = true;
-                            btnModificar.Enabled = true;
-                        }
-                        else
-                        {
-                            btnSiguienteEtapa.Enabled = true;
-                            btnRetomar.Enabled = true;
-                            btnPausar.Enabled = false;
-                            btnModificar.Enabled = false;
-                        }
-
-                        if (Cursos.etapa_formacion13 == 3)
-                        {
-                            btnSiguienteEtapa.Enabled = false;
-                        }
-                        
-                        
+                        btnSiguienteEtapa.Enabled = false;
                     }
 
                 }
+
             }
+            
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
