@@ -206,6 +206,19 @@ namespace UCS_NODO_FGC.Clases
             }
             return ListaP;
         }
+        public static List<Paquete_instruccional> ObtenerPaqueteCursoDistinto(MySqlConnection conexion, Formaciones form)
+        {
+            List<Paquete_instruccional> ListaP = new List<Paquete_instruccional>();
+            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_p_inst FROM cursos WHERE nombre_curso='{0}' ", form.nombre_formacion), conexion);
+            MySqlDataReader leer = cmd.ExecuteReader();
+            while (leer.Read())
+            {
+                Paquete_instruccional p = new Paquete_instruccional();
+                p.id_pinstruccional = leer.GetInt32(0);
+                ListaP.Add(p);
+            }
+            return ListaP;
+        }
         public static int ObtenerIdPaquete(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int retorno = 0;

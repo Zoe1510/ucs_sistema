@@ -404,6 +404,7 @@
             this.btnModificar.TabIndex = 40;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRetomar
             // 
@@ -1489,6 +1490,7 @@
             this.txtSegundaAula.Name = "txtSegundaAula";
             this.txtSegundaAula.Size = new System.Drawing.Size(220, 26);
             this.txtSegundaAula.TabIndex = 79;
+            this.txtSegundaAula.Leave += new System.EventHandler(this.txtSegundaAula_Leave);
             // 
             // label30
             // 
@@ -1554,6 +1556,7 @@
             this.txtAulaSeleccionada.Name = "txtAulaSeleccionada";
             this.txtAulaSeleccionada.Size = new System.Drawing.Size(220, 26);
             this.txtAulaSeleccionada.TabIndex = 74;
+            this.txtAulaSeleccionada.Leave += new System.EventHandler(this.txtAula_Leave);
             // 
             // label28
             // 
