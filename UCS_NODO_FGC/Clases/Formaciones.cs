@@ -29,6 +29,12 @@ namespace UCS_NODO_FGC.Clases
         public DateTime dia1 { get; set; }
         public DateTime dia2 { get; set; }
         public int id_user { get; set; }
+        public string horario1 { get; set; }
+        public string horario2 { get; set; }
+        public string aula1 { get; set; }
+        public string aula2 { get; set; }
+        public string refri1 { get; set; }
+        public string refri2 { get; set; }
 
         public int id_curso { get; set; }
         public int pq_inst { get; set; }
@@ -86,6 +92,18 @@ namespace UCS_NODO_FGC.Clases
         {
             int retorno = 0;
             string query = @"INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES (?idcurso, ?idusuario, ?fechaInicio, ?fechaFinal)";
+            MySqlCommand cmd = new MySqlCommand(query, conexion);
+            cmd.Parameters.AddWithValue("?idcurso", id_curso);
+            cmd.Parameters.AddWithValue("?idusuario", id_usuario);
+            cmd.Parameters.AddWithValue("?fechaInicio", fecha_inicial);
+            cmd.Parameters.AddWithValue("?fechaFinal", fecha_final);
+            retorno = cmd.ExecuteNonQuery();
+            return retorno;
+        }
+        public static int Agregar_U_MOD_C(MySqlConnection conexion, int id_curso, int id_usuario, DateTime fecha_inicial, DateTime fecha_final)
+        {
+            int retorno = 0;
+            string query = @"INSERT INTO user_mod_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES (?idcurso, ?idusuario, ?fechaInicio, ?fechaFinal)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?idcurso", id_curso);
             cmd.Parameters.AddWithValue("?idusuario", id_usuario);

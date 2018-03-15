@@ -644,7 +644,25 @@ namespace UCS_NODO_FGC
         private void CargarDatosEtapaDos()
         {
             fa.id_facilitador = 0;
-           
+            List<string> lista_difusion = new List<string>();
+
+            MySqlDataReader dif = Conexion.ConsultarBD("select * from difusion d inner join cursos_tiene_publicidad ctp on ctp.ctp_id_difusion=d.id_difusion where ctp.ctp_id_curso='" + Cursos.id_curso13 + "'");
+            while (dif.Read())
+            {
+                string difusion = Convert.ToString(dif["dif_contenido"]);
+                lista_difusion.Add(difusion);
+            }
+            for(int i=0; i<lista_difusion.Count; i++)
+            {
+                foreach(DataGridViewRow row in dgvMediosDifusion.Rows)
+                {
+                    string celda = Convert.ToString(row.Cells["opcion_difusion"].Value);
+                    if (celda == lista_difusion[i])
+                    {
+                        row.Cells["seleccionar_opcion"].Value = true;
+                    }
+                }
+            }
             //llenar datos del refrigerio
             if (Cursos.tiene_ref == "Si")
             {
@@ -733,12 +751,23 @@ namespace UCS_NODO_FGC
                     cf.nombreyapellido1 = cf.nombre_facilitador + " " + cf.apellido_facilitador;
                 }
                 cnom.Close();
-                cmbxCoFa.Text = cf.nombreyapellido1;
+                //cmbxCoFa.Text = cf.nombreyapellido1;
                 txtCorreoCoFa.Text = cf.correo_facilitador;
                 txtTlfnCoFa.Text = cf.tlfn_facilitador;
                 chkbCoFacilitador.Checked = true;
 
                 Cofa.id_facilitador = co_fa;
+
+                //recorremos el comboboxCOFa
+                for (int i = 0; i < cmbxCoFa.Items.Count; i++)
+                {
+                    if (cmbxCoFa.Items[i].ToString() == cf.nombreyapellido1)
+                    {
+                        cmbxCoFa.SelectedItem = cmbxCoFa.Items[i];
+                        txtCorreoCoFa.Text = cf.correo_facilitador;
+                        txtTlfnCoFa.Text = cf.tlfn_facilitador;
+                    }
+                }
             }
             else
             {
@@ -795,7 +824,7 @@ namespace UCS_NODO_FGC
             {
                 foreach (DataGridViewRow row in dgvInsumos.Rows)
                 {
-                    string celda = Convert.ToString(row.Cells["insumno"].Value);
+                    string celda = Convert.ToString(row.Cells["insumo"].Value);
                     if (celda == lista_insumo[i])
                     {
                         row.Cells["seleccion_opcion"].Value = true;
@@ -1245,14 +1274,14 @@ namespace UCS_NODO_FGC
                                     // si el checkbox esta seleccionado es que tiene co-facilitador
                                     if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
                                     {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd") + "')");
                                         FacilitadorCurso.Close();
                                         guardar = true;
                                         MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                     }
                                     else // sino, solo guarda al facilitador
                                     {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')");
+                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + dtpFechaCurso.Value.ToString("yyyy-MM-dd") + "', '0')");
                                         FacilitadorCurso.Close();
                                         guardar = true;
                                         MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
