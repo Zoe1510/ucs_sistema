@@ -563,7 +563,7 @@ namespace UCS_NODO_FGC
             formacion.solicitado = Cursos.solicitud_formacion13;
 
             formacion.bloque_curso = Cursos.bloque_curso13;
-
+            formacion.ubicacion_ucs = "Si";
             deshabiltarControlesBasico();
             //carga el nombre
             txtNombreFormacion.Text = Cursos.nombre_formacion13;
@@ -727,6 +727,12 @@ namespace UCS_NODO_FGC
                 }
             }
 
+            List<Facilitador_todos> lista_cf = new List<Facilitador_todos>();
+            lista_cf = listaCOFA_AFI(id_curs, id_fa);
+            for (int x = 0; x < lista_cf.Count; x++)
+            {
+                cmbxCoFa.Items.Add(lista_cf[x].nombreyapellido1);
+            }
 
             //evaluar si esa formacion tiene co facilitador
             if (co_fa != 0)
@@ -1642,6 +1648,7 @@ namespace UCS_NODO_FGC
                         btnRetomar.Enabled = false;
                         btnPausar.Enabled = true;
                         btnModificar.Enabled = true;
+                        habilitarIntermedio();
                     }
                     else if (Cursos.etapa_formacion13 == 2)
                     {
@@ -1650,6 +1657,8 @@ namespace UCS_NODO_FGC
                         btnPausar.Enabled = false;
                         btnModificar.Enabled = false;
                         inicioE3 = DateTime.Now;
+                        deshabilitarControlesIntermedio();
+                        habilitarAvanzado();
                     }
                     else if (Cursos.etapa_formacion13 == 3)
                     {
@@ -1657,6 +1666,7 @@ namespace UCS_NODO_FGC
                         btnRetomar.Enabled = true;
                         btnPausar.Enabled = false;
                         btnModificar.Enabled = false;
+                        deshabilitarControlesAvanzado();
 
                     }
 
@@ -1670,7 +1680,7 @@ namespace UCS_NODO_FGC
                         }
                         else
                         {
-                            gpbSeleccionRef.Enabled = true;
+                            gpbSeleccionRef.Enabled = false;
                             gpbSeleccionRef.Visible = true;
                         }
 
@@ -2561,12 +2571,15 @@ namespace UCS_NODO_FGC
         {
             if (Formaciones.creacion == true)
                 inicioE2 = DateTime.Now;
+
+            formacion.tiene_ref = "No";
         }
 
         private void rdbSiRef_CheckedChanged(object sender, EventArgs e)
         {
             if (Formaciones.creacion == true)
                 inicioE2 = DateTime.Now;
+            formacion.tiene_ref = "Si";
         }
 
         private void dtpFechaCurso_Validating(object sender, CancelEventArgs e)
@@ -2713,8 +2726,30 @@ namespace UCS_NODO_FGC
 
         private void cmbxTipoRefrigerio_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
-           
+            if (Formaciones.creacion == true)
+            {
+                id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
+                
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
+                }
+
+            }
+            else
+            {
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
+                }
+            }
+
+            formacion.refri1 = cmbxTipoRefrigerio.Text;
+
         }
     }
 }

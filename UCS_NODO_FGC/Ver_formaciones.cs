@@ -519,11 +519,11 @@ namespace UCS_NODO_FGC
                             Cursos.horario2 = "No aplica";
                             //lo que se puede buscar en este caso: horario1, aula1, id_ref1
 
-                            MySqlDataReader ar = Conexion.ConsultarBD("select aula_dia1, ref_contenido from cursos c inner join refrigerios r on r.id_ref=c.id_ref1  where c.id_cursos='" + formaciones.id_curso + "'");
+                            MySqlDataReader ar = Conexion.ConsultarBD("select aula_dia1, ref_nombre from cursos c inner join refrigerios r on r.id_ref=c.id_ref1  where c.id_cursos='" + formaciones.id_curso + "'");
                             if (ar.Read())
                             {
                                 Cursos.aula1 = Convert.ToString(ar["aula_dia1"]);
-                                Cursos.tipo_ref1 = Convert.ToString(ar["ref_contenido"]);
+                                Cursos.tipo_ref1 = Convert.ToString(ar["ref_nombre"]);
                             }
                             ar.Close();
                         }
@@ -550,17 +550,17 @@ namespace UCS_NODO_FGC
                            
                             aulas.Close();
 
-                            MySqlDataReader r1 = Conexion.ConsultarBD("select ref_contenido from refrigerios where id_ref='"+idr1+"'");
+                            MySqlDataReader r1 = Conexion.ConsultarBD("select ref_nombre from refrigerios where id_ref='"+idr1+"'");
                             if (r1.Read())
                             {
-                                Cursos.tipo_ref1 = Convert.ToString(r1["ref_contenido"]);
+                                Cursos.tipo_ref1 = Convert.ToString(r1["ref_nombre"]);
                             }
                             r1.Close();
 
-                            MySqlDataReader r2 = Conexion.ConsultarBD("select ref_contenido from refrigerios where id_ref='"+idr2+"'");
+                            MySqlDataReader r2 = Conexion.ConsultarBD("select ref_nombre from refrigerios where id_ref='"+idr2+"'");
                             if (r2.Read())
                             {
-                                Cursos.tipo_ref2 = Convert.ToString(r2["ref_contenido"]);
+                                Cursos.tipo_ref2 = Convert.ToString(r2["ref_nombre"]);
                             }
                             r2.Close();
                         }

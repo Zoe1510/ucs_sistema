@@ -495,7 +495,8 @@ namespace UCS_NODO_FGC
             cmbxTipoRefrigerio2.ValueMember = "id_ref";
             cmbxTipoRefrigerio2.DisplayMember = "nombre";
             cmbxTipoRefrigerio2.DataSource = Paneles.llenarcmbx2Ref(id_ref);
-            cmbxTipoRefrigerio2.SelectedIndex = -1;
+            if (Formaciones.creacion == true)
+                cmbxTipoRefrigerio2.SelectedIndex = -1;
         }
         private void llenarComboCoFa(int id_facilitador)
         {
@@ -618,7 +619,7 @@ namespace UCS_NODO_FGC
             formacion.solicitado = Cursos.solicitud_formacion13;
 
             formacion.bloque_curso = Cursos.bloque_curso13;
-
+            formacion.ubicacion_ucs = "Si"; //siempre es si para abierto, fee e inces
             deshabiltarControlesBasico();
             //carga el nombre
             txtNombreFormacion.Text = Cursos.nombre_formacion13;
@@ -781,7 +782,12 @@ namespace UCS_NODO_FGC
                 }
             }
 
-
+            List<Facilitador_todos> lista_cf = new List<Facilitador_todos>();
+            lista_cf = listaCOFA_AFI(id_curs, id_fa);
+            for (int x = 0; x < lista_cf.Count; x++)
+            {
+                cmbxCoFa.Items.Add(lista_cf[x].nombreyapellido1);
+            }
             //evaluar si esa formacion tiene co facilitador
             if (co_fa != 0)
             {
@@ -841,11 +847,27 @@ namespace UCS_NODO_FGC
 
                 cmbxTipoRefrigerio.Text = Cursos.tipo_ref1;
                 formacion.refri1 = Cursos.tipo_ref1;
-                
+
+                //buscar el id_refrigerio
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
+                }
+                nombre.Close();
+
                 if (Cursos.tipo_ref2 != "No aplica")
                 {
                     cmbxTipoRefrigerio2.Text = Cursos.tipo_ref2;
                     formacion.refri2 = Cursos.tipo_ref2;
+                    MySqlDataReader nombre2 = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
+                    if (nombre2.Read())
+                    {
+                        MessageBox.Show(nombre2["id_ref"].ToString());
+                        id_refrigerio2 = Convert.ToInt32(nombre2["id_ref"]);
+                    }
+                    nombre2.Close();
                 }
                 else
                 {
@@ -858,8 +880,8 @@ namespace UCS_NODO_FGC
             {
                 cmbxTipoRefrigerio.SelectedIndex = -1;
                 cmbxTipoRefrigerio2.SelectedIndex = -1;
-                formacion.refri1 = "";
-                formacion.refri2 = "";
+                //formacion.refri1 = "";
+                //formacion.refri2 = "";
             }
 
             //buscar el id del horario1:
@@ -3091,32 +3113,6 @@ namespace UCS_NODO_FGC
                     btnLimpiar.Enabled = false;
                     btnRetomar.Enabled = true;
 
-                    if (Cursos.etapa_formacion13 == 1)
-                    {
-                        btnGuardar.Enabled = false;
-                        btnSiguienteEtapa.Enabled = false;
-                        btnRetomar.Enabled = false;
-                        btnPausar.Enabled = true;
-                        btnModificar.Enabled = true;
-                    }
-                    else if (Cursos.etapa_formacion13 == 2)
-                    {
-                        btnGuardar.Enabled = false;
-                        btnSiguienteEtapa.Enabled = false;
-                        btnRetomar.Enabled = false;
-                        btnPausar.Enabled = true;
-                        btnModificar.Enabled = true;
-                        inicioE3 = DateTime.Now;
-                    }
-                    else if (Cursos.etapa_formacion13 == 3)
-                    {
-                        btnSiguienteEtapa.Enabled = false;
-                        btnRetomar.Enabled = true;
-                        btnPausar.Enabled = false;
-                        btnModificar.Enabled = false;
-
-                    }
-
                     //para arreglos visuales en el form
                     if (Cursos.duracion_formacion13 == "4")
                     {
@@ -3130,7 +3126,7 @@ namespace UCS_NODO_FGC
                         txtSegundaAula.Enabled = false;
                         rdbNoIgualHorario.Enabled = false;
                         rdbSiIgualHorario.Enabled = false;
-                        gpbSeleccionRef.Enabled = true;
+                        gpbSeleccionRef.Enabled = false;
                     }
                     else if (Cursos.duracion_formacion13 == "8" && Cursos.bloque_curso13 == "2")
                     {
@@ -3168,7 +3164,7 @@ namespace UCS_NODO_FGC
                         }
                         else
                         {
-                            gpbSeleccionRef.Enabled = true;
+                            gpbSeleccionRef.Enabled = false;
                             gpbSeleccionRef.Visible = true;
                         }
 
@@ -3207,6 +3203,38 @@ namespace UCS_NODO_FGC
                         }
 
                     }
+
+
+                    if (Cursos.etapa_formacion13 == 1)
+                    {
+                        habilitarIntermedio();
+                        btnGuardar.Enabled = false;
+                        btnSiguienteEtapa.Enabled = false;
+                        btnRetomar.Enabled = false;
+                        btnPausar.Enabled = true;
+                        btnModificar.Enabled = true;
+                    }
+                    else if (Cursos.etapa_formacion13 == 2)
+                    {
+                        deshabilitarControlesIntermedio();
+                        habilitarAvanzado();
+                        btnGuardar.Enabled = false;
+                        btnSiguienteEtapa.Enabled = false;
+                        btnRetomar.Enabled = false;
+                        btnPausar.Enabled = true;
+                        btnModificar.Enabled = true;
+                        inicioE3 = DateTime.Now;
+                    }
+                    else if (Cursos.etapa_formacion13 == 3)
+                    {
+                        deshabilitarControlesAvanzado();
+                        btnSiguienteEtapa.Enabled = false;
+                        btnRetomar.Enabled = true;
+                        btnPausar.Enabled = false;
+                        btnModificar.Enabled = false;
+
+                    }
+
                     pnlNivel_intermedio.Visible = false;
                     pnlNivel_avanzado.Visible = true;
 
@@ -3414,11 +3442,13 @@ namespace UCS_NODO_FGC
                 }
                 else if (Cursos.etapa_formacion13 == 3)
                 {
-
+                    MessageBox.Show("llegué primero");
                     if (formacion.ubicacion_ucs == "Si")
                     {
+                        MessageBox.Show("llegué 2do");
                         if (formacion.tiene_ref == "Si")
                         {
+                            MessageBox.Show("llegué 3ero");
                             if (formacion.bloque_curso == "2")
                             {
                                 if (lista_insumo_cargada != lista_insumo || formacion.horario1 != Cursos.horario1 || formacion.horario2 != Cursos.horario2 || txtAulaSeleccionada.Text != formacion.aula1 || txtSegundaAula.Text != formacion.aula2 || formacion.refri1 != Cursos.tipo_ref1 || formacion.refri2 != Cursos.tipo_ref2)
@@ -3428,6 +3458,7 @@ namespace UCS_NODO_FGC
                             }
                             else
                             {
+                                MessageBox.Show("aqui estoy2");
                                 if (lista_insumo_cargada != lista_insumo || formacion.horario1 != Cursos.horario1 || txtAulaSeleccionada.Text != formacion.aula1 || formacion.refri1 != Cursos.tipo_ref1)
                                 {
                                     Modificar_avanzado();
@@ -4048,12 +4079,60 @@ namespace UCS_NODO_FGC
         private void cmbxTipoRefrigerio2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             id_refrigerio2 = Convert.ToInt32(cmbxTipoRefrigerio2.SelectedValue);
+            if (Formaciones.creacion == true)
+            {
+                id_refrigerio2 = Convert.ToInt32(cmbxTipoRefrigerio2.SelectedValue);
+                MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion");
+
+               
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
+                    MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion 2");
+                }
+
+            }
+            else
+            {
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
+                    formacion.refri2 = cmbxTipoRefrigerio2.Text;
+                }
+            }
         }
 
         private void cmbxTipoRefrigerio_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
-            llenarcombo2Refrigerio(id_refrigerio);
+            if (Formaciones.creacion == true)
+            {
+                id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
+                MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion");
+
+                llenarcombo2Refrigerio(id_refrigerio);
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
+                    MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion 2");
+                }
+
+            }
+            else
+            {
+                MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
+                if (nombre.Read())
+                {
+                    MessageBox.Show(nombre["id_ref"].ToString());
+                    id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
+                    formacion.refri1 = cmbxTipoRefrigerio.Text;
+                }
+            }
         }       
 
        
