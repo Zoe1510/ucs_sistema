@@ -1853,7 +1853,7 @@ namespace UCS_NODO_FGC
                     btnModificar.Enabled = false;
                     btnRetomar.Enabled = false;
                     btnGuardar.Enabled = false;
-
+                    gpbCorreos.Enabled = true;
                     //para saber si las opciones de refrigerio estarán disponibles o no
                     if (rdbNoRef.Checked == true)
                     {
