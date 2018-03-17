@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using UCS_NODO_FGC.Clases;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Reflection;
 
 namespace UCS_NODO_FGC
 {
@@ -16,7 +20,8 @@ namespace UCS_NODO_FGC
     {
         Participantes part = new Participantes();
         R_Formacion_lista LF = new R_Formacion_lista();
-
+        string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Resources\logo ucs.png";
+        Image pic;
         public Ver_postulados()
         {
             InitializeComponent();
@@ -65,8 +70,9 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                resultado = 0;
                 dgvParticipantes.Rows.Clear();
-
+               
                 LF.tipo_formacion = Cursos.tipo_formacion13;
                 LF.nombre_formacion = Cursos.nombre_formacion13;
                 LF.fecha_inicio = Cursos.fecha_uno13;
@@ -86,6 +92,8 @@ namespace UCS_NODO_FGC
                 }
                 leer.Close();
 
+
+                LF.duracion_formacion = Cursos.duracion_formacion13;
                 switch (Cursos.duracion_formacion13)
                 {
                     case "4":
@@ -102,8 +110,8 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nom = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + id_fa + "'");
                 while (nom.Read())
                 {
-
-                    LF.nombre_facilitador = nom["nombre_fa"].ToString();
+                    string nombreyapellido =Convert.ToString( nom["nombre_fa"] + " " + nom["apellido_fa"]);
+                    LF.nombre_facilitador =nombreyapellido;
 
                 }
                 nom.Close();
@@ -115,9 +123,10 @@ namespace UCS_NODO_FGC
                     //MessageBox.Show("entré a la busqueda");
                     resultado += 1;
                     dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["tlfn_par"], b["nombreE"]);
-
-                    pp.nombre_participante = b["apellido_par"].ToString() + " " + b["nombre_par"].ToString();
-                    pp.apellido_participante = "";
+                    string nombreyapellido = (b["apellido_par"] + " " + b["nombre_par"]).ToString();
+                    MessageBox.Show(nombreyapellido);
+                    pp.nombre_participante = nombreyapellido;
+                    pp.apellido_participante = resultado.ToString() ;
                     pp.cedula_participante = b["cedula_par"].ToString();
                     pp.organizacion_part = b["nombreE"].ToString();
                     pp.tlfn_participante = b["tlfn_par"].ToString();
@@ -177,6 +186,26 @@ namespace UCS_NODO_FGC
 
 
             }
+        }
+        private byte[] GetBytes(Image imageIn)
+        {
+            //
+            //Usamos la clase MemoryStream para contener los bytes que compone la imagen
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, ImageFormat.Png);
+            //
+            //Retornamos el arreglo de bytes
+            return ms.ToArray();
+        }
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Lista_participantes fmr = new Lista_participantes();
+            MessageBox.Show(ruta);
+            pic = Image.FromFile(ruta);
+            LF.Logo = GetBytes(pic);
+            fmr.form_encabezado.Add(LF);
+            fmr.pp_detalle = LF.lista_participantes;
+            fmr.ShowDialog();
         }
     }
 }

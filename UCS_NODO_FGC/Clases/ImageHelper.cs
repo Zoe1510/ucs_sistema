@@ -24,7 +24,7 @@ namespace UCS_NODO_FGC.Clases
             imageIn.Save(ms, ImageFormat.Jpeg);
             return ms.ToArray();
         }
-
+       
         public static byte[] DocToByteArray(string doc)
         {
             

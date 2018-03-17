@@ -139,6 +139,12 @@
     <Compile Include="Clases\Tiempos_curso.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
+    <Compile Include="Correo_cuerpo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correo_cuerpo.Designer.cs">
+      <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cursos_AFI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +438,9 @@
     <EmbeddedResource Include="Cambio_contraseña.resx">
       <DependentUpon>Cambio_contraseña.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Correo_cuerpo.resx">
+      <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cursos_AFI.resx">
       <DependentUpon>Cursos_AFI.cs</DependentUpon>
     </EmbeddedResource>
@@ -537,6 +546,7 @@
     <EmbeddedResource Include="Registrar_usuarios.resx">
       <DependentUpon>Registrar_usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptPostulados.rdlc" />
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -568,6 +578,8 @@
       <DependentUpon>Vista_Formacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_lista.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Participantes_postulados.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
