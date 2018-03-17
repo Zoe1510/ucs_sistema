@@ -171,7 +171,7 @@ namespace UCS_NODO_FGC
                 {
 
                     btnCorreoAdministracion.Enabled = true;
-                    btnCorreoFacilitador.Enabled = true;
+                    btnCorreoComercializacion.Enabled = true;
                     btnRetomar.Enabled = false;
                     btnSiguienteEtapa.Enabled = true;
 
@@ -1764,6 +1764,9 @@ namespace UCS_NODO_FGC
                             btnModificar.Enabled = false;
                             btnRetomar.Enabled = false;
                             btnGuardar.Enabled = false;
+
+                            btnCorreoAdministracion.Enabled = true;
+                            btnCorreoComercializacion.Enabled = true;
                         }
                     }
                     else
@@ -1900,7 +1903,7 @@ namespace UCS_NODO_FGC
                     {
                         btnSiguienteEtapa.Enabled = false;
                         habilitarIntermedio();
-                        btnCorreoFacilitador.Enabled = false; // se deshabilita hasta que modifique en algo
+                        btnCorreoComercializacion.Enabled = false; // se deshabilita hasta que modifique en algo
                         btnCorreoAdministracion.Enabled = false; // se deshabilita hasta que modifique en algo
                     }
                     else

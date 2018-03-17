@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -93,7 +93,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnCorreoFacilitador = new System.Windows.Forms.Button();
+            this.btnCorreoComercializacion = new System.Windows.Forms.Button();
             this.btnCorreoAdministracion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
@@ -509,7 +509,7 @@
             // 
             this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
-            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoFacilitador);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoComercializacion);
             this.pnlNivel_intermedio.Controls.Add(this.btnCorreoAdministracion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
@@ -536,7 +536,7 @@
             this.pnlNivel_basico.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNivel_basico.Location = new System.Drawing.Point(0, 0);
             this.pnlNivel_basico.Name = "pnlNivel_basico";
-            this.pnlNivel_basico.Size = new System.Drawing.Size(30, 615);
+            this.pnlNivel_basico.Size = new System.Drawing.Size(916, 615);
             this.pnlNivel_basico.TabIndex = 78;
             // 
             // groupBox4
@@ -911,19 +911,19 @@
             this.rectangleShape1.Name = "rectangleShape1";
             this.rectangleShape1.Size = new System.Drawing.Size(146, 18);
             // 
-            // btnCorreoFacilitador
+            // btnCorreoComercializacion
             // 
-            this.btnCorreoFacilitador.Enabled = false;
-            this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnCorreoFacilitador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCorreoFacilitador.Location = new System.Drawing.Point(708, 549);
-            this.btnCorreoFacilitador.Name = "btnCorreoFacilitador";
-            this.btnCorreoFacilitador.Size = new System.Drawing.Size(193, 43);
-            this.btnCorreoFacilitador.TabIndex = 77;
-            this.btnCorreoFacilitador.Text = "Formatos a facilitador";
-            this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
+            this.btnCorreoComercializacion.Enabled = false;
+            this.btnCorreoComercializacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoComercializacion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoComercializacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoComercializacion.Location = new System.Drawing.Point(721, 549);
+            this.btnCorreoComercializacion.Name = "btnCorreoComercializacion";
+            this.btnCorreoComercializacion.Size = new System.Drawing.Size(160, 43);
+            this.btnCorreoComercializacion.TabIndex = 77;
+            this.btnCorreoComercializacion.Text = "Enviar a comercialización";
+            this.btnCorreoComercializacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoComercializacion.UseVisualStyleBackColor = true;
             // 
             // btnCorreoAdministracion
             // 
@@ -931,7 +931,7 @@
             this.btnCorreoAdministracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
             this.btnCorreoAdministracion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
             this.btnCorreoAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCorreoAdministracion.Location = new System.Drawing.Point(500, 549);
+            this.btnCorreoAdministracion.Location = new System.Drawing.Point(501, 549);
             this.btnCorreoAdministracion.Name = "btnCorreoAdministracion";
             this.btnCorreoAdministracion.Size = new System.Drawing.Size(202, 43);
             this.btnCorreoAdministracion.TabIndex = 76;
@@ -1180,26 +1180,26 @@
             this.dgvMediosDifusion.AllowUserToResizeRows = false;
             this.dgvMediosDifusion.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvMediosDifusion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMediosDifusion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMediosDifusion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMediosDifusion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.opcion_difusion,
             this.seleccionar_opcion});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMediosDifusion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMediosDifusion.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMediosDifusion.Location = new System.Drawing.Point(23, 31);
             this.dgvMediosDifusion.Name = "dgvMediosDifusion";
@@ -1437,26 +1437,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.insumo,
             this.seleccion_opcion});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 32);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1730,7 +1730,7 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.ComboBox cmbxTipoRefrigerio;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button btnCorreoFacilitador;
+        private System.Windows.Forms.Button btnCorreoComercializacion;
         private System.Windows.Forms.Button btnCorreoAdministracion;
         private System.Windows.Forms.Panel pnlNivel_basico;
         private System.Windows.Forms.GroupBox groupBox4;

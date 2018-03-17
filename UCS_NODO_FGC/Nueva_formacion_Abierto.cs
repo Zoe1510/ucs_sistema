@@ -2734,6 +2734,9 @@ namespace UCS_NODO_FGC
                             btnModificar.Enabled = false;
                             btnRetomar.Enabled = false;
                             btnGuardar.Enabled = false;
+
+                            btnCorreoAdministrador.Enabled = true;
+                            btnCorreoComercializacion.Enabled = true;
                         }
                     }
                     else
