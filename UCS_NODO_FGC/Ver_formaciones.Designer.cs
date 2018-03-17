@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -53,6 +53,7 @@
             this.cmbxEstatus = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnListaP = new System.Windows.Forms.Button();
             this.btnCambiarStatus = new System.Windows.Forms.Button();
             this.btnVerFormacion = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnListaP = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).BeginInit();
@@ -132,19 +132,19 @@
             this.dgvFormaciones.AllowUserToAddRows = false;
             this.dgvFormaciones.AllowUserToResizeColumns = false;
             this.dgvFormaciones.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = null;
-            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFormaciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFormaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFormaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
@@ -154,24 +154,24 @@
             this.estatus_formacion,
             this.etapa_formacion,
             this.creado_por});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormaciones.Location = new System.Drawing.Point(22, 34);
             this.dgvFormaciones.Name = "dgvFormaciones";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFormaciones.RowHeadersVisible = false;
             this.dgvFormaciones.Size = new System.Drawing.Size(724, 525);
             this.dgvFormaciones.TabIndex = 0;
@@ -321,6 +321,23 @@
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             // 
+            // btnListaP
+            // 
+            this.btnListaP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.btnListaP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaP.Enabled = false;
+            this.btnListaP.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnListaP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaP.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnListaP.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnListaP.Location = new System.Drawing.Point(27, 297);
+            this.btnListaP.Name = "btnListaP";
+            this.btnListaP.Size = new System.Drawing.Size(199, 46);
+            this.btnListaP.TabIndex = 11;
+            this.btnListaP.Text = "Ver lista de participantes";
+            this.btnListaP.UseVisualStyleBackColor = false;
+            this.btnListaP.Click += new System.EventHandler(this.btnListaP_Click);
+            // 
             // btnCambiarStatus
             // 
             this.btnCambiarStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(187)))), ((int)(((byte)(54)))));
@@ -345,7 +362,7 @@
             this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerFormacion.Location = new System.Drawing.Point(27, 232);
+            this.btnVerFormacion.Location = new System.Drawing.Point(27, 235);
             this.btnVerFormacion.Name = "btnVerFormacion";
             this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
             this.btnVerFormacion.TabIndex = 5;
@@ -435,23 +452,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(1, 93);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
-            // 
-            // btnListaP
-            // 
-            this.btnListaP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.btnListaP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnListaP.Enabled = false;
-            this.btnListaP.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnListaP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaP.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
-            this.btnListaP.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnListaP.Location = new System.Drawing.Point(27, 297);
-            this.btnListaP.Name = "btnListaP";
-            this.btnListaP.Size = new System.Drawing.Size(199, 46);
-            this.btnListaP.TabIndex = 11;
-            this.btnListaP.Text = "Ver lista de participantes";
-            this.btnListaP.UseVisualStyleBackColor = false;
-            this.btnListaP.Click += new System.EventHandler(this.btnListaP_Click);
             // 
             // Ver_formaciones
             // 

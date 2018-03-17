@@ -134,6 +134,8 @@
     <Compile Include="Clases\Preguntas.cs" />
     <Compile Include="Clases\Recuperacion_contraseña.cs" />
     <Compile Include="Clases\Refrigerios.cs" />
+    <Compile Include="Clases\R_EtapaFormacion.cs" />
+    <Compile Include="Clases\R_Formacion_DatosGenerales.cs" />
     <Compile Include="Clases\R_Formacion_lista.cs" />
     <Compile Include="Clases\R_Participantes_postulados.cs" />
     <Compile Include="Clases\Tiempos_curso.cs" />
@@ -345,6 +347,12 @@
     <Compile Include="Registrar_usuarios.Designer.cs">
       <DependentUpon>Registrar_usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="RPT_HORAS_DEDICADAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_HORAS_DEDICADAS.Designer.cs">
+      <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Verificacion_recuperacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,7 +554,11 @@
     <EmbeddedResource Include="Registrar_usuarios.resx">
       <DependentUpon>Registrar_usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptHorasDedicadas.rdlc" />
     <EmbeddedResource Include="Reportes\rptPostulados.rdlc" />
+    <EmbeddedResource Include="RPT_HORAS_DEDICADAS.resx">
+      <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -578,6 +590,8 @@
       <DependentUpon>Vista_Formacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_EtapaFormacion.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales.datasource" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_lista.datasource" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Participantes_postulados.datasource" />
     <None Include="Properties\Settings.settings">

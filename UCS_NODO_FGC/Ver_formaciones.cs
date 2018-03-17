@@ -194,6 +194,7 @@ namespace UCS_NODO_FGC
                 formaciones.solicitado = dgvFormaciones.SelectedRows[0].Cells[2].Value.ToString();
                 formaciones.duracion = dgvFormaciones.SelectedRows[0].Cells[3].Value.ToString();
                 formaciones.estatus = dgvFormaciones.SelectedRows[0].Cells[4].Value.ToString();
+                
                 string etapa = dgvFormaciones.SelectedRows[0].Cells[5].Value.ToString();
                 switch (etapa)
                 {
@@ -207,6 +208,20 @@ namespace UCS_NODO_FGC
                         etapa = "3";
                         break;
                 }
+
+                switch (formaciones.duracion)
+                {
+                    case "4 Horas":
+                        formaciones.duracion = "4";
+                        break;
+                    case "8 Horas":
+                        formaciones.duracion = "8";
+                        break;
+                    case "16 Horas":
+                        formaciones.duracion = "16";
+                        break;
+
+                }
                 formaciones.etapa_curso = Convert.ToInt32(etapa);
                 nombre_user = dgvFormaciones.SelectedRows[0].Cells[6].Value.ToString();
                 MySqlDataReader id = Conexion.ConsultarBD("SELECT id_user FROM usuarios WHERE nombre_user = '" + nombre_user + "'");
@@ -216,7 +231,7 @@ namespace UCS_NODO_FGC
                 }
                 id.Close();
 
-                MySqlDataReader id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso='" + formaciones.nombre_formacion + "' AND estatus_curso='" + formaciones.estatus + "' AND tipo_curso='" + formaciones.tipo_formacion + "'");
+                MySqlDataReader id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso='" + formaciones.nombre_formacion + "' AND estatus_curso='" + formaciones.estatus + "' AND tipo_curso='" + formaciones.tipo_formacion + "' AND duracion_curso="+formaciones.duracion+" AND id_usuario1='"+formaciones.id_user+"' and solicitud_curso='"+ formaciones.solicitado + "'");
                 if (id_curso.Read())
                 {
                     formaciones.id_curso = Convert.ToInt32(id_curso["id_cursos"]);
@@ -419,6 +434,19 @@ namespace UCS_NODO_FGC
 
         private void llenardatos()
         {
+            switch (formaciones.duracion)
+            {
+                case "4":
+                    formaciones.duracion = "4 Horas";
+                    break;
+                case "8":
+                    formaciones.duracion = "8 Horas";
+                    break;
+                case "16":
+                    formaciones.duracion = "16 Horas";
+                    break;
+
+            }
             Cursos.nombre_formacion13 = formaciones.nombre_formacion;
             Cursos.estatus_formacion13 = formaciones.estatus;
             Cursos.id_curso13 = formaciones.id_curso;

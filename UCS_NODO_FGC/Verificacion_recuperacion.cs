@@ -149,7 +149,7 @@ namespace UCS_NODO_FGC
         }
         private void EnviarCorreo(String contraseña_nueva, String correo)
         {
-            String remitente = "soporteucs@gmail.com"; //colocar correo predeterminado para envio de contraseñas nuevas
+            String remitente = "ServicioUCS@ucsigo.com"; //colocar correo predeterminado para envio de contraseñas nuevas
             String destintario = correo;
             String asunto = "Recuperación de contraseña";
             String mensaje = "Su nueva contraseña es: " + contraseña_nueva;
@@ -157,16 +157,16 @@ namespace UCS_NODO_FGC
             SmtpClient smtp = new SmtpClient();
 
             msg.To.Add(destintario);
-            msg.From = new MailAddress(remitente, "SOPORTEUCS", System.Text.Encoding.UTF8);
+            msg.From = new MailAddress(remitente, "Universidad Coorporativa Sigo", System.Text.Encoding.UTF8);
             msg.Subject = asunto;
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             msg.Body = mensaje;
             msg.BodyEncoding = System.Text.Encoding.UTF8;
-            msg.IsBodyHtml = false;
+            msg.IsBodyHtml = true;
 
-            smtp.Credentials = new System.Net.NetworkCredential(remitente, "ucs.29933526"); //entre comillas va el password de ese correo electronico
-            smtp.Port = 587;
-            smtp.Host = "smtp.gmail.com";
+            smtp.Credentials = new System.Net.NetworkCredential(remitente, "Passw0rd"); //entre comillas va el password de ese correo electronico
+            smtp.Port = 443;
+            smtp.Host = "mail.nefos.com.ve";
             smtp.EnableSsl = true;
 
             try

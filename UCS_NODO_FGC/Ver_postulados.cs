@@ -200,7 +200,7 @@ namespace UCS_NODO_FGC
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             Lista_participantes fmr = new Lista_participantes();
-            MessageBox.Show(ruta);
+            
             pic = Image.FromFile(ruta);
             LF.Logo = GetBytes(pic);
             fmr.form_encabezado.Add(LF);
