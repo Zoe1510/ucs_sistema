@@ -98,7 +98,7 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
-            this.btnCorreoFacilitador = new System.Windows.Forms.Button();
+            this.btnCorreoAdministrador = new System.Windows.Forms.Button();
             this.btnCorreoComercializacion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
@@ -528,7 +528,7 @@
             this.pnlNivel_intermedio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(211)))), ((int)(((byte)(204)))));
             this.pnlNivel_intermedio.Controls.Add(this.pnlNivel_basico);
             this.pnlNivel_intermedio.Controls.Add(this.gpbSegundaFecha);
-            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoFacilitador);
+            this.pnlNivel_intermedio.Controls.Add(this.btnCorreoAdministrador);
             this.pnlNivel_intermedio.Controls.Add(this.btnCorreoComercializacion);
             this.pnlNivel_intermedio.Controls.Add(this.chkbCoFacilitador);
             this.pnlNivel_intermedio.Controls.Add(this.gpbDatosCoFa);
@@ -930,19 +930,19 @@
             this.label31.TabIndex = 49;
             this.label31.Text = "Segunda fecha:";
             // 
-            // btnCorreoFacilitador
+            // btnCorreoAdministrador
             // 
-            this.btnCorreoFacilitador.Enabled = false;
-            this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnCorreoFacilitador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
-            this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCorreoFacilitador.Location = new System.Drawing.Point(705, 550);
-            this.btnCorreoFacilitador.Name = "btnCorreoFacilitador";
-            this.btnCorreoFacilitador.Size = new System.Drawing.Size(193, 43);
-            this.btnCorreoFacilitador.TabIndex = 75;
-            this.btnCorreoFacilitador.Text = "Formatos a facilitador";
-            this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministrador.Enabled = false;
+            this.btnCorreoAdministrador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoAdministrador.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
+            this.btnCorreoAdministrador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoAdministrador.Location = new System.Drawing.Point(716, 550);
+            this.btnCorreoAdministrador.Name = "btnCorreoAdministrador";
+            this.btnCorreoAdministrador.Size = new System.Drawing.Size(165, 43);
+            this.btnCorreoAdministrador.TabIndex = 75;
+            this.btnCorreoAdministrador.Text = "Enviar a comercialización";
+            this.btnCorreoAdministrador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoAdministrador.UseVisualStyleBackColor = true;
             // 
             // btnCorreoComercializacion
             // 
@@ -950,7 +950,7 @@
             this.btnCorreoComercializacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
             this.btnCorreoComercializacion.Image = global::UCS_NODO_FGC.Properties.Resources.icon_email;
             this.btnCorreoComercializacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCorreoComercializacion.Location = new System.Drawing.Point(497, 550);
+            this.btnCorreoComercializacion.Location = new System.Drawing.Point(501, 550);
             this.btnCorreoComercializacion.Name = "btnCorreoComercializacion";
             this.btnCorreoComercializacion.Size = new System.Drawing.Size(202, 43);
             this.btnCorreoComercializacion.TabIndex = 43;
@@ -2006,7 +2006,7 @@
         private System.Windows.Forms.GroupBox gpbInsumos;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.DataGridView dgvInsumos;
-        private System.Windows.Forms.Button btnCorreoFacilitador;
+        private System.Windows.Forms.Button btnCorreoAdministrador;
         private System.Windows.Forms.GroupBox gpbSegundaFecha;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.DateTimePicker dtpSegundaFecha;

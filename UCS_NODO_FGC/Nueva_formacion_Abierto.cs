@@ -172,7 +172,7 @@ namespace UCS_NODO_FGC
                 {
                     
                     btnCorreoComercializacion.Enabled = true;
-                    btnCorreoFacilitador.Enabled = true;
+                    btnCorreoAdministrador.Enabled = true;
                     btnRetomar.Enabled = false;
                     btnSiguienteEtapa.Enabled = true;
 
@@ -1430,7 +1430,7 @@ namespace UCS_NODO_FGC
                                     //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                     ordenTerceraEtapa();
                                     //llenar el cmbx de horarios:
-                                    cmbxHorarios.Items.Clear();
+                                    //cmbxHorarios.Items.Clear();
                                     string tipo = "B";
                                     llenarComboHorario(tipo);
 
@@ -1560,7 +1560,7 @@ namespace UCS_NODO_FGC
                                             gpbHorarioCurso.Height = 169;                                           
                                             gpbSeleccionRef.Visible = false;
                                             //llenar el cmbx de horarios:
-                                            cmbxHorarios.Items.Clear();
+                                            //cmbxHorarios.Items.Clear();
                                             string tipo = "B";
                                             llenarComboHorario(tipo);
                                             //para la logistica:
@@ -1685,7 +1685,7 @@ namespace UCS_NODO_FGC
                                                 ordenTerceraEtapa();
 
                                                 //llenar el cmbx de horarios:
-                                                cmbxHorarios.Items.Clear();
+                                               // cmbxHorarios.Items.Clear();
                                                 string tipo = "A";
                                                 llenarComboHorario(tipo);
 
@@ -1728,7 +1728,7 @@ namespace UCS_NODO_FGC
                                     else
                                     {
                                         //llenar el cmbx de horarios:
-                                        cmbxHorarios.Items.Clear();
+                                        //cmbxHorarios.Items.Clear();
                                         string tipo = "A";
                                         llenarComboHorario(tipo);
 
@@ -1872,7 +1872,7 @@ namespace UCS_NODO_FGC
                                                             rdbSiMantenerRef.Enabled = true;
                                                         }
                                                         //llenar el cmbx de horarios:
-                                                        cmbxHorarios.Items.Clear();
+                                                       // cmbxHorarios.Items.Clear();
                                                         string tipo = "A";
                                                         llenarComboHorario(tipo);
 
@@ -2892,7 +2892,7 @@ namespace UCS_NODO_FGC
                         btnSiguienteEtapa.Enabled = false;
                         habilitarIntermedio();
                         btnCorreoComercializacion.Enabled = false; // se deshabilita hasta que modifique en algo
-                        btnCorreoFacilitador.Enabled = false; // se deshabilita hasta que modifique en algo
+                        btnCorreoAdministrador.Enabled = false; // se deshabilita hasta que modifique en algo
                     }
                     else
                     {
