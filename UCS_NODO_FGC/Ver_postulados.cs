@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace UCS_NODO_FGC
 {
-    public partial class Lista_participantes : Form
+    public partial class Ver_postulados : Form
     {
-        public Lista_participantes()
+        public Ver_postulados()
         {
             InitializeComponent();
-        }
-
-        private void Lista_participantes_Load(object sender, EventArgs e)
-        {
-
-            this.reportViewer1.RefreshReport();
         }
     }
 }
