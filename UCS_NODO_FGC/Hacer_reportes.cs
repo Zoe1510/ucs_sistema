@@ -26,10 +26,12 @@ namespace UCS_NODO_FGC
         Formaciones formaciones = new Formaciones();
         //objeto de la clase r_datosgenerales
         R_Formacion_DatosGenerales fdg = new R_Formacion_DatosGenerales();
+        R_Formacion_DatosGenerales datosF = new R_Formacion_DatosGenerales();
         //objeto de etapas de la formacion= new 
         R_EtapaFormacion etapaf = new R_EtapaFormacion();
         R_EtapaFormacion etapaf2 = new R_EtapaFormacion();
         R_EtapaFormacion etapaf3 = new R_EtapaFormacion();
+        string fecha_actual, fecha_vieja;
         int resultado = 0;
         string nombre_user;
         bool reporte2;
@@ -491,7 +493,25 @@ namespace UCS_NODO_FGC
 
 
         }
-
+        private void llenarReporteTiempoTipos()
+        {
+            llenardatos();
+            string tipo = Cursos.tipo_formacion13;
+            fecha_actual = DateTime.Today.ToString("yyyy-MM-dd");
+            DateTime trampa = Convert.ToDateTime(fecha_vieja);
+            //MessageBox.Show(fecha_vieja + " la segunda se pasa por parametro " + trampa.ToString());
+            datosF.fecha_inicio =fecha_vieja;
+            datosF.tipo_formacion = tipo;
+            
+            int nroFormaciones = 0;
+            //hará select de los cursos de tipo y fechas comprendidas
+            MySqlDataReader leer = Conexion.ConsultarBD("select * from cursos where tipo_curso='"+tipo+"' and fecha_creacion between '"+fecha_vieja+"' and '"+fecha_actual+"'");
+            while (leer.Read())
+            {
+                nroFormaciones += 1;
+            }
+            datosF.tiempo_total = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
+        }
         private void btnReporte2_Click(object sender, EventArgs e) //relacion tiempo-tipo de formaciones
         {
             if (dgvFormaciones.SelectedRows.Count == 1)
@@ -499,13 +519,20 @@ namespace UCS_NODO_FGC
                 if (cmbxPeriodoTiempo.SelectedIndex == -1)
                 {
                     errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "Debe seleccionar una de las opciones.");
-                    
+
                 }
                 else
                 {
                     errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
                     //si todo ok, carga el reporte, puede  crear reporte
-                    
+                    llenarReporteTiempoTipos();
+                    datosF.fecha_actual = DateTime.Today.ToString("dd-MM-yyyy");
+                    pic = Image.FromFile(ruta);
+                    datosF.Logo = GetBytes(pic);
+                    RPT_TIEMPO_TIPO rtt = new RPT_TIEMPO_TIPO();
+                    rtt.info.Add(datosF);
+                    rtt.ShowDialog();
+                    vaciardatos();
                 }
                
             }else
@@ -772,7 +799,18 @@ namespace UCS_NODO_FGC
         }
         private void cmbxPeriodoTiempo_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //se deberá guardar lo que seleccione el usuario para la creacion del reporte2
+            //se deberá guardar lo que seleccione el usuario para la creacion del reporte
+            if (cmbxPeriodoTiempo.SelectedIndex == 0)
+            {
+                //si seleccionó ultimo mes, a la fecha actual se le resta 30 dias, y se buscará en base a esas dos fechas y el tipo que haya escogido en el dgv
+                DateTime fa = DateTime.Today.AddMonths(-1);
+                fecha_vieja = fa.ToString("yyyy-MM-dd");
+            }else
+            {
+                //si selecciona ultimos tres meses a la fecha actual se le restan 3 meses
+                DateTime fv = DateTime.Today.AddMonths(-3);
+                fecha_vieja = fv.ToString("yyyy-MM-dd");
+            }
         }
 
 

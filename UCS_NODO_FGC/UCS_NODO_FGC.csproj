@@ -353,6 +353,12 @@
     <Compile Include="RPT_HORAS_DEDICADAS.Designer.cs">
       <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
     </Compile>
+    <Compile Include="RPT_TIEMPO_TIPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_TIEMPO_TIPO.Designer.cs">
+      <DependentUpon>RPT_TIEMPO_TIPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Verificacion_recuperacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -556,8 +562,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptHorasDedicadas.rdlc" />
     <EmbeddedResource Include="Reportes\rptPostulados.rdlc" />
+    <EmbeddedResource Include="Reportes\rptRelacionTipoFTiempo.rdlc" />
     <EmbeddedResource Include="RPT_HORAS_DEDICADAS.resx">
       <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT_TIEMPO_TIPO.resx">
+      <DependentUpon>RPT_TIEMPO_TIPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
