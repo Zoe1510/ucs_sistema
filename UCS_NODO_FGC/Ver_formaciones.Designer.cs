@@ -63,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.btnListaP = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFormaciones)).BeginInit();
@@ -306,6 +307,7 @@
             // 
             // grpbOpciones
             // 
+            this.grpbOpciones.Controls.Add(this.btnListaP);
             this.grpbOpciones.Controls.Add(this.btnCambiarStatus);
             this.grpbOpciones.Controls.Add(this.btnVerFormacion);
             this.grpbOpciones.Controls.Add(this.btnModificar);
@@ -327,7 +329,7 @@
             this.btnCambiarStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCambiarStatus.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnCambiarStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCambiarStatus.Location = new System.Drawing.Point(27, 132);
+            this.btnCambiarStatus.Location = new System.Drawing.Point(27, 108);
             this.btnCambiarStatus.Name = "btnCambiarStatus";
             this.btnCambiarStatus.Size = new System.Drawing.Size(199, 47);
             this.btnCambiarStatus.TabIndex = 9;
@@ -343,7 +345,7 @@
             this.btnVerFormacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerFormacion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerFormacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVerFormacion.Location = new System.Drawing.Point(27, 296);
+            this.btnVerFormacion.Location = new System.Drawing.Point(27, 232);
             this.btnVerFormacion.Name = "btnVerFormacion";
             this.btnVerFormacion.Size = new System.Drawing.Size(199, 47);
             this.btnVerFormacion.TabIndex = 5;
@@ -359,7 +361,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(27, 216);
+            this.btnModificar.Location = new System.Drawing.Point(27, 170);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 47);
             this.btnModificar.TabIndex = 8;
@@ -434,6 +436,23 @@
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
             // 
+            // btnListaP
+            // 
+            this.btnListaP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
+            this.btnListaP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnListaP.Enabled = false;
+            this.btnListaP.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnListaP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaP.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnListaP.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnListaP.Location = new System.Drawing.Point(27, 297);
+            this.btnListaP.Name = "btnListaP";
+            this.btnListaP.Size = new System.Drawing.Size(199, 46);
+            this.btnListaP.TabIndex = 11;
+            this.btnListaP.Text = "Ver lista de participantes";
+            this.btnListaP.UseVisualStyleBackColor = false;
+            this.btnListaP.Click += new System.EventHandler(this.btnListaP_Click);
+            // 
             // Ver_formaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,5 +514,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn estatus_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn etapa_formacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn creado_por;
+        private System.Windows.Forms.Button btnListaP;
     }
 }

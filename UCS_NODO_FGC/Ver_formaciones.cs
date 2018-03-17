@@ -269,6 +269,20 @@ namespace UCS_NODO_FGC
                         }
                         leer2.Close();
                     }
+                    int id_ctp = 0;
+                    MySqlDataReader leer3 = Conexion.ConsultarBD("SELECT id_ctf from cursos_tienen_participantes where ctp_id_curso='" + formaciones.id_curso + "'");
+                    if (leer3.Read())
+                    {
+                        id_ctp = Convert.ToInt32(leer3["id_ctf"]);
+                    }
+                    if (id_ctp == 0)
+                    {
+                        btnListaP.Enabled = false;
+                    }
+                    else
+                    {
+                        btnListaP.Enabled = true;
+                    }
                 }
                 
             
@@ -590,6 +604,19 @@ namespace UCS_NODO_FGC
             }
            MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
         }
+
+        private void btnListaP_Click(object sender, EventArgs e)
+        {
+            llenardatos();
+
+            if (Cursos.etapa_formacion13 > 1)
+            {
+                Ver_postulados vp = new Ver_postulados();
+                vp.ShowDialog();
+                vaciardatos();
+            }
+        }
+
         private void vaciardatos()
         {
             Cursos.nombre_formacion13 = "";

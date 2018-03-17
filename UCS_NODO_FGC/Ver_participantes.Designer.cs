@@ -33,20 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.grpbDatos = new System.Windows.Forms.GroupBox();
-            this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
-            this.cmbxEstatus = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvParticipantes = new System.Windows.Forms.DataGridView();
+            this.ci_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlfn_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresa_asociada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -58,14 +54,7 @@
             this.errorProviderCmbxNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCmbxEstatus = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ci_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_participante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tlfn_par = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empresa_asociada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbOpciones.SuspendLayout();
-            this.grpbDatos.SuspendLayout();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParticipantes)).BeginInit();
             this.panel8.SuspendLayout();
@@ -77,34 +66,16 @@
             // 
             // grpbOpciones
             // 
-            this.grpbOpciones.Controls.Add(this.btnImprimir);
             this.grpbOpciones.Controls.Add(this.btnRefrescar);
-            this.grpbOpciones.Controls.Add(this.btnEliminar);
             this.grpbOpciones.Controls.Add(this.btnModificar);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbOpciones.Location = new System.Drawing.Point(850, 380);
+            this.grpbOpciones.Location = new System.Drawing.Point(862, 128);
             this.grpbOpciones.Name = "grpbOpciones";
-            this.grpbOpciones.Size = new System.Drawing.Size(259, 318);
+            this.grpbOpciones.Size = new System.Drawing.Size(259, 181);
             this.grpbOpciones.TabIndex = 59;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.Goldenrod;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnImprimir.Location = new System.Drawing.Point(27, 177);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(199, 49);
-            this.btnImprimir.TabIndex = 8;
-            this.btnImprimir.Text = "Imprimir lista";
-            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // btnRefrescar
             // 
@@ -122,22 +93,6 @@
             this.btnRefrescar.UseVisualStyleBackColor = false;
             this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.Location = new System.Drawing.Point(27, 246);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(199, 46);
-            this.btnEliminar.TabIndex = 6;
-            this.btnEliminar.Text = "Eliminar participante postulado";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -153,112 +108,6 @@
             this.btnModificar.Text = "Modificar datos participante";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // grpbDatos
-            // 
-            this.grpbDatos.Controls.Add(this.dtpFechaCurso);
-            this.grpbDatos.Controls.Add(this.label4);
-            this.grpbDatos.Controls.Add(this.txtBuscarNombre);
-            this.grpbDatos.Controls.Add(this.cmbxEstatus);
-            this.grpbDatos.Controls.Add(this.label3);
-            this.grpbDatos.Controls.Add(this.label2);
-            this.grpbDatos.Controls.Add(this.btnBuscar);
-            this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbDatos.Location = new System.Drawing.Point(850, 128);
-            this.grpbDatos.Name = "grpbDatos";
-            this.grpbDatos.Size = new System.Drawing.Size(259, 246);
-            this.grpbDatos.TabIndex = 58;
-            this.grpbDatos.TabStop = false;
-            this.grpbDatos.Text = "Curso";
-            // 
-            // dtpFechaCurso
-            // 
-            this.dtpFechaCurso.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaCurso.CustomFormat = "";
-            this.dtpFechaCurso.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.dtpFechaCurso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaCurso.Location = new System.Drawing.Point(79, 134);
-            this.dtpFechaCurso.Name = "dtpFechaCurso";
-            this.dtpFechaCurso.Size = new System.Drawing.Size(158, 23);
-            this.dtpFechaCurso.TabIndex = 49;
-            this.dtpFechaCurso.Value = new System.DateTime(2017, 11, 18, 0, 0, 0, 0);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(27, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Fecha:";
-            // 
-            // txtBuscarNombre
-            // 
-            this.txtBuscarNombre.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.txtBuscarNombre.Location = new System.Drawing.Point(79, 34);
-            this.txtBuscarNombre.MaxLength = 44;
-            this.txtBuscarNombre.Name = "txtBuscarNombre";
-            this.txtBuscarNombre.Size = new System.Drawing.Size(158, 20);
-            this.txtBuscarNombre.TabIndex = 9;
-            this.txtBuscarNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombrePart_KeyPress);
-            // 
-            // cmbxEstatus
-            // 
-            this.cmbxEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxEstatus.Font = new System.Drawing.Font("Rockwell", 8F);
-            this.cmbxEstatus.FormattingEnabled = true;
-            this.cmbxEstatus.Items.AddRange(new object[] {
-            "En curso",
-            "Reprogramado",
-            "Suspendido",
-            "Finalizado"});
-            this.cmbxEstatus.Location = new System.Drawing.Point(79, 87);
-            this.cmbxEstatus.Name = "cmbxEstatus";
-            this.cmbxEstatus.Size = new System.Drawing.Size(158, 21);
-            this.cmbxEstatus.TabIndex = 10;
-            this.cmbxEstatus.SelectionChangeCommitted += new System.EventHandler(this.cmbxEstatus_SelectionChangeCommitted);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(21, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Estatus:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(12, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Nombre:";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBuscar.Location = new System.Drawing.Point(27, 184);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(199, 42);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grpbData
             // 
@@ -316,6 +165,53 @@
             this.dgvParticipantes.Size = new System.Drawing.Size(783, 510);
             this.dgvParticipantes.TabIndex = 0;
             this.dgvParticipantes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvParticipantes_MouseClick);
+            // 
+            // ci_participante
+            // 
+            this.ci_participante.HeaderText = "Cédula";
+            this.ci_participante.MaxInputLength = 10;
+            this.ci_participante.MinimumWidth = 100;
+            this.ci_participante.Name = "ci_participante";
+            this.ci_participante.ReadOnly = true;
+            this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ci_participante.Width = 120;
+            // 
+            // nombre_participante
+            // 
+            this.nombre_participante.HeaderText = "Nombre participante";
+            this.nombre_participante.MaxInputLength = 100;
+            this.nombre_participante.MinimumWidth = 100;
+            this.nombre_participante.Name = "nombre_participante";
+            this.nombre_participante.ReadOnly = true;
+            this.nombre_participante.Width = 180;
+            // 
+            // apellido_participante
+            // 
+            this.apellido_participante.HeaderText = "Apellido";
+            this.apellido_participante.MaxInputLength = 100;
+            this.apellido_participante.MinimumWidth = 100;
+            this.apellido_participante.Name = "apellido_participante";
+            this.apellido_participante.ReadOnly = true;
+            this.apellido_participante.Width = 150;
+            // 
+            // correo_par
+            // 
+            this.correo_par.HeaderText = "Correo";
+            this.correo_par.Name = "correo_par";
+            this.correo_par.ReadOnly = true;
+            // 
+            // tlfn_par
+            // 
+            this.tlfn_par.HeaderText = "Teléfono";
+            this.tlfn_par.MaxInputLength = 15;
+            this.tlfn_par.Name = "tlfn_par";
+            this.tlfn_par.ReadOnly = true;
+            // 
+            // empresa_asociada
+            // 
+            this.empresa_asociada.HeaderText = "Empresa asociada";
+            this.empresa_asociada.Name = "empresa_asociada";
+            this.empresa_asociada.ReadOnly = true;
             // 
             // panel8
             // 
@@ -413,53 +309,6 @@
             // 
             this.errorProviderFecha.ContainerControl = this;
             // 
-            // ci_participante
-            // 
-            this.ci_participante.HeaderText = "Cédula";
-            this.ci_participante.MaxInputLength = 10;
-            this.ci_participante.MinimumWidth = 100;
-            this.ci_participante.Name = "ci_participante";
-            this.ci_participante.ReadOnly = true;
-            this.ci_participante.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ci_participante.Width = 120;
-            // 
-            // nombre_participante
-            // 
-            this.nombre_participante.HeaderText = "Nombre participante";
-            this.nombre_participante.MaxInputLength = 100;
-            this.nombre_participante.MinimumWidth = 100;
-            this.nombre_participante.Name = "nombre_participante";
-            this.nombre_participante.ReadOnly = true;
-            this.nombre_participante.Width = 180;
-            // 
-            // apellido_participante
-            // 
-            this.apellido_participante.HeaderText = "Apellido";
-            this.apellido_participante.MaxInputLength = 100;
-            this.apellido_participante.MinimumWidth = 100;
-            this.apellido_participante.Name = "apellido_participante";
-            this.apellido_participante.ReadOnly = true;
-            this.apellido_participante.Width = 150;
-            // 
-            // correo_par
-            // 
-            this.correo_par.HeaderText = "Correo";
-            this.correo_par.Name = "correo_par";
-            this.correo_par.ReadOnly = true;
-            // 
-            // tlfn_par
-            // 
-            this.tlfn_par.HeaderText = "Teléfono";
-            this.tlfn_par.MaxInputLength = 15;
-            this.tlfn_par.Name = "tlfn_par";
-            this.tlfn_par.ReadOnly = true;
-            // 
-            // empresa_asociada
-            // 
-            this.empresa_asociada.HeaderText = "Empresa asociada";
-            this.empresa_asociada.Name = "empresa_asociada";
-            this.empresa_asociada.ReadOnly = true;
-            // 
             // Ver_participantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,15 +317,12 @@
             this.ClientSize = new System.Drawing.Size(1121, 739);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.grpbOpciones);
-            this.Controls.Add(this.grpbDatos);
             this.Controls.Add(this.grpbData);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Ver_participantes";
             this.Load += new System.EventHandler(this.Ver_participantes_Load);
             this.grpbOpciones.ResumeLayout(false);
-            this.grpbDatos.ResumeLayout(false);
-            this.grpbDatos.PerformLayout();
             this.grpbData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParticipantes)).EndInit();
             this.panel8.ResumeLayout(false);
@@ -498,25 +344,15 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
         private System.Windows.Forms.GroupBox grpbOpciones;
         private System.Windows.Forms.Button btnRefrescar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.GroupBox grpbDatos;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox grpbData;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridView dgvParticipantes;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxNombre;
         private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;
-        private System.Windows.Forms.ComboBox cmbxEstatus;
-        private System.Windows.Forms.TextBox txtBuscarNombre;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpFechaCurso;
         private System.Windows.Forms.ErrorProvider errorProviderFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ci_participante;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_participante;

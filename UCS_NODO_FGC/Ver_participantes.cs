@@ -37,8 +37,7 @@ namespace UCS_NODO_FGC
         {
             this.Location = new Point(-5, 0);
             llenarDGV();
-            dtpFechaCurso.Value = DateTime.Today;
-            btnEliminar.Enabled = false;
+           
         }
         /*----------------------METODOS------------------------*/
 
@@ -75,10 +74,7 @@ namespace UCS_NODO_FGC
         {
             dgvParticipantes.Rows.Clear();
             llenarDGV();
-            txtBuscarNombre.Clear();
-            cmbxEstatus.SelectedIndex = -1;
-            dtpFechaCurso.Value = DateTime.Today;
-            btnEliminar.Enabled = false;
+            
         } 
 
         private void Busqueda(string nombreC, string e, string f)
@@ -133,109 +129,109 @@ namespace UCS_NODO_FGC
 
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (txtBuscarNombre.Text == "" && cmbxEstatus.SelectedIndex == -1)
-            {
-                errorProviderCmbxNombre.SetError(txtBuscarNombre, "Debe escribir el nombre de una formación.");
-                errorProviderCmbxEstatus.SetError(cmbxEstatus, "Debe seleccionar un estatus.");
-                txtBuscarNombre.Focus();
-            }
-            else
-            {
-                errorProviderCmbxNombre.SetError(txtBuscarNombre, "");
-                errorProviderCmbxEstatus.SetError(cmbxEstatus, "");
-                if (txtBuscarNombre.Text == "")
-                {
-                    errorProviderCmbxNombre.SetError(txtBuscarNombre, "Debe escribir el nombre de una formación.");
-                    txtBuscarNombre.Focus();
-                }
-                else
-                {
-                    errorProviderCmbxNombre.SetError(txtBuscarNombre, "");
-                    if (cmbxEstatus.SelectedIndex == -1)
-                    {
-                        errorProviderCmbxEstatus.SetError(cmbxEstatus, "Debe seleccionar un estatus.");
-                        cmbxEstatus.Focus();
-                    }
-                    else
-                    {
+        //private void btnBuscar_Click(object sender, EventArgs e)
+        //{
+        //    if (txtBuscarNombre.Text == "" && cmbxEstatus.SelectedIndex == -1)
+        //    {
+        //        errorProviderCmbxNombre.SetError(txtBuscarNombre, "Debe escribir el nombre de una formación.");
+        //        errorProviderCmbxEstatus.SetError(cmbxEstatus, "Debe seleccionar un estatus.");
+        //        txtBuscarNombre.Focus();
+        //    }
+        //    else
+        //    {
+        //        errorProviderCmbxNombre.SetError(txtBuscarNombre, "");
+        //        errorProviderCmbxEstatus.SetError(cmbxEstatus, "");
+        //        if (txtBuscarNombre.Text == "")
+        //        {
+        //            errorProviderCmbxNombre.SetError(txtBuscarNombre, "Debe escribir el nombre de una formación.");
+        //            txtBuscarNombre.Focus();
+        //        }
+        //        else
+        //        {
+        //            errorProviderCmbxNombre.SetError(txtBuscarNombre, "");
+        //            if (cmbxEstatus.SelectedIndex == -1)
+        //            {
+        //                errorProviderCmbxEstatus.SetError(cmbxEstatus, "Debe seleccionar un estatus.");
+        //                cmbxEstatus.Focus();
+        //            }
+        //            else
+        //            {
                         
-                        errorProviderCmbxEstatus.SetError(cmbxEstatus, "");
-                        string nombre = txtBuscarNombre.Text;
+        //                errorProviderCmbxEstatus.SetError(cmbxEstatus, "");
+        //                string nombre = txtBuscarNombre.Text;
                         
-                        string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
-                        DateTime today = DateTime.Today;
-                        Busqueda(nombre, formaciones.estatus, fecha);
+        //                string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+        //                DateTime today = DateTime.Today;
+        //                Busqueda(nombre, formaciones.estatus, fecha);
                         
-                        //MessageBox.Show(""+nombre+","+estatus+", "+fecha+"");
+        //                //MessageBox.Show(""+nombre+","+estatus+", "+fecha+"");
 
-                        //aqui debe estar el metodo que permita llenar el dgv con los parametros de busqueda
-                        if (resultado == 1)
-                        {
-                           // dgvParticipantes.CurrentRow.Selected = true;
+        //                //aqui debe estar el metodo que permita llenar el dgv con los parametros de busqueda
+        //                if (resultado == 1)
+        //                {
+        //                   // dgvParticipantes.CurrentRow.Selected = true;
 
-                            if (today < DateTime.Parse(fecha) && formaciones.estatus == "En curso")
-                            {
-                                btnEliminar.Enabled = true;
-                                btnImprimir.Enabled = true;
-                            }
-                            else
-                            {
-                                btnEliminar.Enabled = false;
-                                btnImprimir.Enabled = false;
-                            }
+        //                    if (today < DateTime.Parse(fecha) && formaciones.estatus == "En curso")
+        //                    {
+        //                        btnEliminar.Enabled = true;
+        //                        btnImprimir.Enabled = true;
+        //                    }
+        //                    else
+        //                    {
+        //                        btnEliminar.Enabled = false;
+        //                        btnImprimir.Enabled = false;
+        //                    }
 
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("La búsqueda no ha arrojado resultados.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            refrescar();
-                        }
-                    }
-                }
-            }
-        }
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("La búsqueda no ha arrojado resultados.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //                    refrescar();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             refrescar();
         }
 
-        private void cmbxEstatus_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            string estatus = Convert.ToString(cmbxEstatus.SelectedIndex);
-            switch (estatus)
-            {
-                case "0":
-                    estatus = "En curso";
-                    break;
-                case "1":
-                    estatus = "Reprogramado";
-                    break;
-                case "2":
-                    estatus = "Suspendido";
-                    break;
-                case "3":
-                    estatus = "Finalizado";
-                    break;
-            }
-            formaciones.estatus = estatus;
-        }
+        //private void cmbxEstatus_SelectionChangeCommitted(object sender, EventArgs e)
+        //{
+        //    string estatus = Convert.ToString(cmbxEstatus.SelectedIndex);
+        //    switch (estatus)
+        //    {
+        //        case "0":
+        //            estatus = "En curso";
+        //            break;
+        //        case "1":
+        //            estatus = "Reprogramado";
+        //            break;
+        //        case "2":
+        //            estatus = "Suspendido";
+        //            break;
+        //        case "3":
+        //            estatus = "Finalizado";
+        //            break;
+        //    }
+        //    formaciones.estatus = estatus;
+        //}
 
-        private void txtNombrePart_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-            if (txtBuscarNombre.Text.Length == 0)
-            {
-                e.KeyChar = e.KeyChar.ToString().ToUpper().ToCharArray()[0];
-            }
-            else if (txtBuscarNombre.Text.Length > 0)
-            {
-                e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
-            }
-        }
+        //private void txtNombrePart_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //    if (txtBuscarNombre.Text.Length == 0)
+        //    {
+        //        e.KeyChar = e.KeyChar.ToString().ToUpper().ToCharArray()[0];
+        //    }
+        //    else if (txtBuscarNombre.Text.Length > 0)
+        //    {
+        //        e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
+        //    }
+        //}
 
         private void dgvParticipantes_MouseClick(object sender, MouseEventArgs e)
         {
@@ -262,32 +258,32 @@ namespace UCS_NODO_FGC
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (dgvParticipantes.SelectedRows.Count == 1)
-            {
-                string nombre = txtBuscarNombre.Text;
-                string estatus = formaciones.estatus;
-                string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
-                int id_curso = 0;
-                if (MessageBox.Show("¿Está seguro de eliminar al postulado " + part.nombreP + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    MySqlDataReader id = Conexion.ConsultarBD("SELECT id_cursos from cursos WHERE nombre_curso='" + nombre + "' AND fecha_uno='" + fecha + "' AND estatus_curso='" + estatus + "'");
-                    if (id.Read())
-                    {
-                        id_curso = Convert.ToInt32(id["id_cursos"]);
-                    }
-                    id.Close();
-                    MySqlDataReader del = Conexion.ConsultarBD("DELETE FROM cursos_tienen_participantes WHERE ctp_id_curso='" + id_curso + "' AND ctp_id_participante='"+ part.id_participante + "'");
-                    del.Close();
+        //private void btnEliminar_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvParticipantes.SelectedRows.Count == 1)
+        //    {
+        //        string nombre = txtBuscarNombre.Text;
+        //        string estatus = formaciones.estatus;
+        //        string fecha = dtpFechaCurso.Value.ToString("yyyy-MM-dd");
+        //        int id_curso = 0;
+        //        if (MessageBox.Show("¿Está seguro de eliminar al postulado " + part.nombreP + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        //        {
+        //            MySqlDataReader id = Conexion.ConsultarBD("SELECT id_cursos from cursos WHERE nombre_curso='" + nombre + "' AND fecha_uno='" + fecha + "' AND estatus_curso='" + estatus + "'");
+        //            if (id.Read())
+        //            {
+        //                id_curso = Convert.ToInt32(id["id_cursos"]);
+        //            }
+        //            id.Close();
+        //            MySqlDataReader del = Conexion.ConsultarBD("DELETE FROM cursos_tienen_participantes WHERE ctp_id_curso='" + id_curso + "' AND ctp_id_participante='"+ part.id_participante + "'");
+        //            del.Close();
                     
-                    Busqueda(nombre, estatus, fecha);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un participante de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
+        //            Busqueda(nombre, estatus, fecha);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Debe seleccionar un participante de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //    }
+        //}
     }
 }
