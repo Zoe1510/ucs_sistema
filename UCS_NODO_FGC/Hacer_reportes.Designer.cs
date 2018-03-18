@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpbItems = new System.Windows.Forms.GroupBox();
+            this.btnRpt_TipoDur = new System.Windows.Forms.Button();
+            this.btnRpt_TimeDur = new System.Windows.Forms.Button();
+            this.btnRpt_TimeTipos = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbxPeriodoTiempo = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -41,7 +44,6 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnRpt_TimeEtapas = new System.Windows.Forms.Button();
-            this.btnRpt_TimeTipos = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvFormaciones = new System.Windows.Forms.DataGridView();
@@ -53,6 +55,7 @@
             this.creado_por = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProviderPeriodo = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpbDatos = new System.Windows.Forms.GroupBox();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,13 +63,10 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.errorProviderCmbxNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCmbxEstatus = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnRpt_TimeDur = new System.Windows.Forms.Button();
-            this.btnRpt_TipoDur = new System.Windows.Forms.Button();
             this.gpbItems.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -93,15 +93,45 @@
             this.gpbItems.TabIndex = 49;
             this.gpbItems.TabStop = false;
             // 
+            // btnRpt_TipoDur
+            // 
+            this.btnRpt_TipoDur.Location = new System.Drawing.Point(9, 184);
+            this.btnRpt_TipoDur.Name = "btnRpt_TipoDur";
+            this.btnRpt_TipoDur.Size = new System.Drawing.Size(336, 36);
+            this.btnRpt_TipoDur.TabIndex = 82;
+            this.btnRpt_TipoDur.Text = "Relacion tipo / duración de formaciones";
+            this.btnRpt_TipoDur.UseVisualStyleBackColor = true;
+            this.btnRpt_TipoDur.Click += new System.EventHandler(this.btnRpt_TipoDur_Click);
+            // 
+            // btnRpt_TimeDur
+            // 
+            this.btnRpt_TimeDur.Location = new System.Drawing.Point(9, 129);
+            this.btnRpt_TimeDur.Name = "btnRpt_TimeDur";
+            this.btnRpt_TimeDur.Size = new System.Drawing.Size(336, 36);
+            this.btnRpt_TimeDur.TabIndex = 81;
+            this.btnRpt_TimeDur.Text = "Relacion tiempo / duración de formaciones";
+            this.btnRpt_TimeDur.UseVisualStyleBackColor = true;
+            this.btnRpt_TimeDur.Click += new System.EventHandler(this.btnRpt_TimeDur_Click);
+            // 
+            // btnRpt_TimeTipos
+            // 
+            this.btnRpt_TimeTipos.Location = new System.Drawing.Point(9, 73);
+            this.btnRpt_TimeTipos.Name = "btnRpt_TimeTipos";
+            this.btnRpt_TimeTipos.Size = new System.Drawing.Size(336, 36);
+            this.btnRpt_TimeTipos.TabIndex = 63;
+            this.btnRpt_TimeTipos.Text = "Relacion tiempo / tipos de formaciones";
+            this.btnRpt_TimeTipos.UseVisualStyleBackColor = true;
+            this.btnRpt_TimeTipos.Click += new System.EventHandler(this.btnReporte2_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 11F);
-            this.label6.Location = new System.Drawing.Point(16, 30);
+            this.label6.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.label6.Location = new System.Drawing.Point(21, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 17);
+            this.label6.Size = new System.Drawing.Size(71, 19);
             this.label6.TabIndex = 80;
-            this.label6.Text = "Periodo de tiempo:";
+            this.label6.Text = "Periodo:";
             // 
             // cmbxPeriodoTiempo
             // 
@@ -111,9 +141,9 @@
             this.cmbxPeriodoTiempo.Items.AddRange(new object[] {
             "Último mes",
             "Último trimestre"});
-            this.cmbxPeriodoTiempo.Location = new System.Drawing.Point(166, 25);
+            this.cmbxPeriodoTiempo.Location = new System.Drawing.Point(98, 25);
             this.cmbxPeriodoTiempo.Name = "cmbxPeriodoTiempo";
-            this.cmbxPeriodoTiempo.Size = new System.Drawing.Size(164, 27);
+            this.cmbxPeriodoTiempo.Size = new System.Drawing.Size(232, 27);
             this.cmbxPeriodoTiempo.TabIndex = 79;
             // 
             // panel8
@@ -167,16 +197,6 @@
             this.btnRpt_TimeEtapas.UseVisualStyleBackColor = true;
             this.btnRpt_TimeEtapas.Click += new System.EventHandler(this.btnReporte1_Click);
             // 
-            // btnRpt_TimeTipos
-            // 
-            this.btnRpt_TimeTipos.Location = new System.Drawing.Point(9, 73);
-            this.btnRpt_TimeTipos.Name = "btnRpt_TimeTipos";
-            this.btnRpt_TimeTipos.Size = new System.Drawing.Size(336, 36);
-            this.btnRpt_TimeTipos.TabIndex = 63;
-            this.btnRpt_TimeTipos.Text = "Relacion tiempo / tipos de formaciones";
-            this.btnRpt_TimeTipos.UseVisualStyleBackColor = true;
-            this.btnRpt_TimeTipos.Click += new System.EventHandler(this.btnReporte2_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnRpt_TimeEtapas);
@@ -205,19 +225,19 @@
             this.dgvFormaciones.AllowUserToAddRows = false;
             this.dgvFormaciones.AllowUserToResizeColumns = false;
             this.dgvFormaciones.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.NullValue = null;
-            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgvFormaciones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFormaciones.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFormaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvFormaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFormaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_formacion,
@@ -226,24 +246,24 @@
             this.duracion_curso,
             this.estatus_formacion,
             this.creado_por});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFormaciones.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFormaciones.Location = new System.Drawing.Point(22, 25);
             this.dgvFormaciones.Name = "dgvFormaciones";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFormaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvFormaciones.RowHeadersVisible = false;
             this.dgvFormaciones.Size = new System.Drawing.Size(695, 525);
             this.dgvFormaciones.TabIndex = 0;
@@ -310,6 +330,22 @@
             this.grpbDatos.TabIndex = 79;
             this.grpbDatos.TabStop = false;
             this.grpbDatos.Text = "Curso";
+            // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(173)))), ((int)(((byte)(224)))));
+            this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRefrescar.Location = new System.Drawing.Point(42, 173);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(246, 37);
+            this.btnRefrescar.TabIndex = 9;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // txtBuscarNombre
             // 
@@ -384,22 +420,6 @@
             // 
             this.errorProviderCmbxEstatus.ContainerControl = this;
             // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(173)))), ((int)(((byte)(224)))));
-            this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefrescar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefrescar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRefrescar.Location = new System.Drawing.Point(42, 173);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(246, 37);
-            this.btnRefrescar.TabIndex = 9;
-            this.btnRefrescar.Text = "Refrescar";
-            this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
-            // 
             // Panel_cabecera
             // 
             this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
@@ -442,26 +462,6 @@
             this.rectangleShape7.Location = new System.Drawing.Point(1, 108);
             this.rectangleShape7.Name = "rectangleShape7";
             this.rectangleShape7.Size = new System.Drawing.Size(1121, 1);
-            // 
-            // btnRpt_TimeDur
-            // 
-            this.btnRpt_TimeDur.Location = new System.Drawing.Point(9, 129);
-            this.btnRpt_TimeDur.Name = "btnRpt_TimeDur";
-            this.btnRpt_TimeDur.Size = new System.Drawing.Size(336, 36);
-            this.btnRpt_TimeDur.TabIndex = 81;
-            this.btnRpt_TimeDur.Text = "Relacion tiempo / duración de formaciones";
-            this.btnRpt_TimeDur.UseVisualStyleBackColor = true;
-            this.btnRpt_TimeDur.Click += new System.EventHandler(this.btnRpt_TimeDur_Click);
-            // 
-            // btnRpt_TipoDur
-            // 
-            this.btnRpt_TipoDur.Location = new System.Drawing.Point(9, 184);
-            this.btnRpt_TipoDur.Name = "btnRpt_TipoDur";
-            this.btnRpt_TipoDur.Size = new System.Drawing.Size(336, 36);
-            this.btnRpt_TipoDur.TabIndex = 82;
-            this.btnRpt_TipoDur.Text = "Relacion tipo / duración de formaciones";
-            this.btnRpt_TipoDur.UseVisualStyleBackColor = true;
-            this.btnRpt_TipoDur.Click += new System.EventHandler(this.btnRpt_TipoDur_Click);
             // 
             // Hacer_reportes
             // 

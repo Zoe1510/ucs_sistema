@@ -157,6 +157,7 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label14 = new System.Windows.Forms.Label();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -212,6 +213,7 @@
             this.Panel_cabecera.BackColor = System.Drawing.Color.MidnightBlue;
             this.Panel_cabecera.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.panel_cabecera;
             this.Panel_cabecera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panel_cabecera.Controls.Add(this.label14);
             this.Panel_cabecera.Controls.Add(this.LabelCabecera);
             this.Panel_cabecera.Controls.Add(this.shapeContainer1);
             this.Panel_cabecera.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1577,6 +1579,16 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Location = new System.Drawing.Point(375, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(195, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "FEE: Formación Estratégica Empresarial";
+            // 
             // Nueva_formacion_FEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1786,5 +1798,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label14;
     }
 }

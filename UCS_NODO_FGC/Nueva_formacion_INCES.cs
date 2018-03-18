@@ -871,9 +871,11 @@ namespace UCS_NODO_FGC
                     if (celda == lista_insumo_cargada[i])
                     {
                         row.Cells["seleccion_opcion"].Value = true;
+                        lista_insumo.Add(celda);
                     }
                 }
             }
+           
         }
 
 
@@ -1111,6 +1113,23 @@ namespace UCS_NODO_FGC
         private void GuardarIntermedio()
         {
             guardar = false;
+            int id_curso = 0;
+            if (Formaciones.creacion == true)
+            {
+                //se obtiene el id del curso
+                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
+                if (obtener_id_curso.Read())
+                {
+                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                }
+                obtener_id_curso.Close();
+
+            }
+            else
+            {
+                id_curso = Cursos.id_curso13;
+            }
+           
 
             if (rdbNoRef.Checked == false && rdbSiRef.Checked == false)
             {
@@ -1153,14 +1172,7 @@ namespace UCS_NODO_FGC
                             {
                                 errorProviderContenido.SetError(cmbxCoFa, "");
                                
-                                int id_curso = 0;
-                                //se obtiene el id del curso
-                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
-                                if (obtener_id_curso.Read())
-                                {
-                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
-                                }
-                                obtener_id_curso.Close();
+                                
                                 //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
                                 MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" + dtpFechaCurso.Value.ToString("yyyy-MM-dd HH:mm:ss") + "', fecha_dos='" + dtpSegundaFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id_cursos='" + id_curso + "'");
                                 ActualizarCursoSegundaEtapa.Close();
@@ -1231,6 +1243,23 @@ namespace UCS_NODO_FGC
         private void GuardarAvanzado()
         {
             guardar = false;
+            int id_curso = 0;
+            if (Formaciones.creacion == true)
+            {
+                //se obtiene el id del curso
+                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
+                if (obtener_id_curso.Read())
+                {
+                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
+                }
+                obtener_id_curso.Close();
+
+            }
+            else
+            {
+                id_curso = Cursos.id_curso13;
+            }
+
             if (cmbxHorarios.SelectedIndex == -1)
             {
                 errorProviderHora.SetError(cmbxHorarios, "Debe seleccionar uno de los horarios disponibles.");
@@ -1306,14 +1335,7 @@ namespace UCS_NODO_FGC
 
                                 List<Insumos> insumos_curso = new List<Insumos>();
 
-                                int id_curso = 0;
-                                //se obtiene el id del curso
-                                MySqlDataReader obtener_id_curso = Conexion.ConsultarBD("SELECT id_cursos FROM cursos WHERE nombre_curso = '" + cmbxCursoInce.Text + "' AND tipo_curso='INCES' AND solicitud_curso='" + cmbxSolicitadoPor.Text + "'");
-                                if (obtener_id_curso.Read())
-                                {
-                                    id_curso = int.Parse(obtener_id_curso["id_cursos"].ToString());
-                                }
-                                obtener_id_curso.Close();
+                               
 
                                 Insumos insu = new Insumos();
                                 //crear una lista donde se agreguen los nombres de cada fila para luego buscar el id de ellos (los seleccionado) y guardarlo en la bd
@@ -1364,6 +1386,7 @@ namespace UCS_NODO_FGC
 
         private void Modificar_intermedio()
         {
+            
             GuardarIntermedio();
 
             FinalE2 = DateTime.Now;
@@ -1406,6 +1429,10 @@ namespace UCS_NODO_FGC
         }
         private void Modificar_avanzado()
         {
+            //eliminará los insumos existentes y más abajo los añadirá para evitrar dublicados
+            MySqlDataReader del = Conexion.ConsultarBD("delete from cursos_tienen_insumos where cti_id_curso='" + Cursos.id_curso13 + "'");
+            del.Close();
+
             GuardarAvanzado();
             FinalE3 = DateTime.Now;
             formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
@@ -1455,7 +1482,7 @@ namespace UCS_NODO_FGC
             {
                 if (pnlNivel_basico.Visible == true)
                 {
-                    LabelCabecera.Text = "Nuevo Incompany: Detalles técnicos";
+                    LabelCabecera.Text = "Nuevo INCES: Detalles técnicos";
                     LabelCabecera.Location = new Point(115, 31);
 
                     pnlNivel_basico.Visible = false;
@@ -1474,7 +1501,7 @@ namespace UCS_NODO_FGC
                 }
                 else if (pnlNivel_intermedio.Visible == true)
                 {
-                    LabelCabecera.Text = "Nuevo InCompany: Logística";
+                    LabelCabecera.Text = "Nuevo INCES: Logística";
                     LabelCabecera.Location = new Point(200, 31);
 
 
@@ -1545,6 +1572,7 @@ namespace UCS_NODO_FGC
                     }
                     else if (Cursos.etapa_formacion13 == 2)
                     {
+                        cmbxTipoRefrigerio.SelectedIndex = -1;
                         btnSiguienteEtapa.Enabled = true;
                         btnRetomar.Enabled = true;
                         btnPausar.Enabled = false;
@@ -2070,10 +2098,12 @@ namespace UCS_NODO_FGC
                         btnModificar.Enabled = false;
 
                     }
-                    btnSiguienteEtapa.Enabled = false;
+                    btnModificar.Enabled = false;
                     btnPausar.Enabled = false;
+
+                    btnSiguienteEtapa.Enabled = true;
                     btnRetomar.Enabled = true;
-                    deshabilitarControlesAvanzado();
+                    deshabilitarControlesIntermedio();
 
                     Cursos.etapa_formacion13 = 2;
 
@@ -2085,7 +2115,7 @@ namespace UCS_NODO_FGC
                         if (formacion.ubicacion_ucs != Cursos.ubicacion_ucs || formacion.tiene_ref != Cursos.tiene_ref || dtpFechaCurso.Value.ToString("yyyy-MM-dd") != Cursos.fecha_uno13 || dtpSegundaFecha.Value.ToString("yyyy-MM-dd") != Cursos.fecha_dos13 || cmbxFa.Text != fcombo.nombreyapellido1 || cmbxCoFa.Text != cf.nombreyapellido1)
                         {
                             Modificar_intermedio();
-                            Cursos.etapa_formacion13 = 3;
+                            
                         }
                     }
                     

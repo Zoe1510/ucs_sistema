@@ -423,6 +423,7 @@ namespace UCS_NODO_FGC
                         fee.ShowDialog();
                     }
                     vaciardatos();
+                    refrescar();
                 }
                 
             }
