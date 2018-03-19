@@ -49,9 +49,9 @@
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
             this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnImprimir.Location = new System.Drawing.Point(236, 402);
+            this.btnImprimir.Location = new System.Drawing.Point(193, 391);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(117, 45);
+            this.btnImprimir.Size = new System.Drawing.Size(176, 53);
             this.btnImprimir.TabIndex = 9;
             this.btnImprimir.Text = "Enviar";
             this.btnImprimir.UseVisualStyleBackColor = false;

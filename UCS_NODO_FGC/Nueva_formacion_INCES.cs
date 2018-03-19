@@ -759,7 +759,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                  //  MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
                 nombre.Close();
@@ -771,7 +771,7 @@ namespace UCS_NODO_FGC
                     MySqlDataReader nombre2 = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxSegundoRefrigerio.Text + "'");
                     if (nombre2.Read())
                     {
-                        MessageBox.Show(nombre2["id_ref"].ToString());
+                      //  MessageBox.Show(nombre2["id_ref"].ToString());
                         id_refrigerio2 = Convert.ToInt32(nombre2["id_ref"]);
                     }
                     nombre2.Close();
@@ -852,7 +852,7 @@ namespace UCS_NODO_FGC
             }
 
 
-            MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAula.Text + " :aula ");
+           // MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAula.Text + " :aula ");
 
             //buscar todos los insumos registrados para esa formacion
             MySqlDataReader ins = Conexion.ConsultarBD("SELECT * FROM insumos i inner join cursos_tienen_insumos cti on cti.cti_id_insumo = i.id_insumos where cti.cti_id_curso = '" + Cursos.id_curso13 + "'");
@@ -2019,7 +2019,7 @@ namespace UCS_NODO_FGC
                                             formacion.nombre_formacion = cmbxCursoInce.Text;
                                             formacion.tipo_formacion = "INCES";
                                             formacion.solicitado = cmbxSolicitadoPor.Text;
-                                            MessageBox.Show(formacion.solicitado);
+                                           // MessageBox.Show(formacion.solicitado);
                                             int id_solicitud = 0;
                                             MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes from clientes where nombre_empresa='" + formacion.solicitado + "'");
                                             if (idS.Read())
@@ -2027,11 +2027,11 @@ namespace UCS_NODO_FGC
                                                 id_solicitud = Convert.ToInt32(idS["id_clientes"]);
                                             }
                                             idS.Close();
-                                            MessageBox.Show(id_solicitud.ToString());
+                                           // MessageBox.Show(id_solicitud.ToString());
                                             FinalE1 = DateTime.Now; //agregar en fecha_mod_final en UGC
                                             formacion.fecha_inicial = fecha_creacion;// agregar fecha_mod_inicio
                                             formacion.TiempoEtapa = Convert.ToString(FinalE1 - fecha_creacion); //para añadir a la duracionE1
-                                            MessageBox.Show(formacion.TiempoEtapa + " tiempoEtapa");
+                                          //  MessageBox.Show(formacion.TiempoEtapa + " tiempoEtapa");
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
                                             formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                             formacion.solicitado = cmbxSolicitadoPor.Text;
@@ -2042,12 +2042,12 @@ namespace UCS_NODO_FGC
 
                                                 TimeSpan et1;
                                                 et1 = TimeSpan.Parse(duracion);
-                                                MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
+                                              //  MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
                                                 TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
 
                                                 formacion.TiempoEtapa = (tt + et1).ToString();
                                                 //formacion.TiempoEtapa= Convert.ToString();
-                                                MessageBox.Show(formacion.TiempoEtapa + "dizque la suma de lo9s timespan");
+                                                //MessageBox.Show(formacion.TiempoEtapa + "dizque la suma de lo9s timespan");
                                             }
                                             e1.Close();
                                             MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET nombre_curso='" + formacion.nombre_formacion + "', duracion_curso='" + formacion.duracion + "', bloque_curso='" + formacion.bloque_curso + "', solicitud_curso='" + formacion.solicitado + "', duracionE1='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
@@ -2986,7 +2986,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                  //  MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
 
@@ -2996,7 +2996,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                   // MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
             }
@@ -3009,15 +3009,15 @@ namespace UCS_NODO_FGC
             if (Formaciones.creacion == true)
             {
                 id_refrigerio2 = Convert.ToInt32(cmbxSegundoRefrigerio.SelectedValue);
-                MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion");
+              //  MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion");
 
 
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxSegundoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                   // MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
-                    MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion 2");
+                  //  MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion 2");
                 }
 
             }
@@ -3026,7 +3026,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxSegundoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                   // MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
                     formacion.refri2 = cmbxSegundoRefrigerio.Text;
                 }

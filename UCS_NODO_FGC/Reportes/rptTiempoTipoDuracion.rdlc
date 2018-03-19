@@ -20,80 +20,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.64938cm</Top>
-        <Left>2.05288cm</Left>
+        <Top>1.35792cm</Top>
+        <Left>2.56328cm</Left>
         <Height>0.6cm</Height>
         <Width>6.54812cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txtFechaActual">
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!fecha_hoy.Value, "dsFormacion")</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>1.64938cm</Top>
-        <Left>12.43683cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.55291cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox8">
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>y</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.64938cm</Top>
-        <Left>11.6919cm</Left>
-        <Height>0.6cm</Height>
-        <Width>0.56854cm</Width>
-        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -123,11 +53,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.64938cm</Top>
-        <Left>15.09558cm</Left>
+        <Top>2.33688cm</Top>
+        <Left>1.6637cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.79645cm</Width>
-        <ZIndex>3</ZIndex>
+        <Width>3.3202cm</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -157,52 +87,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>2.69917cm</Top>
-        <Left>2.05288cm</Left>
+        <Top>2.33688cm</Top>
+        <Left>5.08973cm</Left>
         <Height>0.6cm</Height>
         <Width>2.15604cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txtNroF">
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Label>txtnrof</Label>
-                <Value>=First(Fields!nro_formaciones.Value, "dsFormacion")</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>2.69917cm</Top>
-        <Left>4.39413cm</Left>
-        <Height>0.6cm</Height>
-        <Width>1.49458cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -228,11 +121,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>2.69917cm</Top>
-        <Left>5.99454cm</Left>
+        <Top>2.33688cm</Top>
+        <Left>9.04229cm</Left>
         <Height>0.6cm</Height>
         <Width>4.03458cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -244,50 +137,16 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="txtTipoF">
+      <Textbox Name="Textbox8">
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!tipo_formacion.Value, "dsFormacion")</Value>
+                <Value>y</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>2.69917cm</Top>
-        <Left>10.02912cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.26729cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="txtEmision">
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!nombreyapellido.Value, "dsFormacion")</Value>
-                <Style />
               </TextRun>
             </TextRuns>
             <Style>
@@ -295,18 +154,16 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>9.46298cm</Top>
-        <Left>4.10308cm</Left>
-        <Height>0.57354cm</Height>
-        <Width>4.41729cm</Width>
-        <ZIndex>8</ZIndex>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.35792cm</Top>
+        <Left>13.05073cm</Left>
+        <Height>0.6cm</Height>
+        <Width>0.56854cm</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -331,11 +188,45 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>9.46298cm</Top>
-        <Left>2.05288cm</Left>
+        <Top>7.4257cm</Top>
+        <Left>1.6637cm</Left>
         <Height>0.57354cm</Height>
         <Width>2.0502cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox12">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>y duración de:</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>3.39094cm</Top>
+        <Left>1.6637cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.84396cm</Width>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -353,7 +244,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!fecha_vieja.Value, "dsFormacion")</Value>
+                <Value>=First(Fields!fecha_vieja.Value, "dsGeneral")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -364,10 +255,118 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>1.64938cm</Top>
-        <Left>8.74211cm</Left>
+        <Top>1.35792cm</Top>
+        <Left>9.45127cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.7734cm</Width>
+        <Width>3.42307cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtFechaHoy">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!fecha_hoy.Value, "dsGeneral")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>1.35792cm</Top>
+        <Left>14.0462cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.42307cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtNroFormaciones">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!nro_formaciones.Value, "dsGeneral")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>2.33688cm</Top>
+        <Left>7.58091cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.28499cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtTipoFormacion">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!tipo_formacion.Value, "dsGeneral")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>2.33688cm</Top>
+        <Left>13.25326cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.21601cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -383,24 +382,96 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="txtduracion">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>duracion</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>3.39094cm</Top>
+        <Left>4.68405cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.77786cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtEmitido">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!nombreyapellido.Value, "dsGeneral")</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>7.43451cm</Top>
+        <Left>3.74918cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.42307cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>4.02083in</Height>
+    <Height>3.17708in</Height>
     <Style />
   </Body>
-  <Width>8.49091in</Width>
+  <Width>7.77083in</Width>
   <Page>
     <PageHeader>
-      <Height>5.26521cm</Height>
+      <Height>4.63021cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="txtFechaHoy">
+        <Textbox Name="txtFechaActual">
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!fecha_hoy.Value, "dsFormacion")</Value>
+                  <Value>=First(Fields!fecha_hoy.Value, "dsGeneral")</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                   </Style>
@@ -411,18 +482,14 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.83444cm</Top>
-          <Left>15.24078cm</Left>
-          <Height>0.68792cm</Height>
-          <Width>3.65125cm</Width>
+          <Top>1.76071cm</Top>
+          <Left>14.0462cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.42604cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
-            <BottomBorder>
-              <Style>Solid</Style>
-              <Width>1.5pt</Width>
-            </BottomBorder>
             <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -446,8 +513,8 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <Top>4.36245cm</Top>
-          <Left>7.07184cm</Left>
+          <Top>3.72745cm</Top>
+          <Left>6.22448cm</Left>
           <Height>0.72637cm</Height>
           <Width>7.39479cm</Width>
           <ZIndex>1</ZIndex>
@@ -463,13 +530,13 @@
         </Textbox>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=First(Fields!Logo.Value, "dsFormacion")</Value>
+          <Value>=First(Fields!Logo.Value, "dsGeneral")</Value>
           <MIMEType>image/png</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>1.83444cm</Top>
-          <Left>2.05288cm</Left>
-          <Height>3.25438cm</Height>
-          <Width>4.38508cm</Width>
+          <Top>1.76071cm</Top>
+          <Left>1.6637cm</Left>
+          <Height>2.69311cm</Height>
+          <Width>3.99521cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -485,7 +552,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>3.4925cm</Height>
+      <Height>2.8575cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -508,8 +575,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.5508cm</Top>
-          <Left>2.05288cm</Left>
+          <Top>0.24183cm</Top>
+          <Left>1.99114cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <Style>
@@ -542,8 +609,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.01851cm</Top>
-          <Left>2.05288cm</Left>
+          <Top>0.70954cm</Top>
+          <Left>1.99114cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <ZIndex>1</ZIndex>
@@ -577,8 +644,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.52151cm</Top>
-          <Left>2.05288cm</Left>
+          <Top>1.21254cm</Top>
+          <Left>1.99114cm</Left>
           <Height>0.46771cm</Height>
           <Width>10.30521cm</Width>
           <ZIndex>2</ZIndex>
@@ -594,8 +661,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>0.5508cm</Top>
-          <Left>1.77884cm</Left>
+          <Top>0.24183cm</Top>
+          <Left>1.7171cm</Left>
           <Height>1.43841cm</Height>
           <Width>0cm</Width>
           <ZIndex>3</ZIndex>
@@ -623,8 +690,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.41567cm</Top>
-          <Left>17.9841cm</Left>
+          <Top>1.1067cm</Top>
+          <Left>16.56431cm</Left>
           <Height>0.57354cm</Height>
           <Width>0.90793cm</Width>
           <ZIndex>4</ZIndex>
@@ -662,27 +729,13 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>245ff52e-6f88-4165-b812-67b596e6abe3</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="UCS_NODO_FGCClases1">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>0940268a-92c9-4d43-b7c1-d95591a32cf1</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="UCS_NODO_FGCClases2">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>19782b89-9e01-4d2f-8380-c4c37a100b77</rd:DataSourceID>
+      <rd:DataSourceID>0c2d2f27-45e4-4c55-8294-72de325b84dc</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsFormacion">
+    <DataSet Name="dsGeneral">
       <Query>
-        <DataSourceName>UCS_NODO_FGCClases2</DataSourceName>
+        <DataSourceName>UCS_NODO_FGCClases</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -719,5 +772,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>6d50d628-b283-42da-abe1-39ebd41ba347</rd:ReportID>
+  <rd:ReportID>93d3f872-32ed-4746-85ed-a36bb7baa767</rd:ReportID>
 </Report>

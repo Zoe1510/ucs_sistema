@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpbItems = new System.Windows.Forms.GroupBox();
             this.btnRpt_TipoDur = new System.Windows.Forms.Button();
-            this.btnRpt_TimeDur = new System.Windows.Forms.Button();
             this.btnRpt_TimeTipos = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbxPeriodoTiempo = new System.Windows.Forms.ComboBox();
@@ -82,7 +81,6 @@
             // gpbItems
             // 
             this.gpbItems.Controls.Add(this.btnRpt_TipoDur);
-            this.gpbItems.Controls.Add(this.btnRpt_TimeDur);
             this.gpbItems.Controls.Add(this.btnRpt_TimeTipos);
             this.gpbItems.Controls.Add(this.label6);
             this.gpbItems.Controls.Add(this.cmbxPeriodoTiempo);
@@ -95,7 +93,7 @@
             // 
             // btnRpt_TipoDur
             // 
-            this.btnRpt_TipoDur.Location = new System.Drawing.Point(9, 184);
+            this.btnRpt_TipoDur.Location = new System.Drawing.Point(9, 165);
             this.btnRpt_TipoDur.Name = "btnRpt_TipoDur";
             this.btnRpt_TipoDur.Size = new System.Drawing.Size(336, 36);
             this.btnRpt_TipoDur.TabIndex = 82;
@@ -103,19 +101,9 @@
             this.btnRpt_TipoDur.UseVisualStyleBackColor = true;
             this.btnRpt_TipoDur.Click += new System.EventHandler(this.btnRpt_TipoDur_Click);
             // 
-            // btnRpt_TimeDur
-            // 
-            this.btnRpt_TimeDur.Location = new System.Drawing.Point(9, 129);
-            this.btnRpt_TimeDur.Name = "btnRpt_TimeDur";
-            this.btnRpt_TimeDur.Size = new System.Drawing.Size(336, 36);
-            this.btnRpt_TimeDur.TabIndex = 81;
-            this.btnRpt_TimeDur.Text = "Relacion tiempo / duración de formaciones";
-            this.btnRpt_TimeDur.UseVisualStyleBackColor = true;
-            this.btnRpt_TimeDur.Click += new System.EventHandler(this.btnRpt_TimeDur_Click);
-            // 
             // btnRpt_TimeTipos
             // 
-            this.btnRpt_TimeTipos.Location = new System.Drawing.Point(9, 73);
+            this.btnRpt_TimeTipos.Location = new System.Drawing.Point(9, 99);
             this.btnRpt_TimeTipos.Name = "btnRpt_TimeTipos";
             this.btnRpt_TimeTipos.Size = new System.Drawing.Size(336, 36);
             this.btnRpt_TimeTipos.TabIndex = 63;
@@ -127,7 +115,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label6.Location = new System.Drawing.Point(21, 28);
+            this.label6.Location = new System.Drawing.Point(18, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 19);
             this.label6.TabIndex = 80;
@@ -141,7 +129,7 @@
             this.cmbxPeriodoTiempo.Items.AddRange(new object[] {
             "Último mes",
             "Último trimestre"});
-            this.cmbxPeriodoTiempo.Location = new System.Drawing.Point(98, 25);
+            this.cmbxPeriodoTiempo.Location = new System.Drawing.Point(95, 43);
             this.cmbxPeriodoTiempo.Name = "cmbxPeriodoTiempo";
             this.cmbxPeriodoTiempo.Size = new System.Drawing.Size(232, 27);
             this.cmbxPeriodoTiempo.TabIndex = 79;
@@ -531,6 +519,5 @@
         private System.Windows.Forms.ErrorProvider errorProviderCmbxEstatus;
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnRpt_TipoDur;
-        private System.Windows.Forms.Button btnRpt_TimeDur;
     }
 }

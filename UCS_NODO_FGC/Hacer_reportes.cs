@@ -26,7 +26,9 @@ namespace UCS_NODO_FGC
         Formaciones formaciones = new Formaciones();
         //objeto de la clase r_datosgenerales
         R_Formacion_DatosGenerales fdg = new R_Formacion_DatosGenerales();
-        R_Formacion_lista datosF = new R_Formacion_lista();
+        R_TiempoTipoFormacion datosF = new R_TiempoTipoFormacion();
+
+        R_TiempoTipoFormacion rptTTD = new R_TiempoTipoFormacion();
         //objeto de etapas de la formacion= new 
         R_EtapaFormacion etapaf = new R_EtapaFormacion();
         R_EtapaFormacion etapaf2 = new R_EtapaFormacion();
@@ -316,7 +318,7 @@ namespace UCS_NODO_FGC
                 leer.Close();
 
             }
-            MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1 + Cursos.tipo_ref2 + Cursos.aula1 + Cursos.aula2);
+            //MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1 + Cursos.tipo_ref2 + Cursos.aula1 + Cursos.aula2);
         }
 
         private void vaciardatos()
@@ -476,6 +478,8 @@ namespace UCS_NODO_FGC
                 llenarReporte1();
                 pic = Image.FromFile(ruta);
                 fdg.Logo = GetBytes(pic);
+                string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
+                fdg.nombreyapellido = nombreyapellido;
                 fdg.fecha_actual = DateTime.Today.ToString("dd-MM-yyyy");
                 RPT_HORAS_DEDICADAS r1 = new RPT_HORAS_DEDICADAS();
                 r1.InfoGeneral.Add(fdg);
@@ -496,6 +500,12 @@ namespace UCS_NODO_FGC
         private void llenarReporteTiempoTipos()
         {
             llenardatos();
+
+            if (cmbxPeriodoTiempo.SelectedIndex == 0)
+                fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-30));
+            else
+                fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-90));
+
             string tipo = Cursos.tipo_formacion13;
             fecha_actual = DateTime.Today.ToString("yyyy-MM-dd");
             DateTime trampa = Convert.ToDateTime(fecha_vieja);
@@ -509,8 +519,10 @@ namespace UCS_NODO_FGC
             while (leer.Read())
             {
                 nroFormaciones += 1;
+                datosF.fecha_vieja = fecha_vieja;
+
             }
-            datosF.cantidad_participantes = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
+            datosF.nro_formaciones = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
         }
         private void btnReporte2_Click(object sender, EventArgs e) //relacion tiempo-tipo de formaciones
         {
@@ -526,10 +538,11 @@ namespace UCS_NODO_FGC
                     errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
                     //si todo ok, carga el reporte, puede  crear reporte
                     llenarReporteTiempoTipos();
+                    
                     string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
                     datosF.nombreyapellido = nombreyapellido;
-                    datosF.fecha_inicio = fechaparametro;
-                    datosF.fecha_culminacion = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
+                   
+                    datosF.fecha_hoy = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
                     pic = Image.FromFile(ruta);
                     datosF.Logo = GetBytes(pic);
                     RPT_TIEMPO_TIPO rtt = new RPT_TIEMPO_TIPO();
@@ -546,41 +559,80 @@ namespace UCS_NODO_FGC
           
            
         }      
-        private void btnRpt_TimeDur_Click(object sender, EventArgs e)
-        {
-            if (dgvFormaciones.SelectedRows.Count == 1)
-            {
-                if (cmbxPeriodoTiempo.SelectedIndex == -1)
-                {
-                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "Debe seleccionar una de las opciones.");
+        //private void btnRpt_TimeDur_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvFormaciones.SelectedRows.Count == 1)
+        //    {
+        //        if (cmbxPeriodoTiempo.SelectedIndex == -1)
+        //        {
+        //            errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "Debe seleccionar una de las opciones.");
 
-                }
-                else
-                {
-                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
-                    //si todo ok, carga el reporte, puede  crear reporte
+        //        }
+        //        else
+        //        {
+        //            errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
+        //            //si todo ok, carga el reporte, puede  crear reporte
 
-                }
+        //        }
 
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar una formación de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Debe seleccionar una formación de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            }
-        }
+        //    }
+        //}
         private void btnRpt_TipoDur_Click(object sender, EventArgs e)
         {
             if (dgvFormaciones.SelectedRows.Count == 1)
             {
-                if (cmbxPeriodoTiempo.SelectedIndex == -1)
+                if (cmbxPeriodoTiempo.SelectedIndex != -1)
                 {
-                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "Debe seleccionar una de las opciones.");
+                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
+                    //llenardatos();
+                    int i = 0;
+                    switch (formaciones.duracion)
+                    {
+                        case "4 Horas":
+                            formaciones.duracion = "4";
+                            break;
+                        case "8 Horas":
+                            formaciones.duracion = "8";
+                            break;
+                        case "16 Hora":
+                            formaciones.duracion = "16";
+                            break;
 
+                    }
+                    string tipo = formaciones.tipo_formacion;
+                    rptTTD.tipo_formacion = tipo;
+                    if (cmbxPeriodoTiempo.SelectedIndex == 0)
+                        fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-30));
+                    else
+                        fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-90));
+
+                    fecha_actual = DateTime.Today.ToString("yyyy-MM-dd");
+                    MySqlDataReader leer = Conexion.ConsultarBD("Select * from cursos where duracion_curso ='" + formaciones.duracion + "' and tipo_curso='"+tipo+ "' and fecha_creacion between  '" + fecha_vieja + "' and '" + fecha_actual + "'");
+                    while (leer.Read())
+                    {
+                        i += 1;
+                        rptTTD.fecha_vieja = fecha_vieja;
+                    }
+                    rptTTD.nro_formaciones = i.ToString() ;
+                    string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
+                    rptTTD.nombreyapellido = nombreyapellido;
+                    rptTTD.fecha_hoy = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
+                    pic = Image.FromFile(ruta);
+                    rptTTD.Logo = GetBytes(pic);
+                    RPT_TiempoTipoDuracion ttd = new RPT_TiempoTipoDuracion();
+                    ttd.ttd.Add(rptTTD);
+                    ttd.ShowDialog();
+                    vaciardatos();
                 }
                 else
                 {
-                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
+                   
+                    errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "Debe seleccionar una de las opciones.");
                     //si todo ok, carga el reporte, puede  crear reporte
 
                 }
@@ -732,7 +784,7 @@ namespace UCS_NODO_FGC
                 if (id_curso.Read())
                 {
                     formaciones.id_curso = Convert.ToInt32(id_curso["id_cursos"]);
-                    MessageBox.Show(formaciones.id_curso.ToString());
+                   // MessageBox.Show(formaciones.id_curso.ToString());
                 }
                 id_curso.Close();
 
@@ -808,13 +860,13 @@ namespace UCS_NODO_FGC
                 //si seleccionó ultimo mes, a la fecha actual se le resta 30 dias, y se buscará en base a esas dos fechas y el tipo que haya escogido en el dgv
                 DateTime fa = DateTime.Today.AddDays(-30);
                 fecha_vieja = fa.ToString("yyyy-MM-dd");
-                fechaparametro = fa.ToString("dd-MM-yyyy");
+                datosF.fecha_vieja = fa.ToString("dd-MM-yyyy");
             }else
             {
                 //si selecciona ultimos tres meses a la fecha actual se le restan 3 meses
                 DateTime fv = DateTime.Today.AddMonths(-3);
                 fecha_vieja = fv.ToString("yyyy-MM-dd");
-                fechaparametro = fv.ToString("dd-MM-yyyy");
+                datosF.fecha_vieja = fv.ToString("dd-MM-yyyy");
             }
         }
 

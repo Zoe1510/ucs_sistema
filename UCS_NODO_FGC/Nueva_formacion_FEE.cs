@@ -691,7 +691,7 @@ namespace UCS_NODO_FGC
 
             //seleccionar facilitador encargado del curso 
             int id_fa = 0, co_fa = 0;
-            MessageBox.Show(Cursos.id_curso13.ToString());
+            //MessageBox.Show(Cursos.id_curso13.ToString());
             //buscar id_fa de acuerdo al id del curso
             MySqlDataReader leer = Conexion.ConsultarBD("SELECT * from cursos_tienen_fa where cursos_id_cursos = '" + Cursos.id_curso13 + "'");
             if (leer.Read())
@@ -700,7 +700,7 @@ namespace UCS_NODO_FGC
                 co_fa = Convert.ToInt32(leer["ctf_id_cofa"]);
             }
             leer.Close();
-            MessageBox.Show(id_fa.ToString());
+          //  MessageBox.Show(id_fa.ToString());
             //recoger informacion del facilitador
             MySqlDataReader nom = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + id_fa + "'");
             while (nom.Read())
@@ -818,7 +818,7 @@ namespace UCS_NODO_FGC
 
 
             
-            MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAula.Text + " :aula ");
+           // MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAula.Text + " :aula ");
 
             //buscar todos los insumos registrados para esa formacion
             MySqlDataReader ins = Conexion.ConsultarBD("SELECT * FROM insumos i inner join cursos_tienen_insumos cti on cti.cti_id_insumo = i.id_insumos where cti.cti_id_curso = '" + Cursos.id_curso13 + "'");
@@ -2485,7 +2485,7 @@ namespace UCS_NODO_FGC
                 {
                     llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
                 }
-                MessageBox.Show(fa.id_facilitador + " idFa true ");
+               // MessageBox.Show(fa.id_facilitador + " idFa true ");
             }
             else
             {
@@ -2507,7 +2507,7 @@ namespace UCS_NODO_FGC
                 }
                 cnom.Close();
                 llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
-                MessageBox.Show(fa.id_facilitador + " idFa y idafi" + AFI.id_AFI);
+               // MessageBox.Show(fa.id_facilitador + " idFa y idafi" + AFI.id_AFI);
 
 
             }
@@ -2765,7 +2765,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                    //MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
 
@@ -2775,7 +2775,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                    //MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
             }

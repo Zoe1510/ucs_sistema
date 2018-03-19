@@ -17,7 +17,7 @@ namespace UCS_NODO_FGC
 {
     public partial class RPT_TIEMPO_TIPO : Form
     {
-        public List<R_Formacion_lista> info = new List<R_Formacion_lista>();
+        public List<R_TiempoTipoFormacion> info = new List<R_TiempoTipoFormacion>();
         public RPT_TIEMPO_TIPO()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace UCS_NODO_FGC
             reportViewer1.LocalReport.DataSources.Clear();
 
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
+
             string nombre_reporte = "tiempo_tipo_" + fecha + ".pdf";
             string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos";  //cambia cuando se instale
 
@@ -37,7 +38,7 @@ namespace UCS_NODO_FGC
             reportViewer1.LocalReport.DisplayName = "Tiempo_tipo";
             //Establezcamos la lista como Datasource del informe
             //
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsTodo", info));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsFormacion", info));
 
             File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
             //

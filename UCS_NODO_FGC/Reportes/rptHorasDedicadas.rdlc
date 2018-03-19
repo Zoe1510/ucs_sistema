@@ -517,7 +517,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>10.52145cm</Top>
+        <Top>10.99756cm</Top>
         <Left>9.84815cm</Left>
         <Height>0.6cm</Height>
         <Width>4.45792cm</Width>
@@ -550,7 +550,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>10.52145cm</Top>
+        <Top>10.99756cm</Top>
         <Left>14.30606cm</Left>
         <Height>0.6cm</Height>
         <Width>4.03664cm</Width>
@@ -861,7 +861,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!nombreyapellido.Value, "dsTodo")</Value>
+                <Value>=First(Fields!nombreyapellido.Value, "dsGeneral")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -873,7 +873,7 @@
         <Top>10.99756cm</Top>
         <Left>4.10195cm</Left>
         <Height>0.57354cm</Height>
-        <Width>4.41729cm</Width>
+        <Width>4.07192cm</Width>
         <ZIndex>18</ZIndex>
         <Style>
           <Border>
@@ -939,7 +939,7 @@
           <MIMEType>image/png</MIMEType>
           <Sizing>FitProportional</Sizing>
           <Top>1.09044cm</Top>
-          <Left>2.05175cm</Left>
+          <Left>2.22814cm</Left>
           <Height>2.5079cm</Height>
           <Width>3.88125cm</Width>
           <Style>
@@ -966,7 +966,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>1.09044cm</Top>
-          <Left>15.57606cm</Left>
+          <Left>14.69145cm</Left>
           <Height>0.68792cm</Height>
           <Width>3.65125cm</Width>
           <ZIndex>1</ZIndex>
@@ -1248,6 +1248,10 @@
         </Field>
         <Field Name="nombre_formacion">
           <DataField>nombre_formacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nombreyapellido">
+          <DataField>nombreyapellido</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="tiempo_total">

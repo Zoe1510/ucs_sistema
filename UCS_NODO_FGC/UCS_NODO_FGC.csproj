@@ -138,6 +138,7 @@
     <Compile Include="Clases\R_Formacion_DatosGenerales.cs" />
     <Compile Include="Clases\R_Formacion_lista.cs" />
     <Compile Include="Clases\R_Participantes_postulados.cs" />
+    <Compile Include="Clases\R_TiempoTipoFormacion.cs" />
     <Compile Include="Clases\Tiempos_curso.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
@@ -359,6 +360,12 @@
     <Compile Include="RPT_HORAS_DEDICADAS.Designer.cs">
       <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
     </Compile>
+    <Compile Include="RPT_TiempoTipoDuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_TiempoTipoDuracion.Designer.cs">
+      <DependentUpon>RPT_TiempoTipoDuracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="RPT_TIEMPO_TIPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -572,8 +579,12 @@
     <EmbeddedResource Include="Reportes\rptHorasDedicadas.rdlc" />
     <EmbeddedResource Include="Reportes\rptPostulados.rdlc" />
     <EmbeddedResource Include="Reportes\rptRelacionTipoFTiempo.rdlc" />
+    <EmbeddedResource Include="Reportes\rptTiempoTipoDuracion.rdlc" />
     <EmbeddedResource Include="RPT_HORAS_DEDICADAS.resx">
       <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT_TiempoTipoDuracion.resx">
+      <DependentUpon>RPT_TiempoTipoDuracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPT_TIEMPO_TIPO.resx">
       <DependentUpon>RPT_TIEMPO_TIPO.cs</DependentUpon>
@@ -614,6 +625,7 @@
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales.datasource" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_lista.datasource" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Participantes_postulados.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_TiempoTipoFormacion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

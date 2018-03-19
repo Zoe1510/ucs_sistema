@@ -13,37 +13,34 @@ using Microsoft.Reporting.WinForms;
 using System.IO;
 using System.Diagnostics;
 
-
 namespace UCS_NODO_FGC
 {
-    public partial class RPT_HORAS_DEDICADAS : Form
+    public partial class RPT_TiempoTipoDuracion : Form
     {
-        public List<R_Formacion_DatosGenerales> InfoGeneral = new List<R_Formacion_DatosGenerales>();
-        public List<R_EtapaFormacion> EtapasF = new List<R_EtapaFormacion>();
-        public RPT_HORAS_DEDICADAS()
+        public List<R_TiempoTipoFormacion> ttd = new List<R_TiempoTipoFormacion>();
+        public RPT_TiempoTipoDuracion()
         {
             InitializeComponent();
         }
 
-        private void RPT_HORAS_DEDICADAS_Load(object sender, EventArgs e)
+        private void RPT_TiempoTipoDuracion_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.RefreshReport();
 
+            this.reportViewer1.RefreshReport();
             reportViewer1.LocalReport.DataSources.Clear();
 
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
-            string nombre_reporte = "Horas recortadas_" + fecha + ".pdf";
+            string nombre_reporte = "reporte tiempo_tipo_duracion" + fecha + ".pdf";
             string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos";  //cambia cuando se instale
 
             string destino = Path.Combine(ruta, nombre_reporte);
             //MessageBox.Show(destino);
             //Establezcamos la lista como Datasource del informe
             //
-            reportViewer1.LocalReport.DisplayName = "Horas dedicadas";
+            reportViewer1.LocalReport.DisplayName = "Reporte tiempo-tipo-duracion";
             //Establezcamos la lista como Datasource del informe
-            //
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsGeneral", InfoGeneral));
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsEtapas", EtapasF));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsGeneral", ttd));
+
             File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
             //
             MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nombre_reporte + "', '" + fecha + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");

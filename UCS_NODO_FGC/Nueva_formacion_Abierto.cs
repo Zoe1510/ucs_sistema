@@ -747,7 +747,7 @@ namespace UCS_NODO_FGC
 
             //seleccionar facilitador encargado del curso 
             int id_fa = 0, co_fa = 0;
-            MessageBox.Show(Cursos.id_curso13.ToString());
+           // MessageBox.Show(Cursos.id_curso13.ToString());
             //buscar id_fa de acuerdo al id del curso
             MySqlDataReader leer = Conexion.ConsultarBD("SELECT * from cursos_tienen_fa where cursos_id_cursos = '" + Cursos.id_curso13 + "'");
             if (leer.Read())
@@ -756,7 +756,7 @@ namespace UCS_NODO_FGC
                 co_fa = Convert.ToInt32(leer["ctf_id_cofa"]);
             }
             leer.Close();
-            MessageBox.Show(id_fa.ToString());
+          //  MessageBox.Show(id_fa.ToString());
 
             
             //recoger informacion del facilitador
@@ -859,7 +859,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+           //         MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                 }
                 nombre.Close();
@@ -871,7 +871,7 @@ namespace UCS_NODO_FGC
                     MySqlDataReader nombre2 = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
                     if (nombre2.Read())
                     {
-                        MessageBox.Show(nombre2["id_ref"].ToString());
+                      //  MessageBox.Show(nombre2["id_ref"].ToString());
                         id_refrigerio2 = Convert.ToInt32(nombre2["id_ref"]);
                     }
                     nombre2.Close();
@@ -953,7 +953,7 @@ namespace UCS_NODO_FGC
             }
            
 
-            MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAulaSeleccionada.Text + " :aula ");
+           // MessageBox.Show(cmbxHorarios.Text + " :Horario1" + txtAulaSeleccionada.Text + " :aula ");
 
             //buscar todos los insumos registrados para esa formacion
             MySqlDataReader ins = Conexion.ConsultarBD("SELECT * FROM insumos i inner join cursos_tienen_insumos cti on cti.cti_id_insumo = i.id_insumos where cti.cti_id_curso = '" + Cursos.id_curso13 + "'");
@@ -3330,7 +3330,7 @@ namespace UCS_NODO_FGC
                                             formacion.nombre_formacion = txtNombreFormacion.Text;
                                             formacion.tipo_formacion = "Abierto";
                                             formacion.solicitado = txtSolicitadoPor.Text;
-                                            MessageBox.Show(formacion.solicitado);
+                                            //MessageBox.Show(formacion.solicitado);
                                             int id_solicitud = 0;
                                             MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes from clientes where nombre_empresa='" + formacion.solicitado + "'");
                                             if (idS.Read())
@@ -3338,11 +3338,11 @@ namespace UCS_NODO_FGC
                                                 id_solicitud = Convert.ToInt32(idS["id_clientes"]);
                                             }
                                             idS.Close();
-                                            MessageBox.Show(id_solicitud.ToString());
+                                            //MessageBox.Show(id_solicitud.ToString());
                                             FinalE1 = DateTime.Now; //agregar en fecha_mod_final en UGC
                                             formacion.fecha_inicial = fecha_creacion;// agregar fecha_mod_inicio
                                             formacion.TiempoEtapa = Convert.ToString(FinalE1 - fecha_creacion); //para añadir a la duracionE1
-                                            MessageBox.Show(formacion.TiempoEtapa + " tiempoEtapa");
+                                           // MessageBox.Show(formacion.TiempoEtapa + " tiempoEtapa");
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
                                             formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                             Cursos.etapa_formacion13 = 1;
@@ -3354,7 +3354,7 @@ namespace UCS_NODO_FGC
 
                                                 TimeSpan et1;
                                                 et1 = TimeSpan.Parse(duracion);
-                                                MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
+                                               // MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
                                                 TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
 
                                                 formacion.TiempoEtapa = (tt + et1).ToString();
@@ -3466,13 +3466,13 @@ namespace UCS_NODO_FGC
                 }
                 else if (Cursos.etapa_formacion13 == 3)
                 {
-                    MessageBox.Show("llegué primero");
+                  //  MessageBox.Show("llegué primero");
                     if (formacion.ubicacion_ucs == "Si")
                     {
-                        MessageBox.Show("llegué 2do");
+                       // MessageBox.Show("llegué 2do");
                         if (formacion.tiene_ref == "Si")
                         {
-                            MessageBox.Show("llegué 3ero");
+                           // MessageBox.Show("llegué 3ero");
                             if (formacion.bloque_curso == "2")
                             {
                                 if (lista_insumo_cargada != lista_insumo || formacion.horario1 != Cursos.horario1 || formacion.horario2 != Cursos.horario2 || txtAulaSeleccionada.Text != formacion.aula1 || txtSegundaAula.Text != formacion.aula2 || formacion.refri1 != Cursos.tipo_ref1 || formacion.refri2 != Cursos.tipo_ref2)
@@ -3482,7 +3482,7 @@ namespace UCS_NODO_FGC
                             }
                             else
                             {
-                                MessageBox.Show("aqui estoy2");
+                               // MessageBox.Show("aqui estoy2");
                                 if (lista_insumo_cargada != lista_insumo || formacion.horario1 != Cursos.horario1 || txtAulaSeleccionada.Text != formacion.aula1 || formacion.refri1 != Cursos.tipo_ref1)
                                 {
                                     Modificar_avanzado();
@@ -3491,7 +3491,7 @@ namespace UCS_NODO_FGC
                         }
                         else //si No tiene refrigerio
                         {
-                            MessageBox.Show("llegué 5to");
+                           // MessageBox.Show("llegué 5to");
                             if (formacion.bloque_curso == "2")
                             {
                                 if (lista_insumo_cargada != lista_insumo || formacion.horario1 != Cursos.horario1 || formacion.horario2 != Cursos.horario2 || txtAulaSeleccionada.Text != formacion.aula1 || txtSegundaAula.Text != formacion.aula2)
@@ -3577,7 +3577,7 @@ namespace UCS_NODO_FGC
                 {
                     llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
                 }
-                MessageBox.Show(fa.id_facilitador + " idFa true ");
+              //  MessageBox.Show(fa.id_facilitador + " idFa true ");
             }
             else
             {
@@ -3599,7 +3599,7 @@ namespace UCS_NODO_FGC
                 }
                 cnom.Close();
                 llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
-                MessageBox.Show(fa.id_facilitador + " idFa y idafi" + AFI.id_AFI);
+                //MessageBox.Show(fa.id_facilitador + " idFa y idafi" + AFI.id_AFI);
 
 
             }
@@ -4109,15 +4109,15 @@ namespace UCS_NODO_FGC
             if (Formaciones.creacion == true)
             {
                 id_refrigerio2 = Convert.ToInt32(cmbxTipoRefrigerio2.SelectedValue);
-                MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion");
+               // MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion");
 
                
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                //    MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
-                    MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion 2");
+                  //  MessageBox.Show(id_refrigerio2.ToString() + "id del refreigerio2 en creacion 2");
                 }
 
             }
@@ -4126,7 +4126,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio2.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                //    MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio2 = Convert.ToInt32(nombre["id_ref"]);
                     formacion.refri2 = cmbxTipoRefrigerio2.Text;
                 }
@@ -4144,9 +4144,9 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                    //MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
-                    MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion 2");
+                    //MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion 2");
                 }
 
             }

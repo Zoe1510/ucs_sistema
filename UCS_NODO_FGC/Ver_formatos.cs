@@ -139,13 +139,13 @@ namespace UCS_NODO_FGC
                         //si existe se copia
                         
                         File.Copy(origenArchivo, destino);
-                        MessageBox.Show("copiando archivo");
+                    //    MessageBox.Show("copiando archivo");
                     }else //caso que no exista
                     {
                         //se crea y luego se copia 
                         Directory.CreateDirectory(ruta);
                         File.Copy(origenArchivo, destino);
-                        MessageBox.Show("creo directorio y copiando archivo");
+                    //    MessageBox.Show("creo directorio y copiando archivo");
                     }
                     conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)

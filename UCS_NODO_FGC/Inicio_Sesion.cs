@@ -158,7 +158,7 @@ namespace UCS_NODO_FGC
                     string lunes = "Lunes";
                     if (prueba == DayOfWeek.Monday &&pruebaV==DayOfWeek.Friday )
                     {
-                        MessageBox.Show(lunes);
+                        //MessageBox.Show(lunes);
                     }
                 }
             }
