@@ -17,9 +17,10 @@ namespace UCS_NODO_FGC
     public partial class Ver_formatos : Form
     {
         conexion_bd conexion = new conexion_bd();
-        string rutaArchivo, nombreArchivo;
+        string origenArchivo, nombreArchivo;
         string todo = "";
         int resultado = 0;
+        string destino;
         public Ver_formatos()
         {
             InitializeComponent();
@@ -116,11 +117,11 @@ namespace UCS_NODO_FGC
             od.Filter = "PDF files |*.pdf";
             if (od.ShowDialog() == DialogResult.OK)
             {
-                rutaArchivo = od.FileName;
-                nombreArchivo = Path.GetFileName(rutaArchivo);
+                origenArchivo = od.FileName;
+                nombreArchivo = Path.GetFileName(origenArchivo);
                 todo = "";
                 //dizque validacion
-                MySqlDataReader existe = Conexion.ConsultarBD("SELECT id_formato FROM formatos WHERE ruta_archivo LIKE '%" + rutaArchivo + "%' ");
+                MySqlDataReader existe = Conexion.ConsultarBD("SELECT id_formato FROM formatos WHERE ruta_archivo LIKE '%" + origenArchivo + "%' ");
                 
                 if(existe.Read())
                 {
@@ -128,18 +129,36 @@ namespace UCS_NODO_FGC
                 }else
                 {
                     existe.Close();
+
+                    //esto se cambia cuando vaya a instalarlo en ucs
+                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Formatos_guardados";
+
+                     destino = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Formatos_guardados\" + nombreArchivo;
+                    if (Directory.Exists(ruta))//verificar si la carpeta existe
+                    {
+                        //si existe se copia
+                        
+                        File.Copy(origenArchivo, destino);
+                        MessageBox.Show("copiando archivo");
+                    }else //caso que no exista
+                    {
+                        //se crea y luego se copia 
+                        Directory.CreateDirectory(ruta);
+                        File.Copy(origenArchivo, destino);
+                        MessageBox.Show("creo directorio y copiando archivo");
+                    }
                     conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
-                        rutaArchivo = rutaArchivo.Replace("\\", "/");
-                        string query = @"INSERT INTO formatos (nombre_archivo, ruta_archivo) VALUES ('" + nombreArchivo + "', '" + rutaArchivo + "')";
+                        destino = destino.Replace("\\", "/");
+                        string query = @"INSERT INTO formatos (nombre_archivo, ruta_archivo) VALUES ('" + nombreArchivo + "', '" + destino + "')";
                         MySqlCommand cmd = new MySqlCommand(query, conexion.conexion);
                         cmd.ExecuteNonQuery();
                         conexion.cerrarconexion();
                     }
                     
                     llenarDGV(todo);
-                    rutaArchivo ="";
+                    origenArchivo ="";
                     nombreArchivo ="";
                 }
                
@@ -181,13 +200,11 @@ namespace UCS_NODO_FGC
                 MySqlDataReader existe = Conexion.ConsultarBD("SELECT id_formato FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%' ");
                 if (existe.Read())
                 {
-                    MySqlDataReader eliminar = Conexion.ConsultarBD("DELETE FROM formatos WHERE id_formato = '"+existe+"'");
-                    if (eliminar.Read())
-                    {
-                        nombreArchivo = "";
-                        llenarDGV(nombreArchivo);
+                    int i = Convert.ToInt32(existe["id_formato"]);
+                    MySqlDataReader eliminar = Conexion.ConsultarBD("DELETE FROM formatos WHERE id_formato = '"+i+"'");
+                    nombreArchivo = "";
+                    llenarDGV(nombreArchivo);
 
-                    }
                 }
             }
             else
@@ -204,8 +221,8 @@ namespace UCS_NODO_FGC
                 MySqlDataReader ruta = Conexion.ConsultarBD(@"SELECT ruta_archivo FROM formatos WHERE nombre_archivo LIKE '%" + nombreArchivo + "%'");
                 if (ruta.Read())
                 {
-                    rutaArchivo = Convert.ToString(ruta["ruta_archivo"]);
-                    rutaArchivo = rutaArchivo.Replace("\\", "/");
+                    origenArchivo = Convert.ToString(ruta["ruta_archivo"]);
+                    origenArchivo = origenArchivo.Replace("\\", "/");
 
                 }
             }
@@ -216,7 +233,7 @@ namespace UCS_NODO_FGC
             if (dgvFormatos.SelectedRows.Count == 1)
             {
               
-                Process.Start(rutaArchivo);
+                Process.Start(origenArchivo);
 
             }
             else

@@ -8,6 +8,7 @@ namespace UCS_NODO_FGC.Clases
 {
     public class R_Formacion_lista
     {
+        public string nombreyapellido { get; set; }
         public string nombre_formacion { get; set; }
         public string nombre_facilitador { get; set; }
         public string tipo_formacion { get; set; }

@@ -258,6 +258,7 @@
             this.btnManual.Text = "    Manual de usuario";
             this.btnManual.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnManual.UseVisualStyleBackColor = true;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
             // 
             // btnAcercaDe
             // 

@@ -41,7 +41,8 @@ namespace UCS_NODO_FGC
             if (Cursos.estatus_formacion13 != "En curso")
             {
                 btnEliminar.Enabled = false;
-                btnImprimir.Enabled = false;
+                //btnImprimir.Enabled = false;
+                btnImprimir.Enabled = true;
                 if (Cursos.estatus_formacion13 == "Finalizado")
                 {
                     btnCorreoPart.Enabled = true;
@@ -202,6 +203,8 @@ namespace UCS_NODO_FGC
             Lista_participantes fmr = new Lista_participantes();
             
             pic = Image.FromFile(ruta);
+            string nombreyapellido = Usuario_logeado.nombre_usuario +" "+ Usuario_logeado.apellido_usuario;
+            LF.nombreyapellido = nombreyapellido;
             LF.Logo = GetBytes(pic);
             fmr.form_encabezado.Add(LF);
             fmr.pp_detalle = LF.lista_participantes;

@@ -26,12 +26,12 @@ namespace UCS_NODO_FGC
         Formaciones formaciones = new Formaciones();
         //objeto de la clase r_datosgenerales
         R_Formacion_DatosGenerales fdg = new R_Formacion_DatosGenerales();
-        R_Formacion_DatosGenerales datosF = new R_Formacion_DatosGenerales();
+        R_Formacion_lista datosF = new R_Formacion_lista();
         //objeto de etapas de la formacion= new 
         R_EtapaFormacion etapaf = new R_EtapaFormacion();
         R_EtapaFormacion etapaf2 = new R_EtapaFormacion();
         R_EtapaFormacion etapaf3 = new R_EtapaFormacion();
-        string fecha_actual, fecha_vieja;
+        string fecha_actual, fecha_vieja, fechaparametro;
         int resultado = 0;
         string nombre_user;
         bool reporte2;
@@ -500,7 +500,7 @@ namespace UCS_NODO_FGC
             fecha_actual = DateTime.Today.ToString("yyyy-MM-dd");
             DateTime trampa = Convert.ToDateTime(fecha_vieja);
             //MessageBox.Show(fecha_vieja + " la segunda se pasa por parametro " + trampa.ToString());
-            datosF.fecha_inicio =fecha_vieja;
+            
             datosF.tipo_formacion = tipo;
             
             int nroFormaciones = 0;
@@ -510,7 +510,7 @@ namespace UCS_NODO_FGC
             {
                 nroFormaciones += 1;
             }
-            datosF.tiempo_total = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
+            datosF.cantidad_participantes = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
         }
         private void btnReporte2_Click(object sender, EventArgs e) //relacion tiempo-tipo de formaciones
         {
@@ -526,7 +526,10 @@ namespace UCS_NODO_FGC
                     errorProviderPeriodo.SetError(cmbxPeriodoTiempo, "");
                     //si todo ok, carga el reporte, puede  crear reporte
                     llenarReporteTiempoTipos();
-                    datosF.fecha_actual = DateTime.Today.ToString("dd-MM-yyyy");
+                    string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
+                    datosF.nombreyapellido = nombreyapellido;
+                    datosF.fecha_inicio = fechaparametro;
+                    datosF.fecha_culminacion = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
                     pic = Image.FromFile(ruta);
                     datosF.Logo = GetBytes(pic);
                     RPT_TIEMPO_TIPO rtt = new RPT_TIEMPO_TIPO();
@@ -803,13 +806,15 @@ namespace UCS_NODO_FGC
             if (cmbxPeriodoTiempo.SelectedIndex == 0)
             {
                 //si seleccionó ultimo mes, a la fecha actual se le resta 30 dias, y se buscará en base a esas dos fechas y el tipo que haya escogido en el dgv
-                DateTime fa = DateTime.Today.AddMonths(-1);
+                DateTime fa = DateTime.Today.AddDays(-30);
                 fecha_vieja = fa.ToString("yyyy-MM-dd");
+                fechaparametro = fa.ToString("dd-MM-yyyy");
             }else
             {
                 //si selecciona ultimos tres meses a la fecha actual se le restan 3 meses
                 DateTime fv = DateTime.Today.AddMonths(-3);
                 fecha_vieja = fv.ToString("yyyy-MM-dd");
+                fechaparametro = fv.ToString("dd-MM-yyyy");
             }
         }
 

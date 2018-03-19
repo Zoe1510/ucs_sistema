@@ -653,6 +653,26 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_degradado {
+            get {
+                object obj = ResourceManager.GetObject("logo_degradado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_degrado {
+            get {
+                object obj = ResourceManager.GetObject("logo_degrado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_ucs {
             get {
                 object obj = ResourceManager.GetObject("logo ucs", resourceCulture);

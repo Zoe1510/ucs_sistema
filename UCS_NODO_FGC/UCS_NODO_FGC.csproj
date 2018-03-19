@@ -231,6 +231,12 @@
     <Compile Include="Modificar_Refrigerio.Designer.cs">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notificaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificaciones.Designer.cs">
+      <DependentUpon>Notificaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nueva_formacion_Abierto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +503,9 @@
     <EmbeddedResource Include="Modificar_Refrigerio.resx">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notificaciones.resx">
+      <DependentUpon>Notificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_Abierto.resx">
       <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -599,6 +608,7 @@
     <EmbeddedResource Include="Vista_Formacion.resx">
       <DependentUpon>Vista_Formacion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Manuales\Manual de usuario lider.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_EtapaFormacion.datasource" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales.datasource" />
@@ -798,6 +808,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_degradado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_degrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archivos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

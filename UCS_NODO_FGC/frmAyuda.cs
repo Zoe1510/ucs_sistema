@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
+using System.Diagnostics;
+using System.IO;
 
 namespace UCS_NODO_FGC
 {
@@ -161,6 +165,15 @@ namespace UCS_NODO_FGC
             }else
             {
                 pnlDisplay.Visible = false;
+            }
+        }
+
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+            if(Usuario_logeado.cargo_usuario == "Lider")
+            {
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\Manual de usuario lider.pdf";
+                Process.Start(ruta);
             }
         }
     }

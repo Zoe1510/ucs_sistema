@@ -1862,6 +1862,7 @@ namespace UCS_NODO_FGC
                     btnRetomar.Enabled = false;
                     btnGuardar.Enabled = false;
 
+                    
                 }
             }
             else if (pnlNivel_intermedio.Visible == true)

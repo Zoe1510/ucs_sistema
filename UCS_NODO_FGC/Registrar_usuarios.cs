@@ -222,6 +222,8 @@ namespace UCS_NODO_FGC
          == DialogResult.Yes)
             {
                 this.Close();
+
+
             }
         }
         private void txtCedulaUsuario_KeyPress(object sender, KeyPressEventArgs e)

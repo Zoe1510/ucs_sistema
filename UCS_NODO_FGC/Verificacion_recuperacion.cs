@@ -149,32 +149,37 @@ namespace UCS_NODO_FGC
         }
         private void EnviarCorreo(String contraseña_nueva, String correo)
         {
-            String remitente = "ServicioUCS@ucsigo.com"; //colocar correo predeterminado para envio de contraseñas nuevas
+            String remitente = "patricia-bermudez@outlook.com"; //colocar correo predeterminado para envio de contraseñas nuevas
             String destintario = correo;
             String asunto = "Recuperación de contraseña";
             String mensaje = "Su nueva contraseña es: " + contraseña_nueva;
-            MailMessage msg = new MailMessage();
-            SmtpClient smtp = new SmtpClient();
+            MailMessage ms = new MailMessage(remitente, destintario, asunto, mensaje);
+            SmtpClient smtp = new SmtpClient("smtp.live.com", 587);
+            //MailMessage msg = new MailMessage();
+            //SmtpClient smtp = new SmtpClient();
 
-            msg.To.Add(destintario);
-            msg.From = new MailAddress(remitente, "Universidad Coorporativa Sigo", System.Text.Encoding.UTF8);
-            msg.Subject = asunto;
-            msg.SubjectEncoding = System.Text.Encoding.UTF8;
-            msg.Body = mensaje;
-            msg.BodyEncoding = System.Text.Encoding.UTF8;
-            msg.IsBodyHtml = true;
+            //msg.To.Add(destintario);
+            //msg.From = new MailAddress(remitente, "Universidad Coorporativa Sigo", System.Text.Encoding.UTF8);
+            //msg.Subject = asunto;
+            //msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            //msg.Body = mensaje;
+            //msg.BodyEncoding = System.Text.Encoding.UTF8;
+            //msg.IsBodyHtml = false;
 
-            smtp.Credentials = new System.Net.NetworkCredential(remitente, "Passw0rd"); //entre comillas va el password de ese correo electronico
-            smtp.Port = 443;
-            smtp.Host = "mail.nefos.com.ve";
+            //smtp.Credentials = new System.Net.NetworkCredential(remitente, "ucs.29933526"); //entre comillas va el password de ese correo electronico
+            //smtp.Port = 587;
+            //smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential(remitente, "yeb909cr1"); //entre comillas va el password de ese correo electronico
 
             try
             {
                 Task.Run(() =>
                 {
-                    smtp.Send(msg);
-                    msg.Dispose();
+                    //smtp.Send(msg);
+                    //msg.Dispose();
+                    smtp.Send(ms);
+                    ms.Dispose();
                     MessageBox.Show("Correo enviado. Revise su bandeja de entrada.", "AVISO", MessageBoxButtons.OK);
                     Clases.Recuperacion_contraseña.Opcion = 0;
                     

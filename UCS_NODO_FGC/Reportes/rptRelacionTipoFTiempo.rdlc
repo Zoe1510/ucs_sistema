@@ -35,49 +35,13 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="txtFechainicio">
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=First(Fields!fecha_inicio.Value, "dsTodo")</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>1.64938cm</Top>
-        <Left>8.60101cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.26729cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox7">
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!fecha_actual.Value, "dsTodo")</Value>
+                <Value>=First(Fields!fecha_culminacion.Value, "dsTodo")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -93,7 +57,7 @@
         <Left>12.43683cm</Left>
         <Height>0.6cm</Height>
         <Width>2.55291cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -127,10 +91,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.64938cm</Top>
-        <Left>11.86829cm</Left>
+        <Left>11.6919cm</Left>
         <Height>0.6cm</Height>
         <Width>0.56854cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -164,7 +128,7 @@
         <Left>15.09558cm</Left>
         <Height>0.6cm</Height>
         <Width>3.79645cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -198,7 +162,7 @@
         <Left>2.05288cm</Left>
         <Height>0.6cm</Height>
         <Width>2.15604cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -216,14 +180,15 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!tiempo_total.Value, "dsTodo")</Value>
+                <Label>txtnrof</Label>
+                <Value>=First(Fields!cantidad_participantes.Value, "dsTodo")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -231,7 +196,7 @@
         <Left>4.39413cm</Left>
         <Height>0.6cm</Height>
         <Width>1.49458cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -268,7 +233,7 @@
         <Left>5.99454cm</Left>
         <Height>0.6cm</Height>
         <Width>4.03458cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -301,6 +266,40 @@
         <Left>10.02912cm</Left>
         <Height>0.6cm</Height>
         <Width>3.26729cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtEmision">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!nombreyapellido.Value, "dsTodo")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>9.46298cm</Top>
+        <Left>4.10308cm</Left>
+        <Height>0.57354cm</Height>
+        <Width>4.41729cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -310,6 +309,67 @@
             <Style>Solid</Style>
           </BottomBorder>
           <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox22">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Emitido por:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>9.46298cm</Top>
+        <Left>2.05288cm</Left>
+        <Height>0.57354cm</Height>
+        <Width>2.0502cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="txtFvieja">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!fecha_inicio.Value, "dsTodo")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>1.64938cm</Top>
+        <Left>8.74211cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.7734cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -333,7 +393,7 @@
           <MIMEType>image/png</MIMEType>
           <Sizing>FitProportional</Sizing>
           <Top>1.10807cm</Top>
-          <Left>1.02101cm</Left>
+          <Left>2.05288cm</Left>
           <Height>2.30505cm</Height>
           <Width>3.53729cm</Width>
           <Style>
@@ -348,7 +408,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!fecha_actual.Value, "dsTodo")</Value>
+                  <Value>=First(Fields!fecha_culminacion.Value, "dsTodo")</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                   </Style>
@@ -360,7 +420,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>1.10807cm</Top>
-          <Left>16.6192cm</Left>
+          <Left>15.24078cm</Left>
           <Height>0.68792cm</Height>
           <Width>3.65125cm</Width>
           <ZIndex>1</ZIndex>
@@ -441,8 +501,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.0185cm</Top>
-          <Left>1.1974cm</Left>
+          <Top>0.5508cm</Top>
+          <Left>1.95523cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <Style>
@@ -475,8 +535,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.48621cm</Top>
-          <Left>1.1974cm</Left>
+          <Top>1.01851cm</Top>
+          <Left>1.95523cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <ZIndex>1</ZIndex>
@@ -510,8 +570,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.98921cm</Top>
-          <Left>1.1974cm</Left>
+          <Top>1.52151cm</Top>
+          <Left>1.95523cm</Left>
           <Height>0.46771cm</Height>
           <Width>10.30521cm</Width>
           <ZIndex>2</ZIndex>
@@ -527,8 +587,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.0185cm</Top>
-          <Left>1.02101cm</Left>
+          <Top>0.5508cm</Top>
+          <Left>1.77884cm</Left>
           <Height>1.43841cm</Height>
           <Width>0cm</Width>
           <ZIndex>3</ZIndex>
@@ -539,6 +599,39 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="Textbox20">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>1/1</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>1.41567cm</Top>
+          <Left>17.9841cm</Left>
+          <Height>0.57354cm</Height>
+          <Width>0.90793cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -548,10 +641,10 @@
     </PageFooter>
     <PageHeight>27.94cm</PageHeight>
     <PageWidth>21.59cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0.5cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
@@ -564,24 +657,27 @@
       </ConnectionProperties>
       <rd:DataSourceID>245ff52e-6f88-4165-b812-67b596e6abe3</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="UCS_NODO_FGCClases1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>0940268a-92c9-4d43-b7c1-d95591a32cf1</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsTodo">
       <Query>
-        <DataSourceName>UCS_NODO_FGCClases</DataSourceName>
+        <DataSourceName>UCS_NODO_FGCClases1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="cantidad_participantes">
+          <DataField>cantidad_participantes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="duracion_formacion">
           <DataField>duracion_formacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="estatus_formacion">
-          <DataField>estatus_formacion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fecha_actual">
-          <DataField>fecha_actual</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="fecha_culminacion">
@@ -596,16 +692,16 @@
           <DataField>Logo</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
-        <Field Name="nombre_creador">
-          <DataField>nombre_creador</DataField>
+        <Field Name="nombre_facilitador">
+          <DataField>nombre_facilitador</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="nombre_formacion">
           <DataField>nombre_formacion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="tiempo_total">
-          <DataField>tiempo_total</DataField>
+        <Field Name="nombreyapellido">
+          <DataField>nombreyapellido</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="tipo_formacion">
@@ -615,8 +711,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>UCS_NODO_FGC.Clases</rd:DataSetName>
-        <rd:TableName>R_Formacion_DatosGenerales</rd:TableName>
-        <rd:ObjectDataSourceType>UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales, UCS_NODO_FGC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>R_Formacion_lista</rd:TableName>
+        <rd:ObjectDataSourceType>UCS_NODO_FGC.Clases.R_Formacion_lista, UCS_NODO_FGC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

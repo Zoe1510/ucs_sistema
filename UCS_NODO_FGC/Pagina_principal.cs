@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+using UCS_NODO_FGC.Clases;
+
 namespace UCS_NODO_FGC
 {
     public partial class Pagina_principal : Form
@@ -68,9 +70,7 @@ namespace UCS_NODO_FGC
                 
             }
 
-            
-
-           
+            AddFormInPanel(new Notificaciones());
             //funcion general: cerrar sesion, edital perfil (distinto del formuario principal para actualzar datos),
         }
 
@@ -178,7 +178,8 @@ namespace UCS_NODO_FGC
 
         public void btnDespliegueMenu_Click(object sender, EventArgs e)
         {
-            menu_size();
+            //menu_size();
+            AddFormInPanel(new Notificaciones());
         }
         //falta hacer una validacion si no hay frm abiertos en paneldisplay
         public void menu_size()
@@ -377,6 +378,7 @@ namespace UCS_NODO_FGC
         private void btnFrmAddUsuario_Click(object sender, EventArgs e)
         {
             AddFormInPanel(new Registrar_usuarios());
+            
         }
 
         private void btnFrmAddFacilitador_Click(object sender, EventArgs e)
@@ -427,6 +429,7 @@ namespace UCS_NODO_FGC
             Clases.Formaciones.creacion = true;
             AddFormInPanel(new Nueva_formacion_Abierto());
             
+
         }
 
         
