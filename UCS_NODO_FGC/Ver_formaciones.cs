@@ -38,8 +38,25 @@ namespace UCS_NODO_FGC
         {
             this.Location = new Point(-5, 0);
             refrescar();
-           
-            
+            if (Clases.Usuario_logeado.cargo_usuario == "Lider")
+            {
+                grpbOpciones.Height = 363;
+                btnCambiarStatus.Visible = true;
+                btnModificar.Visible = true;
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
+            {
+                grpbOpciones.Height = 363;
+                btnCambiarStatus.Visible = true;
+                btnModificar.Visible = true;
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
+            {
+                grpbOpciones.Height = 231;
+                btnCambiarStatus.Visible = false;
+                btnModificar.Visible = false;
+            }
+
         }
 
         private void llenarDGV(string nombre, string estatus)
@@ -587,7 +604,7 @@ namespace UCS_NODO_FGC
                             {
                                 Cursos.aula1 = Convert.ToString(aulas["aula_dia1"]);
                                 Cursos.aula2 = Convert.ToString(aulas["aula_dia2"]);
-                                idr1 = Convert.ToInt32(aulas["id_ref1"]);
+                                idr1 = Convert.ToInt32(aulas["id_ref1"]); //sale error al momento de ver formacion y otras cosas, arreglar y NO AGREGAR DATOS SUELTOS
                                 idr2 = Convert.ToInt32(aulas["id_ref2"]);
                             }
                            

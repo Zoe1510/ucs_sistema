@@ -38,6 +38,30 @@ namespace UCS_NODO_FGC
         private void frmAyuda_Load(object sender, EventArgs e)
         {
             this.Location = new Point(-5, 0);
+            if (Clases.Usuario_logeado.cargo_usuario == "Lider")
+            {
+                btnBackUp.Enabled = true;
+                btnRestore.Enabled = true;
+                btnBackUp.Visible = true;
+                btnRestore.Visible = true;
+                btnCerrar.Location = new Point(0, 315);
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")  //Si el usuario es coordinador
+            {
+                btnBackUp.Enabled = false;
+                btnRestore.Enabled = false;
+                btnBackUp.Visible =false;
+                btnRestore.Visible = false;
+                btnCerrar.Location = new Point(0, 181);
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")  //Si el usuario es asistente 
+            {
+                btnBackUp.Enabled = false;
+                btnRestore.Enabled = false;
+                btnBackUp.Visible = false;
+                btnRestore.Visible = false;
+                btnCerrar.Location = new Point(0, 181);
+            }
         }
 
         private void Backup(String RutaGuardada)
@@ -142,20 +166,6 @@ namespace UCS_NODO_FGC
             this.Close();
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAcercaDe_Click(object sender, EventArgs e)
         {
@@ -170,9 +180,19 @@ namespace UCS_NODO_FGC
 
         private void btnManual_Click(object sender, EventArgs e)
         {
-            if(Usuario_logeado.cargo_usuario == "Lider")
+            if (Usuario_logeado.cargo_usuario == "Lider")
             {
                 string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\Manual de usuario lider.pdf";
+                Process.Start(ruta);
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")//Si el usuario es coordinador
+            {
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\";
+                Process.Start(ruta);
+            }
+            else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
+            {
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\";
                 Process.Start(ruta);
             }
         }

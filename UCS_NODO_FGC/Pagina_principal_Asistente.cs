@@ -61,14 +61,26 @@ namespace UCS_NODO_FGC
             //boton formatos
             if (pnlBtnParticipantes.Height == 48)
             {
+                pnlBtnLogistica.Location = new Point(0, Convert.ToInt32(pnlBtnParticipantes.Location.Y) + 48);
 
-                pnlBtnFormatos.Location = new Point(0, Convert.ToInt32(pnlBtnParticipantes.Location.Y) + 48);
             }
             else
             {
-                pnlBtnFormatos.Location = new Point(0, Convert.ToInt32(pnlBtnParticipantes.Location.Y) + 157);
+                pnlBtnLogistica.Location = new Point(0, Convert.ToInt32(pnlBtnParticipantes.Location.Y) +157);
             }
-            
+
+            //
+            if (pnlBtnLogistica.Height == 48)
+            {
+
+                pnlBtnFormatos.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 48);
+            }
+            else
+            {
+
+                pnlBtnFormatos.Location = new Point(0, Convert.ToInt32(pnlBtnLogistica.Location.Y) + 316);
+            }
+
             //boton final
             if (pnlBtnFormatos.Height == 48)
             {
@@ -177,11 +189,7 @@ namespace UCS_NODO_FGC
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void btnDespliegueMenu_Click(object sender, EventArgs e)
-        {
-            menu_size();
-        }
+               
 
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
@@ -193,11 +201,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnFormaciones.Height == 48)
             {
                 pnlBtnFormaciones.Height = 108;
+                btnFormaciones.BackColor = Color.FromArgb(128, 128, 255);
+                btnFacilitadores.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFormaciones.Height = 48;
+                btnFacilitadores.BackColor = Color.Transparent;
+                btnFormaciones.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -208,11 +220,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnFacilitadores.Height == 48)
             {
                 pnlBtnFacilitadores.Height = 96;
+                btnFacilitadores.BackColor = Color.FromArgb(128, 128, 255);
+                btnClientes.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFacilitadores.Height = 48;
+                btnFacilitadores.BackColor = Color.Transparent;
+                btnClientes.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -223,11 +239,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnClientes.Height == 48)
             {
                 pnlBtnClientes.Height = 96;
+                btnParticipante.BackColor = Color.FromArgb(128, 128, 255);
+                btnClientes.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnClientes.Height = 48;
+                btnParticipante.BackColor = Color.Transparent;
+                btnClientes.BackColor = Color.Transparent;
                 menudown();
 
             }
@@ -239,11 +259,15 @@ namespace UCS_NODO_FGC
             if (pnlBtnParticipantes.Height == 48)
             {
                 pnlBtnParticipantes.Height = 156;
+                btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
+                btnParticipante.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnParticipantes.Height = 48;
+                btnLogistica.BackColor = Color.Transparent;
+                btnParticipante.BackColor = Color.Transparent;
                 menudown();
             }
 
@@ -253,11 +277,33 @@ namespace UCS_NODO_FGC
             if (pnlBtnFormatos.Height == 48)
             {
                 pnlBtnFormatos.Height = 96;
+                btnFormatos.BackColor = Color.FromArgb(128, 128, 255);
+                btnFrmAyuda.BackColor = Color.FromArgb(128, 128, 255);
                 menudown();
             }
             else
             {
                 pnlBtnFormatos.Height = 48;
+                btnFormatos.BackColor = Color.Transparent;
+                btnFrmAyuda.BackColor = Color.Transparent;
+                menudown();
+            }
+        }
+
+        private void btnLogistica_Click(object sender, EventArgs e)
+        {
+            if (pnlBtnLogistica.Height == 48)
+            {
+                pnlBtnLogistica.Height = 315;
+                btnLogistica.BackColor = Color.FromArgb(128, 128, 255);
+                btnFormatos.BackColor = Color.FromArgb(128, 128, 255);
+                menudown();
+            }
+            else
+            {
+                pnlBtnLogistica.Height = 48;
+                btnFormatos.BackColor = Color.Transparent;
+                btnLogistica.BackColor = Color.Transparent;
                 menudown();
             }
         }
@@ -274,6 +320,7 @@ namespace UCS_NODO_FGC
             }
         }
 
+
         private void btnFrmVerFacilitador_Click(object sender, EventArgs e)
         {
             AddFormInPanel(new Buscar_facilitadores());
@@ -284,6 +331,57 @@ namespace UCS_NODO_FGC
             AddFormInPanel(new Buscar_cliente());
         }
 
-        
+        private void btnDespliegueMenu_Click_1(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Notificaciones());
+        }
+        private void btnFrmVerRefrigerios_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_refrigerios());
+        }
+
+        private void btnFrmVerPublicidad_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_publicidad());
+        }
+
+        private void btnFrmAyuda_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new frmAyuda());
+        }
+        private void btnFrmVerInsumos_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_insumos());
+        }
+
+        private void btnFrmVerCursosInces_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Cursos_INCES());
+        }
+
+        private void btnFrmVerParticipante_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_participantes());
+        }
+
+        private void btnFrmAddParticipantes_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Agregar_participante());
+        }
+
+        private void btnFrmVerFormatos_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_formatos());
+        }
+
+        private void btnFrmVerFormacion_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Ver_formaciones());
+        }
+        private void btnFrmVerCursosAFI_Click(object sender, EventArgs e)
+        {
+            AddFormInPanel(new Cursos_AFI());
+        }
+
     }
 }

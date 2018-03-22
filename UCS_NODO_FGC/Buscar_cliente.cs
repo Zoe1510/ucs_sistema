@@ -54,16 +54,31 @@ namespace UCS_NODO_FGC
                 {
                     grpbOpciones.Visible = true;
                     grpbOpciones.Height = 387;
+                    btnModificarArea.Visible = true;
+                    btnModificarContacto.Visible = true;
+                    btnModificarEmpresa.Visible = true;
+                    btnEliminarArea.Visible = true;
+                    btnEliminarEmpresa.Visible = true;
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
                 {
                     grpbOpciones.Visible = true;
                     grpbOpciones.Height = 270;
+                    btnModificarArea.Visible = true;
+                    btnModificarContacto.Visible = true;
+                    btnModificarEmpresa.Visible = true;
+                    btnEliminarArea.Visible = false;
+                    btnEliminarEmpresa.Visible = false;
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
                 {
                     grpbOpciones.Visible = true;
                     grpbOpciones.Height = 97;
+                    btnModificarArea.Visible = false;
+                    btnModificarContacto.Visible =false;
+                    btnModificarEmpresa.Visible = false;
+                    btnEliminarArea.Visible = false;
+                    btnEliminarEmpresa.Visible = false;
                 }
 
             }
