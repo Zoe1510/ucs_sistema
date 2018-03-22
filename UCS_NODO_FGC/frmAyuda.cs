@@ -182,17 +182,17 @@ namespace UCS_NODO_FGC
         {
             if (Usuario_logeado.cargo_usuario == "Lider")
             {
-                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\Manual de usuario lider.pdf";
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\MANUAL DE USUARIO LÍDER.pdf";
                 Process.Start(ruta);
             }
             else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")//Si el usuario es coordinador
             {
-                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\";
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\MANUAL DE USUARIO COORDINADOR.pdf";
                 Process.Start(ruta);
             }
             else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
             {
-                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\";
+                string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Manuales\MANUAL DE USUARIO ASISTENTE.pdf";
                 Process.Start(ruta);
             }
         }
