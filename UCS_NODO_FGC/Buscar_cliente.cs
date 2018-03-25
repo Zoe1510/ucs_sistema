@@ -59,6 +59,7 @@ namespace UCS_NODO_FGC
                     btnModificarEmpresa.Visible = true;
                     btnEliminarArea.Visible = true;
                     btnEliminarEmpresa.Visible = true;
+                    btnModificarContacto.Text = "Modificar contacto";
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
                 {
@@ -69,16 +70,18 @@ namespace UCS_NODO_FGC
                     btnModificarEmpresa.Visible = true;
                     btnEliminarArea.Visible = false;
                     btnEliminarEmpresa.Visible = false;
+                    btnModificarContacto.Text = "Modificar contacto";
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
                 {
                     grpbOpciones.Visible = true;
-                    grpbOpciones.Height = 97;
+                    grpbOpciones.Height = 151;
                     btnModificarArea.Visible = false;
-                    btnModificarContacto.Visible =false;
+                    btnModificarContacto.Visible =true;
                     btnModificarEmpresa.Visible = false;
                     btnEliminarArea.Visible = false;
                     btnEliminarEmpresa.Visible = false;
+                    btnModificarContacto.Text = "  Ver contacto";
                 }
 
             }
@@ -195,7 +198,14 @@ namespace UCS_NODO_FGC
         }
         private void btnModificarContacto_Click(object sender, EventArgs e)
         {
-            Clases.Empresa.ModificarArea = 0;
+            if(Clases.Usuario_logeado.cargo_usuario != "Asistente")
+            {
+                Clases.Empresa.ModificarArea = 0;
+                
+            }else
+            {
+                Clases.Empresa.ModificarArea = 2;
+            }
             abrirFormModificar();
         }
 

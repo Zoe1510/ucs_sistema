@@ -241,6 +241,7 @@
             this.txtRespuesta3.Name = "txtRespuesta3";
             this.txtRespuesta3.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta3.TabIndex = 3;
+            this.txtRespuesta3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRespuesta3_KeyDown);
             this.txtRespuesta3.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta3_Validating);
             // 
             // label7
@@ -294,6 +295,7 @@
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta2.TabIndex = 2;
+            this.txtRespuesta2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRespuesta2_KeyDown);
             this.txtRespuesta2.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta2_Validating);
             // 
             // label5
@@ -347,6 +349,7 @@
             this.txtRespuesta1.Name = "txtRespuesta1";
             this.txtRespuesta1.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta1.TabIndex = 1;
+            this.txtRespuesta1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRespuesta1_KeyDown);
             this.txtRespuesta1.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta1_Validating);
             // 
             // label1

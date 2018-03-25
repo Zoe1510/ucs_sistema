@@ -47,7 +47,6 @@
             this.txtApellidoFa = new System.Windows.Forms.TextBox();
             this.txtCorreoFa = new System.Windows.Forms.TextBox();
             this.txtTelefonoFa = new System.Windows.Forms.TextBox();
-            this.btnGuardarFa = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProviderCI = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNombre = new System.Windows.Forms.ErrorProvider(this.components);
@@ -64,6 +63,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnGuardarFa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
@@ -361,22 +361,6 @@
             this.txtTelefonoFa.Leave += new System.EventHandler(this.txtTelefonoFa_Leave);
             this.txtTelefonoFa.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefonoFa_Validating);
             // 
-            // btnGuardarFa
-            // 
-            this.btnGuardarFa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
-            this.btnGuardarFa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarFa.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnGuardarFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarFa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarFa.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGuardarFa.Location = new System.Drawing.Point(157, 484);
-            this.btnGuardarFa.Name = "btnGuardarFa";
-            this.btnGuardarFa.Size = new System.Drawing.Size(147, 46);
-            this.btnGuardarFa.TabIndex = 5;
-            this.btnGuardarFa.Text = "Actualizar";
-            this.btnGuardarFa.UseVisualStyleBackColor = false;
-            this.btnGuardarFa.Click += new System.EventHandler(this.btnGuardarFa_Click);
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
@@ -384,9 +368,9 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCancelar.Location = new System.Drawing.Point(356, 484);
+            this.btnCancelar.Location = new System.Drawing.Point(364, 484);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(147, 46);
+            this.btnCancelar.Size = new System.Drawing.Size(149, 46);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -477,15 +461,31 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
+            // btnGuardarFa
+            // 
+            this.btnGuardarFa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
+            this.btnGuardarFa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarFa.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnGuardarFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarFa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarFa.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGuardarFa.Location = new System.Drawing.Point(148, 484);
+            this.btnGuardarFa.Name = "btnGuardarFa";
+            this.btnGuardarFa.Size = new System.Drawing.Size(149, 46);
+            this.btnGuardarFa.TabIndex = 59;
+            this.btnGuardarFa.Text = "Actualizar";
+            this.btnGuardarFa.UseVisualStyleBackColor = false;
+            this.btnGuardarFa.Click += new System.EventHandler(this.btnGuardarFa_Click);
+            // 
             // Modificar_facilitadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(669, 581);
+            this.Controls.Add(this.btnGuardarFa);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardarFa);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Modificar_facilitadores";
@@ -522,7 +522,6 @@
         private System.Windows.Forms.ComboBox cmbUbicacionEdo;
         private System.Windows.Forms.TextBox txtEspecialidadFa;
         private System.Windows.Forms.TextBox txtTelefonoFa;
-        private System.Windows.Forms.Button btnGuardarFa;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider errorProviderCI;
         private System.Windows.Forms.ErrorProvider errorProviderNombre;
@@ -548,5 +547,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.Button btnGuardarFa;
     }
 }

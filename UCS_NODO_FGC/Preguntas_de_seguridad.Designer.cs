@@ -114,6 +114,7 @@
             this.txtRespuesta1.Name = "txtRespuesta1";
             this.txtRespuesta1.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta1.TabIndex = 1;
+            this.txtRespuesta1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta1_KeyPress_1);
             this.txtRespuesta1.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta1_Validating);
             // 
             // groupBox1
@@ -169,6 +170,7 @@
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta2.TabIndex = 3;
+            this.txtRespuesta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta2_KeyPress_1);
             this.txtRespuesta2.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta2_Validating);
             // 
             // label5
@@ -224,6 +226,7 @@
             this.txtRespuesta3.Name = "txtRespuesta3";
             this.txtRespuesta3.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta3.TabIndex = 5;
+            this.txtRespuesta3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta3_KeyPress_1);
             this.txtRespuesta3.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta3_Validating);
             // 
             // label7
@@ -438,7 +441,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.Preguntas_de_seguridad_Load);
-            
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Preguntas_de_seguridad_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

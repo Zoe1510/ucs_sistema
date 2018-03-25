@@ -22,6 +22,7 @@ namespace UCS_NODO_FGC
         int id_pre2;
         int id_pre3;
         string resp1, resp2, resp3;
+        public int xClick = 0, yClick = 0;
         public Preguntas_de_seguridad()
         {
             InitializeComponent();
@@ -240,20 +241,20 @@ namespace UCS_NODO_FGC
             cmbxPregunta3.SelectedIndex = -1;
             cmbxPregunta3.Text = "Seleccione";
         }
-        private void txtRespuesta1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta1_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
-        private void txtRespuesta2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta2_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
-        private void txtRespuesta3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta3_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
         private void cmbxPregunta1_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -268,7 +269,32 @@ namespace UCS_NODO_FGC
         {
             id_pre3= Convert.ToInt32(cmbxPregunta3.SelectedValue);
         }
-        public int xClick = 0, yClick = 0;
+       
+
+        private void txtRespuesta1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                cmbxPregunta2.Focus();
+            }
+        }
+
+        private void txtRespuesta2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                cmbxPregunta3.Focus();
+            }
+        }
+
+        private void txtRespuesta3_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                guardar();
+            }
+        }
+
         private void Preguntas_de_seguridad_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)

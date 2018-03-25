@@ -8,6 +8,7 @@ namespace UCS_NODO_FGC.Clases
 {
     public class Facilitador_Seleccionado
     {
+        public static int VER { get; set; } //(1 para ver info. 0 para modificar
         public static int id_facilitador { get; set; }
         public static string ci_facilitador { get; set; }
         public static string nombre_facilitador { get; set; }
