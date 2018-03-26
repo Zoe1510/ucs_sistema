@@ -280,14 +280,14 @@ namespace UCS_NODO_FGC
                 {
                     if (MessageBox.Show("¿Está seguro de eliminar al facilitador " + facilitador.nombre_facilitador + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
-                        MySqlDataReader idf = Conexion.ConsultarBD("SELECT * FROM cursos_tienen_fa where facilitadores_id_fa='" + facilitador.id_facilitador + "'");
+                        MySqlDataReader idf = Conexion.ConsultarBD("SELECT * FROM cursos_tienen_fa where facilitadores_id_fa=" + facilitador.id_facilitador + "");
                         if (idf.Read())
                         {
                             //si está en cursos_tienen_fa, hay que evaluar las fechas asignadas antes de eliminar
                             int idprovicional = Convert.ToInt32(idf["facilitadores_id_fa"]);
                             string f2_provicional = "";
                             //MessageBox.Show(DateTime.Today.ToString("yyyy-MM-dd"));
-                            MySqlDataReader f2 = Conexion.ConsultarBD("select * from cursos_tienen_fa where facilitadores_id_fa='" + idprovicional+ "' and ctf_fecha2 >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'");
+                            MySqlDataReader f2 = Conexion.ConsultarBD("select * from cursos_tienen_fa where facilitadores_id_fa=" + idprovicional+ " and ctf_fecha2 >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'");
                             if (f2.Read())
                             {
                                 DateTime d2;
@@ -297,17 +297,53 @@ namespace UCS_NODO_FGC
                             }
                             else
                             {
-                                MessageBox.Show("No hay fecha2");
+                                // MessageBox.Show("No hay fecha2"); si no hay fecha2, ir a revisar la fecha uno
+                                MySqlDataReader f1 = Conexion.ConsultarBD("select * from cursos_tienen_fa where facilitadores_id_fa=" + idprovicional + " and ctf_fecha >= '" + DateTime.Today.ToString("yyyy-MM-dd") + "'");
+                                if (f1.Read())
+                                {
+                                    //si devuelve algo es porque está ocupado en fechas futuras o la actual
+                                    DateTime d1;
+                                    d1 = Convert.ToDateTime(f2["ctf_fecha"]);
+                                    f2_provicional = d1.ToString("dd-MM-yyyy");
+                                    MessageBox.Show("No puede eliminar al facilitador " + facilitador.nombre_facilitador + " porque se encuentra asignado a una formación hasta la fecha: " + f2_provicional + " ", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }else
+                                {
+                                    //si no devuelve nada, se elimina para inces y afi y luego del grupo de facilitadores
+
+                                    //eliminar primero de afi e inces!!
+                                    int resultado = 0;
+                                    MySqlDataReader del = Conexion.ConsultarBD("delete from inces_tiene_facilitadores where id_fa_INCE=" + facilitador.id_facilitador + "");
+                                    del.Close();
+                                    MySqlDataReader delA = Conexion.ConsultarBD("delete from afi_tiene_facilitadores where id_fa=" + facilitador.id_facilitador + "");
+                                    delA.Close();
+
+
+                                    conexion.cerrarconexion();
+                                    if (conexion.abrirconexion() == true)
+                                    {
+
+
+                                        resultado = Clases.Facilitadores.EliminarFa(conexion.conexion, facilitador.ci_facilitador);
+
+                                        if (resultado > 0)
+                                        {
+                                            Refrescar();
+                                        }
+                                        conexion.cerrarconexion();
+                                    }
+                                }
+                                f1.Close();
                             }
+                            f2.Close();
                         }
                         else
                         {
                             // MessageBox.Show("No está");
                             //eliminar primero de afi e inces!!
                             int resultado=0;
-                            MySqlDataReader del = Conexion.ConsultarBD("delete from inces_tiene_facilitadores where id_fa_INCE='" + facilitador.id_facilitador + "'");
+                            MySqlDataReader del = Conexion.ConsultarBD("delete from inces_tiene_facilitadores where id_fa_INCE=" + facilitador.id_facilitador + "");
                             del.Close();
-                            MySqlDataReader delA = Conexion.ConsultarBD("delete from afi_tiene_facilitadores id_fa='" + facilitador.id_facilitador + "'");
+                            MySqlDataReader delA = Conexion.ConsultarBD("delete from afi_tiene_facilitadores where id_fa=" + facilitador.id_facilitador + "");
                             delA.Close();
 
 
