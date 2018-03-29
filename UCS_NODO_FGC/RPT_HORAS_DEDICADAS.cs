@@ -32,8 +32,8 @@ namespace UCS_NODO_FGC
             reportViewer1.LocalReport.DataSources.Clear();
 
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
-            string nombre_reporte = "Horas recortadas_" + fecha + ".pdf";
-            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos";  //cambia cuando se instale
+            string nombre_reporte = "Horas dedicadas ("+InfoGeneral[0].nombre_formacion+") " + fecha + ".pdf";
+            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos";  //cambia cuando se instale
 
             string destino = Path.Combine(ruta, nombre_reporte);
             //MessageBox.Show(destino);
@@ -46,7 +46,7 @@ namespace UCS_NODO_FGC
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsEtapas", EtapasF));
             File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
             //
-            MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nombre_reporte + "', '" + fecha + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");
+            MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nombre_reporte + "', '" + DateTime.Now + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");
             insert.Close();
             reportViewer1.RefreshReport();
         }

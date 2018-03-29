@@ -30,22 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.R_Formacion_DatosGeneralesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rTiempoTipoFormacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.R_Formacion_DatosGeneralesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rTiempoTipoFormacionBindingSource)).BeginInit();
+            this.R_TiempoTipoFormacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.R_TiempoTipoFormacionBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // R_Formacion_DatosGeneralesBindingSource
-            // 
-            this.R_Formacion_DatosGeneralesBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales);
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "dsFormacion";
-            reportDataSource1.Value = this.rTiempoTipoFormacionBindingSource;
+            reportDataSource1.Value = this.R_TiempoTipoFormacionBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "UCS_NODO_FGC.Reportes.rptRelacionTipoFTiempo.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -53,9 +47,9 @@
             this.reportViewer1.Size = new System.Drawing.Size(731, 754);
             this.reportViewer1.TabIndex = 0;
             // 
-            // rTiempoTipoFormacionBindingSource
+            // R_TiempoTipoFormacionBindingSource
             // 
-            this.rTiempoTipoFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_TiempoTipoFormacion);
+            this.R_TiempoTipoFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_TiempoTipoFormacion);
             // 
             // RPT_TIEMPO_TIPO
             // 
@@ -67,8 +61,7 @@
             this.Name = "RPT_TIEMPO_TIPO";
             this.Text = "REPORTE TIPO DE FORMACIÓN";
             this.Load += new System.EventHandler(this.RPT_TIEMPO_TIPO_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.R_Formacion_DatosGeneralesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rTiempoTipoFormacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.R_TiempoTipoFormacionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -76,7 +69,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource R_Formacion_DatosGeneralesBindingSource;
-        private System.Windows.Forms.BindingSource rTiempoTipoFormacionBindingSource;
+        private System.Windows.Forms.BindingSource R_TiempoTipoFormacionBindingSource;
     }
 }

@@ -709,11 +709,25 @@
       </ConnectionProperties>
       <rd:DataSourceID>19782b89-9e01-4d2f-8380-c4c37a100b77</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="UCS_NODO_FGCClases3">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>2d2bca8b-97b7-4e50-867d-58cb2a0b31ab</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="UCS_NODO_FGCClases4">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>fd37573c-0033-4e94-96b4-6656d66772f5</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsFormacion">
       <Query>
-        <DataSourceName>UCS_NODO_FGCClases2</DataSourceName>
+        <DataSourceName>UCS_NODO_FGCClases4</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
