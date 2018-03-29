@@ -32,10 +32,27 @@ namespace UCS_NODO_FGC
             reportViewer1.LocalReport.DataSources.Clear();
 
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
-            string nombre_reporte = "Horas dedicadas ("+InfoGeneral[0].nombre_formacion+") " + fecha + ".pdf";
+            string nombre_reporte = "Horas dedicadas ("+InfoGeneral[0].nombre_formacion+") " + fecha+" ";
+            //nuevo:
+            string extension = ".pdf";
             string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
+            //todo lo que se haga aquí, es nuevo 
+            //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
+            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + extension);
+            int cantidad = dirs.Length;
+            //MessageBox.Show(cantidad.ToString());
+            string nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+            string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
+            int hay = check.Length;
+            if (hay != 0)
+            {
+                cantidad += 1;
+                nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+                //   MessageBox.Show(nuevonombre);
+            }
+            //MessageBox.Show(nuevonombre);
+            string destino = Path.Combine(ruta, nuevonombre);
 
-            string destino = Path.Combine(ruta, nombre_reporte);
             //MessageBox.Show(destino);
             //Establezcamos la lista como Datasource del informe
             //
@@ -43,10 +60,11 @@ namespace UCS_NODO_FGC
             //Establezcamos la lista como Datasource del informe
             //
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsGeneral", InfoGeneral));
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsEtapas", EtapasF));
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsEtapas", EtapasF));            
+            //            
             File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
-            //
-            MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nombre_reporte + "', '" + DateTime.Now + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");
+
+            MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nuevonombre + "', '" + DateTime.Now + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");
             insert.Close();
             reportViewer1.RefreshReport();
         }
