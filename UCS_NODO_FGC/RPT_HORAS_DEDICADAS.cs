@@ -33,7 +33,7 @@ namespace UCS_NODO_FGC
 
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
             string nombre_reporte = "Horas dedicadas ("+InfoGeneral[0].nombre_formacion+") " + fecha + ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos";  //cambia cuando se instale
+            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
 
             string destino = Path.Combine(ruta, nombre_reporte);
             //MessageBox.Show(destino);

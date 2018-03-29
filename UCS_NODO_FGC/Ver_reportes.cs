@@ -189,13 +189,45 @@ namespace UCS_NODO_FGC
             if (dgvReportes.SelectedRows.Count == 1)
             {
                 nombreArchivo = dgvReportes.SelectedRows[0].Cells[0].Value.ToString();
-                MySqlDataReader ruta = Conexion.ConsultarBD(@"SELECT ruta_reporte FROM reportes WHERE nombre_reporte LIKE '%" + nombreArchivo + "%'");
+                MySqlDataReader ruta = Conexion.ConsultarBD(@"SELECT * FROM reportes WHERE nombre_reporte LIKE '%" + nombreArchivo + "%'");
                 if (ruta.Read())
                 {
+                    Reporte_Seleccionado.nombre_reporte = nombreArchivo;
                     origenArchivo = Convert.ToString(ruta["ruta_reporte"]);
-                    origenArchivo = origenArchivo.Replace("\\", "/");
+                    origenArchivo = origenArchivo.Replace("\"","/");
+                    MessageBox.Show(origenArchivo);
+                    Reporte_Seleccionado.id_reporte = Convert.ToInt32(ruta["id_reporte"]);
+                    Reporte_Seleccionado.fecha_emision = Convert.ToString(ruta["fecha_creacion"]);
+                    int idusuario = Convert.ToInt32(ruta["id_creador_usuario"]);
+                    MySqlDataReader id = Conexion.ConsultarBD("select nombre_user from usuarios where id_user='"+idusuario+"'");
+                    if (id.Read())
+                    {
+                        Reporte_Seleccionado.creador = Convert.ToString(id["nombre_user"]);
+                    }
+                    id.Close();
+                    
 
                 }
+                ruta.Close();
+            }
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            if (dgvReportes.SelectedRows.Count == 1)
+            {
+                Detalle_reporte details = new Detalle_reporte();
+                details.ShowDialog();
+                Reporte_Seleccionado.id_reporte = 0;
+                Reporte_Seleccionado.fecha_emision = "";
+                Reporte_Seleccionado.creador = "";
+                Reporte_Seleccionado.nombre_reporte = "";
+                todo = "";
+                llenarDGV(todo);
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un archivo.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

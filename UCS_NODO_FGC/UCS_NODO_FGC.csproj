@@ -160,6 +160,12 @@
     <Compile Include="Cursos_INCES.Designer.cs">
       <DependentUpon>Cursos_INCES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Detalle_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle_reporte.Designer.cs">
+      <DependentUpon>Detalle_reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,6 +479,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cursos_INCES.resx">
       <DependentUpon>Cursos_INCES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalle_reporte.resx">
+      <DependentUpon>Detalle_reporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>

@@ -32,7 +32,7 @@ namespace UCS_NODO_FGC
             string fecha = emision.ToString("dd-MM-yyyy");
             
             string nombre_reporte = "Reporte ("+info[0].tipo_formacion+ ") " + fecha + ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos";  //cambia cuando se instale
+            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
 
             string destino = Path.Combine(ruta, nombre_reporte);
 

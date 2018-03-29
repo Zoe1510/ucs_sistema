@@ -34,6 +34,10 @@
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFechados = new System.Windows.Forms.TextBox();
+            this.txtFechauno = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtEstatus = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
@@ -67,10 +71,6 @@
             this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtFechauno = new System.Windows.Forms.TextBox();
-            this.txtFechados = new System.Windows.Forms.TextBox();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(628, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer1
@@ -144,11 +144,53 @@
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(46, 70);
+            this.groupBox1.Location = new System.Drawing.Point(46, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 305);
+            this.groupBox1.Size = new System.Drawing.Size(547, 304);
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
+            // 
+            // txtFechados
+            // 
+            this.txtFechados.Enabled = false;
+            this.txtFechados.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtFechados.Location = new System.Drawing.Point(203, 266);
+            this.txtFechados.Name = "txtFechados";
+            this.txtFechados.Size = new System.Drawing.Size(309, 23);
+            this.txtFechados.TabIndex = 22;
+            this.txtFechados.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtFechauno
+            // 
+            this.txtFechauno.Enabled = false;
+            this.txtFechauno.Font = new System.Drawing.Font("Rockwell", 10F);
+            this.txtFechauno.Location = new System.Drawing.Point(203, 228);
+            this.txtFechauno.Name = "txtFechauno";
+            this.txtFechauno.Size = new System.Drawing.Size(309, 23);
+            this.txtFechauno.TabIndex = 21;
+            this.txtFechauno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(100, 266);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(88, 19);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "Fecha dos:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(99, 228);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(89, 19);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Fecha uno:";
             // 
             // txtEstatus
             // 
@@ -507,48 +549,6 @@
             this.btnActualizar.Text = "Aceptar";
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(99, 228);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 19);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Fecha uno:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(100, 266);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(88, 19);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "Fecha dos:";
-            // 
-            // txtFechauno
-            // 
-            this.txtFechauno.Enabled = false;
-            this.txtFechauno.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtFechauno.Location = new System.Drawing.Point(203, 228);
-            this.txtFechauno.Name = "txtFechauno";
-            this.txtFechauno.Size = new System.Drawing.Size(309, 23);
-            this.txtFechauno.TabIndex = 21;
-            this.txtFechauno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtFechados
-            // 
-            this.txtFechados.Enabled = false;
-            this.txtFechados.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.txtFechados.Location = new System.Drawing.Point(203, 266);
-            this.txtFechados.Name = "txtFechados";
-            this.txtFechados.Size = new System.Drawing.Size(309, 23);
-            this.txtFechados.TabIndex = 22;
-            this.txtFechados.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Vista_Formacion
             // 
