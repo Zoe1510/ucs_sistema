@@ -16,6 +16,7 @@ namespace UCS_NODO_FGC.Clases
         public string fecha_inicio { get; set; }
         public string fecha_culminacion { get; set; }
         public string cantidad_participantes { get; set; }
+        public string hora_emision { get; set; }
         public Byte[] Logo { get; set; }
 
         public List<R_Participantes_postulados> lista_participantes = new List<R_Participantes_postulados>();

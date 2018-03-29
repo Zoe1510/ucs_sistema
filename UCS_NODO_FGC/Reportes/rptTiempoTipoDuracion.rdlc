@@ -21,7 +21,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.35792cm</Top>
-        <Left>2.56328cm</Left>
+        <Left>1.98118cm</Left>
         <Height>0.6cm</Height>
         <Width>6.54812cm</Width>
         <Style>
@@ -41,7 +41,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>se han realizado </Value>
+                <Value>han realizado </Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -54,7 +54,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>2.33688cm</Top>
-        <Left>1.6637cm</Left>
+        <Left>1.98118cm</Left>
         <Height>0.6cm</Height>
         <Width>3.3202cm</Width>
         <ZIndex>1</ZIndex>
@@ -88,7 +88,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>2.33688cm</Top>
-        <Left>5.08973cm</Left>
+        <Left>5.4072cm</Left>
         <Height>0.6cm</Height>
         <Width>2.15604cm</Width>
         <ZIndex>2</ZIndex>
@@ -122,7 +122,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>2.33688cm</Top>
-        <Left>9.04229cm</Left>
+        <Left>9.35976cm</Left>
         <Height>0.6cm</Height>
         <Width>4.03458cm</Width>
         <ZIndex>3</ZIndex>
@@ -156,43 +156,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>1.35792cm</Top>
-        <Left>13.05073cm</Left>
+        <Left>12.46863cm</Left>
         <Height>0.6cm</Height>
         <Width>0.56854cm</Width>
         <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox22">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Emitido por:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>7.4257cm</Top>
-        <Left>1.6637cm</Left>
-        <Height>0.57354cm</Height>
-        <Width>2.0502cm</Width>
-        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -223,10 +190,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>3.39094cm</Top>
-        <Left>1.6637cm</Left>
+        <Left>1.98118cm</Left>
         <Height>0.6cm</Height>
         <Width>2.84396cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -256,10 +223,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.35792cm</Top>
-        <Left>9.45127cm</Left>
+        <Left>8.63512cm</Left>
         <Height>0.6cm</Height>
         <Width>3.42307cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -292,10 +259,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>1.35792cm</Top>
-        <Left>14.0462cm</Left>
+        <Left>13.46707cm</Left>
         <Height>0.6cm</Height>
         <Width>3.42307cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -328,10 +295,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>2.33688cm</Top>
-        <Left>7.58091cm</Left>
+        <Left>7.89838cm</Left>
         <Height>0.6cm</Height>
         <Width>1.28499cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -364,10 +331,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>2.33688cm</Top>
-        <Left>13.25326cm</Left>
+        <Left>13.5737cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.21601cm</Width>
-        <ZIndex>10</ZIndex>
+        <Width>4.34831cm</Width>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -388,7 +355,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>duracion</Value>
+                <Value>=First(Fields!duracion.Value, "dsGeneral")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -400,10 +367,10 @@
           </Paragraph>
         </Paragraphs>
         <Top>3.39094cm</Top>
-        <Left>4.68405cm</Left>
+        <Left>5.00153cm</Left>
         <Height>0.6cm</Height>
         <Width>5.77786cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -418,13 +385,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="txtEmitido">
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!nombreyapellido.Value, "dsGeneral")</Value>
+                <Value>se</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -435,18 +403,16 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>7.43451cm</Top>
-        <Left>3.74918cm</Left>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>1.35792cm</Top>
+        <Left>16.99597cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.42307cm</Width>
-        <ZIndex>12</ZIndex>
+        <Width>0.92604cm</Width>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -455,13 +421,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.17708in</Height>
+    <Height>4.28125in</Height>
     <Style />
   </Body>
-  <Width>7.77083in</Width>
+  <Width>7.42841in</Width>
   <Page>
     <PageHeader>
-      <Height>4.63021cm</Height>
+      <Height>5cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -482,14 +448,19 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.76071cm</Top>
-          <Left>14.0462cm</Left>
+          <Top>1.16071cm</Top>
+          <Left>15.23681cm</Left>
           <Height>0.6cm</Height>
           <Width>3.42604cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <BottomBorder>
+              <Color>Black</Color>
+              <Style>Solid</Style>
+              <Width>1pt</Width>
+            </BottomBorder>
             <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -513,8 +484,8 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <Top>3.72745cm</Top>
-          <Left>6.22448cm</Left>
+          <Top>3.12745cm</Top>
+          <Left>6.92562cm</Left>
           <Height>0.72637cm</Height>
           <Width>7.39479cm</Width>
           <ZIndex>1</ZIndex>
@@ -533,10 +504,10 @@
           <Value>=First(Fields!Logo.Value, "dsGeneral")</Value>
           <MIMEType>image/png</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>1.76071cm</Top>
-          <Left>1.6637cm</Left>
-          <Height>2.69311cm</Height>
-          <Width>3.99521cm</Width>
+          <Top>1.15382cm</Top>
+          <Left>1.83237cm</Left>
+          <Height>2.7cm</Height>
+          <Width>4cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -544,6 +515,37 @@
             </Border>
           </Style>
         </Image>
+        <Textbox Name="txtHoraEmision">
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!hora_emision.Value, "dsGeneral")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>1.76071cm</Top>
+          <Left>15.23681cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.42604cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -552,7 +554,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.8575cm</Height>
+      <Height>3cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -575,8 +577,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.24183cm</Top>
-          <Left>1.99114cm</Left>
+          <Top>1.09789cm</Top>
+          <Left>2.10641cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <Style>
@@ -609,8 +611,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.70954cm</Top>
-          <Left>1.99114cm</Left>
+          <Top>1.5656cm</Top>
+          <Left>2.10641cm</Left>
           <Height>0.46771cm</Height>
           <Width>8.77063cm</Width>
           <ZIndex>1</ZIndex>
@@ -644,8 +646,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.21254cm</Top>
-          <Left>1.99114cm</Left>
+          <Top>2.0686cm</Top>
+          <Left>2.10641cm</Left>
           <Height>0.46771cm</Height>
           <Width>10.30521cm</Width>
           <ZIndex>2</ZIndex>
@@ -661,8 +663,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>0.24183cm</Top>
-          <Left>1.7171cm</Left>
+          <Top>1.09789cm</Top>
+          <Left>1.83237cm</Left>
           <Height>1.43841cm</Height>
           <Width>0cm</Width>
           <ZIndex>3</ZIndex>
@@ -690,15 +692,82 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>1.1067cm</Top>
-          <Left>16.56431cm</Left>
-          <Height>0.57354cm</Height>
+          <Top>2.05978cm</Top>
+          <Left>17.75492cm</Left>
+          <Height>0.47652cm</Height>
           <Width>0.90793cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox22">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Emitido por:</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.14111cm</Top>
+          <Left>1.83237cm</Left>
+          <Height>0.57354cm</Height>
+          <Width>2.0502cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="txtEmitido">
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!nombreyapellido.Value, "dsGeneral")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.17638cm</Top>
+          <Left>3.86445cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.42307cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BottomBorder>
+              <Style>Solid</Style>
+            </BottomBorder>
             <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -739,12 +808,20 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="duracion">
+          <DataField>duracion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="fecha_hoy">
           <DataField>fecha_hoy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="fecha_vieja">
           <DataField>fecha_vieja</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="hora_emision">
+          <DataField>hora_emision</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Logo">

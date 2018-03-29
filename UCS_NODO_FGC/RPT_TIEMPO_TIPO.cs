@@ -29,18 +29,19 @@ namespace UCS_NODO_FGC
             this.reportViewer1.RefreshReport();
             reportViewer1.LocalReport.DataSources.Clear();
 
-            string fecha = DateTime.Today.ToString("dd-MM-yyyy");
+            string fecha = DateTime.Today.ToString("dd-MM-yyyy HH:mm:ss");
 
-            string nombre_reporte = "tiempo_tipo_" + fecha + ".pdf";
+            string nombre_reporte = "Reporte tipo de formación " + info[0].tipo_formacion + " " + fecha + ".pdf" ; 
             string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos";  //cambia cuando se instale
 
             string destino = Path.Combine(ruta, nombre_reporte);
-            reportViewer1.LocalReport.DisplayName = "Tiempo_tipo";
+            File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
+            reportViewer1.LocalReport.DisplayName = nombre_reporte;
             //Establezcamos la lista como Datasource del informe
             //
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("dsFormacion", info));
 
-            File.WriteAllBytes(destino, reportViewer1.LocalReport.Render("PDF"));
+            
             //
             MySqlDataReader insert = Conexion.ConsultarBD("insert into reportes (nombre_reporte, fecha_creacion,id_creador_usuario, ruta_reporte) values ('" + nombre_reporte + "', '" + DateTime.Today + "', '" + Usuario_logeado.id_usuario + "', '" + destino + "')");
             insert.Close();

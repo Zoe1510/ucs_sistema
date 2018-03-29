@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using UCS_NODO_FGC.Clases;
+using MySql.Data.MySqlClient;
 namespace UCS_NODO_FGC
 {
     public partial class Perfil_personal : Form
@@ -26,7 +27,7 @@ namespace UCS_NODO_FGC
             txtCorreoUser.Text = Clases.Usuario_logeado.correo_usuario;
             txtTlfnUser.Text = Clases.Usuario_logeado.tlfn_usuario;
             lblCargo.Text = Clases.Usuario_logeado.cargo_usuario;
-            lblCedula.Text = Convert.ToString(Clases.Usuario_logeado.cedula_user);
+            txtCedula.Text = Convert.ToString(Clases.Usuario_logeado.cedula_user);
             lblNombreUsuario.Text = Clases.Usuario_logeado.nombre_usuario +" "+ Clases.Usuario_logeado.apellido_usuario;
             //permite que la imagen sea redonda
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
@@ -47,7 +48,11 @@ namespace UCS_NODO_FGC
                 conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
-                    if (txtNombreUser.Text == "")
+                    if(txtCedula.Text == "")
+                    {
+                        errorProviderCI.SetError(txtCedula, "Debe proporcionar una cédula válida.");
+                        txtCedula.Focus();
+                    }else if (txtNombreUser.Text == "")
                     {
                         errorProviderNombre.SetError(txtNombreUser, "Debe proporcionar un nombre válido.");
                         txtNombreUser.Focus();
@@ -66,56 +71,73 @@ namespace UCS_NODO_FGC
                         txtCorreoUser.Focus();
                     }else//si todo OK
                     {
-                        btnActualizarDatos.Enabled = true;
-                        txtCorreoUser.BackColor = Color.FromArgb(218, 232, 240);
-                        usuario.correo_usuario = txtCorreoUser.Text;
-                        txtTlfnUser.BackColor = Color.FromArgb(218, 232, 240);
-                        usuario.tlfn_usuario = txtTlfnUser.Text;
-                            
-                        usuario.nombre_usuario = txtNombreUser.Text;
-                        usuario.apellido_usuario = txtApellidoUser.Text;
-                        usuario.cargo_usuario = lblCargo.Text;
-                        usuario.cedula_user = Convert.ToInt32(lblCedula.Text);
-                        usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
-                        usuario.password = Clases.Usuario_logeado.password;
-                        usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
-                        int resultado;
-
-                        resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
-                        conexion.cerrarconexion();
-                        if (conexion.abrirconexion() == true)
+                        //hay que comprobar que el nro de cédula sea único.
+                        MySqlDataReader ci = Conexion.ConsultarBD("select * from usuarios where cedula_user='" + txtCedula.Text + "'");
+                        if (ci.Read())
                         {
-                            if (resultado != 0)
-                            {
-                                int resultado2 = 0;
+                            if(txtCedula.Text != Usuario_logeado.cedula_user.ToString())
+                                MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                                MessageBox.Show("No se han detectado cambios.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                resultado2 = Clases.Usuarios.ActualizarFotoUsuario(conexion.conexion, usuario);
-                                conexion.cerrarconexion();
-                                if (resultado2 != 0)
+                            btnActualizarDatos.Enabled = false;
+                            NoEditable();
+                            
+                        }
+                        else
+                        {
+                            btnActualizarDatos.Enabled = true;
+                            txtCorreoUser.BackColor = Color.FromArgb(218, 232, 240);
+                            usuario.correo_usuario = txtCorreoUser.Text;
+                            txtTlfnUser.BackColor = Color.FromArgb(218, 232, 240);
+                            usuario.tlfn_usuario = txtTlfnUser.Text;
+
+                            usuario.nombre_usuario = txtNombreUser.Text;
+                            usuario.apellido_usuario = txtApellidoUser.Text;
+                            usuario.cargo_usuario = lblCargo.Text;
+                            usuario.cedula_user = Convert.ToInt32(txtCedula.Text);
+                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
+                            usuario.password = Clases.Usuario_logeado.password;
+                            usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
+                            int resultado;
+
+                            resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
+                            conexion.cerrarconexion();
+                            if (conexion.abrirconexion() == true)
+                            {
+                                if (resultado != 0)
                                 {
-                                    MessageBox.Show("Los datos han sido actualizados correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    int resultado2 = 0;
+
+                                    resultado2 = Clases.Usuarios.ActualizarFotoUsuario(conexion.conexion, usuario);
                                     conexion.cerrarconexion();
-                                    this.Close();
-                                    Inicio_Sesion.ActiveForm.Visible = true;
+                                    if (resultado2 != 0)
+                                    {
+                                        MessageBox.Show("Los datos han sido actualizados correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                        MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        conexion.cerrarconexion();
+                                        this.Close();
+                                        Inicio_Sesion.ActiveForm.Visible = true;
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Hubo un error al actualizar la foto", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+
+
 
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Hubo un error al actualizar la foto", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("No se pudo actualizar los datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-
-
-
+                                conexion.cerrarconexion();
                             }
-                            else
-                            {
-                                MessageBox.Show("No se pudo actualizar los datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            conexion.cerrarconexion();
-                       }
 
-                       
+                        }
+
+
                     }
                 }
             }
@@ -156,6 +178,7 @@ namespace UCS_NODO_FGC
             txtApellidoUser.Enabled = true;
             txtCorreoUser.Enabled = true;
             txtTlfnUser.Enabled = true;
+            txtCedula.Enabled = true;
         }
         
         private void NoEditable()
@@ -164,6 +187,7 @@ namespace UCS_NODO_FGC
             txtApellidoUser.Enabled = false;
             txtCorreoUser.Enabled = false;
             txtTlfnUser.Enabled = false;
+            txtCedula.Enabled = false;
         }
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {

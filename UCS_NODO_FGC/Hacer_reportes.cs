@@ -10,14 +10,13 @@ using MySql.Data.MySqlClient;
 using UCS_NODO_FGC.Clases;
 using System.IO;
 using System.Diagnostics;
-using System.IO;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.Reflection;
 using System.Windows.Forms;
 
 namespace UCS_NODO_FGC
 {
+    
     public partial class Hacer_reportes : Form
     {
         conexion_bd conexion = new conexion_bd();
@@ -33,10 +32,10 @@ namespace UCS_NODO_FGC
         R_EtapaFormacion etapaf = new R_EtapaFormacion();
         R_EtapaFormacion etapaf2 = new R_EtapaFormacion();
         R_EtapaFormacion etapaf3 = new R_EtapaFormacion();
-        string fecha_actual, fecha_vieja, fechaparametro;
+        string fecha_actual, fecha_vieja;
         int resultado = 0;
         string nombre_user;
-        bool reporte2;
+        //bool reporte2;
         string duracion, duracion2, duracion3;
         string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Resources\logo ucs.png";
         Image pic;
@@ -348,6 +347,8 @@ namespace UCS_NODO_FGC
             Cursos.fecha_uno13 = "";
             Cursos.fecha_dos13 = "";
         }
+
+       
         private void llenarReporte1()
         {
             int id_user1 = Cursos.id_user13;
@@ -369,24 +370,27 @@ namespace UCS_NODO_FGC
             if (Cursos.estatus_formacion13 == "En curso" || Cursos.estatus_formacion13 == "Reprogramado")
             {
                 if (Cursos.etapa_formacion13 == 1)
-                {
+                {   TimeSpan t1 = TimeSpan.Parse(duracion);
                     fdg.fecha_inicio = "Sin asignar";
                     fdg.fecha_culminacion = "Sin asignar";
 
                     etapaf.etapa_formacion = "Nivel básico";
                     etapaf.estatus_etapa = "En proceso";
-                    etapaf.tiempo_etapa = " " + duracion + " min.";
-                    fdg.tiempo_total = duracion; //en esta etapa, el tiempo total es el unico que hay
+                    etapaf.tiempo_etapa = t1.RelativeTime();
+                    
+
+                    fdg.tiempo_total = t1.RelativeTime();
+                    //en esta etapa, el tiempo total es el unico que hay
                     fdg.listaEtapa.Add(etapaf); //agrega la primera etapa de la formacion
 
                     etapaf2.etapa_formacion = "Nivel intermedio";
                     etapaf2.estatus_etapa = "Sin iniciar";
-                    etapaf2.tiempo_etapa = "0 min.";
+                    etapaf2.tiempo_etapa = "0 horas.";
                     fdg.listaEtapa.Add(etapaf2); //agrega la segunda etapa de la formacion
 
                     etapaf3.etapa_formacion = "Nivel avanzado";
                     etapaf3.estatus_etapa = "Sin iniciar";
-                    etapaf3.tiempo_etapa = "0 min.";
+                    etapaf3.tiempo_etapa = "0 horas.";
                     fdg.listaEtapa.Add(etapaf3); //agrega la tercera etapa de la formacion
                     
 
@@ -394,24 +398,25 @@ namespace UCS_NODO_FGC
                 else if (Cursos.etapa_formacion13 == 2)
                 {
                     TimeSpan t1 = TimeSpan.Parse(duracion);
-                    TimeSpan tt = TimeSpan.Parse(duracion2) + t1;
-                    fdg.tiempo_total = tt.ToString(); 
+                    TimeSpan t2 = TimeSpan.Parse(duracion2);
+                    TimeSpan tt = t2 + t1;
+                    fdg.tiempo_total = tt.RelativeTime();
                     fdg.fecha_inicio = Cursos.fecha_uno13; 
                     fdg.fecha_culminacion = Cursos.fecha_dos13;
 
                     etapaf.etapa_formacion = "Nivel básico";
                     etapaf.estatus_etapa = "Finalizada";
-                    etapaf.tiempo_etapa = " " + duracion + " min.";
+                    etapaf.tiempo_etapa = t1.RelativeTime();
                     fdg.listaEtapa.Add(etapaf); //agrega la primera etapa de la formacion
 
                     etapaf2.etapa_formacion = "Nivel intermedio";
                     etapaf2.estatus_etapa = "En proceso";
-                    etapaf2.tiempo_etapa = " " + duracion2 + " min.";
+                    etapaf2.tiempo_etapa = t2.RelativeTime();
                     fdg.listaEtapa.Add(etapaf2); //agrega la segunda etapa de la formacion
 
                     etapaf3.etapa_formacion = "Nivel avanzado";
                     etapaf3.estatus_etapa = "Sin iniciar";
-                    etapaf3.tiempo_etapa = "0 min.";
+                    etapaf3.tiempo_etapa = "0 horas.";
                     fdg.listaEtapa.Add(etapaf3); //agrega la tercera etapa de la formacion
 
                 }
@@ -419,24 +424,25 @@ namespace UCS_NODO_FGC
                 {
                     TimeSpan t1 = TimeSpan.Parse(duracion);
                     TimeSpan t2 = TimeSpan.Parse(duracion2);
-                    TimeSpan tt = TimeSpan.Parse(duracion3) + t1 + t2;
-                    fdg.tiempo_total = tt.ToString();
+                    TimeSpan t3 = TimeSpan.Parse(duracion3);
+                    TimeSpan tt = t3 + t1 + t2;
+                    fdg.tiempo_total = tt.RelativeTime();
                     fdg.fecha_inicio = Cursos.fecha_uno13;
                     fdg.fecha_culminacion = Cursos.fecha_dos13;
 
                     etapaf.etapa_formacion = "Nivel básico";
                     etapaf.estatus_etapa = "Finalizada";
-                    etapaf.tiempo_etapa = " " + duracion + " min.";
+                    etapaf.tiempo_etapa = t1.RelativeTime();
                     fdg.listaEtapa.Add(etapaf); //agrega la primera etapa de la formacion
 
                     etapaf2.etapa_formacion = "Nivel intermedio";
                     etapaf2.estatus_etapa = "Finalizada";
-                    etapaf2.tiempo_etapa = " " + duracion2 + " min.";
+                    etapaf2.tiempo_etapa = t2.RelativeTime();
                     fdg.listaEtapa.Add(etapaf2); //agrega la segunda etapa de la formacion
 
                     etapaf3.etapa_formacion = "Nivel avanzado";
                     etapaf3.estatus_etapa = "En proceso";
-                    etapaf3.tiempo_etapa = " " + duracion3 + " min.";
+                    etapaf3.tiempo_etapa = t3.RelativeTime();
                     fdg.listaEtapa.Add(etapaf3); //agrega la tercera etapa de la formacion
                    
                 }
@@ -445,24 +451,25 @@ namespace UCS_NODO_FGC
             {
                 TimeSpan t1 = TimeSpan.Parse(duracion);
                 TimeSpan t2 = TimeSpan.Parse(duracion2);
-                TimeSpan tt = TimeSpan.Parse(duracion3) + t1 + t2;
-                fdg.tiempo_total = tt.ToString();
+                TimeSpan t3 = TimeSpan.Parse(duracion3);
+                TimeSpan tt = t3 + t1 + t2;
+                fdg.tiempo_total = tt.RelativeTime();
                 fdg.fecha_inicio = Cursos.fecha_uno13;
                 fdg.fecha_culminacion = Cursos.fecha_dos13;
 
                 etapaf.etapa_formacion = "Nivel básico";
                 etapaf.estatus_etapa = "Finalizada";
-                etapaf.tiempo_etapa = " " + duracion + " min.";
+                etapaf.tiempo_etapa = t1.RelativeTime();
                 fdg.listaEtapa.Add(etapaf); //agrega la primera etapa de la formacion
 
                 etapaf2.etapa_formacion = "Nivel intermedio";
                 etapaf2.estatus_etapa = "Finalizada";
-                etapaf2.tiempo_etapa = " " + duracion2 + " min.";
+                etapaf2.tiempo_etapa = t2.RelativeTime();
                 fdg.listaEtapa.Add(etapaf2); //agrega la segunda etapa de la formacion
 
                 etapaf3.etapa_formacion = "Nivel avanzado";
                 etapaf3.estatus_etapa = "Finalizada";
-                etapaf3.tiempo_etapa = " " + duracion3 + " min.";
+                etapaf3.tiempo_etapa = t3.RelativeTime();
                 fdg.listaEtapa.Add(etapaf3); //agrega la tercera etapa de la formacion
 
             }
@@ -481,6 +488,7 @@ namespace UCS_NODO_FGC
                 string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
                 fdg.nombreyapellido = nombreyapellido;
                 fdg.fecha_actual = DateTime.Today.ToString("dd-MM-yyyy");
+                fdg.hora_emision = DateTime.Now.ToShortTimeString();
                 RPT_HORAS_DEDICADAS r1 = new RPT_HORAS_DEDICADAS();
                 r1.InfoGeneral.Add(fdg);
                 r1.EtapasF = fdg.listaEtapa;
@@ -519,7 +527,7 @@ namespace UCS_NODO_FGC
             while (leer.Read())
             {
                 nroFormaciones += 1;
-                datosF.fecha_vieja = fecha_vieja;
+                datosF.fecha_vieja = trampa.ToString("dd-MM-yyyy");
 
             }
             datosF.nro_formaciones = nroFormaciones.ToString(); //ignorar nombre de variable, aqui se guardan cuantas formaciones de ese tipo se han realizado en ese tiempo
@@ -543,6 +551,7 @@ namespace UCS_NODO_FGC
                     datosF.nombreyapellido = nombreyapellido;
                    
                     datosF.fecha_hoy = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
+                    datosF.hora_emision = DateTime.Now.ToShortTimeString();
                     pic = Image.FromFile(ruta);
                     datosF.Logo = GetBytes(pic);
                     RPT_TIEMPO_TIPO rtt = new RPT_TIEMPO_TIPO();
@@ -599,29 +608,47 @@ namespace UCS_NODO_FGC
                         case "8 Horas":
                             formaciones.duracion = "8";
                             break;
-                        case "16 Hora":
+                        case "16 Horas":
                             formaciones.duracion = "16";
                             break;
 
                     }
                     string tipo = formaciones.tipo_formacion;
+                    
                     rptTTD.tipo_formacion = tipo;
                     if (cmbxPeriodoTiempo.SelectedIndex == 0)
                         fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-30));
                     else
                         fecha_vieja = Convert.ToString(DateTime.Today.AddDays(-90));
 
+                    DateTime trampa = Convert.ToDateTime(fecha_vieja);
                     fecha_actual = DateTime.Today.ToString("yyyy-MM-dd");
                     MySqlDataReader leer = Conexion.ConsultarBD("Select * from cursos where duracion_curso ='" + formaciones.duracion + "' and tipo_curso='"+tipo+ "' and fecha_creacion between  '" + fecha_vieja + "' and '" + fecha_actual + "'");
                     while (leer.Read())
                     {
                         i += 1;
-                        rptTTD.fecha_vieja = fecha_vieja;
+                        rptTTD.fecha_vieja = trampa.ToString("dd-MM-yyyy");
                     }
                     rptTTD.nro_formaciones = i.ToString() ;
+                    //hay que volver a hacer switch con la duracion:
+                    switch (formaciones.duracion)
+                    {
+                        case "4":
+                            formaciones.duracion = "4 Horas";
+                            break;
+                        case "8":
+                            formaciones.duracion = "8 Horas";
+                            break;
+                        case "16":
+                            formaciones.duracion = "16 Horas";
+                            break;
+
+                    }
+                    rptTTD.duracion = formaciones.duracion;
                     string nombreyapellido = Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario;
                     rptTTD.nombreyapellido = nombreyapellido;
                     rptTTD.fecha_hoy = DateTime.Today.ToString("dd-MM-yyyy"); //la actual
+                    rptTTD.hora_emision = DateTime.Now.ToShortTimeString();
                     pic = Image.FromFile(ruta);
                     rptTTD.Logo = GetBytes(pic);
                     RPT_TiempoTipoDuracion ttd = new RPT_TiempoTipoDuracion();

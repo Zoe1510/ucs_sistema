@@ -225,7 +225,13 @@ namespace UCS_NODO_FGC
                 txtCargoUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[4].Value.ToString();
                 inhabilitar();
                 comboboxshow();
-
+                if(dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString() == Clases.Usuario_logeado.cedula_user.ToString())
+                {
+                    btnEliminarUsuario.Enabled = false;
+                }else
+                {
+                    btnEliminarUsuario.Enabled = true;
+                }
             }
 
         }

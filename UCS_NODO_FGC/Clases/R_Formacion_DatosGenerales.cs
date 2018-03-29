@@ -19,7 +19,7 @@ namespace UCS_NODO_FGC.Clases
         public string fecha_actual { get; set; }
         public string fecha_inicio { get; set; }
         public string fecha_culminacion { get; set; }
-        
+        public string hora_emision { get; set; }
 
         public Byte[] Logo { get; set; }
 

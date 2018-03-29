@@ -50,7 +50,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "UCS_NODO_FGC.Reportes.rptHorasDedicadas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(789, 754);
+            this.reportViewer1.Size = new System.Drawing.Size(705, 754);
             this.reportViewer1.TabIndex = 0;
             // 
             // R_Formacion_DatosGeneralesBindingSource
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 754);
+            this.ClientSize = new System.Drawing.Size(705, 754);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RPT_HORAS_DEDICADAS";

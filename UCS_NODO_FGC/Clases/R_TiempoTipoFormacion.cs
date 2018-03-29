@@ -13,7 +13,8 @@ namespace UCS_NODO_FGC.Clases
         public string nro_formaciones { get; set; }
         public string fecha_vieja { get; set; }
         public string fecha_hoy { get; set; }
-        public string nromeses { get; set; }
+        public string duracion { get; set; }
+        public string hora_emision { get; set; }
         public Byte[] Logo { get; set; }
     }
 }

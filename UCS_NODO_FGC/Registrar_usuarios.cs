@@ -104,14 +104,15 @@ namespace UCS_NODO_FGC
                             conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
-                                resultado2 = Clases.Usuarios.AgregarUsuarios(conexion.conexion, usuario);
-                                conexion.cerrarconexion();
-
-                                if (conexion.abrirconexion() == true)
+                                if (resultado != 1)
                                 {
+                                    resultado2 = Clases.Usuarios.AgregarUsuarios(conexion.conexion, usuario);
+                                    conexion.cerrarconexion();
 
-                                    if (resultado != 1)
+                                    if (conexion.abrirconexion() == true)
                                     {
+
+
                                         if (resultado2 != 0)
                                         {
                                             //Image imagen = UCS_NODO_FGC.Properties.Resources.img_perfil;
@@ -131,16 +132,17 @@ namespace UCS_NODO_FGC
                                         }
 
                                     }
-                                    else
-                                    {
-                                        MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        refrescar();
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    refrescar();
                                     conexion.cerrarconexion();
                                 }
 
                             }
-
-                        }
                     }
                 }
 
