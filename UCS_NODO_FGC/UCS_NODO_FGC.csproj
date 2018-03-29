@@ -617,9 +617,19 @@
     <EmbeddedResource Include="Ver_refrigerios.resx">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ver_reportes.resx">
+      <DependentUpon>Ver_reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista_Formacion.resx">
       <DependentUpon>Vista_Formacion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Archivos\Formatos_guardados\Control de asistencia.pdf" />
+    <None Include="Archivos\Formatos_guardados\Manual de usuario lider.pdf" />
+    <None Include="Archivos\Formatos_guardados\rptHorasDedicadas.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Horas dedicadas Power point basico 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte %28InCompany%29 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte InCompany 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte tipo-duración 29-03-2018.pdf" />
     <None Include="Manuales\Manual de usuario lider.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_EtapaFormacion.datasource" />
@@ -828,8 +838,10 @@
   <ItemGroup>
     <None Include="Resources\logo_degrado.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Archivos\" />
+    <Content Include="Archivos\stuff\silueta_usuario.jpg" />
+    <None Include="Resources\silueta_usuario.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

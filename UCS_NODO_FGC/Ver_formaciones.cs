@@ -648,7 +648,7 @@ namespace UCS_NODO_FGC
                 leer.Close();
 
             }
-           MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
+           //MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
         }
 
         private void btnListaP_Click(object sender, EventArgs e)

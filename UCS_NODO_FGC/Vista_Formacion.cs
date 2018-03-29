@@ -18,7 +18,8 @@ namespace UCS_NODO_FGC
     
     public partial class Vista_Formacion : Form
     {
-        TimeSpan duracion, duracion2, duracion3;
+        string duracion, duracion2, duracion3;
+        TimeSpan dur, dur2, dur3;
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -32,9 +33,9 @@ namespace UCS_NODO_FGC
             MySqlDataReader consulta = Conexion.ConsultarBD("SELECT duracionE1, duracionE2, duracionE3 FROM cursos WHERE id_cursos='"+ Cursos.id_curso13+"'");
             if (consulta.Read())
             {
-                duracion=TimeSpan.Parse(consulta["duracionE1"].ToString());
-                duracion2= TimeSpan.Parse(consulta["duracionE2"].ToString());
-                duracion3 = TimeSpan.Parse(consulta["duracionE3"].ToString());
+                duracion=consulta["duracionE1"].ToString();
+                duracion2= consulta["duracionE2"].ToString();
+                duracion3 =consulta["duracionE3"].ToString();
             }
             
         }
@@ -70,9 +71,10 @@ namespace UCS_NODO_FGC
                     txtEstadoB.Text = "En proceso";
                     txtEstadoI.Text = "Sin iniciar";
                     txtEstadoA.Text = "Sin iniciar";
-                    txtTiempoB.Text = duracion.RelativeTimes();
-                    txtTiempoI.Text = "0 min.";
-                    txtTiempoA.Text = "0 min.";
+                    dur = TimeSpan.Parse(duracion);
+                    txtTiempoB.Text = dur.RelativeTimes();
+                    txtTiempoI.Text = "0 Horas";
+                    txtTiempoA.Text = "0 Horas";
 
                 }
                 else if (Cursos.etapa_formacion13 == 2)
@@ -81,10 +83,12 @@ namespace UCS_NODO_FGC
                     txtFechauno.Text = Cursos.fecha_uno13;
                     txtEstadoB.Text = "Finalizada";
                     txtEstadoI.Text = "En proceso";
+                    dur = TimeSpan.Parse(duracion);
+                    dur2 = TimeSpan.Parse(duracion2);
                     txtEstadoA.Text = "Sin iniciar";
-                    txtTiempoB.Text = duracion.RelativeTimes();
-                    txtTiempoI.Text = duracion2.RelativeTimes();
-                    txtTiempoA.Text = "0 min.";
+                    txtTiempoB.Text = dur.RelativeTimes();
+                    txtTiempoI.Text = dur2.RelativeTimes();
+                    txtTiempoA.Text = "0 Horas";
                 }
                 else if (Cursos.etapa_formacion13 == 3)
                 {
@@ -93,9 +97,12 @@ namespace UCS_NODO_FGC
                     txtEstadoB.Text = "Finalizada";
                     txtEstadoI.Text = "Finalizada";
                     txtEstadoA.Text = "En proceso";
-                    txtTiempoB.Text = duracion.RelativeTimes();
-                    txtTiempoI.Text = duracion2.RelativeTimes();
-                    txtTiempoA.Text = duracion3.RelativeTimes();
+                    dur = TimeSpan.Parse(duracion);
+                    dur2 = TimeSpan.Parse(duracion2);
+                    dur3 = TimeSpan.Parse(duracion3);
+                    txtTiempoB.Text = dur.RelativeTimes();
+                    txtTiempoI.Text = dur2.RelativeTimes();
+                    txtTiempoA.Text = dur3.RelativeTimes();
                 }
             }else if (Cursos.estatus_formacion13 == "Suspendido" || Cursos.estatus_formacion13 == "Finalizado")
             {
@@ -104,9 +111,12 @@ namespace UCS_NODO_FGC
                 txtEstadoB.Text = "Finalizada";
                 txtEstadoI.Text = "Finalizada";
                 txtEstadoA.Text = "Finalizada";
-                txtTiempoB.Text = duracion.RelativeTimes();
-                txtTiempoI.Text = duracion2.RelativeTimes();
-                txtTiempoA.Text = duracion3.RelativeTimes();
+                dur = TimeSpan.Parse(duracion);
+                dur2 = TimeSpan.Parse(duracion2);
+                dur3 = TimeSpan.Parse(duracion3);
+                txtTiempoB.Text = dur.RelativeTimes();
+                txtTiempoI.Text = dur2.RelativeTimes();
+                txtTiempoA.Text = dur3.RelativeTimes();
             }
 
            

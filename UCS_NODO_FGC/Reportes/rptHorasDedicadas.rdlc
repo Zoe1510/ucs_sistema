@@ -488,7 +488,7 @@
         <Top>7.43973cm</Top>
         <Left>2.03087cm</Left>
         <Height>1.57304cm</Height>
-        <Width>14.95921cm</Width>
+        <Width>14.9592cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -1151,7 +1151,7 @@
                 <TextRun>
                   <Value>Tiempo total dedicado:</Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
+                    <FontSize>11pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1164,7 +1164,7 @@
           <Top>0.14993cm</Top>
           <Left>8.98065cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.45792cm</Width>
+          <Width>4.14042cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -1185,7 +1185,7 @@
                 <TextRun>
                   <Value>=First(Fields!tiempo_total.Value, "dsGeneral")</Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
+                    <FontSize>11pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1195,9 +1195,9 @@
             </Paragraph>
           </Paragraphs>
           <Top>0.14993cm</Top>
-          <Left>13.43856cm</Left>
+          <Left>13.12107cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.58684cm</Width>
+          <Width>3.90433cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>

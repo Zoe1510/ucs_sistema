@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -157,7 +158,6 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label14 = new System.Windows.Forms.Label();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -221,6 +221,16 @@
             this.Panel_cabecera.Name = "Panel_cabecera";
             this.Panel_cabecera.Size = new System.Drawing.Size(1122, 99);
             this.Panel_cabecera.TabIndex = 47;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Location = new System.Drawing.Point(375, 83);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(195, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "FEE: Formación Estratégica Empresarial";
             // 
             // LabelCabecera
             // 
@@ -852,8 +862,6 @@
             this.cmbxDuracionFormacion.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxDuracionFormacion.FormattingEnabled = true;
             this.cmbxDuracionFormacion.Items.AddRange(new object[] {
-            "4 Horas",
-            "6 Horas",
             "8 Horas"});
             this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 124);
             this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
@@ -1578,16 +1586,6 @@
             // errorProviderHora2
             // 
             this.errorProviderHora2.ContainerControl = this;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(375, 83);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(195, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "FEE: Formación Estratégica Empresarial";
             // 
             // Nueva_formacion_FEE
             // 

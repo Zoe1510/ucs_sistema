@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -97,7 +98,7 @@ namespace UCS_NODO_FGC
                             usuario.correo_usuario = correo;
                             usuario.tlfn_usuario = tlfn;
                             usuario.password = pass;
-                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(Properties.Resources.img_perfil);
+                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(Properties.Resources.silueta_usuario);
                             int resultado;
                             int resultado2;
                             resultado = Clases.Usuarios.UsuarioExiste(conexion.conexion, ci_usuario);

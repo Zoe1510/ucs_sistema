@@ -179,7 +179,7 @@ namespace UCS_NODO_FGC
 
                     CargarDatosEtapaDos();
 
-                    if (Cursos.duracion_formacion13 == "16" || (Cursos.duracion_formacion13 == "8" && Cursos.bloque_curso13 == "1"))
+                    if (Cursos.duracion_formacion13 == "16" || (Cursos.duracion_formacion13 == "8" && Cursos.bloque_curso13 == "1")) //por ahora, siempre entra aqui
                     {
                         string tipo = "A";
                         llenarComboHorario(tipo);
@@ -579,20 +579,13 @@ namespace UCS_NODO_FGC
                     cmbxBloques.SelectedIndex = 0;
                     formacion.duracion = "4";
                     break;
-                case "8 Horas":
-                    cmbxDuracionFormacion.SelectedIndex = 1;
+                case "8 Horas": //por ahora siempre entra acá
+                    cmbxDuracionFormacion.SelectedIndex =0;
                     formacion.duracion = "8";
                     cmbxBloques.Items.Clear();
                     cmbxBloques.Items.Add("1");
-                    cmbxBloques.Items.Add("2");
-                    if (Cursos.bloque_curso13 == "2")
-                    {
-                        cmbxBloques.SelectedIndex = 1;
-                    }
-                    else
-                    {
-                        cmbxBloques.SelectedIndex = 0;
-                    }
+                    cmbxBloques.SelectedIndex = 0;
+                    
                     break;
                 case "16 Horas":
                     cmbxDuracionFormacion.SelectedIndex = 2;
@@ -2329,12 +2322,9 @@ namespace UCS_NODO_FGC
             switch (duracion)
             {
                 case "0":
-                    duracion = "6";
-                    break;
-                case "1":
                     duracion = "8";
                     break;
-
+                
             }
             formacion.duracion = duracion;
         }

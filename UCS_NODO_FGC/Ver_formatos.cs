@@ -253,6 +253,7 @@ namespace UCS_NODO_FGC
                 resultado = 1;
             }
             dgvFormatos.ClearSelection();
+            formatos.Close();
         }
     }
 }

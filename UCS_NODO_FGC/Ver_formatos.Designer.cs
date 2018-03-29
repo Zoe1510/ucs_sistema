@@ -49,12 +49,12 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnVerArchivo = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminarFa = new System.Windows.Forms.Button();
             this.errorProviderBuscar = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnVerArchivo = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.Panel_cabecera.SuspendLayout();
             this.grpbDatos.SuspendLayout();
             this.grpbData.SuspendLayout();
@@ -235,7 +235,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -271,6 +271,37 @@
             this.grpbOpciones.TabIndex = 61;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Chocolate;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnImprimir.Location = new System.Drawing.Point(31, 238);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(176, 47);
+            this.btnImprimir.TabIndex = 9;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            // 
+            // btnVerArchivo
+            // 
+            this.btnVerArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
+            this.btnVerArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerArchivo.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnVerArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerArchivo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerArchivo.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVerArchivo.Location = new System.Drawing.Point(31, 171);
+            this.btnVerArchivo.Name = "btnVerArchivo";
+            this.btnVerArchivo.Size = new System.Drawing.Size(176, 47);
+            this.btnVerArchivo.TabIndex = 8;
+            this.btnVerArchivo.Text = "Ver documento";
+            this.btnVerArchivo.UseVisualStyleBackColor = false;
+            this.btnVerArchivo.Click += new System.EventHandler(this.btnVerArchivo_Click);
             // 
             // btnAgregar
             // 
@@ -323,37 +354,6 @@
             // errorProviderBuscar
             // 
             this.errorProviderBuscar.ContainerControl = this;
-            // 
-            // btnVerArchivo
-            // 
-            this.btnVerArchivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(176)))), ((int)(((byte)(26)))));
-            this.btnVerArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerArchivo.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnVerArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerArchivo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerArchivo.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnVerArchivo.Location = new System.Drawing.Point(31, 171);
-            this.btnVerArchivo.Name = "btnVerArchivo";
-            this.btnVerArchivo.Size = new System.Drawing.Size(176, 47);
-            this.btnVerArchivo.TabIndex = 8;
-            this.btnVerArchivo.Text = "Ver documento";
-            this.btnVerArchivo.UseVisualStyleBackColor = false;
-            this.btnVerArchivo.Click += new System.EventHandler(this.btnVerArchivo_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Chocolate;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnImprimir.Location = new System.Drawing.Point(31, 238);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(176, 47);
-            this.btnImprimir.TabIndex = 9;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // Ver_formatos
             // 
