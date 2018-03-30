@@ -32,22 +32,23 @@ namespace UCS_NODO_FGC
             string fecha = DateTime.Today.ToString("dd-MM-yyyy");
             string nombre_reporte = "Reporte tipo-duración " + fecha + " ";
             //nuevo:
+            int cantidad = 0;
             string extension = ".pdf";
             string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
+            //todo lo que se haga aquí, es nuevo 
+            string nuevonombre;
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
-            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + extension);
-            int cantidad = dirs.Length;
-            //MessageBox.Show(cantidad.ToString());
-            string nuevonombre = nombre_reporte + cantidad.ToString() + extension;
-            string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
-            int hay = check.Length;
-            if (hay != 0)
+            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
+            int retorno = dirs.Length;
+            while (retorno != 0)
             {
                 cantidad += 1;
                 nuevonombre = nombre_reporte + cantidad.ToString() + extension;
-                //   MessageBox.Show(nuevonombre);
+                string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
+                retorno = check.Length;
             }
-            //MessageBox.Show(nuevonombre);
+            nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+
             string destino = Path.Combine(ruta, nuevonombre);
             //MessageBox.Show(destino);
 

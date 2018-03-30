@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\itextsharp\itextsharp.xfaworker-dll-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -127,6 +130,7 @@
     <Compile Include="Clases\Formaciones.cs" />
     <Compile Include="Clases\ImageHelper.cs" />
     <Compile Include="Clases\Insumos.cs" />
+    <Compile Include="Clases\Nodos.cs" />
     <Compile Include="Clases\Paneles.cs" />
     <Compile Include="Clases\Paquete_instruccional.cs" />
     <Compile Include="Clases\Participantes.cs" />
@@ -147,6 +151,12 @@
     </Compile>
     <Compile Include="Correo_cuerpo.Designer.cs">
       <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Correo_destinatario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correo_destinatario.Designer.cs">
+      <DependentUpon>Correo_destinatario.cs</DependentUpon>
     </Compile>
     <Compile Include="Cursos_AFI.cs">
       <SubType>Form</SubType>
@@ -473,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Correo_cuerpo.resx">
       <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Correo_destinatario.resx">
+      <DependentUpon>Correo_destinatario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cursos_AFI.resx">
       <DependentUpon>Cursos_AFI.cs</DependentUpon>

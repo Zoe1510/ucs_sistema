@@ -180,17 +180,17 @@ namespace UCS_NODO_FGC
                     msg.Dispose();
                     //smtp.Send(ms);
                     //ms.Dispose();
-                    MessageBox.Show("Correo enviado. Revise su bandeja de entrada.", "AVISO", MessageBoxButtons.OK);
+                    MessageBox.Show("Correo enviado. Revise su bandeja de entrada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clases.Recuperacion_contraseña.Opcion = 0;
                     
                 }
                 );
 
-                MessageBox.Show("Esta tarea puede tardar algunos minutos, por favor espere");
+                MessageBox.Show("Esta tarea puede tardar algunos minutos, por favor espere.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al enviar el correo electrónico: " + ex.Message);
+                MessageBox.Show("Error al enviar el correo electrónico: " + ex.Message + " Intentelo más tarde.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
