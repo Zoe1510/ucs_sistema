@@ -16,6 +16,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Nueva_formacion_FEE : Form
     {
+        #region variables
         Curso_AFI AFI = new Curso_AFI();
         Formaciones formacion = new Clases.Formaciones();
         conexion_bd conexion = new Clases.conexion_bd();
@@ -40,6 +41,8 @@ namespace UCS_NODO_FGC
         List<string> lista_insumo = new List<string>();
         List<string> lista_insumo_cargada = new List<string>();
         Facilitador_todos cf = new Facilitador_todos();
+
+        #endregion
         public Nueva_formacion_FEE()
         {
             InitializeComponent();
@@ -220,7 +223,8 @@ namespace UCS_NODO_FGC
             }
         }
 
-       /*------------------METODOS------------------------*/
+        /*------------------METODOS------------------------*/
+        #region metodos auxiliares
         private void Load_Sig_Re()
         {
             btnRetomar.Enabled = false;
@@ -555,7 +559,9 @@ namespace UCS_NODO_FGC
             }
 
         }
+        #endregion
 
+        #region cargar datos
         private void CargarDatosEtapaUno()
         {
             fa.id_facilitador = 0;
@@ -837,7 +843,9 @@ namespace UCS_NODO_FGC
             }
             
         }
+        #endregion
 
+        #region Guardardatos
         private void GuardarBasico()
         {
            try
@@ -1436,8 +1444,9 @@ namespace UCS_NODO_FGC
 
             }
         }
+        #endregion
 
-
+        #region modificar
         private void Modificar_intermedio()
         {
             //eliminará la difusion existentes y más abajo los añadirá para evitrar dublicados
@@ -1528,8 +1537,9 @@ namespace UCS_NODO_FGC
             btnRetomar.Enabled = true;
             deshabilitarControlesAvanzado();
         }
-
+        #endregion
         /*--------------------Botones del panel lateral derecho------------------------*/
+        #region PANEL LATERAL
         private void btnSiguienteEtapa_Click(object sender, EventArgs e)
         {
             guardar = false;
@@ -1631,7 +1641,8 @@ namespace UCS_NODO_FGC
                         btnModificar.Enabled = false;
                         //--campos desactivados (etapa intermedio)
                         deshabilitarControlesIntermedio();
-                        
+                        btnCorreoAdministracion.Enabled = true;
+                        btnCorreoComercializacion.Enabled = true;
                     }
                     else if (Cursos.etapa_formacion13 == 3)
                     {
@@ -1640,6 +1651,8 @@ namespace UCS_NODO_FGC
                         btnRetomar.Enabled = false;
                         btnPausar.Enabled = false;
                         btnModificar.Enabled = false;
+                        btnCorreoAdministracion.Enabled = true;
+                        btnCorreoComercializacion.Enabled = true;
                     }
                 }
                 else if (pnlNivel_intermedio.Visible == true)
@@ -1855,6 +1868,7 @@ namespace UCS_NODO_FGC
                 if (guardar == true)
                 {
                     btnSiguienteEtapa.Enabled = true;
+                    btnGuardar.Enabled = false;
                 }
 
             }
@@ -2182,9 +2196,9 @@ namespace UCS_NODO_FGC
             }
         }
 
+        #endregion
         /* ------------- Controles del nivel básico -------------------*/
-
-        //txtNombreFormacion (Nivel_basico)
+        #region ETAPA BASICA EVENTOS
         private void txtNombreFormacion_KeyPress(object sender, KeyPressEventArgs e)
         {
             Clases.Paneles.sololetras(e);
@@ -2440,8 +2454,9 @@ namespace UCS_NODO_FGC
         {
             Process.Start(bitacora);
         }
-
+        #endregion
         /*-------------------- Controles del Nivel_intermedio ------------------------*/
+        #region ETAPA INTERMEDIA EVENTOS
         private void chkbCoFacilitador_CheckedChanged(object sender, EventArgs e)
         {
             if (chkbCoFacilitador.Checked == true)
@@ -2619,8 +2634,7 @@ namespace UCS_NODO_FGC
                 
             }
         }
-
-        
+               
 
         private void dgvMediosDifusion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -2682,7 +2696,10 @@ namespace UCS_NODO_FGC
             }
         }
 
+        #endregion
+
         /*-----------------Controles Nivel Avanzado--------------------------------*/
+        #region ETAPA AVANZADA EVENTOS
         private void dgvInsumos_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             //aporte de rafael
@@ -2773,5 +2790,6 @@ namespace UCS_NODO_FGC
             formacion.refri1 = cmbxTipoRefrigerio.Text;
 
         }
+        #endregion
     }
 }
