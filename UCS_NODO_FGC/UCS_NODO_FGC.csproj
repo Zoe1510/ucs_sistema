@@ -860,7 +860,9 @@
   <ItemGroup>
     <None Include="Resources\logo_degrado.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Archivos\Paquete_instruccional\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Archivos\stuff\silueta_usuario.jpg" />
     <None Include="Resources\silueta_usuario.jpg" />

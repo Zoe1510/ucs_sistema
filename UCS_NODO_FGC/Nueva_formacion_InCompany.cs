@@ -15,6 +15,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Nueva_formacion_InCompany : Form
     {
+        #region VARIABLES
         Formaciones formacion = new Clases.Formaciones();
         Empresa cliente = new Empresa();
         conexion_bd conexion = new Clases.conexion_bd();
@@ -42,6 +43,8 @@ namespace UCS_NODO_FGC
         DateTime fecha_creacion, FinalE1, FinalE2, FinalE3, inicioE2, inicioE3;
         Facilitador_todos fcombo = new Facilitador_todos();
         Facilitador_todos cf = new Facilitador_todos();
+
+        #endregion
         public Nueva_formacion_InCompany()
         {
             InitializeComponent();
@@ -219,6 +222,8 @@ namespace UCS_NODO_FGC
                 
         }
         /*---------------------- METODOS ------------------------*/
+
+        #region METODOS AUXILIARES
         private void llenarcomboRefrigerio()
         {
             //llenar el combobox de la tercera etapa con los tipos de refrigerios
@@ -616,6 +621,9 @@ namespace UCS_NODO_FGC
 
         }
 
+        #endregion
+
+        #region CARGAR DATOS
         private void CargarDatosEtapaUno()
         {
             fa.id_facilitador = 0;
@@ -993,7 +1001,9 @@ namespace UCS_NODO_FGC
            // lista_insumo = lista_insumo_cargada; //se igualan las listas
         }
 
+        #endregion
 
+        #region GUARDAR
         private void GuardarBasico()
         {
             try
@@ -2386,6 +2396,9 @@ namespace UCS_NODO_FGC
             }
         }
 
+        #endregion
+
+        #region MODIFICAR
         private void Modificar_intermedio()
         {
             GuardarIntermedio();
@@ -2475,7 +2488,11 @@ namespace UCS_NODO_FGC
             deshabilitarControlesAvanzado();
         }
 
+        #endregion
+
         /*---------------------- Panel lateral derecho ------------------------*/
+
+        #region PANEL LATERAL
         private void btnSiguienteEtapa_Click(object sender, EventArgs e)
         {
             guardar = false;
@@ -3373,8 +3390,10 @@ namespace UCS_NODO_FGC
             }
         }
 
-        /*---------------------- Controles nivel_basico------------------------*/
+        #endregion
 
+        /*---------------------- Controles nivel_basico------------------------*/
+        #region EVENTOS NIVEL BASICO
         private void txtNombreFormacion_KeyPress(object sender, KeyPressEventArgs e)
         {
             Clases.Paneles.sololetras(e);
@@ -3750,10 +3769,11 @@ namespace UCS_NODO_FGC
             Process.Start(manual);
         }
 
-
+        #endregion
 
         /*---------------------- Controles nivel_intermedio------------------------*/
 
+        #region EVENTOS NIVEL INTERMEDIO
         private void rdbNoInstalaciones_CheckedChanged(object sender, EventArgs e)
         {
             rdbSiRef.Checked = false;
@@ -4225,8 +4245,9 @@ namespace UCS_NODO_FGC
             }
         }
 
-
+        #endregion
         /*---------------------------Tercera etapa------------------------------*/
+        #region EVENTOS NIVEL AVANZADO
         private void dgvInsumos_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             //aporte de rafael
@@ -4475,6 +4496,6 @@ namespace UCS_NODO_FGC
             formacion.horario2 = cmbxHorario2.Text;
         }
 
-        
+        #endregion
     }
 }

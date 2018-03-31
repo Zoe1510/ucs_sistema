@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -94,8 +94,8 @@
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.gpbCorreos = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCorreoFacilitador = new System.Windows.Forms.Button();
+            this.btnCorreoAdministracion = new System.Windows.Forms.Button();
             this.chkbCoFacilitador = new System.Windows.Forms.CheckBox();
             this.gpbDatosCoFa = new System.Windows.Forms.GroupBox();
             this.txtCorreoCoFa = new System.Windows.Forms.TextBox();
@@ -953,9 +953,8 @@
             // gpbCorreos
             // 
             this.gpbCorreos.Controls.Add(this.pictureBox3);
-            this.gpbCorreos.Controls.Add(this.button2);
-            this.gpbCorreos.Controls.Add(this.button1);
-            this.gpbCorreos.Enabled = false;
+            this.gpbCorreos.Controls.Add(this.btnCorreoFacilitador);
+            this.gpbCorreos.Controls.Add(this.btnCorreoAdministracion);
             this.gpbCorreos.Location = new System.Drawing.Point(45, 335);
             this.gpbCorreos.Name = "gpbCorreos";
             this.gpbCorreos.Size = new System.Drawing.Size(404, 216);
@@ -971,29 +970,33 @@
             this.pictureBox3.TabIndex = 64;
             this.pictureBox3.TabStop = false;
             // 
-            // button2
+            // btnCorreoFacilitador
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(73, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(271, 38);
-            this.button2.TabIndex = 86;
-            this.button2.Text = " Enviar formatos a facilitador";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCorreoFacilitador.Enabled = false;
+            this.btnCorreoFacilitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoFacilitador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoFacilitador.Location = new System.Drawing.Point(73, 51);
+            this.btnCorreoFacilitador.Name = "btnCorreoFacilitador";
+            this.btnCorreoFacilitador.Size = new System.Drawing.Size(271, 38);
+            this.btnCorreoFacilitador.TabIndex = 86;
+            this.btnCorreoFacilitador.Text = " Enviar formatos a facilitador";
+            this.btnCorreoFacilitador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoFacilitador.UseVisualStyleBackColor = true;
+            this.btnCorreoFacilitador.Click += new System.EventHandler(this.btnCorreoFacilitador_Click);
             // 
-            // button1
+            // btnCorreoAdministracion
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(73, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(271, 38);
-            this.button1.TabIndex = 85;
-            this.button1.Text = " Enviar datos a Administración";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministracion.Enabled = false;
+            this.btnCorreoAdministracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.btnCorreoAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCorreoAdministracion.Location = new System.Drawing.Point(73, 140);
+            this.btnCorreoAdministracion.Name = "btnCorreoAdministracion";
+            this.btnCorreoAdministracion.Size = new System.Drawing.Size(271, 38);
+            this.btnCorreoAdministracion.TabIndex = 85;
+            this.btnCorreoAdministracion.Text = " Enviar datos a Administración";
+            this.btnCorreoAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCorreoAdministracion.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministracion.Click += new System.EventHandler(this.btnCorreoAdministrador_Click);
             // 
             // chkbCoFacilitador
             // 
@@ -1580,26 +1583,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.insumo,
             this.seleccion_opcion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 25);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -2001,8 +2004,8 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.ComboBox cmbxFa;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCorreoFacilitador;
+        private System.Windows.Forms.Button btnCorreoAdministracion;
         private System.Windows.Forms.DataGridView dgvInsumos;
         private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;

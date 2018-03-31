@@ -1052,6 +1052,7 @@ namespace UCS_NODO_FGC
                                     else //si el contenido existe
                                     {
                                         errorProviderContenido.SetError(btnRutaContenido, "");
+                                        string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
                                         p_inst.bitacora = "";
                                         p_inst.manual = "";
 
@@ -1060,6 +1061,7 @@ namespace UCS_NODO_FGC
                                         {
                                             p_inst.presentacion = "";                                            
                                         }
+                                        
                                         conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                             p_inst.id_pinstruccional = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
@@ -1075,6 +1077,20 @@ namespace UCS_NODO_FGC
                                         if (p_inst.id_pinstruccional == 0)//si no arroja coincidencias, no existe un paquete con el mismo contenido-- PROCEDE A GUARDAR
                                         {
                                             int resultado2 = 0;
+
+                                            contenido = p_inst.contenido;
+                                            string nombrearchivo = Path.GetFileName(p_inst.contenido);
+                                            p_inst.contenido = Path.Combine(ruta, nombrearchivo);  //actualizando ruta del archivo
+                                            File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(contenido)); //escribiendo el archivo en la carpeta de respaldo
+
+                                            if (p_inst.presentacion != "")
+                                            {
+                                                presentacion = p_inst.presentacion;
+                                                nombrearchivo = Path.GetFileName(presentacion);
+                                                p_inst.presentacion = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                                File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(presentacion)); //escribiendo el archivo en la carpeta de respaldo
+                                            }
+
                                             conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
