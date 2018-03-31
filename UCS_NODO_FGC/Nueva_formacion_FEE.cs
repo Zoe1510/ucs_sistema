@@ -897,10 +897,10 @@ namespace UCS_NODO_FGC
                                 else
                                 {
                                     errorProviderContenido.SetError(btnRutaContenido, "");
-                                    string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
-                                    bitacora = bitacora.Replace("\\", "/");
-                                    presentacion = presentacion.Replace("\\", "/");
-                                    contenido = contenido.Replace("\\", "/");
+                                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
+                                    //bitacora = bitacora.Replace("\\", "/");
+                                    //presentacion = presentacion.Replace("\\", "/");
+                                    //contenido = contenido.Replace("\\", "/");
                                     if (btnVerPresentacion.Enabled == false)
                                     {
                                         p_inst.presentacion = "";

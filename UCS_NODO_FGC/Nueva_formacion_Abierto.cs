@@ -1052,10 +1052,10 @@ namespace UCS_NODO_FGC
                                     else //si el contenido existe
                                     {
                                         errorProviderContenido.SetError(btnRutaContenido, "");
-                                        string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+                                        string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
                                         
-                                        presentacion = presentacion.Replace("\\", "/");
-                                        contenido = contenido.Replace("\\", "/");
+                                        //presentacion = presentacion.Replace("\\", "/");
+                                        //contenido = contenido.Replace("\\", "/");
 
                                         p_inst.bitacora = "";
                                         p_inst.manual = "";

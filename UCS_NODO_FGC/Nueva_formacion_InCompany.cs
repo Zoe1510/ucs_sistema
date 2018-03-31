@@ -1069,12 +1069,12 @@ namespace UCS_NODO_FGC
                                 else //si el contenido existe
                                 {
                                     errorProviderContenido.SetError(btnRutaContenido, "");
-                                    string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+                                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
 
-                                    manual = manual.Replace("\\", "/");
-                                    bitacora = bitacora.Replace("\\", "/");
-                                    presentacion = presentacion.Replace("\\", "/");
-                                    contenido = contenido.Replace("\\", "/");
+                                    //manual = manual.Replace("\\", "/");
+                                    //bitacora = bitacora.Replace("\\", "/");
+                                    //presentacion = presentacion.Replace("\\", "/");
+                                    //contenido = contenido.Replace("\\", "/");
 
                                     if (btnVerPresentacion.Enabled == false)
                                     {
@@ -1117,6 +1117,7 @@ namespace UCS_NODO_FGC
                                             p_inst.contenido = Path.Combine(ruta, nombrearchivo);  //actualizando ruta del archivo
                                             File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(contenido)); //escribiendo el archivo en la carpeta de respaldo
 
+                                            
                                             if (p_inst.presentacion != "")
                                             {
                                                 presentacion = p_inst.presentacion;
@@ -2527,44 +2528,48 @@ namespace UCS_NODO_FGC
 
             MySqlDataReader del1 = Conexion.ConsultarBD("delete from cursos_tienen_refrigerios where cursos_id_cursos ='" + Cursos.id_curso13 + "'");
             del1.Close();
-            GuardarAvanzado(); 
-                      
-            FinalE3 = DateTime.Now;
-            formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
-
-            MySqlDataReader e3 = Conexion.ConsultarBD("SELECT duracionE3 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
-            if (e3.Read())
+            GuardarAvanzado();
+            if (guardar == true)
             {
-                string duracion = Convert.ToString(e3["duracionE3"]);
+                FinalE3 = DateTime.Now;
+                formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
 
-                TimeSpan et3;
-                et3 = TimeSpan.Parse(duracion);
+                MySqlDataReader e3 = Conexion.ConsultarBD("SELECT duracionE3 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
+                if (e3.Read())
+                {
+                    string duracion = Convert.ToString(e3["duracionE3"]);
 
-                TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
+                    TimeSpan et3;
+                    et3 = TimeSpan.Parse(duracion);
 
-                formacion.TiempoEtapa = (tt + et3).ToString();
-                //formacion.TiempoEtapa= Convert.ToString();
+                    TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
 
-            }
-            e3.Close();
+                    formacion.TiempoEtapa = (tt + et3).ToString();
+                    //formacion.TiempoEtapa= Convert.ToString();
 
-            //se actualiza el tiempo en el que se trabajó en la formacion
-            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-            update.Close();
+                }
+                e3.Close();
 
-            //se agrega la modificacion en la tabla
-            conexion.cerrarconexion();
-            if (conexion.abrirconexion() == true)
-            {
-                int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                //se actualiza el tiempo en el que se trabajó en la formacion
+                MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                update.Close();
+
+                //se agrega la modificacion en la tabla
                 conexion.cerrarconexion();
-                btnModificar.Enabled = false;
+                if (conexion.abrirconexion() == true)
+                {
+                    int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                    conexion.cerrarconexion();
+                    btnModificar.Enabled = false;
 
+                }
+                btnSiguienteEtapa.Enabled = false;
+                btnPausar.Enabled = false;
+                btnRetomar.Enabled = true;
+                deshabilitarControlesAvanzado();
             }
-            btnSiguienteEtapa.Enabled = false;
-            btnPausar.Enabled = false;
-            btnRetomar.Enabled = true;
-            deshabilitarControlesAvanzado();
+                      
+            
         }
 
         #endregion
@@ -2649,7 +2654,7 @@ namespace UCS_NODO_FGC
                 btnGuardar.Enabled = false;
                 if (pnlNivel_basico.Visible == true)
                 {
-                    LabelCabecera.Text = "" + Cursos.nombre_formacion13 + ": Información básica";
+                    LabelCabecera.Text = "      InCompany: Información básica";
                     LabelCabecera.Location = new Point(115, 31);
 
                     pnlNivel_basico.Visible = false;
@@ -2732,8 +2737,8 @@ namespace UCS_NODO_FGC
                     lblEtapafinal.Location = new Point(3, 570);
                     lblEtapafinal.Text = "Día de la formación";
                    
-                    LabelCabecera.Text = "Logística";
-                    LabelCabecera.Location = new Point(270, 31);
+                    LabelCabecera.Text = "      InCompany: Logística";
+                    LabelCabecera.Location = new Point(200, 31);
 
                     btnGuardar.Enabled = false;
 
@@ -3072,7 +3077,14 @@ namespace UCS_NODO_FGC
                 }
                 else if (pnlNivel_intermedio.Visible == true)
                 {
-
+                    if (guardar == false)
+                    {
+                        btnGuardar.Enabled = true;
+                    }
+                    else
+                    {
+                        btnGuardar.Enabled = false;
+                    }
                     gpbRefrigerio.Enabled = true;
                     dtpFechaCurso.Enabled = true;
                     dtpSegundaFecha.Enabled = true;
@@ -3093,6 +3105,10 @@ namespace UCS_NODO_FGC
                 if (guardar == true)
                 {
                     btnSiguienteEtapa.Enabled = true;
+                    btnGuardar.Enabled = false;
+                }else
+                {
+                    btnGuardar.Enabled = true;
                 }
 
             }
@@ -3154,7 +3170,7 @@ namespace UCS_NODO_FGC
 
                     } else if (Cursos.etapa_formacion13 == 2)
                     {
-                        btnSiguienteEtapa.Enabled = false;
+                        btnSiguienteEtapa.Enabled = true;
                         habilitarIntermedio();
                         gpbCorreos.Enabled = false; // se deshabilita hasta que modifique en algo
                     }
@@ -3389,25 +3405,29 @@ namespace UCS_NODO_FGC
                 if (Cursos.etapa_formacion13 == 2)
                 {
                     GuardarAvanzado();
-                    FinalE3 = DateTime.Now;
-                    formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
-                    //se actualiza el tiempo en el que se trabajó en la formacion
-                    MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-                    update.Close();
-
-                    //se agrega la modificacion en la tabla
-                    conexion.cerrarconexion();
-                    if (conexion.abrirconexion() == true)
+                    if (guardar == true)
                     {
-                        int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
-                        conexion.cerrarconexion();
-                        btnModificar.Enabled = false;
+                        FinalE3 = DateTime.Now;
+                        formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
+                        //se actualiza el tiempo en el que se trabajó en la formacion
+                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                        update.Close();
 
+                        //se agrega la modificacion en la tabla
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                            conexion.cerrarconexion();
+                            btnModificar.Enabled = false;
+
+                        }
+                        btnSiguienteEtapa.Enabled = false;
+                        btnPausar.Enabled = false;
+                        btnRetomar.Enabled = true;
+                        deshabilitarControlesAvanzado();
                     }
-                    btnSiguienteEtapa.Enabled = false;
-                    btnPausar.Enabled = false;
-                    btnRetomar.Enabled = true;
-                    deshabilitarControlesAvanzado();
+                    
                 }
                 else if (Cursos.etapa_formacion13 == 3)
                 {
@@ -4587,7 +4607,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
@@ -4604,6 +4624,7 @@ namespace UCS_NODO_FGC
 
             // aqui se le pasa la ruta completa a nodos para usarla en otro form
             Nodos.ruta_PDF = fileName;
+            MessageBox.Show(Nodos.ruta_PDF);
 
             byte[] bytesImagen =
             new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.logo_ucs, typeof(byte[])) as byte[];
@@ -4863,6 +4884,8 @@ namespace UCS_NODO_FGC
 
             document.Add(Nombre_formacion);
             document.Add(Chunk.NEWLINE);
+            document.Add(solicitante);
+            document.Add(Chunk.NEWLINE);
             document.Add(fechainicio);
             document.Add(Chunk.NEWLINE);
             document.Add(fechaFin);
@@ -4874,6 +4897,8 @@ namespace UCS_NODO_FGC
             if (chkbCoFacilitador.Checked == false)
             {
                 cofa.Add("     Co-Facilitador: No aplica.");
+                document.Add(Chunk.NEWLINE);
+                document.Add(cofa);
             }
             else
             {

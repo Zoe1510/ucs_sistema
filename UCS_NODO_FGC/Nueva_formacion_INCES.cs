@@ -950,12 +950,13 @@ namespace UCS_NODO_FGC
                                 }
                                 else // si el manual existe
                                 {
-                                    string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+                                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
                                     //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
-                                    manual = manual.Replace("\\", "/");
-                                    bitacora = bitacora.Replace("\\", "/");
-                                    presentacion = presentacion.Replace("\\", "/");
-                                    contenido = contenido.Replace("\\", "/");
+
+                                    //manual = manual.Replace("\\", "/");
+                                    //bitacora = bitacora.Replace("\\", "/");
+                                    //presentacion = presentacion.Replace("\\", "/");
+                                    //contenido = contenido.Replace("\\", "/");
                                     string destino_contenido = "";
                                     string destino_manual = "";
                                     string destino_bitacora = "";
@@ -3228,7 +3229,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
@@ -3245,7 +3246,7 @@ namespace UCS_NODO_FGC
 
             // aqui se le pasa la ruta completa a nodos para usarla en otro form
             Nodos.ruta_PDF = fileName;
-
+            
             byte[] bytesImagen =
             new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.logo_ucs, typeof(byte[])) as byte[];
             iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(bytesImagen);
