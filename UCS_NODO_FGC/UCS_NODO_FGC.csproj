@@ -118,6 +118,7 @@
     <Compile Include="Clases\conexion_bd.cs" />
     <Compile Include="Clases\Curso_AFI.cs" />
     <Compile Include="Clases\Curso_IN.cs" />
+    <Compile Include="Clases\Datos_envio_correo.cs" />
     <Compile Include="Clases\Facilitador_todos.cs" />
     <Compile Include="Clases\Fa_ince.cs" />
     <Compile Include="Clases\HelperFunctions.cs" />

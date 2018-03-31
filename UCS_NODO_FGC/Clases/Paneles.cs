@@ -414,13 +414,14 @@ namespace UCS_NODO_FGC.Clases
         public static Clientes AreaExiste(MySqlConnection conexion, Clientes cliente)
         {
             Clientes area = new Clientes();
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_area FROM areas WHERE id_cliente1='{0}'", cliente.id_cliente), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_area, correo_contacto, nombre_area FROM areas WHERE id_cliente1='{0}'", cliente.id_cliente), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())
             {
                 area.id_area = leer.GetInt32(0);
-
+                area.correo_cliente = leer.GetString(1);
+                area.nombre_areaEmpresa = leer.GetString(2);
 
             }
             return area;

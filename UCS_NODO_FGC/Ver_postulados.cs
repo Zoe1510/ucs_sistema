@@ -10,9 +10,11 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using UCS_NODO_FGC.Clases;
 using System.IO;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.Reflection;
+using System.Diagnostics;
+using System.Net.Mail;
+using System.Net;
 
 namespace UCS_NODO_FGC
 {
@@ -38,6 +40,8 @@ namespace UCS_NODO_FGC
         {
             Busqueda(Cursos.nombre_formacion13, Cursos.estatus_formacion13, Cursos.id_curso13);
 
+            Datos_envio_correo.idcurso = Cursos.id_curso13;
+            Datos_envio_correo.nombreformacion = Cursos.nombre_formacion13;
             if (Cursos.estatus_formacion13 != "En curso")
             {
                 btnEliminar.Enabled = false;
@@ -167,6 +171,7 @@ namespace UCS_NODO_FGC
 
         private void dgvParticipantes_MouseClick(object sender, MouseEventArgs e)
         {
+            if (dgvParticipantes.SelectedRows.Count == 1)
             {
                 part.ci_participante = Convert.ToInt32(dgvParticipantes.SelectedRows[0].Cells[0].Value.ToString());
                 part.nombreP = dgvParticipantes.SelectedRows[0].Cells[1].Value.ToString();
@@ -210,5 +215,81 @@ namespace UCS_NODO_FGC
             fmr.pp_detalle = LF.lista_participantes;
             fmr.ShowDialog();
         }
+
+        private void btnCorreoPart_Click(object sender, EventArgs e)
+        {
+            //para acá recorrer el dgv y buscar correos, añadirlos a una lista de string
+            foreach(DataGridViewRow row in dgvParticipantes.Rows)
+            {
+                string correo = Convert.ToString(row.Cells["correo_par"].Value);
+                Datos_envio_correo.correos_participantes.Add(correo);
+            }
+            Datos_envio_correo.opcion = 1;
+            if (AccesoInternet())
+            {
+                Correo_cuerpo cc = new Correo_cuerpo();
+                cc.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Datos_envio_correo.opcion = 0;
+        }
+
+        private void btnCorreoFacilitadores_Click(object sender, EventArgs e)
+        {
+            //deberia llegar por medio estatico, el id del curso o el id del facilitador, para buscar el correo 
+            //EL ID_CURSO SE TOMA EN EL LOAD DE ESTE FORM:
+            Datos_envio_correo.opcion = 2;
+            if (AccesoInternet())
+            {
+                Correo_cuerpo cc = new Correo_cuerpo();
+                cc.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Datos_envio_correo.opcion = 0;
+
+        }
+
+        private void btnCorreoCliente_Click(object sender, EventArgs e)
+        {
+            //deberia llegar por medio estatico, el id del curso o el id del CLIENTE, para buscar el correo (EN CASO DE SER 
+            //UNA FORMACION DE TIPO INCOMPANY O INCES.
+
+            //EL ID_CURSO SE TOMA EN EL LOAD DE ESTE FORM:
+            Datos_envio_correo.opcion = 3;
+            if (AccesoInternet())
+            {
+                Correo_cuerpo cc = new Correo_cuerpo();
+                cc.ShowDialog();
+            }else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            Datos_envio_correo.opcion = 0;
+        }
+        private bool AccesoInternet()
+        {
+
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+                return true;
+
+            }
+            catch (Exception es)
+            {
+
+                return false;
+            }
+
+        }
+   
+
     }
 }

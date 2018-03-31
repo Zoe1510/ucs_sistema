@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -127,10 +127,11 @@
             this.btnCorreoCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCorreoCliente.Location = new System.Drawing.Point(18, 314);
             this.btnCorreoCliente.Name = "btnCorreoCliente";
-            this.btnCorreoCliente.Size = new System.Drawing.Size(199, 55);
+            this.btnCorreoCliente.Size = new System.Drawing.Size(199, 49);
             this.btnCorreoCliente.TabIndex = 11;
             this.btnCorreoCliente.Text = "Correo a cliente";
             this.btnCorreoCliente.UseVisualStyleBackColor = false;
+            this.btnCorreoCliente.Click += new System.EventHandler(this.btnCorreoCliente_Click);
             // 
             // btnCorreoFacilitadores
             // 
@@ -142,10 +143,11 @@
             this.btnCorreoFacilitadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCorreoFacilitadores.Location = new System.Drawing.Point(18, 238);
             this.btnCorreoFacilitadores.Name = "btnCorreoFacilitadores";
-            this.btnCorreoFacilitadores.Size = new System.Drawing.Size(199, 55);
+            this.btnCorreoFacilitadores.Size = new System.Drawing.Size(199, 51);
             this.btnCorreoFacilitadores.TabIndex = 10;
             this.btnCorreoFacilitadores.Text = "Correo a facilitador(es)";
             this.btnCorreoFacilitadores.UseVisualStyleBackColor = false;
+            this.btnCorreoFacilitadores.Click += new System.EventHandler(this.btnCorreoFacilitadores_Click);
             // 
             // btnCorreoPart
             // 
@@ -161,6 +163,7 @@
             this.btnCorreoPart.TabIndex = 9;
             this.btnCorreoPart.Text = "Correo a participantes";
             this.btnCorreoPart.UseVisualStyleBackColor = false;
+            this.btnCorreoPart.Click += new System.EventHandler(this.btnCorreoPart_Click);
             // 
             // btnImprimir
             // 
@@ -213,19 +216,19 @@
             this.dgvParticipantes.AllowUserToDeleteRows = false;
             this.dgvParticipantes.AllowUserToResizeColumns = false;
             this.dgvParticipantes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.NullValue = null;
-            this.dgvParticipantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.NullValue = null;
+            this.dgvParticipantes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvParticipantes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvParticipantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParticipantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParticipantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvParticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParticipantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ci_participante,
@@ -234,14 +237,14 @@
             this.correo_par,
             this.tlfn_par,
             this.empresa_asociada});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParticipantes.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParticipantes.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvParticipantes.Location = new System.Drawing.Point(20, 34);
             this.dgvParticipantes.MultiSelect = false;
             this.dgvParticipantes.Name = "dgvParticipantes";

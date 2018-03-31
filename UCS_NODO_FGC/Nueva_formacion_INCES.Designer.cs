@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -148,6 +148,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
+            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -168,8 +170,8 @@
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmbxAreas = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -537,9 +539,9 @@
             this.groupBox5.Controls.Add(this.pictureBox6);
             this.groupBox5.Controls.Add(this.cmbxBloques);
             this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(206, 222);
+            this.groupBox5.Location = new System.Drawing.Point(206, 237);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(478, 82);
+            this.groupBox5.Size = new System.Drawing.Size(478, 65);
             this.groupBox5.TabIndex = 39;
             this.groupBox5.TabStop = false;
             // 
@@ -560,7 +562,7 @@
             this.cmbxBloques.FormattingEnabled = true;
             this.cmbxBloques.Items.AddRange(new object[] {
             "2"});
-            this.cmbxBloques.Location = new System.Drawing.Point(219, 34);
+            this.cmbxBloques.Location = new System.Drawing.Point(219, 27);
             this.cmbxBloques.Name = "cmbxBloques";
             this.cmbxBloques.Size = new System.Drawing.Size(226, 25);
             this.cmbxBloques.TabIndex = 30;
@@ -570,7 +572,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 34);
+            this.label12.Location = new System.Drawing.Point(28, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(183, 17);
             this.label12.TabIndex = 29;
@@ -807,6 +809,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.cmbxAreas);
+            this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.pictureBox12);
             this.groupBox2.Controls.Add(this.cmbxCursoInce);
             this.groupBox2.Controls.Add(this.cmbxSolicitadoPor);
@@ -817,7 +821,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(206, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(479, 174);
+            this.groupBox2.Size = new System.Drawing.Size(479, 189);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             // 
@@ -836,10 +840,10 @@
             this.cmbxCursoInce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxCursoInce.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxCursoInce.FormattingEnabled = true;
-            this.cmbxCursoInce.Location = new System.Drawing.Point(219, 32);
+            this.cmbxCursoInce.Location = new System.Drawing.Point(219, 31);
             this.cmbxCursoInce.Name = "cmbxCursoInce";
             this.cmbxCursoInce.Size = new System.Drawing.Size(226, 25);
-            this.cmbxCursoInce.TabIndex = 31;
+            this.cmbxCursoInce.TabIndex = 25;
             this.cmbxCursoInce.SelectionChangeCommitted += new System.EventHandler(this.cmbxCursoInce_SelectionChangeCommitted);
             this.cmbxCursoInce.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxCursoInce_Validating);
             // 
@@ -849,17 +853,18 @@
             this.cmbxSolicitadoPor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbxSolicitadoPor.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxSolicitadoPor.FormattingEnabled = true;
-            this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 78);
+            this.cmbxSolicitadoPor.Location = new System.Drawing.Point(219, 69);
             this.cmbxSolicitadoPor.Name = "cmbxSolicitadoPor";
             this.cmbxSolicitadoPor.Size = new System.Drawing.Size(226, 25);
-            this.cmbxSolicitadoPor.TabIndex = 27;
+            this.cmbxSolicitadoPor.TabIndex = 26;
+            this.cmbxSolicitadoPor.SelectionChangeCommitted += new System.EventHandler(this.cmbxSolicitadoPor_SelectionChangeCommitted);
             this.cmbxSolicitadoPor.Validating += new System.ComponentModel.CancelEventHandler(this.cmbxSolicitadoPor_Validating);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(100, 81);
+            this.label11.Location = new System.Drawing.Point(100, 72);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 17);
             this.label11.TabIndex = 30;
@@ -869,7 +874,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 34);
+            this.label1.Location = new System.Drawing.Point(27, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 17);
             this.label1.TabIndex = 24;
@@ -879,7 +884,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 127);
+            this.label3.Location = new System.Drawing.Point(20, 152);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 17);
             this.label3.TabIndex = 28;
@@ -893,7 +898,7 @@
             this.cmbxDuracionFormacion.FormattingEnabled = true;
             this.cmbxDuracionFormacion.Items.AddRange(new object[] {
             "16 Horas"});
-            this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 124);
+            this.cmbxDuracionFormacion.Location = new System.Drawing.Point(219, 149);
             this.cmbxDuracionFormacion.Name = "cmbxDuracionFormacion";
             this.cmbxDuracionFormacion.Size = new System.Drawing.Size(226, 25);
             this.cmbxDuracionFormacion.TabIndex = 29;
@@ -1582,26 +1587,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.insumo,
             this.seleccion_opcion});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 25);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1610,6 +1615,26 @@
             this.dgvInsumos.TabIndex = 74;
             this.dgvInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsumos_CellContentClick);
             this.dgvInsumos.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInsumos_CurrentCellDirtyStateChanged);
+            // 
+            // insumo
+            // 
+            this.insumo.HeaderText = "Insumos";
+            this.insumo.MaxInputLength = 250;
+            this.insumo.MinimumWidth = 50;
+            this.insumo.Name = "insumo";
+            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.insumo.Width = 330;
+            // 
+            // seleccion_opcion
+            // 
+            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccion_opcion.FalseValue = "false";
+            this.seleccion_opcion.HeaderText = "";
+            this.seleccion_opcion.MinimumWidth = 30;
+            this.seleccion_opcion.Name = "seleccion_opcion";
+            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion_opcion.TrueValue = "true";
+            this.seleccion_opcion.Width = 40;
             // 
             // pictureBox11
             // 
@@ -1767,25 +1792,28 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
-            // insumo
+            // cmbxAreas
             // 
-            this.insumo.HeaderText = "Insumos";
-            this.insumo.MaxInputLength = 250;
-            this.insumo.MinimumWidth = 50;
-            this.insumo.Name = "insumo";
-            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.insumo.Width = 330;
+            this.cmbxAreas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxAreas.Enabled = false;
+            this.cmbxAreas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxAreas.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxAreas.FormattingEnabled = true;
+            this.cmbxAreas.Location = new System.Drawing.Point(219, 109);
+            this.cmbxAreas.Name = "cmbxAreas";
+            this.cmbxAreas.Size = new System.Drawing.Size(226, 25);
+            this.cmbxAreas.TabIndex = 27;
+            this.cmbxAreas.SelectionChangeCommitted += new System.EventHandler(this.cmbxAreas_SelectionChangeCommitted);
             // 
-            // seleccion_opcion
+            // label32
             // 
-            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccion_opcion.FalseValue = "false";
-            this.seleccion_opcion.HeaderText = "";
-            this.seleccion_opcion.MinimumWidth = 30;
-            this.seleccion_opcion.Name = "seleccion_opcion";
-            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccion_opcion.TrueValue = "true";
-            this.seleccion_opcion.Width = 40;
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(97, 112);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(110, 17);
+            this.label32.TabIndex = 72;
+            this.label32.Text = "Área empresa:";
             // 
             // Nueva_formacion_INCES
             // 
@@ -2011,5 +2039,7 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;
+        private System.Windows.Forms.ComboBox cmbxAreas;
+        private System.Windows.Forms.Label label32;
     }
 }

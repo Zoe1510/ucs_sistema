@@ -46,7 +46,7 @@ namespace UCS_NODO_FGC
         string bloques = "";
         string bitacora = "";
         string manual = "";
-        int id_refrigerio, id_refrigerio2, id_horario, id_horario2;
+        int id_refrigerio, id_refrigerio2, id_horario, id_horario2, id_area;
         DateTime fecha_creacion, FinalE1, FinalE2, FinalE3, inicioE2, inicioE3;
         Facilitador_todos fcombo = new Facilitador_todos();
         Facilitador_todos cf = new Facilitador_todos();
@@ -231,6 +231,17 @@ namespace UCS_NODO_FGC
         /*---------------------- METODOS ------------------------*/
 
         #region METODOS AUXILIARES
+
+        private void llenarcmbxAreas(int id_cliente)
+        {
+            MySqlDataReader c = Conexion.ConsultarBD("select * from areas where id_cliente1='" + id_cliente + "'");
+            while (c.Read())
+            {
+                string area = Convert.ToString(c["nombre_area"]);
+                cmbxAreas.Items.Add(area);
+            }
+            c.Close();
+        }
         private void llenarcomboRefrigerio()
         {
             //llenar el combobox de la tercera etapa con los tipos de refrigerios
@@ -505,7 +516,7 @@ namespace UCS_NODO_FGC
             cmbxSolicitadoPor.Enabled = false;
             cmbxDuracionFormacion.Enabled = false;
             cmbxBloques.Enabled = false;
-
+            cmbxAreas.Enabled = false;
             btnRutaContenido.Enabled = false;
             btnRutaPresentacion.Enabled = false;
             btnRutaBitacora.Enabled = false;
@@ -639,9 +650,12 @@ namespace UCS_NODO_FGC
             formacion.id_curso = Cursos.id_curso13;
             formacion.bloque_curso = Cursos.bloque_curso13;
 
+            formacion.nArea = Cursos.nombre_area;
+            //MessageBox.Show(formacion.nArea);
             deshabiltarControlesBasico();
             //carga el nombre
             txtNombreFormacion.Text = Cursos.nombre_formacion13;
+
             //carga quien solicita
             for (int a = 0; a < cmbxSolicitadoPor.Items.Count; a++)
             {
@@ -650,6 +664,31 @@ namespace UCS_NODO_FGC
                     cmbxSolicitadoPor.SelectedItem = cmbxSolicitadoPor.Items[a];
                 }
             }
+            //buscar el id del solicitante
+            MySqlDataReader ic = Conexion.ConsultarBD("select * from clientes where nombre_empresa='" + Cursos.solicitud_formacion13 + "'");
+            if (ic.Read())
+            {
+                cliente.id_clientes = Convert.ToInt32(ic["id_clientes"]);
+            }
+            ic.Close();
+            //ya con el id del cliente, se llena el cmbxareas
+            llenarcmbxAreas(cliente.id_clientes);
+
+            //carga AREA quien solicita
+            for (int a = 0; a < cmbxAreas.Items.Count; a++)
+            {
+                if (cmbxAreas.Items[a].ToString() == Cursos.nombre_area)
+                {
+                    cmbxAreas.Text = Cursos.nombre_area;
+                }
+            }
+            //cargo id_area
+            MySqlDataReader ia = Conexion.ConsultarBD("select * from areas where id_cliente1='" + cliente.id_clientes + "' and nombre_area='" + Cursos.nombre_area + "'");
+            if (ia.Read())
+            {
+                id_area = Convert.ToInt32(ia["id_area"]);
+            }
+            ia.Close();
             //carga duración y bloques
             switch (Cursos.duracion_formacion13)
             {
@@ -1099,6 +1138,7 @@ namespace UCS_NODO_FGC
                                     formacion.id_user = Clases.Usuario_logeado.id_usuario;
                                     formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                     formacion.solicitado = cmbxSolicitadoPor.Text;
+                                    formacion.nArea = cmbxAreas.Text;
                                     if (ExisteFormacion == false)
                                     {
                                         //se valida si el paquete ya existe
@@ -1195,7 +1235,14 @@ namespace UCS_NODO_FGC
                                                             {
                                                                 int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
                                                                 conexion.cerrarconexion();
-                                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "')");
+
+                                                                MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes from clientes where nombre_empresa='" + formacion.solicitado + "'");
+                                                                if (idS.Read())
+                                                                {
+                                                                    cliente.id_clientes = Convert.ToInt32(idS["id_clientes"]);
+                                                                }
+                                                                idS.Close();
+                                                                MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_area1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "', '"+id_area+"')");
                                                                 clientes_solicitan_cursos.Close();
                                                                 if (agregarUGC > 0)
                                                                 {
@@ -1267,7 +1314,7 @@ namespace UCS_NODO_FGC
                                                         int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
                                                         conexion.cerrarconexion();
 
-                                                        MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "')");
+                                                        MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_area1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "', '" + id_area + "')");
                                                         clientes_solicitan_cursos.Close();
                                                         if (agregarUGC > 0)
                                                         {
@@ -1322,6 +1369,8 @@ namespace UCS_NODO_FGC
                                                 {
                                                     int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, formacion.id_user, fecha_creacion, FinalE1);
                                                     conexion.cerrarconexion();
+                                                    MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("INSERT INTO clientes_solicitan_cursos (id_cliente1, id_curso1, id_area1) VALUES ('" + cliente.id_clientes + "', '" + id_curso + "', '" + id_area + "')");
+                                                    clientes_solicitan_cursos.Close();
                                                     if (agregarUGC > 0)
                                                     {
                                                         evaluarAFI();
@@ -3114,6 +3163,7 @@ namespace UCS_NODO_FGC
                     //si retomar, se habilitan todos los campos
                     txtNombreFormacion.Enabled = true;
                     cmbxSolicitadoPor.Enabled = true;
+                    cmbxAreas.Enabled = true;
                     cmbxDuracionFormacion.Enabled = true;
                     cmbxBloques.Enabled = true;
 
@@ -3144,7 +3194,7 @@ namespace UCS_NODO_FGC
                         {
                             llenarcomboFacilitador();
                         }
-
+                        
                     }
                    
 
@@ -3217,7 +3267,7 @@ namespace UCS_NODO_FGC
             {
                 if(Cursos.etapa_formacion13 == 1)
                 {
-                    if(txtNombreFormacion.Text!=Cursos.nombre_formacion13 || cmbxSolicitadoPor.Text != Cursos.solicitud_formacion13 || formacion.duracion != Cursos.duracion_formacion13 || formacion.bloque_curso!= Cursos.bloque_curso13)
+                    if(txtNombreFormacion.Text!=Cursos.nombre_formacion13 || cmbxSolicitadoPor.Text != Cursos.solicitud_formacion13 ||cmbxAreas.Text !=Cursos.nombre_area|| formacion.duracion != Cursos.duracion_formacion13 || formacion.bloque_curso!= Cursos.bloque_curso13)
                     {
                         formacion.tiene_ref = "0";
                         formacion.ubicacion_ucs = "Si"; //es SI hasta que se actualice en la etapa dos o nivel intermedio
@@ -3293,6 +3343,7 @@ namespace UCS_NODO_FGC
                                             formacion.id_user = Clases.Usuario_logeado.id_usuario;
                                             formacion.etapa_curso = 1;//representa la etapa actual: nivel_basico (cambiará para cada panel)
                                             formacion.solicitado = cmbxSolicitadoPor.Text;
+                                            formacion.nArea = cmbxAreas.Text;
                                             MySqlDataReader e1 = Conexion.ConsultarBD("SELECT duracionE1 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
                                             if (e1.Read())
                                             {
@@ -3300,7 +3351,7 @@ namespace UCS_NODO_FGC
 
                                                 TimeSpan et1;
                                                 et1 = TimeSpan.Parse(duracion);
-                                                MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
+                                                //MessageBox.Show(et1.ToString() + "Lo que se extrajo de la BD");
                                                 TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
                                                 
                                                 formacion.TiempoEtapa = (tt+et1).ToString();
@@ -3308,9 +3359,15 @@ namespace UCS_NODO_FGC
                                                // MessageBox.Show(formacion.TiempoEtapa +"dizque la suma de lo9s timespan");
                                             }
                                             e1.Close();
-                                            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET nombre_curso='" + formacion.nombre_formacion + "', duracion_curso='" + formacion.duracion + "', bloque_curso='" + formacion.bloque_curso + "', solicitud_curso='" + formacion.solicitado + "', duracionE1='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                                            MySqlDataReader ic = Conexion.ConsultarBD("select id_area from areas where nombre_area='" + formacion.nArea + "' and id_cliente1='" + cliente.id_clientes + "'");
+                                            if (ic.Read())
+                                            {
+                                                id_area = ic.GetInt32(0);
+                                            }
+                                            ic.Read();
+                                            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET nombre_curso='" + formacion.nombre_formacion + "', duracion_curso='" + formacion.duracion + "', bloque_curso='" + formacion.bloque_curso + "', solicitud_curso='" + formacion.solicitado + "', duracionE1='" + formacion.TiempoEtapa + "', nombre_area='"+formacion.nArea+"' where id_cursos='" + Cursos.id_curso13 + "'");
                                             update.Close();
-                                            MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("update clientes_solicitan_cursos set id_cliente1='"+id_solicitud+"' where id_curso1='" + Cursos.id_curso13 + "'");
+                                            MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("update clientes_solicitan_cursos set id_cliente1='"+id_solicitud+"', id_area1='"+id_area+"' where id_curso1='" + Cursos.id_curso13 + "'");
                                             clientes_solicitan_cursos.Close();
                                             conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
@@ -3323,6 +3380,8 @@ namespace UCS_NODO_FGC
                                                     guardar = true;
                                                     MessageBox.Show("La formación se ha modificado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                                     btnModificar.Enabled = false;
+                                                    btnPausar.Enabled = false;
+                                                    deshabiltarControlesBasico();
                                                 }
                                             }
                                         }
@@ -3650,7 +3709,14 @@ namespace UCS_NODO_FGC
             cliente.id_clientes = Convert.ToInt32(cmbxSolicitadoPor.SelectedValue);
             cliente.nombre_empresa= cmbxSolicitadoPor.Text;
             formacion.solicitado = cliente.nombre_empresa;
-
+            MySqlDataReader ic = Conexion.ConsultarBD("select id_clientes from clientes where nombre_empresa='" + cliente.nombre_empresa + "'");
+            if (ic.Read())
+            {
+                cliente.id_clientes = ic.GetInt32(0);
+            }
+            //con el id del cliente se llena el cmbxareas con las areas que la empresa posea: 
+            llenarcmbxAreas(cliente.id_clientes);
+            cmbxAreas.Enabled = true;
             ////validar si la empresa seleccionada ha solicitado un curso del mismo nombre.
             //MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_cursos from cursos where nombre_curso='" + formacion.nombre_formacion + "' AND solicitud_curso='" + formacion.solicitado + "' AND tipo_curso='Incompany'");
             //if (leer.Read())
@@ -3663,6 +3729,17 @@ namespace UCS_NODO_FGC
             //    errorProviderNombreF.SetError(txtNombreFormacion, "");
             //}
             //leer.Close();
+        }
+
+        private void cmbxAreas_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string nombre = cmbxAreas.Text;
+            id_area = 0;
+            MySqlDataReader leer = Conexion.ConsultarBD("select id_area from areas where nombre_area='"+nombre+"' and id_cliente1='" + cliente.id_clientes + "'");
+            if (leer.Read())
+            {
+                id_area = leer.GetInt32(0);
+            }
         }
         //comboboxDuracionFormacion (Nivel_basico)
         private void cmbxDuracionFormacion_Validating(object sender, CancelEventArgs e)
@@ -4630,6 +4707,8 @@ namespace UCS_NODO_FGC
             id_horario2 = Convert.ToInt32(cmbxHorario2.SelectedValue);
             formacion.horario2 = cmbxHorario2.Text;
         }
+
+        
 
         #endregion
 

@@ -39,6 +39,8 @@ namespace UCS_NODO_FGC.Clases
         public int id_curso { get; set; }
         public int pq_inst { get; set; }
 
+        public string nArea { get; set; }
+
         public static bool creacion { get; set; } //para saber si la formación se crea o se modifica
 
         public Formaciones()
@@ -46,7 +48,7 @@ namespace UCS_NODO_FGC.Clases
 
         }
 
-        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user, string tR, string ub)
+        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user, string tR, string ub,string na)
         {
             this.fecha_inicial = fi;
             this.solicitado = sol;
@@ -60,13 +62,13 @@ namespace UCS_NODO_FGC.Clases
             this.id_user = id_user;
             this.tiene_ref = tR;
             this.ubicacion_ucs = ub;
-
+            this.nArea = na;
         }
        
         public static int AgregarNuevaFormacion(MySqlConnection conexion, Formaciones form)
         {
             int retorno = 0;
-            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1, tiene_ref, ubicacion_ucs) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1, ?tiene_ref, ?ubicacion_ucs)";
+            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1, tiene_ref, ubicacion_ucs, nombre_area) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1, ?tiene_ref, ?ubicacion_ucs, ?nombreA)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?estatus", form.estatus);
             cmd.Parameters.AddWithValue("?tipo", form.tipo_formacion);
@@ -83,6 +85,7 @@ namespace UCS_NODO_FGC.Clases
             cmd.Parameters.AddWithValue("?tiempoE1", form.TiempoEtapa);
             cmd.Parameters.AddWithValue("?tiene_ref", form.tiene_ref);
             cmd.Parameters.AddWithValue("?ubicacion_ucs", form.ubicacion_ucs);
+            cmd.Parameters.AddWithValue("?nombreA", form.nArea);
             //el id debe venir de la persona logueada o sea de la clases.usuariologueado.id_usuario
             retorno = cmd.ExecuteNonQuery();
             return retorno;
@@ -290,6 +293,7 @@ namespace UCS_NODO_FGC.Clases
         public string nombre_formacion12 { get; set; }        
         public  int id_curso12 { get; set; }
 
+        public static string nombre_area { get; set; }
         public static string aula1 { get; set; }
         public static string aula2 { get; set; }
         public static string horario1 { get; set; }

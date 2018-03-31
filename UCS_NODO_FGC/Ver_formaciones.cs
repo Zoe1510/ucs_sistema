@@ -488,6 +488,20 @@ namespace UCS_NODO_FGC
             Cursos.p_manual = pq.manual;
             Cursos.p_bitacora = pq.bitacora;
 
+            if((formaciones.tipo_formacion=="InCompany" )|| (formaciones.tipo_formacion == "INCES"))
+            {
+                MySqlDataReader a = Conexion.ConsultarBD("select nombre_area from cursos where id_cursos='" + formaciones.id_curso + "'");
+                if (a.Read())
+                {
+                    Cursos.nombre_area = a.GetString(0);
+                }
+                a.Close();
+            }
+            else
+            {
+                Cursos.nombre_area = "";
+            }
+            #region search
             if (formaciones.etapa_curso > 1)
             {
                 if (formaciones.etapa_curso == 3)
@@ -648,7 +662,8 @@ namespace UCS_NODO_FGC
                 leer.Close();
 
             }
-           //MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
+#endregion
+            //MessageBox.Show(Cursos.ubicacion_ucs + Cursos.tiene_ref + Cursos.horario1 + Cursos.horario2 + Cursos.tipo_ref1  + Cursos.tipo_ref2  + Cursos.aula1  + Cursos.aula2 );
         }
 
         private void btnListaP_Click(object sender, EventArgs e)

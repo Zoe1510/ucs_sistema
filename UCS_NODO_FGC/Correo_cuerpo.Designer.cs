@@ -34,11 +34,15 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAsunto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMensaje = new System.Windows.Forms.TextBox();
+            this.txtDestinatarios = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblRemoverUltimo = new System.Windows.Forms.Label();
+            this.lblArchivos = new System.Windows.Forms.Label();
+            this.labelCantidad = new System.Windows.Forms.Label();
+            this.btnRutaArchivo = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,61 +107,105 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label1.Location = new System.Drawing.Point(43, 63);
+            this.label1.Location = new System.Drawing.Point(51, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 17);
             this.label1.TabIndex = 67;
             this.label1.Text = "(Opcional) Asunto:";
             // 
-            // textBox1
+            // txtAsunto
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(177, 61);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 25);
-            this.textBox1.TabIndex = 68;
+            this.txtAsunto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAsunto.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAsunto.Location = new System.Drawing.Point(185, 99);
+            this.txtAsunto.Multiline = true;
+            this.txtAsunto.Name = "txtAsunto";
+            this.txtAsunto.Size = new System.Drawing.Size(344, 25);
+            this.txtAsunto.TabIndex = 68;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label2.Location = new System.Drawing.Point(43, 118);
+            this.label2.Location = new System.Drawing.Point(51, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(216, 17);
             this.label2.TabIndex = 69;
             this.label2.Text = "(Opcional) Cuerpo del mensaje:";
             // 
-            // textBox2
+            // txtMensaje
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(46, 147);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(475, 114);
-            this.textBox2.TabIndex = 70;
+            this.txtMensaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMensaje.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMensaje.Location = new System.Drawing.Point(54, 185);
+            this.txtMensaje.Multiline = true;
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(475, 114);
+            this.txtMensaje.TabIndex = 70;
             // 
-            // textBox3
+            // txtDestinatarios
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(177, 18);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(344, 25);
-            this.textBox3.TabIndex = 71;
+            this.txtDestinatarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDestinatarios.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDestinatarios.Location = new System.Drawing.Point(161, 56);
+            this.txtDestinatarios.Multiline = true;
+            this.txtDestinatarios.Name = "txtDestinatarios";
+            this.txtDestinatarios.Size = new System.Drawing.Size(368, 25);
+            this.txtDestinatarios.TabIndex = 71;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Rockwell", 10F);
-            this.label3.Location = new System.Drawing.Point(43, 20);
+            this.label3.Location = new System.Drawing.Point(51, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 17);
+            this.label3.Size = new System.Drawing.Size(104, 17);
             this.label3.TabIndex = 72;
-            this.label3.Text = "Destinatario";
+            this.label3.Text = "Destinatario(s):";
+            // 
+            // lblRemoverUltimo
+            // 
+            this.lblRemoverUltimo.AutoSize = true;
+            this.lblRemoverUltimo.BackColor = System.Drawing.Color.Transparent;
+            this.lblRemoverUltimo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblRemoverUltimo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Underline);
+            this.lblRemoverUltimo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRemoverUltimo.Location = new System.Drawing.Point(404, 302);
+            this.lblRemoverUltimo.Name = "lblRemoverUltimo";
+            this.lblRemoverUltimo.Size = new System.Drawing.Size(125, 19);
+            this.lblRemoverUltimo.TabIndex = 73;
+            this.lblRemoverUltimo.Text = "Remover último";
+            // 
+            // lblArchivos
+            // 
+            this.lblArchivos.AutoSize = true;
+            this.lblArchivos.Font = new System.Drawing.Font("Rockwell", 11F);
+            this.lblArchivos.Location = new System.Drawing.Point(51, 303);
+            this.lblArchivos.Name = "lblArchivos";
+            this.lblArchivos.Size = new System.Drawing.Size(75, 17);
+            this.lblArchivos.TabIndex = 74;
+            this.lblArchivos.Text = "Adjuntos:";
+            // 
+            // labelCantidad
+            // 
+            this.labelCantidad.AutoSize = true;
+            this.labelCantidad.Font = new System.Drawing.Font("Rockwell", 11F);
+            this.labelCantidad.Location = new System.Drawing.Point(122, 304);
+            this.labelCantidad.Name = "labelCantidad";
+            this.labelCantidad.Size = new System.Drawing.Size(16, 17);
+            this.labelCantidad.TabIndex = 75;
+            this.labelCantidad.Text = "0";
+            // 
+            // btnRutaArchivo
+            // 
+            this.btnRutaArchivo.FlatAppearance.BorderSize = 0;
+            this.btnRutaArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRutaArchivo.Image = global::UCS_NODO_FGC.Properties.Resources.icon_pdfFormato1;
+            this.btnRutaArchivo.Location = new System.Drawing.Point(496, 153);
+            this.btnRutaArchivo.Name = "btnRutaArchivo";
+            this.btnRutaArchivo.Size = new System.Drawing.Size(24, 26);
+            this.btnRutaArchivo.TabIndex = 76;
+            this.btnRutaArchivo.UseVisualStyleBackColor = true;
             // 
             // Correo_cuerpo
             // 
@@ -165,17 +213,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(585, 500);
+            this.Controls.Add(this.btnRutaArchivo);
+            this.Controls.Add(this.labelCantidad);
+            this.Controls.Add(this.lblArchivos);
+            this.Controls.Add(this.lblRemoverUltimo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDestinatarios);
+            this.Controls.Add(this.txtMensaje);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAsunto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnImprimir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Correo_cuerpo";
             this.Text = "Correo";
+            this.Load += new System.EventHandler(this.Correo_cuerpo_Load);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
@@ -191,10 +246,14 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAsunto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMensaje;
+        private System.Windows.Forms.TextBox txtDestinatarios;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRemoverUltimo;
+        private System.Windows.Forms.Label lblArchivos;
+        private System.Windows.Forms.Label labelCantidad;
+        private System.Windows.Forms.Button btnRutaArchivo;
     }
 }
