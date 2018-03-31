@@ -226,7 +226,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Location = new System.Drawing.Point(375, 83);
+            this.label14.Location = new System.Drawing.Point(365, 83);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(195, 13);
             this.label14.TabIndex = 3;
@@ -380,6 +380,7 @@
             this.btnModificar.TabIndex = 40;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRetomar
             // 
@@ -934,6 +935,7 @@
             this.btnCorreoComercializacion.Text = "Enviar a comercialización";
             this.btnCorreoComercializacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCorreoComercializacion.UseVisualStyleBackColor = true;
+            this.btnCorreoComercializacion.Click += new System.EventHandler(this.btnCorreoComercializacion_Click);
             // 
             // btnCorreoAdministracion
             // 
@@ -948,6 +950,7 @@
             this.btnCorreoAdministracion.Text = "Enviar a administración";
             this.btnCorreoAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCorreoAdministracion.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministracion.Click += new System.EventHandler(this.btnCorreoAdministrador_Click);
             // 
             // chkbCoFacilitador
             // 

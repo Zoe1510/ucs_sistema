@@ -115,6 +115,7 @@ namespace UCS_NODO_FGC
                                 if (nombre_e != "")//si el id arroja un Nombre de Empresa
                                 {
                                     //cuando todas las comprobaciones sean hechas, se guardarán los datos en "cliente"
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         cliente.nombre_areaEmpresa = txtNombreArea.Text;
@@ -127,6 +128,7 @@ namespace UCS_NODO_FGC
                                         conexion.cerrarconexion();
                                         if (areaE.id_area == 0)//si retorna 0 es que el area no existe
                                         {
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 int addAreas = 0;
@@ -246,6 +248,7 @@ namespace UCS_NODO_FGC
                                     conexion.cerrarconexion();
                                     if (areaE.id_area == 0)//si retorna 0 es que el area no existe
                                     {
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             int addAreas = 0;

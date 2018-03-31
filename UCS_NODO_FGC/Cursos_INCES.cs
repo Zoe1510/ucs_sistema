@@ -148,6 +148,7 @@ namespace UCS_NODO_FGC
             try
             {
                 int resultado;
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     CargarDatosTabla(conexion.conexion, buscar);
@@ -279,6 +280,7 @@ namespace UCS_NODO_FGC
 
                         if (MessageBox.Show("¿Está seguro de eliminar el curso: " + nombreCurso + "?", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int EliminarAsignaciones = Clases.INCES.EliminarTodasAsignaciones(conexion.conexion, ince.id_cursoINCE);
@@ -326,6 +328,7 @@ namespace UCS_NODO_FGC
                 {
                     if (MessageBox.Show("¿Está seguro de eliminar esta asignación? ", "ALERTA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             fa.id_facilitador = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, Clases.Facilitador_Seleccionado.ci_facilitador);

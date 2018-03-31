@@ -97,6 +97,7 @@ namespace UCS_NODO_FGC
                         {
                             errorProviderNombre.SetError(txtNombreRef, "");
                             errorProviderContenido.SetError(txtContenidoRef, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int registrar = Clases.Refrigerios.AgregarRef(conexion.conexion, refri);

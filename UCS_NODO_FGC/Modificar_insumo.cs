@@ -87,6 +87,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderContenido.SetError(txtContenido, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int modificar = Clases.Insumos.ActualizarInsumo(conexion.conexion, insumo);

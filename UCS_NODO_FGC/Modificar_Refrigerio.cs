@@ -106,6 +106,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderNombre.SetError(txtNombreRef, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                

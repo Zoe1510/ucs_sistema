@@ -34,6 +34,7 @@ namespace UCS_NODO_FGC
 
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     CargarDatosTabla(conexion.conexion, buscar);
@@ -88,6 +89,7 @@ namespace UCS_NODO_FGC
             dgvInsumos.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     buscar = "";
@@ -144,6 +146,7 @@ namespace UCS_NODO_FGC
                 {
                     if (txtBuscarTodo.Text != "")
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             buscar = txtBuscarTodo.Text;
@@ -206,6 +209,7 @@ namespace UCS_NODO_FGC
             {
                 if (txtBuscarTodo.Text != "")
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         buscar = txtBuscarTodo.Text;
@@ -261,6 +265,7 @@ namespace UCS_NODO_FGC
             {
                 if (dgvInsumos.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         insumo.id_insumos = Clases.Insumos.ExisteInsumo(conexion.conexion, insumo);
@@ -303,6 +308,7 @@ namespace UCS_NODO_FGC
 
                 if (dgvInsumos.SelectedRows.Count != 0)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         insumo.id_insumos = Clases.Insumos.ExisteInsumo(conexion.conexion, insumo);

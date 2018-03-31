@@ -85,7 +85,7 @@ namespace UCS_NODO_FGC
                                 //si el id que retorna no es el id_fa, se puede asignar
                                 if (asignacion == 0 || asignacion != fa.id_facilitador)
                                 {
-
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         //asignando curso a facilitador

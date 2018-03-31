@@ -986,7 +986,7 @@ namespace UCS_NODO_FGC
                                                 formacion.solicitado = cmbxSolicitadoPor.Text;
                                                 //Se crea la formacion con un paquete nuevo
                                                 int resultado;
-
+                                                conexion.cerrarconexion();
                                                 if (conexion.abrirconexion() == true)
                                                     resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
 
@@ -999,9 +999,10 @@ namespace UCS_NODO_FGC
                                                 {
                                                     id_curso = int.Parse(IdCurso["id_cursos"].ToString());
                                                 }
-                                                IdCurso.Close();                                                
+                                                IdCurso.Close();
                                                 //MySqlDataReader usuarios_gestionan_cursos = Conexion.ConsultarBD("INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES ('" + id_curso + "', '" + Usuario_logeado.id_usuario + "', '" + fecha_creacion + "' , '" + FechaFinal + "')");
                                                 //usuarios_gestionan_cursos.Close();
+                                                conexion.cerrarconexion();
                                                 if (conexion.abrirconexion() == true)
                                                 {
                                                     int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, Usuario_logeado.id_usuario, fecha_creacion, FechaFinal);
@@ -1044,7 +1045,7 @@ namespace UCS_NODO_FGC
                                             formacion.solicitado = cmbxSolicitadoPor.Text;
                                             //Se crea la formacion con un paquete nuevo
                                             int resultado;
-
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                                 resultado = Clases.Formaciones.AgregarNuevaFormacion(conexion.conexion, formacion);
 
@@ -1066,7 +1067,7 @@ namespace UCS_NODO_FGC
                                                 id_ince = Convert.ToInt32(idince["id_curso_ince"]);
                                             }
                                             idince.Close();
-
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 int agregarUGC = Clases.Formaciones.Agregar_U_g_C(conexion.conexion, id_curso, Usuario_logeado.id_usuario, fecha_creacion, FechaFinal);
@@ -1414,6 +1415,7 @@ namespace UCS_NODO_FGC
             update.Close();
 
             //se agrega la modificacion en la tabla
+            conexion.cerrarconexion();
             if (conexion.abrirconexion() == true)
             {
                 int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE2, FinalE2);
@@ -1458,6 +1460,7 @@ namespace UCS_NODO_FGC
             update.Close();
 
             //se agrega la modificacion en la tabla
+            conexion.cerrarconexion();
             if (conexion.abrirconexion() == true)
             {
                 int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
@@ -2054,6 +2057,7 @@ namespace UCS_NODO_FGC
                                             update.Close();
                                             MySqlDataReader clientes_solicitan_cursos = Conexion.ConsultarBD("update clientes_solicitan_cursos set id_cliente1='" + id_solicitud + "' where id_curso1='" + Cursos.id_curso13 + "'");
                                             clientes_solicitan_cursos.Close();
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, formacion.id_user, fecha_creacion, FinalE1);
@@ -2092,6 +2096,7 @@ namespace UCS_NODO_FGC
                     update.Close();
 
                     //se agrega la modificacion en la tabla
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
@@ -2134,6 +2139,7 @@ namespace UCS_NODO_FGC
                     update.Close();
 
                     //se agrega la modificacion en la tabla
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
@@ -2340,6 +2346,7 @@ namespace UCS_NODO_FGC
 
                     int existeEjecucion = 0;
 
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                         existeEjecucion = Clases.Formaciones.CursoEjecucionExiste(conexion.conexion, formacion);
 
@@ -2404,7 +2411,7 @@ namespace UCS_NODO_FGC
                             
                         }
 
-
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             List<Clases.Paquete_instruccional> paqueteExiste = new List<Clases.Paquete_instruccional>();
@@ -2616,6 +2623,7 @@ namespace UCS_NODO_FGC
             if ((formacion.duracion == "16"))
             {
                 //validar ambas fechas
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, fa.id_facilitador);
@@ -2631,6 +2639,7 @@ namespace UCS_NODO_FGC
                     else
                     {
                         errorProviderManual.SetError(cmbxFa, "");
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, fa.id_facilitador);
@@ -2649,6 +2658,7 @@ namespace UCS_NODO_FGC
                                 //si todo bien, cargar los datos en el gpbDatosFa
                                 gpbDatosFa.Enabled = true;
                                 chkbCoFacilitador.Enabled = true;
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                     faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, fa.id_facilitador);
@@ -2683,6 +2693,7 @@ namespace UCS_NODO_FGC
                 if(Cofa.id_facilitador != 0)
                 {
                     //validar ambas fechas
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int fa_disponible = Clases.Facilitadores.FacilitadorDisponibleDia(conexion.conexion, time.fecha_curso, Cofa.id_facilitador);
@@ -2697,6 +2708,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderManual.SetError(cmbxCoFa, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int fa_disponibleDia2 = Clases.Facilitadores.FacilitadorDisponibleDia2(conexion.conexion, time.fechaDos_curso, Cofa.id_facilitador);
@@ -2714,6 +2726,7 @@ namespace UCS_NODO_FGC
                                     //si todo bien, cargar los datos en el gpbDatosFa
                                     gpbDatosCoFa.Enabled = true;
 
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         faDatos = Clases.Facilitadores.SeleccionarFaPorID(conexion.conexion, Cofa.id_facilitador);

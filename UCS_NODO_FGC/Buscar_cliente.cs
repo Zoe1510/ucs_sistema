@@ -250,6 +250,7 @@ namespace UCS_NODO_FGC
 
                             if (nombre_e != "")
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                    
@@ -257,6 +258,7 @@ namespace UCS_NODO_FGC
                                     conexion.cerrarconexion();
                                     if (areaE.id_area > 0)//si existe areas por mostrar ( no importa cuál), llena el datagridview
                                     {
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             LlenarDGV(conexion.conexion, nombre_e);
@@ -269,6 +271,7 @@ namespace UCS_NODO_FGC
                                     {
                                         MessageBox.Show("Esta empresa no posee ningún área", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         refrescar();
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             string nombreempresa = "";
@@ -378,6 +381,7 @@ namespace UCS_NODO_FGC
                             int resultado = Clases.Clientes.EliminarEmpresa(conexion.conexion, cliente);
                             conexion.cerrarconexion();
                             refrescar();
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 string nombreempresa = "";

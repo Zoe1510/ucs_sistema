@@ -134,6 +134,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Curso_AFI> lista = new List<Curso_AFI>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_curso_afi, nombre_curso_afi FROM cursos_afi WHERE nombre_curso_afi LIKE ('%{0}%')", b), con2.conexion);
@@ -152,6 +153,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con = new conexion_bd();
             List<Empresa> lista = new List<Empresa>();
+            con.cerrarconexion();
             if (con.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, nombre_empresa, fee_empresa FROM clientes  WHERE nombre_empresa LIKE ('%{0}%')", nombre), con.conexion);
@@ -174,6 +176,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con1 = new conexion_bd();
             List<Preguntas> lista = new List<Preguntas>();
+            con1.cerrarconexion();
             if (con1.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_pregunta, pregunta FROM preguntas WHERE pregunta LIKE ('%{0}%')", pregunta), con1.conexion);
@@ -197,6 +200,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Curso_IN> lista = new List<Curso_IN>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM cursos_inces WHERE nombre_curso_ince LIKE ('%{0}%')", buscar), con2.conexion);
@@ -215,6 +219,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con3 = new conexion_bd();
             List<Fa_ince> lista = new List<Fa_ince>();
+            con3.cerrarconexion();
             if (con3.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nombre_fa, apellido_fa FROM facilitadores  WHERE requerimiento_inces = 1"), con3.conexion);
@@ -237,6 +242,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores "), con2.conexion);
@@ -254,6 +260,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("select nombre_fa, apellido_fa from facilitadores fa inner join afi_tiene_facilitadores atf on atf.id_fa=fa.id_fa where atf.id_cursos_afi='{0}'", id_Curso), con2.conexion);
@@ -276,6 +283,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Facilitador_todos> lista = new List<Facilitador_todos>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM facilitadores  WHERE id_fa != '{0}' ", id_fa), con2.conexion);
@@ -294,6 +302,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Refrigerios> lista = new List<Refrigerios>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM refrigerios WHERE id_ref != '{0}'", id_ref), con2.conexion);
@@ -373,6 +382,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con2 = new conexion_bd();
             List<Refrigerios> lista = new List<Refrigerios>();
+            con2.cerrarconexion();
             if (con2.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT * FROM refrigerios"), con2.conexion);

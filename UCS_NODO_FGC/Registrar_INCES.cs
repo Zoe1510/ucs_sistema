@@ -120,6 +120,7 @@ namespace UCS_NODO_FGC
                         {
 
                             //el id ya lo tengo del selection commited
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 curso.nombre_cursoINCE = txtNombreCurso.Text;
@@ -128,6 +129,7 @@ namespace UCS_NODO_FGC
                                 conexion.cerrarconexion();
                                 if (existe == 0)//si no existe
                                 {
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         //agregar a la base de datos
@@ -135,6 +137,7 @@ namespace UCS_NODO_FGC
                                         conexion.cerrarconexion();
                                         if (agregado > 0)//curso agregado exitosamente
                                         {
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 //seleccionar el id del curso añadido
@@ -150,6 +153,7 @@ namespace UCS_NODO_FGC
                                                     if (asignacion == 0 || asignacion != fa.id_facilitador)
                                                     {
                                                         errorProviderFacilitador.SetError(cmbxFacilitador, "");
+                                                        conexion.cerrarconexion();
                                                         if (conexion.abrirconexion() == true)
                                                         {
                                                             //asignando curso a facilitador

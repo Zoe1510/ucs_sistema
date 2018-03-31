@@ -74,6 +74,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderContenido.SetError(txtContenido, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int modificar = Clases.Difusion.ModificarDif(conexion.conexion, dif);

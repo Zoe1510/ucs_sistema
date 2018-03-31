@@ -104,6 +104,7 @@ namespace UCS_NODO_FGC
                     {
                         if (cmbxPregunta1.SelectedIndex != cmbxPregunta2.SelectedIndex && cmbxPregunta1.SelectedIndex != cmbxPregunta3.SelectedIndex && cmbxPregunta3.SelectedIndex != cmbxPregunta2.SelectedIndex)
                         {
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 resp1 = txtRespuesta1.Text;

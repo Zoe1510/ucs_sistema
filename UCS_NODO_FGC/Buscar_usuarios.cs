@@ -41,6 +41,7 @@ namespace UCS_NODO_FGC
             
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     actualizarTabla(conexion.conexion, nombre, apellido, cargo);
@@ -292,6 +293,7 @@ namespace UCS_NODO_FGC
                     }
                     else
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             MessageBox.Show("No se ha encontrado ningun usuario con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -392,6 +394,7 @@ namespace UCS_NODO_FGC
 
                             if (ci == Clases.Usuario_logeado.cedula_user)//si el id seleccionado es igual al lider que está en la sesion:
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                     //metodo para verificar la existencia de más lideres. (no se puede eliminar la cuenta si es el unico lider en la base de datos).
@@ -401,6 +404,7 @@ namespace UCS_NODO_FGC
                                     {
                                         if (MessageBox.Show("¿Está seguro de eliminar su cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                                         {
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 if (MessageBox.Show("La sesión terminará en cuanto se complete la eliminacion de su cuenta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
@@ -439,6 +443,7 @@ namespace UCS_NODO_FGC
                             {
                                 if (MessageBox.Show("¿Está seguro de eliminar al usuario " + txtNombreUsuario.Text + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                                 {
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
 
@@ -520,8 +525,8 @@ namespace UCS_NODO_FGC
                             nombre = txtNombreUsuario.Text;
                             apellido = txtApellidoUsuario.Text;
                             cargo = cargouser;
-
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -539,7 +544,8 @@ namespace UCS_NODO_FGC
                             apellido = txtApellidoUsuario.Text;
                             nombre = "";
                             cargo = "";
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -559,7 +565,8 @@ namespace UCS_NODO_FGC
                             apellido = "";
                             nombre = txtNombreUsuario.Text;
                             cargo = "";
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -624,8 +631,8 @@ namespace UCS_NODO_FGC
                             nombre = "";
                             apellido = txtApellidoUsuario.Text;
                             cargo = cargouser;
-
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -645,8 +652,8 @@ namespace UCS_NODO_FGC
                             nombre = txtNombreUsuario.Text;
                             apellido = txtApellidoUsuario.Text;
                             cargo = "";
-
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -678,8 +685,8 @@ namespace UCS_NODO_FGC
                             nombre = txtNombreUsuario.Text;
                             apellido ="";
                             cargo = cargouser;
-
-                            if (conexion.abrirconexion() == true)
+                        conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
                             {
                                 buscar(nombre, apellido, cargo);
                                 conexion.cerrarconexion();
@@ -723,6 +730,7 @@ namespace UCS_NODO_FGC
                     {
                         if ((txtCedulaUsuario.Text != "") && (txtApellidoUsuario.Text != "") && (txtNombreUsuario.Text != ""))
                         {
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 if (cmbxCargoUsuario.SelectedIndex != -1)
@@ -751,7 +759,7 @@ namespace UCS_NODO_FGC
                                     conexion.cerrarconexion();
                                     usuario.id_usuario = usuarioSeleccionado.id_usuario;
                                     usuario.password = usuarioSeleccionado.password;
-                                    
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         int resultado;
@@ -765,6 +773,7 @@ namespace UCS_NODO_FGC
                                             apellido = "";
                                             cargo = "";
                                             limpiarCeldas();
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 actualizarTabla(conexion.conexion, nombre, apellido, cargo);
@@ -828,6 +837,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     limpiarCeldas();

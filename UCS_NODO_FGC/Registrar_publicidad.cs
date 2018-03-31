@@ -71,6 +71,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderContenido.SetError(txtContenido, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 

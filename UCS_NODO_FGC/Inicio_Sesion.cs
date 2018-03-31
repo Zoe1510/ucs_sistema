@@ -171,6 +171,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     if ((Txt_id_user.Text != "") && (Txt_pass_user.Text != ""))
@@ -186,6 +187,7 @@ namespace UCS_NODO_FGC
 
                             if(ci_existe > 0 )//si la cedula introducida existe en el registro de usuarios
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                     usuarioIngresado = Clases.Usuarios.IniciarSesion(conexion.conexion, usuario);

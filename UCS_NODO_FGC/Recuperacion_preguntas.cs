@@ -185,6 +185,7 @@ namespace UCS_NODO_FGC
             
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     List<Clases.Preguntas> pregunta = new List<Clases.Preguntas>();
@@ -246,6 +247,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     pre.pregunta = Clases.Preguntas.ObtenerPregunta(conexion.conexion, pre.id_pregunta);

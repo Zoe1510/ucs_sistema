@@ -81,10 +81,19 @@ namespace UCS_NODO_FGC
             {
                 ActualizarDestinatario();
             }
+            if (AccesoInternet())
+            {
+                string asunt = "Datos de la formación: " + Nodos.formacion_nombre;
+                //luego se envia el correo
+                EnviarCorreo(correo, asunt, Nodos.ruta_PDF);
+
+            }
+            else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
-            string asunt = "Datos de la formación: " + Nodos.formacion_nombre;
-            //luego se envia el correo
-            EnviarCorreo(correo, asunt, Nodos.ruta_PDF);
+            this.Close();
         }
 
         private void GuardarDestinatario()
@@ -111,6 +120,7 @@ namespace UCS_NODO_FGC
                 MessageBox.Show("Debe proporcionar un correo válido.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #region envio correo
         private bool AccesoInternet()
         {

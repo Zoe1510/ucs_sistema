@@ -32,6 +32,7 @@ namespace UCS_NODO_FGC
             conexion.cerrarconexion();
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     contador = Clases.Usuarios.retornaFilas(conexion.conexion);

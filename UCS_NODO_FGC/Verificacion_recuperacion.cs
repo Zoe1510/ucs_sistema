@@ -106,6 +106,7 @@ namespace UCS_NODO_FGC
 
                             if (resultado != 0)
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                    

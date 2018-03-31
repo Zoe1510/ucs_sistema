@@ -103,6 +103,7 @@ namespace UCS_NODO_FGC
                             curso.id_cursoINCE = Clases.INCES.id_curso;
                             curso.nombre_cursoINCE = txtNombreCurso.Text;
                             //verificar que el nombre no se repita en la base de datos
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int nombreExiste = Clases.INCES.CursoExiste(conexion.conexion, curso.nombre_cursoINCE);
@@ -110,6 +111,7 @@ namespace UCS_NODO_FGC
                                 if (nombreExiste == 0)//no existe el nombre, se puede actualizar
                                 {
                                     errorProviderNombreCurso.SetError(txtNombreCurso, "");
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         int actualizar = Clases.INCES.ActualizarCurso(conexion.conexion, curso);

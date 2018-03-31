@@ -77,6 +77,7 @@ namespace UCS_NODO_FGC
             this.Location = new Point(-5, 0);
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     ActualizarTabla(conexion.conexion, txtbuscar);
@@ -117,6 +118,7 @@ namespace UCS_NODO_FGC
                 {
                     if (txtBuscarTodo.Text != "")
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             txtbuscar = txtBuscarTodo.Text;
@@ -178,6 +180,7 @@ namespace UCS_NODO_FGC
             {
                 if (txtBuscarTodo.Text != "")
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         txtbuscar = txtBuscarTodo.Text;
@@ -221,6 +224,7 @@ namespace UCS_NODO_FGC
             {
                 if (dgvRef.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int idRef = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
@@ -233,6 +237,7 @@ namespace UCS_NODO_FGC
 
                         Modificar_Refrigerio modr = new Modificar_Refrigerio();
                         modr.ShowDialog();
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             txtbuscar = "";
@@ -268,6 +273,7 @@ namespace UCS_NODO_FGC
             {
                 if (dgvRef.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int idRef = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
@@ -281,7 +287,7 @@ namespace UCS_NODO_FGC
                                 conexion.cerrarconexion();
                                 if (resultado > 0)
                                 {
-                                   
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         txtBuscarTodo.Text = "Escriba aquí";
@@ -312,6 +318,7 @@ namespace UCS_NODO_FGC
             dgvRef.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     txtbuscar = "";
@@ -333,6 +340,7 @@ namespace UCS_NODO_FGC
         {
             Registrar_refrigerio reg = new Registrar_refrigerio();
             reg.ShowDialog();
+            conexion.cerrarconexion();
             if (conexion.abrirconexion() == true)
             {
                 txtBuscarTodo.Text = "Escriba aquí";

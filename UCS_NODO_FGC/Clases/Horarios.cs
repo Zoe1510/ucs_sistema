@@ -30,6 +30,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con = new conexion_bd();
             List<Horarios> lista = new List<Horarios>();
+            con.cerrarconexion();
             if (con.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT idhorarios, horario FROM horarios WHERE tipo_horario='{0}'", tipo), con.conexion);
@@ -52,6 +53,7 @@ namespace UCS_NODO_FGC.Clases
         {
             conexion_bd con = new conexion_bd();
             List<Horarios> lista = new List<Horarios>();
+            con.cerrarconexion();
             if (con.abrirconexion() == true)
             {
                 MySqlCommand comando = new MySqlCommand(String.Format("SELECT idhorarios, horario FROM horarios WHERE tipo_horario='{0}' AND idhorarios !='{1}' ",tipo, id), con.conexion);

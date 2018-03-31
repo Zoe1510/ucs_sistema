@@ -334,6 +334,7 @@ namespace UCS_NODO_FGC
 
                         if (clienteexiste.id_cliente == 0)//si resultado es 0, el cliente no existe (se puede hacer el registro)
                         {
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
 
@@ -345,6 +346,7 @@ namespace UCS_NODO_FGC
                                     clienteexiste = Clases.Clientes.ClienteExiste(conexion.conexion, cliente);
                                     conexion.cerrarconexion();
                                     cliente.id_cliente = clienteexiste.id_cliente;//aqui se toma el valor del id del cliente agregado
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         int addAreas = 0;
@@ -391,6 +393,8 @@ namespace UCS_NODO_FGC
                         else if (clienteexiste.id_cliente != 0)//si la empresa existe
                         {
                             cliente.id_cliente = clienteexiste.id_cliente;
+
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 areaE = Clases.Clientes.AreaExiste(conexion.conexion, cliente); //verificar que el area exista o no
