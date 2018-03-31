@@ -141,8 +141,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
-            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -158,6 +156,8 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -1479,26 +1479,6 @@
             this.dgvInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsumos_CellContentClick);
             this.dgvInsumos.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInsumos_CurrentCellDirtyStateChanged);
             // 
-            // insumo
-            // 
-            this.insumo.HeaderText = "Insumos";
-            this.insumo.MaxInputLength = 250;
-            this.insumo.MinimumWidth = 50;
-            this.insumo.Name = "insumo";
-            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.insumo.Width = 310;
-            // 
-            // seleccion_opcion
-            // 
-            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccion_opcion.FalseValue = "false";
-            this.seleccion_opcion.HeaderText = "";
-            this.seleccion_opcion.MinimumWidth = 30;
-            this.seleccion_opcion.Name = "seleccion_opcion";
-            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccion_opcion.TrueValue = "true";
-            this.seleccion_opcion.Width = 40;
-            // 
             // pictureBox11
             // 
             this.pictureBox11.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
@@ -1589,6 +1569,26 @@
             // errorProviderHora2
             // 
             this.errorProviderHora2.ContainerControl = this;
+            // 
+            // insumo
+            // 
+            this.insumo.HeaderText = "Insumos";
+            this.insumo.MaxInputLength = 250;
+            this.insumo.MinimumWidth = 50;
+            this.insumo.Name = "insumo";
+            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.insumo.Width = 330;
+            // 
+            // seleccion_opcion
+            // 
+            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccion_opcion.FalseValue = "false";
+            this.seleccion_opcion.HeaderText = "";
+            this.seleccion_opcion.MinimumWidth = 30;
+            this.seleccion_opcion.Name = "seleccion_opcion";
+            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion_opcion.TrueValue = "true";
+            this.seleccion_opcion.Width = 40;
             // 
             // Nueva_formacion_FEE
             // 
@@ -1793,12 +1793,12 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.DataGridView dgvInsumos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;
         private System.Windows.Forms.DataGridView dgvMediosDifusion;
         private System.Windows.Forms.DataGridViewTextBoxColumn opcion_difusion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn seleccionar_opcion;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn insumo;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn seleccion_opcion;
     }
 }

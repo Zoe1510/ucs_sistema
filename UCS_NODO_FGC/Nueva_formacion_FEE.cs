@@ -2218,7 +2218,8 @@ namespace UCS_NODO_FGC
             {
                 if (Cursos.etapa_formacion13 == 2)
                 {
-                    
+                    MySqlDataReader del1 = Conexion.ConsultarBD("delete from cursos_tienen_refrigerios where cursos_id_cursos ='" + Cursos.id_curso13 + "'");
+                    del1.Close();
                     GuardarAvanzado();
                     if (guardar == true)
                     {
@@ -2881,7 +2882,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
@@ -3080,7 +3081,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
