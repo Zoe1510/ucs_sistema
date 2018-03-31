@@ -923,7 +923,6 @@
             this.gpbCorreos.Controls.Add(this.pictureBox3);
             this.gpbCorreos.Controls.Add(this.btnCorreoFacilitadores);
             this.gpbCorreos.Controls.Add(this.btnCorreoAdministracion);
-            this.gpbCorreos.Enabled = false;
             this.gpbCorreos.Location = new System.Drawing.Point(51, 385);
             this.gpbCorreos.Name = "gpbCorreos";
             this.gpbCorreos.Size = new System.Drawing.Size(404, 196);
@@ -951,6 +950,7 @@
             this.btnCorreoFacilitadores.Text = " Enviar formatos a facilitador";
             this.btnCorreoFacilitadores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCorreoFacilitadores.UseVisualStyleBackColor = true;
+            this.btnCorreoFacilitadores.Click += new System.EventHandler(this.btnCorreoFacilitador_Click);
             // 
             // btnCorreoAdministracion
             // 
@@ -964,6 +964,7 @@
             this.btnCorreoAdministracion.Text = " Enviar datos a Administración";
             this.btnCorreoAdministracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCorreoAdministracion.UseVisualStyleBackColor = true;
+            this.btnCorreoAdministracion.Click += new System.EventHandler(this.btnCorreoAdministrador_Click);
             // 
             // gpbFecha
             // 

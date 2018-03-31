@@ -8,8 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Diagnostics;
 using UCS_NODO_FGC.Clases;
+using System.IO;
+using System.Diagnostics;
+using iTextSharp;
+using System.Drawing.Imaging;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Net.Mail;
+using System.Net;
 
 namespace UCS_NODO_FGC
 {
@@ -682,34 +689,44 @@ namespace UCS_NODO_FGC
             //CARGAR DATOS DE PAQUETE INSTRUCCIONAL
 
             contenido = Cursos.p_contenido;
+            p_inst.contenido = contenido;
             btnVerContenido.Enabled = true;
             if (Cursos.p_presentacion == "")
             {
+                presentacion = Cursos.p_presentacion;
+                p_inst.presentacion = presentacion;
                 btnVerPresentacion.Enabled = false;
             }
             else
             {
                 presentacion = Cursos.p_presentacion;
+                p_inst.presentacion = presentacion;
                 btnVerPresentacion.Enabled = true;
             }
 
             if (Cursos.p_bitacora == "")
             {
+                bitacora = Cursos.p_bitacora;
+                p_inst.bitacora = bitacora;
                 btnVerBitacora.Enabled = false;
             }
             else
             {
                 bitacora = Cursos.p_bitacora;
+                p_inst.bitacora = bitacora;
                 btnVerBitacora.Enabled = true;
             }
 
             if (Cursos.p_manual == "")
             {
+                manual = Cursos.p_manual;
+                p_inst.manual = manual;
                 btnVerManual.Enabled = false;
             }
             else
             {
                 manual = Cursos.p_manual;
+                p_inst.manual = manual;
                 btnVerManual.Enabled = true;
             }
 
@@ -861,10 +878,12 @@ namespace UCS_NODO_FGC
                 //cmbxCoFa.Text = "";
             }
 
-            
-          
 
-           
+            time.fecha_curso = Cursos.fecha_uno13;
+            fa.id_facilitador = id_fa;
+
+
+
 
         }
         private void CargarDatosEtapaTres()
@@ -1050,6 +1069,13 @@ namespace UCS_NODO_FGC
                                 else //si el contenido existe
                                 {
                                     errorProviderContenido.SetError(btnRutaContenido, "");
+                                    string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+
+                                    manual = manual.Replace("\\", "/");
+                                    bitacora = bitacora.Replace("\\", "/");
+                                    presentacion = presentacion.Replace("\\", "/");
+                                    contenido = contenido.Replace("\\", "/");
+
                                     if (btnVerPresentacion.Enabled == false)
                                     {
                                         p_inst.presentacion = "";
@@ -1085,6 +1111,38 @@ namespace UCS_NODO_FGC
                                         {
 
                                             int resultado2 = 0;
+
+                                            contenido = p_inst.contenido;
+                                            string nombrearchivo = Path.GetFileName(p_inst.contenido);
+                                            p_inst.contenido = Path.Combine(ruta, nombrearchivo);  //actualizando ruta del archivo
+                                            File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(contenido)); //escribiendo el archivo en la carpeta de respaldo
+
+                                            if (p_inst.presentacion != "")
+                                            {
+                                                presentacion = p_inst.presentacion;
+                                                nombrearchivo = Path.GetFileName(presentacion);
+                                                p_inst.presentacion = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                                File.WriteAllBytes(p_inst.presentacion, Helper.DocToByteArray(presentacion)); //escribiendo el archivo en la carpeta de respaldo
+                                            }
+
+                                            if(p_inst.manual != "")
+                                            {
+                                                manual = p_inst.manual;
+                                                nombrearchivo = Path.GetFileName(manual);
+                                                p_inst.manual = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                                File.WriteAllBytes(p_inst.manual, Helper.DocToByteArray(manual)); //escribiendo el archivo en la carpeta de respaldo
+
+                                            }
+
+                                            if(p_inst.bitacora != "")
+                                            {
+                                                bitacora = p_inst.bitacora;
+                                                nombrearchivo = Path.GetFileName(bitacora);
+                                                p_inst.bitacora = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                                File.WriteAllBytes(p_inst.bitacora, Helper.DocToByteArray(bitacora)); //escribiendo el archivo en la carpeta de respaldo
+
+                                            }
+
                                             conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
@@ -2025,6 +2083,9 @@ namespace UCS_NODO_FGC
                                 {
                                     MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "', id_ref1='" + id_refrigerio + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoTerceraEtapa.Close();
+
+                                    MySqlDataReader refri = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio + "')");
+                                    refri.Close();
                                 }
                                 else
                                 {
@@ -2136,14 +2197,18 @@ namespace UCS_NODO_FGC
                                     ////se actualiza la informacion del curso con los valores nuevos: 
                                     if (id_refrigerio > 0)
                                     {
-                                        MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "', id_ref1='" + id_refrigerio + "' WHERE id_cursos='" + id_curso + "'");
+                                        MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "', id_ref1='" + id_refrigerio + "',id_ref2='" + id_refrigerio2 + "' WHERE id_cursos='" + id_curso + "'");
                                         ActualizarCursoTerceraEtapa.Close();
+
+                                        MySqlDataReader refri = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio + "')");
+                                        refri.Close();
+                                        MySqlDataReader refri2 = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio2 + "')");
+                                        refri2.Close();
                                     }
                                     else
                                     {
-                                        MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "' WHERE id_cursos='" + id_curso + "'");
+                                        MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "' WHERE id_cursos='" + id_curso + "'");
                                         ActualizarCursoTerceraEtapa.Close();
-
                                     }
                                     MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -2234,6 +2299,8 @@ namespace UCS_NODO_FGC
                                 {
                                     MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "', id_ref1='" + id_refrigerio + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoTerceraEtapa.Close();
+                                    MySqlDataReader refri = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio + "')");
+                                    refri.Close();
                                 }
                                 else
                                 {
@@ -2360,14 +2427,17 @@ namespace UCS_NODO_FGC
 
                                             if (id_refrigerio > 0)
                                             {
-                                                MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "', id_ref1='" + id_refrigerio + "' WHERE id_cursos='" + id_curso + "'");
-                                                ActualizarCursoTerceraEtapa.Close();
+                                                MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "', id_ref1='" + id_refrigerio + "',id_ref2='" + id_refrigerio2 + "' WHERE id_cursos='" + id_curso + "'");
+                                                ActualizarCursoTerceraEtapa.Close();                                                
+                                                MySqlDataReader refri = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio + "')");
+                                                refri.Close();
+                                                MySqlDataReader refri2 = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio2 + "')");
+                                                refri2.Close();
                                             }
                                             else
                                             {
-                                                MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', aula_dia1='" + aula + "' WHERE id_cursos='" + id_curso + "'");
+                                                MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "' WHERE id_cursos='" + id_curso + "'");
                                                 ActualizarCursoTerceraEtapa.Close();
-                                               
                                             }
                                             MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
                                         }
@@ -2401,46 +2471,53 @@ namespace UCS_NODO_FGC
         #region MODIFICAR
         private void Modificar_intermedio()
         {
+            
+
             GuardarIntermedio();
-
-            FinalE2 = DateTime.Now;
-
-            formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
-
-            MySqlDataReader e2 = Conexion.ConsultarBD("SELECT duracionE2 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
-            if (e2.Read())
+            if (guardar == true)
             {
-                string duracion = Convert.ToString(e2["duracionE2"]);
+                FinalE2 = DateTime.Now;
 
-                TimeSpan et2;
-                et2 = TimeSpan.Parse(duracion);
+                formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
 
-                TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
+                MySqlDataReader e2 = Conexion.ConsultarBD("SELECT duracionE2 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
+                if (e2.Read())
+                {
+                    string duracion = Convert.ToString(e2["duracionE2"]);
 
-                formacion.TiempoEtapa = (tt + et2).ToString();
-                //formacion.TiempoEtapa= Convert.ToString();
+                    TimeSpan et2;
+                    et2 = TimeSpan.Parse(duracion);
 
-            }
-            e2.Close();
+                    TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
 
-            //se actualiza el tiempo en el que se trabajó en la formacion
-            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-            update.Close();
+                    formacion.TiempoEtapa = (tt + et2).ToString();
+                    //formacion.TiempoEtapa= Convert.ToString();
 
-            //se agrega la modificacion en la tabla
-            conexion.cerrarconexion();
-            if (conexion.abrirconexion() == true)
-            {
-                int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE2, FinalE2);
+                }
+                e2.Close();
+
+                //se actualiza el tiempo en el que se trabajó en la formacion
+                MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                update.Close();
+
+                //se agrega la modificacion en la tabla
                 conexion.cerrarconexion();
-                btnModificar.Enabled = false;
+                if (conexion.abrirconexion() == true)
+                {
+                    int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE2, FinalE2);
+                    conexion.cerrarconexion();
+                    btnModificar.Enabled = false;
 
+                }
+                btnModificar.Enabled = false;
+                btnPausar.Enabled = false;
+                btnSiguienteEtapa.Enabled = true;
+                btnRetomar.Enabled = true;
+                deshabilitarControlesIntermedio();
+                btnCorreoAdministracion.Enabled = true;
+                btnCorreoFacilitadores.Enabled = true;
             }
-            btnModificar.Enabled = false;
-            btnPausar.Enabled = false;
-            btnSiguienteEtapa.Enabled = true;
-            btnRetomar.Enabled = true;
-            deshabilitarControlesIntermedio();
+            
         }
         private void Modificar_avanzado()
         {
@@ -2448,6 +2525,8 @@ namespace UCS_NODO_FGC
             MySqlDataReader del = Conexion.ConsultarBD("delete from cursos_tienen_insumos where cti_id_curso='" + Cursos.id_curso13 + "'");
             del.Close();
 
+            MySqlDataReader del1 = Conexion.ConsultarBD("delete from cursos_tienen_refrigerios where cursos_id_cursos ='" + Cursos.id_curso13 + "'");
+            del1.Close();
             GuardarAvanzado(); 
                       
             FinalE3 = DateTime.Now;
@@ -2898,6 +2977,8 @@ namespace UCS_NODO_FGC
                             btnModificar.Enabled = false;
                             btnRetomar.Enabled = false;
                             btnGuardar.Enabled = false;
+                            btnCorreoAdministracion.Enabled = true;
+                            btnCorreoFacilitadores.Enabled = true;
                         }
                     }
                     else
@@ -3249,33 +3330,38 @@ namespace UCS_NODO_FGC
                 if(Cursos.etapa_formacion13 == 1)
                 {
                     GuardarIntermedio();
-
-                    FinalE2 = DateTime.Now;
-
-                    formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
-                    //se actualiza el tiempo en el que se trabajó en la formacion
-                    MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-                    update.Close();
-
-                    //se agrega la modificacion en la tabla
-                    conexion.cerrarconexion();
-                    if (conexion.abrirconexion() == true)
+                    if (guardar == true)
                     {
-                        int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                        FinalE2 = DateTime.Now;
+
+                        formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
+                        //se actualiza el tiempo en el que se trabajó en la formacion
+                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                        update.Close();
+
+                        //se agrega la modificacion en la tabla
                         conexion.cerrarconexion();
+                        if (conexion.abrirconexion() == true)
+                        {
+                            int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                            conexion.cerrarconexion();
+                            btnModificar.Enabled = false;
+
+                        }
+
                         btnModificar.Enabled = false;
+                        btnPausar.Enabled = false;
 
+                        btnSiguienteEtapa.Enabled = true;
+                        btnRetomar.Enabled = true;
+                        deshabilitarControlesIntermedio();
+
+
+                        Cursos.etapa_formacion13 = 2;
+                        btnCorreoFacilitadores.Enabled = true;
+                        btnCorreoAdministracion.Enabled = true;
                     }
-
-                    btnModificar.Enabled = false;
-                    btnPausar.Enabled = false;
-
-                    btnSiguienteEtapa.Enabled = true;
-                    btnRetomar.Enabled = true;
-                    deshabilitarControlesIntermedio();
                     
-
-                    Cursos.etapa_formacion13 = 2;
 
                 }
                 else if (Cursos.etapa_formacion13 == 2)
@@ -3631,8 +3717,6 @@ namespace UCS_NODO_FGC
                     {
                         
                         contenido = od.FileName;
-                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
-                        contenido = contenido.Replace("\\", "/");
                         p_inst.contenido = contenido;
                         btnVerContenido.Enabled = true;
 
@@ -3669,7 +3753,6 @@ namespace UCS_NODO_FGC
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
                         
                         presentacion = od.FileName;
-                        presentacion = presentacion.Replace("\\", "/");
                         p_inst.presentacion = presentacion;
                         btnVerPresentacion.Enabled = true;
                         
@@ -3713,7 +3796,6 @@ namespace UCS_NODO_FGC
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual                    
                                               
                         bitacora = od.FileName;
-                        bitacora = bitacora.Replace("\\", "/");
                         p_inst.bitacora = bitacora;
                         btnVerBitacora.Enabled = true;
 
@@ -3747,8 +3829,7 @@ namespace UCS_NODO_FGC
                     {
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
                     
-                        manual = od.FileName;
-                        manual = manual.Replace("\\", "/");
+                        manual = od.FileName;                        
                         p_inst.manual = manual;
                         btnVerManual.Enabled = true;
 
@@ -3909,7 +3990,7 @@ namespace UCS_NODO_FGC
                 {
                     llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
                 }
-               // MessageBox.Show(fa.id_facilitador + " idFa true ");
+                MessageBox.Show(fa.id_facilitador + " idFa true ");
             }
             else
             {
@@ -4494,6 +4575,536 @@ namespace UCS_NODO_FGC
         {
             id_horario2 = Convert.ToInt32(cmbxHorario2.SelectedValue);
             formacion.horario2 = cmbxHorario2.Text;
+        }
+
+        #endregion
+
+        /*-----------------------------CORREOS-------------------------------------*/
+        #region GenerarPDF
+        private void generarpdfAdmin()
+        {
+            string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            int cantidad = 0;
+            string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
+            string extension = ".pdf";
+            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
+            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
+            int retorno = dirs.Length;
+            string nuevonombre;
+            while (retorno != 0)
+            {
+                cantidad = cantidad + 1;
+                nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+                string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
+                retorno = check.Length;
+            }
+            nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+            string fileName = Path.Combine(ruta, nuevonombre);
+
+            // aqui se le pasa la ruta completa a nodos para usarla en otro form
+            Nodos.ruta_PDF = fileName;
+
+            byte[] bytesImagen =
+            new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.logo_ucs, typeof(byte[])) as byte[];
+            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(bytesImagen);
+            imagen.Alignment = Element.ALIGN_LEFT;
+            imagen.ScaleToFit(125f, 60F);
+
+            //tabla y celda
+            PdfPTable t, tablaFa, tablaCf;
+            PdfPCell c, c2;
+            //documento
+
+            Document document = new Document(PageSize.LETTER, 50, 50, 50, 50);
+            PdfWriter.GetInstance(document, new FileStream(fileName, FileMode.Create));
+
+            document.Open();
+            //document.Add(imagen);
+
+            t = new PdfPTable(2);
+            t.SetWidthPercentage(new float[] { 300, 300 }, PageSize.LETTER);
+
+            c = new PdfPCell(imagen);
+            c.Border = 0;
+            c.VerticalAlignment = Element.ALIGN_TOP;
+            c.HorizontalAlignment = Element.ALIGN_LEFT;
+            t.AddCell(c);
+
+            var fecha_encabezado = new Paragraph(DateTime.Today.ToShortDateString());
+            c2 = new PdfPCell(fecha_encabezado);
+            c2.Border = 0;
+            c2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            c2.HorizontalAlignment = Element.ALIGN_RIGHT;
+            t.AddCell(c2);
+
+
+            var titulo = new Paragraph("INFORMACIÓN A NODO ADMINISTRACIÓN");
+            titulo.Alignment = 1;//0-Left, 1 middle,2 Right
+
+            document.Add(t);
+            document.Add(titulo);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+
+
+            var Nombre_formacion = new Paragraph("     Nombre de la formación: " + formacion.nombre_formacion + ".");
+
+            document.Add(Nombre_formacion);
+            document.Add(Chunk.NEWLINE);
+
+            var fechainicio = new Paragraph("     Fecha de inicio de la formacion: " + time.fecha_curso + ".");
+
+            document.Add(fechainicio);
+            document.Add(Chunk.NEWLINE);
+
+            var fechaFin = new Paragraph();
+            //comprobacion rapida de fecha2
+            if (formacion.bloque_curso == "2")
+            {
+                fechaFin.Add("     Fecha de culminación de la formación: " + time.fechaDos_curso + ".");
+            }
+            else if (formacion.bloque_curso == "1")
+            {
+                fechaFin.Add("     Fecha de culminación de la formación: " + time.fecha_curso + ".");
+            }
+
+            document.Add(fechaFin);
+            document.Add(Chunk.NEWLINE);
+
+            var facilitador = new Paragraph("     Facilitador");
+
+            document.Add(facilitador);
+            document.Add(Chunk.NEWLINE);
+
+            //tabla con datos de facilitador:
+            tablaFa = new PdfPTable(1);
+            tablaFa.WidthPercentage = 100;
+
+            var nombreFa = new Paragraph("             - Nombre completo: " + cmbxFa.Text + ".");
+            PdfPCell c1 = new PdfPCell(nombreFa);
+            c1.Border = 0;
+            tablaFa.AddCell(c1);
+
+            var tlfnFa = new Paragraph("             - Teléfono: " + txtTlfnFa.Text + ".");
+            c1 = new PdfPCell(tlfnFa);
+            c1.Border = 0;
+            tablaFa.AddCell(c1);
+
+            var correoFa = new Paragraph("             - Correo electrónico: " + txtCorreoFa.Text);
+            c1 = new PdfPCell(correoFa);
+            c1.Border = 0;
+            tablaFa.AddCell(c1);
+
+            //obtener la ubicacion del facilitador:
+            string ubicacion = "";
+            MySqlDataReader datos = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + fa.id_facilitador + "'");
+            if (datos.Read())
+            {
+                ubicacion = Convert.ToString(datos["ubicacion_fa"]);
+            }
+            datos.Close();
+
+            var ubicacionFa = new Paragraph("             - Ubicación: " + ubicacion + ".");
+            c1 = new PdfPCell(ubicacionFa);
+            c1.Border = 0;
+            tablaFa.AddCell(c1);
+
+            document.Add(tablaFa);
+
+
+            var cofa = new Paragraph();
+            //comprobacion rápida de cofa:
+            if (chkbCoFacilitador.Checked == false)
+            {
+                cofa.Add("     Co-Facilitador: No aplica.");
+            }
+            else
+            {
+                cofa.Add("     Co-Facilitador: " + cmbxCoFa.Text + ".");
+                document.Add(Chunk.NEWLINE);
+                document.Add(cofa);
+                document.Add(Chunk.NEWLINE);
+                //tabla con datos de COfacilitador:
+                tablaCf = new PdfPTable(1);
+                tablaCf.WidthPercentage = 100;
+                var nombrecf = new Paragraph("             - Nombre completo: " + cmbxFa.Text + ".");
+                PdfPCell cel = new PdfPCell(nombrecf);
+                cel.Border = 0;
+                tablaCf.AddCell(cel);
+
+                var tlfncf = new Paragraph("             - Teléfono: " + txtTlfnFa.Text + ".");
+                cel = new PdfPCell(tlfncf);
+                cel.Border = 0;
+                tablaCf.AddCell(cel);
+
+                var correocf = new Paragraph("             - Correo electrónico: " + txtCorreoFa.Text);
+                cel = new PdfPCell(correocf);
+                cel.Border = 0;
+                tablaCf.AddCell(cel);
+
+                //obtener la ubicacion del facilitador:
+                string ubicacionc = "";
+                MySqlDataReader datosc = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + Cofa.id_facilitador + "'");
+                if (datosc.Read())
+                {
+                    ubicacionc = Convert.ToString(datosc["ubicacion_fa"]);
+                }
+                datosc.Close();
+
+                var ubicacioncf = new Paragraph("             - Ubicación: " + ubicacionc + ".");
+                cel = new PdfPCell(ubicacioncf);
+                cel.Border = 0;
+                tablaCf.AddCell(cel); ;
+
+                document.Add(tablaCf);
+
+            }
+
+
+            var emitido = new Paragraph("Emitido por: " + Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario + ", " + Usuario_logeado.cargo_usuario + " del Nodo de Formación.");
+
+
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(emitido);
+
+
+
+            document.Close();
+            ////opcional, para mostrar luego de hacerse
+            //Process prc = new System.Diagnostics.Process();
+            //prc.StartInfo.FileName = fileName;
+            //prc.Start();
+        }
+
+        private void GenerarPDFFacilitador()
+        {
+            string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            int cantidad = 0;
+            string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
+            string extension = ".pdf";
+            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
+            //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
+            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
+            int retorno = dirs.Length;
+            string nuevonombre;
+            while (retorno != 0)
+            {
+                cantidad = cantidad + 1;
+                nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+                string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
+                retorno = check.Length;
+            }
+            nuevonombre = nombre_reporte + cantidad.ToString() + extension;
+            string fileName = Path.Combine(ruta, nuevonombre);
+
+            // aqui se le pasa la ruta completa a nodos para usarla en otro form
+            Nodos.ruta_PDF = fileName;
+
+            //imagen en encabezado
+            byte[] bytesImagen =
+            new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.logo_ucs, typeof(byte[])) as byte[];
+            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(bytesImagen);
+            imagen.Alignment = Element.ALIGN_LEFT;
+            imagen.ScaleToFit(125f, 60F);
+
+            //tabla y celda
+            PdfPTable t;
+            PdfPCell c, c2;
+            //documento
+
+            Document document = new Document(PageSize.LETTER, 50, 50, 50, 50);
+            PdfWriter.GetInstance(document, new FileStream(fileName, FileMode.Create));
+            document.Open();
+
+            t = new PdfPTable(2);
+            t.SetWidthPercentage(new float[] { 300, 300 }, PageSize.LETTER);
+
+            c = new PdfPCell(imagen);
+            c.Border = 0;
+            c.VerticalAlignment = Element.ALIGN_TOP;
+            c.HorizontalAlignment = Element.ALIGN_LEFT;
+            t.AddCell(c);
+
+            var fecha_encabezado = new Paragraph(DateTime.Today.ToShortDateString());
+            c2 = new PdfPCell(fecha_encabezado);
+            c2.Border = 0;
+            c2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            c2.HorizontalAlignment = Element.ALIGN_RIGHT;
+            t.AddCell(c2);
+
+
+
+            var parrafo3 = new Paragraph("INFORMACIÓN DEL CURSO: " + txtNombreFormacion.Text);
+            parrafo3.Alignment = 1;//0-Left, 1 middle,2 Right
+
+            var Nombre_formacion = new Paragraph("     Nombre de la formación: " + formacion.nombre_formacion + ".");
+            var solicitante = new Paragraph("     Empresa solicitante: " + formacion.solicitado + ".");
+            var fechainicio = new Paragraph("     Fecha de inicio de la formacion: " + time.fecha_curso + ".");
+
+            var fechaFin = new Paragraph();
+            //comprobacion rapida de fecha2
+            if (formacion.bloque_curso == "2")
+            {
+                fechaFin.Add("     Fecha de culminación de la formación: " + time.fechaDos_curso + ".");
+            }
+
+            var facilitador = new Paragraph("     Facilitador a cargo: " + cmbxFa.Text + ".");
+
+            document.Add(t);
+            document.Add(parrafo3);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+
+            document.Add(Nombre_formacion);
+            document.Add(Chunk.NEWLINE);
+            document.Add(fechainicio);
+            document.Add(Chunk.NEWLINE);
+            document.Add(fechaFin);
+            document.Add(Chunk.NEWLINE);
+            document.Add(facilitador);
+
+            var cofa = new Paragraph();
+            //comprobacion rápida de cofa:
+            if (chkbCoFacilitador.Checked == false)
+            {
+                cofa.Add("     Co-Facilitador: No aplica.");
+            }
+            else
+            {
+                cofa.Add("     Co-Facilitador: " + cmbxCoFa.Text + ".");
+                document.Add(Chunk.NEWLINE);
+                document.Add(cofa);
+                document.Add(Chunk.NEWLINE);
+            }
+
+            var emitido = new Paragraph("Emitido por: " + Usuario_logeado.nombre_usuario + " " + Usuario_logeado.apellido_usuario + ", " + Usuario_logeado.cargo_usuario + " del Nodo de Formación.");
+
+
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(Chunk.NEWLINE);
+            document.Add(emitido);
+
+
+
+            document.Close();
+            ////opcional, para mostrar luego de hacerse
+            //Process prc = new System.Diagnostics.Process();
+            //prc.StartInfo.FileName = fileName;
+            //prc.Start();
+        }
+        #endregion
+
+
+        #region envio correo
+        private bool AccesoInternet()
+        {
+
+            try
+            {
+                System.Net.IPHostEntry host = System.Net.Dns.GetHostEntry("www.google.com");
+                return true;
+
+            }
+            catch (Exception es)
+            {
+
+                return false;
+            }
+
+        }
+        public Stream GetStreamFile(string filePath)
+        {
+            using (FileStream fileStream = File.OpenRead(filePath))
+            {
+                MemoryStream memStream = new MemoryStream();
+                memStream.SetLength(fileStream.Length);
+                fileStream.Read(memStream.GetBuffer(), 0, (int)fileStream.Length);
+
+                return memStream;
+            }
+        }
+        private void EnviarCorreo(string correo, string asuntos, string ruta)
+        {
+            //consiste basicamente en obtener el pdf creado (desde la ruta ya establecida) y anexarlo a un formato de correo simple:
+
+            String asunto = asuntos;
+            String mensaje = "Saludos cordiales. Se adjunta información pertinente al curso de formación: " + formacion.nombre_formacion + ".";
+            String destintario = correo;
+            String remitente = "soporteucs@gmail.com";
+            MailMessage msg = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+            msg.To.Add(destintario);
+
+            msg.Attachments.Add(new Attachment(GetStreamFile(ruta), Path.GetFileName(ruta), "application/pdf"));
+
+            msg.From = new MailAddress(remitente, "Nodo de Formación", System.Text.Encoding.UTF8);
+            msg.Subject = asunto;
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = mensaje;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+            msg.IsBodyHtml = false;
+
+            smtp.Credentials = new System.Net.NetworkCredential(remitente, "ucs.29933526"); //entre comillas va el password de ese correo electronico
+            smtp.Port = 587;
+            smtp.Host = "smtp.gmail.com";
+            smtp.EnableSsl = true;
+            try
+            {
+                Task.Run(() =>
+                {
+                    smtp.Send(msg);
+                    msg.Dispose();
+                    MessageBox.Show("Correo enviado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                );
+
+                MessageBox.Show("Esta tarea puede tardar algunos minutos, por favor espere.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al enviar el correo electrónico: " + ex.Message + " Intentelo más tarde.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void EnviarCorreoFacilitador(string correo)
+        {
+            //int id_paquete = 0;
+            //conexion.cerrarconexion();
+            //if (conexion.abrirconexion() == true)
+            //    id_paquete = Clases.Formaciones.ObtenerIdPaquete(conexion.conexion, p_inst);
+            //conexion.cerrarconexion();
+            //consiste basicamente en obtener el pdf creado (desde la ruta ya establecida) y anexarlo a un formato de correo simple:
+
+            String asunto = "Información y formatos del curso " + formacion.nombre_formacion + ".";
+            String mensaje = "Saludos cordiales. Se adjunta información pertinente al curso de formación: " + formacion.nombre_formacion + ".";
+            String destintario = correo;
+            String remitente = "soporteucs@gmail.com";
+            MailMessage msg = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+            msg.To.Add(destintario);
+
+            //primero se añade el pdf creado con la informacion general
+            msg.Attachments.Add(new Attachment(GetStreamFile(Nodos.ruta_PDF), Path.GetFileName(Nodos.ruta_PDF), "application/pdf"));
+
+            //luego el contenido
+            msg.Attachments.Add(new Attachment(GetStreamFile(p_inst.contenido), Path.GetFileName(p_inst.contenido), "application/pdf"));
+            if (p_inst.manual != "")
+            {
+                msg.Attachments.Add(new Attachment(GetStreamFile(p_inst.manual), Path.GetFileName(p_inst.manual), "application/pdf"));
+            }
+            
+            if (p_inst.presentacion != "")
+            {
+                msg.Attachments.Add(new Attachment(GetStreamFile(p_inst.presentacion), Path.GetFileName(p_inst.presentacion), "application/pdf"));
+            }
+            if (p_inst.bitacora != "")
+            {
+                msg.Attachments.Add(new Attachment(GetStreamFile(p_inst.bitacora), Path.GetFileName(p_inst.bitacora), "application/pdf"));
+            }
+            msg.From = new MailAddress(remitente, "Nodo de Formación", System.Text.Encoding.UTF8);
+            msg.Subject = asunto;
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = mensaje;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+            msg.IsBodyHtml = false;
+
+            smtp.Credentials = new System.Net.NetworkCredential(remitente, "ucs.29933526"); //entre comillas va el password de ese correo electronico
+            smtp.Port = 587;
+            smtp.Host = "smtp.gmail.com";
+            smtp.EnableSsl = true;
+            try
+            {
+                Task.Run(() =>
+                {
+                    smtp.Send(msg);
+                    msg.Dispose();
+                    MessageBox.Show("Correo enviado.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                );
+
+                MessageBox.Show("Esta tarea puede tardar algunos minutos, por favor espere.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al enviar el correo electrónico: " + ex.Message + " Intentelo más tarde.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+        #endregion
+
+        #region BTN CORREOS
+        private void btnCorreoAdministrador_Click(object sender, EventArgs e)
+        {
+            Nodos.nombre_nodo = "Administración";
+
+            generarpdfAdmin();
+            MessageBox.Show("Se ha generado un PDF con información del curso.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            MySqlDataReader mail = Conexion.ConsultarBD("select * from nodos where nombre_nodo='Administración'");
+            if (mail.Read())
+            {
+                int mantiene = Convert.ToInt32(mail["mantener"]);
+                if (mantiene == 1)
+                {
+                    Nodos.correo_ndoo = mail["correo_nodo"].ToString();
+                    string asunt = "Datos de la formación " + formacion.nombre_formacion + " y facilitadores.";
+                    //si hay correo predeterminado, se envia automaticamente y mensaje de generacion de informe!
+                    if (AccesoInternet())
+                    {
+                        EnviarCorreo(Nodos.correo_ndoo, asunt, Nodos.ruta_PDF);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //Hay correo, pero no se mantiene, abrir el form donde pregunta el destinatario
+                    Nodos.mantener = 0;
+                    Nodos.formacion_nombre = formacion.nombre_formacion; //aqui se le pasa el nombre para usarlo en el form correo_destinatario
+                    Nodos.correo_ndoo = mail["correo_nodo"].ToString();
+                    Correo_destinatario destinatario = new Correo_destinatario();
+                    destinatario.ShowDialog();
+                }
+            }
+            else
+            {
+                //SI NO SE ENCUENTRA CORREO ALGUNO, MOSTRAR EL FORM DE DESTINATARIO
+                Nodos.mantener = 0;
+                Nodos.formacion_nombre = formacion.nombre_formacion; //aqui se le pasa el nombre para usarlo en el form correo_destinatario
+                Nodos.correo_ndoo = "NO HAY CORREO";
+                Correo_destinatario destinatario = new Correo_destinatario();
+                destinatario.ShowDialog();
+            }
+            mail.Close();
+        }
+
+        private void btnCorreoFacilitador_Click(object sender, EventArgs e)
+        {
+            GenerarPDFFacilitador();
+            MessageBox.Show("Se ha generado un PDF con información del curso.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //si hay correo predeterminado, se envia automaticamente y mensaje de generacion de informe!
+            if (AccesoInternet())
+            {
+
+                EnviarCorreoFacilitador(txtCorreoFa.Text);
+            }
+            else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion

@@ -1053,6 +1053,10 @@ namespace UCS_NODO_FGC
                                     {
                                         errorProviderContenido.SetError(btnRutaContenido, "");
                                         string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+                                        
+                                        presentacion = presentacion.Replace("\\", "/");
+                                        contenido = contenido.Replace("\\", "/");
+
                                         p_inst.bitacora = "";
                                         p_inst.manual = "";
 
@@ -1088,7 +1092,7 @@ namespace UCS_NODO_FGC
                                                 presentacion = p_inst.presentacion;
                                                 nombrearchivo = Path.GetFileName(presentacion);
                                                 p_inst.presentacion = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
-                                                File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(presentacion)); //escribiendo el archivo en la carpeta de respaldo
+                                                File.WriteAllBytes(p_inst.presentacion, Helper.DocToByteArray(presentacion)); //escribiendo el archivo en la carpeta de respaldo
                                             }
 
                                             conexion.cerrarconexion();
@@ -2710,8 +2714,6 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
-                        contenido = contenido.Replace("\\", "/");
                         p_inst.contenido =contenido;
                         btnVerContenido.Enabled = true;
                        
@@ -2747,7 +2749,6 @@ namespace UCS_NODO_FGC
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
 
                         presentacion = od.FileName;
-                        presentacion = presentacion.Replace("\\", "/");
                         p_inst.presentacion = presentacion;
                         btnVerPresentacion.Enabled = true;
                     }

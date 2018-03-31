@@ -897,6 +897,10 @@ namespace UCS_NODO_FGC
                                 else
                                 {
                                     errorProviderContenido.SetError(btnRutaContenido, "");
+                                    string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Paquete_instruccional\\";
+                                    bitacora = bitacora.Replace("\\", "/");
+                                    presentacion = presentacion.Replace("\\", "/");
+                                    contenido = contenido.Replace("\\", "/");
                                     if (btnVerPresentacion.Enabled == false)
                                     {
                                         p_inst.presentacion = "";
@@ -918,6 +922,30 @@ namespace UCS_NODO_FGC
                                     if (p_inst.id_pinstruccional == 0)
                                     {
                                         int resultado2 = 0;
+
+                                        contenido = p_inst.contenido;
+                                        string nombrearchivo = Path.GetFileName(p_inst.contenido);
+                                        p_inst.contenido = Path.Combine(ruta, nombrearchivo);  //actualizando ruta del archivo
+                                        File.WriteAllBytes(p_inst.contenido, Helper.DocToByteArray(contenido)); //escribiendo el archivo en la carpeta de respaldo
+
+                                        if (p_inst.presentacion != "")
+                                        {
+                                            presentacion = p_inst.presentacion;
+                                            nombrearchivo = Path.GetFileName(presentacion);
+                                            p_inst.presentacion = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                            File.WriteAllBytes(p_inst.presentacion, Helper.DocToByteArray(presentacion)); //escribiendo el archivo en la carpeta de respaldo
+                                        }
+
+
+                                        if (p_inst.bitacora != "")
+                                        {
+                                            bitacora = p_inst.bitacora;
+                                            nombrearchivo = Path.GetFileName(bitacora);
+                                            p_inst.bitacora = Path.Combine(ruta, nombrearchivo); //actualizando ruta del archivo
+                                            File.WriteAllBytes(p_inst.bitacora, Helper.DocToByteArray(bitacora)); //escribiendo el archivo en la carpeta de respaldo
+
+                                        }
+
                                         conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                             resultado2 = Formaciones.GuardarPaqueteInstruccional(conexion.conexion, p_inst);
@@ -2410,8 +2438,6 @@ namespace UCS_NODO_FGC
                     if (od.ShowDialog() == DialogResult.OK)
                     {
                         contenido = od.FileName;
-                        //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
-                        contenido = contenido.Replace("\\", "/");
                         p_inst.contenido = contenido;
                         btnVerContenido.Enabled = true;
 
@@ -2447,7 +2473,6 @@ namespace UCS_NODO_FGC
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
 
                         presentacion = od.FileName;
-                        presentacion = presentacion.Replace("\\", "/");
                         p_inst.presentacion = presentacion;
                         btnVerPresentacion.Enabled = true;
                     }
@@ -2488,7 +2513,6 @@ namespace UCS_NODO_FGC
                         //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual                    
 
                         bitacora = od.FileName;
-                        bitacora = bitacora.Replace("\\", "/");
                         p_inst.bitacora = bitacora;
                         btnVerBitacora.Enabled = true;
 

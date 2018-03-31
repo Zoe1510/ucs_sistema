@@ -1423,10 +1423,15 @@ namespace UCS_NODO_FGC
                                 }
 
                                 ////se actualiza la informacion del curso con los valores nuevos: 
-                                if (gpbSeleccionRef.Enabled==true)
+                                if (id_refrigerio > 0)
                                 {
                                     MySqlDataReader ActualizarCursoTerceraEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='3', horario_uno='" + id_horario + "', horario_dos='" + id_horario2 + "', aula_dia1='" + aula + "', aula_dia2='" + aula2 + "', id_ref1='" + id_refrigerio + "',id_ref2='" + id_refrigerio2 + "' WHERE id_cursos='" + id_curso + "'");
                                     ActualizarCursoTerceraEtapa.Close();
+
+                                    MySqlDataReader refri = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio + "')");
+                                    refri.Close();
+                                    MySqlDataReader refri2 = Conexion.ConsultarBD("insert into cursos_tienen_refrigerios (cursos_id_cursos, refrigerios_id_ref) values ('" + id_curso + "', '" + id_refrigerio2 + "')");
+                                    refri2.Close();
                                 }
                                 else
                                 {
@@ -1908,7 +1913,7 @@ namespace UCS_NODO_FGC
         {
             if (pnlNivel_basico.Visible == true)
             {
-                MessageBox.Show("hey");
+                
                 GuardarBasico();
                 if (guardar == true)
                 {
@@ -1920,8 +1925,7 @@ namespace UCS_NODO_FGC
                     btnRetomar.Enabled = false;
                     btnGuardar.Enabled = false;
                     gpbCorreos.Enabled = true;
-                    btnCorreoAdministracion.Enabled = true;
-                    btnCorreoFacilitador.Enabled = true;
+                    
                     
                 }
             }
@@ -1943,6 +1947,9 @@ namespace UCS_NODO_FGC
                     btnRetomar.Enabled = false;
                     btnGuardar.Enabled = false;
                     gpbCorreos.Enabled = true;
+
+                    btnCorreoAdministracion.Enabled = true;
+                    btnCorreoFacilitador.Enabled = true;
                     //para saber si las opciones de refrigerio estarán disponibles o no
                     if (rdbNoRef.Checked == true)
                     {
