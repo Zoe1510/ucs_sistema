@@ -1465,21 +1465,8 @@ namespace UCS_NODO_FGC
 
                                     GuardarAfiE2();
 
-                                    // si el checkbox esta seleccionado es que tiene co-facilitador
-                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
-                                    else // sino, solo guarda al facilitador
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
+                                    //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                     ordenTerceraEtapa();
@@ -1592,22 +1579,8 @@ namespace UCS_NODO_FGC
 
                                     GuardarAfiE2();
 
-                                    // si el checkbox esta seleccionado es que tiene co-facilitador
-                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
-                                    else // sino, solo guarda al facilitador
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
-
+                                    //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                     ordenTerceraEtapa();
                                     gpbHorarioCurso.Height = 169;
@@ -1718,21 +1691,8 @@ namespace UCS_NODO_FGC
 
                                             GuardarAfiE2();
 
-                                            // si el checkbox esta seleccionado es que tiene co-facilitador
-                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
-                                            else // sino, solo guarda al facilitador
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
+                                            //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                             //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                             ordenTerceraEtapa();
@@ -1756,21 +1716,8 @@ namespace UCS_NODO_FGC
 
                                         GuardarAfiE2();
 
-                                        // si el checkbox esta seleccionado es que tiene co-facilitador
-                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
-                                        else // sino, solo guarda al facilitador
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
+                                        //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     }
                                 }
@@ -1874,21 +1821,8 @@ namespace UCS_NODO_FGC
 
                                             GuardarAfiE2();
 
-                                            // si el checkbox esta seleccionado es que tiene co-facilitador
-                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
-                                            else // sino, solo guarda al facilitador
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
+                                            //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                             if (rdbSiRef.Checked == false)
                                             {
@@ -1937,21 +1871,8 @@ namespace UCS_NODO_FGC
 
                                         GuardarAfiE2();
 
-                                        // si el checkbox esta seleccionado es que tiene co-facilitador
-                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
-                                        else // sino, solo guarda al facilitador
-                                        {
-                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                            FacilitadorCurso.Close();
-                                            guardar = true;
-                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        }
+                                        //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                     }
                                 }
@@ -2473,8 +2394,45 @@ namespace UCS_NODO_FGC
         private void Modificar_intermedio()
         {
             
-
             GuardarIntermedio();
+
+            if (formacion.bloque_curso == "1")
+            {
+                // si el checkbox esta seleccionado es que tiene co-facilitador
+                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+                else // sino, solo guarda al facilitador
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+            }
+            else
+            {
+                // si el checkbox esta seleccionado es que tiene co-facilitador
+                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+                else // sino, solo guarda al facilitador
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+            }
+
             if (guardar == true)
             {
                 FinalE2 = DateTime.Now;
@@ -2973,6 +2931,43 @@ namespace UCS_NODO_FGC
                         MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + duracionE2 + "' where id_cursos='" + formacion.id_curso + "'");
                         update.Close();
 
+                        if (formacion.bloque_curso == "1")
+                        {
+                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                            else // sino, solo guarda al facilitador
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                        }
+                        else
+                        {
+                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                            else // sino, solo guarda al facilitador
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                        }
+
                         if (guardar == true)
                         {
                             btnSiguienteEtapa.Enabled = true;
@@ -3346,6 +3341,45 @@ namespace UCS_NODO_FGC
                 if(Cursos.etapa_formacion13 == 1)
                 {
                     GuardarIntermedio();
+
+
+                    if (formacion.bloque_curso == "1")
+                    {
+                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                        else // sino, solo guarda al facilitador
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                    }
+                    else
+                    {
+                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                        else // sino, solo guarda al facilitador
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                    }
+
                     if (guardar == true)
                     {
                         FinalE2 = DateTime.Now;
@@ -4624,8 +4658,7 @@ namespace UCS_NODO_FGC
 
             // aqui se le pasa la ruta completa a nodos para usarla en otro form
             Nodos.ruta_PDF = fileName;
-            MessageBox.Show(Nodos.ruta_PDF);
-
+           
             byte[] bytesImagen =
             new System.Drawing.ImageConverter().ConvertTo(Properties.Resources.logo_ucs, typeof(byte[])) as byte[];
             iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(bytesImagen);

@@ -1475,22 +1475,8 @@ namespace UCS_NODO_FGC
 
                                     GuardarAfiE2();
 
-                                    // si el checkbox esta seleccionado es que tiene co-facilitador
-                                    if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
-                                    else // sino, solo guarda al facilitador
-                                    {
-                                        MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
-                                        FacilitadorCurso.Close();
-                                        guardar = true;
-                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                    }
-
+                                    //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                     ordenTerceraEtapa();
                                     //llenar el cmbx de horarios:
@@ -1599,25 +1585,13 @@ namespace UCS_NODO_FGC
                                                 ActualizarCursoTieneRef.Close();
                                             }
                                             GuardarAfiE2();
-                                            ////se actualiza la informacion del curso con los valores nuevos: 
+                                            
                                             //se actualiza el curso con los datos obtenidos de la segunda etapa, como las fechas
                                             MySqlDataReader ActualizarCursoSegundaEtapa = Conexion.ConsultarBD("UPDATE cursos SET etapa_curso ='2', fecha_uno='" +time.fecha_curso+ "',fecha_dos='" + time.fechaDos_curso + "', bloque_curso= '" + formacion.bloque_curso + "' WHERE id_cursos='" + id_curso + "'");
                                             ActualizarCursoSegundaEtapa.Close();
-                                            // si el checkbox esta seleccionado es que tiene co-facilitador
-                                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
-                                            else // sino, solo guarda al facilitador
-                                            {
-                                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                                FacilitadorCurso.Close();
-                                                guardar = true;
-                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                            }
+
+                                            //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                             //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                             ordenTerceraEtapa();                                            
@@ -1729,21 +1703,8 @@ namespace UCS_NODO_FGC
 
                                                 GuardarAfiE2();
 
-                                                // si el checkbox esta seleccionado es que tiene co-facilitador
-                                                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                                {
-                                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
-                                                    FacilitadorCurso.Close();
-                                                    guardar = true;
-                                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                }
-                                                else // sino, solo guarda al facilitador
-                                                {
-                                                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
-                                                    FacilitadorCurso.Close();
-                                                    guardar = true;
-                                                    MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                }
+                                                //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                                MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                                 //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
                                                 ordenTerceraEtapa();
@@ -1893,21 +1854,8 @@ namespace UCS_NODO_FGC
 
                                                         GuardarAfiE2();
 
-                                                        // si el checkbox esta seleccionado es que tiene co-facilitador
-                                                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
-                                                        {
-                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
-                                                            FacilitadorCurso.Close();
-                                                            guardar = true;
-                                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                         }
-                                                         else // sino, solo guarda al facilitador
-                                                         {
-                                                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
-                                                            FacilitadorCurso.Close();
-                                                            guardar = true;
-                                                            MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                                         }
+                                                        //la parte de añadir los cursos_tienen_fa está en el evento de guardar en etpa2
+                                                        MessageBox.Show("Los datos se han agregado correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                                         //aqui estaran contemplados los arreglos (visuales y de contenido) de la siguiente etapa
 
@@ -2404,44 +2352,85 @@ namespace UCS_NODO_FGC
 
             GuardarIntermedio();
 
-            FinalE2 = DateTime.Now;
-
-            formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
-
-            MySqlDataReader e2 = Conexion.ConsultarBD("SELECT duracionE2 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
-            if (e2.Read())
+            if (formacion.bloque_curso == "1")
             {
-                string duracion = Convert.ToString(e2["duracionE2"]);
+                // si el checkbox esta seleccionado es que tiene co-facilitador
+                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
 
-                TimeSpan et2;
-                et2 = TimeSpan.Parse(duracion);
+                }
+                else // sino, solo guarda al facilitador
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
 
-                TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
-
-                formacion.TiempoEtapa = (tt + et2).ToString();
-                //formacion.TiempoEtapa= Convert.ToString();
-
+                }
             }
-            e2.Close();
-
-            //se actualiza el tiempo en el que se trabajó en la formacion
-            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-            update.Close();
-
-            conexion.cerrarconexion();
-            //se agrega la modificacion en la tabla
-            if (conexion.abrirconexion() == true)
+            else
             {
-                int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE2, FinalE2);
+                // si el checkbox esta seleccionado es que tiene co-facilitador
+                if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+                else // sino, solo guarda al facilitador
+                {
+                    MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                    FacilitadorCurso.Close();
+                    guardar = true;
+
+                }
+            }
+            if (guardar == true)
+            {
+                FinalE2 = DateTime.Now;
+
+                formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
+
+                MySqlDataReader e2 = Conexion.ConsultarBD("SELECT duracionE2 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
+                if (e2.Read())
+                {
+                    string duracion = Convert.ToString(e2["duracionE2"]);
+
+                    TimeSpan et2;
+                    et2 = TimeSpan.Parse(duracion);
+
+                    TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
+
+                    formacion.TiempoEtapa = (tt + et2).ToString();
+                    //formacion.TiempoEtapa= Convert.ToString();
+
+                }
+                e2.Close();
+
+                //se actualiza el tiempo en el que se trabajó en la formacion
+                MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                update.Close();
+
                 conexion.cerrarconexion();
-                btnModificar.Enabled = false;
+                //se agrega la modificacion en la tabla
+                if (conexion.abrirconexion() == true)
+                {
+                    int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE2, FinalE2);
+                    conexion.cerrarconexion();
+                    btnModificar.Enabled = false;
 
+                }
+                btnModificar.Enabled = false;
+                btnPausar.Enabled = false;
+                btnSiguienteEtapa.Enabled = true;
+                btnRetomar.Enabled = true;
+                deshabilitarControlesIntermedio();
             }
-            btnModificar.Enabled = false;
-            btnPausar.Enabled = false;
-            btnSiguienteEtapa.Enabled = true;
-            btnRetomar.Enabled = true;
-            deshabilitarControlesIntermedio();
+
+           
         }
         private void Modificar_avanzado()
         {
@@ -2453,42 +2442,47 @@ namespace UCS_NODO_FGC
             del1.Close();
 
             GuardarAvanzado();
-            FinalE3 = DateTime.Now;
-            formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
 
-            MySqlDataReader e3 = Conexion.ConsultarBD("SELECT duracionE3 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
-            if (e3.Read())
+            if (guardar == true)
             {
-                string duracion = Convert.ToString(e3["duracionE3"]);
+                FinalE3 = DateTime.Now;
+                formacion.TiempoEtapa = Convert.ToString(FinalE3 - inicioE3);
 
-                TimeSpan et3;
-                et3 = TimeSpan.Parse(duracion);
+                MySqlDataReader e3 = Conexion.ConsultarBD("SELECT duracionE3 from cursos where id_cursos='" + Cursos.id_curso13 + "'");
+                if (e3.Read())
+                {
+                    string duracion = Convert.ToString(e3["duracionE3"]);
 
-                TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
+                    TimeSpan et3;
+                    et3 = TimeSpan.Parse(duracion);
 
-                formacion.TiempoEtapa = (tt + et3).ToString();
-                //formacion.TiempoEtapa= Convert.ToString();
+                    TimeSpan tt = TimeSpan.Parse(formacion.TiempoEtapa);
 
-            }
-            e3.Close();
+                    formacion.TiempoEtapa = (tt + et3).ToString();
+                    //formacion.TiempoEtapa= Convert.ToString();
 
-            //se actualiza el tiempo en el que se trabajó en la formacion
-            MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-            update.Close();
-            
-            conexion.cerrarconexion();
-            //se agrega la modificacion en la tabla
-            if (conexion.abrirconexion() == true)
-            {
-                int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                }
+                e3.Close();
+
+                //se actualiza el tiempo en el que se trabajó en la formacion
+                MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE3='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                update.Close();
+
                 conexion.cerrarconexion();
-                btnModificar.Enabled = false;
+                //se agrega la modificacion en la tabla
+                if (conexion.abrirconexion() == true)
+                {
+                    int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                    conexion.cerrarconexion();
+                    btnModificar.Enabled = false;
 
+                }
+                btnSiguienteEtapa.Enabled = false;
+                btnPausar.Enabled = false;
+                btnRetomar.Enabled = true;
+                deshabilitarControlesAvanzado();
             }
-            btnSiguienteEtapa.Enabled = false;
-            btnPausar.Enabled = false;
-            btnRetomar.Enabled = true;
-            deshabilitarControlesAvanzado();
+            
         }
         #endregion
         /* ------------- Fin Metodos -------------------*/
@@ -2809,6 +2803,44 @@ namespace UCS_NODO_FGC
                         //se actualiza el tiempo en el que se trabajó en la formacion
                         MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + duracionE2 + "' where id_cursos='" + formacion.id_curso + "'");
                         update.Close();
+
+                        if(formacion.bloque_curso == "1")
+                        {
+                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                            else // sino, solo guarda al facilitador
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                        }
+                        else
+                        {
+                            // si el checkbox esta seleccionado es que tiene co-facilitador
+                            if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                            else // sino, solo guarda al facilitador
+                            {
+                                MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + formacion.id_curso + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                                FacilitadorCurso.Close();
+                                guardar = true;
+
+                            }
+                        }
+
                         if (guardar == true)
                         {
                             btnSiguienteEtapa.Enabled = true;
@@ -3467,29 +3499,71 @@ namespace UCS_NODO_FGC
                 if (Cursos.etapa_formacion13 == 1)
                 {
                     GuardarIntermedio();
-                    
-                    FinalE2 = DateTime.Now;
 
-                    formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
-                    //se actualiza el tiempo en el que se trabajó en la formacion
-                    MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
-                    update.Close();
-                    conexion.cerrarconexion();
-                    //se agrega la modificacion en la tabla
-                    if (conexion.abrirconexion() == true)
+                    if (formacion.bloque_curso == "1")
                     {
-                        int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                        else // sino, solo guarda al facilitador
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '0')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                    }
+                    else
+                    {
+                        // si el checkbox esta seleccionado es que tiene co-facilitador
+                        if (chkbCoFacilitador.Checked == true && cmbxCoFa.SelectedIndex != -1)
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_id_cofa, ctf_fecha, ctf_fecha2) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + Cofa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                        else // sino, solo guarda al facilitador
+                        {
+                            MySqlDataReader FacilitadorCurso = Conexion.ConsultarBD("INSERT INTO cursos_tienen_fa (cursos_id_cursos, facilitadores_id_fa, ctf_fecha, ctf_fecha2, ctf_id_cofa) VALUES ('" + Cursos.id_curso13 + "', '" + fa.id_facilitador + "', '" + time.fecha_curso + "', '" + time.fechaDos_curso + "', '0')");
+                            FacilitadorCurso.Close();
+                            guardar = true;
+
+                        }
+                    }
+
+
+                    if (guardar == true)
+                    {
+                        FinalE2 = DateTime.Now;
+
+                        formacion.TiempoEtapa = Convert.ToString(FinalE2 - inicioE2);
+                        //se actualiza el tiempo en el que se trabajó en la formacion
+                        MySqlDataReader update = Conexion.ConsultarBD("UPDATE cursos SET duracionE2='" + formacion.TiempoEtapa + "' where id_cursos='" + Cursos.id_curso13 + "'");
+                        update.Close();
                         conexion.cerrarconexion();
-                        btnModificar.Enabled = false;
+                        //se agrega la modificacion en la tabla
+                        if (conexion.abrirconexion() == true)
+                        {
+                            int agregarUGC = Clases.Formaciones.Agregar_U_MOD_C(conexion.conexion, Cursos.id_curso13, Usuario_logeado.id_usuario, inicioE3, FinalE3);
+                            conexion.cerrarconexion();
+                            btnModificar.Enabled = false;
+
+                        }
+                        btnSiguienteEtapa.Enabled = false;
+                        btnPausar.Enabled = false;
+                        btnRetomar.Enabled = true;
+                        deshabilitarControlesAvanzado();
+                        btnCorreoAdministrador.Enabled = true;
+                        btnCorreoComercializacion.Enabled = true;
+                        Cursos.etapa_formacion13 = 2;
 
                     }
-                    btnSiguienteEtapa.Enabled = false;
-                    btnPausar.Enabled = false;
-                    btnRetomar.Enabled = true;
-                    deshabilitarControlesAvanzado();
-                    btnCorreoAdministrador.Enabled = true;
-                    btnCorreoComercializacion.Enabled = true;
-                    Cursos.etapa_formacion13 = 2;
 
                 }
                 else if (Cursos.etapa_formacion13 == 2)
@@ -4279,7 +4353,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
@@ -4478,7 +4552,7 @@ namespace UCS_NODO_FGC
             int cantidad = 0;
             string nombre_reporte = "Formación (" + formacion.nombre_formacion + ") " + fecha + " ";
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";
+            string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Reportes_emitidos\";
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
             string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
