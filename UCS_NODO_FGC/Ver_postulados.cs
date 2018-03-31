@@ -42,6 +42,7 @@ namespace UCS_NODO_FGC
 
             Datos_envio_correo.idcurso = Cursos.id_curso13;
             Datos_envio_correo.nombreformacion = Cursos.nombre_formacion13;
+
             if (Cursos.estatus_formacion13 != "En curso")
             {
                 btnEliminar.Enabled = false;
@@ -222,11 +223,13 @@ namespace UCS_NODO_FGC
             foreach(DataGridViewRow row in dgvParticipantes.Rows)
             {
                 string correo = Convert.ToString(row.Cells["correo_par"].Value);
+                MessageBox.Show(correo);
                 Datos_envio_correo.correos_participantes.Add(correo);
             }
             Datos_envio_correo.opcion = 1;
             if (AccesoInternet())
             {
+                Datos_envio_correo.idcurso = Cursos.id_curso13;
                 Correo_cuerpo cc = new Correo_cuerpo();
                 cc.ShowDialog();
             }
@@ -244,6 +247,7 @@ namespace UCS_NODO_FGC
             Datos_envio_correo.opcion = 2;
             if (AccesoInternet())
             {
+                Datos_envio_correo.idcurso = Cursos.id_curso13;
                 Correo_cuerpo cc = new Correo_cuerpo();
                 cc.ShowDialog();
             }
@@ -264,6 +268,7 @@ namespace UCS_NODO_FGC
             Datos_envio_correo.opcion = 3;
             if (AccesoInternet())
             {
+                Datos_envio_correo.idcurso = Cursos.id_curso13;
                 Correo_cuerpo cc = new Correo_cuerpo();
                 cc.ShowDialog();
             }else

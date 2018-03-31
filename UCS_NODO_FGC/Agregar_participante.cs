@@ -42,7 +42,7 @@ namespace UCS_NODO_FGC
                 txtNombrePart.Focus();
             }
         }
-         private void txtCedulaPart_Validating(object sender, CancelEventArgs e)
+        private void txtCedulaPart_Validating(object sender, CancelEventArgs e)
         {
             if (Clases.Paneles.comprobarCedula(txtCedulaPart.Text) == true)
             {
@@ -53,7 +53,7 @@ namespace UCS_NODO_FGC
             {
                 cmbNacionalidad.SelectedIndex = 0;
             }
-            if(txtCedulaPart.Text != "" && txtCedulaPart.TextLength >=7)
+            if (txtCedulaPart.Text != "" && txtCedulaPart.TextLength >= 7)
             {
                 errorProviderCI.SetError(txtCedulaPart, "");
                 participante.ci_participante = Convert.ToInt32(txtCedulaPart.Text);
@@ -119,8 +119,8 @@ namespace UCS_NODO_FGC
                             encontrado();
                         }
                     }
-                    
-                                       
+
+
 
                 }
                 else
@@ -134,12 +134,12 @@ namespace UCS_NODO_FGC
 
                     participante.id_participante = 0;
                 }
-            }else
+            } else
             {
                 errorProviderCI.SetError(txtCedulaPart, "Debe proporcionar un número de cédula válido");
                 txtCedulaPart.Focus();
             }
-           
+
         }
 
         private void txtNombrePart_KeyPress(object sender, KeyPressEventArgs e)
@@ -189,10 +189,10 @@ namespace UCS_NODO_FGC
         }
         private void txtApellidoPart_Validating(object sender, CancelEventArgs e)
         {
-            if(txtApellidoPart.Text != "")
+            if (txtApellidoPart.Text != "")
             {
                 errorProviderApellido.SetError(txtApellidoPart, "");
-            }else
+            } else
             {
                 errorProviderApellido.SetError(txtApellidoPart, "Debe proporcionar un apellido válido.");
                 txtApellidoPart.Focus();
@@ -233,7 +233,7 @@ namespace UCS_NODO_FGC
         }
         private void txtCorreo_Validating(object sender, CancelEventArgs e)
         {
-            if (Paneles.ComprobarFormatoEmail(txtCorreoPart.Text) == false || txtCorreoPart.Text=="correo@ejemplo.com")
+            if (Paneles.ComprobarFormatoEmail(txtCorreoPart.Text) == false || txtCorreoPart.Text == "correo@ejemplo.com")
             {
                 errorProviderCorreo.SetError(txtCorreoPart, "Debe proporcionar un correo válido.");
                 txtCorreoPart.Focus();
@@ -279,7 +279,7 @@ namespace UCS_NODO_FGC
 
         private void cmbxTiposFormaciones_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbxTiposFormaciones.SelectedIndex !=-1)
+            if (cmbxTiposFormaciones.SelectedIndex != -1)
             {
                 errorProviderTipoF.SetError(cmbxTiposFormaciones, "");
                 int x = cmbxTiposFormaciones.SelectedIndex;
@@ -344,7 +344,7 @@ namespace UCS_NODO_FGC
 
                 cmbxEmpresaConInce.Items.Clear();
                 cmbxEmpresaConInce.Enabled = false;
-            }else
+            } else
             {
                 errorProviderTipoF.SetError(cmbxTiposFormaciones, "");
                 cmbxFormaciones.Focus();
@@ -355,12 +355,12 @@ namespace UCS_NODO_FGC
         {
             id_curso = Convert.ToInt32(cmbxFormaciones.SelectedValue);
             nombre_formacion = Convert.ToString(cmbxFormaciones.Text);
-           
-            
+
+
             if (cmbxTiposFormaciones.SelectedIndex == 2)
             {
                 MySqlDataReader idince = Conexion.ConsultarBD("SELECT id_curso_ince FROM cursos_inces WHERE nombre_curso_ince='" + nombre_formacion + "'");
-               
+
                 if (idince.Read())
                 {
                     id_ince = Convert.ToInt32(idince["id_curso_ince"]);
@@ -369,13 +369,14 @@ namespace UCS_NODO_FGC
                 llenarcmbxEmpresaInce(id_ince);
 
             }
-            else if(tipo_formacion == "FEE")
+            else if (tipo_formacion == "FEE")
             {
-                llenarcmbxFEE();                
+                llenarcmbxFEE();
             }
             else if (tipo_formacion == "InCompany")
             {
                 //de acuerdo a la tabla de clientes_soicitan_cursos, sacar la relacion entre el curso escogido y las empresas que lo hayan solicitado
+                llenarcmbxIncompany(id_curso);
             }
             else if (tipo_formacion == "Abierto") //si la formación es de tipo abierto
             {
@@ -386,6 +387,13 @@ namespace UCS_NODO_FGC
                 gpbDatosEmpresa.Enabled = false;
             }
             cmbxEmpresaConInce.Focus();
+        }
+        private void llenarcmbxIncompany(int id_curso)
+        {
+            cmbxEmpresaConInce.ValueMember = "id_clientes";
+            cmbxEmpresaConInce.DisplayMember = "nombre_empresa";
+            cmbxEmpresaConInce.DataSource = seleccionarInC(id_curso);
+            cmbxEmpresaConInce.SelectedIndex = -1;
         }
         private void cmbxEmpresaConInce_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -427,7 +435,7 @@ namespace UCS_NODO_FGC
             {
                 errorProvider2.SetError(cmbxNivelEmpresa, "Debe seleccionar un nivel válido.");
                 cmbxNivelEmpresa.Focus();
-            }else
+            } else
             {
                 errorProvider2.SetError(cmbxNivelEmpresa, "");
             }
@@ -451,17 +459,29 @@ namespace UCS_NODO_FGC
         }
         private void txtCargoEnEmpresa_Validating(object sender, CancelEventArgs e)
         {
-            if(txtCargoEnEmpresa.Text == "")
+            if (txtCargoEnEmpresa.Text == "")
             {
                 errorProvider1.SetError(txtCargoEnEmpresa, "Debe proporcionar un cargo válido.");
                 txtCargoEnEmpresa.Focus();
-            }else
+            } else
             {
                 errorProvider1.SetError(txtCargoEnEmpresa, "");
             }
         }
         /*-------------------------------METODOS----------------------------------------*/
-
+        private List<Empresa> seleccionarInC(int id)
+        {
+            List<Empresa> lista = new List<Empresa>();
+            MySqlDataReader leer = Conexion.ConsultarBD("select nombre_empresa, id_clientes from clientes c inner join clientes_solicitan_cursos csc on c.id_clientes=csc.id_cliente1 where csc.id_curso1='" + id_curso + "'");
+            if (leer.Read())
+            {
+                Empresa e = new Empresa();
+                e.nombre_empresa = leer.GetString(0);
+                e.id_clientes = leer.GetInt32(1);
+                lista.Add(e);
+            }
+            return lista;
+        }
         private List<Empresa> SeleccionarInce(int id)
         {
             
@@ -469,7 +489,7 @@ namespace UCS_NODO_FGC
             MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_cliente1, nombre_empresa FROM clientes_solicitan_cursos csc inner join clientes cli on csc.id_cliente1 = cli.id_clientes where csc.id_cursoInce = '" + id + "'");
             while (leer.Read())
             {
-                
+
                 Empresa e = new Empresa();
                 e.id_clientes = Convert.ToInt32(leer["id_cliente1"]);
                 e.nombre_empresa = Convert.ToString(leer["nombre_empresa"]);

@@ -12,6 +12,6 @@ namespace UCS_NODO_FGC.Clases
         public static string nombreformacion { get; set; }
         public static int opcion { get; set; } //0=INVALIDO; 1=correo participante; 2=Correo Facilitador, 3=correo Cliente
         public static int idarea { get; set; }
-        public static List<string> correos_participantes { get; set; }
+        public static List<string> correos_participantes = new List<string>();
     }
 }

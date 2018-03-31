@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -46,21 +46,22 @@
             this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnImprimir
+            // btnEnviar
             // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(182)))), ((int)(((byte)(61)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(182)))), ((int)(((byte)(61)))));
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnImprimir.Location = new System.Drawing.Point(193, 391);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(176, 53);
-            this.btnImprimir.TabIndex = 9;
-            this.btnImprimir.Text = "Enviar";
-            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(182)))), ((int)(((byte)(61)))));
+            this.btnEnviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviar.Enabled = false;
+            this.btnEnviar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(182)))), ((int)(((byte)(61)))));
+            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviar.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
+            this.btnEnviar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEnviar.Location = new System.Drawing.Point(193, 391);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(176, 53);
+            this.btnEnviar.TabIndex = 9;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // panel8
             // 
@@ -175,6 +176,7 @@
             this.lblRemoverUltimo.Size = new System.Drawing.Size(125, 19);
             this.lblRemoverUltimo.TabIndex = 73;
             this.lblRemoverUltimo.Text = "Remover último";
+            this.lblRemoverUltimo.Click += new System.EventHandler(this.lblRemoverUltimo_Click);
             // 
             // lblArchivos
             // 
@@ -206,6 +208,7 @@
             this.btnRutaArchivo.Size = new System.Drawing.Size(24, 26);
             this.btnRutaArchivo.TabIndex = 76;
             this.btnRutaArchivo.UseVisualStyleBackColor = true;
+            this.btnRutaArchivo.Click += new System.EventHandler(this.btnRutaArchivo_Click);
             // 
             // Correo_cuerpo
             // 
@@ -224,7 +227,7 @@
             this.Controls.Add(this.txtAsunto);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel8);
-            this.Controls.Add(this.btnImprimir);
+            this.Controls.Add(this.btnEnviar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -240,7 +243,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
@@ -249,11 +252,11 @@
         private System.Windows.Forms.TextBox txtAsunto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMensaje;
-        private System.Windows.Forms.TextBox txtDestinatarios;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblRemoverUltimo;
         private System.Windows.Forms.Label lblArchivos;
         private System.Windows.Forms.Label labelCantidad;
         private System.Windows.Forms.Button btnRutaArchivo;
+        public System.Windows.Forms.TextBox txtDestinatarios;
     }
 }

@@ -20,76 +20,81 @@ namespace UCS_NODO_FGC
 {
     public partial class Correo_cuerpo : Form
     {
+        int cantidad = 0;
+        string ruta = "";
         Facilitadores fa = new Facilitadores();
         Facilitadores cofa = new Facilitadores();
         List<string> correosFa = new List<string>();
         Clientes cliente = new Clientes();
+        List<string> lista_rutas = new List<string>();
         public Correo_cuerpo()
         {
             InitializeComponent();
-        }
-
-        private void Correo_cuerpo_Load(object sender, EventArgs e)
-        {
             //buscando correo de facilitador
             #region search mail
+            Datos_envio_correo.idcurso = Cursos.id_curso13;
+            MessageBox.Show(Datos_envio_correo.idcurso.ToString());
             MySqlDataReader correo = Conexion.ConsultarBD("select facilitadores_id_fa, ctf_id_cofa from cursos_tienen_fa where cursos_id_cursos='" + Datos_envio_correo.idcurso + "'");
             if (correo.Read())
             {
                 fa.id_facilitador = Convert.ToInt32(correo["facilitadores_id_fa"]);
-
-                MySqlDataReader leer = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + fa.id_facilitador + "'");
-                if (leer.Read())
-                {
-                    fa.correo_facilitador = Convert.ToString(leer["correo_fa"]);
-                }
-                leer.Close();
-
-                
+                MessageBox.Show("id del fa: " + fa.id_facilitador.ToString());
             }
             correo.Close();
-
+            MySqlDataReader leer = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + fa.id_facilitador + "'");
+            if (leer.Read())
+            {
+                fa.correo_facilitador = Convert.ToString(leer["correo_fa"]);
+            }
+            leer.Close();
             //buscando correo de cofacilitador
             MySqlDataReader correo2 = Conexion.ConsultarBD("select ctf_id_cofa from cursos_tienen_fa where cursos_id_cursos='" + Datos_envio_correo.idcurso + "'");
             if (correo2.Read())
             {
                 cofa.id_facilitador = Convert.ToInt32(correo["ctf_id_cofa"]);
-                if (cofa.id_facilitador != 0)
-                {
-                    MySqlDataReader leer2 = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + cofa.id_facilitador + "'");
-                    if (leer2.Read())
-                    {
-                        cofa.correo_facilitador = Convert.ToString(leer2["correo_fa"]);
-                    }
-                    leer2.Close();
-                }
-               
+
             }
             else
             {
                 cofa.id_facilitador = 0;
             }
+
+            if (cofa.id_facilitador != 0)
+            {
+                MySqlDataReader leer2 = Conexion.ConsultarBD("select * from facilitadores where id_fa='" + cofa.id_facilitador + "'");
+                if (leer2.Read())
+                {
+                    cofa.correo_facilitador = Convert.ToString(leer2["correo_fa"]);
+                }
+                leer2.Close();
+            }
             #endregion
 
             #region search cliente
-            MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes1 from clientes_solicitan_cursos where id_curso1='" + Datos_envio_correo.idcurso+ "'");
+            MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes1 from clientes_solicitan_cursos where id_curso1='" + Datos_envio_correo.idcurso + "'");
             if (idS.Read())
             {
                 cliente.id_cliente = Convert.ToInt32(idS["id_clientes1"]);
             }
             idS.Close();
 
-            MySqlDataReader correoc = Conexion.ConsultarBD("select * from areas where id_cliente1='" + cliente.id_cliente + "' and nombre_area='"+Cursos.nombre_area+"'");
+            MySqlDataReader correoc = Conexion.ConsultarBD("select * from areas where id_cliente1='" + cliente.id_cliente + "' and nombre_area='" + Cursos.nombre_area + "'");
             if (correoc.Read())
             {
                 cliente.correo_cliente = Convert.ToString(correoc["correo_contacto"]);//esto se usa en opcion 3
             }
             correoc.Close();
             #endregion
-            txtDestinatarios.ReadOnly = true;
+        }
+
+        private void Correo_cuerpo_Load(object sender, EventArgs e)
+        {
+            
+            //txtDestinatarios.ReadOnly = true;
             if (Datos_envio_correo.opcion == 1)
             {
                 txtDestinatarios.Text="Participantes inscritos";
+
             }else if (Datos_envio_correo.opcion == 2)
             {
                 if (cofa.id_facilitador != 0)
@@ -264,5 +269,63 @@ namespace UCS_NODO_FGC
             }
         }
         #endregion
+
+        private void btnRutaArchivo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog od = new OpenFileDialog();
+                od.Filter = "PDF files |*.pdf";
+                if (od.ShowDialog() == DialogResult.OK)
+                {
+                    
+                     ruta= od.FileName;
+                    lista_rutas.Add(ruta);
+                    cantidad += 1;
+                    labelCantidad.Text =cantidad.ToString();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+            
+        }
+
+        private void lblRemoverUltimo_Click(object sender, EventArgs e)
+        {
+            for(int i=0; i < lista_rutas.Count; i++)
+            {
+                if (lista_rutas[i] == ruta)
+                {
+                    lista_rutas.RemoveAt(i);
+                    cantidad = cantidad-1;
+                    labelCantidad.Text = cantidad.ToString();
+                }
+            }
+        }
+        
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            if (AccesoInternet())
+            {
+                if (Datos_envio_correo.opcion == 1)
+                {
+
+                }else if (Datos_envio_correo.opcion == 2)
+                {
+                    
+                    EnviarCorreoFacilitador(txtAsunto.Text, txtMensaje.Text);
+                }else if (Datos_envio_correo.opcion == 3)
+                {
+
+                }
+            }else
+            {
+                MessageBox.Show("No es posible enviar el correo en estos momentos (Verifique su conexión a internet).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
