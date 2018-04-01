@@ -598,9 +598,9 @@
         </TablixRowHierarchy>
         <DataSetName>Detalle</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>2.18198cm</Left>
+        <Left>1.01781cm</Left>
         <Height>1.04124cm</Height>
-        <Width>23.30167cm</Width>
+        <Width>23.30165cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -625,7 +625,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>7.48991cm</Top>
-        <Left>24.57572cm</Left>
+        <Left>23.11058cm</Left>
         <Height>0.57354cm</Height>
         <Width>0.90793cm</Width>
         <ZIndex>1</ZIndex>
@@ -658,7 +658,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>7.48991cm</Top>
-        <Left>1.67928cm</Left>
+        <Left>1.01781cm</Left>
         <Height>0.57354cm</Height>
         <Width>2.0502cm</Width>
         <ZIndex>2</ZIndex>
@@ -689,7 +689,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>7.48991cm</Top>
-        <Left>3.76476cm</Left>
+        <Left>3.10329cm</Left>
         <Height>0.57354cm</Height>
         <Width>4.41729cm</Width>
         <ZIndex>3</ZIndex>
@@ -708,13 +708,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.9375in</Height>
+    <Height>3.42708in</Height>
     <Style />
   </Body>
-  <Width>10.90852in</Width>
+  <Width>9.90793in</Width>
   <Page>
     <PageHeader>
-      <Height>9.05289cm</Height>
+      <Height>8.15333cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -725,7 +725,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>NOMBRE DE FACILITADOR:</Value>
+                  <Value>NOMBRE DEL FACILITADOR:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -735,10 +735,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>4.56062cm</Top>
-          <Left>2.18198cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>1.01781cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.25979cm</Width>
+          <Width>5.54697cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -768,8 +768,8 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>2.09999cm</Top>
-          <Left>6.69689cm</Left>
+          <Top>1.18042cm</Top>
+          <Left>5.07412cm</Left>
           <Height>0.99688cm</Height>
           <Width>14.17694cm</Width>
           <ZIndex>1</ZIndex>
@@ -791,18 +791,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!nombre_facilitador.Value, "dsEncabezado")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>4.56062cm</Top>
-          <Left>6.44177cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>6.74117cm</Left>
           <Height>0.6cm</Height>
-          <Width>6.09833cm</Width>
+          <Width>5.43687cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -834,8 +836,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>4.56062cm</Top>
-          <Left>14.70969cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>14.49802cm</Left>
           <Height>0.6cm</Height>
           <Width>1.0977cm</Width>
           <ZIndex>3</ZIndex>
@@ -870,10 +872,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>4.56062cm</Top>
-          <Left>12.81351cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>12.49601cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.82562cm</Width>
+          <Width>1.93145cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -903,8 +905,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>4.56062cm</Top>
-          <Left>15.98378cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>15.77211cm</Left>
           <Height>0.6cm</Height>
           <Width>2.01083cm</Width>
           <ZIndex>5</ZIndex>
@@ -935,8 +937,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>4.56062cm</Top>
-          <Left>17.99461cm</Left>
+          <Top>3.19126cm</Top>
+          <Left>17.78294cm</Left>
           <Height>0.6cm</Height>
           <Width>1.0977cm</Width>
           <ZIndex>6</ZIndex>
@@ -971,10 +973,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>6.13075cm</Top>
-          <Left>2.18198cm</Left>
+          <Top>4.76139cm</Top>
+          <Left>1.01781cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.59354cm</Width>
+          <Width>8.17562cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -994,18 +996,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!nombre_formacion.Value, "dsEncabezado")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>6.13075cm</Top>
-          <Left>9.77552cm</Left>
+          <Top>4.76139cm</Top>
+          <Left>9.36982cm</Left>
           <Height>0.6cm</Height>
-          <Width>10.23401cm</Width>
+          <Width>9.47554cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -1036,10 +1040,10 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>6.13075cm</Top>
-          <Left>22.3114cm</Left>
+          <Top>4.76139cm</Top>
+          <Left>21.35117cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.17225cm</Width>
+          <Width>2.96831cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -1062,7 +1066,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>DURACIÓN</Value>
+                  <Value>DURACIÓN:</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1072,10 +1076,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>6.13075cm</Top>
-          <Left>20.18592cm</Left>
+          <Top>4.76139cm</Top>
+          <Left>19.02175cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.0902cm</Width>
+          <Width>2.15303cm</Width>
           <ZIndex>10</ZIndex>
           <Style>
             <Border>
@@ -1105,10 +1109,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>5.35437cm</Top>
-          <Left>6.44177cm</Left>
+          <Top>3.98501cm</Top>
+          <Left>5.49954cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.4269cm</Width>
+          <Width>4.77086cm</Width>
           <ZIndex>11</ZIndex>
           <Style>
             <Border>
@@ -1138,8 +1142,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>5.35437cm</Top>
-          <Left>2.18198cm</Left>
+          <Top>3.98501cm</Top>
+          <Left>1.01781cm</Left>
           <Height>0.6cm</Height>
           <Width>3.92419cm</Width>
           <ZIndex>12</ZIndex>
@@ -1171,10 +1175,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>5.35437cm</Top>
-          <Left>10.90395cm</Left>
+          <Top>3.98501cm</Top>
+          <Left>10.69228cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.14086cm</Width>
+          <Width>8.18836cm</Width>
           <ZIndex>13</ZIndex>
           <Style>
             <Border>
@@ -1207,8 +1211,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>5.35437cm</Top>
-          <Left>20.18592cm</Left>
+          <Top>3.98501cm</Top>
+          <Left>19.02175cm</Left>
           <Height>0.6cm</Height>
           <Width>1.00541cm</Width>
           <ZIndex>14</ZIndex>
@@ -1240,8 +1244,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>5.35437cm</Top>
-          <Left>21.29716cm</Left>
+          <Top>3.98501cm</Top>
+          <Left>20.13299cm</Left>
           <Height>0.6cm</Height>
           <Width>4.18649cm</Width>
           <ZIndex>15</ZIndex>
@@ -1276,8 +1280,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>6.90714cm</Top>
-          <Left>2.18198cm</Left>
+          <Top>5.53778cm</Top>
+          <Left>1.01781cm</Left>
           <Height>0.6cm</Height>
           <Width>5.54697cm</Width>
           <ZIndex>16</ZIndex>
@@ -1299,16 +1303,18 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!tipo_formacion.Value, "dsEncabezado")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>6.90714cm</Top>
-          <Left>7.72895cm</Left>
+          <Top>5.53778cm</Top>
+          <Left>6.74117cm</Left>
           <Height>0.6cm</Height>
           <Width>8.07844cm</Width>
           <ZIndex>17</ZIndex>
@@ -1343,10 +1349,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>7.68353cm</Top>
-          <Left>2.18198cm</Left>
+          <Top>6.31417cm</Top>
+          <Left>1.01781cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.62773cm</Width>
+          <Width>3.23627cm</Width>
           <ZIndex>18</ZIndex>
           <Style>
             <Border>
@@ -1366,18 +1372,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!fecha_inicio.Value, "dsEncabezado")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>7.68353cm</Top>
-          <Left>4.82906cm</Left>
+          <Top>6.31417cm</Top>
+          <Left>4.39519cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.41729cm</Width>
+          <Width>4.13678cm</Width>
           <ZIndex>19</ZIndex>
           <Style>
             <Border>
@@ -1410,10 +1418,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>7.68353cm</Top>
-          <Left>9.42274cm</Left>
+          <Top>6.31417cm</Top>
+          <Left>8.70836cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.53273cm</Width>
+          <Width>4.64739cm</Width>
           <ZIndex>20</ZIndex>
           <Style>
             <Border>
@@ -1433,18 +1441,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!fecha_culminacion.Value, "dsEncabezado")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
-                <TextAlign>Left</TextAlign>
+                <TextAlign>Center</TextAlign>
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>7.68353cm</Top>
-          <Left>13.99075cm</Left>
+          <Top>6.31417cm</Top>
+          <Left>13.46158cm</Left>
           <Height>0.6cm</Height>
-          <Width>4.41729cm</Width>
+          <Width>4.06333cm</Width>
           <ZIndex>21</ZIndex>
           <Style>
             <Border>
@@ -1477,10 +1487,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>6.90714cm</Top>
-          <Left>15.98378cm</Left>
+          <Top>5.53778cm</Top>
+          <Left>15.92092cm</Left>
           <Height>0.6cm</Height>
-          <Width>6.86988cm</Width>
+          <Width>5.57342cm</Width>
           <ZIndex>22</ZIndex>
           <Style>
             <Border>
@@ -1508,8 +1518,8 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>6.90714cm</Top>
-          <Left>22.85366cm</Left>
+          <Top>5.53778cm</Top>
+          <Left>21.67073cm</Left>
           <Height>0.6cm</Height>
           <Width>2.63cm</Width>
           <ZIndex>23</ZIndex>
@@ -1544,8 +1554,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>8.2765cm</Top>
-          <Left>18.88422cm</Left>
+          <Top>6.90714cm</Top>
+          <Left>17.7013cm</Left>
           <Height>0.6cm</Height>
           <Width>6.59943cm</Width>
           <ZIndex>24</ZIndex>
@@ -1565,9 +1575,9 @@
           <Value>=First(Fields!Logo.Value, "dsEncabezado")</Value>
           <MIMEType>image/png</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>2.09999cm</Top>
-          <Left>21.36772cm</Left>
-          <Height>3.06063cm</Height>
+          <Top>0.91584cm</Top>
+          <Left>20.20355cm</Left>
+          <Height>2.87542cm</Height>
           <Width>4.11593cm</Width>
           <ZIndex>25</ZIndex>
           <Style>
@@ -1585,10 +1595,10 @@
     </PageHeader>
     <PageHeight>21.59cm</PageHeight>
     <PageWidth>27.94cm</PageWidth>
-    <LeftMargin>0.5cm</LeftMargin>
-    <RightMargin>0.5cm</RightMargin>
-    <TopMargin>0.5cm</TopMargin>
-    <BottomMargin>0.5cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

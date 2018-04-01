@@ -171,7 +171,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
-                conexion.cerrarconexion();
+                //conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     if ((Txt_id_user.Text != "") && (Txt_pass_user.Text != ""))

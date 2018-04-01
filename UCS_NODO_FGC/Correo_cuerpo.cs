@@ -165,7 +165,7 @@ namespace UCS_NODO_FGC
             }
             
 
-            msg.From = new MailAddress(remitente, "Nodo de Formación", System.Text.Encoding.UTF8);
+            msg.From = new MailAddress(remitente, "Universidad Corporativa Sigo", System.Text.Encoding.UTF8);
             msg.Subject = asunto;
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             msg.Body = mensaje;
@@ -233,7 +233,7 @@ namespace UCS_NODO_FGC
             
             
             
-            msg.From = new MailAddress(remitente, "Nodo de Formación", System.Text.Encoding.UTF8);
+            msg.From = new MailAddress(remitente, "Universidad Corporativa Sigo", System.Text.Encoding.UTF8);
             msg.Subject = asunto;
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             msg.Body = mensaje;
@@ -283,7 +283,7 @@ namespace UCS_NODO_FGC
             {
                 msg.Attachments.Add(new Attachment(GetStreamFile(ruta), Path.GetFileName(ruta), "application/pdf"));
             }
-            msg.From = new MailAddress(remitente, "Nodo de Formación", System.Text.Encoding.UTF8);
+            msg.From = new MailAddress(remitente, "Universidad Corporativa Sigo", System.Text.Encoding.UTF8);
             msg.Subject = asunto;
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             msg.Body = mensaje;
