@@ -130,7 +130,7 @@ namespace UCS_NODO_FGC
                     resultado += 1;
                     dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"], b["tlfn_par"], b["nombreE"]);
                     string nombreyapellido = (b["apellido_par"] + " " + b["nombre_par"]).ToString();
-                    MessageBox.Show(nombreyapellido);
+                    //MessageBox.Show(nombreyapellido);
                     pp.nombre_participante = nombreyapellido;
                     pp.apellido_participante = resultado.ToString() ;
                     pp.cedula_participante = b["cedula_par"].ToString();
@@ -223,7 +223,7 @@ namespace UCS_NODO_FGC
             foreach(DataGridViewRow row in dgvParticipantes.Rows)
             {
                 string correo = Convert.ToString(row.Cells["correo_par"].Value);
-                MessageBox.Show(correo);
+                //MessageBox.Show(correo);
                 Datos_envio_correo.correos_participantes.Add(correo);
             }
             Datos_envio_correo.opcion = 1;
