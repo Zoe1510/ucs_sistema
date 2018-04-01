@@ -16,11 +16,14 @@ namespace UCS_NODO_FGC
     {
         string activo = "";
         List<Formaciones> ListaE2SiP = new List<Formaciones>();
-        List<Formaciones> ListaE2NoP = new List<Formaciones>();
+        List<Formaciones> ListaE2NoP = new List<Formaciones>();        
+        List<Formaciones> ListaE2HOY = new List<Formaciones>();
+
         List<Formaciones> ListaE3SiP = new List<Formaciones>();
         List<Formaciones> ListaE3NoP = new List<Formaciones>();
-        List<Formaciones> ListaE2HOY = new List<Formaciones>();
-        
+
+        List<Formaciones> lista_fin = new List<Formaciones>();
+        List<Formaciones> lista_b2 = new List<Formaciones>();
         public Notificaciones()
         {
             InitializeComponent();
@@ -260,6 +263,38 @@ namespace UCS_NODO_FGC
             //aviso para dia antes también de la conexion a internet en el aula correspondiente (si aplica)
             //aviso un dia antes de mobiliario y sonido
             #endregion
+
+            #region ETAPA3 FINALIZADO
+           
+            //para emitir alertas de cierre de formacion            
+
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='1' AND estatus_curso='Finalizado' ");
+            while (leer.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(leer["id_cursos"]);
+                f.dia1 = DateTime.Parse(leer["fecha_uno"].ToString());
+                f.tipo_formacion = Convert.ToString(leer["tipo_curso"]);
+                f.nombre_formacion = Convert.ToString(leer["nombre_curso"]);
+                lista_fin.Add(f);
+            }
+            leer.Close();
+            MySqlDataReader b2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='2' AND estatus_curso='Finalizado' ");
+            while (b2.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(b2["id_cursos"]);
+                f.dia2 = DateTime.Parse(b2["fecha_dos"].ToString());
+                f.tipo_formacion = Convert.ToString(b2["tipo_curso"]);
+                f.nombre_formacion = Convert.ToString(b2["nombre_curso"]);
+                lista_b2.Add(f);
+            }
+            b2.Close();
+
+            
+            #endregion
+
+            
         }
 
         private void Generar_avisos()
@@ -628,6 +663,406 @@ namespace UCS_NODO_FGC
                 panelActividades.Controls.Add(accion);
                 #endregion
             }
+
+            for(int i=0; i < lista_fin.Count; i++) //esta lista es si está finalizada, y tiene 1 fecha
+            {
+                if (lista_fin[i].tipo_formacion == "INCES" || lista_fin[i].tipo_formacion == "InCompany")
+                {
+                    if(DateTime.Today < lista_fin[i].dia1.AddDays(7))
+                    {
+                        
+                        #region generar
+
+                        TextBox tipof = new TextBox();
+                        tipof.Name = "txt" + i.ToString();
+                        tipof.Text = lista_fin[i].tipo_formacion;
+                        tipof.ReadOnly = true;
+                        tipof.Multiline = true;
+                        tipof.Width = width;
+                        tipof.Height = height;
+                        tipof.Location = new Point(0, nueva_locacion);
+                        tipof.TextAlign = HorizontalAlignment.Center;
+                        tipof.BorderStyle = BorderStyle.Fixed3D;
+                        tipof.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        tipof.ForeColor = Color.White;
+
+                        TextBox nombref = new TextBox();
+                        nombref.Name = "txt" + i.ToString();
+                        nombref.Text = lista_fin[i].nombre_formacion;
+                        nombref.ReadOnly = true;
+                        nombref.Multiline = true;
+                        nombref.Width = width;
+                        nombref.Height = height;
+                        nombref.Location = new Point(0, Convert.ToInt32(tipof.Location.Y) + height);
+                        nombref.TextAlign = HorizontalAlignment.Center;
+                        nombref.BorderStyle = BorderStyle.Fixed3D;
+                        nombref.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        nombref.ForeColor = Color.Black;
+
+                        TextBox accion = new TextBox();
+                        accion.Name = "txt" + i.ToString();
+                        accion.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.                          - Aplicación de encuesta               ";
+                        accion.ReadOnly = true;
+                        accion.Multiline = true;
+                        accion.Width = width;
+                        accion.Height = 53;
+                        accion.Location = new Point(0, Convert.ToInt32(nombref.Location.Y) + height);
+                        accion.TextAlign = HorizontalAlignment.Center;
+                        accion.BorderStyle = BorderStyle.Fixed3D;
+                        accion.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                        accion.ForeColor = Color.Black;
+                        accion.BackColor = Color.FromArgb(207, 214, 221);
+
+                        nueva_locacion = Convert.ToInt32(accion.Location.Y) + 54;
+
+                        if (lista_fin[i].tipo_formacion == "FEE")
+                        {
+                            tipof.BackColor = Color.FromArgb(115, 156, 98);
+                            nombref.BackColor = Color.FromArgb(194, 218, 158);
+                        }
+                        else if (lista_fin[i].tipo_formacion == "Abierto")
+                        {
+                            tipof.BackColor = Color.FromArgb(106, 150, 148);
+                            nombref.BackColor = Color.FromArgb(163, 186, 185);
+                        }
+                        else if (lista_fin[i].tipo_formacion == "INCES")
+                        {
+                            tipof.BackColor = Color.FromArgb(156, 98, 103);
+                            nombref.BackColor = Color.FromArgb(180, 148, 150);
+                        }
+                        else if (lista_fin[i].tipo_formacion == "InCompany")
+                        {
+                            tipof.BackColor = Color.FromArgb(129, 115, 151);
+                            nombref.BackColor = Color.FromArgb(187, 174, 197);
+                        }
+                        panelActividades.Controls.Add(tipof);
+                        panelActividades.Controls.Add(nombref);
+                        panelActividades.Controls.Add(accion);
+                        #endregion
+                    }
+                }
+                else
+                {
+                    if (DateTime.Today < lista_fin[i].dia1.AddDays(7))
+                    {
+                        #region generar
+
+                        TextBox tipof = new TextBox();
+                    tipof.Name = "txt" + i.ToString();
+                    tipof.Text = lista_fin[i].tipo_formacion;
+                    tipof.ReadOnly = true;
+                    tipof.Multiline = true;
+                    tipof.Width = width;
+                    tipof.Height = height;
+                    tipof.Location = new Point(0, nueva_locacion);
+                    tipof.TextAlign = HorizontalAlignment.Center;
+                    tipof.BorderStyle = BorderStyle.Fixed3D;
+                    tipof.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    tipof.ForeColor = Color.White;
+
+                    TextBox nombref = new TextBox();
+                    nombref.Name = "txt" + i.ToString();
+                    nombref.Text = lista_fin[i].nombre_formacion;
+                    nombref.ReadOnly = true;
+                    nombref.Multiline = true;
+                    nombref.Width = width;
+                    nombref.Height = height;
+                    nombref.Location = new Point(0, Convert.ToInt32(tipof.Location.Y) + height);
+                    nombref.TextAlign = HorizontalAlignment.Center;
+                    nombref.BorderStyle = BorderStyle.Fixed3D;
+                    nombref.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    nombref.ForeColor = Color.Black;
+
+                    TextBox accion = new TextBox();
+                    accion.Name = "txt" + i.ToString();
+                    accion.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.       ";
+                    accion.ReadOnly = true;
+                    accion.Multiline = true;
+                    accion.Width = width;
+                    accion.Height = 38;
+                    accion.Location = new Point(0, Convert.ToInt32(nombref.Location.Y) + height);
+                    accion.TextAlign = HorizontalAlignment.Center;
+                    accion.BorderStyle = BorderStyle.Fixed3D;
+                    accion.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    accion.ForeColor = Color.Black;
+                    accion.BackColor = Color.FromArgb(207, 214, 221);
+
+                    nueva_locacion = Convert.ToInt32(accion.Location.Y) + 39;
+
+                    if (lista_fin[i].tipo_formacion == "FEE")
+                    {
+                        tipof.BackColor = Color.FromArgb(115, 156, 98);
+                        nombref.BackColor = Color.FromArgb(194, 218, 158);
+                    }
+                    else if (lista_fin[i].tipo_formacion == "Abierto")
+                    {
+                        tipof.BackColor = Color.FromArgb(106, 150, 148);
+                        nombref.BackColor = Color.FromArgb(163, 186, 185);
+                    }
+                    else if (lista_fin[i].tipo_formacion == "INCES")
+                    {
+                        tipof.BackColor = Color.FromArgb(156, 98, 103);
+                        nombref.BackColor = Color.FromArgb(180, 148, 150);
+                    }
+                    else if (lista_fin[i].tipo_formacion == "InCompany")
+                    {
+                        tipof.BackColor = Color.FromArgb(129, 115, 151);
+                        nombref.BackColor = Color.FromArgb(187, 174, 197);
+                    }
+                    panelActividades.Controls.Add(tipof);
+                    panelActividades.Controls.Add(nombref);
+                    panelActividades.Controls.Add(accion);
+                    #endregion
+                    }
+                       
+                }
+
+            }
+
+            for (int i = 0; i < lista_b2.Count; i++) //esta lista es si está finalizada, y tiene 2 fecha
+            {
+                if (lista_b2[i].tipo_formacion == "INCES" || lista_b2[i].tipo_formacion == "InCompany")
+                {
+                    if (DateTime.Today < lista_b2[i].dia2.AddDays(7))
+                    {
+
+                        #region generar
+
+                        TextBox tipof = new TextBox();
+                        tipof.Name = "txt" + i.ToString();
+                        tipof.Text = lista_b2[i].tipo_formacion;
+                        tipof.ReadOnly = true;
+                        tipof.Multiline = true;
+                        tipof.Width = width;
+                        tipof.Height = height;
+                        tipof.Location = new Point(0, nueva_locacion);
+                        tipof.TextAlign = HorizontalAlignment.Center;
+                        tipof.BorderStyle = BorderStyle.Fixed3D;
+                        tipof.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        tipof.ForeColor = Color.White;
+
+                        TextBox nombref = new TextBox();
+                        nombref.Name = "txt" + i.ToString();
+                        nombref.Text = lista_b2[i].nombre_formacion;
+                        nombref.ReadOnly = true;
+                        nombref.Multiline = true;
+                        nombref.Width = width;
+                        nombref.Height = height;
+                        nombref.Location = new Point(0, Convert.ToInt32(tipof.Location.Y) + height);
+                        nombref.TextAlign = HorizontalAlignment.Center;
+                        nombref.BorderStyle = BorderStyle.Fixed3D;
+                        nombref.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        nombref.ForeColor = Color.Black;
+
+                        TextBox accion = new TextBox();
+                        accion.Name = "txt" + i.ToString();
+                        accion.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.                          - Aplicación de encuesta               ";
+                        accion.ReadOnly = true;
+                        accion.Multiline = true;
+                        accion.Width = width;
+                        accion.Height = 53;
+                        accion.Location = new Point(0, Convert.ToInt32(nombref.Location.Y) + height);
+                        accion.TextAlign = HorizontalAlignment.Center;
+                        accion.BorderStyle = BorderStyle.Fixed3D;
+                        accion.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                        accion.ForeColor = Color.Black;
+                        accion.BackColor = Color.FromArgb(207, 214, 221);
+
+                        nueva_locacion = Convert.ToInt32(accion.Location.Y) + 54;
+
+                        if (lista_b2[i].tipo_formacion == "FEE")
+                        {
+                            tipof.BackColor = Color.FromArgb(115, 156, 98);
+                            nombref.BackColor = Color.FromArgb(194, 218, 158);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "Abierto")
+                        {
+                            tipof.BackColor = Color.FromArgb(106, 150, 148);
+                            nombref.BackColor = Color.FromArgb(163, 186, 185);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "INCES")
+                        {
+                            tipof.BackColor = Color.FromArgb(156, 98, 103);
+                            nombref.BackColor = Color.FromArgb(180, 148, 150);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "InCompany")
+                        {
+                            tipof.BackColor = Color.FromArgb(129, 115, 151);
+                            nombref.BackColor = Color.FromArgb(187, 174, 197);
+                        }
+                        panelActividades.Controls.Add(tipof);
+                        panelActividades.Controls.Add(nombref);
+                        panelActividades.Controls.Add(accion);
+                        #endregion
+                    }
+                }
+                else
+                {
+                    if (DateTime.Today < lista_b2[i].dia2.AddDays(7))
+                    {
+                        #region generar
+
+                        TextBox tipof = new TextBox();
+                        tipof.Name = "txt" + i.ToString();
+                        tipof.Text = lista_b2[i].tipo_formacion;
+                        tipof.ReadOnly = true;
+                        tipof.Multiline = true;
+                        tipof.Width = width;
+                        tipof.Height = height;
+                        tipof.Location = new Point(0, nueva_locacion);
+                        tipof.TextAlign = HorizontalAlignment.Center;
+                        tipof.BorderStyle = BorderStyle.Fixed3D;
+                        tipof.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        tipof.ForeColor = Color.White;
+
+                        TextBox nombref = new TextBox();
+                        nombref.Name = "txt" + i.ToString();
+                        nombref.Text = lista_b2[i].nombre_formacion;
+                        nombref.ReadOnly = true;
+                        nombref.Multiline = true;
+                        nombref.Width = width;
+                        nombref.Height = height;
+                        nombref.Location = new Point(0, Convert.ToInt32(tipof.Location.Y) + height);
+                        nombref.TextAlign = HorizontalAlignment.Center;
+                        nombref.BorderStyle = BorderStyle.Fixed3D;
+                        nombref.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                        nombref.ForeColor = Color.Black;
+
+                        TextBox accion = new TextBox();
+                        accion.Name = "txt" + i.ToString();
+                        accion.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.       ";
+                        accion.ReadOnly = true;
+                        accion.Multiline = true;
+                        accion.Width = width;
+                        accion.Height = 38;
+                        accion.Location = new Point(0, Convert.ToInt32(nombref.Location.Y) + height);
+                        accion.TextAlign = HorizontalAlignment.Center;
+                        accion.BorderStyle = BorderStyle.Fixed3D;
+                        accion.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                        accion.ForeColor = Color.Black;
+                        accion.BackColor = Color.FromArgb(207, 214, 221);
+
+                        nueva_locacion = Convert.ToInt32(accion.Location.Y) + 39;
+
+                        if (lista_b2[i].tipo_formacion == "FEE")
+                        {
+                            tipof.BackColor = Color.FromArgb(115, 156, 98);
+                            nombref.BackColor = Color.FromArgb(194, 218, 158);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "Abierto")
+                        {
+                            tipof.BackColor = Color.FromArgb(106, 150, 148);
+                            nombref.BackColor = Color.FromArgb(163, 186, 185);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "INCES")
+                        {
+                            tipof.BackColor = Color.FromArgb(156, 98, 103);
+                            nombref.BackColor = Color.FromArgb(180, 148, 150);
+                        }
+                        else if (lista_b2[i].tipo_formacion == "InCompany")
+                        {
+                            tipof.BackColor = Color.FromArgb(129, 115, 151);
+                            nombref.BackColor = Color.FromArgb(187, 174, 197);
+                        }
+                        panelActividades.Controls.Add(tipof);
+                        panelActividades.Controls.Add(nombref);
+                        panelActividades.Controls.Add(accion);
+                        #endregion
+                    }
+
+                }
+
+            }
+            List<Formaciones> ListaE1 = new List<Formaciones>();
+            #region ETAPA1 
+            MySqlDataReader creacion = Conexion.ConsultarBD("select * from cursos where etapa_curso='1' and tipo_curso='InCompany'");
+            while (creacion.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(creacion["id_cursos"]);
+                //f.dia1 = Convert.ToDateTime(creacion["fecha_uno"]);
+                f.tipo_formacion = Convert.ToString(creacion["tipo_curso"]);
+                f.nombre_formacion = Convert.ToString(creacion["nombre_curso"]);
+                f.fecha_inicial = Convert.ToDateTime(creacion["fecha_creacion"]);
+                ListaE1.Add(f);
+            }
+
+            for(int i=0; i < ListaE1.Count; i++)
+            {
+                if(DateTime.Today > ListaE1[i].fecha_inicial.AddDays(7))
+                {
+                    #region generar
+
+                    TextBox tipof = new TextBox();
+                    tipof.Name = "txt" + i.ToString();
+                    tipof.Text = ListaE1[i].tipo_formacion;
+                    tipof.ReadOnly = true;
+                    tipof.Multiline = true;
+                    tipof.Width = width;
+                    tipof.Height = height;
+                    tipof.Location = new Point(0, nueva_locacion);
+                    tipof.TextAlign = HorizontalAlignment.Center;
+                    tipof.BorderStyle = BorderStyle.Fixed3D;
+                    tipof.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    tipof.ForeColor = Color.White;
+
+                    TextBox nombref = new TextBox();
+                    nombref.Name = "txt" + i.ToString();
+                    nombref.Text = ListaE1[i].nombre_formacion;
+                    nombref.ReadOnly = true;
+                    nombref.Multiline = true;
+                    nombref.Width = width;
+                    nombref.Height = height;
+                    nombref.Location = new Point(0, Convert.ToInt32(tipof.Location.Y) + height);
+                    nombref.TextAlign = HorizontalAlignment.Center;
+                    nombref.BorderStyle = BorderStyle.Fixed3D;
+                    nombref.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    nombref.ForeColor = Color.Black;
+
+                    TextBox accion = new TextBox();
+                    accion.Name = "txt" + i.ToString();
+                    accion.Text = "Validar propuesta con el cliente";
+                    accion.ReadOnly = true;
+                    accion.Multiline = true;
+                    accion.Width = width;
+                    accion.Height = height;
+                    accion.Location = new Point(0, Convert.ToInt32(nombref.Location.Y) + height);
+                    accion.TextAlign = HorizontalAlignment.Center;
+                    accion.BorderStyle = BorderStyle.Fixed3D;
+                    accion.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    accion.ForeColor = Color.Black;
+                    accion.BackColor = Color.FromArgb(207, 214, 221);
+
+                    nueva_locacion = Convert.ToInt32(accion.Location.Y) +height;
+
+                    if (ListaE1[i].tipo_formacion == "FEE")
+                    {
+                        tipof.BackColor = Color.FromArgb(115, 156, 98);
+                        nombref.BackColor = Color.FromArgb(194, 218, 158);
+                    }
+                    else if (ListaE1[i].tipo_formacion == "Abierto")
+                    {
+                        tipof.BackColor = Color.FromArgb(106, 150, 148);
+                        nombref.BackColor = Color.FromArgb(163, 186, 185);
+                    }
+                    else if (ListaE1[i].tipo_formacion == "INCES")
+                    {
+                        tipof.BackColor = Color.FromArgb(156, 98, 103);
+                        nombref.BackColor = Color.FromArgb(180, 148, 150);
+                    }
+                    else if (ListaE1[i].tipo_formacion == "InCompany")
+                    {
+                        tipof.BackColor = Color.FromArgb(129, 115, 151);
+                        nombref.BackColor = Color.FromArgb(187, 174, 197);
+                    }
+                    panelActividades.Controls.Add(tipof);
+                    panelActividades.Controls.Add(nombref);
+                    panelActividades.Controls.Add(accion);
+                    #endregion
+                }
+            }
+            #endregion
+
         }
         #region cargar datos
         private void CargarDatosFEE()

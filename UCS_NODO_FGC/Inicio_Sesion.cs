@@ -106,7 +106,7 @@ namespace UCS_NODO_FGC
             }
             leer.Close();
             MySqlDataReader b2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='2' AND estatus_curso='En curso' AND fecha_dos < '" + hoy + "' ");
-            if (b2.Read())
+            while (b2.Read())
             {
                 int b = Convert.ToInt32(b2["id_cursos"]);
                 lista_b2.Add(b);
@@ -117,16 +117,42 @@ namespace UCS_NODO_FGC
             //se recorre la lista de cursos para cambiar estatus
             for (int i = 0; i < lista.Count; i++)
             {
-                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
-                cambiar.Close();
+                MySqlDataReader tieneP = Conexion.ConsultarBD("select * from cursos_tienen_participantes where ctp_id_curso='" + lista[i].id_curso + "'");
+                if (tieneP.Read())
+                {
+                    //si tiene participantes, se puede colocar como finalizado
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
+                    cambiar.Close();
+                }
+                else
+                {
+                    //si no devuelve nada, es que no hay participantes añadidos a este curso. ENTONCES se REPROGRAMA
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista[i].id_curso + "'");
+                    cambiar.Close();
+                }
+                tieneP.Close();
+               
 
             }
             lista.Clear();
 
             for (int i = 0; i<lista_b2.Count; i++)
             {
-                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista_b2[i] + "'");
-                cambiar.Close();
+                MySqlDataReader tieneP = Conexion.ConsultarBD("select * from cursos_tienen_participantes where ctp_id_curso='" + lista[i].id_curso + "'");
+                if (tieneP.Read())
+                {
+                    //si tiene participantes, se puede colocar como finalizado
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista_b2[i] + "'");
+                    cambiar.Close();
+                }
+                else
+                {
+                    //si no devuelve nada, es que no hay participantes añadidos a este curso. ENTONCES se REPROGRAMA
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista_b2[i] + "'");
+                    cambiar.Close();
+                }
+                tieneP.Close();
+               
             }
             lista_b2.Clear();
                      

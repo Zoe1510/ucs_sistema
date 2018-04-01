@@ -226,10 +226,10 @@
             this.txtEspacio.Location = new System.Drawing.Point(0, 59);
             this.txtEspacio.Multiline = true;
             this.txtEspacio.Name = "txtEspacio";
-            this.txtEspacio.Size = new System.Drawing.Size(277, 54);
+            this.txtEspacio.Size = new System.Drawing.Size(277, 38);
             this.txtEspacio.TabIndex = 2;
-            this.txtEspacio.Text = "       - Llamar facilitador (recordatorio).            -  Verificar acceso a inte" +
-    "rnet.               - Verificar mobiliario y sonido     ";
+            this.txtEspacio.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.       " +
+    " ";
             this.txtEspacio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlCabecera

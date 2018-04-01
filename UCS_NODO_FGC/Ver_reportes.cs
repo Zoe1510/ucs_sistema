@@ -195,7 +195,7 @@ namespace UCS_NODO_FGC
                     Reporte_Seleccionado.nombre_reporte = nombreArchivo;
                     origenArchivo = Convert.ToString(ruta["ruta_reporte"]);
                     origenArchivo = origenArchivo.Replace("\"","/");
-                    MessageBox.Show(origenArchivo);
+                    //MessageBox.Show(origenArchivo);
                     Reporte_Seleccionado.id_reporte = Convert.ToInt32(ruta["id_reporte"]);
                     Reporte_Seleccionado.fecha_emision = Convert.ToString(ruta["fecha_creacion"]);
                     int idusuario = Convert.ToInt32(ruta["id_creador_usuario"]);
