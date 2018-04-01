@@ -89,13 +89,15 @@ namespace UCS_NODO_FGC
             
         }
 
+        //aqui solo se cambian los estatus de los cursos que estén en etapa 3 y su fecha correspondiente haya pasado
         private void actualizar()
         {
-            List<Formaciones> lista = new List<Formaciones>();
+            List<Formaciones> lista = new List<Formaciones>();//para las formaciones cuyos bloque sea 1(que se dicta en un dia)
+            List<int> lista_b2 = new List<int>();//para las formaciones cuyo bloque sea 2(se dicta en 2 dias, y ser evalua es la segunda fecha 
             string hoy = DateTime.Today.ToString("yyyy-MM-dd");
-            List<int> lista_reprogramados = new List<int>();
+            
             //aqui se actualizará el estatus de los cursos (a Finalizado) cuyas fechas hayan pasado (que sean inferiores a la actual).
-            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='1' AND estatus_curso='En curso' AND fecha_uno < '" + hoy + "' ");
             while (leer.Read())
             {
                 Formaciones f = new Formaciones();
@@ -103,68 +105,32 @@ namespace UCS_NODO_FGC
                 lista.Add(f);
             }
             leer.Close();
-
-            MySqlDataReader leerR = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='2' AND fecha_uno < '" + hoy + "' AND estatus_curso='En curso'");
-            while (leerR.Read())
+            MySqlDataReader b2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='2' AND estatus_curso='En curso' AND fecha_dos < '" + hoy + "' ");
+            if (b2.Read())
             {
-                int f = 0;
-                f= Convert.ToInt32(leerR["id_cursos"]);
-                lista_reprogramados.Add(f);
+                int b = Convert.ToInt32(b2["id_cursos"]);
+                lista_b2.Add(b);
             }
-            leerR.Close();
+            b2.Close();
 
+           
+            //se recorre la lista de cursos para cambiar estatus
             for (int i = 0; i < lista.Count; i++)
             {
                 MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
                 cambiar.Close();
-               
+
             }
             lista.Clear();
 
-            for(int i =0; i< lista_reprogramados.Count; i++)
+            for (int i = 0; i<lista_b2.Count; i++)
             {
-                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista_reprogramados[i] + "'");
+                MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista_b2[i] + "'");
                 cambiar.Close();
             }
-            lista_reprogramados.Clear();
-            //si el curso está en etapa 2 mostrar aviso para escoger el aula y la disposicion de la misma (de acuerdo al facilitador) 
-
-            //también se evaluará 1 dia si es el día anterior a una formación (para la validación con el facilitador) --> mostrar aviso
-            MySqlDataReader leer2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND estatus_curso='En curso'");
-            while (leer2.Read())
-            {
-                Formaciones f = new Formaciones();
-                f.id_curso = Convert.ToInt32(leer2["id_cursos"]);
-                f.dia1 = DateTime.Parse(leer2["fecha_uno"].ToString());
-                f.nombre_formacion = Convert.ToString(leer2["nombre_curso"]);
-                //investigar más de la creacion de paneles dinamicamente con botones incluidos un check y una X (aplica para lo de abajo, maybe lo de arriba)
-                lista.Add(f);
-            }
-            leer2.Close();
-
-            DateTime dia = DateTime.Today;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                DateTime diaA = lista[i].dia1;
-                if (diaA.AddDays(-1) == dia)
-                {
-                    //si esta condicion se cumple, es que el dia de hoy es un dia anterior al de una formación.
-                } else
-                {
-                    //si lo anterior no ocurre, comprobar todas aquellas formaciones que se dan el lunes,
-                    // y ver si el dia actual es viernes, para mostrar los avisos (del facilitador y lo demás)
-                    DayOfWeek prueba =lista[i].dia1.DayOfWeek;
-                    DayOfWeek pruebaV = DateTime.Today.DayOfWeek;
-                    string lunes = "Lunes";
-                    if (prueba == DayOfWeek.Monday &&pruebaV==DayOfWeek.Friday )
-                    {
-                        //MessageBox.Show(lunes);
-                    }
-                }
-            }
-            //aviso para dia antes también de la conexion a internet en el aula correspondiente (si aplica)
-            //aviso un dia antes de mobiliario y sonido
-
+            lista_b2.Clear();
+                     
+          
 
         }
         public void login ()

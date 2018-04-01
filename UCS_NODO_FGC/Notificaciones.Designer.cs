@@ -37,15 +37,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button16 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelActividades = new System.Windows.Forms.Panel();
+            this.txtEspacio = new System.Windows.Forms.TextBox();
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -99,7 +92,7 @@
             this.gpbCursosRealizados.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelActividades.SuspendLayout();
             this.pnlCabecera.SuspendLayout();
             this.panelINCOM.SuspendLayout();
             this.panelABIERTO.SuspendLayout();
@@ -209,133 +202,35 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
-            // panel1
+            // panelActividades
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button16);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.pnlCabecera);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(837, 115);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 602);
-            this.panel1.TabIndex = 63;
+            this.panelActividades.AutoScroll = true;
+            this.panelActividades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelActividades.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelActividades.Controls.Add(this.txtEspacio);
+            this.panelActividades.Controls.Add(this.pnlCabecera);
+            this.panelActividades.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelActividades.Location = new System.Drawing.Point(836, 115);
+            this.panelActividades.Name = "panelActividades";
+            this.panelActividades.Size = new System.Drawing.Size(281, 602);
+            this.panelActividades.TabIndex = 63;
             // 
-            // button16
+            // txtEspacio
             // 
-            this.button16.Location = new System.Drawing.Point(64, 244);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(46, 29);
-            this.button16.TabIndex = 9;
-            this.button16.Text = "button16";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(214)))), ((int)(((byte)(221)))));
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Black;
-            this.textBox5.Location = new System.Drawing.Point(0, 215);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(276, 30);
-            this.textBox5.TabIndex = 8;
-            this.textBox5.Text = "Confirmar aula";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(150)))));
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Black;
-            this.textBox6.Location = new System.Drawing.Point(0, 189);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(276, 26);
-            this.textBox6.TabIndex = 7;
-            this.textBox6.Text = "Las 5S";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(98)))), ((int)(((byte)(103)))));
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.White;
-            this.textBox7.Location = new System.Drawing.Point(0, 161);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(276, 28);
-            this.textBox7.TabIndex = 6;
-            this.textBox7.Text = "INCES";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(214)))), ((int)(((byte)(221)))));
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(0, 131);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(276, 30);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "Confirmar facilitador";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(218)))), ((int)(((byte)(158)))));
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(0, 105);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(276, 26);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "Calidad de servicio";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(156)))), ((int)(((byte)(98)))));
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(0, 77);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 28);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "FEE";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(0, 59);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 18);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEspacio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtEspacio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEspacio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtEspacio.Enabled = false;
+            this.txtEspacio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.txtEspacio.ForeColor = System.Drawing.Color.Black;
+            this.txtEspacio.Location = new System.Drawing.Point(0, 59);
+            this.txtEspacio.Multiline = true;
+            this.txtEspacio.Name = "txtEspacio";
+            this.txtEspacio.Size = new System.Drawing.Size(277, 54);
+            this.txtEspacio.TabIndex = 2;
+            this.txtEspacio.Text = "       - Llamar facilitador (recordatorio).            -  Verificar acceso a inte" +
+    "rnet.               - Verificar mobiliario y sonido     ";
+            this.txtEspacio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlCabecera
             // 
@@ -345,7 +240,7 @@
             this.pnlCabecera.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCabecera.Location = new System.Drawing.Point(0, 0);
             this.pnlCabecera.Name = "pnlCabecera";
-            this.pnlCabecera.Size = new System.Drawing.Size(276, 59);
+            this.pnlCabecera.Size = new System.Drawing.Size(277, 59);
             this.pnlCabecera.TabIndex = 1;
             // 
             // label2
@@ -500,9 +395,9 @@
             this.pnlLeyenda.Controls.Add(this.labelLeyenda);
             this.pnlLeyenda.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pnlLeyenda.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLeyenda.Location = new System.Drawing.Point(0, 684);
+            this.pnlLeyenda.Location = new System.Drawing.Point(0, 614);
             this.pnlLeyenda.Name = "pnlLeyenda";
-            this.pnlLeyenda.Size = new System.Drawing.Size(837, 33);
+            this.pnlLeyenda.Size = new System.Drawing.Size(836, 103);
             this.pnlLeyenda.TabIndex = 72;
             this.pnlLeyenda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelLeyenda_MouseClick);
             // 
@@ -718,7 +613,7 @@
             this.panelBARRA.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBARRA.Location = new System.Drawing.Point(0, 115);
             this.panelBARRA.Name = "panelBARRA";
-            this.panelBARRA.Size = new System.Drawing.Size(837, 67);
+            this.panelBARRA.Size = new System.Drawing.Size(836, 67);
             this.panelBARRA.TabIndex = 73;
             // 
             // pnlInformacion
@@ -914,7 +809,7 @@
             this.Controls.Add(this.pnlInformacion);
             this.Controls.Add(this.panelBARRA);
             this.Controls.Add(this.pnlLeyenda);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelActividades);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -927,8 +822,8 @@
             this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelActividades.ResumeLayout(false);
+            this.panelActividades.PerformLayout();
             this.pnlCabecera.ResumeLayout(false);
             this.pnlCabecera.PerformLayout();
             this.panelINCOM.ResumeLayout(false);
@@ -959,17 +854,9 @@
         private System.Windows.Forms.Label label9;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEspacio;
         private System.Windows.Forms.Panel pnlCabecera;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelABIERTO;
         private System.Windows.Forms.Label labelINCOM;
@@ -1018,5 +905,6 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
+        public System.Windows.Forms.Panel panelActividades;
     }
 }
