@@ -31,6 +31,7 @@
             this.gpbCursosRealizados = new System.Windows.Forms.GroupBox();
             this.txtNroCursos = new System.Windows.Forms.TextBox();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -41,7 +42,6 @@
             this.txtEspacio = new System.Windows.Forms.TextBox();
             this.pnlCabecera = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.labelABIERTO = new System.Windows.Forms.Label();
             this.labelINCOM = new System.Windows.Forms.Label();
             this.panelINCOM = new System.Windows.Forms.Panel();
@@ -73,22 +73,22 @@
             this.labelLeyenda = new System.Windows.Forms.Label();
             this.panelBARRA = new System.Windows.Forms.Panel();
             this.pnlInformacion = new System.Windows.Forms.Panel();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.lblTT = new System.Windows.Forms.Label();
-            this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.labelTotalRealizado = new System.Windows.Forms.Label();
-            this.labelEnCurso = new System.Windows.Forms.Label();
-            this.labelReprogramado = new System.Windows.Forms.Label();
-            this.labelSuspendido = new System.Windows.Forms.Label();
-            this.labelFinalizado = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labelFinalizado = new System.Windows.Forms.Label();
+            this.labelSuspendido = new System.Windows.Forms.Label();
+            this.labelReprogramado = new System.Windows.Forms.Label();
+            this.labelEnCurso = new System.Windows.Forms.Label();
+            this.labelTotalRealizado = new System.Windows.Forms.Label();
+            this.lblTT = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.gpbCursosRealizados.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -142,6 +142,18 @@
             this.Panel_cabecera.Name = "Panel_cabecera";
             this.Panel_cabecera.Size = new System.Drawing.Size(1117, 115);
             this.Panel_cabecera.TabIndex = 50;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Lucida Fax", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(366, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(241, 38);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "Formaciones";
             // 
             // shapeContainer1
             // 
@@ -226,10 +238,8 @@
             this.txtEspacio.Location = new System.Drawing.Point(0, 59);
             this.txtEspacio.Multiline = true;
             this.txtEspacio.Name = "txtEspacio";
-            this.txtEspacio.Size = new System.Drawing.Size(277, 38);
+            this.txtEspacio.Size = new System.Drawing.Size(277, 18);
             this.txtEspacio.TabIndex = 2;
-            this.txtEspacio.Text = "   - Firma de facilitador en certificados.       -  Imprimir certificados.       " +
-    " ";
             this.txtEspacio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlCabecera
@@ -252,18 +262,6 @@
             this.label2.Size = new System.Drawing.Size(273, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Actividades pendientes";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Lucida Fax", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(366, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(241, 38);
-            this.label6.TabIndex = 65;
-            this.label6.Text = "Formaciones";
             // 
             // labelABIERTO
             // 
@@ -635,6 +633,126 @@
             this.pnlInformacion.TabIndex = 74;
             this.pnlInformacion.Visible = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(118, 249);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(125, 22);
+            this.label19.TabIndex = 82;
+            this.label19.Text = "Finalizados";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(118, 186);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(138, 22);
+            this.label18.TabIndex = 81;
+            this.label18.Text = "Suspendidos";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(118, 126);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(167, 22);
+            this.label17.TabIndex = 80;
+            this.label17.Text = "Reprogramados";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(118, 65);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 22);
+            this.label16.TabIndex = 79;
+            this.label16.Text = "En curso";
+            // 
+            // labelFinalizado
+            // 
+            this.labelFinalizado.AutoSize = true;
+            this.labelFinalizado.BackColor = System.Drawing.Color.Transparent;
+            this.labelFinalizado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
+            this.labelFinalizado.ForeColor = System.Drawing.Color.Black;
+            this.labelFinalizado.Location = new System.Drawing.Point(63, 251);
+            this.labelFinalizado.Name = "labelFinalizado";
+            this.labelFinalizado.Size = new System.Drawing.Size(22, 21);
+            this.labelFinalizado.TabIndex = 78;
+            this.labelFinalizado.Text = "0";
+            // 
+            // labelSuspendido
+            // 
+            this.labelSuspendido.AutoSize = true;
+            this.labelSuspendido.BackColor = System.Drawing.Color.Transparent;
+            this.labelSuspendido.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
+            this.labelSuspendido.ForeColor = System.Drawing.Color.Black;
+            this.labelSuspendido.Location = new System.Drawing.Point(63, 188);
+            this.labelSuspendido.Name = "labelSuspendido";
+            this.labelSuspendido.Size = new System.Drawing.Size(22, 21);
+            this.labelSuspendido.TabIndex = 77;
+            this.labelSuspendido.Text = "0";
+            // 
+            // labelReprogramado
+            // 
+            this.labelReprogramado.AutoSize = true;
+            this.labelReprogramado.BackColor = System.Drawing.Color.Transparent;
+            this.labelReprogramado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
+            this.labelReprogramado.ForeColor = System.Drawing.Color.Black;
+            this.labelReprogramado.Location = new System.Drawing.Point(63, 128);
+            this.labelReprogramado.Name = "labelReprogramado";
+            this.labelReprogramado.Size = new System.Drawing.Size(22, 21);
+            this.labelReprogramado.TabIndex = 76;
+            this.labelReprogramado.Text = "0";
+            // 
+            // labelEnCurso
+            // 
+            this.labelEnCurso.AutoSize = true;
+            this.labelEnCurso.BackColor = System.Drawing.Color.Transparent;
+            this.labelEnCurso.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
+            this.labelEnCurso.ForeColor = System.Drawing.Color.Black;
+            this.labelEnCurso.Location = new System.Drawing.Point(63, 67);
+            this.labelEnCurso.Name = "labelEnCurso";
+            this.labelEnCurso.Size = new System.Drawing.Size(22, 21);
+            this.labelEnCurso.TabIndex = 75;
+            this.labelEnCurso.Text = "0";
+            // 
+            // labelTotalRealizado
+            // 
+            this.labelTotalRealizado.AutoSize = true;
+            this.labelTotalRealizado.BackColor = System.Drawing.Color.Transparent;
+            this.labelTotalRealizado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
+            this.labelTotalRealizado.ForeColor = System.Drawing.Color.Black;
+            this.labelTotalRealizado.Location = new System.Drawing.Point(573, 323);
+            this.labelTotalRealizado.Name = "labelTotalRealizado";
+            this.labelTotalRealizado.Size = new System.Drawing.Size(22, 21);
+            this.labelTotalRealizado.TabIndex = 67;
+            this.labelTotalRealizado.Text = "0";
+            // 
+            // lblTT
+            // 
+            this.lblTT.AutoSize = true;
+            this.lblTT.BackColor = System.Drawing.Color.Transparent;
+            this.lblTT.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTT.ForeColor = System.Drawing.Color.Black;
+            this.lblTT.Location = new System.Drawing.Point(322, 324);
+            this.lblTT.Name = "lblTT";
+            this.lblTT.Size = new System.Drawing.Size(167, 22);
+            this.lblTT.TabIndex = 66;
+            this.lblTT.Text = "Total realizado:";
+            // 
             // shapeContainer2
             // 
             this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
@@ -650,23 +768,11 @@
             this.shapeContainer2.TabIndex = 0;
             this.shapeContainer2.TabStop = false;
             // 
-            // rectangleShape1
+            // rectangleShape6
             // 
-            this.rectangleShape1.Location = new System.Drawing.Point(43, 50);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(61, 48);
-            // 
-            // rectangleShape3
-            // 
-            this.rectangleShape3.Location = new System.Drawing.Point(43, 113);
-            this.rectangleShape3.Name = "rectangleShape3";
-            this.rectangleShape3.Size = new System.Drawing.Size(61, 48);
-            // 
-            // rectangleShape4
-            // 
-            this.rectangleShape4.Location = new System.Drawing.Point(43, 173);
-            this.rectangleShape4.Name = "rectangleShape4";
-            this.rectangleShape4.Size = new System.Drawing.Size(61, 48);
+            this.rectangleShape6.Location = new System.Drawing.Point(491, 344);
+            this.rectangleShape6.Name = "rectangleShape6";
+            this.rectangleShape6.Size = new System.Drawing.Size(194, 1);
             // 
             // rectangleShape5
             // 
@@ -674,131 +780,23 @@
             this.rectangleShape5.Name = "rectangleShape5";
             this.rectangleShape5.Size = new System.Drawing.Size(61, 48);
             // 
-            // lblTT
+            // rectangleShape4
             // 
-            this.lblTT.AutoSize = true;
-            this.lblTT.BackColor = System.Drawing.Color.Transparent;
-            this.lblTT.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTT.ForeColor = System.Drawing.Color.Black;
-            this.lblTT.Location = new System.Drawing.Point(322, 324);
-            this.lblTT.Name = "lblTT";
-            this.lblTT.Size = new System.Drawing.Size(167, 22);
-            this.lblTT.TabIndex = 66;
-            this.lblTT.Text = "Total realizado:";
+            this.rectangleShape4.Location = new System.Drawing.Point(43, 173);
+            this.rectangleShape4.Name = "rectangleShape4";
+            this.rectangleShape4.Size = new System.Drawing.Size(61, 48);
             // 
-            // rectangleShape6
+            // rectangleShape3
             // 
-            this.rectangleShape6.Location = new System.Drawing.Point(491, 344);
-            this.rectangleShape6.Name = "rectangleShape6";
-            this.rectangleShape6.Size = new System.Drawing.Size(194, 1);
+            this.rectangleShape3.Location = new System.Drawing.Point(43, 113);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(61, 48);
             // 
-            // labelTotalRealizado
+            // rectangleShape1
             // 
-            this.labelTotalRealizado.AutoSize = true;
-            this.labelTotalRealizado.BackColor = System.Drawing.Color.Transparent;
-            this.labelTotalRealizado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
-            this.labelTotalRealizado.ForeColor = System.Drawing.Color.Black;
-            this.labelTotalRealizado.Location = new System.Drawing.Point(573, 323);
-            this.labelTotalRealizado.Name = "labelTotalRealizado";
-            this.labelTotalRealizado.Size = new System.Drawing.Size(22, 21);
-            this.labelTotalRealizado.TabIndex = 67;
-            this.labelTotalRealizado.Text = "0";
-            // 
-            // labelEnCurso
-            // 
-            this.labelEnCurso.AutoSize = true;
-            this.labelEnCurso.BackColor = System.Drawing.Color.Transparent;
-            this.labelEnCurso.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
-            this.labelEnCurso.ForeColor = System.Drawing.Color.Black;
-            this.labelEnCurso.Location = new System.Drawing.Point(63, 67);
-            this.labelEnCurso.Name = "labelEnCurso";
-            this.labelEnCurso.Size = new System.Drawing.Size(22, 21);
-            this.labelEnCurso.TabIndex = 75;
-            this.labelEnCurso.Text = "0";
-            // 
-            // labelReprogramado
-            // 
-            this.labelReprogramado.AutoSize = true;
-            this.labelReprogramado.BackColor = System.Drawing.Color.Transparent;
-            this.labelReprogramado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
-            this.labelReprogramado.ForeColor = System.Drawing.Color.Black;
-            this.labelReprogramado.Location = new System.Drawing.Point(63, 128);
-            this.labelReprogramado.Name = "labelReprogramado";
-            this.labelReprogramado.Size = new System.Drawing.Size(22, 21);
-            this.labelReprogramado.TabIndex = 76;
-            this.labelReprogramado.Text = "0";
-            // 
-            // labelSuspendido
-            // 
-            this.labelSuspendido.AutoSize = true;
-            this.labelSuspendido.BackColor = System.Drawing.Color.Transparent;
-            this.labelSuspendido.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
-            this.labelSuspendido.ForeColor = System.Drawing.Color.Black;
-            this.labelSuspendido.Location = new System.Drawing.Point(63, 188);
-            this.labelSuspendido.Name = "labelSuspendido";
-            this.labelSuspendido.Size = new System.Drawing.Size(22, 21);
-            this.labelSuspendido.TabIndex = 77;
-            this.labelSuspendido.Text = "0";
-            // 
-            // labelFinalizado
-            // 
-            this.labelFinalizado.AutoSize = true;
-            this.labelFinalizado.BackColor = System.Drawing.Color.Transparent;
-            this.labelFinalizado.Font = new System.Drawing.Font("Lucida Fax", 13F, System.Drawing.FontStyle.Bold);
-            this.labelFinalizado.ForeColor = System.Drawing.Color.Black;
-            this.labelFinalizado.Location = new System.Drawing.Point(63, 251);
-            this.labelFinalizado.Name = "labelFinalizado";
-            this.labelFinalizado.Size = new System.Drawing.Size(22, 21);
-            this.labelFinalizado.TabIndex = 78;
-            this.labelFinalizado.Text = "0";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(118, 65);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 22);
-            this.label16.TabIndex = 79;
-            this.label16.Text = "En curso";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(118, 126);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(167, 22);
-            this.label17.TabIndex = 80;
-            this.label17.Text = "Reprogramados";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(118, 186);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(138, 22);
-            this.label18.TabIndex = 81;
-            this.label18.Text = "Suspendidos";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Lucida Fax", 14F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(118, 249);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(125, 22);
-            this.label19.TabIndex = 82;
-            this.label19.Text = "Finalizados";
+            this.rectangleShape1.Location = new System.Drawing.Point(43, 50);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(61, 48);
             // 
             // Notificaciones
             // 

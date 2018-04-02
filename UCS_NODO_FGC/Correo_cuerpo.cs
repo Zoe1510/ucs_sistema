@@ -33,7 +33,7 @@ namespace UCS_NODO_FGC
             //buscando correo de facilitador
             #region search mail
             Datos_envio_correo.idcurso = Cursos.id_curso13;
-            MessageBox.Show(Datos_envio_correo.idcurso.ToString());
+            //MessageBox.Show(Datos_envio_correo.idcurso.ToString());
             MySqlDataReader correo = Conexion.ConsultarBD("select facilitadores_id_fa, ctf_id_cofa from cursos_tienen_fa where cursos_id_cursos='" + Datos_envio_correo.idcurso + "'");
             if (correo.Read())
             {

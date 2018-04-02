@@ -195,6 +195,7 @@ namespace UCS_NODO_FGC
                 c.ShowDialog();
 
             }
+            AddFormInPanel(new Notificaciones());
         }
 
 

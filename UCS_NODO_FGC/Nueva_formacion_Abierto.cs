@@ -4304,7 +4304,7 @@ namespace UCS_NODO_FGC
             if (Formaciones.creacion == true)
             {
                 id_refrigerio = Convert.ToInt32(cmbxTipoRefrigerio.SelectedValue);
-                MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion");
+                //MessageBox.Show(id_refrigerio.ToString() + "id del refreigerio en creacion");
 
                 llenarcombo2Refrigerio(id_refrigerio);
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
@@ -4321,7 +4321,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader nombre = Conexion.ConsultarBD("SELECT id_ref from refrigerios where ref_nombre='" + cmbxTipoRefrigerio.Text + "'");
                 if (nombre.Read())
                 {
-                    MessageBox.Show(nombre["id_ref"].ToString());
+                   // MessageBox.Show(nombre["id_ref"].ToString());
                     id_refrigerio = Convert.ToInt32(nombre["id_ref"]);
                     formacion.refri1 = cmbxTipoRefrigerio.Text;
                 }

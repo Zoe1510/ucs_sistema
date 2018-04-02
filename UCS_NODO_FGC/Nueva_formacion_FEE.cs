@@ -2105,7 +2105,7 @@ namespace UCS_NODO_FGC
                                             formacion.nombre_formacion = txtNombreFormacion.Text;
                                             formacion.tipo_formacion = "FEE";
                                             formacion.solicitado = txtSolicitadoPor.Text;
-                                            MessageBox.Show(formacion.solicitado);
+                                           // MessageBox.Show(formacion.solicitado);
                                             int id_solicitud = 0;
                                             MySqlDataReader idS = Conexion.ConsultarBD("select id_clientes from clientes where nombre_empresa='" + formacion.solicitado + "'");
                                             if (idS.Read())

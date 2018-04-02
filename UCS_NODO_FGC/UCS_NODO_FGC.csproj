@@ -866,6 +866,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Archivos\stuff\silueta_usuario.jpg" />
+    <None Include="Resources\prueba_fondo.png" />
+    <None Include="Resources\trayectoria_plantilla_02.jpg" />
+    <None Include="Resources\trayectoria plantilla 01.jpg" />
     <None Include="Resources\silueta_usuario.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

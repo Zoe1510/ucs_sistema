@@ -176,6 +176,8 @@ namespace UCS_NODO_FGC
 
             }
 
+            AddFormInPanel(new Notificaciones());
+
         }
 
 

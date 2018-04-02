@@ -77,6 +77,13 @@ namespace UCS_NODO_FGC
             {//------------------------------------------todo hay que hacerlo aquí(un nuevo ingreso)
                 this.Location = new Point(-5, 0);
 
+                labelO1.Visible = false;
+                labelO2.Visible = false;
+                labelO3.Visible = false;
+                labelO4.Visible = false;
+                labelO5.Visible = false;
+                labelcamposobligatorios.Visible = false;
+
                 fecha_creacion = DateTime.Now;
 
                 LabelCabecera.Text = "Nuevo InCompany: Información básica";
@@ -2607,6 +2614,12 @@ namespace UCS_NODO_FGC
                         
                         dtpSegundaFecha.Enabled = false;
                         errorProviderFecha.SetError(dtpSegundaFecha, "");
+                        labelO1.Visible = true;
+                        labelO2.Visible = true;
+                        labelO3.Visible = true;
+                        labelO4.Visible = true;
+                        labelO5.Visible = false;
+                        labelcamposobligatorios.Visible = true;
 
                     }
                     else if (formacion.duracion == "8" && formacion.bloque_curso == "1")
@@ -2615,9 +2628,21 @@ namespace UCS_NODO_FGC
                         
                         dtpSegundaFecha.Enabled = false;
                         errorProviderFecha.SetError(dtpSegundaFecha, "");
+                        labelO1.Visible = true;
+                        labelO2.Visible = true;
+                        labelO3.Visible = true;
+                        labelO4.Visible = true;
+                        labelO5.Visible = false;
+                        labelcamposobligatorios.Visible = true;
                     }
                     else if (formacion.duracion == "8" && formacion.bloque_curso == "2")
                     {
+                        labelO1.Visible = true;
+                        labelO2.Visible = true;
+                        labelO3.Visible = true;
+                        labelO4.Visible = true;
+                        labelO5.Visible = true;
+                        labelcamposobligatorios.Visible = true;
                         Controles_nivel_intermedio_EstatusInicial();                      
                         dtpSegundaFecha.Enabled = true;
                         
@@ -2629,7 +2654,12 @@ namespace UCS_NODO_FGC
                         {
                             Controles_nivel_intermedio_EstatusInicial();
                             dtpSegundaFecha.Enabled = true;
-                            
+                            labelO1.Visible = true;
+                            labelO2.Visible = true;
+                            labelO3.Visible = true;
+                            labelO4.Visible = true;
+                            labelO5.Visible = true;
+                            labelcamposobligatorios.Visible = true;
                         }
                     }
 
@@ -2652,7 +2682,12 @@ namespace UCS_NODO_FGC
                     pnlNivel_intermedio.Visible = false;
                     pnlNivel_avanzado.Visible = true;
                     Load_Sig_Re();
-
+                    labelO1.Visible = false;
+                    labelO2.Visible = false;
+                    labelO3.Visible = false;
+                    labelO4.Visible = false;
+                    labelO5.Visible = false;
+                    labelcamposobligatorios.Visible = false;
                 }
 
             }
@@ -4121,7 +4156,7 @@ namespace UCS_NODO_FGC
                 {
                     llenarComboCOFA_AFI(AFI.id_AFI, fa.id_facilitador);
                 }
-                MessageBox.Show(fa.id_facilitador + " idFa true ");
+               // MessageBox.Show(fa.id_facilitador + " idFa true ");
             }
             else
             {
@@ -4702,6 +4737,12 @@ namespace UCS_NODO_FGC
             id_horario = Convert.ToInt32(cmbxHorarios.SelectedValue);
             formacion.horario1 = cmbxHorarios.Text;
         }
+
+        private void label35_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cmbxHorario2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             id_horario2 = Convert.ToInt32(cmbxHorario2.SelectedValue);

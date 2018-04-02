@@ -39,6 +39,13 @@
             this.pnlPanelContenedorMenu = new System.Windows.Forms.Panel();
             this.pnlPanelCuerpoMenu = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pnlBtnLogistica = new System.Windows.Forms.Panel();
+            this.btnFrmVerCursosAFI = new System.Windows.Forms.Button();
+            this.btnFrmVerCursosInces = new System.Windows.Forms.Button();
+            this.btnFrmVerInsumos = new System.Windows.Forms.Button();
+            this.btnFrmVerPublicidad = new System.Windows.Forms.Button();
+            this.btnFrmVerRefrigerios = new System.Windows.Forms.Button();
+            this.btnLogistica = new System.Windows.Forms.Button();
             this.pnlBtnFormatos = new System.Windows.Forms.Panel();
             this.btnFrmVerFormatos = new System.Windows.Forms.Button();
             this.btnFormatos = new System.Windows.Forms.Button();
@@ -59,25 +66,19 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnFrmAyuda = new System.Windows.Forms.Button();
             this.pnlPanelCabeceraMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDespliegueMenu = new System.Windows.Forms.Button();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
             this.lblLabelNombre_usuario = new System.Windows.Forms.Label();
             this.picFotoUser = new System.Windows.Forms.PictureBox();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelDisplay = new System.Windows.Forms.Panel();
-            this.btnDespliegueMenu = new System.Windows.Forms.Button();
-            this.pnlBtnLogistica = new System.Windows.Forms.Panel();
-            this.btnFrmVerCursosAFI = new System.Windows.Forms.Button();
-            this.btnFrmVerCursosInces = new System.Windows.Forms.Button();
-            this.btnFrmVerInsumos = new System.Windows.Forms.Button();
-            this.btnFrmVerPublicidad = new System.Windows.Forms.Button();
-            this.btnFrmVerRefrigerios = new System.Windows.Forms.Button();
-            this.btnLogistica = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlPanelBordeVentana.SuspendLayout();
             this.pnlPanelContenedorMenu.SuspendLayout();
             this.pnlPanelCuerpoMenu.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.pnlBtnLogistica.SuspendLayout();
             this.pnlBtnFormatos.SuspendLayout();
             this.pnlBtnParticipantes.SuspendLayout();
             this.pnlBtnClientes.SuspendLayout();
@@ -86,7 +87,6 @@
             this.pnlBtnFinal.SuspendLayout();
             this.pnlPanelCabeceraMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).BeginInit();
-            this.pnlBtnLogistica.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,14 +95,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2, 692);
+            this.panel1.Size = new System.Drawing.Size(2, 730);
             this.panel1.TabIndex = 10;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(2, 690);
+            this.panel2.Location = new System.Drawing.Point(2, 728);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1376, 2);
             this.panel2.TabIndex = 11;
@@ -113,7 +113,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1376, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(2, 690);
+            this.panel3.Size = new System.Drawing.Size(2, 728);
             this.panel3.TabIndex = 12;
             // 
             // panel4
@@ -170,14 +170,14 @@
             // 
             // pnlPanelContenedorMenu
             // 
-            this.pnlPanelContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(183)))), ((int)(((byte)(209)))));
+            this.pnlPanelContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(198)))), ((int)(((byte)(248)))));
             this.pnlPanelContenedorMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPanelContenedorMenu.Controls.Add(this.pnlPanelCuerpoMenu);
             this.pnlPanelContenedorMenu.Controls.Add(this.pnlPanelCabeceraMenu);
             this.pnlPanelContenedorMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlPanelContenedorMenu.Location = new System.Drawing.Point(2, 27);
             this.pnlPanelContenedorMenu.Name = "pnlPanelContenedorMenu";
-            this.pnlPanelContenedorMenu.Size = new System.Drawing.Size(245, 663);
+            this.pnlPanelContenedorMenu.Size = new System.Drawing.Size(245, 701);
             this.pnlPanelContenedorMenu.TabIndex = 15;
             // 
             // pnlPanelCuerpoMenu
@@ -187,7 +187,7 @@
             this.pnlPanelCuerpoMenu.Controls.Add(this.panelContenedor);
             this.pnlPanelCuerpoMenu.Location = new System.Drawing.Point(0, 208);
             this.pnlPanelCuerpoMenu.Name = "pnlPanelCuerpoMenu";
-            this.pnlPanelCuerpoMenu.Size = new System.Drawing.Size(244, 456);
+            this.pnlPanelCuerpoMenu.Size = new System.Drawing.Size(244, 494);
             this.pnlPanelCuerpoMenu.TabIndex = 0;
             // 
             // panelContenedor
@@ -204,8 +204,126 @@
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(244, 456);
+            this.panelContenedor.Size = new System.Drawing.Size(244, 494);
             this.panelContenedor.TabIndex = 10;
+            // 
+            // pnlBtnLogistica
+            // 
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosAFI);
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosInces);
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerInsumos);
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerPublicidad);
+            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerRefrigerios);
+            this.pnlBtnLogistica.Controls.Add(this.btnLogistica);
+            this.pnlBtnLogistica.Location = new System.Drawing.Point(0, 198);
+            this.pnlBtnLogistica.Name = "pnlBtnLogistica";
+            this.pnlBtnLogistica.Size = new System.Drawing.Size(219, 48);
+            this.pnlBtnLogistica.TabIndex = 23;
+            this.pnlBtnLogistica.Tag = "";
+            // 
+            // btnFrmVerCursosAFI
+            // 
+            this.btnFrmVerCursosAFI.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerCursosAFI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerCursosAFI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerCursosAFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerCursosAFI.Image = global::UCS_NODO_FGC.Properties.Resources.icon_formaciones;
+            this.btnFrmVerCursosAFI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerCursosAFI.Location = new System.Drawing.Point(3, 265);
+            this.btnFrmVerCursosAFI.Name = "btnFrmVerCursosAFI";
+            this.btnFrmVerCursosAFI.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerCursosAFI.TabIndex = 15;
+            this.btnFrmVerCursosAFI.Text = "      Cursos A.F.I.";
+            this.btnFrmVerCursosAFI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerCursosAFI.UseVisualStyleBackColor = true;
+            this.btnFrmVerCursosAFI.Click += new System.EventHandler(this.btnFrmVerCursosAFI_Click);
+            // 
+            // btnFrmVerCursosInces
+            // 
+            this.btnFrmVerCursosInces.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerCursosInces.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerCursosInces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerCursosInces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerCursosInces.Image = global::UCS_NODO_FGC.Properties.Resources.icon_inces;
+            this.btnFrmVerCursosInces.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerCursosInces.Location = new System.Drawing.Point(3, 212);
+            this.btnFrmVerCursosInces.Name = "btnFrmVerCursosInces";
+            this.btnFrmVerCursosInces.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerCursosInces.TabIndex = 14;
+            this.btnFrmVerCursosInces.Text = "     Cursos INCES";
+            this.btnFrmVerCursosInces.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerCursosInces.UseVisualStyleBackColor = true;
+            this.btnFrmVerCursosInces.Click += new System.EventHandler(this.btnFrmVerCursosInces_Click);
+            // 
+            // btnFrmVerInsumos
+            // 
+            this.btnFrmVerInsumos.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerInsumos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerInsumos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerInsumos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerInsumos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_insumos;
+            this.btnFrmVerInsumos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerInsumos.Location = new System.Drawing.Point(3, 159);
+            this.btnFrmVerInsumos.Name = "btnFrmVerInsumos";
+            this.btnFrmVerInsumos.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerInsumos.TabIndex = 13;
+            this.btnFrmVerInsumos.Text = "         Insumos";
+            this.btnFrmVerInsumos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerInsumos.UseVisualStyleBackColor = true;
+            this.btnFrmVerInsumos.Click += new System.EventHandler(this.btnFrmVerInsumos_Click);
+            // 
+            // btnFrmVerPublicidad
+            // 
+            this.btnFrmVerPublicidad.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerPublicidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerPublicidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerPublicidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerPublicidad.Image = global::UCS_NODO_FGC.Properties.Resources.icon_publicidad;
+            this.btnFrmVerPublicidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerPublicidad.Location = new System.Drawing.Point(3, 106);
+            this.btnFrmVerPublicidad.Name = "btnFrmVerPublicidad";
+            this.btnFrmVerPublicidad.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerPublicidad.TabIndex = 11;
+            this.btnFrmVerPublicidad.Text = "        Publicidad   ";
+            this.btnFrmVerPublicidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerPublicidad.UseVisualStyleBackColor = true;
+            this.btnFrmVerPublicidad.Click += new System.EventHandler(this.btnFrmVerPublicidad_Click);
+            // 
+            // btnFrmVerRefrigerios
+            // 
+            this.btnFrmVerRefrigerios.FlatAppearance.BorderSize = 0;
+            this.btnFrmVerRefrigerios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
+            this.btnFrmVerRefrigerios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFrmVerRefrigerios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmVerRefrigerios.Image = global::UCS_NODO_FGC.Properties.Resources.icon_refrigerio;
+            this.btnFrmVerRefrigerios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFrmVerRefrigerios.Location = new System.Drawing.Point(3, 53);
+            this.btnFrmVerRefrigerios.Name = "btnFrmVerRefrigerios";
+            this.btnFrmVerRefrigerios.Size = new System.Drawing.Size(219, 47);
+            this.btnFrmVerRefrigerios.TabIndex = 10;
+            this.btnFrmVerRefrigerios.Text = "        Refrigerios";
+            this.btnFrmVerRefrigerios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFrmVerRefrigerios.UseVisualStyleBackColor = true;
+            this.btnFrmVerRefrigerios.Click += new System.EventHandler(this.btnFrmVerRefrigerios_Click);
+            // 
+            // btnLogistica
+            // 
+            this.btnLogistica.FlatAppearance.BorderSize = 0;
+            this.btnLogistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnLogistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnLogistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogistica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogistica.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogistica.Image = global::UCS_NODO_FGC.Properties.Resources.icon_lista;
+            this.btnLogistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogistica.Location = new System.Drawing.Point(3, 0);
+            this.btnLogistica.Name = "btnLogistica";
+            this.btnLogistica.Size = new System.Drawing.Size(219, 47);
+            this.btnLogistica.TabIndex = 0;
+            this.btnLogistica.Text = "         Logística";
+            this.btnLogistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogistica.UseVisualStyleBackColor = true;
+            this.btnLogistica.Click += new System.EventHandler(this.btnLogistica_Click);
             // 
             // pnlBtnFormatos
             // 
@@ -502,6 +620,34 @@
             this.pnlPanelCabeceraMenu.Size = new System.Drawing.Size(244, 207);
             this.pnlPanelCabeceraMenu.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(83, 179);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Asistente";
+            // 
+            // btnDespliegueMenu
+            // 
+            this.btnDespliegueMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnDespliegueMenu.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_about;
+            this.btnDespliegueMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDespliegueMenu.FlatAppearance.BorderSize = 0;
+            this.btnDespliegueMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnDespliegueMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDespliegueMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDespliegueMenu.Location = new System.Drawing.Point(202, 10);
+            this.btnDespliegueMenu.Name = "btnDespliegueMenu";
+            this.btnDespliegueMenu.Size = new System.Drawing.Size(29, 29);
+            this.btnDespliegueMenu.TabIndex = 4;
+            this.btnDespliegueMenu.UseVisualStyleBackColor = false;
+            this.btnDespliegueMenu.Click += new System.EventHandler(this.btnDespliegueMenu_Click_1);
+            // 
             // btnEditarPerfil
             // 
             this.btnEditarPerfil.BackColor = System.Drawing.Color.Transparent;
@@ -559,165 +705,21 @@
             // 
             // pnlPanelDisplay
             // 
-            this.pnlPanelDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pnlPanelDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
+            this.pnlPanelDisplay.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.prueba_fondo;
+            this.pnlPanelDisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlPanelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPanelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPanelDisplay.Location = new System.Drawing.Point(247, 27);
             this.pnlPanelDisplay.Name = "pnlPanelDisplay";
-            this.pnlPanelDisplay.Size = new System.Drawing.Size(1129, 663);
+            this.pnlPanelDisplay.Size = new System.Drawing.Size(1129, 701);
             this.pnlPanelDisplay.TabIndex = 16;
-            // 
-            // btnDespliegueMenu
-            // 
-            this.btnDespliegueMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnDespliegueMenu.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_about;
-            this.btnDespliegueMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDespliegueMenu.FlatAppearance.BorderSize = 0;
-            this.btnDespliegueMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnDespliegueMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnDespliegueMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDespliegueMenu.Location = new System.Drawing.Point(202, 10);
-            this.btnDespliegueMenu.Name = "btnDespliegueMenu";
-            this.btnDespliegueMenu.Size = new System.Drawing.Size(29, 29);
-            this.btnDespliegueMenu.TabIndex = 4;
-            this.btnDespliegueMenu.UseVisualStyleBackColor = false;
-            this.btnDespliegueMenu.Click += new System.EventHandler(this.btnDespliegueMenu_Click_1);
-            // 
-            // pnlBtnLogistica
-            // 
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosAFI);
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerCursosInces);
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerInsumos);
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerPublicidad);
-            this.pnlBtnLogistica.Controls.Add(this.btnFrmVerRefrigerios);
-            this.pnlBtnLogistica.Controls.Add(this.btnLogistica);
-            this.pnlBtnLogistica.Location = new System.Drawing.Point(0, 198);
-            this.pnlBtnLogistica.Name = "pnlBtnLogistica";
-            this.pnlBtnLogistica.Size = new System.Drawing.Size(219, 48);
-            this.pnlBtnLogistica.TabIndex = 23;
-            this.pnlBtnLogistica.Tag = "";
-            // 
-            // btnFrmVerCursosAFI
-            // 
-            this.btnFrmVerCursosAFI.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerCursosAFI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerCursosAFI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerCursosAFI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerCursosAFI.Image = global::UCS_NODO_FGC.Properties.Resources.icon_formaciones;
-            this.btnFrmVerCursosAFI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerCursosAFI.Location = new System.Drawing.Point(3, 265);
-            this.btnFrmVerCursosAFI.Name = "btnFrmVerCursosAFI";
-            this.btnFrmVerCursosAFI.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerCursosAFI.TabIndex = 15;
-            this.btnFrmVerCursosAFI.Text = "      Cursos A.F.I.";
-            this.btnFrmVerCursosAFI.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerCursosAFI.UseVisualStyleBackColor = true;
-            this.btnFrmVerCursosAFI.Click += new System.EventHandler(this.btnFrmVerCursosAFI_Click);
-            // 
-            // btnFrmVerCursosInces
-            // 
-            this.btnFrmVerCursosInces.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerCursosInces.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerCursosInces.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerCursosInces.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerCursosInces.Image = global::UCS_NODO_FGC.Properties.Resources.icon_inces;
-            this.btnFrmVerCursosInces.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerCursosInces.Location = new System.Drawing.Point(3, 212);
-            this.btnFrmVerCursosInces.Name = "btnFrmVerCursosInces";
-            this.btnFrmVerCursosInces.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerCursosInces.TabIndex = 14;
-            this.btnFrmVerCursosInces.Text = "     Cursos INCES";
-            this.btnFrmVerCursosInces.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerCursosInces.UseVisualStyleBackColor = true;
-            this.btnFrmVerCursosInces.Click += new System.EventHandler(this.btnFrmVerCursosInces_Click);
-            // 
-            // btnFrmVerInsumos
-            // 
-            this.btnFrmVerInsumos.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerInsumos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerInsumos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerInsumos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerInsumos.Image = global::UCS_NODO_FGC.Properties.Resources.icon_insumos;
-            this.btnFrmVerInsumos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerInsumos.Location = new System.Drawing.Point(3, 159);
-            this.btnFrmVerInsumos.Name = "btnFrmVerInsumos";
-            this.btnFrmVerInsumos.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerInsumos.TabIndex = 13;
-            this.btnFrmVerInsumos.Text = "         Insumos";
-            this.btnFrmVerInsumos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerInsumos.UseVisualStyleBackColor = true;
-            this.btnFrmVerInsumos.Click += new System.EventHandler(this.btnFrmVerInsumos_Click);
-            // 
-            // btnFrmVerPublicidad
-            // 
-            this.btnFrmVerPublicidad.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerPublicidad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerPublicidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerPublicidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerPublicidad.Image = global::UCS_NODO_FGC.Properties.Resources.icon_publicidad;
-            this.btnFrmVerPublicidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerPublicidad.Location = new System.Drawing.Point(3, 106);
-            this.btnFrmVerPublicidad.Name = "btnFrmVerPublicidad";
-            this.btnFrmVerPublicidad.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerPublicidad.TabIndex = 11;
-            this.btnFrmVerPublicidad.Text = "        Publicidad   ";
-            this.btnFrmVerPublicidad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerPublicidad.UseVisualStyleBackColor = true;
-            this.btnFrmVerPublicidad.Click += new System.EventHandler(this.btnFrmVerPublicidad_Click);
-            // 
-            // btnFrmVerRefrigerios
-            // 
-            this.btnFrmVerRefrigerios.FlatAppearance.BorderSize = 0;
-            this.btnFrmVerRefrigerios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(213)))), ((int)(((byte)(241)))));
-            this.btnFrmVerRefrigerios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFrmVerRefrigerios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFrmVerRefrigerios.Image = global::UCS_NODO_FGC.Properties.Resources.icon_refrigerio;
-            this.btnFrmVerRefrigerios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFrmVerRefrigerios.Location = new System.Drawing.Point(3, 53);
-            this.btnFrmVerRefrigerios.Name = "btnFrmVerRefrigerios";
-            this.btnFrmVerRefrigerios.Size = new System.Drawing.Size(219, 47);
-            this.btnFrmVerRefrigerios.TabIndex = 10;
-            this.btnFrmVerRefrigerios.Text = "        Refrigerios";
-            this.btnFrmVerRefrigerios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFrmVerRefrigerios.UseVisualStyleBackColor = true;
-            this.btnFrmVerRefrigerios.Click += new System.EventHandler(this.btnFrmVerRefrigerios_Click);
-            // 
-            // btnLogistica
-            // 
-            this.btnLogistica.FlatAppearance.BorderSize = 0;
-            this.btnLogistica.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnLogistica.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnLogistica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogistica.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogistica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogistica.Image = global::UCS_NODO_FGC.Properties.Resources.icon_lista;
-            this.btnLogistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogistica.Location = new System.Drawing.Point(3, 0);
-            this.btnLogistica.Name = "btnLogistica";
-            this.btnLogistica.Size = new System.Drawing.Size(219, 47);
-            this.btnLogistica.TabIndex = 0;
-            this.btnLogistica.Text = "         Logística";
-            this.btnLogistica.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLogistica.UseVisualStyleBackColor = true;
-            this.btnLogistica.Click += new System.EventHandler(this.btnLogistica_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(83, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 19);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Asistente";
             // 
             // Pagina_principal_Asistente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1378, 692);
+            this.ClientSize = new System.Drawing.Size(1378, 730);
             this.Controls.Add(this.pnlPanelDisplay);
             this.Controls.Add(this.pnlPanelContenedorMenu);
             this.Controls.Add(this.pnlPanelBordeVentana);
@@ -734,6 +736,7 @@
             this.pnlPanelContenedorMenu.ResumeLayout(false);
             this.pnlPanelCuerpoMenu.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.pnlBtnLogistica.ResumeLayout(false);
             this.pnlBtnFormatos.ResumeLayout(false);
             this.pnlBtnParticipantes.ResumeLayout(false);
             this.pnlBtnClientes.ResumeLayout(false);
@@ -743,7 +746,6 @@
             this.pnlPanelCabeceraMenu.ResumeLayout(false);
             this.pnlPanelCabeceraMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).EndInit();
-            this.pnlBtnLogistica.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

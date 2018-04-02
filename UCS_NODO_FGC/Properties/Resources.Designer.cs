@@ -693,9 +693,39 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap prueba_fondo {
+            get {
+                object obj = ResourceManager.GetObject("prueba_fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap silueta_usuario {
             get {
                 object obj = ResourceManager.GetObject("silueta_usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trayectoria_plantilla_01 {
+            get {
+                object obj = ResourceManager.GetObject("trayectoria plantilla 01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trayectoria_plantilla_02 {
+            get {
+                object obj = ResourceManager.GetObject("trayectoria_plantilla_02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

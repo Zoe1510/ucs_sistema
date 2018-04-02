@@ -81,6 +81,7 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.btnFrmAyuda = new System.Windows.Forms.Button();
             this.pnlPanelCabeceraMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
             this.btnDespliegueMenu = new System.Windows.Forms.Button();
             this.lblLabelNombre_usuario = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rsLineaSeparadora = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlPanelDisplay = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlPanelBordeVentana.SuspendLayout();
             this.pnlPanelContenedorMenu.SuspendLayout();
             this.pnlPanelCuerpoMenu.SuspendLayout();
@@ -188,7 +188,7 @@
             // 
             // pnlPanelContenedorMenu
             // 
-            this.pnlPanelContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(198)))), ((int)(((byte)(213)))));
+            this.pnlPanelContenedorMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(198)))), ((int)(((byte)(248)))));
             this.pnlPanelContenedorMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPanelContenedorMenu.Controls.Add(this.pnlPanelCuerpoMenu);
             this.pnlPanelContenedorMenu.Controls.Add(this.pnlPanelCabeceraMenu);
@@ -908,6 +908,18 @@
             this.pnlPanelCabeceraMenu.Size = new System.Drawing.Size(244, 207);
             this.pnlPanelCabeceraMenu.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(91, 179);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Líder";
+            // 
             // btnEditarPerfil
             // 
             this.btnEditarPerfil.BackColor = System.Drawing.Color.Transparent;
@@ -981,8 +993,8 @@
             // 
             // pnlPanelDisplay
             // 
-            this.pnlPanelDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPanelDisplay.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.logo_degrado;
+            this.pnlPanelDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(40)))), ((int)(((byte)(90)))));
+            this.pnlPanelDisplay.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.prueba_fondo;
             this.pnlPanelDisplay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlPanelDisplay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPanelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -991,18 +1003,6 @@
             this.pnlPanelDisplay.Size = new System.Drawing.Size(1131, 703);
             this.pnlPanelDisplay.TabIndex = 10;
             this.pnlPanelDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPanelDisplay_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(91, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Líder";
             // 
             // Pagina_principal
             // 

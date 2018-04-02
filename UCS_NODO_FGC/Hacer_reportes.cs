@@ -556,7 +556,7 @@ namespace UCS_NODO_FGC
                     datosF.Logo = GetBytes(pic);
                     RPT_TIEMPO_TIPO rtt = new RPT_TIEMPO_TIPO();                    
                     rtt.info.Add(datosF);
-                    MessageBox.Show(rtt.info[0].tipo_formacion);
+                   // MessageBox.Show(rtt.info[0].tipo_formacion);
                     rtt.ShowDialog();
                     vaciardatos();
                 }
