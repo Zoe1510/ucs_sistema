@@ -31,12 +31,20 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.R_Formacion_DatosGeneralesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.R_EtapaFormacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.R_Formacion_DatosGeneralesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.R_EtapaFormacionBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // R_Formacion_DatosGeneralesBindingSource
+            // 
+            this.R_Formacion_DatosGeneralesBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales);
+            // 
+            // R_EtapaFormacionBindingSource
+            // 
+            this.R_EtapaFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_EtapaFormacion);
             // 
             // reportViewer1
             // 
@@ -50,22 +58,14 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "UCS_NODO_FGC.Reportes.rptHorasDedicadas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(705, 754);
+            this.reportViewer1.Size = new System.Drawing.Size(705, 541);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // R_Formacion_DatosGeneralesBindingSource
-            // 
-            this.R_Formacion_DatosGeneralesBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales);
-            // 
-            // R_EtapaFormacionBindingSource
-            // 
-            this.R_EtapaFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_EtapaFormacion);
             // 
             // RPT_HORAS_DEDICADAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 754);
+            this.ClientSize = new System.Drawing.Size(705, 541);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RPT_HORAS_DEDICADAS";

@@ -30,10 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.R_TiempoTipoFormacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.R_TiempoTipoFormacionBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // R_TiempoTipoFormacionBindingSource
+            // 
+            this.R_TiempoTipoFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_TiempoTipoFormacion);
             // 
             // reportViewer1
             // 
@@ -44,18 +48,14 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "UCS_NODO_FGC.Reportes.rptRelacionTipoFTiempo.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(731, 754);
+            this.reportViewer1.Size = new System.Drawing.Size(731, 702);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // R_TiempoTipoFormacionBindingSource
-            // 
-            this.R_TiempoTipoFormacionBindingSource.DataSource = typeof(UCS_NODO_FGC.Clases.R_TiempoTipoFormacion);
             // 
             // RPT_TIEMPO_TIPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 754);
+            this.ClientSize = new System.Drawing.Size(731, 702);
             this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RPT_TIEMPO_TIPO";
