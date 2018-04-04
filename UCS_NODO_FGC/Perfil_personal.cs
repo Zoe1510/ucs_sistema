@@ -54,6 +54,7 @@ namespace UCS_NODO_FGC
                         txtCedula.Focus();
                     }else if (txtNombreUser.Text == "")
                     {
+                        errorProviderCI.SetError(txtCedula, "");
                         errorProviderNombre.SetError(txtNombreUser, "Debe proporcionar un nombre válido.");
                         txtNombreUser.Focus();
                     }
@@ -71,73 +72,82 @@ namespace UCS_NODO_FGC
                         txtCorreoUser.Focus();
                     }else//si todo OK
                     {
-                        //hay que comprobar que el nro de cédula sea único.
-                        MySqlDataReader ci = Conexion.ConsultarBD("select * from usuarios where cedula_user='" + txtCedula.Text + "'");
-                        if (ci.Read())
+                        txtCorreoUser.BackColor = Color.FromArgb(218, 232, 240);
+                        usuario.correo_usuario = txtCorreoUser.Text;
+                        txtTlfnUser.BackColor = Color.FromArgb(218, 232, 240);
+                        usuario.tlfn_usuario = txtTlfnUser.Text;
+
+                        usuario.nombre_usuario = txtNombreUser.Text;
+                        usuario.apellido_usuario = txtApellidoUser.Text;
+                        usuario.cargo_usuario = lblCargo.Text;
+                        usuario.cedula_user = Convert.ToInt32(txtCedula.Text);
+                        usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
+                        usuario.password = Clases.Usuario_logeado.password;
+                        usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
+                       // MessageBox.Show(Usuario_logeado.cedula_user.ToString() + "cedula de inicio");
+                          //  MessageBox.Show("cedula del txtbox" + usuario.cedula_user.ToString());
+                        if (Convert.ToInt32(txtCedula.Text) != Usuario_logeado.cedula_user || txtNombreUser.Text != Usuario_logeado.nombre_usuario || txtApellidoUser.Text != Usuario_logeado.apellido_usuario || txtTlfnUser.Text != Usuario_logeado.tlfn_usuario || txtCorreoUser.Text != Usuario_logeado.correo_usuario || usuario.imagen_usuario != Usuario_logeado.imagen_usuario)
                         {
-                            if(txtCedula.Text != Usuario_logeado.cedula_user.ToString())
-                                MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            else
-                                MessageBox.Show("No se han detectado cambios.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            btnActualizarDatos.Enabled = false;
-                            NoEditable();
-                            
-                        }
-                        else
-                        {
-                            btnActualizarDatos.Enabled = true;
-                            txtCorreoUser.BackColor = Color.FromArgb(218, 232, 240);
-                            usuario.correo_usuario = txtCorreoUser.Text;
-                            txtTlfnUser.BackColor = Color.FromArgb(218, 232, 240);
-                            usuario.tlfn_usuario = txtTlfnUser.Text;
-
-                            usuario.nombre_usuario = txtNombreUser.Text;
-                            usuario.apellido_usuario = txtApellidoUser.Text;
-                            usuario.cargo_usuario = lblCargo.Text;
-                            usuario.cedula_user = Convert.ToInt32(txtCedula.Text);
-                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(picFotoUser.Image);
-                            usuario.password = Clases.Usuario_logeado.password;
-                            usuario.id_usuario = Clases.Usuario_logeado.id_usuario;
-                            int resultado;
-
-                            resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
-                            conexion.cerrarconexion();
-                            if (conexion.abrirconexion() == true)
+                            ////hay que comprobar que el nro de cédula sea único.
+                            MySqlDataReader ci = Conexion.ConsultarBD("select * from usuarios where cedula_user='" + txtCedula.Text + "'");
+                            if (ci.Read())
                             {
-                                if (resultado != 0)
+                                int cedula = Convert.ToInt32(ci["cedula_user"]);
+                                if (cedula != Usuario_logeado.cedula_user)
                                 {
-                                    int resultado2 = 0;
-
-                                    resultado2 = Clases.Usuarios.ActualizarFotoUsuario(conexion.conexion, usuario);
-                                    conexion.cerrarconexion();
-                                    if (resultado2 != 0)
-                                    {
-                                        MessageBox.Show("Los datos han sido actualizados correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
-                                        MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        conexion.cerrarconexion();
-                                        this.Close();
-                                        Inicio_Sesion.ActiveForm.Visible = true;
-
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Hubo un error al actualizar la foto", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
-
-
-
+                                    MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    txtCedula.Text = Usuario_logeado.cedula_user.ToString();
+                                        btnActualizarDatos.Enabled = false;
+                                    NoEditable();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No se pudo actualizar los datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    btnActualizarDatos.Enabled = true;
+
+                                    int resultado=0;
+                                    conexion.cerrarconexion();
+                                    if(conexion.abrirconexion())
+                                        resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
+
+                                    conexion.cerrarconexion();
+                                    if (conexion.abrirconexion() == true)
+                                    {
+                                        if (resultado != 0)
+                                        {
+                                            int resultado2 = 0;
+
+                                            resultado2 = Clases.Usuarios.ActualizarFotoUsuario(conexion.conexion, usuario);
+                                            conexion.cerrarconexion();
+                                            if (resultado2 != 0)
+                                            {
+                                                MessageBox.Show("Los datos han sido actualizados correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                                MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                conexion.cerrarconexion();
+                                                this.Close();
+                                                Inicio_Sesion.ActiveForm.Visible = true;
+
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Hubo un error al actualizar la foto", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+
+
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No se pudo actualizar los datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                        conexion.cerrarconexion();
+                                    }
+
                                 }
-                                conexion.cerrarconexion();
+                                
                             }
-
+                            ci.Close();
                         }
-
-
+                        
                     }
                 }
             }
@@ -281,5 +291,31 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //metodo usado para la validacion de solo numeros en el campo cedula del login
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                btnActualizarDatos.Enabled = true;
+            }
+
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                txtNombreUser.Focus();
+            }
+        }
     }
 }

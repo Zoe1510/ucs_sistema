@@ -49,7 +49,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarUsuarios(MySqlConnection conexion, Usuarios usuario)
         {
             int retorno = 0;
-            string query = @"INSERT INTO usuarios (cedula_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, tlfn_user, pass_user, correo_user, imagen_user) VALUES (?ci, ?nacionalidad, ?nombre, ?apellido, ?cargo, ?tlfn, ?pass, ?correo, ?imagen)";
+            string query = @"INSERT INTO usuarios (cedula_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, tlfn_user, pass_user, correo_user, imagen_user) VALUES (?ci, ?nacionalidad, ?nombre, ?apellido, ?cargo, ?tlfn, SHA1(?pass), ?correo, ?imagen)";
 
 
             MySqlCommand cmd = new MySqlCommand(query, conexion);
@@ -85,7 +85,7 @@ namespace UCS_NODO_FGC.Clases
         {
             int retorno = 0;
 
-            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET pass_user='{1}' WHERE id_user='{0}' ", id_user, pass), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET pass_user=SHA1('{1}') WHERE id_user='{0}' ", id_user, pass), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
@@ -106,7 +106,7 @@ namespace UCS_NODO_FGC.Clases
         {
             //modifica la cedula del usuario pero no lo elimina. así se quedan los registros y el usuario "eliminado" no puede acceder a su cuenta
             int retorno = 0;
-            string query = @"UPDATE usuarios SET cedula_user= ?novaCi,  pass_user= ?novaPass WHERE cedula_user= ?ci AND nacionalidad_user= ?nac";
+            string query = @"UPDATE usuarios SET cedula_user= ?novaCi,  pass_user=SHA1(?novaPass) WHERE cedula_user= ?ci AND nacionalidad_user= ?nac";
             MySqlCommand comando = new MySqlCommand(query, conexion);
             comando.Parameters.AddWithValue("?ci", ci_usuario);
             comando.Parameters.AddWithValue("?nac", nacionalidad);
@@ -146,7 +146,7 @@ namespace UCS_NODO_FGC.Clases
         public static Usuarios IniciarSesion(MySqlConnection conexion, Usuarios usuario)
         {
             Usuarios usuarioingresado = new Usuarios();
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT nacionalidad_user, nombre_user, apellido_user, cargo_user, tlfn_user, correo_user, id_user, imagen_user FROM usuarios WHERE cedula_user LIKE ('%{0}%') AND pass_user='{1}'", usuario.cedula_user, usuario.password), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT nacionalidad_user, nombre_user, apellido_user, cargo_user, tlfn_user, correo_user, id_user, imagen_user FROM usuarios WHERE cedula_user LIKE ('%{0}%') AND pass_user=SHA1('{1}')", usuario.cedula_user, usuario.password), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())
@@ -229,7 +229,7 @@ namespace UCS_NODO_FGC.Clases
 
             int retorno = 0;
             Usuarios usuario_bc = new Usuarios();
-            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET pass_user='{0}'  WHERE id_user='{1}' ", new_password, id_usuario), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET pass_user=SHA1('{0}')  WHERE id_user='{1}' ", new_password, id_usuario), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
 

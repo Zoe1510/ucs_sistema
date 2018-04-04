@@ -55,18 +55,26 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                retorno = 0;
                 MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_difusion, dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%')", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvDif.Rows.Clear();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    dif.id_dif = reader.GetInt32(0);
-                    dif.contenido_dif = reader.GetString(1);
-                    
+                    while (reader.Read())
+                    {
+                        dif.id_dif = reader.GetInt32(0);
+                        dif.contenido_dif = reader.GetString(1);
 
-                    dgvDif.Rows.Add(dif.contenido_dif);
-                    retorno = 1;
+
+                        dgvDif.Rows.Add(dif.contenido_dif);
+                        retorno = 1;
+                    }
+                       
+                }else
+                {
+                    retorno = 0;
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -79,7 +87,7 @@ namespace UCS_NODO_FGC
 
         private void buscar(MySqlConnection conexion, string buscar)
         {
-            int resultado;
+            int resultado=0;
             ActualizarTabla(conexion, buscar);
 
             resultado = retorno;
@@ -93,6 +101,7 @@ namespace UCS_NODO_FGC
             else
             {
                 MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                refrescar();
             }
         }
         private void Ver_publicidad_Load(object sender, EventArgs e)

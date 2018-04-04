@@ -62,18 +62,26 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                retorno = 0;
                 MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ins_contenido FROM insumos WHERE ins_contenido LIKE ('%{0}%')", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvInsumos.Rows.Clear();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    Clases.Insumos ins = new Clases.Insumos();
-                    ins.contenido_insumo = reader.GetString(0);
+                    while (reader.Read())
+                    {
+                        Clases.Insumos ins = new Clases.Insumos();
+                        ins.contenido_insumo = reader.GetString(0);
 
-                    dgvInsumos.Rows.Add(ins.contenido_insumo);
-                    retorno = 1;
+                        dgvInsumos.Rows.Add(ins.contenido_insumo);
+                        retorno = 1;
+                    }
+                }else
+                {
+                    retorno = 0;
                 }
+               
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -109,7 +117,7 @@ namespace UCS_NODO_FGC
 
         private void BuscarMatch(MySqlConnection conexion, string buscar)
         {
-            int resultado;
+            int resultado=0;
             CargarDatosTabla(conexion, buscar);
 
             resultado = retorno;
@@ -123,6 +131,7 @@ namespace UCS_NODO_FGC
             else
             {
                 MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                refrescar();
             }
         }
 

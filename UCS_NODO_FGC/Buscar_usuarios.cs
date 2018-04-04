@@ -214,25 +214,30 @@ namespace UCS_NODO_FGC
         }
 
         public Clases.Usuarios usuarioSeleccionado { get; set; }
-        string nacionalidad_usuario;
+        string nacionalidad_usuario="";
         private void dgvUsuarios_MouseClick(object sender, MouseEventArgs e)
         {
             if (dgvUsuarios.RowCount != 0)
             {
-                nacionalidad_usuario = dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString(); 
-                txtCedulaUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString();
-                txtNombreUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[2].Value.ToString();
-                txtApellidoUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[3].Value.ToString();
-                txtCargoUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[4].Value.ToString();
-                inhabilitar();
-                comboboxshow();
-                if(dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString() == Clases.Usuario_logeado.cedula_user.ToString())
+                if (dgvUsuarios.SelectedRows.Count != 0)
                 {
-                    btnEliminarUsuario.Enabled = false;
-                }else
-                {
-                    btnEliminarUsuario.Enabled = true;
+                    nacionalidad_usuario = dgvUsuarios.SelectedRows[0].Cells[0].Value.ToString();
+                    txtCedulaUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString();
+                    txtNombreUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[2].Value.ToString();
+                    txtApellidoUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[3].Value.ToString();
+                    txtCargoUsuario.Text = dgvUsuarios.SelectedRows[0].Cells[4].Value.ToString();
+                    inhabilitar();
+                    comboboxshow();
+                    if (dgvUsuarios.SelectedRows[0].Cells[1].Value.ToString() == Clases.Usuario_logeado.cedula_user.ToString())
+                    {
+                        btnEliminarUsuario.Enabled = false;
+                    }
+                    else
+                    {
+                        btnEliminarUsuario.Enabled = true;
+                    }
                 }
+                
             }
 
         }
