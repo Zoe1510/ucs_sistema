@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnGuardarFa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).BeginInit();
@@ -81,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -107,6 +110,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del facilitador";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_cliente;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(479, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox1.TabIndex = 73;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -428,7 +442,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -488,12 +502,15 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Modificar_facilitadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar datos del facilitador";
             this.Load += new System.EventHandler(this.Modificar_facilitadores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).EndInit();
@@ -548,5 +565,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.Button btnGuardarFa;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

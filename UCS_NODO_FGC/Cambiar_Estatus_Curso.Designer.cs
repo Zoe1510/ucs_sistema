@@ -35,11 +35,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.groupBox1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -123,8 +123,26 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer1.Size = new System.Drawing.Size(666, 25);
+            this.shapeContainer1.TabIndex = 1;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(-2, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(697, 1);
             // 
             // btnCancelar
             // 
@@ -167,24 +185,6 @@
             this.pictureBox1.TabIndex = 72;
             this.pictureBox1.TabStop = false;
             // 
-            // rectangleShape2
-            // 
-            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.rectangleShape2.Location = new System.Drawing.Point(-2, 0);
-            this.rectangleShape2.Name = "rectangleShape2";
-            this.rectangleShape2.Size = new System.Drawing.Size(697, 1);
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape2});
-            this.shapeContainer1.Size = new System.Drawing.Size(666, 25);
-            this.shapeContainer1.TabIndex = 1;
-            this.shapeContainer1.TabStop = false;
-            // 
             // Cambiar_Estatus_Curso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +197,8 @@
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Cambiar_Estatus_Curso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambiar estatus formación";

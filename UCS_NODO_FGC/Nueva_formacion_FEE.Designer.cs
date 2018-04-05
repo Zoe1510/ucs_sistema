@@ -141,6 +141,8 @@
             this.label28 = new System.Windows.Forms.Label();
             this.gpbInsumos = new System.Windows.Forms.GroupBox();
             this.dgvInsumos = new System.Windows.Forms.DataGridView();
+            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gpbSeleccionRef = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -156,8 +158,6 @@
             this.errorProviderFecha = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.insumo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seleccion_opcion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -282,7 +282,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -1479,6 +1479,26 @@
             this.dgvInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsumos_CellContentClick);
             this.dgvInsumos.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInsumos_CurrentCellDirtyStateChanged);
             // 
+            // insumo
+            // 
+            this.insumo.HeaderText = "Insumos";
+            this.insumo.MaxInputLength = 250;
+            this.insumo.MinimumWidth = 50;
+            this.insumo.Name = "insumo";
+            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.insumo.Width = 330;
+            // 
+            // seleccion_opcion
+            // 
+            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.seleccion_opcion.FalseValue = "false";
+            this.seleccion_opcion.HeaderText = "";
+            this.seleccion_opcion.MinimumWidth = 30;
+            this.seleccion_opcion.Name = "seleccion_opcion";
+            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.seleccion_opcion.TrueValue = "true";
+            this.seleccion_opcion.Width = 40;
+            // 
             // pictureBox11
             // 
             this.pictureBox11.Image = global::UCS_NODO_FGC.Properties.Resources.icon_archivo;
@@ -1570,26 +1590,6 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
-            // insumo
-            // 
-            this.insumo.HeaderText = "Insumos";
-            this.insumo.MaxInputLength = 250;
-            this.insumo.MinimumWidth = 50;
-            this.insumo.Name = "insumo";
-            this.insumo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.insumo.Width = 330;
-            // 
-            // seleccion_opcion
-            // 
-            this.seleccion_opcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.seleccion_opcion.FalseValue = "false";
-            this.seleccion_opcion.HeaderText = "";
-            this.seleccion_opcion.MinimumWidth = 30;
-            this.seleccion_opcion.Name = "seleccion_opcion";
-            this.seleccion_opcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.seleccion_opcion.TrueValue = "true";
-            this.seleccion_opcion.Width = 40;
-            // 
             // Nueva_formacion_FEE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1600,6 +1600,8 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Nueva_formacion_FEE";
             this.Load += new System.EventHandler(this.Nueva_formacion_FEE_Load);
             this.Panel_cabecera.ResumeLayout(false);

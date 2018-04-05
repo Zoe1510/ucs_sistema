@@ -210,7 +210,7 @@ namespace UCS_NODO_FGC
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE cedula_fa LIKE ('%{0}%') OR nacionalidad_fa LIKE ('%{0}%') OR nombre_fa LIKE ('%{0}%') OR apellido_fa LIKE ('%{0}%') OR tlfn_fa LIKE ('%{0}%') OR correo_fa LIKE ('%{0}%') OR ubicacion_fa LIKE ('%{0}%') OR especialidad_fa LIKE ('%{0}%')", buscar ), conexion);
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_fa, cedula_fa, nacionalidad_fa, nombre_fa, apellido_fa, tlfn_fa, correo_fa, ubicacion_fa, especialidad_fa, requerimiento_inces FROM facilitadores WHERE cedula_fa LIKE ('%{0}%') OR nacionalidad_fa LIKE ('%{0}%') OR nombre_fa LIKE ('%{0}%') OR apellido_fa LIKE ('%{0}%') OR tlfn_fa LIKE ('%{0}%') OR correo_fa LIKE ('%{0}%') OR ubicacion_fa LIKE ('%{0}%') OR especialidad_fa LIKE ('%{0}%') order by ubicacion_fa, nombre_apellido", buscar ), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 dgvFa.Rows.Clear();

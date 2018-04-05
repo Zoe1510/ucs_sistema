@@ -46,7 +46,7 @@ namespace UCS_NODO_FGC
            
            try
             {
-                MySqlDataReader participantes = Conexion.ConsultarBD("SELECT nombre_par, cedula_par, apellido_par, correo_par, id_cli1, nombreE, tlfn_par FROM participantes");
+                MySqlDataReader participantes = Conexion.ConsultarBD("SELECT nombre_par, cedula_par, apellido_par, correo_par, id_cli1, nombreE, tlfn_par FROM participantes order by nombre_par, apellido_par");
                 while (participantes.Read())
                 {
 

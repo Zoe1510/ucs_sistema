@@ -96,7 +96,7 @@ namespace UCS_NODO_FGC
             try
             {
                 Clases.Insumos ins = new Clases.Insumos();
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ince.nombre_curso_ince, fa.nombre_fa, fa.apellido_fa, fa.cedula_fa FROM cursos_inces ince inner join inces_tiene_facilitadores itf on ince.id_curso_ince = itf.id_curso_INCE inner join facilitadores fa on itf.id_fa_INCE = fa.id_fa WHERE ince.nombre_curso_ince LIKE ('%{0}%')", buscar), conexion);
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ince.nombre_curso_ince, fa.nombre_fa, fa.apellido_fa, fa.cedula_fa FROM cursos_inces ince inner join inces_tiene_facilitadores itf on ince.id_curso_ince = itf.id_curso_INCE inner join facilitadores fa on itf.id_fa_INCE = fa.id_fa WHERE ince.nombre_curso_ince LIKE ('%{0}%') order by nombre_curso_ince, nombre_fa", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvInce.Rows.Clear();

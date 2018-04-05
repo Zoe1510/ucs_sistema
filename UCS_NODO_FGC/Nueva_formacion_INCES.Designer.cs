@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Panel_cabecera = new System.Windows.Forms.Panel();
             this.LabelCabecera = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -80,6 +80,8 @@
             this.btnVerPresentacion = new System.Windows.Forms.Button();
             this.btnVerContenido = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbxAreas = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.cmbxCursoInce = new System.Windows.Forms.ComboBox();
             this.cmbxSolicitadoPor = new System.Windows.Forms.ComboBox();
@@ -170,8 +172,6 @@
             this.errorProviderContenido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderDuracionF = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbxAreas = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
@@ -284,7 +284,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -624,7 +624,7 @@
             this.btnRutaManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaManual.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
             this.btnRutaManual.ForeColor = System.Drawing.Color.White;
-            this.btnRutaManual.Location = new System.Drawing.Point(252, 64);
+            this.btnRutaManual.Location = new System.Drawing.Point(129, 64);
             this.btnRutaManual.Name = "btnRutaManual";
             this.btnRutaManual.Size = new System.Drawing.Size(97, 32);
             this.btnRutaManual.TabIndex = 36;
@@ -660,7 +660,7 @@
             this.btnRutaPresentacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRutaPresentacion.Font = new System.Drawing.Font("Rockwell", 10F, System.Drawing.FontStyle.Bold);
             this.btnRutaPresentacion.ForeColor = System.Drawing.Color.White;
-            this.btnRutaPresentacion.Location = new System.Drawing.Point(130, 64);
+            this.btnRutaPresentacion.Location = new System.Drawing.Point(240, 64);
             this.btnRutaPresentacion.Name = "btnRutaPresentacion";
             this.btnRutaPresentacion.Size = new System.Drawing.Size(108, 32);
             this.btnRutaPresentacion.TabIndex = 34;
@@ -710,9 +710,9 @@
             this.btnPDFB.Enabled = false;
             this.btnPDFB.FlatAppearance.BorderSize = 0;
             this.btnPDFB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPDFB.Location = new System.Drawing.Point(443, 34);
+            this.btnPDFB.Location = new System.Drawing.Point(452, 32);
             this.btnPDFB.Name = "btnPDFB";
-            this.btnPDFB.Size = new System.Drawing.Size(73, 72);
+            this.btnPDFB.Size = new System.Drawing.Size(73, 74);
             this.btnPDFB.TabIndex = 8;
             this.btnPDFB.UseVisualStyleBackColor = false;
             // 
@@ -720,7 +720,7 @@
             // 
             this.btnVerBitacora.Enabled = false;
             this.btnVerBitacora.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerBitacora.Location = new System.Drawing.Point(432, 118);
+            this.btnVerBitacora.Location = new System.Drawing.Point(446, 118);
             this.btnVerBitacora.Name = "btnVerBitacora";
             this.btnVerBitacora.Size = new System.Drawing.Size(89, 27);
             this.btnVerBitacora.TabIndex = 7;
@@ -736,7 +736,7 @@
             this.btnPDFM.Enabled = false;
             this.btnPDFM.FlatAppearance.BorderSize = 0;
             this.btnPDFM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPDFM.Location = new System.Drawing.Point(321, 35);
+            this.btnPDFM.Location = new System.Drawing.Point(199, 32);
             this.btnPDFM.Name = "btnPDFM";
             this.btnPDFM.Size = new System.Drawing.Size(73, 72);
             this.btnPDFM.TabIndex = 6;
@@ -746,7 +746,7 @@
             // 
             this.btnVerManual.Enabled = false;
             this.btnVerManual.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerManual.Location = new System.Drawing.Point(313, 119);
+            this.btnVerManual.Location = new System.Drawing.Point(194, 118);
             this.btnVerManual.Name = "btnVerManual";
             this.btnVerManual.Size = new System.Drawing.Size(89, 27);
             this.btnVerManual.TabIndex = 5;
@@ -762,9 +762,9 @@
             this.btnPPT.Enabled = false;
             this.btnPPT.FlatAppearance.BorderSize = 0;
             this.btnPPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPPT.Location = new System.Drawing.Point(197, 34);
+            this.btnPPT.Location = new System.Drawing.Point(330, 34);
             this.btnPPT.Name = "btnPPT";
-            this.btnPPT.Size = new System.Drawing.Size(73, 72);
+            this.btnPPT.Size = new System.Drawing.Size(73, 74);
             this.btnPPT.TabIndex = 4;
             this.btnPPT.UseVisualStyleBackColor = false;
             // 
@@ -776,9 +776,9 @@
             this.btnDOC.Enabled = false;
             this.btnDOC.FlatAppearance.BorderSize = 0;
             this.btnDOC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDOC.Location = new System.Drawing.Point(67, 35);
+            this.btnDOC.Location = new System.Drawing.Point(69, 34);
             this.btnDOC.Name = "btnDOC";
-            this.btnDOC.Size = new System.Drawing.Size(73, 71);
+            this.btnDOC.Size = new System.Drawing.Size(73, 72);
             this.btnDOC.TabIndex = 3;
             this.btnDOC.UseVisualStyleBackColor = false;
             // 
@@ -786,7 +786,7 @@
             // 
             this.btnVerPresentacion.Enabled = false;
             this.btnVerPresentacion.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerPresentacion.Location = new System.Drawing.Point(181, 118);
+            this.btnVerPresentacion.Location = new System.Drawing.Point(317, 118);
             this.btnVerPresentacion.Name = "btnVerPresentacion";
             this.btnVerPresentacion.Size = new System.Drawing.Size(103, 27);
             this.btnVerPresentacion.TabIndex = 2;
@@ -824,6 +824,29 @@
             this.groupBox2.Size = new System.Drawing.Size(479, 189);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
+            // 
+            // cmbxAreas
+            // 
+            this.cmbxAreas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxAreas.Enabled = false;
+            this.cmbxAreas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxAreas.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxAreas.FormattingEnabled = true;
+            this.cmbxAreas.Location = new System.Drawing.Point(219, 109);
+            this.cmbxAreas.Name = "cmbxAreas";
+            this.cmbxAreas.Size = new System.Drawing.Size(226, 25);
+            this.cmbxAreas.TabIndex = 27;
+            this.cmbxAreas.SelectionChangeCommitted += new System.EventHandler(this.cmbxAreas_SelectionChangeCommitted);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(97, 112);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(110, 17);
+            this.label32.TabIndex = 72;
+            this.label32.Text = "Área empresa:";
             // 
             // pictureBox12
             // 
@@ -1587,26 +1610,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.insumo,
             this.seleccion_opcion});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 25);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1792,29 +1815,6 @@
             // 
             this.errorProviderHora2.ContainerControl = this;
             // 
-            // cmbxAreas
-            // 
-            this.cmbxAreas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxAreas.Enabled = false;
-            this.cmbxAreas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxAreas.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbxAreas.FormattingEnabled = true;
-            this.cmbxAreas.Location = new System.Drawing.Point(219, 109);
-            this.cmbxAreas.Name = "cmbxAreas";
-            this.cmbxAreas.Size = new System.Drawing.Size(226, 25);
-            this.cmbxAreas.TabIndex = 27;
-            this.cmbxAreas.SelectionChangeCommitted += new System.EventHandler(this.cmbxAreas_SelectionChangeCommitted);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(97, 112);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(110, 17);
-            this.label32.TabIndex = 72;
-            this.label32.Text = "Área empresa:";
-            // 
             // Nueva_formacion_INCES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1826,6 +1826,8 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Nueva_formacion_INCES";
             this.Load += new System.EventHandler(this.Nueva_formacion_INCES_Load);
             this.Panel_cabecera.ResumeLayout(false);

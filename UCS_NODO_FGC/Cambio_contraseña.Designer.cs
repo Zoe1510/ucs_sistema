@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtConfirPass = new System.Windows.Forms.TextBox();
+            this.txtNuevoPass = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.errorProviderNewPass = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderConfirPass = new System.Windows.Forms.ErrorProvider(this.components);
@@ -45,12 +47,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtNuevoPass = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.txtConfirPass = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNewPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderConfirPass)).BeginInit();
@@ -91,6 +91,27 @@
             this.groupBox1.Size = new System.Drawing.Size(500, 126);
             this.groupBox1.TabIndex = 222;
             this.groupBox1.TabStop = false;
+            // 
+            // txtConfirPass
+            // 
+            this.txtConfirPass.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirPass.Location = new System.Drawing.Point(184, 78);
+            this.txtConfirPass.Name = "txtConfirPass";
+            this.txtConfirPass.Size = new System.Drawing.Size(266, 25);
+            this.txtConfirPass.TabIndex = 234;
+            this.txtConfirPass.UseSystemPasswordChar = true;
+            this.txtConfirPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirPass_Validating);
+            // 
+            // txtNuevoPass
+            // 
+            this.txtNuevoPass.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNuevoPass.Location = new System.Drawing.Point(184, 25);
+            this.txtNuevoPass.Name = "txtNuevoPass";
+            this.txtNuevoPass.Size = new System.Drawing.Size(266, 25);
+            this.txtNuevoPass.TabIndex = 233;
+            this.txtNuevoPass.UseSystemPasswordChar = true;
+            this.txtNuevoPass.TextChanged += new System.EventHandler(this.txtNuevoPass_TextChanged);
+            this.txtNuevoPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtNuevoPass_Validating);
             // 
             // label9
             // 
@@ -229,17 +250,6 @@
             this.panel4.Size = new System.Drawing.Size(570, 1);
             this.panel4.TabIndex = 232;
             // 
-            // txtNuevoPass
-            // 
-            this.txtNuevoPass.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNuevoPass.Location = new System.Drawing.Point(184, 25);
-            this.txtNuevoPass.Name = "txtNuevoPass";
-            this.txtNuevoPass.Size = new System.Drawing.Size(266, 25);
-            this.txtNuevoPass.TabIndex = 233;
-            this.txtNuevoPass.UseSystemPasswordChar = true;
-            this.txtNuevoPass.TextChanged += new System.EventHandler(this.txtNuevoPass_TextChanged);
-            this.txtNuevoPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtNuevoPass_Validating);
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -260,7 +270,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(572, 16);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label4.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -281,16 +291,6 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
-            // txtConfirPass
-            // 
-            this.txtConfirPass.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfirPass.Location = new System.Drawing.Point(184, 78);
-            this.txtConfirPass.Name = "txtConfirPass";
-            this.txtConfirPass.Size = new System.Drawing.Size(266, 25);
-            this.txtConfirPass.TabIndex = 234;
-            this.txtConfirPass.UseSystemPasswordChar = true;
-            this.txtConfirPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirPass_Validating);
-            // 
             // Cambio_contraseña
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +307,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Cambio_contraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambio de contraseña";

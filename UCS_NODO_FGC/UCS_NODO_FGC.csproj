@@ -106,12 +106,6 @@
     <Compile Include="Asignar_INCE.Designer.cs">
       <DependentUpon>Asignar_INCE.cs</DependentUpon>
     </Compile>
-    <Compile Include="backup_restore.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="backup_restore.Designer.cs">
-      <DependentUpon>backup_restore.cs</DependentUpon>
-    </Compile>
     <Compile Include="Buscar_cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,9 +486,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Asignar_INCE.resx">
       <DependentUpon>Asignar_INCE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="backup_restore.resx">
-      <DependentUpon>backup_restore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar_cliente.resx">
       <DependentUpon>Buscar_cliente.cs</DependentUpon>

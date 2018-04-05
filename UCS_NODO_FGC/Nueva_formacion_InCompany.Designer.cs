@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -53,6 +53,7 @@
             this.rectangleShape6 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlNivel_avanzado = new System.Windows.Forms.Panel();
             this.pnlNivel_intermedio = new System.Windows.Forms.Panel();
+            this.labelcamposobligatorios = new System.Windows.Forms.Label();
             this.pnlNivel_basico = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -95,6 +96,8 @@
             this.btnCorreoFacilitadores = new System.Windows.Forms.Button();
             this.btnCorreoAdministracion = new System.Windows.Forms.Button();
             this.gpbFecha = new System.Windows.Forms.GroupBox();
+            this.labelO5 = new System.Windows.Forms.Label();
+            this.labelO4 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dtpSegundaFecha = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaCurso = new System.Windows.Forms.DateTimePicker();
@@ -102,6 +105,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.gpbInstalacion = new System.Windows.Forms.GroupBox();
             this.rdbNoInstalaciones = new System.Windows.Forms.RadioButton();
+            this.labelO1 = new System.Windows.Forms.Label();
             this.rdbInstalaciones = new System.Windows.Forms.RadioButton();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -122,11 +126,13 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.gpbFacilitador = new System.Windows.Forms.GroupBox();
+            this.labelO3 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbxFa = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gpbRefrigerio = new System.Windows.Forms.GroupBox();
+            this.labelO2 = new System.Windows.Forms.Label();
             this.rdbNoRef = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rdbSiRef = new System.Windows.Forms.RadioButton();
@@ -178,12 +184,6 @@
             this.errorProviderRefrigerio = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderHora2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderManual = new System.Windows.Forms.ErrorProvider(this.components);
-            this.labelO3 = new System.Windows.Forms.Label();
-            this.labelO1 = new System.Windows.Forms.Label();
-            this.labelO2 = new System.Windows.Forms.Label();
-            this.labelO4 = new System.Windows.Forms.Label();
-            this.labelO5 = new System.Windows.Forms.Label();
-            this.labelcamposobligatorios = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             this.pnlPanelOpciones.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -256,7 +256,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -493,6 +493,19 @@
             this.pnlNivel_intermedio.Name = "pnlNivel_intermedio";
             this.pnlNivel_intermedio.Size = new System.Drawing.Size(919, 615);
             this.pnlNivel_intermedio.TabIndex = 80;
+            // 
+            // labelcamposobligatorios
+            // 
+            this.labelcamposobligatorios.AutoSize = true;
+            this.labelcamposobligatorios.Enabled = false;
+            this.labelcamposobligatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelcamposobligatorios.ForeColor = System.Drawing.Color.Maroon;
+            this.labelcamposobligatorios.Location = new System.Drawing.Point(771, 3);
+            this.labelcamposobligatorios.Name = "labelcamposobligatorios";
+            this.labelcamposobligatorios.Size = new System.Drawing.Size(145, 17);
+            this.labelcamposobligatorios.TabIndex = 95;
+            this.labelcamposobligatorios.Text = "* Campos obligatorios";
+            this.labelcamposobligatorios.Visible = false;
             // 
             // pnlNivel_basico
             // 
@@ -1015,6 +1028,32 @@
             this.gpbFecha.TabIndex = 89;
             this.gpbFecha.TabStop = false;
             // 
+            // labelO5
+            // 
+            this.labelO5.AutoSize = true;
+            this.labelO5.Enabled = false;
+            this.labelO5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelO5.ForeColor = System.Drawing.Color.Maroon;
+            this.labelO5.Location = new System.Drawing.Point(378, 84);
+            this.labelO5.Name = "labelO5";
+            this.labelO5.Size = new System.Drawing.Size(13, 17);
+            this.labelO5.TabIndex = 97;
+            this.labelO5.Text = "*";
+            this.labelO5.Visible = false;
+            // 
+            // labelO4
+            // 
+            this.labelO4.AutoSize = true;
+            this.labelO4.Enabled = false;
+            this.labelO4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelO4.ForeColor = System.Drawing.Color.Maroon;
+            this.labelO4.Location = new System.Drawing.Point(378, 29);
+            this.labelO4.Name = "labelO4";
+            this.labelO4.Size = new System.Drawing.Size(13, 17);
+            this.labelO4.TabIndex = 96;
+            this.labelO4.Text = "*";
+            this.labelO4.Visible = false;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::UCS_NODO_FGC.Properties.Resources.icon_calendario1;
@@ -1097,6 +1136,20 @@
             this.rdbNoInstalaciones.Text = "No";
             this.rdbNoInstalaciones.UseVisualStyleBackColor = true;
             this.rdbNoInstalaciones.CheckedChanged += new System.EventHandler(this.rdbNoInstalaciones_CheckedChanged);
+            // 
+            // labelO1
+            // 
+            this.labelO1.AutoSize = true;
+            this.labelO1.Enabled = false;
+            this.labelO1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelO1.ForeColor = System.Drawing.Color.Maroon;
+            this.labelO1.Location = new System.Drawing.Point(385, 12);
+            this.labelO1.Name = "labelO1";
+            this.labelO1.Size = new System.Drawing.Size(13, 17);
+            this.labelO1.TabIndex = 94;
+            this.labelO1.Text = "*";
+            this.labelO1.Visible = false;
+            this.labelO1.Click += new System.EventHandler(this.label35_Click);
             // 
             // rdbInstalaciones
             // 
@@ -1315,6 +1368,19 @@
             this.gpbFacilitador.TabIndex = 78;
             this.gpbFacilitador.TabStop = false;
             // 
+            // labelO3
+            // 
+            this.labelO3.AutoSize = true;
+            this.labelO3.Enabled = false;
+            this.labelO3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelO3.ForeColor = System.Drawing.Color.Maroon;
+            this.labelO3.Location = new System.Drawing.Point(345, 26);
+            this.labelO3.Name = "labelO3";
+            this.labelO3.Size = new System.Drawing.Size(13, 17);
+            this.labelO3.TabIndex = 93;
+            this.labelO3.Text = "*";
+            this.labelO3.Visible = false;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1371,6 +1437,19 @@
             this.gpbRefrigerio.Size = new System.Drawing.Size(404, 71);
             this.gpbRefrigerio.TabIndex = 76;
             this.gpbRefrigerio.TabStop = false;
+            // 
+            // labelO2
+            // 
+            this.labelO2.AutoSize = true;
+            this.labelO2.Enabled = false;
+            this.labelO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelO2.ForeColor = System.Drawing.Color.Maroon;
+            this.labelO2.Location = new System.Drawing.Point(385, 11);
+            this.labelO2.Name = "labelO2";
+            this.labelO2.Size = new System.Drawing.Size(13, 17);
+            this.labelO2.TabIndex = 95;
+            this.labelO2.Text = "*";
+            this.labelO2.Visible = false;
             // 
             // rdbNoRef
             // 
@@ -1653,26 +1732,26 @@
             this.dgvInsumos.AllowUserToResizeRows = false;
             this.dgvInsumos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvInsumos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInsumos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvInsumos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsumos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.insumo,
             this.seleccion_opcion});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsumos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvInsumos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvInsumos.Location = new System.Drawing.Point(21, 31);
             this.dgvInsumos.Name = "dgvInsumos";
@@ -1903,85 +1982,6 @@
             // 
             this.errorProviderManual.ContainerControl = this;
             // 
-            // labelO3
-            // 
-            this.labelO3.AutoSize = true;
-            this.labelO3.Enabled = false;
-            this.labelO3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelO3.ForeColor = System.Drawing.Color.Maroon;
-            this.labelO3.Location = new System.Drawing.Point(345, 26);
-            this.labelO3.Name = "labelO3";
-            this.labelO3.Size = new System.Drawing.Size(13, 17);
-            this.labelO3.TabIndex = 93;
-            this.labelO3.Text = "*";
-            this.labelO3.Visible = false;
-            // 
-            // labelO1
-            // 
-            this.labelO1.AutoSize = true;
-            this.labelO1.Enabled = false;
-            this.labelO1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelO1.ForeColor = System.Drawing.Color.Maroon;
-            this.labelO1.Location = new System.Drawing.Point(385, 12);
-            this.labelO1.Name = "labelO1";
-            this.labelO1.Size = new System.Drawing.Size(13, 17);
-            this.labelO1.TabIndex = 94;
-            this.labelO1.Text = "*";
-            this.labelO1.Visible = false;
-            this.labelO1.Click += new System.EventHandler(this.label35_Click);
-            // 
-            // labelO2
-            // 
-            this.labelO2.AutoSize = true;
-            this.labelO2.Enabled = false;
-            this.labelO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelO2.ForeColor = System.Drawing.Color.Maroon;
-            this.labelO2.Location = new System.Drawing.Point(385, 11);
-            this.labelO2.Name = "labelO2";
-            this.labelO2.Size = new System.Drawing.Size(13, 17);
-            this.labelO2.TabIndex = 95;
-            this.labelO2.Text = "*";
-            this.labelO2.Visible = false;
-            // 
-            // labelO4
-            // 
-            this.labelO4.AutoSize = true;
-            this.labelO4.Enabled = false;
-            this.labelO4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelO4.ForeColor = System.Drawing.Color.Maroon;
-            this.labelO4.Location = new System.Drawing.Point(378, 29);
-            this.labelO4.Name = "labelO4";
-            this.labelO4.Size = new System.Drawing.Size(13, 17);
-            this.labelO4.TabIndex = 96;
-            this.labelO4.Text = "*";
-            this.labelO4.Visible = false;
-            // 
-            // labelO5
-            // 
-            this.labelO5.AutoSize = true;
-            this.labelO5.Enabled = false;
-            this.labelO5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelO5.ForeColor = System.Drawing.Color.Maroon;
-            this.labelO5.Location = new System.Drawing.Point(378, 84);
-            this.labelO5.Name = "labelO5";
-            this.labelO5.Size = new System.Drawing.Size(13, 17);
-            this.labelO5.TabIndex = 97;
-            this.labelO5.Text = "*";
-            this.labelO5.Visible = false;
-            // 
-            // labelcamposobligatorios
-            // 
-            this.labelcamposobligatorios.AutoSize = true;
-            this.labelcamposobligatorios.Enabled = false;
-            this.labelcamposobligatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelcamposobligatorios.ForeColor = System.Drawing.Color.Maroon;
-            this.labelcamposobligatorios.Location = new System.Drawing.Point(771, 3);
-            this.labelcamposobligatorios.Name = "labelcamposobligatorios";
-            this.labelcamposobligatorios.Size = new System.Drawing.Size(145, 17);
-            this.labelcamposobligatorios.TabIndex = 95;
-            this.labelcamposobligatorios.Text = "* Campos obligatorios";
-            this.labelcamposobligatorios.Visible = false;
-            // 
             // Nueva_formacion_InCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1992,6 +1992,8 @@
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Nueva_formacion_InCompany";
             this.Text = "Nueva formación InCompany";
             this.Load += new System.EventHandler(this.Nueva_formacion_InCompany_Load);

@@ -72,7 +72,7 @@
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbOpciones.Location = new System.Drawing.Point(862, 128);
             this.grpbOpciones.Name = "grpbOpciones";
-            this.grpbOpciones.Size = new System.Drawing.Size(259, 181);
+            this.grpbOpciones.Size = new System.Drawing.Size(247, 181);
             this.grpbOpciones.TabIndex = 59;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
@@ -85,7 +85,7 @@
             this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefrescar.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRefrescar.Location = new System.Drawing.Point(27, 40);
+            this.btnRefrescar.Location = new System.Drawing.Point(24, 40);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(199, 47);
             this.btnRefrescar.TabIndex = 7;
@@ -101,7 +101,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Rockwell", 11F, System.Drawing.FontStyle.Bold);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(27, 110);
+            this.btnModificar.Location = new System.Drawing.Point(24, 108);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 47);
             this.btnModificar.TabIndex = 5;
@@ -233,7 +233,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4

@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvFa = new System.Windows.Forms.DataGridView();
+            this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.especialidad_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ubicacion_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbDatos = new System.Windows.Forms.GroupBox();
             this.txtBuscarTodo = new System.Windows.Forms.TextBox();
             this.btnBuscarFa = new System.Windows.Forms.Button();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnVerFacilitador = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnEliminarFa = new System.Windows.Forms.Button();
             this.btnModificarFa = new System.Windows.Forms.Button();
@@ -49,13 +56,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.btnVerFacilitador = new System.Windows.Forms.Button();
-            this.nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.especialidad_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacion_fa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpbData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFa)).BeginInit();
             this.grpbDatos.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.grpbData.Controls.Add(this.dgvFa);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.grpbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.grpbData.Location = new System.Drawing.Point(12, 117);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(860, 576);
@@ -81,19 +81,19 @@
             this.dgvFa.AllowUserToAddRows = false;
             this.dgvFa.AllowUserToResizeColumns = false;
             this.dgvFa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvFa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = null;
+            this.dgvFa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvFa.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvFa.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvFa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nacionalidad,
@@ -102,14 +102,14 @@
             this.apellido_fa,
             this.especialidad_fa,
             this.ubicacion_fa});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFa.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFa.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFa.Location = new System.Drawing.Point(20, 34);
             this.dgvFa.MultiSelect = false;
             this.dgvFa.Name = "dgvFa";
@@ -119,6 +119,61 @@
             this.dgvFa.Size = new System.Drawing.Size(821, 522);
             this.dgvFa.TabIndex = 0;
             this.dgvFa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvFa_MouseClick);
+            // 
+            // nacionalidad
+            // 
+            this.nacionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nacionalidad.HeaderText = "";
+            this.nacionalidad.MaxInputLength = 1;
+            this.nacionalidad.Name = "nacionalidad";
+            this.nacionalidad.ReadOnly = true;
+            this.nacionalidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nacionalidad.Width = 40;
+            // 
+            // id_fa
+            // 
+            this.id_fa.HeaderText = "Cédula";
+            this.id_fa.MaxInputLength = 8;
+            this.id_fa.Name = "id_fa";
+            this.id_fa.ReadOnly = true;
+            this.id_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id_fa.Width = 150;
+            // 
+            // nombre_fa
+            // 
+            this.nombre_fa.HeaderText = "Nombre";
+            this.nombre_fa.MaxInputLength = 45;
+            this.nombre_fa.Name = "nombre_fa";
+            this.nombre_fa.ReadOnly = true;
+            this.nombre_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nombre_fa.Width = 150;
+            // 
+            // apellido_fa
+            // 
+            this.apellido_fa.HeaderText = "Apellido";
+            this.apellido_fa.MaxInputLength = 45;
+            this.apellido_fa.Name = "apellido_fa";
+            this.apellido_fa.ReadOnly = true;
+            this.apellido_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.apellido_fa.Width = 150;
+            // 
+            // especialidad_fa
+            // 
+            this.especialidad_fa.HeaderText = "Especialidad";
+            this.especialidad_fa.MaxInputLength = 45;
+            this.especialidad_fa.Name = "especialidad_fa";
+            this.especialidad_fa.ReadOnly = true;
+            this.especialidad_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.especialidad_fa.Width = 130;
+            // 
+            // ubicacion_fa
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ubicacion_fa.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ubicacion_fa.HeaderText = "Ubicación";
+            this.ubicacion_fa.Name = "ubicacion_fa";
+            this.ubicacion_fa.ReadOnly = true;
+            this.ubicacion_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // grpbDatos
             // 
@@ -178,6 +233,22 @@
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
             this.grpbOpciones.Visible = false;
+            // 
+            // btnVerFacilitador
+            // 
+            this.btnVerFacilitador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(155)))), ((int)(((byte)(66)))));
+            this.btnVerFacilitador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerFacilitador.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnVerFacilitador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerFacilitador.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerFacilitador.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnVerFacilitador.Location = new System.Drawing.Point(22, 109);
+            this.btnVerFacilitador.Name = "btnVerFacilitador";
+            this.btnVerFacilitador.Size = new System.Drawing.Size(176, 47);
+            this.btnVerFacilitador.TabIndex = 8;
+            this.btnVerFacilitador.Text = "Ver información";
+            this.btnVerFacilitador.UseVisualStyleBackColor = false;
+            this.btnVerFacilitador.Click += new System.EventHandler(this.btnVerFacilitador_Click);
             // 
             // btnRefrescar
             // 
@@ -290,7 +361,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -310,78 +381,6 @@
             this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
-            // 
-            // btnVerFacilitador
-            // 
-            this.btnVerFacilitador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(155)))), ((int)(((byte)(66)))));
-            this.btnVerFacilitador.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVerFacilitador.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnVerFacilitador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerFacilitador.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerFacilitador.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnVerFacilitador.Location = new System.Drawing.Point(22, 109);
-            this.btnVerFacilitador.Name = "btnVerFacilitador";
-            this.btnVerFacilitador.Size = new System.Drawing.Size(176, 47);
-            this.btnVerFacilitador.TabIndex = 8;
-            this.btnVerFacilitador.Text = "Ver información";
-            this.btnVerFacilitador.UseVisualStyleBackColor = false;
-            this.btnVerFacilitador.Click += new System.EventHandler(this.btnVerFacilitador_Click);
-            // 
-            // nacionalidad
-            // 
-            this.nacionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nacionalidad.HeaderText = "";
-            this.nacionalidad.MaxInputLength = 1;
-            this.nacionalidad.Name = "nacionalidad";
-            this.nacionalidad.ReadOnly = true;
-            this.nacionalidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nacionalidad.Width = 40;
-            // 
-            // id_fa
-            // 
-            this.id_fa.HeaderText = "Cédula";
-            this.id_fa.MaxInputLength = 8;
-            this.id_fa.Name = "id_fa";
-            this.id_fa.ReadOnly = true;
-            this.id_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id_fa.Width = 150;
-            // 
-            // nombre_fa
-            // 
-            this.nombre_fa.HeaderText = "Nombre";
-            this.nombre_fa.MaxInputLength = 45;
-            this.nombre_fa.Name = "nombre_fa";
-            this.nombre_fa.ReadOnly = true;
-            this.nombre_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nombre_fa.Width = 150;
-            // 
-            // apellido_fa
-            // 
-            this.apellido_fa.HeaderText = "Apellido";
-            this.apellido_fa.MaxInputLength = 45;
-            this.apellido_fa.Name = "apellido_fa";
-            this.apellido_fa.ReadOnly = true;
-            this.apellido_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.apellido_fa.Width = 150;
-            // 
-            // especialidad_fa
-            // 
-            this.especialidad_fa.HeaderText = "Especialidad";
-            this.especialidad_fa.MaxInputLength = 45;
-            this.especialidad_fa.Name = "especialidad_fa";
-            this.especialidad_fa.ReadOnly = true;
-            this.especialidad_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.especialidad_fa.Width = 130;
-            // 
-            // ubicacion_fa
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ubicacion_fa.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ubicacion_fa.HeaderText = "Ubicación";
-            this.ubicacion_fa.Name = "ubicacion_fa";
-            this.ubicacion_fa.ReadOnly = true;
-            this.ubicacion_fa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ubicacion_fa.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Buscar_facilitadores
             // 

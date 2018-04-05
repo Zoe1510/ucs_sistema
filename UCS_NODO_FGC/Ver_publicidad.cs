@@ -56,7 +56,7 @@ namespace UCS_NODO_FGC
             try
             {
                 retorno = 0;
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_difusion, dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%')", buscar), conexion);
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_difusion, dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%') order by dif_contenido", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvDif.Rows.Clear();

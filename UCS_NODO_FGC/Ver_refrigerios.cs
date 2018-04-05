@@ -33,7 +33,7 @@ namespace UCS_NODO_FGC
             try
             {
                 retorno = 0;
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_ref, ref_nombre, ref_contenido FROM refrigerios WHERE ref_nombre LIKE ('%{0}%') OR ref_contenido LIKE ('%{0}%')", buscar), conexion);
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_ref, ref_nombre, ref_contenido FROM refrigerios WHERE ref_nombre LIKE ('%{0}%') OR ref_contenido LIKE ('%{0}%') order by ref_nombre", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvRef.Rows.Clear();

@@ -120,7 +120,7 @@ namespace UCS_NODO_FGC
         private void llenarDGV(string b)
         {
             dgvReportes.Rows.Clear();
-            MySqlDataReader rpt = Conexion.ConsultarBD("SELECT * FROM reportes WHERE nombre_reporte LIKE '%" + b + "%' OR ruta_reporte LIKE '%" + b + "%' ");
+            MySqlDataReader rpt = Conexion.ConsultarBD("SELECT * FROM reportes WHERE nombre_reporte LIKE '%" + b + "%' OR ruta_reporte LIKE '%" + b + "%' order by nombre_reporte");
             while (rpt.Read())
             {
                 dgvReportes.Rows.Add(rpt["nombre_reporte"]);

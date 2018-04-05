@@ -12,11 +12,12 @@ namespace UCS_NODO_FGC.Clases
     // como en Nueva_formacion_InCompany_Load
     public static class Conexion
     {
+        #region strigns
         public static MySqlConnection bd;
 
         public static String clave = "root";
 
-
+        #endregion
         public static MySqlDataReader ConsultarBD(String query)
         {
             abrirconexion();

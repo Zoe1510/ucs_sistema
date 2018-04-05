@@ -59,6 +59,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmpresa)).BeginInit();
@@ -69,10 +71,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -244,6 +249,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -375,7 +381,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -395,6 +401,28 @@
             this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_cliente;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(126, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox1.TabIndex = 74;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox7.Location = new System.Drawing.Point(126, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox7.TabIndex = 73;
+            this.pictureBox7.TabStop = false;
             // 
             // Registrar_clientes
             // 
@@ -427,6 +455,8 @@
             this.Panel_cabecera.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,5 +493,7 @@
         private System.Windows.Forms.Label label9;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }

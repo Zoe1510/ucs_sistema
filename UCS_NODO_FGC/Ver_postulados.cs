@@ -122,7 +122,7 @@ namespace UCS_NODO_FGC
                 }
                 nom.Close();
 
-                MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par, tlfn_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante  where  ctp.ctp_id_curso='" + f + "'");
+                MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par, tlfn_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante  where  ctp.ctp_id_curso='" + f + "' order by nombre_par, apellido_par");
                 while (b.Read())
                 {
                     R_Participantes_postulados pp = new R_Participantes_postulados();

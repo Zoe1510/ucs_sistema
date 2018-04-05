@@ -562,6 +562,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Vista_Formacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formación";

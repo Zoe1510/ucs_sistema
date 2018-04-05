@@ -63,7 +63,7 @@ namespace UCS_NODO_FGC
         {
             
             dgvFormaciones.Rows.Clear();
-            string query = "SELECT estatus_curso, solicitud_curso, tipo_curso, nombre_curso, duracion_curso, etapa_curso, nombre_user  FROM cursos cur inner join user_gestionan_cursos ugc on cur.id_cursos = ugc.cursos_id_cursos inner join usuarios us on ugc.usuarios_id_user = us.id_user WHERE nombre_curso LIKE '%" + nombre + "%' AND estatus_curso LIKE '%" + estatus + "%' ";
+            string query = "SELECT estatus_curso, solicitud_curso, tipo_curso, nombre_curso, duracion_curso, etapa_curso, nombre_user  FROM cursos cur inner join user_gestionan_cursos ugc on cur.id_cursos = ugc.cursos_id_cursos inner join usuarios us on ugc.usuarios_id_user = us.id_user WHERE nombre_curso LIKE '%" + nombre + "%' AND estatus_curso LIKE '%" + estatus + "%' order by tipo_curso, estatus_curso";
             MySqlDataReader formaciones = Conexion.ConsultarBD(query);
             while (formaciones.Read())
             {

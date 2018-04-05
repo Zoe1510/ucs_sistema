@@ -334,7 +334,7 @@ namespace UCS_NODO_FGC
             try
             {
 
-                MySqlCommand comando = new MySqlCommand(String.Format("SELECT cedula_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, correo_user, tlfn_user FROM usuarios WHERE nombre_user LIKE ('%{0}%') AND apellido_user LIKE ('%{1}%') AND cargo_user LIKE ('%{2}%') AND cedula_user > "+0+" ", nombre, apellido, cargo), conexion);
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT cedula_user, nacionalidad_user, nombre_user, apellido_user, cargo_user, correo_user, tlfn_user FROM usuarios WHERE nombre_user LIKE ('%{0}%') AND apellido_user LIKE ('%{1}%') AND cargo_user LIKE ('%{2}%') AND cedula_user > "+0+" order by cargo_user, nombre_user", nombre, apellido, cargo), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 dgvUsuarios.Rows.Clear();

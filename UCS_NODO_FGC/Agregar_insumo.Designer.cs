@@ -35,6 +35,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.groupBox1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -102,12 +104,13 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 267);
+            this.panel8.Location = new System.Drawing.Point(0, 271);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(500, 25);
+            this.panel8.Size = new System.Drawing.Size(500, 21);
             this.panel8.TabIndex = 69;
             // 
             // label9
@@ -115,12 +118,30 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 6.75F);
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(493, 15);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(-309, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(805, 1);
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer1.Size = new System.Drawing.Size(500, 21);
+            this.shapeContainer1.TabIndex = 1;
+            this.shapeContainer1.TabStop = false;
             // 
             // Agregar_insumo
             // 
@@ -133,6 +154,8 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Agregar_insumo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar insumo";
@@ -153,5 +176,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

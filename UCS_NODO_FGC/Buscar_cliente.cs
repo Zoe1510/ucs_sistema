@@ -122,7 +122,7 @@ namespace UCS_NODO_FGC
             try
             {
                 
-                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, id_area, nombre_empresa, nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, fee_empresa FROM clientes inner join areas on clientes.id_clientes=areas.id_cliente1 WHERE nombre_empresa LIKE ('%{0}%')",nombre_empresa), conexion);
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, id_area, nombre_empresa, nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, fee_empresa FROM clientes inner join areas on clientes.id_clientes=areas.id_cliente1 WHERE nombre_empresa LIKE ('%{0}%') order by nombre_empresa",nombre_empresa), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 dgvAreasEmpresa.Rows.Clear();

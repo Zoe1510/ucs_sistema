@@ -277,7 +277,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(513, 15);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label5.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer1
@@ -311,6 +311,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Verificacion_recuperacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verificacion_recuperacion";

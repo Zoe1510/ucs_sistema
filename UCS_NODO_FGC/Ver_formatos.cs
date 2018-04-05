@@ -246,7 +246,7 @@ namespace UCS_NODO_FGC
         {
             
             dgvFormatos.Rows.Clear();
-            MySqlDataReader formatos = Conexion.ConsultarBD("SELECT * FROM formatos WHERE nombre_archivo LIKE '%" + buscar + "%' OR ruta_archivo LIKE '%" + buscar + "%' ");
+            MySqlDataReader formatos = Conexion.ConsultarBD("SELECT * FROM formatos WHERE nombre_archivo LIKE '%" + buscar + "%' OR ruta_archivo LIKE '%" + buscar + "%' order by nombre_archivo");
             while (formatos.Read())
             {
                 dgvFormatos.Rows.Add(formatos["nombre_archivo"]);

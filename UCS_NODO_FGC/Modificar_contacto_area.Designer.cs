@@ -37,7 +37,14 @@
             this.txtCorreoCliArea = new System.Windows.Forms.TextBox();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.errorProviderNCliente = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNArea = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderNContacto = new System.Windows.Forms.ErrorProvider(this.components);
@@ -47,23 +54,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNContacto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombreArea
@@ -193,6 +193,39 @@
             this.groupBox1.Text = "Datos empresa";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox7.Location = new System.Drawing.Point(123, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox7.TabIndex = 71;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(60, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 19);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "Nombre del área:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(16, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(184, 19);
+            this.label3.TabIndex = 61;
+            this.label3.Text = "Nombre de la empresa:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
@@ -210,6 +243,50 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos persona contacto";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_cliente;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(185, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox1.TabIndex = 72;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(48, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 19);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Correo electrónico:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(56, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 19);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "Teléfono o celular:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(32, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 19);
+            this.label5.TabIndex = 60;
+            this.label5.Text = "Nombre del contacto:";
             // 
             // errorProviderNCliente
             // 
@@ -251,7 +328,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -272,83 +349,6 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(32, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 19);
-            this.label5.TabIndex = 60;
-            this.label5.Text = "Nombre del contacto:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(56, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 19);
-            this.label1.TabIndex = 61;
-            this.label1.Text = "Teléfono o celular:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(48, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 19);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Correo electrónico:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(16, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 19);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "Nombre de la empresa:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(60, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 19);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Nombre del área:";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_edificio;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(123, 0);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(23, 20);
-            this.pictureBox7.TabIndex = 71;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.icon_cliente;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(185, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
-            this.pictureBox1.TabIndex = 72;
-            this.pictureBox1.TabStop = false;
-            // 
             // Modificar_contacto_area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,14 +361,18 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificarContacto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Modificar_contacto_area";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modificar contacto de área";
             this.Load += new System.EventHandler(this.Modificar_contacto_area_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNContacto)).EndInit();
@@ -376,8 +380,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

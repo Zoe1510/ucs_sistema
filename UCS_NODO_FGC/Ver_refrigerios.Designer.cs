@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpbData = new System.Windows.Forms.GroupBox();
             this.dgvRef = new System.Windows.Forms.DataGridView();
             this.nombre_ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +63,8 @@
             // 
             this.grpbData.Controls.Add(this.dgvRef);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbData.Location = new System.Drawing.Point(25, 121);
+            this.grpbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.grpbData.Location = new System.Drawing.Point(22, 133);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(832, 570);
             this.grpbData.TabIndex = 48;
@@ -76,31 +76,31 @@
             this.dgvRef.AllowUserToAddRows = false;
             this.dgvRef.AllowUserToResizeColumns = false;
             this.dgvRef.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgvRef.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.NullValue = null;
+            this.dgvRef.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvRef.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvRef.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRef.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRef.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvRef.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRef.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre_ref,
             this.descripcion_ref});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRef.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRef.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgvRef.Location = new System.Drawing.Point(20, 34);
             this.dgvRef.MultiSelect = false;
             this.dgvRef.Name = "dgvRef";
@@ -135,7 +135,7 @@
             this.grpbDatos.Controls.Add(this.btnBuscarFa);
             this.grpbDatos.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbDatos.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbDatos.Location = new System.Drawing.Point(874, 136);
+            this.grpbDatos.Location = new System.Drawing.Point(870, 133);
             this.grpbDatos.Name = "grpbDatos";
             this.grpbDatos.Size = new System.Drawing.Size(222, 172);
             this.grpbDatos.TabIndex = 49;
@@ -180,7 +180,7 @@
             this.grpbOpciones.Controls.Add(this.btnModificarFa);
             this.grpbOpciones.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.grpbOpciones.Location = new System.Drawing.Point(874, 328);
+            this.grpbOpciones.Location = new System.Drawing.Point(870, 340);
             this.grpbOpciones.Name = "grpbOpciones";
             this.grpbOpciones.Size = new System.Drawing.Size(222, 363);
             this.grpbOpciones.TabIndex = 50;
@@ -270,7 +270,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Fax", 27.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(424, 27);
+            this.label1.Location = new System.Drawing.Point(388, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(237, 43);
             this.label1.TabIndex = 1;
@@ -314,7 +314,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4

@@ -49,7 +49,6 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.grpbOpciones = new System.Windows.Forms.GroupBox();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.btnVerArchivo = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnRefrescar = new System.Windows.Forms.Button();
@@ -151,7 +150,7 @@
             // 
             this.grpbData.Controls.Add(this.dgvFormatos);
             this.grpbData.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.grpbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.grpbData.Location = new System.Drawing.Point(54, 138);
             this.grpbData.Name = "grpbData";
             this.grpbData.Size = new System.Drawing.Size(766, 559);
@@ -183,7 +182,7 @@
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -258,7 +257,6 @@
             // 
             // grpbOpciones
             // 
-            this.grpbOpciones.Controls.Add(this.btnImprimir);
             this.grpbOpciones.Controls.Add(this.btnVerArchivo);
             this.grpbOpciones.Controls.Add(this.btnAgregar);
             this.grpbOpciones.Controls.Add(this.btnRefrescar);
@@ -267,25 +265,10 @@
             this.grpbOpciones.ForeColor = System.Drawing.Color.MidnightBlue;
             this.grpbOpciones.Location = new System.Drawing.Point(839, 316);
             this.grpbOpciones.Name = "grpbOpciones";
-            this.grpbOpciones.Size = new System.Drawing.Size(240, 381);
+            this.grpbOpciones.Size = new System.Drawing.Size(240, 311);
             this.grpbOpciones.TabIndex = 61;
             this.grpbOpciones.TabStop = false;
             this.grpbOpciones.Text = "Opciones";
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(101)))), ((int)(((byte)(24)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.Chocolate;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnImprimir.Location = new System.Drawing.Point(31, 238);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(176, 47);
-            this.btnImprimir.TabIndex = 9;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // btnVerArchivo
             // 
@@ -343,7 +326,7 @@
             this.btnEliminarFa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarFa.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarFa.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEliminarFa.Location = new System.Drawing.Point(31, 306);
+            this.btnEliminarFa.Location = new System.Drawing.Point(31, 239);
             this.btnEliminarFa.Name = "btnEliminarFa";
             this.btnEliminarFa.Size = new System.Drawing.Size(176, 47);
             this.btnEliminarFa.TabIndex = 6;
@@ -404,7 +387,6 @@
         private System.Windows.Forms.Button btnRefrescar;
         private System.Windows.Forms.Button btnEliminarFa;
         private System.Windows.Forms.ErrorProvider errorProviderBuscar;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnVerArchivo;
     }
 }

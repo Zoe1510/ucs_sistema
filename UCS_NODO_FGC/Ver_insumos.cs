@@ -63,7 +63,7 @@ namespace UCS_NODO_FGC
             try
             {
                 retorno = 0;
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ins_contenido FROM insumos WHERE ins_contenido LIKE ('%{0}%')", buscar), conexion);
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT ins_contenido FROM insumos WHERE ins_contenido LIKE ('%{0}%') order by ins_contenido", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvInsumos.Rows.Clear();

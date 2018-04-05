@@ -242,7 +242,7 @@
             // 
             this.grpbData.Controls.Add(this.dgvInce);
             resources.ApplyResources(this.grpbData, "grpbData");
-            this.grpbData.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.grpbData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.grpbData.Name = "grpbData";
             this.grpbData.TabStop = false;
             // 
@@ -273,7 +273,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;

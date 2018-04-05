@@ -32,6 +32,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificarEmpresa = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbxFee = new System.Windows.Forms.ComboBox();
             this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
             this.errorProviderEmpresa = new System.Windows.Forms.ErrorProvider(this.components);
@@ -40,8 +42,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderEmpresa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFEE)).BeginInit();
@@ -94,6 +94,26 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos empresa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(105, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 19);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Recibe FEE:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(18, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 19);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Nombre de la empresa:";
             // 
             // cmbxFee
             // 
@@ -153,7 +173,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(628, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
             // 
             // shapeContainer4
@@ -174,26 +194,6 @@
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(18, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 19);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nombre de la empresa:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(105, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 19);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Recibe FEE:";
-            // 
             // Modificar_empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +205,8 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificarEmpresa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Modificar_empresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar datos de empresa";
