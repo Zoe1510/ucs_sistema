@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio_Sesion));
             this.btn_cerrar = new System.Windows.Forms.Button();
             this.btn_minimizar = new System.Windows.Forms.Button();
             this.lblOlvidarContraseña = new System.Windows.Forms.Label();
@@ -164,8 +165,9 @@
             this.Controls.Add(this.Txt_id_user);
             this.Controls.Add(this.lblOlvidarContraseña);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio_Sesion";
-            this.Text = "Inicio_Sesion";
+            this.Text = "Iniciar sesión";
             this.Load += new System.EventHandler(this.Inicio_Sesion_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

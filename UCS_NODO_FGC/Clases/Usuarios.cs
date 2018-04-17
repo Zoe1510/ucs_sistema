@@ -76,7 +76,7 @@ namespace UCS_NODO_FGC.Clases
          {
             int retorno = 0;
 
-            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET  nombre_user='{1}', apellido_user='{2}', tlfn_user='{3}', pass_user='{4}', correo_user='{5}', cargo_user='{6}', cedula_user='{7}'  WHERE id_user='{0}' ", usuario.id_usuario, usuario.nombre_usuario, usuario.apellido_usuario, usuario.tlfn_usuario, usuario.password, usuario.correo_usuario, usuario.cargo_usuario, usuario.cedula_user), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE usuarios SET  nombre_user='{1}', apellido_user='{2}', tlfn_user='{3}', pass_user=SHA1('{4}'), correo_user='{5}', cargo_user='{6}', cedula_user='{7}'  WHERE id_user='{0}' ", usuario.id_usuario, usuario.nombre_usuario, usuario.apellido_usuario, usuario.tlfn_usuario, usuario.password, usuario.correo_usuario, usuario.cargo_usuario, usuario.cedula_user), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
          }

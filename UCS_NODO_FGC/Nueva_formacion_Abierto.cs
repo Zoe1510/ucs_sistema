@@ -4861,7 +4861,8 @@ namespace UCS_NODO_FGC
             }
             mail.Close();
         }
-
+        //2042 ricardo
+        //red del servidor: /Wsucsger001/ucs_sistema la bara es invertida.
 
     }
 }

@@ -64,6 +64,7 @@ namespace UCS_NODO_FGC
                             if (resultado != 0)
                             {
                                 MessageBox.Show("Contraseña actualizada.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Clases.Usuario_logeado.password = txtNuevoPass.Text;
                                 this.Close();
 
                             }

@@ -143,7 +143,47 @@ namespace UCS_NODO_FGC
                                     }
 
                                 }
-                                
+
+                            }
+                            else
+                            {
+                                int resultado = 0;
+                                conexion.cerrarconexion();
+                                if (conexion.abrirconexion())
+                                    resultado = Clases.Usuarios.ActualizarUsuarios(conexion.conexion, usuario);
+
+                                conexion.cerrarconexion();
+                                if (conexion.abrirconexion() == true)
+                                {
+                                    if (resultado != 0)
+                                    {
+                                        int resultado2 = 0;
+
+                                        resultado2 = Clases.Usuarios.ActualizarFotoUsuario(conexion.conexion, usuario);
+                                        conexion.cerrarconexion();
+                                        if (resultado2 != 0)
+                                        {
+                                            MessageBox.Show("Los datos han sido actualizados correctamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                            MessageBox.Show("Deberá iniciar sesión nuevamente.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            conexion.cerrarconexion();
+                                            this.Close();
+                                            Inicio_Sesion.ActiveForm.Visible = true;
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Hubo un error al actualizar la foto", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se pudo actualizar los datos.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    conexion.cerrarconexion();
+                                }
                             }
                             ci.Close();
                         }
@@ -294,24 +334,8 @@ namespace UCS_NODO_FGC
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             //metodo usado para la validacion de solo numeros en el campo cedula del login
-            if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsSeparator(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-                btnActualizarDatos.Enabled = true;
-            }
-
+            Clases.Paneles.solonumeros(e);
+            btnActualizarDatos.Enabled = true;
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
                 txtNombreUser.Focus();
