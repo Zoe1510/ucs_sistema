@@ -19,7 +19,7 @@ namespace UCS_NODO_FGC
 
         Formaciones formaciones = new Formaciones();
         Participantes part = new Participantes();
-        int resultado = 0;
+       // int resultado = 0;
         
         public Ver_participantes()
         {
@@ -88,8 +88,7 @@ namespace UCS_NODO_FGC
                 MySqlDataReader b = Conexion.ConsultarBD("SELECT nombreE, nombre_par, apellido_par, cedula_par, correo_par, tlfn_par FROM participantes p inner join cursos_tienen_participantes ctp on ctp_id_participante = p.id_participante inner join cursos cur on ctp.ctp_id_curso = cur.id_cursos where cur.nombre_curso like '" + nombreC + "' and cur.estatus_curso like '" + e + "' and cur.fecha_uno like '"+f+"'");
                 while (b.Read())
                 {                   
-                    //MessageBox.Show("entré a la busqueda");
-                    resultado = 1;
+                   
                     dgvParticipantes.Rows.Add(b["cedula_par"], b["nombre_par"], b["apellido_par"], b["correo_par"],b["tlfn_par"], b["nombreE"]);                    
                 }
                 b.Close();

@@ -73,26 +73,6 @@ namespace UCS_NODO_FGC.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background_menu {
-            get {
-                object obj = ResourceManager.GetObject("background_menu", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap background_perfilU {
-            get {
-                object obj = ResourceManager.GetObject("background_perfilU", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icon_about {
             get {
                 object obj = ResourceManager.GetObject("icon_about", resourceCulture);
@@ -675,7 +655,7 @@ namespace UCS_NODO_FGC.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap logo_ucs {
             get {
-                object obj = ResourceManager.GetObject("logo ucs", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_ucs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -706,16 +686,6 @@ namespace UCS_NODO_FGC.Properties {
         internal static System.Drawing.Bitmap silueta_usuario {
             get {
                 object obj = ResourceManager.GetObject("silueta_usuario", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap trayectoria_plantilla_01 {
-            get {
-                object obj = ResourceManager.GetObject("trayectoria plantilla 01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -997,14 +997,13 @@ namespace UCS_NODO_FGC
                                 }
                                 else // si el manual existe
                                 {
-                                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
-                                    //para evitar que mysql borre los "\" se sustituyen por "/" que funcionan igual
+                                    string ruta = @".\\Wsucsger001\\ucs_sistema\\Archivos\\Paquete_instruccional\\";
+                                    if (!Directory.Exists(@".\\Wsucsger001\\ucs_sistema\\Archivos\\Paquete_instruccional"))//verificar si la carpeta existe
+                                    {
+                                        //si no, se crea y luego se copia 
+                                        Directory.CreateDirectory(ruta);
 
-                                    //manual = manual.Replace("\\", "/");
-                                    //bitacora = bitacora.Replace("\\", "/");
-                                    //presentacion = presentacion.Replace("\\", "/");
-                                    //contenido = contenido.Replace("\\", "/");
-                                   
+                                    }
                                     p_inst.contenido = contenido;
                                     p_inst.manual = manual;
 
@@ -3649,7 +3648,7 @@ namespace UCS_NODO_FGC
                 return true;
 
             }
-            catch (Exception es)
+            catch
             {
 
                 return false;

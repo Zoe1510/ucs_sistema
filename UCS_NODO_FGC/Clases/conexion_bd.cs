@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 
 namespace UCS_NODO_FGC.Clases
@@ -13,6 +14,8 @@ namespace UCS_NODO_FGC.Clases
     public static class Conexion
     {
         #region strigns
+        
+
         public static MySqlConnection bd;
 
         public static String clave = "root";
@@ -20,26 +23,32 @@ namespace UCS_NODO_FGC.Clases
         #endregion
         public static MySqlDataReader ConsultarBD(String query)
         {
-            abrirconexion();
+            var c = new conexion_bd();
+            c.abrirconexion();
             MySqlCommand comando = new MySqlCommand(String.Format(query), bd);
             return comando.ExecuteReader();
         }
 
-        public static bool abrirconexion()
-        {
-            try
-            {
-                //¿Causa algun problema cerrarla antes de abrirla?
-                cerrarconexion();
-                bd.Open();
-                return true;
-            }
-            catch (MySqlException er)
-            {
-                return false;
-                throw er;
-            }
+        //public static bool abrirconexion()
+        //{
+        //    try
+        //    {
+        //        //¿Causa algun problema cerrarla antes de abrirla?
+        //        cerrarconexion();
+        //        bd.Open();
+        //        return true;
+        //    }
+        //    catch (MySqlException er)
+        //    {
+        //        return false;
+        //        throw er;
+        //    }
 
+        //}
+
+        public static MySqlConnection abrirconexion()
+        {
+            return new MySqlConnection(ConfigurationManager.ConnectionStrings["conexionbd"].ConnectionString);
         }
 
         public static bool cerrarconexion()
@@ -66,7 +75,7 @@ namespace UCS_NODO_FGC.Clases
         public conexion_bd()
         {
 
-            conexion = new MySqlConnection("host=127.0.0.1; port=3306; user=root; password="+Conexion.clave+"; database=ucs_bd");
+            conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["conexionbd"].ConnectionString);
             Conexion.bd = conexion;
         }
 

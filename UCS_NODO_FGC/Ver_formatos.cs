@@ -131,9 +131,9 @@ namespace UCS_NODO_FGC
                     existe.Close();
 
                     //esto se cambia cuando vaya a instalarlo en ucs
-                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Formatos_guardados";
+                    string ruta = @".\Wsucsger001\ucs_sistema\Archivos\Formatos_guardados";
 
-                     destino = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Formatos_guardados\" + nombreArchivo;
+                     destino = @".\Wsucsger001\ucs_sistema\Archivos\Formatos_guardados" + nombreArchivo;
                     if (Directory.Exists(ruta))//verificar si la carpeta existe
                     {
                         //si existe se copia

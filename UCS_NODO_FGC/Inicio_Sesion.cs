@@ -170,14 +170,13 @@ namespace UCS_NODO_FGC
                     {
                         if ((Txt_id_user.Text != "Cédula") && (Txt_pass_user.Text != "Contraseña"))
                         {
-                            
 
                             usuario.cedula_user = Convert.ToInt32(Txt_id_user.Text);
                             usuario.password = Txt_pass_user.Text;
                             int ci_existe = Clases.Usuarios.UsuarioExiste(conexion.conexion, usuario.cedula_user);
                             conexion.cerrarconexion();
 
-                            if(ci_existe > 0 )//si la cedula introducida existe en el registro de usuarios
+                            if (ci_existe > 0)//si la cedula introducida existe en el registro de usuarios
                             {
                                 conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
@@ -201,7 +200,7 @@ namespace UCS_NODO_FGC
                                         Txt_id_user.Clear();
                                         Txt_pass_user.Clear();
 
-                                        this.Visible = false; 
+                                        this.Visible = false;
                                         //Si el usuario es lider: 
                                         if (Clases.Usuario_logeado.cargo_usuario == "Lider")
                                         {
@@ -228,8 +227,8 @@ namespace UCS_NODO_FGC
                                         Txt_pass_user.UseSystemPasswordChar = true;
                                         Txt_pass_user.Text = "";
                                         Txt_pass_user.Focus();
-                                        
-                                        
+
+
                                     }
                                     conexion.cerrarconexion();
                                 }
@@ -244,7 +243,10 @@ namespace UCS_NODO_FGC
                                 Txt_pass_user.UseSystemPasswordChar = false;
                                 Txt_pass_user.Text = "Contraseña";
                             }
-                            
+
+
+
+
                         }
                         else
                         {
@@ -259,6 +261,7 @@ namespace UCS_NODO_FGC
 
                     conexion.cerrarconexion();
                 }
+
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {

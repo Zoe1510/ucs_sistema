@@ -897,10 +897,13 @@ namespace UCS_NODO_FGC
                                 else
                                 {
                                     errorProviderContenido.SetError(btnRutaContenido, "");
-                                    string ruta = @"C:\Users\ZM\Documents\Last_repo\ucs_sistema\UCS_NODO_FGC\Archivos\Paquete_instruccional\";
-                                    //bitacora = bitacora.Replace("\\", "/");
-                                    //presentacion = presentacion.Replace("\\", "/");
-                                    //contenido = contenido.Replace("\\", "/");
+                                    string ruta = @".\\Wsucsger001\\ucs_sistema\\Archivos\\Paquete_instruccional\\";
+                                    if (!Directory.Exists(@".\\Wsucsger001\\ucs_sistema\\Archivos\\Paquete_instruccional"))//verificar si la carpeta existe
+                                    {
+                                        //si no, se crea y luego se copia 
+                                        Directory.CreateDirectory(ruta);
+
+                                    }
                                     if (btnVerPresentacion.Enabled == false)
                                     {
                                         p_inst.presentacion = "";
@@ -3234,7 +3237,7 @@ namespace UCS_NODO_FGC
                 return true;
 
             }
-            catch (Exception es)
+            catch
             {
 
                 return false;

@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\ZM\Desktop\</PublishUrl>
+    <PublishUrl>F:\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,7 +26,7 @@
     <TargetCulture>es</TargetCulture>
     <ProductName>Herramienta Nodo F</ProductName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -86,6 +86,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
@@ -491,12 +492,15 @@
     </Compile>
     <EmbeddedResource Include="Agregar_insumo.resx">
       <DependentUpon>Agregar_insumo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Agregar_participante.resx">
       <DependentUpon>Agregar_participante.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Asignar_INCE.resx">
       <DependentUpon>Asignar_INCE.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar_cliente.resx">
       <DependentUpon>Buscar_cliente.cs</DependentUpon>
@@ -706,7 +710,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="UCS_NODO_FGC_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -900,6 +903,7 @@
   <ItemGroup>
     <Content Include="Archivos\stuff\silueta_usuario.jpg" />
     <Content Include="logo_ucs-01.ico" />
+    <None Include="Resources\logo_ucs.png" />
     <None Include="Resources\prueba_fondo.png" />
     <None Include="Resources\trayectoria_plantilla_02.jpg" />
     <None Include="Resources\trayectoria plantilla 01.jpg" />

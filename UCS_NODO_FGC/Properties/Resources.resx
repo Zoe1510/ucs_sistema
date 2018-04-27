@@ -121,9 +121,6 @@
   <data name="icon_usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="trayectoria plantilla 01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trayectoria plantilla 01.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,9 +156,6 @@
   </data>
   <data name="icon_participante" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_participante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -225,9 +219,6 @@
   </data>
   <data name="icon_add2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_add2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo ucs" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo ucs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_facilitadores" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_facilitadores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,10 +304,10 @@
   <data name="icon_ppt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_ppt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background_perfilU" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background_perfilU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="prueba_fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prueba_fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_ucs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_ucs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

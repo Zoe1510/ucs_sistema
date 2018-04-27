@@ -14,7 +14,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Agregar_participante : Form
     {
-        string tipo_formacion, nombre_formacion, empresa_solicitante;
+        string tipo_formacion, nombre_formacion;
         int id_curso, id_cliente, id_ince;
         List<string> nombre = new List<string>();
         List<int> lista_id = new List<int>();

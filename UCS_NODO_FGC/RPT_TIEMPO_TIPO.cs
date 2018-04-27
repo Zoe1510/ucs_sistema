@@ -35,17 +35,23 @@ namespace UCS_NODO_FGC
             //nuevo:
             int cantidad = 0;
             string extension = ".pdf";
-            string ruta = @"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
+            string ruta = @".\\Wsucsger001\\ucs_sistema\\Archivos\\Reportes_emitidos\\";  //cambia cuando se instale
             //todo lo que se haga aquí, es nuevo 
             string nuevonombre;
+            if ( ! Directory.Exists(@".\\Wsucsger001\\ucs_sistema\\Archivos\\Reportes_emitidos"))//verificar si la carpeta existe
+            {
+                //si no, se crea y luego se copia 
+                Directory.CreateDirectory(ruta);
+              
+            }
             //aqui, se modificaré el nombre del archivo, añadiendo una cuenta progresiva de acuerdo a los existentes en la carpeta contenedora
-            string[] dirs = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nombre_reporte + cantidad.ToString() + extension);
+            string[] dirs = Directory.GetFiles(@".\\Wsucsger001\\ucs_sistema\\Archivos\\Reportes_emitidos\\", nombre_reporte + cantidad.ToString() + extension);
             int retorno = dirs.Length;
             while (retorno != 0)
             {
                 cantidad += 1;
                 nuevonombre = nombre_reporte + cantidad.ToString() + extension;
-                string[] check = Directory.GetFiles(@"C:\\Users\\ZM\\Documents\\Last_repo\\ucs_sistema\\UCS_NODO_FGC\\Archivos\\Reportes_emitidos", nuevonombre);
+                string[] check = Directory.GetFiles(@".\\Wsucsger001\\ucs_sistema\\Archivos\\Reportes_emitidos", nuevonombre);
                 retorno = check.Length;
             }
             nuevonombre = nombre_reporte + cantidad.ToString() + extension;

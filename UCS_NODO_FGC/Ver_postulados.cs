@@ -287,7 +287,7 @@ namespace UCS_NODO_FGC
                 return true;
 
             }
-            catch (Exception es)
+            catch
             {
 
                 return false;
