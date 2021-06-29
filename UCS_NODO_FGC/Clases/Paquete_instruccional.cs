@@ -10,7 +10,7 @@ namespace UCS_NODO_FGC.Clases
     public class Paquete_instruccional
     {
         public  string bitacora { get; set; }
-        public string ficha { get; set; }
+       
         public string manual { get; set; }
         public string presentacion { get; set; }
         public string contenido { get; set; }
@@ -19,12 +19,13 @@ namespace UCS_NODO_FGC.Clases
 
 
         public static string _bitacora { get; set; }
-        public static string _ficha { get; set; }
+       
         public static string _manual { get; set; }
         public static string _presentacion { get; set; }
         public static string _contenido { get; set; }
         public static int id_pin { get; set; }
         public static string tipo_curso { get; set; }
+        public static bool utilizado { get; set; }
 
         public static int ModificarContenidoPQ(MySqlConnection conexion, Paquete_instruccional pq)
         {
@@ -48,13 +49,7 @@ namespace UCS_NODO_FGC.Clases
             return resultado;
         }
 
-        public static int ModificarFichaPQ(MySqlConnection conexion, Paquete_instruccional pq)
-        {
-            int resultado = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("UPDATE p_instruccional SET p_ficha='{1}' WHERE id_pinstruccional='{0}' ", pq.id_pinstruccional, pq.ficha), conexion);
-            resultado = comando.ExecuteNonQuery();
-            return resultado;
-        }
+      
         public static int ModificarManualPQ(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int resultado = 0;

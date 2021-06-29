@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -34,7 +35,10 @@ namespace UCS_NODO_FGC
         }
         private void btnGuardarFa_Click(object sender, EventArgs e)
         {
-            Actualizar();
+            if (Facilitador_Seleccionado.VER == 0)
+                Actualizar();
+            else
+                this.Close();
         }
 
         private void txtCedulaFa_KeyPress(object sender, KeyPressEventArgs e)
@@ -479,7 +483,44 @@ namespace UCS_NODO_FGC
                     break;
             }
             
+            if(Facilitador_Seleccionado.VER == 1)//si es 1, es porque solo está viendo la información.
+            {
+                txtCedulaFa.ReadOnly = true;
+                txtNombreFa.ReadOnly = true;
+                txtApellidoFa.ReadOnly = true;
+                txtCorreoFa.ReadOnly = true;
+                txtTelefonoFa.ReadOnly = true;
+                txtEspecialidadFa.ReadOnly = true;
+                cmbNacionalidad.Enabled = false;
+                cmbxINCE.Enabled = false;
+                cmbUbicacionEdo.Enabled = false;
+                this.Text = "Ver datos del facilitador";
+                btnGuardarFa.Text = "Aceptar";
+                btnGuardarFa.Width = 287;
+                btnGuardarFa.Height = 46;
+                btnGuardarFa.Location = new Point(198, 484);
+                btnCancelar.Visible = false;
 
+            }else
+            {
+                txtCedulaFa.ReadOnly = false;
+                txtNombreFa.ReadOnly = false;
+                txtApellidoFa.ReadOnly = false;
+                txtCorreoFa.ReadOnly = false;
+                txtTelefonoFa.ReadOnly = false;
+                txtEspecialidadFa.ReadOnly = false;
+                cmbNacionalidad.Enabled = true;
+                cmbxINCE.Enabled = true;
+                cmbUbicacionEdo.Enabled = true;
+                this.Text = "Modificar datos del facilitador";
+                btnGuardarFa.Text = "Actualizar";
+                btnCancelar.Visible = true;
+                btnGuardarFa.Location = new Point(148, 484);
+                btnCancelar.Location = new Point(364, 484);
+                btnGuardarFa.Width = 149;
+                btnGuardarFa.Height = 46;
+
+            }
         }
         private void actualizarfa()
         {
@@ -536,12 +577,18 @@ namespace UCS_NODO_FGC
                         errorProviderNombre.SetError(txtNombreFa, "");
                         errorProviderApellido.SetError(txtApellidoFa, "Debe proporcionar un apelllido válido.");
                         txtApellidoFa.Focus();
-                    }
-                    else if(txtTelefonoFa.TextLength < 11)
+                    } else if (txtCorreoFa.Text == "" || txtCorreoFa.Text == "correo@ejemplo.com")
                     {
+                        errorProviderApellido.SetError(txtApellidoFa, "");
+                        errorProviderCorreo.SetError(txtCorreoFa, "Debe proporcionar un correo electrónico válido");
+                        txtCorreoFa.Focus();
+                    }
+                    else if(txtTelefonoFa.TextLength < 11 || txtTelefonoFa.Text == "Téléfono o celular")
+                    {
+                        errorProviderCorreo.SetError(txtCorreoFa, "");
                         errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un teléfono válido.");
                         txtTelefonoFa.Focus();
-                        errorProviderApellido.SetError(txtApellidoFa, "");
+                       
                     }
                     else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
                     {
@@ -573,6 +620,7 @@ namespace UCS_NODO_FGC
                         facilitadores.apellido_facilitador = txtApellidoFa.Text;
                         facilitadores.correo_facilitador = txtCorreoFa.Text;
                         facilitadores.tlfn_facilitador = txtTelefonoFa.Text;
+                        facilitadores.nombreyapellido = facilitadores.nombre_facilitador + " " + facilitadores.apellido_facilitador;
                         string edo = Convert.ToString(cmbUbicacionEdo.SelectedIndex);
                         seleccionarEdo(edo);
                         nacionalidad = Convert.ToString(cmbNacionalidad.SelectedIndex);
@@ -603,7 +651,7 @@ namespace UCS_NODO_FGC
                         //ANTES DE ACTUALIZAR, VERIFICAR QUE NO EXISTAN DOS FACILITADORES CON LA MISMA CEDULA. FALTA VALIDACION!
                         if(txtCedulaFa.Text != Clases.Facilitador_Seleccionado.ci_facilitador)//si ha habido cambios entre lo que se cargó y lo que está en el txt
                         {
-                            int existefa = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador, facilitadores.nacionalidad_fa);
+                            int existefa = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador);
                             conexion.cerrarconexion();
                             if (existefa == 0)
                             {

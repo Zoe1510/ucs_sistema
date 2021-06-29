@@ -25,9 +25,10 @@ namespace UCS_NODO_FGC
         //LOAD DEL FORM
         private void Registrar_area_Load(object sender, EventArgs e)
         {
-            if(Clases.Cliente_seleccionado.id_cliente != 0)
+            
+            if (Clases.Cliente_seleccionado.id_cliente != 0)
             {
-                Panel_cabecera.Visible = false;
+                
                 txtNombreEmpresa.Visible = true;
                 txtNombreEmpresa.Text = Clases.Cliente_seleccionado.nombre_empresa;
                 txtNombreEmpresa.Enabled = false;
@@ -44,6 +45,9 @@ namespace UCS_NODO_FGC
                 Clases.Cliente_seleccionado.nombre_contacto = "";
                 Clases.Cliente_seleccionado.tlfn_cliente = "";
                 Clases.Cliente_seleccionado.correo_cliente = "";
+            }else
+            {
+                this.Location = new Point(-5, 0);
             }
             string nombre = "";
             llenarcombo(nombre);
@@ -82,12 +86,23 @@ namespace UCS_NODO_FGC
                     else if (txtNombreContactoArea.Text == "" || txtNombreContactoArea.Text == "Persona contacto del área")
                     {
                         errorProviderNomArea.SetError(txtNombreArea, "");
-                        errorProviderPersContacto.SetError(txtNombreContactoArea, "Debe proporcionar el nombre del contacto dentro del área");
+                        errorProviderPersContacto.SetError(txtNombreContactoArea, "Debe proporcionar el nombre del contacto dentro del área.");
                         txtNombreContactoArea.Focus();
+                    } else if (txtTelefonoCliArea.Text == "" || txtTelefonoCliArea.TextLength < 11)
+                    {
+                        errorProviderPersContacto.SetError(txtNombreContactoArea, "");
+                        errorProviderTxtNCli.SetError(txtTelefonoCliArea, "Debe proporcionar un número de teléfono válido.");
+                        txtTelefonoCliArea.Focus();
+                    }
+                    else if (txtCorreoCliArea.Text == "correo@ejemplo.com")
+                    {
+                        errorProviderTxtNCli.SetError(txtTelefonoCliArea, "");
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "Debe proporcionar un correo electrónico válido.");
+                        txtCorreoCliArea.Focus();
                     }
                     else
                     {
-                        errorProviderPersContacto.SetError(txtNombreContactoArea, "");
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "");
 
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
@@ -100,6 +115,7 @@ namespace UCS_NODO_FGC
                                 if (nombre_e != "")//si el id arroja un Nombre de Empresa
                                 {
                                     //cuando todas las comprobaciones sean hechas, se guardarán los datos en "cliente"
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         cliente.nombre_areaEmpresa = txtNombreArea.Text;
@@ -112,6 +128,7 @@ namespace UCS_NODO_FGC
                                         conexion.cerrarconexion();
                                         if (areaE.id_area == 0)//si retorna 0 es que el area no existe
                                         {
+                                            conexion.cerrarconexion();
                                             if (conexion.abrirconexion() == true)
                                             {
                                                 int addAreas = 0;
@@ -121,7 +138,7 @@ namespace UCS_NODO_FGC
                                                 if (addAreas > 0)
                                                 {
 
-                                                    if (MessageBox.Show("El área fue registrada con exito. ¿Desea añadir otra área?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                                    if (MessageBox.Show("El área fue registrada con éxito. ¿Desea añadir otra área?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                                     {
                                                         Clases.Cliente_seleccionado.id_cliente = 0;
                                                         this.Close();
@@ -133,11 +150,7 @@ namespace UCS_NODO_FGC
                                                         txtNombreEmpresa.Visible = false;
                                                         string nombre = "";
                                                         llenarcombo(nombre);
-                                                        txtNombreArea.Text = "Nombre del área";
-                                                        txtNombreContactoArea.Text = "Persona contacto del área";
-                                                        txtTelefonoCliArea.Text = "Teléfono o celular";
-                                                        txtCorreoCliArea.Text = "correo@ejemplo.com";
-
+                                                        refrescar();
                                                     }
 
 
@@ -168,15 +181,13 @@ namespace UCS_NODO_FGC
 
                                                 Modificar_contacto_area mod_contacto = new Modificar_contacto_area();
                                                 mod_contacto.ShowDialog();
+                                                refrescar();
 
                                             }
                                             else
                                             {
 
-                                                txtNombreArea.Text = "Nombre del área";
-                                                txtNombreContactoArea.Text = "Persona contacto del área";
-                                                txtTelefonoCliArea.Text = "Teléfono o celular";
-                                                txtCorreoCliArea.Text = "correo@ejemplo.com";
+                                                refrescar();
                                                 conexion.cerrarconexion();
                                             }
                                         }
@@ -189,12 +200,7 @@ namespace UCS_NODO_FGC
                 }
                 else if (txtNombreEmpresa.Visible == true)//si viene referenciado de REGISTRAR CLIENTES
                 {
-                    if (cmbxEmpresa.SelectedIndex == -1)
-                    {
-                        errorProviderCMBxNCli.SetError(cmbxEmpresa, "Debe seleccionar una empresa para continuar con el registro.");
-
-                    }
-                    else if (txtNombreArea.Text == "" || txtNombreArea.Text == "Nombre del área")
+                    if (txtNombreArea.Text == "" || txtNombreArea.Text == "Nombre del área")
                     {
                         errorProviderCMBxNCli.SetError(cmbxEmpresa, "");
                         errorProviderNomArea.SetError(txtNombreArea, "Debe proporcionar un nombre válido.");
@@ -206,9 +212,21 @@ namespace UCS_NODO_FGC
                         errorProviderPersContacto.SetError(txtNombreContactoArea, "Debe proporcionar el nombre del contacto dentro del área");
                         txtNombreContactoArea.Focus();
                     }
-                    else
+                    else if (txtTelefonoCliArea.Text == "" || txtTelefonoCliArea.TextLength < 11)
                     {
                         errorProviderPersContacto.SetError(txtNombreContactoArea, "");
+                        errorProviderTxtNCli.SetError(txtTelefonoCliArea, "Debe proporcionar un número de teléfono válido.");
+                        txtTelefonoCliArea.Focus();
+                    }
+                    else if (txtCorreoCliArea.Text == "correo@ejemplo.com")
+                    {
+                        errorProviderTxtNCli.SetError(txtTelefonoCliArea, "");
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "Debe proporcionar un correo electrónico válido.");
+                        txtCorreoCliArea.Focus();
+                    }
+                    else
+                    {
+                        errorProviderCorreo.SetError(txtCorreoCliArea, "");
 
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
@@ -230,6 +248,7 @@ namespace UCS_NODO_FGC
                                     conexion.cerrarconexion();
                                     if (areaE.id_area == 0)//si retorna 0 es que el area no existe
                                     {
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             int addAreas = 0;
@@ -239,7 +258,7 @@ namespace UCS_NODO_FGC
                                             if (addAreas > 0)
                                             {
 
-                                                if (MessageBox.Show("El área fue registrada con exito. ¿Desea añadir otra área?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                                if (MessageBox.Show("El área fue registrada con éxito. ¿Desea añadir otra área?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                                 {
                                                     Clases.Cliente_seleccionado.id_cliente = 0;
                                                     this.Close();
@@ -252,10 +271,7 @@ namespace UCS_NODO_FGC
                                                     txtNombreEmpresa.Visible = false;
                                                     string nombre = "";
                                                     llenarcombo(nombre);
-                                                    txtNombreArea.Text = "Nombre del área";
-                                                    txtNombreContactoArea.Text = "Persona contacto del área";
-                                                    txtTelefonoCliArea.Text = "Teléfono o celular";
-                                                    txtCorreoCliArea.Text = "correo@ejemplo.com";
+                                                    refrescar();
 
                                                 }
 
@@ -286,14 +302,12 @@ namespace UCS_NODO_FGC
 
                                             Modificar_contacto_area mod_contacto = new Modificar_contacto_area();
                                             mod_contacto.ShowDialog();
+                                            refrescar();
 
                                         }
                                         else
                                         {
-                                            txtNombreArea.Text = "Nombre del área";
-                                            txtNombreContactoArea.Text = "Persona contacto del área";
-                                            txtTelefonoCliArea.Text = "Teléfono o celular";
-                                            txtCorreoCliArea.Text = "correo@ejemplo.com";
+                                            refrescar();
                                             conexion.cerrarconexion();
                                         }
                                     }
@@ -313,6 +327,18 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private void refrescar()
+        {
+            txtNombreArea.Text = "Nombre del área";
+            txtNombreContactoArea.Text = "Persona contacto del área";
+            txtTelefonoCliArea.Text = "Teléfono o celular";
+            txtCorreoCliArea.Text = "correo@ejemplo.com";
+            errorProviderCMBxNCli.SetError(cmbxEmpresa, "");
+            errorProviderNomArea.SetError(txtNombreArea, "");
+            errorProviderPersContacto.SetError(txtNombreContactoArea, "");
+            errorProviderTxtNCli.SetError(txtTelefonoCliArea, "");
+            errorProviderCorreo.SetError(txtCorreoCliArea, "");
+        }
         //END METODOS
 
         //EVENTOS

@@ -17,6 +17,8 @@ namespace UCS_NODO_FGC
             InitializeComponent();
         }
 
+        public int xClick = 0, yClick = 0;
+
         private void btn_cerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea salir?", "",
@@ -52,6 +54,22 @@ namespace UCS_NODO_FGC
             {
                 this.Close();
             }
+        }
+
+        private void Opciones_recuperacion_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+
+            { xClick = e.X; yClick = e.Y; }
+
+            else
+
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
+        }
+
+        private void Opciones_recuperacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

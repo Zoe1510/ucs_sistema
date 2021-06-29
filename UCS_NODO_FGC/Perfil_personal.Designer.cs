@@ -37,21 +37,18 @@
             this.txtApellidoUser = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblCedula = new System.Windows.Forms.Label();
             this.lblCargo = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnEditarPerfil = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombreUser = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.lblOlvidarContraseña = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,17 +63,23 @@
             this.errorProviderApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCorreo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderTlfn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.errorProviderCI = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoUser)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.Panel_cabecera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -117,7 +120,7 @@
             this.txtCorreoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.txtCorreoUser.Enabled = false;
             this.txtCorreoUser.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoUser.Location = new System.Drawing.Point(190, 140);
+            this.txtCorreoUser.Location = new System.Drawing.Point(190, 188);
             this.txtCorreoUser.Multiline = true;
             this.txtCorreoUser.Name = "txtCorreoUser";
             this.txtCorreoUser.Size = new System.Drawing.Size(181, 26);
@@ -130,7 +133,7 @@
             this.txtTlfnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.txtTlfnUser.Enabled = false;
             this.txtTlfnUser.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTlfnUser.Location = new System.Drawing.Point(190, 189);
+            this.txtTlfnUser.Location = new System.Drawing.Point(190, 237);
             this.txtTlfnUser.MaxLength = 11;
             this.txtTlfnUser.Multiline = true;
             this.txtTlfnUser.Name = "txtTlfnUser";
@@ -144,7 +147,7 @@
             this.txtApellidoUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.txtApellidoUser.Enabled = false;
             this.txtApellidoUser.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoUser.Location = new System.Drawing.Point(190, 92);
+            this.txtApellidoUser.Location = new System.Drawing.Point(190, 140);
             this.txtApellidoUser.Multiline = true;
             this.txtApellidoUser.Name = "txtApellidoUser";
             this.txtApellidoUser.Size = new System.Drawing.Size(181, 26);
@@ -155,15 +158,13 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.lblCedula);
             this.groupBox2.Controls.Add(this.lblCargo);
             this.groupBox2.Controls.Add(this.shapeContainer2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
             this.groupBox2.Location = new System.Drawing.Point(325, 133);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(502, 162);
+            this.groupBox2.Size = new System.Drawing.Size(502, 88);
             this.groupBox2.TabIndex = 51;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos personales:";
@@ -174,35 +175,11 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(117, 105);
+            this.label7.Location = new System.Drawing.Point(117, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 19);
             this.label7.TabIndex = 56;
             this.label7.Text = "Cargo:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(111, 48);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 19);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Cédula:";
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.BackColor = System.Drawing.Color.Transparent;
-            this.lblCedula.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedula.ForeColor = System.Drawing.Color.Black;
-            this.lblCedula.Location = new System.Drawing.Point(244, 48);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(81, 19);
-            this.lblCedula.TabIndex = 52;
-            this.lblCedula.Text = "24437292";
             // 
             // lblCargo
             // 
@@ -210,7 +187,7 @@
             this.lblCargo.BackColor = System.Drawing.Color.Transparent;
             this.lblCargo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCargo.ForeColor = System.Drawing.Color.Black;
-            this.lblCargo.Location = new System.Drawing.Point(245, 105);
+            this.lblCargo.Location = new System.Drawing.Point(245, 39);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(75, 19);
             this.lblCargo.TabIndex = 51;
@@ -222,26 +199,21 @@
             this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape2,
-            this.rectangleShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(496, 142);
+            this.rectangleShape2});
+            this.shapeContainer2.Size = new System.Drawing.Size(496, 68);
             this.shapeContainer2.TabIndex = 53;
             this.shapeContainer2.TabStop = false;
             // 
             // rectangleShape2
             // 
-            this.rectangleShape2.Location = new System.Drawing.Point(189, 84);
+            this.rectangleShape2.Location = new System.Drawing.Point(189, 18);
             this.rectangleShape2.Name = "rectangleShape2";
             this.rectangleShape2.Size = new System.Drawing.Size(177, 29);
             // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.Location = new System.Drawing.Point(190, 26);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(177, 29);
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txtCedula);
             this.groupBox3.Controls.Add(this.btnEditarPerfil);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
@@ -251,11 +223,36 @@
             this.groupBox3.Controls.Add(this.txtNombreUser);
             this.groupBox3.Controls.Add(this.txtApellidoUser);
             this.groupBox3.Controls.Add(this.txtTlfnUser);
-            this.groupBox3.Location = new System.Drawing.Point(328, 301);
+            this.groupBox3.Location = new System.Drawing.Point(325, 227);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(502, 259);
+            this.groupBox3.Size = new System.Drawing.Size(502, 292);
             this.groupBox3.TabIndex = 52;
             this.groupBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(111, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 19);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Cédula:";
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
+            this.txtCedula.Enabled = false;
+            this.txtCedula.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(189, 44);
+            this.txtCedula.MaxLength = 8;
+            this.txtCedula.Multiline = true;
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(181, 26);
+            this.txtCedula.TabIndex = 59;
+            this.txtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // btnEditarPerfil
             // 
@@ -278,7 +275,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(101, 189);
+            this.label4.Location = new System.Drawing.Point(101, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 19);
             this.label4.TabIndex = 57;
@@ -289,7 +286,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 140);
+            this.label3.Location = new System.Drawing.Point(111, 188);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 19);
             this.label3.TabIndex = 56;
@@ -300,7 +297,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 92);
+            this.label2.Location = new System.Drawing.Point(103, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 19);
             this.label2.TabIndex = 55;
@@ -311,7 +308,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(103, 43);
+            this.label1.Location = new System.Drawing.Point(103, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 19);
             this.label1.TabIndex = 54;
@@ -322,35 +319,13 @@
             this.txtNombreUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
             this.txtNombreUser.Enabled = false;
             this.txtNombreUser.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUser.Location = new System.Drawing.Point(190, 43);
+            this.txtNombreUser.Location = new System.Drawing.Point(190, 91);
             this.txtNombreUser.Multiline = true;
             this.txtNombreUser.Name = "txtNombreUser";
             this.txtNombreUser.Size = new System.Drawing.Size(181, 26);
             this.txtNombreUser.TabIndex = 45;
             this.txtNombreUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNombreUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreUser_KeyPress);
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 716);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1122, 25);
-            this.panel8.TabIndex = 57;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(225, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(663, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
             // 
             // lblOlvidarContraseña
             // 
@@ -500,17 +475,62 @@
             // 
             this.errorProviderTlfn.ContainerControl = this;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 716);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1122, 25);
+            this.panel8.TabIndex = 62;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label9.Location = new System.Drawing.Point(221, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(663, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape3});
+            this.shapeContainer4.Size = new System.Drawing.Size(1122, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape3.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape3.Name = "rectangleShape2";
+            this.rectangleShape3.Size = new System.Drawing.Size(1118, 1);
+            // 
+            // errorProviderCI
+            // 
+            this.errorProviderCI.ContainerControl = this;
+            // 
             // Perfil_personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1122, 741);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizarDatos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.Panel_cabecera);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -526,8 +546,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.Panel_cabecera.ResumeLayout(false);
@@ -536,6 +554,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApellido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCorreo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTlfn)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -549,12 +570,9 @@
         private System.Windows.Forms.TextBox txtApellidoUser;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.Label lblCargo;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
-        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -566,8 +584,6 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
         private System.Windows.Forms.Button btnEditarPerfil;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblOlvidarContraseña;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label5;
@@ -578,5 +594,12 @@
         private System.Windows.Forms.ErrorProvider errorProviderApellido;
         private System.Windows.Forms.ErrorProvider errorProviderCorreo;
         private System.Windows.Forms.ErrorProvider errorProviderTlfn;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.ErrorProvider errorProviderCI;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -33,14 +35,14 @@ namespace UCS_NODO_FGC
         private void Txt_id_user_Click(object sender, EventArgs e)
         {
             //metodo usado para el evento click sobre el textbox cedula
-            if(Txt_id_user.Text != "")
+            if (Txt_id_user.Text != "")
             {
 
-            }else
+            } else
             {
                 Txt_id_user.Text = "";
             }
-            
+
         }
 
         private void Txt_pass_user_Click(object sender, EventArgs e)
@@ -71,36 +73,112 @@ namespace UCS_NODO_FGC
             else
             {
                 e.Handled = true;
-                
-               
+
+
+            }
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                Txt_pass_user.Focus();
             }
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
             login();
+            
+            
         }
 
-      
+        //aqui solo se cambian los estatus de los cursos que estén en etapa 3 y su fecha correspondiente haya pasado
+        private void actualizar()
+        {
+            List<Formaciones> lista = new List<Formaciones>();//para las formaciones cuyos bloque sea 1(que se dicta en un dia)
+            List<int> lista_b2 = new List<int>();//para las formaciones cuyo bloque sea 2(se dicta en 2 dias, y ser evalua es la segunda fecha 
+            string hoy = DateTime.Today.ToString("yyyy-MM-dd");
+            
+            //aqui se actualizará el estatus de los cursos (a Finalizado) cuyas fechas hayan pasado (que sean inferiores a la actual).
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='1' AND estatus_curso='En curso' AND fecha_uno < '" + hoy + "' ");
+            while (leer.Read())
+            {
+                Formaciones f = new Formaciones();
+                f.id_curso = Convert.ToInt32(leer["id_cursos"]);
+                lista.Add(f);
+            }
+            leer.Close();
+            MySqlDataReader b2 = Conexion.ConsultarBD("SELECT * FROM cursos WHERE etapa_curso='3' AND bloque_curso='2' AND estatus_curso='En curso' AND fecha_dos < '" + hoy + "' ");
+            while (b2.Read())
+            {
+                int b = Convert.ToInt32(b2["id_cursos"]);
+                lista_b2.Add(b);
+            }
+            b2.Close();
+
+           
+            //se recorre la lista de cursos para cambiar estatus
+            for (int i = 0; i < lista.Count; i++)
+            {
+                MySqlDataReader tieneP = Conexion.ConsultarBD("select * from cursos_tienen_participantes where ctp_id_curso='" + lista[i].id_curso + "'");
+                if (tieneP.Read())
+                {
+                    //si tiene participantes, se puede colocar como finalizado
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista[i].id_curso + "'");
+                    cambiar.Close();
+                }
+                else
+                {
+                    //si no devuelve nada, es que no hay participantes añadidos a este curso. ENTONCES se REPROGRAMA
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista[i].id_curso + "'");
+                    cambiar.Close();
+                }
+                tieneP.Close();
+               
+
+            }
+            lista.Clear();
+
+            for (int i = 0; i<lista_b2.Count; i++)
+            {
+                MySqlDataReader tieneP = Conexion.ConsultarBD("select * from cursos_tienen_participantes where ctp_id_curso='" + lista[i].id_curso + "'");
+                if (tieneP.Read())
+                {
+                    //si tiene participantes, se puede colocar como finalizado
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Finalizado' WHERE id_cursos='" + lista_b2[i] + "'");
+                    cambiar.Close();
+                }
+                else
+                {
+                    //si no devuelve nada, es que no hay participantes añadidos a este curso. ENTONCES se REPROGRAMA
+                    MySqlDataReader cambiar = Conexion.ConsultarBD("UPDATE cursos SET estatus_curso='Reprogramado' WHERE id_cursos='" + lista_b2[i] + "'");
+                    cambiar.Close();
+                }
+                tieneP.Close();
+               
+            }
+            lista_b2.Clear();
+                     
+          
+
+        }
         public void login ()
         {
             try
             {
+                //conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     if ((Txt_id_user.Text != "") && (Txt_pass_user.Text != ""))
                     {
                         if ((Txt_id_user.Text != "Cédula") && (Txt_pass_user.Text != "Contraseña"))
                         {
-                            
 
-                            usuario.id_usuario = Convert.ToInt32(Txt_id_user.Text);
+                            usuario.cedula_user = Convert.ToInt32(Txt_id_user.Text);
                             usuario.password = Txt_pass_user.Text;
-                            int id_existe = Clases.Usuarios.UsuarioExiste(conexion.conexion, usuario.id_usuario);
+                            int ci_existe = Clases.Usuarios.UsuarioExiste(conexion.conexion, usuario.cedula_user);
                             conexion.cerrarconexion();
 
-                            if(id_existe > 0 )//si la cedula introducida existe en el registro de usuarios
+                            if (ci_existe > 0)//si la cedula introducida existe en el registro de usuarios
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                     usuarioIngresado = Clases.Usuarios.IniciarSesion(conexion.conexion, usuario);
@@ -108,7 +186,9 @@ namespace UCS_NODO_FGC
 
                                     if (usuarioIngresado.id_usuario != 0)//si la contraseña corresponde al id:
                                     {
-                                        
+                                        actualizar();
+
+                                        Clases.Usuario_logeado.cedula_user = usuario.cedula_user;
                                         Clases.Usuario_logeado.nombre_usuario = usuarioIngresado.nombre_usuario;
                                         Clases.Usuario_logeado.apellido_usuario = usuarioIngresado.apellido_usuario;
                                         Clases.Usuario_logeado.id_usuario = usuarioIngresado.id_usuario;
@@ -120,8 +200,7 @@ namespace UCS_NODO_FGC
                                         Txt_id_user.Clear();
                                         Txt_pass_user.Clear();
 
-                                        this.Hide();
-
+                                        this.Visible = false;
                                         //Si el usuario es lider: 
                                         if (Clases.Usuario_logeado.cargo_usuario == "Lider")
                                         {
@@ -148,8 +227,8 @@ namespace UCS_NODO_FGC
                                         Txt_pass_user.UseSystemPasswordChar = true;
                                         Txt_pass_user.Text = "";
                                         Txt_pass_user.Focus();
-                                        
-                                        
+
+
                                     }
                                     conexion.cerrarconexion();
                                 }
@@ -164,7 +243,10 @@ namespace UCS_NODO_FGC
                                 Txt_pass_user.UseSystemPasswordChar = false;
                                 Txt_pass_user.Text = "Contraseña";
                             }
-                            
+
+
+
+
                         }
                         else
                         {
@@ -179,6 +261,7 @@ namespace UCS_NODO_FGC
 
                     conexion.cerrarconexion();
                 }
+
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {

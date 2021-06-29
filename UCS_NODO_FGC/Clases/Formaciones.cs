@@ -11,7 +11,9 @@ namespace UCS_NODO_FGC.Clases
     {
         public string bloque_curso { get; set; }
         public DateTime fecha_inicial { get; set; }
-
+        public string tiene_ref { get; set; }
+        public string ubicacion_ucs { get; set; }
+        public string TiempoEtapa { get; set; }
         public string solicitado { get; set; }
 
         public string duracion { get; set; }
@@ -21,22 +23,32 @@ namespace UCS_NODO_FGC.Clases
         public string nombre_formacion { get; set; }
 
         public string tipo_formacion { get; set; }
-
-        public DateTime fecha_curso { get; set; }
-
-        public DateTime hora_curso { get; set; }
-
+        public int etapa_curso { get; set; }
+        //la etapa puede ser 1, 2 o 3, representan los paneles de cada form
+        
+        public DateTime dia1 { get; set; }
+        public DateTime dia2 { get; set; }
         public int id_user { get; set; }
+        public string horario1 { get; set; }
+        public string horario2 { get; set; }
+        public string aula1 { get; set; }
+        public string aula2 { get; set; }
+        public string refri1 { get; set; }
+        public string refri2 { get; set; }
 
         public int id_curso { get; set; }
         public int pq_inst { get; set; }
+
+        public string nArea { get; set; }
+
+        public static bool creacion { get; set; } //para saber si la formación se crea o se modifica
 
         public Formaciones()
         {
 
         }
 
-        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo, DateTime fform, int pq, int idcurso, int id_user, DateTime hora)
+        public Formaciones(DateTime fi, string sol, string d, string sta, string nomb, string tipo,  int pq, int idcurso, int id_user, string tR, string ub,string na)
         {
             this.fecha_inicial = fi;
             this.solicitado = sol;
@@ -44,18 +56,19 @@ namespace UCS_NODO_FGC.Clases
             this.estatus = sta;
             this.nombre_formacion = nomb;
             this.tipo_formacion = tipo;
-            this.fecha_curso = fform;
+            
             this.pq_inst = pq;
             this.id_curso = idcurso;
             this.id_user = id_user;
-            this.hora_curso = hora;
-
+            this.tiene_ref = tR;
+            this.ubicacion_ucs = ub;
+            this.nArea = na;
         }
        
         public static int AgregarNuevaFormacion(MySqlConnection conexion, Formaciones form)
         {
             int retorno = 0;
-            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado)";
+            string query = @"INSERT INTO cursos (estatus_curso, tipo_curso, duracion_curso, nombre_curso, fecha_creacion, id_usuario1, id_p_inst, bloque_curso, solicitud_curso, etapa_curso, duracionE1, tiene_ref, ubicacion_ucs, nombre_area) VALUES (?estatus, ?tipo, ?duracion, ?nombre, ?fechainicio,?id_user, ?id_pq, ?bloque, ?solicitado, ?etapa, ?tiempoE1, ?tiene_ref, ?ubicacion_ucs, ?nombreA)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?estatus", form.estatus);
             cmd.Parameters.AddWithValue("?tipo", form.tipo_formacion);
@@ -68,19 +81,37 @@ namespace UCS_NODO_FGC.Clases
             cmd.Parameters.AddWithValue("?id_pq", form.pq_inst);
             cmd.Parameters.AddWithValue("?bloque", form.bloque_curso);
             cmd.Parameters.AddWithValue("?solicitado", form.solicitado);
+            cmd.Parameters.AddWithValue("?etapa", form.etapa_curso);
+            cmd.Parameters.AddWithValue("?tiempoE1", form.TiempoEtapa);
+            cmd.Parameters.AddWithValue("?tiene_ref", form.tiene_ref);
+            cmd.Parameters.AddWithValue("?ubicacion_ucs", form.ubicacion_ucs);
+            cmd.Parameters.AddWithValue("?nombreA", form.nArea);
             //el id debe venir de la persona logueada o sea de la clases.usuariologueado.id_usuario
             retorno = cmd.ExecuteNonQuery();
             return retorno;
         }
 
-        public static int Agregar_U_g_C(MySqlConnection conexion, int id_curso, int id_usuario, DateTime fecha_mod)
+        public static int Agregar_U_g_C(MySqlConnection conexion, int id_curso, int id_usuario, DateTime fecha_inicial, DateTime fecha_final)
         {
             int retorno = 0;
-            string query = @"INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_curso) VALUES (?idcurso, ?idusuario, ?fecha)";
+            string query = @"INSERT INTO user_gestionan_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES (?idcurso, ?idusuario, ?fechaInicio, ?fechaFinal)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             cmd.Parameters.AddWithValue("?idcurso", id_curso);
             cmd.Parameters.AddWithValue("?idusuario", id_usuario);
-            cmd.Parameters.AddWithValue("?fecha", fecha_mod);
+            cmd.Parameters.AddWithValue("?fechaInicio", fecha_inicial);
+            cmd.Parameters.AddWithValue("?fechaFinal", fecha_final);
+            retorno = cmd.ExecuteNonQuery();
+            return retorno;
+        }
+        public static int Agregar_U_MOD_C(MySqlConnection conexion, int id_curso, int id_usuario, DateTime fecha_inicial, DateTime fecha_final)
+        {
+            int retorno = 0;
+            string query = @"INSERT INTO user_mod_cursos (cursos_id_cursos, usuarios_id_user, fecha_mod_inicio, fecha_mod_final) VALUES (?idcurso, ?idusuario, ?fechaInicio, ?fechaFinal)";
+            MySqlCommand cmd = new MySqlCommand(query, conexion);
+            cmd.Parameters.AddWithValue("?idcurso", id_curso);
+            cmd.Parameters.AddWithValue("?idusuario", id_usuario);
+            cmd.Parameters.AddWithValue("?fechaInicio", fecha_inicial);
+            cmd.Parameters.AddWithValue("?fechaFinal", fecha_final);
             retorno = cmd.ExecuteNonQuery();
             return retorno;
         }
@@ -98,12 +129,14 @@ namespace UCS_NODO_FGC.Clases
 
             return resultado;
         }
-        public static int CursoOtroStatusExiste(MySqlConnection conexion, Formaciones form, string status)
+
+       
+
+        public static int CursoOtroStatusExiste(Formaciones form, string status)
         {
             int resultado = 0;
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_p_inst FROM cursos WHERE nombre_curso = '{0}' AND tipo_curso='{2}' AND estatus_curso LIKE ('%{1}%')", form.nombre_formacion, status, form.tipo_formacion), conexion);
-            MySqlDataReader leer = cmd.ExecuteReader();
-
+            MySqlDataReader leer = Conexion.ConsultarBD("SELECT id_p_inst FROM cursos WHERE nombre_curso = '"+ form.nombre_formacion + "' AND tipo_curso='"+ form.tipo_formacion + "' AND estatus_curso LIKE ('%"+ status + "%')");
+           
             while (leer.Read())
             {
                 resultado = leer.GetInt32(0);
@@ -116,11 +149,12 @@ namespace UCS_NODO_FGC.Clases
         public static Paquete_instruccional obtenerTodoPq(MySqlConnection conexion, int id)
         {
             Paquete_instruccional p = new Paquete_instruccional();
-            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_ficha, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
+            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT p_presentacion, p_contenido, p_manual, p_bitacora FROM p_instruccional WHERE id_pinstruccional='{0}'", id),conexion);
             MySqlDataReader leer = cmd.ExecuteReader();
 
             while (leer.Read())
             {
+
                if(leer.GetString(0) == null)
                 {
                     p.presentacion = "";
@@ -138,11 +172,27 @@ namespace UCS_NODO_FGC.Clases
                 {
                     p.contenido = "";
                 }
-               
-                //p.ficha = leer.GetString(2);
-               // p.manual = leer.GetString(3);
-               // p.bitacora = leer.GetString(4);
-                
+
+                if (leer.GetString(2) != null)
+                {
+                    p.manual = leer.GetString(2);
+                }
+                else
+                {
+                    p.manual = "";
+                }
+
+                if (leer.GetString(3) != null)
+                {
+                    p.bitacora = leer.GetString(3);
+                }
+                else
+                {
+                    p.bitacora = "";
+                }
+
+         
+
             }
             return p;
         }
@@ -159,14 +209,39 @@ namespace UCS_NODO_FGC.Clases
             }
             return ListaP;
         }
+        public static List<Paquete_instruccional> ObtenerPaqueteCursoDistinto(MySqlConnection conexion, Formaciones form)
+        {
+            List<Paquete_instruccional> ListaP = new List<Paquete_instruccional>();
+            MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_p_inst FROM cursos WHERE nombre_curso='{0}' ", form.nombre_formacion), conexion);
+            MySqlDataReader leer = cmd.ExecuteReader();
+            while (leer.Read())
+            {
+                Paquete_instruccional p = new Paquete_instruccional();
+                p.id_pinstruccional = leer.GetInt32(0);
+                ListaP.Add(p);
+            }
+            return ListaP;
+        }
         public static int ObtenerIdPaquete(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int retorno = 0;
-            string query = @"SELECT id_pinstruccional FROM p_instruccional WHERE p_contenido = ?contenido ";
+            string query = @"SELECT id_pinstruccional FROM p_instruccional WHERE p_contenido = ?contenido AND p_presentacion=?presentacion AND p_bitacora=?bitacora AND p_manual=?manual";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
             MySqlParameter contenido = new MySqlParameter("?contenido", MySqlDbType.VarChar);
             contenido.Value = pq.contenido;
             cmd.Parameters.Add(contenido);
+
+            MySqlParameter presentacion = new MySqlParameter("?presentacion", MySqlDbType.VarChar);
+            presentacion.Value = pq.presentacion;
+            cmd.Parameters.Add(presentacion);
+
+            MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.VarChar);
+            bitacora.Value = pq.bitacora;
+            cmd.Parameters.Add(bitacora);
+
+            MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.VarChar);
+            manual.Value = pq.manual;
+            cmd.Parameters.Add(manual);
 
             MySqlDataReader leer = cmd.ExecuteReader();
 
@@ -181,34 +256,27 @@ namespace UCS_NODO_FGC.Clases
         public static int GuardarPaqueteInstruccional(MySqlConnection conexion, Paquete_instruccional pq)
         {
             int retorno = 0;
-            string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido) VALUES ( ?presentacion, ?contenido)";
+            string query = @"INSERT INTO p_instruccional (p_presentacion, p_contenido, p_manual, p_bitacora) VALUES ( ?presentacion, ?contenido, ?manual, ?bitacora)";
             MySqlCommand cmd = new MySqlCommand(query, conexion);
-            // cmd.Parameters.AddWithValue("?bitacora", pq.bitacora);
-            //cmd.Parameters.AddWithValue("?presentacion", pq.presentacion);
-            //cmd.Parameters.AddWithValue("?ficha", pq.ficha);
-            //cmd.Parameters.AddWithValue("?manual", pq.manual);
-            //cmd.Parameters.AddWithValue("?contenido", pq.contenido);
-
-
-            //MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.Blob);
-            //bitacora.Value = pq.bitacora;
-            //cmd.Parameters.Add(bitacora);
+            
 
             MySqlParameter presentacion = new MySqlParameter("?presentacion", MySqlDbType.VarChar);
             presentacion.Value = pq.presentacion;
             cmd.Parameters.Add(presentacion);
 
-            //MySqlParameter ficha = new MySqlParameter("?ficha", MySqlDbType.Blob);
-            //ficha.Value = pq.ficha;
-            //cmd.Parameters.Add(ficha);
-
-            //MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.Blob);
-            //manual.Value = pq.manual;
-            //cmd.Parameters.Add(manual);
+          
 
             MySqlParameter contenido = new MySqlParameter("?contenido", MySqlDbType.VarChar);
             contenido.Value = pq.contenido;
             cmd.Parameters.Add(contenido);
+
+            MySqlParameter manual = new MySqlParameter("?manual", MySqlDbType.VarChar);
+            manual.Value = pq.manual;
+            cmd.Parameters.Add(manual);
+
+            MySqlParameter bitacora = new MySqlParameter("?bitacora", MySqlDbType.VarChar);
+            bitacora.Value = pq.bitacora;
+            cmd.Parameters.Add(bitacora);
 
            
 
@@ -219,4 +287,43 @@ namespace UCS_NODO_FGC.Clases
 
         
     }
+
+    public class Cursos
+    {       
+        public string nombre_formacion12 { get; set; }        
+        public  int id_curso12 { get; set; }
+
+        public static string nombre_area { get; set; }
+        public static string aula1 { get; set; }
+        public static string aula2 { get; set; }
+        public static string horario1 { get; set; }
+        public static string horario2 { get; set; }
+        public static string tipo_ref1 { get; set; }
+        public static string tipo_ref2 { get; set; }
+
+        public static string p_contenido { get; set; }
+        public static string p_presentacion { get; set; }
+        public static string p_bitacora { get; set; }
+        public static string p_manual { get; set; }
+        public static string tiene_ref { get; set; }
+        public static string ubicacion_ucs { get; set; }
+        public static string fecha_uno13 { get; set; }
+        public static string fecha_dos13 { get; set; }
+        public static string bloque_curso13 { get; set; }
+        public static string duracion_formacion13 { get; set; }
+        public static string solicitud_formacion13 { get; set; }
+        public static string tipo_formacion13 { get; set; }
+        public static string nombre_formacion13 { get; set; }
+        public static string estatus_formacion13 { get; set; }
+        public static int etapa_formacion13 { get; set; }
+        public static string nombreCreador_formacion13 { get; set; }
+        public static int id_curso13 { get; set; }
+        public static int id_user13 { get; set; }
+        public static int id_pinst { get; set; }
+
+
+
+    }
+
+   
 }

@@ -36,7 +36,6 @@
             this.txtRespuesta1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmbxPregunta2 = new System.Windows.Forms.ComboBox();
             this.txtRespuesta2 = new System.Windows.Forms.TextBox();
@@ -51,7 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_cerrar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,15 +59,19 @@
             this.errorProviderR1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderR2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderR3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR3)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbxPregunta1
@@ -112,6 +114,7 @@
             this.txtRespuesta1.Name = "txtRespuesta1";
             this.txtRespuesta1.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta1.TabIndex = 1;
+            this.txtRespuesta1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta1_KeyPress_1);
             this.txtRespuesta1.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta1_Validating);
             // 
             // groupBox1
@@ -135,25 +138,13 @@
             this.panel5.Size = new System.Drawing.Size(688, 2);
             this.panel5.TabIndex = 10;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label4.Location = new System.Drawing.Point(11, 1);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(663, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
-    "ado por Br. Zoyla Bermúdez";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cmbxPregunta2);
             this.groupBox2.Controls.Add(this.txtRespuesta2);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(75, 274);
+            this.groupBox2.Location = new System.Drawing.Point(75, 267);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(534, 130);
             this.groupBox2.TabIndex = 888;
@@ -179,6 +170,7 @@
             this.txtRespuesta2.Name = "txtRespuesta2";
             this.txtRespuesta2.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta2.TabIndex = 3;
+            this.txtRespuesta2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta2_KeyPress_1);
             this.txtRespuesta2.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta2_Validating);
             // 
             // label5
@@ -208,7 +200,7 @@
             this.groupBox3.Controls.Add(this.txtRespuesta3);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Location = new System.Drawing.Point(75, 430);
+            this.groupBox3.Location = new System.Drawing.Point(75, 418);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(534, 130);
             this.groupBox3.TabIndex = 999;
@@ -234,6 +226,7 @@
             this.txtRespuesta3.Name = "txtRespuesta3";
             this.txtRespuesta3.Size = new System.Drawing.Size(393, 24);
             this.txtRespuesta3.TabIndex = 5;
+            this.txtRespuesta3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRespuesta3_KeyPress_1);
             this.txtRespuesta3.Validating += new System.ComponentModel.CancelEventHandler(this.txtRespuesta3_Validating);
             // 
             // label7
@@ -264,9 +257,9 @@
             this.btnGuardarPDS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarPDS.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarPDS.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGuardarPDS.Location = new System.Drawing.Point(247, 591);
+            this.btnGuardarPDS.Location = new System.Drawing.Point(247, 577);
             this.btnGuardarPDS.Name = "btnGuardarPDS";
-            this.btnGuardarPDS.Size = new System.Drawing.Size(198, 47);
+            this.btnGuardarPDS.Size = new System.Drawing.Size(198, 52);
             this.btnGuardarPDS.TabIndex = 6;
             this.btnGuardarPDS.Text = "Guardar";
             this.btnGuardarPDS.UseVisualStyleBackColor = false;
@@ -298,16 +291,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 688);
             this.panel3.TabIndex = 14;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(2, 671);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(684, 19);
-            this.panel4.TabIndex = 15;
             // 
             // panel6
             // 
@@ -342,11 +325,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Lucida Fax", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Lucida Fax", 11.35F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(250, 5);
+            this.label10.Location = new System.Drawing.Point(248, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(193, 17);
+            this.label10.Size = new System.Drawing.Size(209, 18);
             this.label10.TabIndex = 2;
             this.label10.Text = "Preguntas de seguridad";
             // 
@@ -393,15 +376,56 @@
             // 
             this.errorProviderR3.ContainerControl = this;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.shapeContainer1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(2, 663);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(684, 27);
+            this.panel4.TabIndex = 1000;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.5F);
+            this.label4.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.label4.Location = new System.Drawing.Point(10, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(663, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+    "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer1.Size = new System.Drawing.Size(684, 27);
+            this.shapeContainer1.TabIndex = 1;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(-237, 1);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
+            // 
             // Preguntas_de_seguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(688, 692);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -413,25 +437,27 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Preguntas_de_seguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Preguntas de seguridad";
             this.Load += new System.EventHandler(this.Preguntas_de_seguridad_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Preguntas_de_seguridad_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Preguntas_de_seguridad_MouseMove);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderR3)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,7 +471,6 @@
         private System.Windows.Forms.TextBox txtRespuesta1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbxPregunta2;
         private System.Windows.Forms.TextBox txtRespuesta2;
@@ -460,7 +485,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
@@ -470,5 +494,9 @@
         private System.Windows.Forms.ErrorProvider errorProviderR2;
         private System.Windows.Forms.ErrorProvider errorProviderR3;
         private System.Windows.Forms.Button btn_cerrar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
     }
 }

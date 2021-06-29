@@ -32,19 +32,28 @@ namespace UCS_NODO_FGC
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_ref, ref_nombre, ref_contenido FROM refrigerios WHERE ref_nombre LIKE ('%{0}%') OR ref_contenido LIKE ('%{0}%')", buscar), conexion);
+                retorno = 0;
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_ref, ref_nombre, ref_contenido FROM refrigerios WHERE ref_nombre LIKE ('%{0}%') OR ref_contenido LIKE ('%{0}%') order by ref_nombre", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvRef.Rows.Clear();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    refri.id_ref = reader.GetInt32(0);
-                    refri.nombre = reader.GetString(1);
-                    refri.contenido_ref = reader.GetString(2);
-                    
-                    dgvRef.Rows.Add(refri.nombre, refri.contenido_ref);
-                    retorno = 1;
+                    while (reader.Read())
+                    {
+                        refri.id_ref = reader.GetInt32(0);
+                        refri.nombre = reader.GetString(1);
+                        refri.contenido_ref = reader.GetString(2);
+
+                        dgvRef.Rows.Add(refri.nombre, refri.contenido_ref);
+                        retorno = 1;
+                    }
                 }
+                else
+                {
+                    retorno = 0;
+                }
+                                                 
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -56,7 +65,7 @@ namespace UCS_NODO_FGC
 
         private void buscar(MySqlConnection conexion, string buscar)
         {
-            int resultado;
+            int resultado=0;
             ActualizarTabla(conexion, buscar);
 
             resultado = retorno;
@@ -70,6 +79,7 @@ namespace UCS_NODO_FGC
             else
             {
                 MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                refrescar();
             }
         }
         private void Ver_refrigerios_Load(object sender, EventArgs e) 
@@ -77,6 +87,7 @@ namespace UCS_NODO_FGC
             this.Location = new Point(-5, 0);
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     ActualizarTabla(conexion.conexion, txtbuscar);
@@ -117,6 +128,7 @@ namespace UCS_NODO_FGC
                 {
                     if (txtBuscarTodo.Text != "")
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             txtbuscar = txtBuscarTodo.Text;
@@ -178,6 +190,7 @@ namespace UCS_NODO_FGC
             {
                 if (txtBuscarTodo.Text != "")
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         txtbuscar = txtBuscarTodo.Text;
@@ -221,6 +234,7 @@ namespace UCS_NODO_FGC
             {
                 if (dgvRef.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int idRef = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
@@ -233,6 +247,7 @@ namespace UCS_NODO_FGC
 
                         Modificar_Refrigerio modr = new Modificar_Refrigerio();
                         modr.ShowDialog();
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             txtbuscar = "";
@@ -268,6 +283,7 @@ namespace UCS_NODO_FGC
             {
                 if (dgvRef.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int idRef = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
@@ -281,7 +297,7 @@ namespace UCS_NODO_FGC
                                 conexion.cerrarconexion();
                                 if (resultado > 0)
                                 {
-                                   
+                                    conexion.cerrarconexion();
                                     if (conexion.abrirconexion() == true)
                                     {
                                         txtBuscarTodo.Text = "Escriba aquí";
@@ -309,9 +325,22 @@ namespace UCS_NODO_FGC
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
+            refrescar();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Registrar_refrigerio reg = new Registrar_refrigerio();
+            reg.ShowDialog();
+            refrescar();
+        }
+
+        private void refrescar()
+        {
             dgvRef.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     txtbuscar = "";
@@ -326,19 +355,6 @@ namespace UCS_NODO_FGC
             {
                 MessageBox.Show(ex.Message);
                 conexion.cerrarconexion();
-            }
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            Registrar_refrigerio reg = new Registrar_refrigerio();
-            reg.ShowDialog();
-            if (conexion.abrirconexion() == true)
-            {
-                txtBuscarTodo.Text = "Escriba aquí";
-                ActualizarTabla(conexion.conexion, txtbuscar);
-                conexion.cerrarconexion();
-                dgvRef.ClearSelection();
             }
         }
     }

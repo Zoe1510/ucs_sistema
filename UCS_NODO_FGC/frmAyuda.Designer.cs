@@ -34,6 +34,8 @@
             this.rectangleShape7 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.pnlBtnFormaciones = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -43,10 +45,26 @@
             this.btnManual = new System.Windows.Forms.Button();
             this.btnAcercaDe = new System.Windows.Forms.Button();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.Panel_cabecera.SuspendLayout();
             this.panel8.SuspendLayout();
             this.pnlBtnFormaciones.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.pnlDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_cabecera
@@ -96,23 +114,42 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.shapeContainer4);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(0, 714);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(1121, 25);
-            this.panel8.TabIndex = 56;
+            this.panel8.TabIndex = 61;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label9.Location = new System.Drawing.Point(238, 6);
+            this.label9.Location = new System.Drawing.Point(208, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(663, 18);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Derechos reservados Universidad de Margarita © 2017. Proyecto de Pasantías Elabor" +
+            this.label9.Text = "Derechos reservados Universidad de Margarita © 2018. Proyecto de Pasantías Elabor" +
     "ado por Br. Zoyla Bermúdez";
+            // 
+            // shapeContainer4
+            // 
+            this.shapeContainer4.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer4.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer4.Name = "shapeContainer4";
+            this.shapeContainer4.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape2});
+            this.shapeContainer4.Size = new System.Drawing.Size(1121, 25);
+            this.shapeContainer4.TabIndex = 1;
+            this.shapeContainer4.TabStop = false;
+            // 
+            // rectangleShape2
+            // 
+            this.rectangleShape2.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.rectangleShape2.Location = new System.Drawing.Point(0, 0);
+            this.rectangleShape2.Name = "rectangleShape2";
+            this.rectangleShape2.Size = new System.Drawing.Size(1118, 1);
             // 
             // pnlBtnFormaciones
             // 
@@ -124,10 +161,10 @@
             this.pnlBtnFormaciones.Controls.Add(this.btnManual);
             this.pnlBtnFormaciones.Controls.Add(this.btnAcercaDe);
             this.pnlBtnFormaciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBtnFormaciones.Location = new System.Drawing.Point(873, 96);
+            this.pnlBtnFormaciones.Location = new System.Drawing.Point(870, 96);
             this.pnlBtnFormaciones.Name = "pnlBtnFormaciones";
-            this.pnlBtnFormaciones.Size = new System.Drawing.Size(248, 618);
-            this.pnlBtnFormaciones.TabIndex = 57;
+            this.pnlBtnFormaciones.Size = new System.Drawing.Size(251, 618);
+            this.pnlBtnFormaciones.TabIndex = 62;
             this.pnlBtnFormaciones.Tag = "";
             // 
             // btnCerrar
@@ -155,7 +192,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(248, 41);
+            this.panel6.Size = new System.Drawing.Size(251, 41);
             this.panel6.TabIndex = 38;
             // 
             // label7
@@ -221,6 +258,7 @@
             this.btnManual.Text = "    Manual de usuario";
             this.btnManual.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnManual.UseVisualStyleBackColor = true;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
             // 
             // btnAcercaDe
             // 
@@ -238,14 +276,170 @@
             this.btnAcercaDe.Text = "         Acerca de";
             this.btnAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAcercaDe.UseVisualStyleBackColor = true;
+            this.btnAcercaDe.Click += new System.EventHandler(this.btnAcercaDe_Click);
             // 
             // pnlDisplay
             // 
+            this.pnlDisplay.Controls.Add(this.label13);
+            this.pnlDisplay.Controls.Add(this.label12);
+            this.pnlDisplay.Controls.Add(this.pictureBox1);
+            this.pnlDisplay.Controls.Add(this.label11);
+            this.pnlDisplay.Controls.Add(this.label10);
+            this.pnlDisplay.Controls.Add(this.label8);
+            this.pnlDisplay.Controls.Add(this.label6);
+            this.pnlDisplay.Controls.Add(this.label5);
+            this.pnlDisplay.Controls.Add(this.label4);
+            this.pnlDisplay.Controls.Add(this.label3);
+            this.pnlDisplay.Controls.Add(this.label2);
+            this.pnlDisplay.Controls.Add(this.shapeContainer2);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDisplay.Location = new System.Drawing.Point(0, 96);
             this.pnlDisplay.Name = "pnlDisplay";
-            this.pnlDisplay.Size = new System.Drawing.Size(873, 618);
-            this.pnlDisplay.TabIndex = 58;
+            this.pnlDisplay.Size = new System.Drawing.Size(870, 618);
+            this.pnlDisplay.TabIndex = 63;
+            this.pnlDisplay.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Navy;
+            this.label13.Location = new System.Drawing.Point(428, 309);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 21);
+            this.label13.TabIndex = 73;
+            this.label13.Text = "MySQL 5.7";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Navy;
+            this.label12.Location = new System.Drawing.Point(428, 395);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(181, 21);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "MySQL WorkBench";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::UCS_NODO_FGC.Properties.Resources.logo_ucs;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(680, 99);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 102);
+            this.pictureBox1.TabIndex = 71;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Navy;
+            this.label11.Location = new System.Drawing.Point(428, 364);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(171, 21);
+            this.label11.TabIndex = 70;
+            this.label11.Text = "Visual Studio 2015";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(134, 364);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(288, 21);
+            this.label10.TabIndex = 69;
+            this.label10.Text = "Co herramientas de desarrollo:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Navy;
+            this.label8.Location = new System.Drawing.Point(428, 280);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(111, 21);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "C Sharp 6.0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(162, 280);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(260, 21);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Herramientas de desarrollo:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(428, 213);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 21);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Versión 1.0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(231, 213);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(191, 21);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Versión del sistema:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(428, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(222, 21);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "Herramienta del Nodo F";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(228, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(194, 21);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Nombre del sistema:";
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape3,
+            this.rectangleShape1});
+            this.shapeContainer2.Size = new System.Drawing.Size(870, 618);
+            this.shapeContainer2.TabIndex = 63;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BorderColor = System.Drawing.Color.SlateGray;
+            this.rectangleShape3.Location = new System.Drawing.Point(870, -3);
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Size = new System.Drawing.Size(1, 620);
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.BorderColor = System.Drawing.SystemColors.ButtonShadow;
+            this.rectangleShape1.Location = new System.Drawing.Point(59, 96);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(758, 353);
             // 
             // frmAyuda
             // 
@@ -266,6 +460,9 @@
             this.pnlBtnFormaciones.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.pnlDisplay.ResumeLayout(false);
+            this.pnlDisplay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,7 +475,10 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label9;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer4;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape2;
         private System.Windows.Forms.Panel pnlBtnFormaciones;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnRestore;
@@ -286,6 +486,19 @@
         private System.Windows.Forms.Button btnManual;
         private System.Windows.Forms.Button btnAcercaDe;
         private System.Windows.Forms.Panel pnlDisplay;
-        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape3;
+        private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape1;
     }
 }

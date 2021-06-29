@@ -8,10 +8,29 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UCS_NODO_FGC</RootNamespace>
-    <AssemblyName>UCS_NODO_FGC</AssemblyName>
+    <AssemblyName>Herramienta NF</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>F:\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>es</TargetCulture>
+    <ProductName>Herramienta Nodo F</ProductName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +51,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C732434D674D338DE242D23F9D8570768562212E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>UCS_NODO_FGC_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_ucs-01.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\itextsharp\itextsharp.xfaworker-dll-5.5.10\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -41,7 +86,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,17 +100,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="aaa.cs">
+    <Compile Include="Agregar_insumo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="aaa.Designer.cs">
-      <DependentUpon>aaa.cs</DependentUpon>
+    <Compile Include="Agregar_insumo.Designer.cs">
+      <DependentUpon>Agregar_insumo.cs</DependentUpon>
     </Compile>
-    <Compile Include="backup_restore.cs">
+    <Compile Include="Agregar_participante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="backup_restore.Designer.cs">
-      <DependentUpon>backup_restore.cs</DependentUpon>
+    <Compile Include="Agregar_participante.Designer.cs">
+      <DependentUpon>Agregar_participante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Asignar_INCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asignar_INCE.Designer.cs">
+      <DependentUpon>Asignar_INCE.cs</DependentUpon>
     </Compile>
     <Compile Include="Buscar_cliente.cs">
       <SubType>Form</SubType>
@@ -83,6 +136,12 @@
     <Compile Include="Buscar_usuarios.Designer.cs">
       <DependentUpon>Buscar_usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cambiar_Estatus_Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cambiar_Estatus_Curso.Designer.cs">
+      <DependentUpon>Cambiar_Estatus_Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cambio_contraseña.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,30 +151,90 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Cliente_seleccionado.cs" />
     <Compile Include="Clases\conexion_bd.cs" />
+    <Compile Include="Clases\Curso_AFI.cs" />
+    <Compile Include="Clases\Curso_IN.cs" />
+    <Compile Include="Clases\Datos_envio_correo.cs" />
+    <Compile Include="Clases\Facilitador_todos.cs" />
+    <Compile Include="Clases\Fa_ince.cs" />
+    <Compile Include="Clases\HelperFunctions.cs" />
+    <Compile Include="Clases\Horarios.cs" />
+    <Compile Include="Clases\INCES.cs" />
     <Compile Include="Clases\Difusion.cs" />
     <Compile Include="Clases\Empresa.cs" />
     <Compile Include="Clases\Facilitadores.cs" />
     <Compile Include="Clases\Facilitador_Seleccionado.cs" />
     <Compile Include="Clases\Formaciones.cs" />
     <Compile Include="Clases\ImageHelper.cs" />
+    <Compile Include="Clases\Insumos.cs" />
+    <Compile Include="Clases\Nodos.cs" />
     <Compile Include="Clases\Paneles.cs" />
     <Compile Include="Clases\Paquete_instruccional.cs" />
+    <Compile Include="Clases\Participantes.cs" />
+    <Compile Include="Clases\Participante_seleccionado.cs" />
     <Compile Include="Clases\Preguntas.cs" />
     <Compile Include="Clases\Recuperacion_contraseña.cs" />
     <Compile Include="Clases\Refrigerios.cs" />
+    <Compile Include="Clases\R_EtapaFormacion.cs" />
+    <Compile Include="Clases\R_Formacion_DatosGenerales.cs" />
+    <Compile Include="Clases\R_Formacion_lista.cs" />
+    <Compile Include="Clases\R_Participantes_postulados.cs" />
+    <Compile Include="Clases\R_TiempoTipoFormacion.cs" />
+    <Compile Include="Clases\Tiempos_curso.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Usuario_logeado.cs" />
+    <Compile Include="Correo_cuerpo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correo_cuerpo.Designer.cs">
+      <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Correo_destinatario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Correo_destinatario.Designer.cs">
+      <DependentUpon>Correo_destinatario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos_AFI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos_AFI.Designer.cs">
+      <DependentUpon>Cursos_AFI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos_INCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cursos_INCES.Designer.cs">
+      <DependentUpon>Cursos_INCES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle_reporte.Designer.cs">
+      <DependentUpon>Detalle_reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hacer_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hacer_reportes.Designer.cs">
+      <DependentUpon>Hacer_reportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio_Sesion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio_Sesion.Designer.cs">
       <DependentUpon>Inicio_Sesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista_participantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista_participantes.Designer.cs">
+      <DependentUpon>Lista_participantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Modificar_contacto_area.cs">
       <SubType>Form</SubType>
@@ -141,11 +260,35 @@
     <Compile Include="Modificar_facilitadores.Designer.cs">
       <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar_INCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_INCE.Designer.cs">
+      <DependentUpon>Modificar_INCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_insumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_insumo.Designer.cs">
+      <DependentUpon>Modificar_insumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar_participante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar_participante.Designer.cs">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modificar_Refrigerio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modificar_Refrigerio.Designer.cs">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificaciones.Designer.cs">
+      <DependentUpon>Notificaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Nueva_formacion_Abierto.cs">
       <SubType>Form</SubType>
@@ -164,6 +307,12 @@
     </Compile>
     <Compile Include="Nueva_formacion_INCES.Designer.cs">
       <DependentUpon>Nueva_formacion_INCES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nueva_formacion_InCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nueva_formacion_InCompany.Designer.cs">
+      <DependentUpon>Nueva_formacion_InCompany.cs</DependentUpon>
     </Compile>
     <Compile Include="Opciones_recuperacion.cs">
       <SubType>Form</SubType>
@@ -194,12 +343,6 @@
     </Compile>
     <Compile Include="Perfil_personal.Designer.cs">
       <DependentUpon>Perfil_personal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Perfil_profesional.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Perfil_profesional.Designer.cs">
-      <DependentUpon>Perfil_profesional.cs</DependentUpon>
     </Compile>
     <Compile Include="Preguntas_de_seguridad.cs">
       <SubType>Form</SubType>
@@ -233,6 +376,18 @@
     <Compile Include="Registrar_facilitadores.Designer.cs">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrar_INCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_INCES.Designer.cs">
+      <DependentUpon>Registrar_INCES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar_insumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar_insumo.Designer.cs">
+      <DependentUpon>Registrar_insumo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrar_publicidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,17 +406,65 @@
     <Compile Include="Registrar_usuarios.Designer.cs">
       <DependentUpon>Registrar_usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="RPT_HORAS_DEDICADAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_HORAS_DEDICADAS.Designer.cs">
+      <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TiempoTipoDuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_TiempoTipoDuracion.Designer.cs">
+      <DependentUpon>RPT_TiempoTipoDuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_TIEMPO_TIPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RPT_TIEMPO_TIPO.Designer.cs">
+      <DependentUpon>RPT_TIEMPO_TIPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Verificacion_recuperacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Verificacion_recuperacion.Designer.cs">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ver_formaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formaciones.Designer.cs">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_formatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_formatos.Designer.cs">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_insumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_insumos.Designer.cs">
+      <DependentUpon>Ver_insumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ver_paqueteInstruccional.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ver_paqueteInstruccional.Designer.cs">
       <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_participantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_participantes.Designer.cs">
+      <DependentUpon>Ver_participantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ver_postulados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_postulados.Designer.cs">
+      <DependentUpon>Ver_postulados.cs</DependentUpon>
     </Compile>
     <Compile Include="Ver_publicidad.cs">
       <SubType>Form</SubType>
@@ -275,11 +478,29 @@
     <Compile Include="Ver_refrigerios.Designer.cs">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="aaa.resx">
-      <DependentUpon>aaa.cs</DependentUpon>
+    <Compile Include="Ver_reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ver_reportes.Designer.cs">
+      <DependentUpon>Ver_reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista_Formacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista_Formacion.Designer.cs">
+      <DependentUpon>Vista_Formacion.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Agregar_insumo.resx">
+      <DependentUpon>Agregar_insumo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="backup_restore.resx">
-      <DependentUpon>backup_restore.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_participante.resx">
+      <DependentUpon>Agregar_participante.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asignar_INCE.resx">
+      <DependentUpon>Asignar_INCE.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar_cliente.resx">
       <DependentUpon>Buscar_cliente.cs</DependentUpon>
@@ -290,14 +511,38 @@
     <EmbeddedResource Include="Buscar_usuarios.resx">
       <DependentUpon>Buscar_usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cambiar_Estatus_Curso.resx">
+      <DependentUpon>Cambiar_Estatus_Curso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cambio_contraseña.resx">
       <DependentUpon>Cambio_contraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Correo_cuerpo.resx">
+      <DependentUpon>Correo_cuerpo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Correo_destinatario.resx">
+      <DependentUpon>Correo_destinatario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos_AFI.resx">
+      <DependentUpon>Cursos_AFI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cursos_INCES.resx">
+      <DependentUpon>Cursos_INCES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalle_reporte.resx">
+      <DependentUpon>Detalle_reporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAyuda.resx">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hacer_reportes.resx">
+      <DependentUpon>Hacer_reportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio_Sesion.resx">
       <DependentUpon>Inicio_Sesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista_participantes.resx">
+      <DependentUpon>Lista_participantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar_contacto_area.resx">
       <DependentUpon>Modificar_contacto_area.cs</DependentUpon>
@@ -311,14 +556,33 @@
     <EmbeddedResource Include="Modificar_facilitadores.resx">
       <DependentUpon>Modificar_facilitadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_INCE.resx">
+      <DependentUpon>Modificar_INCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_insumo.resx">
+      <DependentUpon>Modificar_insumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar_participante.resx">
+      <DependentUpon>Modificar_participante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modificar_Refrigerio.resx">
       <DependentUpon>Modificar_Refrigerio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notificaciones.resx">
+      <DependentUpon>Notificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_Abierto.resx">
       <DependentUpon>Nueva_formacion_Abierto.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nueva_formacion_FEE.resx">
+      <DependentUpon>Nueva_formacion_FEE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nueva_formacion_INCES.resx">
       <DependentUpon>Nueva_formacion_INCES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nueva_formacion_InCompany.resx">
+      <DependentUpon>Nueva_formacion_InCompany.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Opciones_recuperacion.resx">
       <DependentUpon>Opciones_recuperacion.cs</DependentUpon>
@@ -334,9 +598,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Perfil_personal.resx">
       <DependentUpon>Perfil_personal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Perfil_profesional.resx">
-      <DependentUpon>Perfil_profesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Preguntas_de_seguridad.resx">
       <DependentUpon>Preguntas_de_seguridad.cs</DependentUpon>
@@ -358,6 +619,12 @@
     <EmbeddedResource Include="Registrar_facilitadores.resx">
       <DependentUpon>Registrar_facilitadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_INCES.resx">
+      <DependentUpon>Registrar_INCES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar_insumo.resx">
+      <DependentUpon>Registrar_insumo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar_publicidad.resx">
       <DependentUpon>Registrar_publicidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,11 +634,40 @@
     <EmbeddedResource Include="Registrar_usuarios.resx">
       <DependentUpon>Registrar_usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptHorasDedicadas.rdlc" />
+    <EmbeddedResource Include="Reportes\rptPostulados.rdlc" />
+    <EmbeddedResource Include="Reportes\rptRelacionTipoFTiempo.rdlc" />
+    <EmbeddedResource Include="Reportes\rptTiempoTipoDuracion.rdlc" />
+    <EmbeddedResource Include="RPT_HORAS_DEDICADAS.resx">
+      <DependentUpon>RPT_HORAS_DEDICADAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT_TiempoTipoDuracion.resx">
+      <DependentUpon>RPT_TiempoTipoDuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPT_TIEMPO_TIPO.resx">
+      <DependentUpon>RPT_TIEMPO_TIPO.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Verificacion_recuperacion.resx">
       <DependentUpon>Verificacion_recuperacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formaciones.resx">
+      <DependentUpon>Ver_formaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_formatos.resx">
+      <DependentUpon>Ver_formatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_insumos.resx">
+      <DependentUpon>Ver_insumos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ver_paqueteInstruccional.resx">
       <DependentUpon>Ver_paqueteInstruccional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_participantes.resx">
+      <DependentUpon>Ver_participantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ver_postulados.resx">
+      <DependentUpon>Ver_postulados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ver_publicidad.resx">
       <DependentUpon>Ver_publicidad.cs</DependentUpon>
@@ -379,7 +675,27 @@
     <EmbeddedResource Include="Ver_refrigerios.resx">
       <DependentUpon>Ver_refrigerios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ver_reportes.resx">
+      <DependentUpon>Ver_reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista_Formacion.resx">
+      <DependentUpon>Vista_Formacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Archivos\Formatos_guardados\Control de asistencia.pdf" />
+    <None Include="Archivos\Formatos_guardados\Manual de usuario lider.pdf" />
+    <None Include="Archivos\Formatos_guardados\rptHorasDedicadas.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Horas dedicadas Power point basico 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte %28InCompany%29 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte InCompany 29-03-2018.pdf" />
+    <None Include="Archivos\Reportes_emitidos\Reporte tipo-duración 29-03-2018.pdf" />
+    <None Include="Manuales\Manual de usuario lider.pdf" />
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_EtapaFormacion.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_DatosGenerales.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Formacion_lista.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_Participantes_postulados.datasource" />
+    <None Include="Properties\DataSources\UCS_NODO_FGC.Clases.R_TiempoTipoFormacion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -517,6 +833,125 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon_manual.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pdfFormato1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_calendario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_calendario1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cafe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_megafono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_bloques.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_libro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_libros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_participante.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_sandwich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_inces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_insumos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_aula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_edificio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo ucs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_degradado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_degrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archivos\Paquete_instruccional\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Archivos\stuff\silueta_usuario.jpg" />
+    <Content Include="logo_ucs-01.ico" />
+    <None Include="Resources\logo_ucs.png" />
+    <None Include="Resources\prueba_fondo.png" />
+    <None Include="Resources\trayectoria_plantilla_02.jpg" />
+    <None Include="Resources\trayectoria plantilla 01.jpg" />
+    <None Include="Resources\silueta_usuario.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

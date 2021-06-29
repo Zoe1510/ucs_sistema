@@ -40,7 +40,7 @@ namespace UCS_NODO_FGC.Clases
         {
             //ver video de conexion a base de datos para saber como manipular o no el id_cliente que es autoincrementable
             int retorno = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO clientes ( nombre_empresa, fee_empresa) VALUES ('{0}', '{1}')", cliente.nombre_empresa, cliente.fee_empresa), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO clientes ( nombre_empresa, fee_empresa, ci_user1) VALUES ('{0}', '{1}', '{2}')", cliente.nombre_empresa, cliente.fee_empresa, Usuario_logeado.cedula_user), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;
         }
@@ -48,7 +48,7 @@ namespace UCS_NODO_FGC.Clases
         public static Clientes ClienteExiste(MySqlConnection conexion, Clientes cliente)
         {
             Clientes cli = new Clientes();
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, nombre_empresa, fee_empresa FROM clientes WHERE nombre_empresa LIKE ('%{0}%')", cliente.nombre_empresa), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, nombre_empresa, fee_empresa FROM clientes WHERE nombre_empresa='{0}'", cliente.nombre_empresa), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())
@@ -79,6 +79,7 @@ namespace UCS_NODO_FGC.Clases
         public static int AgregarArea(MySqlConnection conexion, Clientes cliente)
         {
             int retorno = 0;
+            
             MySqlCommand comando = new MySqlCommand(String.Format("INSERT INTO areas ( nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, id_cliente1) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", cliente.nombre_areaEmpresa, cliente.nombre_contacto, cliente.tlfn_cliente, cliente.correo_cliente, cliente.id_cliente), conexion);
             retorno = comando.ExecuteNonQuery();
             return retorno;

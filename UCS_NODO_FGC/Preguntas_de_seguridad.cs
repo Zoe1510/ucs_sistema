@@ -14,10 +14,7 @@ namespace UCS_NODO_FGC
 {
     public partial class Preguntas_de_seguridad : Form
     {
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        
 
         public Clases.Preguntas pre, pre2, pre3 = new Clases.Preguntas();
         public Clases.conexion_bd conexion = new Clases.conexion_bd();
@@ -25,6 +22,7 @@ namespace UCS_NODO_FGC
         int id_pre2;
         int id_pre3;
         string resp1, resp2, resp3;
+        public int xClick = 0, yClick = 0;
         public Preguntas_de_seguridad()
         {
             InitializeComponent();
@@ -37,7 +35,7 @@ namespace UCS_NODO_FGC
             if(Clases.Usuarios.ActualizarPreguntas == 1)
             {
                 btn_cerrar.Visible = true;
-            }else
+            }else if (Clases.Usuarios.ActualizarPreguntas == 0 || Clases.Recuperacion_contraseña.Opcion==3)
             {
                 btn_cerrar.Visible = false;
             }
@@ -63,8 +61,7 @@ namespace UCS_NODO_FGC
                     {
                         while (n_pre < pregunta.Count)
                         {
-                            //if (pregunta[i].id_user1 == Clases.Usuario_logeado.id_usuario)
-                            //{
+                            
                                 if (n_pre == 0)
                                 {
                                     pre = pregunta[0];
@@ -83,12 +80,6 @@ namespace UCS_NODO_FGC
                                     n_pre++;
                                 }
 
-                            //}
-                            //else
-                            //{
-                            //    i++;
-                            //    n_pre++;
-                            //}
                         }
 
                     }
@@ -106,13 +97,14 @@ namespace UCS_NODO_FGC
         {
             try
             {
-                if (Clases.Usuarios.ActualizarPreguntas == 0)
+                if (Clases.Usuarios.ActualizarPreguntas == 0 || Clases.Recuperacion_contraseña.cedula==1)
                 {
                     conexion.cerrarconexion();
                     if ((cmbxPregunta1.SelectedIndex != -1) && (cmbxPregunta2.SelectedIndex != -1) && (cmbxPregunta3.SelectedIndex != -1))
                     {
                         if (cmbxPregunta1.SelectedIndex != cmbxPregunta2.SelectedIndex && cmbxPregunta1.SelectedIndex != cmbxPregunta3.SelectedIndex && cmbxPregunta3.SelectedIndex != cmbxPregunta2.SelectedIndex)
                         {
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 resp1 = txtRespuesta1.Text;
@@ -126,6 +118,9 @@ namespace UCS_NODO_FGC
                                 {
                                     MessageBox.Show("Guardado exitosamente.", "", MessageBoxButtons.OK);
                                     this.Close();
+                                    Clases.Recuperacion_contraseña.cedula = 0;
+                                    Clases.Recuperacion_contraseña.nombre = "";
+                                    Clases.Recuperacion_contraseña.Opcion = 0;
                                 }
                                 else
                                 {
@@ -247,30 +242,24 @@ namespace UCS_NODO_FGC
             cmbxPregunta3.SelectedIndex = -1;
             cmbxPregunta3.Text = "Seleccione";
         }
-        private void txtRespuesta1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta1_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
-        private void txtRespuesta2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta2_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
-        private void txtRespuesta3_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Clases.Paneles.sololetras(e);
-        }
+        //private void txtRespuesta3_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Clases.Paneles.sololetras(e);
+        //}
 
         private void cmbxPregunta1_SelectionChangeCommitted(object sender, EventArgs e)
         {
             id_pre1 = Convert.ToInt32(cmbxPregunta1.SelectedValue);
-        }
-
-        private void Preguntas_de_seguridad_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void cmbxPregunta2_SelectionChangeCommitted(object sender, EventArgs e)
@@ -280,6 +269,42 @@ namespace UCS_NODO_FGC
         private void cmbxPregunta3_SelectionChangeCommitted(object sender, EventArgs e)
         {
             id_pre3= Convert.ToInt32(cmbxPregunta3.SelectedValue);
+        }
+       
+
+        private void txtRespuesta1_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                cmbxPregunta2.Focus();
+            }
+        }
+
+        private void txtRespuesta2_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                cmbxPregunta3.Focus();
+            }
+        }
+
+        private void txtRespuesta3_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                guardar();
+            }
+        }
+
+        private void Preguntas_de_seguridad_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+
+            { xClick = e.X; yClick = e.Y; }
+
+            else
+
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
         }
 
         private void txtRespuesta1_Validating(object sender, CancelEventArgs e)

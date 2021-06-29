@@ -36,7 +36,7 @@ namespace UCS_NODO_FGC.Clases
         public static int ExisteDif(MySqlConnection conexion, Difusion d)
         {
             int id_dif = 0;
-            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_difusion FROM difusion WHERE dif_contenido ='{0}'", d.contenido_dif), conexion);
+            MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_difusion FROM difusion WHERE dif_contenido LIKE ('%{0}%')", d.contenido_dif), conexion);
             MySqlDataReader leer = comando.ExecuteReader();
 
             while (leer.Read())
@@ -68,5 +68,6 @@ namespace UCS_NODO_FGC.Clases
             return retorno;
         }
 
+        
     }
 }

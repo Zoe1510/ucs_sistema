@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UCS_NODO_FGC.Clases;
 
 namespace UCS_NODO_FGC
 {
@@ -27,10 +28,11 @@ namespace UCS_NODO_FGC
             string tlfn = "00000000000";
             string pass = "12345678";
             string nacionalidad;
-            int id_usuario;
+            int ci_usuario;
             conexion.cerrarconexion();
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     contador = Clases.Usuarios.retornaFilas(conexion.conexion);
@@ -60,12 +62,13 @@ namespace UCS_NODO_FGC
                             errorProviderApellido.SetError(txtApellidoUsuario, "");
 
                             errorProviderCMBCargo.SetError(cmbxCargoUsuario, "Debe seleccionar un cargo para el usuario.");
+
                         }else //todo ok entonces registro
                         {
                             errorProviderCMBCargo.SetError(cmbxCargoUsuario, "");
 
-                            usuario.id_usuario = Convert.ToInt32(txtCedulaUsuario.Text);
-                            id_usuario = usuario.id_usuario;
+                            usuario.cedula_user = Convert.ToInt32(txtCedulaUsuario.Text);
+                            ci_usuario = usuario.cedula_user;
                             usuario.nombre_usuario = txtNombreUsuario.Text;
                             usuario.apellido_usuario = txtApellidoUsuario.Text;
                             cargo = Convert.ToString(cmbxCargoUsuario.SelectedIndex);
@@ -96,36 +99,33 @@ namespace UCS_NODO_FGC
                             usuario.correo_usuario = correo;
                             usuario.tlfn_usuario = tlfn;
                             usuario.password = pass;
-                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(Properties.Resources.img_perfil);
+                            usuario.imagen_usuario = Clases.Helper.ImageToByteArray(Properties.Resources.silueta_usuario);
                             int resultado;
                             int resultado2;
-                            resultado = Clases.Usuarios.UsuarioExiste(conexion.conexion, id_usuario);
+                            resultado = Clases.Usuarios.UsuarioExiste(conexion.conexion, ci_usuario);
                             conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
-                                resultado2 = Clases.Usuarios.AgregarUsuarios(conexion.conexion, usuario);
-                                conexion.cerrarconexion();
-
-                                if (conexion.abrirconexion() == true)
+                                if (resultado != 1)
                                 {
+                                    resultado2 = Clases.Usuarios.AgregarUsuarios(conexion.conexion, usuario);
+                                    conexion.cerrarconexion();
 
-                                    if (resultado != 1)
+                                    if (conexion.abrirconexion() == true)
                                     {
+
+
                                         if (resultado2 != 0)
                                         {
                                             //Image imagen = UCS_NODO_FGC.Properties.Resources.img_perfil;
                                             //Clases.Usuarios.GuardarFotoPerfil(conexion.conexion, usuario);
-                                            if (MessageBox.Show("El usuario fue creado con exito. ¿Desea añadir más usuarios?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                            if (MessageBox.Show("El usuario fue creado con éxito. ¿Desea añadir más usuarios?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                             {
                                                 this.Close();
                                             }
                                             else
                                             {
-                                                txtCedulaUsuario.Text = "Cédula";
-                                                txtNombreUsuario.Text = "Nombre";
-                                                txtApellidoUsuario.Text = "Apellido";
-                                                cmbxCargoUsuario.Text = "                          Cargo";
-                                                cmbxCargoUsuario.SelectedIndex = -1;
+                                                refrescar();
                                             }
                                         }
                                         else
@@ -134,24 +134,21 @@ namespace UCS_NODO_FGC
                                         }
 
                                     }
-                                    else
-                                    {
-                                        txtCedulaUsuario.Text = "Cédula";
-                                        txtNombreUsuario.Text = "Nombre";
-                                        txtApellidoUsuario.Text = "Apellido";
-                                        cmbxCargoUsuario.Text = "                          Cargo";
-                                        cmbxCargoUsuario.SelectedIndex = -1;
 
-                                    }
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ya existe un usuario registrado con esa cédula", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    refrescar();
                                     conexion.cerrarconexion();
                                 }
 
                             }
-
-                        }
                     }
                 }
 
+              }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -159,6 +156,21 @@ namespace UCS_NODO_FGC
             }
             conexion.cerrarconexion();
         }
+
+
+        private void refrescar()
+        {
+            txtCedulaUsuario.Text = "Cédula";
+            txtNombreUsuario.Text = "Nombre";
+            txtApellidoUsuario.Text = "Apellido";
+            cmbxCargoUsuario.Text = "                          Cargo";
+            cmbxCargoUsuario.SelectedIndex = -1;
+            errorProviderCMBCargo.SetError(cmbxCargoUsuario, "");
+            errorProviderApellido.SetError(txtApellidoUsuario, "");
+            errorProviderNombre.SetError(txtNombreUsuario, "");
+            errorProviderCI.SetError(txtCedulaUsuario, "");
+        }
+
         private void btnGuardarUsuario_Click(object sender, EventArgs e)
         {
             RegistrarUsuario();
@@ -192,6 +204,7 @@ namespace UCS_NODO_FGC
         private void Registrar_usuarios_Load(object sender, EventArgs e)
         {
             txtCedulaUsuario.Focus();
+            this.Location = new Point(-5, 0);
             txtCedulaUsuario.SelectionStart = txtCedulaUsuario.Text.Length;
             if (Clases.Usuario_logeado.cargo_usuario == "Lider")
             {
@@ -201,6 +214,7 @@ namespace UCS_NODO_FGC
             }
             else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
             {
+                cmbxCargoUsuario.Items.Clear();
                 cmbxCargoUsuario.Items.Add("Asistente");
             }
         }
@@ -212,6 +226,8 @@ namespace UCS_NODO_FGC
          == DialogResult.Yes)
             {
                 this.Close();
+
+
             }
         }
         private void txtCedulaUsuario_KeyPress(object sender, KeyPressEventArgs e)

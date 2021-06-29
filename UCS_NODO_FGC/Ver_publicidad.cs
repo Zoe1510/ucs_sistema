@@ -34,6 +34,7 @@ namespace UCS_NODO_FGC
             dgvDif.ReadOnly = true;
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     txtbuscar = "";
@@ -54,18 +55,26 @@ namespace UCS_NODO_FGC
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_difusion, dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%')", buscar), conexion);
+                retorno = 0;
+                MySqlCommand cmd = new MySqlCommand(String.Format("SELECT id_difusion, dif_contenido FROM difusion WHERE dif_contenido LIKE ('%{0}%') order by dif_contenido", buscar), conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 dgvDif.Rows.Clear();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    dif.id_dif = reader.GetInt32(0);
-                    dif.contenido_dif = reader.GetString(1);
-                    
+                    while (reader.Read())
+                    {
+                        dif.id_dif = reader.GetInt32(0);
+                        dif.contenido_dif = reader.GetString(1);
 
-                    dgvDif.Rows.Add(dif.contenido_dif);
-                    retorno = 1;
+
+                        dgvDif.Rows.Add(dif.contenido_dif);
+                        retorno = 1;
+                    }
+                       
+                }else
+                {
+                    retorno = 0;
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
@@ -78,7 +87,7 @@ namespace UCS_NODO_FGC
 
         private void buscar(MySqlConnection conexion, string buscar)
         {
-            int resultado;
+            int resultado=0;
             ActualizarTabla(conexion, buscar);
 
             resultado = retorno;
@@ -92,6 +101,7 @@ namespace UCS_NODO_FGC
             else
             {
                 MessageBox.Show("No se ha encontrado ninguna concordancia con los datos introducidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                refrescar();
             }
         }
         private void Ver_publicidad_Load(object sender, EventArgs e)
@@ -99,6 +109,7 @@ namespace UCS_NODO_FGC
             this.Location = new Point(-5, 0);
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     ActualizarTabla(conexion.conexion, txtbuscar);
@@ -139,6 +150,7 @@ namespace UCS_NODO_FGC
                 {
                     if (txtBuscarTodo.Text != "")
                     {
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             txtbuscar = txtBuscarTodo.Text;
@@ -200,6 +212,7 @@ namespace UCS_NODO_FGC
             {
                 if (txtBuscarTodo.Text != "")
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         txtbuscar = txtBuscarTodo.Text;
@@ -255,11 +268,13 @@ namespace UCS_NODO_FGC
             {
                 if (dgvDif.SelectedRows.Count == 1)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int iddif = Clases.Difusion.ExisteDif(conexion.conexion, dif);
                         conexion.cerrarconexion();
                        dif.id_dif = iddif;
+                        conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
                             if (MessageBox.Show("¿Está seguro de eliminar esta opción?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -295,6 +310,7 @@ namespace UCS_NODO_FGC
                
                 if (dgvDif.SelectedRows.Count !=0)
                 {
+                    conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
                         int iddif = Clases.Difusion.ExisteDif(conexion.conexion, dif);

@@ -34,7 +34,7 @@ namespace UCS_NODO_FGC
         private void Buscar_cliente_Load(object sender, EventArgs e)
         {
             string nombreempresa = "";
-            //this.Location = new Point(-150, 0);
+            this.Location = new Point(-5, 0);
             try
             {
                 conexion.cerrarconexion();
@@ -54,16 +54,34 @@ namespace UCS_NODO_FGC
                 {
                     grpbOpciones.Visible = true;
                     grpbOpciones.Height = 387;
+                    btnModificarArea.Visible = true;
+                    btnModificarContacto.Visible = true;
+                    btnModificarEmpresa.Visible = true;
+                    btnEliminarArea.Visible = true;
+                    btnEliminarEmpresa.Visible = true;
+                    btnModificarContacto.Text = "Modificar contacto";
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Coordinador")
                 {
                     grpbOpciones.Visible = true;
                     grpbOpciones.Height = 270;
+                    btnModificarArea.Visible = true;
+                    btnModificarContacto.Visible = true;
+                    btnModificarEmpresa.Visible = true;
+                    btnEliminarArea.Visible = false;
+                    btnEliminarEmpresa.Visible = false;
+                    btnModificarContacto.Text = "Modificar contacto";
                 }
                 else if (Clases.Usuario_logeado.cargo_usuario == "Asistente")
                 {
                     grpbOpciones.Visible = true;
-                    grpbOpciones.Height = 97;
+                    grpbOpciones.Height = 151;
+                    btnModificarArea.Visible = false;
+                    btnModificarContacto.Visible =true;
+                    btnModificarEmpresa.Visible = false;
+                    btnEliminarArea.Visible = false;
+                    btnEliminarEmpresa.Visible = false;
+                    btnModificarContacto.Text = "  Ver contacto";
                 }
 
             }
@@ -104,7 +122,7 @@ namespace UCS_NODO_FGC
             try
             {
                 
-                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, id_area, nombre_empresa, nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, fee_empresa FROM clientes inner join areas on clientes.id_clientes=areas.id_cliente1 WHERE nombre_empresa LIKE ('%{0}%')",nombre_empresa), conexion);
+                MySqlCommand comando = new MySqlCommand(String.Format("SELECT id_clientes, id_area, nombre_empresa, nombre_area, nombre_contacto, tlfn_contacto, correo_contacto, fee_empresa FROM clientes inner join areas on clientes.id_clientes=areas.id_cliente1 WHERE nombre_empresa LIKE ('%{0}%') order by nombre_empresa",nombre_empresa), conexion);
                 MySqlDataReader reader = comando.ExecuteReader();
 
                 dgvAreasEmpresa.Rows.Clear();
@@ -180,6 +198,14 @@ namespace UCS_NODO_FGC
         }
         private void btnModificarContacto_Click(object sender, EventArgs e)
         {
+            if(Clases.Usuario_logeado.cargo_usuario != "Asistente")
+            {
+                Clases.Empresa.ModificarArea = 0;
+                
+            }else
+            {
+                Clases.Empresa.ModificarArea = 2;
+            }
             abrirFormModificar();
         }
 
@@ -224,6 +250,7 @@ namespace UCS_NODO_FGC
 
                             if (nombre_e != "")
                             {
+                                conexion.cerrarconexion();
                                 if (conexion.abrirconexion() == true)
                                 {
                                    
@@ -231,6 +258,7 @@ namespace UCS_NODO_FGC
                                     conexion.cerrarconexion();
                                     if (areaE.id_area > 0)//si existe areas por mostrar ( no importa cuál), llena el datagridview
                                     {
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             LlenarDGV(conexion.conexion, nombre_e);
@@ -243,6 +271,7 @@ namespace UCS_NODO_FGC
                                     {
                                         MessageBox.Show("Esta empresa no posee ningún área", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         refrescar();
+                                        conexion.cerrarconexion();
                                         if (conexion.abrirconexion() == true)
                                         {
                                             string nombreempresa = "";
@@ -326,7 +355,7 @@ namespace UCS_NODO_FGC
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe seleccionar un área de la lista.", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 conexion.cerrarconexion();
@@ -352,6 +381,7 @@ namespace UCS_NODO_FGC
                             int resultado = Clases.Clientes.EliminarEmpresa(conexion.conexion, cliente);
                             conexion.cerrarconexion();
                             refrescar();
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 string nombreempresa = "";
@@ -415,6 +445,8 @@ namespace UCS_NODO_FGC
                             ModE.ShowDialog();
                             cmbxEmpresa.SelectedIndex = -1;
                             refrescar();
+                            string a = "";
+                            llenarcombo(a);
                             Clases.Paneles.VaciarClienteSeleccionado();
                             dgvAreasEmpresa.ClearSelection();
                         }
@@ -436,8 +468,9 @@ namespace UCS_NODO_FGC
 
         private void btnModificarArea_Click(object sender, EventArgs e)
         {
-            abrirFormModificar();
             Clases.Empresa.ModificarArea = 1;
+            abrirFormModificar();
+           
         }
     }
 }

@@ -27,6 +27,19 @@ namespace UCS_NODO_FGC
             }
         }
 
+        private void txtContenido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Clases.Paneles.sololetras(e);
+            if (txtContenido.Text.Length == 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToUpper().ToCharArray()[0];
+            }
+            else if (txtContenido.Text.Length > 0)
+            {
+                e.KeyChar = e.KeyChar.ToString().ToLower().ToCharArray()[0];
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -61,6 +74,7 @@ namespace UCS_NODO_FGC
                         else
                         {
                             errorProviderContenido.SetError(txtContenido, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int modificar = Clases.Difusion.ModificarDif(conexion.conexion, dif);

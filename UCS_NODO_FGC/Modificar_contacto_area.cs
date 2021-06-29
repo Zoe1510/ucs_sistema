@@ -33,13 +33,37 @@ namespace UCS_NODO_FGC
                 txtNombreArea.Cursor = Cursors.IBeam;
                 groupBox2.Enabled = false;
                 this.Text = "Modificar área";
+                txtNombreContactoArea.ReadOnly = false;
+                txtTelefonoCliArea.ReadOnly = false;
+                txtCorreoCliArea.ReadOnly = false;
+                btnCancelar.Enabled = true;
+                btnModificarContacto.Text = "Actualizar";
 
-            }else
+            }
+            else if (Clases.Empresa.ModificarArea == 0)
             {
                 txtNombreArea.Enabled = false;
                 txtNombreArea.Cursor = Cursors.No;
                 groupBox2.Enabled = true;
                 this.Text = "Modificar contacto de área";
+                txtNombreContactoArea.ReadOnly =false;
+                txtTelefonoCliArea.ReadOnly = false;
+                txtCorreoCliArea.ReadOnly = false;
+                btnCancelar.Enabled = true;
+                btnModificarContacto.Text = "Actualizar";
+            }
+            else if (Clases.Empresa.ModificarArea == 2) //esto es para el asistente y VER INFORMACION DE CONTACTO
+            {
+                this.Text = "Ver información de contacto";
+                groupBox2.Enabled = true;
+                txtNombreArea.Enabled = false;
+                txtNombreArea.Cursor = Cursors.No;
+                txtNombreContactoArea.ReadOnly = true;
+                txtTelefonoCliArea.ReadOnly = true;
+                txtCorreoCliArea.ReadOnly = true;
+
+                btnCancelar.Enabled = false;
+                btnModificarContacto.Text = "Aceptar";
             }
         }
 
@@ -79,6 +103,9 @@ namespace UCS_NODO_FGC
             {
                 errorProviderTlfn.SetError(txtTelefonoCliArea, "Debe proporcionar un número válido.");
                 txtTelefonoCliArea.Focus();
+            }else
+            {
+                errorProviderTlfn.SetError(txtTelefonoCliArea, "");
             }
             
         }
@@ -134,10 +161,14 @@ namespace UCS_NODO_FGC
         }
         private void txtCorreoCliArea_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Enter)
+            if (Clases.Empresa.ModificarArea == 0)
             {
-                Actualizar();
+                if ((int)e.KeyChar == (int)Keys.Enter)
+                {
+                    Actualizar();
+                }
             }
+            
         }
         private void txtCorreoCli_Leave(object sender, EventArgs e)
         {
@@ -246,6 +277,10 @@ namespace UCS_NODO_FGC
             }else if(Clases.Empresa.ModificarArea == 0)
             {
                 Actualizar();
+
+            }else if (Clases.Empresa.ModificarArea == 2)
+            {
+                this.Close();
             }
         }
 
@@ -272,9 +307,21 @@ namespace UCS_NODO_FGC
                     errorProviderNContacto.SetError(txtNombreContactoArea, "Debe proporcionar un contácto en el área.");
                     txtNombreContactoArea.Focus();
                 }
-                else
+                else if (txtTelefonoCliArea.Text == "" || txtTelefonoCliArea.TextLength < 11)
                 {
                     errorProviderNContacto.SetError(txtNombreContactoArea, "");
+                    errorProviderTlfn.SetError(txtTelefonoCliArea, "Debe proporcionar un número de teléfono válido.");
+                    txtTelefonoCliArea.Focus();
+                }
+                else if (txtCorreoCliArea.Text == "correo@ejemplo.com")
+                {
+                    errorProviderTlfn.SetError(txtTelefonoCliArea, "");
+                    errorProviderCorreo.SetError(txtCorreoCliArea, "Debe proporcionar un correo electrónico válido.");
+                    txtCorreoCliArea.Focus();
+                }
+                else
+                {
+                    errorProviderCorreo.SetError(txtCorreoCliArea, "");
                     conexion.cerrarconexion();
                     if (conexion.abrirconexion() == true)
                     {
@@ -311,6 +358,9 @@ namespace UCS_NODO_FGC
             }
         }
 
-        
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

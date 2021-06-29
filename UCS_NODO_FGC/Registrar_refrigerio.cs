@@ -85,15 +85,19 @@ namespace UCS_NODO_FGC
                         int existe = Clases.Refrigerios.ExisteRef(conexion.conexion, refri);
                         conexion.cerrarconexion();
 
-                        if (existe != 0)
+                         if (existe > 0)
                         {
-                            errorProviderNombre.SetError(txtNombreRef, "Ya existe este nombre registrado.");
+                            errorProviderNombre.SetError(txtNombreRef, "No se permiten datos duplicados.");
+                            errorProviderContenido.SetError(txtContenidoRef, "No se permiten datos duplicados.");
                             txtNombreRef.Clear();
+                            txtContenidoRef.Clear();
                             txtNombreRef.Focus();
                         }
                         else
                         {
                             errorProviderNombre.SetError(txtNombreRef, "");
+                            errorProviderContenido.SetError(txtContenidoRef, "");
+                            conexion.cerrarconexion();
                             if (conexion.abrirconexion() == true)
                             {
                                 int registrar = Clases.Refrigerios.AgregarRef(conexion.conexion, refri);
@@ -113,6 +117,11 @@ namespace UCS_NODO_FGC
                 MessageBox.Show(ex.Message);
                 conexion.cerrarconexion();
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

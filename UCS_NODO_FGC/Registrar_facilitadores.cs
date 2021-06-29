@@ -340,6 +340,7 @@ namespace UCS_NODO_FGC
                     {
                         errorProviderCI.SetError(txtCedulaFa, "");
 
+
                         errorProviderNombre.SetError(txtNombreFa, "Debe proporcionar un nombre válido.");
                         txtNombreFa.Focus();
                     } else if (txtApellidoFa.Text == "Apellido" || txtApellidoFa.Text == "")
@@ -348,10 +349,23 @@ namespace UCS_NODO_FGC
 
                         errorProviderApellido.SetError(txtApellidoFa, "Debe proporcionar un apellido válido.");
                         txtApellidoFa.Focus();
-                    } else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
+                    } else if (txtCorreoFa.Text == "correo@ejemplo.com" || txtCorreoFa.Text == "")
                     {
                         errorProviderApellido.SetError(txtApellidoFa, "");
 
+                        errorProviderCorreo.SetError(txtCorreoFa, "Debe proporcionar un correo válido");
+                        txtCorreoFa.Focus();
+                    } else if (txtTelefonoFa.Text == "")
+                    {
+                        errorProviderCorreo.SetError(txtCorreoFa, "");
+
+                        errorProviderTlfn.SetError(txtTelefonoFa, "Debe proporcionar un número de teléfono válido");
+                        txtTelefonoFa.Focus();
+                    }
+                    else if (txtEspecialidadFa.Text == "Especialidad" || txtEspecialidadFa.Text == "")
+                    {
+
+                        errorProviderTlfn.SetError(txtTelefonoFa, "");
                         errorProviderEspec.SetError(txtEspecialidadFa, "Debe proporcionar la especialidad del facilitador.");
                         txtEspecialidadFa.Focus();
                     } else if (cmbxINCE.SelectedIndex == -1)
@@ -374,6 +388,7 @@ namespace UCS_NODO_FGC
                         facilitadores.apellido_facilitador = txtApellidoFa.Text;
                         facilitadores.correo_facilitador = txtCorreoFa.Text;
                         facilitadores.tlfn_facilitador = txtTelefonoFa.Text;
+                        facilitadores.nombreyapellido = facilitadores.nombre_facilitador + " " + facilitadores.apellido_facilitador;
                         string edo = Convert.ToString(cmbUbicacionEdo.SelectedIndex);
                         seleccionarEdo(edo);
                         nacionalidad = Convert.ToString(cmbNacionalidad.SelectedIndex);
@@ -400,7 +415,7 @@ namespace UCS_NODO_FGC
                         }
                         facilitadores.requerimiento_ince = ince;
                         int resultado, resultado2;
-                        resultado = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador, facilitadores.nacionalidad_fa);
+                        resultado = Clases.Facilitadores.FacilitadorExiste(conexion.conexion, facilitadores.ci_facilitador);
                         conexion.cerrarconexion();
                         if (conexion.abrirconexion() == true)
                         {
@@ -413,7 +428,7 @@ namespace UCS_NODO_FGC
                                 {
                                     if (resultado2 != 0)
                                     {
-                                        if (MessageBox.Show("El usuario fue creado con exito. ¿Desea añadir más facilitadores?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                                        if (MessageBox.Show("El usuario fue creado con éxito. ¿Desea añadir más facilitadores?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                                         {
                                             this.Close();
                                         }
@@ -485,7 +500,7 @@ namespace UCS_NODO_FGC
 
         private void Registrar_facilitadores_Load(object sender, EventArgs e)
         {
-            
+            this.Location = new Point(-5, 0);
             cmbUbicacionEdo.SelectedIndex = 16;
         }
 

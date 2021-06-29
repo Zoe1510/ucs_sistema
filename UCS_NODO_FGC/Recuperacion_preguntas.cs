@@ -15,8 +15,8 @@ namespace UCS_NODO_FGC
     {
         public Clases.conexion_bd conexion = new Clases.conexion_bd();
         public Clases.Preguntas pre, pre2, pre3 = new Clases.Preguntas();
-        
-        
+        public int xClick = 0, yClick = 0;
+
         public Recuperacion_preguntas()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace UCS_NODO_FGC
            
             if (Clases.Recuperacion_contraseña.cedula != 0)
             {
-                CargarPreguntas(Clases.Recuperacion_contraseña.cedula);
+                CargarPreguntas(Clases.Recuperacion_contraseña.id_usuario);
             }
         }
 
@@ -81,6 +81,8 @@ namespace UCS_NODO_FGC
             }
         }
 
+      
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cancelar la operación?", "",
@@ -108,28 +110,74 @@ namespace UCS_NODO_FGC
 
         private void btnGuardarPDS_Click(object sender, EventArgs e)
         {
-            if(txtRespuesta1.Text != pre.respuesta)
+            Comprobacion();
+        }
+
+        private void Comprobacion()
+        {
+            if (txtRespuesta1.Text != pre.respuesta)
             {
                 errorProviderR1.SetError(txtRespuesta1, "Respuesta inválida.");
                 txtRespuesta1.Focus();
-            }else if(txtRespuesta2.Text != pre2.respuesta)
+            }
+            else if (txtRespuesta2.Text != pre2.respuesta)
             {
                 errorProviderR1.SetError(txtRespuesta1, "");
                 errorProviderR2.SetError(txtRespuesta2, "Respuesta inválida.");
                 txtRespuesta2.Focus();
-            }else if (txtRespuesta3.Text != pre3.respuesta)
+            }
+            else if (txtRespuesta3.Text != pre3.respuesta)
             {
                 errorProviderR2.SetError(txtRespuesta2, "");
                 errorProviderR3.SetError(txtRespuesta3, "Respuesta inválida.");
                 txtRespuesta3.Focus();
-            }else
+            }
+            else
             {
                 errorProviderR3.SetError(txtRespuesta3, "");
                 Cambio_contraseña newpass = new Cambio_contraseña();
                 this.Close();
                 newpass.ShowDialog();
-                
+
             }
+        }
+
+        private void txtRespuesta1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                this.txtPregunta2.Focus();
+            }
+        }
+
+        private void txtRespuesta2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                this.txtPregunta3.Focus();
+            }
+        }
+
+        private void txtRespuesta3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                Comprobacion();
+            }
+        }
+
+        private void Recuperacion_preguntas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+
+            { xClick = e.X; yClick = e.Y; }
+
+            else
+
+            { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
         }
 
         private void obtenerIDPreguntas(int id_usuario)
@@ -137,6 +185,7 @@ namespace UCS_NODO_FGC
             
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     List<Clases.Preguntas> pregunta = new List<Clases.Preguntas>();
@@ -198,6 +247,7 @@ namespace UCS_NODO_FGC
         {
             try
             {
+                conexion.cerrarconexion();
                 if (conexion.abrirconexion() == true)
                 {
                     pre.pregunta = Clases.Preguntas.ObtenerPregunta(conexion.conexion, pre.id_pregunta);
